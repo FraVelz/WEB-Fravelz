@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
-export default function ReproductorMusica({ src }) {
+export default function ReproductorMusica({ src, className="" }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -38,12 +38,22 @@ export default function ReproductorMusica({ src }) {
   }, []);
 
   return (
-    <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl shadow-md w-80">
+    <div className={`
+    flex flex-col items-center
+    p-4 rounded-2xl shadow-md w-80
+    ${className}
+    `}>
       <audio ref={audioRef} src={src} preload="metadata" />
+
       <button
         onClick={togglePlay}
-        className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
-      >
+        className="
+        bg-gray-600 text-gray-200
+        px-4 py-2 rounded-full
+        hover:bg-gray-500
+        transition
+        cursor-pointer
+      ">
         {isPlaying ? "⏸️ Pausar" : "▶️ Reproducir"}
       </button>
 
@@ -51,7 +61,10 @@ export default function ReproductorMusica({ src }) {
         type="range"
         value={progress}
         onChange={handleProgressChange}
-        className="w-full mt-3 cursor-pointer accent-blue-500"
+        className="
+        w-full mt-3 cursor-pointer
+        accent-gray-600
+        "
       />
     </div>
   );

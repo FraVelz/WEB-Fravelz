@@ -3,6 +3,13 @@ import ReproductorMusica from "./musica.jsx";
 function App() {
   return (
     <>
+    <ReproductorMusica className="
+    fixed top-4 right-4
+    bg-gray-900 text-gray-50
+    rounded-xl border-gray-700 border-3
+    p-4
+    " src="/src/assets/musica/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3" />
+
     <div className="
     w-96 flex flex-col items-center justify-center
     bg-gray-900 text-gray-50
@@ -20,7 +27,8 @@ function App() {
       text-lg mb-4
       ">@fravelz</p>
 
-      <ReproductorMusica src="/src/assets/musica/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3" />
+      <p>Hola, que tal?</p>
+      <p>Soy pentester web</p>
     </div>
     </>
   )
