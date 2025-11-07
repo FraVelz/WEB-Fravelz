@@ -31,7 +31,9 @@ function App() {
   return (
     <>
       <div className="
-      flex items-center justify-center h-screen
+      flex items-center justify-center
+      h-fit min-h-screen
+      py-3
       ">
         <div className="
         w-screen h-2/4 absolute top-0 left-0 -z-10
@@ -102,9 +104,9 @@ function App() {
       </div>
 
       <div className="
-        min-h-screen w-screen 
+        min-h-screen h-fit w-screen 
         flex justify-center
-        pb-3
+        py-3
         ">
           <div className="
           w-xl h-fit p-8

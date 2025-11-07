@@ -113,7 +113,7 @@ export default function ReproductorMusica({ className = "" }) {
         </select>
 
         {/* Reproductor */}
-        <audio ref={audioRef} src={selectedSong} preload="metadata" autoPlay loop />
+        <audio ref={audioRef} src={selectedSong} preload="metadata" loop />
 
         <button
           onClick={togglePlay}
