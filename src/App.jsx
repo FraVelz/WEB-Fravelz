@@ -1,5 +1,6 @@
 import ReproductorMusica from "./musica.jsx";
 import Seccion from "./seccion.jsx";
+import.meta.env.BASE_URL
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
@@ -60,7 +61,7 @@ function App() {
           h-64 w-64
           border-gray-700 border-4
           m-4
-          " src="/logo-fravelz.jpg" alt="Logo de Fravelz" />
+          " src={`${import.meta.env.BASE_URL}/logo-fravelz.jpg`} alt="Logo de Fravelz" />
 
           <h1 className="text-3xl">
             <strong>(FV) Fravelz</strong>
@@ -120,7 +121,7 @@ function App() {
             <Seccion
             titulo="Notas de Hacking"
             enlace="https://fravelz.github.io/WEB-Notas-de-Hacking/"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Notas de Hacking"
             textoEnlace="Ir a Notas de Hacking (En construcción)"
             >Pagina web, que contiene todos mis notas y aprendizajes en hacking en un orden estructurado, para repasar y para aprender.</Seccion>
@@ -130,7 +131,7 @@ function App() {
             <Seccion
             titulo="CTF Notas"
             enlace="#"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace="Ir a CTF Notas (No disponible)"
             >
@@ -142,7 +143,7 @@ function App() {
             <Seccion
             titulo="Hyprdots"
             enlace="#"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace="Ir a Hyprdots (configuraciones del pc) (No disponible)"
             >
@@ -154,7 +155,7 @@ function App() {
             <Seccion
             titulo="Notas de Arch Linux"
             enlace="#"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace="Ir a Notas de Arch Linux (No disponible)"
             >
@@ -166,7 +167,7 @@ function App() {
             <Seccion
             titulo="Notas de la Vida"
             enlace="#"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace="Ir a Notas de la Vida (No disponible)"
             parrafo_default="false"
@@ -188,7 +189,7 @@ function App() {
             <Seccion
             titulo="Notas de Politica"
             enlace="#"
-            imagen="/logo-fravelz.jpg"
+            imagen= {`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace="Ir a Notas de Politica (No disponible)"
             >

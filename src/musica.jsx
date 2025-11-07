@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import.meta.env.BASE_URL
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faMusic } from "@fortawesome/free-solid-svg-icons";
@@ -7,13 +8,13 @@ export default function ReproductorMusica({ className = "" }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [selectedSong, setSelectedSong] = useState("/canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3");
+  const [selectedSong, setSelectedSong] = useState(`${import.meta.env.BASE_URL}/canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3`);
 
   // Lista de canciones disponibles
   const canciones = [
-    { nombre: "Piano :v", src: "/canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3" },
-    { nombre: "Triste ._.", src: "/canciones/bbno_-meant-to-be-_Sub.-español_.mp3" },
-    { nombre: "Depresiva :(", src: "/canciones/Lo Que Hay X Aqui La Receta & Kessoku Band.mp3" },
+    { nombre: "Piano :v", src: `${import.meta.env.BASE_URL}/canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3` },
+    { nombre: "Triste ._.", src: `${import.meta.env.BASE_URL}/canciones/bbno_-meant-to-be-_Sub.-español_.mp3` },
+    { nombre: "Depresiva :(", src: `${import.meta.env.BASE_URL}/canciones/Lo Que Hay X Aqui La Receta & Kessoku Band.mp3` },
   ];
 
   const togglePlay = async () => {
