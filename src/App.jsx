@@ -60,7 +60,7 @@ function App() {
           h-64 w-64
           border-gray-700 border-4
           m-4
-          " src="./../public/logo-fravelz.jpg" alt="Logo de Fravelz" />
+          " src="/logo-fravelz.jpg" alt="Logo de Fravelz" />
 
           <h1 className="text-3xl">
             <strong>(FV) Fravelz</strong>
@@ -93,18 +93,19 @@ function App() {
         rounded-xl border-gray-700 border-3
         hover:border-gray-500
         transition-all
-        p-4
         select-none
         animate-bounce
         -z-10
+        p-4z
         ">
           <FontAwesomeIcon icon={faDownLong} /> Ir Abajo <FontAwesomeIcon icon={faDownLong} />
         </div>
       </div>
 
       <div className="
-        h-screen w-screen 
+        min-h-screen w-screen 
         flex justify-center
+        pb-3
         ">
           <div className="
           w-xl h-fit p-8
@@ -119,7 +120,7 @@ function App() {
             <Seccion
             titulo="Notas de Hacking"
             enlace="https://fravelz.github.io/WEB-Notas-de-Hacking/"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Notas de Hacking"
             textoEnlace="Ir a Notas de Hacking (En construcción)"
             >Pagina web, que contiene todos mis notas y aprendizajes en hacking en un orden estructurado, para repasar y para aprender.</Seccion>
@@ -129,7 +130,7 @@ function App() {
             <Seccion
             titulo="CTF Notas"
             enlace="#"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Default"
             textoEnlace="Ir a CTF Notas (No disponible)"
             >
@@ -141,7 +142,7 @@ function App() {
             <Seccion
             titulo="Hyprdots"
             enlace="#"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Default"
             textoEnlace="Ir a Hyprdots (configuraciones del pc) (No disponible)"
             >
@@ -153,7 +154,7 @@ function App() {
             <Seccion
             titulo="Notas de Arch Linux"
             enlace="#"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Default"
             textoEnlace="Ir a Notas de Arch Linux (No disponible)"
             >
@@ -165,7 +166,7 @@ function App() {
             <Seccion
             titulo="Notas de la Vida"
             enlace="#"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Default"
             textoEnlace="Ir a Notas de la Vida (No disponible)"
             parrafo_default="false"
@@ -187,7 +188,7 @@ function App() {
             <Seccion
             titulo="Notas de Politica"
             enlace="#"
-            imagen="/public/logo-fravelz.jpg"
+            imagen="/logo-fravelz.jpg"
             alt="Imagen Default"
             textoEnlace="Ir a Notas de Politica (No disponible)"
             >
