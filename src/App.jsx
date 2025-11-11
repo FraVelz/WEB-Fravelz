@@ -121,7 +121,7 @@ function App() {
             <Seccion
             titulo="Notas de Hacking"
             enlace="https://fravelz.github.io/WEB-Notas-de-Hacking/"
-            imagen= {`./logo-fravelz.jpg`}
+            imagen= {`./web-notas-hacking.png`}
             alt="Imagen Notas de Hacking"
             textoEnlace="Ir a Notas de Hacking (En construcción)"
             >Pagina web, que contiene todos mis notas y aprendizajes en hacking en un orden estructurado, para repasar y para aprender.</Seccion>
