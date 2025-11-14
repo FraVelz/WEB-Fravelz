@@ -1,20 +1,22 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
+import { useTranslation } from 'react-i18next';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faMusic } from "@fortawesome/free-solid-svg-icons";
 
 export default function ReproductorMusica({ className = "" }) {
+  const { t, i18n } = useTranslation();
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [selectedSong, setSelectedSong] = useState(`./canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3`);
 
-  // Lista de canciones disponibles
-  const canciones = [
-    { nombre: "Piano :v", src: `./canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3` },
-    { nombre: "Triste ._.", src: `./canciones/bbno_-meant-to-be-_Sub.-español_.mp3` },
-    { nombre: "Depresiva :(", src: `./canciones/Lo Que Hay X Aqui La Receta & Kessoku Band.mp3` },
-  ];
+  // Lista de canciones disponibles (se actualiza cuando cambia el idioma)
+  const canciones = useMemo(() => [
+    { nombre: t('cancion_piano'), src: `./canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3` },
+    { nombre: t('cancion_triste'), src: `./canciones/bbno_-meant-to-be-_Sub.-español_.mp3` },
+    { nombre: t('cancion_depresiva'), src: `./canciones/Lo Que Hay X Aqui La Receta & Kessoku Band.mp3` },
+  ], [t, i18n.language]);
 
   const togglePlay = async () => {
     const audio = audioRef.current;
@@ -86,7 +88,7 @@ export default function ReproductorMusica({ className = "" }) {
       font-bold mb-3 text-lg select-none
       text-gray-200
       ">
-        <FontAwesomeIcon icon={faMusic} /> Selector de música
+        <FontAwesomeIcon icon={faMusic} /> {t('selector_musica')}
         </h2>
 
       <div className="
@@ -127,7 +129,7 @@ export default function ReproductorMusica({ className = "" }) {
           "
         >
           <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} />
-          {isPlaying ? "Pausar" : "Reproducir"}
+          {isPlaying ? t('pausar') : t('reproducir')}
         </button>
       </div>
 

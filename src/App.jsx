@@ -4,8 +4,9 @@ import Seccion from "./seccion.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faDownLong } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from 'react-i18next'
 
-function Parrafo({ className="", children }){
+function Parrafo({ className = "", children }) {
   return (
     <p className={`
     wrap-break-word
@@ -28,6 +29,7 @@ function Line() {
 }
 
 function App() {
+  const { t, i18n } = useTranslation()
   return (
     <>
       <div className="
@@ -46,34 +48,51 @@ function App() {
         rounded-xl border-gray-700 border-3
         hover:border-gray-500
         transition-all
-        p-2
+        p-2 z-20
         " />
 
         <div className="
         w-96 pt-2 pb-4
         flex flex-col items-center justify-center
+
         rounded-2xl border-gray-700 border-3
         bg-gray-900 text-gray-50
         hover:border-gray-500
         transition-all
         ">
-          <img draggable="false" className="
-          rounded-full select-none
-          h-64 w-64
-          border-gray-700 border-4
-          m-4
-          " src={`${import.meta.env.BASE_URL}/logo-fravelz.jpg`} alt="Logo de Fravelz" />
+          <div className="relative h-64 w-64 mt-4">
+            {/* Borde girando (grueso) */}
+            <div
+            className="
+            absolute inset-0
+            rounded-full
+            p-4
+            bg-gradient-to-r from-gray-500 to-gray-900
+            animate-[spin_2s_linear_infinite]
+            "
+            ></div>
 
-          <h1 className="text-3xl">
+            {/* Imagen fija más pequeña para que deje ver el borde */}
+            <div className="absolute inset-1 rounded-full bg-gray-900 z-10 overflow-hidden">
+              <img
+                draggable="false"
+                className="h-full w-full rounded-full object-cover select-none"
+                src={`${import.meta.env.BASE_URL}/logo-fravelz.jpg`}
+                alt="Logo de Fravelz"
+              />
+            </div>
+          </div>
+
+          <h1 className="text-3xl pt-3">
             <strong>(FV) Fravelz</strong>
-            </h1>
+          </h1>
 
           <p className="
           text-lg mb-4 text-gray-300
           ">@fravelz</p>
 
-          <p>Hola :v, que tal?</p>
-          <p>Futuro Pentester Web :)</p>
+          <p>{t('hola')}</p>
+          <p>{t('futuro_pentester')}</p>
 
           <div className="
           text-4xl
@@ -87,6 +106,20 @@ function App() {
               <FontAwesomeIcon icon={faYoutube} />
             </a>
           </div>
+
+          <div className="idioma flex items-center gap-2 mt-4">
+            <span className="text-sm text-gray-300">{t('change_language')}</span>
+            <select
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              className="bg-gray-800 text-gray-200 rounded px-2 py-1 text-sm"
+            >
+              <option value="es">Español</option>
+              <option value="zh">中文</option>
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+            </select>
+          </div>
         </div>
 
         <div className="
@@ -99,7 +132,7 @@ function App() {
         -z-10
         p-2
         ">
-          <FontAwesomeIcon icon={faDownLong} /> Ir Abajo <FontAwesomeIcon icon={faDownLong} />
+          <FontAwesomeIcon icon={faDownLong} /> {t('ir_abajo')} <FontAwesomeIcon icon={faDownLong} />
         </div>
       </div>
 
@@ -108,7 +141,7 @@ function App() {
         flex justify-center
         py-3
         ">
-          <div className="
+        <div className="
           w-xl h-fit p-8
           lg:w-3/4
           rounded-2xl border-gray-700 border-3
@@ -116,93 +149,97 @@ function App() {
           hover:border-gray-500
           transition-all
           ">
-            <h2 className="text-center text-2xl font-bold mb-4">Proyectos Personales</h2>
+          <h2 className="text-center text-2xl font-bold mb-4">{t('proyectos_personales')}</h2>
 
-            <Seccion
-            titulo="Notas de Hacking"
+          <Seccion
+            titulo={t('proyecto_notas_hacking_titulo')}
             enlace="https://fravelz.github.io/WEB-Notas-de-Hacking/"
-            imagen= {`./web-notas-hacking.png`}
+            imagen={`./web-notas-hacking.png`}
             alt="Imagen Notas de Hacking"
-            textoEnlace="Ir a Notas de Hacking (En construcción)"
-            >Pagina web, que contiene todos mis notas y aprendizajes en hacking en un orden estructurado, para repasar y para aprender.</Seccion>
+            textoEnlace={t('proyecto_notas_hacking_enlace')}
+          >{t('proyecto_notas_hacking_descripcion')}</Seccion>
 
-            <Line />
+          <Line />
 
-            <Seccion
-            titulo="CTF Notas"
+          <Seccion
+            titulo={t('proyecto_ctf_notas_titulo')}
             enlace="#"
-            imagen= {`./logo-fravelz.jpg`}
+            target="_self"
+            imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
-            textoEnlace="Ir a CTF Notas (No disponible)"
-            >
-              En un Futuro cercano tendre un apartado especial para notas de CTFs que vaya realizando, todo lo necesario.
-            </Seccion>
+            textoEnlace={t('proyecto_ctf_notas_enlace')}
+          >
+            {t('proyecto_ctf_notas_descripcion')}
+          </Seccion>
 
-            <Line />
+          <Line />
 
-            <Seccion
-            titulo="Hyprdots"
+          <Seccion
+            titulo={t('proyecto_hyprdots_titulo')}
             enlace="#"
-            imagen= {`./logo-fravelz.jpg`}
+            target="_self"
+            imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
-            textoEnlace="Ir a Hyprdots (configuraciones del pc) (No disponible)"
-            >
-              En un futuro, la web de hyprdots, estaran las configuraciones de mi pc, todo lo que es las diferentes pre-visualizaciones de mi perzonalizacion del pc, y sus respectivas configuraciones con atajos de teclados, y mucho mas. (configuraciones con Arch Linux, implementando el gestor de ventanas de Hyprland, mas informacion en la web).
-            </Seccion>
+            textoEnlace={t('proyecto_hyprdots_enlace')}
+          >
+            {t('proyecto_hyprdots_descripcion')}
+          </Seccion>
 
-            <Line />
+          <Line />
 
-            <Seccion
-            titulo="Notas de Arch Linux"
+          <Seccion
+            titulo={t('proyecto_arch_linux_titulo')}
             enlace="#"
-            imagen= {`./logo-fravelz.jpg`}
+            target="_self"
+            imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
-            textoEnlace="Ir a Notas de Arch Linux (No disponible)"
-            >
-              En el futuro, pagina web, que recopilara una serie de informacion corta y resumida acerca el funcionamiento de arch linux y su configuraciones enfocadas en la utilizacion de Arch con hyprland, desde la instalacion hasta la configuraciones de atajos de teclados.
-            </Seccion>
+            textoEnlace={t('proyecto_arch_linux_enlace')}
+          >
+            {t('proyecto_arch_linux_descripcion')}
+          </Seccion>
 
-            <Line />
+          <Line />
 
-            <Seccion
-            titulo="Notas de la Vida"
+          <Seccion
+            titulo={t('proyecto_notas_vida_titulo')}
             enlace="#"
-            imagen= {`./logo-fravelz.jpg`}
+            target="_self"
+            imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
-            textoEnlace="Ir a Notas de la Vida (No disponible)"
+            textoEnlace={t('proyecto_notas_vida_enlace')}
             parrafo_default="false"
-            >
-              <Parrafo>
-                En el futuro, pagina web, que tendra el proposito de ser un recopilamiento de consejos y buenas practicas en la vida en general, lo se, parece, raro, o da mucho de que pensar, pero estas notas se basaran en ayudar y orientar a jovenes o adultos que quieran aprender, a como realmente es vivir la vida, sera una recopilacion de consejos de cosas sencillas como aprender a socializar, a manejar la economia, el estudio, el tiempo, a conseguir novia/novio, a manejar pensamientos, e incluso puede que si no has encontrado un proposito en la vida y te sientas vacio esta pagina web sera de gran ayuda.
-              </Parrafo>
+          >
+            <Parrafo>
+              {t('proyecto_notas_vida_parrafo1')}
+            </Parrafo>
 
-              <Parrafo>
-                Y si todo lo anterior no es poco, vamos a ver como es que pensaban nuestros antepasados en diferentes regiones del mundo y pensameintos de la vida que hasta el dia de hoy nos han influenciado(filosofia), tocando temas de religiones y otras formas de pensamiento.
-              </Parrafo>
+            <Parrafo>
+              {t('proyecto_notas_vida_parrafo2')}
+            </Parrafo>
 
-              <Parrafo>Todo lo anterior lo estaremos aprendiendo de la mano, a medida que yo vaya aprendiendo, lo estare, enseñando en la web.</Parrafo>
-            </Seccion>
+            <Parrafo>{t('proyecto_notas_vida_parrafo3')}</Parrafo>
+          </Seccion>
 
 
-            <Line />
+          <Line />
 
-            <Seccion
-            titulo="Notas de Politica"
+          <Seccion
+            titulo={t('proyecto_politica_titulo')}
             enlace="#"
-            imagen= {`./logo-fravelz.jpg`}
+            imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
-            textoEnlace="Ir a Notas de Politica (No disponible)"
-            >
-              En el futuro se desarrollará una página web en formato de blog que recopilará información sobre el funcionamiento de la política y los distintos ideales, presentada de forma resumida y precisa. Su propósito será analizar los factores internos y externos de cada país, respetando sus principios y tradiciones, para proponer estrategias y planes orientados al progreso y a la resolución de problemas sociales a nivel global, abordando cada nación de manera individual como parte de un proyecto personal y de entretenimiento.
-            </Seccion>
+            textoEnlace={t('proyecto_politica_enlace')}
+          >
+            {t('proyecto_politica_descripcion')}
+          </Seccion>
 
-            <Line />
+          <Line />
 
-            <p className="
+          <p className="
             text-center
             text-gray-400
-            "><b>Autor:</b> Fravelz</p>
-          </div>
+            "><b>{t('autor')}:</b> Fravelz</p>
+        </div>
       </div>
     </>
   )

@@ -3,7 +3,7 @@ function Seccion({
     children,
     imagen = "/public/logo-fravelz.jpg", alt = "Imagen",
     titulo = "Titulo", enlace = "#", textoEnlace = "Ir a proyecto",
-    parrafo_default="true"
+    parrafo_default="true", target="_blank"
 }) {
     return (
         <>
@@ -41,7 +41,7 @@ function Seccion({
                     : (
                         children
                     )}
-                    <a target="_blank" href={enlace} className="
+                    <a target={target} href={enlace} className="
                     text-blue-400 hover:underline
                     underline
                     cursor-pointer
