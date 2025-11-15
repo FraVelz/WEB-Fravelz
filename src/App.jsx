@@ -95,8 +95,9 @@ function App() {
           <p>{t('futuro_pentester')}</p>
 
           <div className="
+          flex gap-3
           text-4xl
-          mt-4
+          mt-2
           ">
             <a href="https://github.com/FraVelz" target="_blank">
               <FontAwesomeIcon icon={faGithub} />
