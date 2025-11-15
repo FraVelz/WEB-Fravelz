@@ -30,6 +30,7 @@ body{
   align-items:start;
   max-width:1200px;
   margin:0 auto;
+  overflow: visible;
 }
 
 /* profile card */
@@ -39,12 +40,15 @@ body{
   border-radius:14px;
   padding:20px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+
+  position:sticky;
+  top: 10px;
 }
 
 .profile-card{
-  position:relative;
   text-align:center;
   padding-top:28px;
+
 }
 
 /* avatar with spinning ring */
@@ -161,7 +165,7 @@ hr{
 /* responsive */
 @media (max-width:980px){
   .page{grid-template-columns:1fr; padding:20px}
-  .profile-card{order:0;margin-bottom:14px}
+  .profile-card{order:0;margin-bottom:14px; position: relative; }
   .projects-card{order:1}
   .avatar-wrap{width:128px;height:128px}
   .proj-row img{width:140px;height:100px}
