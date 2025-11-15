@@ -1,9 +1,7 @@
 # WEB-Fravelz
 
-https://fravelz.github.io/WEB-Fravelz/
+Pagina web (version Enrutamiento en Tor Browser):
 
 ## Información
-
-* **Actualización:** 0.0.1
 
 * **Autor:** Fravelz

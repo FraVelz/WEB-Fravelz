@@ -1,53 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-  <ead>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- * Icono de la Web ************************************************* -->
-    <link rel="icon" type="image/png" href="./icono-fravelz.png" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+  <title>FV — Web Personal</title>
 
-    <!-- * Meta-etiquetas ************************************************** -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
 
-    <!-- Open Graph (usado por Facebook, WhatsApp, Discord, LinkedIn...) -->
+<body>
+  <div class="page">
 
-    <meta property="og:title" content="Web Personal - Fravelz">
-    <meta property="og:description" content="Perfil público, e información a cerca de proyectos de Fravelz.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/FraVelz/WEB-Fravelz/refs/heads/main/previsualizacion.png">
-    <meta property="og:url" content="https://fravelz.github.io/WEB-Fravelz/">
-    <meta property="og:type" content="website">
+    <!-- Top card -->
+    <aside class="card profile-card">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">
+          <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="FV logo" draggable="false" />
+        </div>
+      </div>
 
-    <!-- Twitter Cards (usado por X / Twitter) -->
+      <h1 class="name">(FV) Fravelz</h1>
+      <p class="handle">@fravelz</p>
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web Personal - Fravelz">
-    <meta name="twitter:description" content="Perfil público, e información a cerca de proyectos de Fravelz.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/FraVelz/WEB-Fravelz/refs/heads/main/previsualizacion.png">
-    <meta name="twitter:site" content="@_FraVelz">
+      <p class="greeting">Hello :v, how are you?</p>
+      <p class="subtitle">Future Web Pentester :)</p>
 
-    <!-- * Meta-etiquetas Estandar (para SEO) ****************************** -->
+      <div class="socials">
+        GitHub: Fravelz
+      </div>
 
-    <meta name="description" content="Perfil público, e información a cerca de proyectos de Fravelz.">
-    <link rel="canonical" href="https://fravelz.github.io/WEB-Fravelz/">
+      <hr class="hidden-div" />
+    </aside>
 
+    <!-- Main content -->
+    <main class="main">
+      <section class="projects-card">
+        <h2>Personal Projects</h2>
 
-    <title>Fravelz Web</title>
+        <!-- Hacking Notes -->
+        <article class="project">
+          <h3>Hacking Notes</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/web-notes-hacking.png" alt="Hacking Notes preview"
+              draggable="false" />
+            <div class="proj-text">
+              <p>Web page containing all my structured hacking notes and learnings for review and learning.</p>
 
-    <meta name="color-scheme" content="dark"/>
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="https://fravelz.github.io/WEB-Notas-de-Hacking/" target="_blank" rel="noreferrer">Go to Hacking Notes (Under construction)</a> -->
+            </div>
+          </div>
+        </article>
 
-    <script type="module" crossorigin src="./src/main.jsx"></script>
-    <link rel="stylesheet" crossorigin href="./output.css">
-  </head>
+        <hr />
 
-  <body class="
-bg-gray-950 text-white
-bg-amber-50
-  scroll-smooth
-  h-fit
-  ">
-    <div id="root"></div>
+        <!-- CTF Notes -->
+        <article class="project">
+          <h3>CTF Notes</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="CTF Notes" draggable="false" />
+            <div class="proj-text">
+              <p>In the near future I will have a special section for CTF notes that I will be doing, everything
+                necessary.</p>
 
-  </body>
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="#" target="_self" rel="noreferrer">Go to CTF Notes (Not available)</a> -->
+            </div>
+          </div>
+        </article>
+
+        <hr />
+
+        <!-- Hyprdots -->
+        <article class="project">
+          <h3>Hyprdots</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="Hyprdots" draggable="false" />
+            <div class="proj-text">
+              <p>In the future, the hyprdots website will have my PC configurations, previews of my PC personalization,
+                and keyboard shortcut configurations. (Arch Linux + Hyprland setups).</p>
+
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="#" target="_self" rel="noreferrer">Go to Hyprdots (Not available)</a> -->
+            </div>
+          </div>
+        </article>
+
+        <hr />
+
+        <!-- Arch Linux Notes -->
+        <article class="project">
+          <h3>Arch Linux Notes</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="Arch Linux Notes"
+              draggable="false" />
+            <div class="proj-text">
+              <p>A future page that will compile short, summarized info about Arch Linux and configurations for using
+                Arch with Hyprland — from installation to key shortcuts.</p>
+
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="#" target="_self" rel="noreferrer">Go to Arch Linux Notes (Not available)</a> -->
+            </div>
+          </div>
+        </article>
+
+        <hr />
+
+        <!-- Life Notes (multiple paragraphs) -->
+        <article class="project">
+          <h3>Life Notes</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="Life Notes" draggable="false" />
+            <div class="proj-text">
+              <p>In the future, a website that will serve as a compilation of advice and good practices in life in
+                general. I know it sounds strange or makes you think a lot, but these notes will be based on helping and
+                guiding young people or adults who want to learn how life really is.</p>
+
+              <p>It will be a collection of practical advice: learning to socialize, managing finances, studying, time
+                management, finding a partner, handling your thoughts — even guidance if you haven't found a purpose and
+                feel empty.</p>
+
+              <p>And if that isn't enough, we'll explore how our ancestors thought across different regions of the world
+                and the ways of thinking that still influence us today (philosophy), touching on religions and other
+                systems of thought. All of this we'll learn together — as I learn, I'll teach it on the website.</p>
+
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="#" target="_self" rel="noreferrer">Go to Life Notes (Not available)</a> -->
+            </div>
+          </div>
+        </article>
+
+        <hr />
+
+        <!-- Politics Notes -->
+        <article class="project">
+          <h3>Politics Notes</h3>
+          <div class="proj-row">
+            <img width="180px" height="120px" src="./images/icon-fravelz.png" alt="Politics Notes" draggable="false" />
+            <div class="proj-text">
+              <p>In the future a blog-format page will compile information about how politics works and different
+                ideals, presented concisely. Its purpose is to analyze internal and external factors of each country and
+                propose strategies and plans oriented toward progress and solving social problems.</p>
+
+              <!-- Please comment, as it is not safe (false entry via your browser) -->
+              <!-- <a href="#" target="_self" rel="noreferrer">Go to Politics Notes (Not available)</a> -->
+            </div>
+          </div>
+        </article>
+
+        <hr />
+
+        <p class="author"><strong>Author:</strong> Fravelz</p>
+      </section>
+    </main>
+  </div>
+</body>
+
 </html>
+
+<!-- Autor: Fravelz -->
