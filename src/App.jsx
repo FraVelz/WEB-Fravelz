@@ -176,9 +176,8 @@ function App() {
 
           <Seccion
             titulo={t('proyecto_hyprdots_titulo')}
-            enlace="#"
-            target="_self"
-            imagen={`./logo-fravelz.jpg`}
+            enlace="https://fravelz.github.io/WEB-Hyprdots/"
+            imagen={`./web-hyprdots.png`}
             alt="Imagen Default"
             textoEnlace={t('proyecto_hyprdots_enlace')}
           >

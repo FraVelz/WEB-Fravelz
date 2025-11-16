@@ -30,8 +30,8 @@ const resources = {
       proyecto_ctf_notas_enlace: 'Ir a CTF Notas (No disponible)',
       
       proyecto_hyprdots_titulo: 'Hyprdots',
-      proyecto_hyprdots_descripcion: 'En un futuro, la web de hyprdots, estaran las configuraciones de mi pc, todo lo que es las diferentes pre-visualizaciones de mi perzonalizacion del pc, y sus respectivas configuraciones con atajos de teclados, y mucho mas. (configuraciones con Arch Linux, implementando el gestor de ventanas de Hyprland, mas informacion en la web).',
-      proyecto_hyprdots_enlace: 'Ir a Hyprdots (configuraciones del pc) (No disponible)',
+      proyecto_hyprdots_descripcion: 'La web de hyprdots, estaran las configuraciones de mi pc, todo lo que es las diferentes pre-visualizaciones de mi perzonalizacion del pc, y sus respectivas configuraciones con atajos de teclados, y mucho mas. (configuraciones con Arch Linux, implementando el gestor de ventanas de Hyprland, mas informacion en la web).',
+      proyecto_hyprdots_enlace: 'Ir a Hyprdots (configuraciones del pc) (En construcción)',
       
       proyecto_arch_linux_titulo: 'Notas de Arch Linux',
       proyecto_arch_linux_descripcion: 'En el futuro, pagina web, que recopilara una serie de informacion corta y resumida acerca el funcionamiento de arch linux y su configuraciones enfocadas en la utilizacion de Arch con hyprland, desde la instalacion hasta la configuraciones de atajos de teclados.',
@@ -76,8 +76,8 @@ const resources = {
       proyecto_ctf_notas_enlace: '前往 CTF 笔记（不可用）',
       
       proyecto_hyprdots_titulo: 'Hyprdots',
-      proyecto_hyprdots_descripcion: '未来，hyprdots 网站将包含我的电脑配置，包括我的电脑个性化的不同预览，以及相应的键盘快捷键配置等更多内容。（使用 Arch Linux 配置，实现 Hyprland 窗口管理器，更多信息请访问网站）。',
-      proyecto_hyprdots_enlace: '前往 Hyprdots（电脑配置）（不可用）',
+      proyecto_hyprdots_descripcion: 'hyprdots 网站将包含我的电脑配置，包括我的电脑个性化的不同预览，以及相应的键盘快捷键配置等更多内容。（使用 Arch Linux 配置，实现 Hyprland 窗口管理器，更多信息请访问网站）。',
+      proyecto_hyprdots_enlace: '前往 Hyprdots（电脑配置）（建设中）',
       
       proyecto_arch_linux_titulo: 'Arch Linux 笔记',
       proyecto_arch_linux_descripcion: '未来，一个网页将收集关于 Arch Linux 功能的简短摘要信息，以及专注于使用 Arch 和 hyprland 的配置，从安装到键盘快捷键配置。',
@@ -123,7 +123,7 @@ const resources = {
       
       proyecto_hyprdots_titulo: 'Hyprdots',
       proyecto_hyprdots_descripcion: 'В будущем на веб-сайте hyprdots будут конфигурации моего компьютера, все различные предварительные просмотры моей персонализации компьютера, а также соответствующие конфигурации с сочетаниями клавиш и многое другое. (конфигурации с Arch Linux, реализующие менеджер окон Hyprland, больше информации на веб-сайте).',
-      proyecto_hyprdots_enlace: 'Перейти к Hyprdots (конфигурации компьютера) (Недоступно)',
+      proyecto_hyprdots_enlace: 'Перейти к Hyprdots (конфигурации компьютера) (В разработке)',
       
       proyecto_arch_linux_titulo: 'Заметки об Arch Linux',
       proyecto_arch_linux_descripcion: 'В будущем веб-страница, которая соберет серию краткой и резюмированной информации о работе Arch Linux и его конфигурациях, ориентированных на использование Arch с hyprland, от установки до конфигураций сочетаний клавиш.',
@@ -168,8 +168,8 @@ const resources = {
       proyecto_ctf_notas_enlace: 'Go to CTF Notes (Not available)',
       
       proyecto_hyprdots_titulo: 'Hyprdots',
-      proyecto_hyprdots_descripcion: 'In the future, the hyprdots website will have my PC configurations, all the different previews of my PC personalization, and their respective configurations with keyboard shortcuts, and much more. (configurations with Arch Linux, implementing the Hyprland window manager, more information on the website).',
-      proyecto_hyprdots_enlace: 'Go to Hyprdots (PC configurations) (Not available)',
+      proyecto_hyprdots_descripcion: 'The hyprdots website will have my PC configurations, all the different previews of my PC personalization, and their respective configurations with keyboard shortcuts, and much more. (configurations with Arch Linux, implementing the Hyprland window manager, more information on the website).',
+      proyecto_hyprdots_enlace: 'Go to Hyprdots (PC configurations) (Under construction)',
       
       proyecto_arch_linux_titulo: 'Arch Linux Notes',
       proyecto_arch_linux_descripcion: 'In the future, a web page that will compile a series of short and summarized information about how Arch Linux works and its configurations focused on using Arch with hyprland, from installation to keyboard shortcut configurations.',

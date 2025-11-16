@@ -18,7 +18,7 @@ function Seccion({
             lg:gap-2
             ">
                 <img draggable="false" className="
-                h-50 min-w-50
+                h-50 min-w-auto min-w-50
                 bg-gray-800
                 rounded-2xl
                 object-contain
