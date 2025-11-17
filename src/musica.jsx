@@ -15,7 +15,6 @@ export default function ReproductorMusica({ className = "" }) {
   const canciones = useMemo(() => [
     { nombre: t('cancion_piano'), src: `./canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3` },
     { nombre: t('cancion_triste'), src: `./canciones/bbno_-meant-to-be-_Sub.-español_.mp3` },
-    { nombre: t('cancion_depresiva'), src: `./canciones/Lo Que Hay X Aqui La Receta & Kessoku Band.mp3` },
   ], [t, i18n.language]);
 
   const togglePlay = async () => {

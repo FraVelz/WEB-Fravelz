@@ -18,7 +18,6 @@ const resources = {
       reproducir: 'Reproducir',
       cancion_piano: 'Piano :v',
       cancion_triste: 'Triste ._.',
-      cancion_depresiva: 'Depresiva :(',
       
       // Proyectos
       proyecto_notas_hacking_titulo: 'Notas de Hacking',
@@ -122,7 +121,7 @@ const resources = {
       proyecto_ctf_notas_enlace: 'Перейти к CTF Заметкам (Недоступно)',
       
       proyecto_hyprdots_titulo: 'Hyprdots',
-      proyecto_hyprdots_descripcion: 'В будущем на веб-сайте hyprdots будут конфигурации моего компьютера, все различные предварительные просмотры моей персонализации компьютера, а также соответствующие конфигурации с сочетаниями клавиш и многое другое. (конфигурации с Arch Linux, реализующие менеджер окон Hyprland, больше информации на веб-сайте).',
+      proyecto_hyprdots_descripcion: 'На сайте hyprdots будут отображены конфигурации моего компьютера, все предварительные просмотры моих настроек, а также соответствующие настройки с сочетаниями клавиш и многое другое. (Конфигурации с Arch Linux, использующие оконный менеджер Hyprland; более подробная информация на сайте).',
       proyecto_hyprdots_enlace: 'Перейти к Hyprdots (конфигурации компьютера) (В разработке)',
       
       proyecto_arch_linux_titulo: 'Заметки об Arch Linux',

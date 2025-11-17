@@ -95,15 +95,15 @@ function App() {
           <p>{t('futuro_pentester')}</p>
 
           <div className="
-          text-4xl
-          mt-4
+          text-4xl flex gap-3
+          mt-2
           ">
             <a href="https://github.com/FraVelz" target="_blank">
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} className="hover:text-blue-300" />
             </a>
 
             <a href="https://www.youtube.com/@fravelz" target="_blank">
-              <FontAwesomeIcon icon={faYoutube} />
+              <FontAwesomeIcon icon={faYoutube} className="hover:text-blue-300" />
             </a>
           </div>
 
