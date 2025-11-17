@@ -164,7 +164,7 @@ function App() {
           <Seccion
             titulo={t('proyecto_ctf_notas_titulo')}
             enlace="#"
-            target="_self"
+            enlace_={false}
             imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace={t('proyecto_ctf_notas_enlace')}
@@ -189,7 +189,7 @@ function App() {
           <Seccion
             titulo={t('proyecto_arch_linux_titulo')}
             enlace="#"
-            target="_self"
+            enlace_={false}
             imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace={t('proyecto_arch_linux_enlace')}
@@ -202,7 +202,7 @@ function App() {
           <Seccion
             titulo={t('proyecto_notas_vida_titulo')}
             enlace="#"
-            target="_self"
+            enlace_={false}
             imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace={t('proyecto_notas_vida_enlace')}
@@ -225,6 +225,7 @@ function App() {
           <Seccion
             titulo={t('proyecto_politica_titulo')}
             enlace="#"
+            enlace_={false}
             imagen={`./logo-fravelz.jpg`}
             alt="Imagen Default"
             textoEnlace={t('proyecto_politica_enlace')}

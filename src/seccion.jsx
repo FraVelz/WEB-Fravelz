@@ -3,7 +3,7 @@ function Seccion({
     children,
     imagen = "/public/logo-fravelz.jpg", alt = "Imagen",
     titulo = "Titulo", enlace = "#", textoEnlace = "Ir a proyecto",
-    parrafo_default="true", target="_blank"
+    parrafo_default="true", target="_blank", enlace_=true
 }) {
     return (
         <>
@@ -23,7 +23,7 @@ function Seccion({
                 rounded-2xl
                 object-contain
                 select-none
-                " src={imagen} alt="Imagen"></img>
+                " src={imagen} alt={alt}></img>
 
                 <div className="
                 ml-4
@@ -41,11 +41,17 @@ function Seccion({
                     : (
                         children
                     )}
+
+                    { enlace_===true ? 
                     <a target={target} href={enlace} className="
                     text-blue-400 hover:underline
                     underline
                     cursor-pointer
                     ">{textoEnlace}</a>
+                   : (
+                        <></>
+                    )}
+
                 </div>
             </div>
         </>
