@@ -1,0 +1,7 @@
+/* tailwind.css o index.css */
+
+@layer utilities {
+  ::selection {
+    @apply bg-purple-500 text-white;
+  }
+}
