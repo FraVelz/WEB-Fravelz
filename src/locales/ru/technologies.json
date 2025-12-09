@@ -1,0 +1,11 @@
+{
+  "tech_title": "Технологии",
+  "tech_basic_title": "Основы",
+  "tech_basic_desc": "Базовый OSINT, Анонимность и Приватность, Сети, Linux и Windows",
+  "tech_automation_title": "Автоматизация и Скриптинг",
+  "tech_automation_desc": "Python, Bash скрипты",
+  "tech_network_title": "Сети и Безопасность",
+  "tech_network_desc": "Nmap, Анализ сетей",
+  "tech_web_title": "Web",
+  "tech_web_desc": "..."
+}

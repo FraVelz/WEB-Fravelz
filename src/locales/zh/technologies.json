@@ -1,0 +1,11 @@
+{
+  "tech_title": "技术",
+  "tech_basic_title": "基础知识",
+  "tech_basic_desc": "基本 OSINT、匿名和隐私、网络、Linux 和 Windows",
+  "tech_automation_title": "自动化与脚本",
+  "tech_automation_desc": "Python、Bash 脚本",
+  "tech_network_title": "网络与安全",
+  "tech_network_desc": "Nmap、网络分析",
+  "tech_web_title": "Web",
+  "tech_web_desc": "..."
+}

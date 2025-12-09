@@ -1,0 +1,11 @@
+{
+  "tech_title": "Technologies",
+  "tech_basic_title": "Basics",
+  "tech_basic_desc": "Basic OSINT, Anonymity and Privacy, Networks, Linux and Windows",
+  "tech_automation_title": "Automation & Scripting",
+  "tech_automation_desc": "Python, Bash Scripts",
+  "tech_network_title": "Networks & Security",
+  "tech_network_desc": "Nmap, Network Analysis",
+  "tech_web_title": "Web",
+  "tech_web_desc": "..."
+}

@@ -102,7 +102,7 @@ export default function OtrosProyectosSection() {
                         key={tag}
                         onClick={() => setSelectedTag(tag)}
                         onFocus={(e) => e.target.blur()}
-                        className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                        className={`cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                             selectedTag === tag
                                 ? 'bg-linear-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/40'
                                 : 'bg-gray-800/80 text-gray-400 border border-purple-500/30 hover:border-purple-400/70 hover:text-purple-300'

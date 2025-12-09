@@ -36,10 +36,10 @@ function HackingProjectCard({ img, titleKey, descKey, tags, link, isComingSoon, 
 const hackingProjectsData = [
     {
         id: 1,
-        img: './web-notas-hacking.png',
+        img: './logo-fravelz.jpg',
         titleKey: 'hacking_notes_title',
         descKey: 'hacking_notes_desc',
-        link: 'https://fravelz.github.io/WEB-Notas-de-Hacking/',
+        link: '#',
         tags: ['Hacking', 'Educación', 'Notas'],
         isComingSoon: false
     },
@@ -112,7 +112,7 @@ export default function ProyectosHackingSection() {
                         key={tag}
                         onClick={() => setSelectedTag(tag)}
                         onFocus={(e) => e.target.blur()}
-                        className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                        className={`cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                             selectedTag === tag
                                 ? 'bg-linear-to-r from-cyan-500 to-blue-500 shadow-lg shadow-cyan-500/50'
                                 : 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 hover:border-cyan-400/70'

@@ -1,0 +1,32 @@
+{
+  "hacking_projects_title": "主要项目 - 黑客技术",
+
+  "hacking_notes_title": "1. ...",
+  "hacking_notes_desc": "...",
+  "hacking_notes_link": "即将推出",
+
+  "hacking_ctf_title": "2. ...",
+  "hacking_ctf_desc": "...",
+  "hacking_ctf_coming": "即将推出",
+
+  "hacking_tool_title": "3. ...",
+  "hacking_tool_desc": "...",
+
+  "hacking_analysis_title": "4. ...",
+  "hacking_analysis_desc": "...",
+
+  "other_projects_title": "其他项目",
+
+  "other_webhyprdots_title": "Web Hyprdots",
+  "other_webhyprdots_desc": "个人网络作品集，采用 Hyprland 配置。现代、响应式且完全自定义设计。",
+  "other_webhyprdots_link": "查看项目 →",
+
+  "other_arch_title": "1) ...",
+  "other_arch_desc": "...",
+
+  "other_notes_title": "2) ...",
+  "other_notes_desc": "...",
+
+  "other_politics_title": "3) ...",
+  "other_politics_desc": "..."
+}
