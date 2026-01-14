@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Página principal - Español -->
+  <url>
+    <loc>https://fravelz.github.io/WEB-Fravelz/</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fravelz.github.io/WEB-Fravelz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fravelz.github.io/WEB-Fravelz/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fravelz.github.io/WEB-Fravelz/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fravelz.github.io/WEB-Fravelz/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fravelz.github.io/WEB-Fravelz/" />
+  </url>
+  
+  <!-- Versión en Inglés -->
+  <url>
+    <loc>https://fravelz.github.io/WEB-Fravelz/?lang=en</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fravelz.github.io/WEB-Fravelz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fravelz.github.io/WEB-Fravelz/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fravelz.github.io/WEB-Fravelz/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fravelz.github.io/WEB-Fravelz/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fravelz.github.io/WEB-Fravelz/" />
+  </url>
+  
+  <!-- Versión en Ruso -->
+  <url>
+    <loc>https://fravelz.github.io/WEB-Fravelz/?lang=ru</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fravelz.github.io/WEB-Fravelz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fravelz.github.io/WEB-Fravelz/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fravelz.github.io/WEB-Fravelz/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fravelz.github.io/WEB-Fravelz/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fravelz.github.io/WEB-Fravelz/" />
+  </url>
+  
+  <!-- Versión en Chino -->
+  <url>
+    <loc>https://fravelz.github.io/WEB-Fravelz/?lang=zh</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://fravelz.github.io/WEB-Fravelz/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fravelz.github.io/WEB-Fravelz/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://fravelz.github.io/WEB-Fravelz/?lang=ru" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://fravelz.github.io/WEB-Fravelz/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fravelz.github.io/WEB-Fravelz/" />
+  </url>
+  
+</urlset>
+

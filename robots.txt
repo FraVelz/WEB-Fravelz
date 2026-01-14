@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fravelz.github.io/WEB-Fravelz/sitemap.xml
+
+# Deshabilitar rastreo de archivos de desarrollo
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*.config.js
+Disallow: /*.json$
+
