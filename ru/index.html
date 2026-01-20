@@ -1,0 +1,552 @@
+<!DOCTYPE html><!-- Page in Russian --><html lang="es"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/WEB-Fravelz/imagenes/icono-fravelz.png"><!-- Open Graph --><meta property="og:title" content="Fravelz | Фронтенд веб-разработчик"><meta property="og:description" content="Desarrollador web frontend especializado en UX/UI | Minimalismo y Funcional. Portafolio con proyectos."><meta property="og:image" content="https://raw.githubusercontent.com/FraVelz/WEB-Fravelz/refs/heads/main/imagenes/previsualizacion.png"><meta property="og:url" content="https://fravelz.github.io/WEB-Fravelz/"><meta property="og:type" content="website"><!-- Twitter Cards --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Fravelz | Фронтенд веб-разработчик"><meta name="twitter:description" content="Desarrollador web frontend especializado en UX/UI | Minimalismo y Funcional. Portafolio con proyectos."><meta name="twitter:image" content="https://raw.githubusercontent.com/FraVelz/WEB-Fravelz/refs/heads/main/imagenes/previsualizacion.png"><meta name="twitter:site" content="@_FraVelz"><!-- SEO --><meta name="description" content="Desarrollador web frontend especializado en UX/UI | Minimalismo y Funcional. Portafolio con proyectos."><meta name="keywords" content="desarrollador web, desarrollador full-stack, React, JavaScript, Node.js, desarrollador frontend, desarrollador backend, programador web, portafolio desarrollador"><link rel="canonical" href="https://fravelz.github.io/WEB-Fravelz/"><link rel="alternate" hreflang="es" href="https://fravelz.github.io/WEB-Fravelz/es"><link rel="alternate" hreflang="en" href="https://fravelz.github.io/WEB-Fravelz/en"><link rel="alternate" hreflang="ru" href="https://fravelz.github.io/WEB-Fravelz/ru"><link rel="alternate" hreflang="zh" href="https://fravelz.github.io/WEB-Fravelz/zh"><link rel="canonical" href="https://fravelz.github.io//WEB-Fravelz/ru/"><title>Fravelz | Фронтенд веб-разработчик</title><script>
+      (function() {
+        try {
+          const getSystemTheme = () =>
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+
+          const storedTheme = localStorage.getItem("theme") || "auto";
+          const finalTheme = storedTheme === "auto" ? getSystemTheme() : storedTheme;
+
+          if (finalTheme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {
+          // Si hay error, usar tema claro por defecto
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script><link rel="stylesheet" href="/WEB-Fravelz/_assets/style.CAOaHivM.css"></head> </html> <body class="h-fit
+    scroll-smooth
+    dark:bg-gradient-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+    bg-gradient-to-b from-gray-50 via-white to-gray-50
+    dark:text-white text-gray-900
+    selection:bg-blue-500 dark:selection:bg-blue-500 selection:text-white
+    min-h-screen">   <header class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/50"> <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"> <!-- Logo --> <button class="text-3xl font-bold text-gray-900 dark:text-gray-100"> Fravelz </button> <!-- Desktop --> <div class="hidden lg:flex justify-between flex-1"> <div class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"> <a href="#presentacion" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Presentación  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#proyectos" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Proyectos  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#tecnologia" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Tecnología  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#sobre-mi" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Sobre Mí  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> </div> <div class="lg:hidden w-full h-[1px] my-2 bg-gradient-to-r from-transparent via-gray-600 dark:via-gray-600 via-gray-300 to-transparent"></div> <!-- Extras  --> <!-- <div class="grid grid-cols-2 px-2 sm:px-4"> --> <div class="flex justify-between sm:items-center lg:items-center lg:gap-14"> <div class="place-self-left flex items-center order-1"> <label for="theme-toggle" class="sr-only"> Cambiar tema </label> <button id="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro" class="relative w-14 h-8 rounded-full
+           bg-gray-300 dark:bg-gray-700
+           border-2 border-gray-400 dark:border-gray-600
+           transition-all duration-300 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-cyan-500/50
+           hover:scale-105 active:scale-95
+           cursor-pointer"> <!-- Slider circle --> <span id="theme-slider" class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full
+             bg-white dark:bg-gray-900
+             shadow-md
+             transition-all duration-300 ease-in-out
+             flex items-center justify-center" style="transform: translateX(0);"> <!-- Sun icon (light mode) --> <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-500
+               transition-opacity duration-300
+               opacity-100 dark:opacity-0"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"></path> </svg> <!-- Moon icon (dark mode) --> <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-cyan-300 absolute
+               transition-opacity duration-300
+               opacity-0 dark:opacity-100"> <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"></path> </svg> </span> </button> </div> <script type="module">(function(){if(window.__themeToggleInitialized)return;window.__themeToggleInitialized=!0;function c(){const d=document.getElementById("theme-toggle"),e=document.documentElement;if(!d){console.warn("Theme toggle not found");return}const n=document.getElementById("theme-slider"),a=document.getElementById("sun-icon"),s=document.getElementById("moon-icon"),i=t=>{console.log("Applying theme:",t?"dark":"light"),t?(e.classList.add("dark"),e.setAttribute("data-theme","dark"),n&&(n.style.transform="translateX(1.5rem)"),a&&(a.style.opacity="0"),s&&(s.style.opacity="1")):(e.classList.remove("dark"),e.removeAttribute("data-theme"),n&&(n.style.transform="translateX(0)"),a&&(a.style.opacity="1"),s&&(s.style.opacity="0")),e.offsetHeight,document.body?.offsetHeight,localStorage.setItem("theme",t?"dark":"light"),console.log("Theme applied. Has dark class:",e.classList.contains("dark")),console.log("HTML classes:",e.className)},r=t=>{t.preventDefault(),t.stopPropagation();const l=e.classList.contains("dark");i(!l)},m=localStorage.getItem("theme");let o;m==="dark"?o=!0:m==="light"?o=!1:(o=e.classList.contains("dark"),localStorage.setItem("theme",o?"dark":"light")),setTimeout(()=>{i(o)},0),d.addEventListener("click",r,{capture:!0,once:!1}),window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",t=>{const l=localStorage.getItem("theme");l!=="dark"&&l!=="light"&&i(t.matches)})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",c):c()})();</script> <div class="place-self-right flex justify-end items-center gap-2"> <label for="select-language" class="sr-only"> Seleccionar idioma </label> <svg class="text-cyan-200 dark:text-cyan-200 text-cyan-600 hover:text-cyan-300 dark:hover:text-cyan-300 hover:text-cyan-500 size-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"></path> </svg> <select id="select-language" class="bg-gray-800 dark:bg-gray-800 bg-gray-100 text-cyan-200 dark:text-cyan-200 text-gray-800
+                border border-cyan-500/30 dark:border-cyan-500/30 border-gray-400
+                hover:border-cyan-400/60 dark:hover:border-cyan-400/60 hover:border-cyan-500
+                rounded px-2 py-1
+                text-sm
+                transition-all
+                cursor-pointer" aria-label="Seleccionar idioma de la página"> <option value="es">Español</option> <option value="en">English</option> <option value="ru">Русский</option> <option value="zh">中文</option> </select> <script type="module">const e=document.getElementById("select-language");if(e){const{pathname:t,search:a,hash:o}=window.location,n=t.split("/").filter(Boolean),c=n[0];e.value=c,e.addEventListener("change",()=>{const s=e.value;n[0]=s;const l="/"+n.join("/");window.location.href=l+a+o})}</script> </div> </div> <div class="lg:hidden w-full h-[1px] my-2 bg-gradient-to-r from-transparent via-gray-600 dark:via-gray-600 via-gray-300 to-transparent"></div> <div class="flex justify-center items-center gap-4"> <a href="https://github.com/FraVelz" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="text-gray-700 dark:text-gray-300 size-6" fill="currentColor"><path d="M237.9 461.4C237.9 463.4 235.6 465 232.7 465C229.4 465.3 227.1 463.7 227.1 461.4C227.1 459.4 229.4 457.8 232.3 457.8C235.3 457.5 237.9 459.1 237.9 461.4zM206.8 456.9C206.1 458.9 208.1 461.2 211.1 461.8C213.7 462.8 216.7 461.8 217.3 459.8C217.9 457.8 216 455.5 213 454.6C210.4 453.9 207.5 454.9 206.8 456.9zM251 455.2C248.1 455.9 246.1 457.8 246.4 460.1C246.7 462.1 249.3 463.4 252.3 462.7C255.2 462 257.2 460.1 256.9 458.1C256.6 456.2 253.9 454.9 251 455.2zM316.8 72C178.1 72 72 177.3 72 316C72 426.9 141.8 521.8 241.5 555.2C254.3 557.5 258.8 549.6 258.8 543.1C258.8 536.9 258.5 502.7 258.5 481.7C258.5 481.7 188.5 496.7 173.8 451.9C173.8 451.9 162.4 422.8 146 415.3C146 415.3 123.1 399.6 147.6 399.9C147.6 399.9 172.5 401.9 186.2 425.7C208.1 464.3 244.8 453.2 259.1 446.6C261.4 430.6 267.9 419.5 275.1 412.9C219.2 406.7 162.8 398.6 162.8 302.4C162.8 274.9 170.4 261.1 186.4 243.5C183.8 237 175.3 210.2 189 175.6C209.9 169.1 258 202.6 258 202.6C278 197 299.5 194.1 320.8 194.1C342.1 194.1 363.6 197 383.6 202.6C383.6 202.6 431.7 169 452.6 175.6C466.3 210.3 457.8 237 455.2 243.5C471.2 261.2 481 275 481 302.4C481 398.9 422.1 406.6 366.2 412.9C375.4 420.8 383.2 435.8 383.2 459.3C383.2 493 382.9 534.7 382.9 542.9C382.9 549.4 387.5 557.3 400.2 555C500.2 521.8 568 426.9 568 316C568 177.3 455.5 72 316.8 72zM169.2 416.9C167.9 417.9 168.2 420.2 169.9 422.1C171.5 423.7 173.8 424.4 175.1 423.1C176.4 422.1 176.1 419.8 174.4 417.9C172.8 416.3 170.5 415.6 169.2 416.9zM158.4 408.8C157.7 410.1 158.7 411.7 160.7 412.7C162.3 413.7 164.3 413.4 165 412C165.7 410.7 164.7 409.1 162.7 408.1C160.7 407.5 159.1 407.8 158.4 408.8zM190.8 444.4C189.2 445.7 189.8 448.7 192.1 450.6C194.4 452.9 197.3 453.2 198.6 451.6C199.9 450.3 199.3 447.3 197.3 445.4C195.1 443.1 192.1 442.8 190.8 444.4zM179.4 429.7C177.8 430.7 177.8 433.3 179.4 435.6C181 437.9 183.7 438.9 185 437.9C186.6 436.6 186.6 434 185 431.7C183.6 429.4 181 428.4 179.4 429.7z"></path></svg></a> <svg class="text-gray-300 dark:text-gray-300 text-gray-700 size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z"></path> </svg> </div> </div> <!-- Mobile Button --> <button data-drawer-open class="lg:hidden text-2xl text-gray-700 dark:text-gray-300" aria-label="Abrir menú"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path> </svg> </button> </div> <div aria-hidden class="pointer-events-none absolute bottom-0 left-0 w-full h-px
+    bg-gradient-to-r from-transparent via-gray-600/80 dark:via-gray-600/80 via-gray-300/80 to-transparent"></div> <!-- Mobile Drawer --> <!-- Overlay --><div data-drawer-overlay class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm
+    transition-opacity duration-300
+    opacity-0 pointer-events-none
+    lg:hidden"></div> <!-- Drawer --> <aside data-drawer class="fixed top-0 right-0 z-50 h-screen w-[85%] max-w-sm overflow-y-scroll
+    bg-gray-900 dark:bg-gray-900 bg-white
+    transform translate-x-full
+    transition-transform duration-300 ease-in-out
+    lg:hidden"> <!-- Header --> <div class="flex justify-between items-center p-5 border-b border-gray-700 dark:border-gray-700 border-gray-300"> <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">Menú</span> <button data-drawer-close aria-label="Cerrar menú" class="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path> </svg> </button> </div> <!-- Content --> <div class="p-5 flex flex-col gap-5 text-center">  <div class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"> <a href="#presentacion" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Presentación  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#proyectos" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Proyectos  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#tecnologia" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Tecnología  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> <a href="#sobre-mi" target="_self" draggable="false" class="select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 " data-smooth-scroll="true">  Sobre Mí  </a> <script>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script> </div> <div class="lg:hidden w-full h-[1px] my-2 bg-gradient-to-r from-transparent via-gray-600 dark:via-gray-600 via-gray-300 to-transparent"></div> <!-- Extras  --> <!-- <div class="grid grid-cols-2 px-2 sm:px-4"> --> <div class="flex justify-between sm:items-center lg:items-center lg:gap-14"> <div class="place-self-left flex items-center order-1"> <label for="theme-toggle" class="sr-only"> Cambiar tema </label> <button id="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro" class="relative w-14 h-8 rounded-full
+           bg-gray-300 dark:bg-gray-700
+           border-2 border-gray-400 dark:border-gray-600
+           transition-all duration-300 ease-in-out
+           focus:outline-none focus:ring-2 focus:ring-cyan-500/50
+           hover:scale-105 active:scale-95
+           cursor-pointer"> <!-- Slider circle --> <span id="theme-slider" class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full
+             bg-white dark:bg-gray-900
+             shadow-md
+             transition-all duration-300 ease-in-out
+             flex items-center justify-center" style="transform: translateX(0);"> <!-- Sun icon (light mode) --> <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-yellow-500
+               transition-opacity duration-300
+               opacity-100 dark:opacity-0"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"></path> </svg> <!-- Moon icon (dark mode) --> <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-cyan-300 absolute
+               transition-opacity duration-300
+               opacity-0 dark:opacity-100"> <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"></path> </svg> </span> </button> </div>  <div class="place-self-right flex justify-end items-center gap-2"> <label for="select-language" class="sr-only"> Seleccionar idioma </label> <svg class="text-cyan-200 dark:text-cyan-200 text-cyan-600 hover:text-cyan-300 dark:hover:text-cyan-300 hover:text-cyan-500 size-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"></path> </svg> <select id="select-language" class="bg-gray-800 dark:bg-gray-800 bg-gray-100 text-cyan-200 dark:text-cyan-200 text-gray-800
+                border border-cyan-500/30 dark:border-cyan-500/30 border-gray-400
+                hover:border-cyan-400/60 dark:hover:border-cyan-400/60 hover:border-cyan-500
+                rounded px-2 py-1
+                text-sm
+                transition-all
+                cursor-pointer" aria-label="Seleccionar idioma de la página"> <option value="es">Español</option> <option value="en">English</option> <option value="ru">Русский</option> <option value="zh">中文</option> </select>  </div> </div> <div class="lg:hidden w-full h-[1px] my-2 bg-gradient-to-r from-transparent via-gray-600 dark:via-gray-600 via-gray-300 to-transparent"></div> <div class="flex justify-center items-center gap-4"> <a href="https://github.com/FraVelz" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="text-gray-700 dark:text-gray-300 size-6" fill="currentColor"><path d="M237.9 461.4C237.9 463.4 235.6 465 232.7 465C229.4 465.3 227.1 463.7 227.1 461.4C227.1 459.4 229.4 457.8 232.3 457.8C235.3 457.5 237.9 459.1 237.9 461.4zM206.8 456.9C206.1 458.9 208.1 461.2 211.1 461.8C213.7 462.8 216.7 461.8 217.3 459.8C217.9 457.8 216 455.5 213 454.6C210.4 453.9 207.5 454.9 206.8 456.9zM251 455.2C248.1 455.9 246.1 457.8 246.4 460.1C246.7 462.1 249.3 463.4 252.3 462.7C255.2 462 257.2 460.1 256.9 458.1C256.6 456.2 253.9 454.9 251 455.2zM316.8 72C178.1 72 72 177.3 72 316C72 426.9 141.8 521.8 241.5 555.2C254.3 557.5 258.8 549.6 258.8 543.1C258.8 536.9 258.5 502.7 258.5 481.7C258.5 481.7 188.5 496.7 173.8 451.9C173.8 451.9 162.4 422.8 146 415.3C146 415.3 123.1 399.6 147.6 399.9C147.6 399.9 172.5 401.9 186.2 425.7C208.1 464.3 244.8 453.2 259.1 446.6C261.4 430.6 267.9 419.5 275.1 412.9C219.2 406.7 162.8 398.6 162.8 302.4C162.8 274.9 170.4 261.1 186.4 243.5C183.8 237 175.3 210.2 189 175.6C209.9 169.1 258 202.6 258 202.6C278 197 299.5 194.1 320.8 194.1C342.1 194.1 363.6 197 383.6 202.6C383.6 202.6 431.7 169 452.6 175.6C466.3 210.3 457.8 237 455.2 243.5C471.2 261.2 481 275 481 302.4C481 398.9 422.1 406.6 366.2 412.9C375.4 420.8 383.2 435.8 383.2 459.3C383.2 493 382.9 534.7 382.9 542.9C382.9 549.4 387.5 557.3 400.2 555C500.2 521.8 568 426.9 568 316C568 177.3 455.5 72 316.8 72zM169.2 416.9C167.9 417.9 168.2 420.2 169.9 422.1C171.5 423.7 173.8 424.4 175.1 423.1C176.4 422.1 176.1 419.8 174.4 417.9C172.8 416.3 170.5 415.6 169.2 416.9zM158.4 408.8C157.7 410.1 158.7 411.7 160.7 412.7C162.3 413.7 164.3 413.4 165 412C165.7 410.7 164.7 409.1 162.7 408.1C160.7 407.5 159.1 407.8 158.4 408.8zM190.8 444.4C189.2 445.7 189.8 448.7 192.1 450.6C194.4 452.9 197.3 453.2 198.6 451.6C199.9 450.3 199.3 447.3 197.3 445.4C195.1 443.1 192.1 442.8 190.8 444.4zM179.4 429.7C177.8 430.7 177.8 433.3 179.4 435.6C181 437.9 183.7 438.9 185 437.9C186.6 436.6 186.6 434 185 431.7C183.6 429.4 181 428.4 179.4 429.7z"></path></svg></a> <svg class="text-gray-300 dark:text-gray-300 text-gray-700 size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z"></path> </svg> </div>  </div> </aside> <script type="module">const a=document.querySelector("[data-drawer-open]"),n=document.querySelector("[data-drawer-close]"),t=document.querySelector("[data-drawer]"),e=document.querySelector("[data-drawer-overlay]"),o=()=>{t?.classList.remove("translate-x-full"),e?.classList.remove("opacity-0","pointer-events-none")},r=()=>{t?.classList.add("translate-x-full"),e?.classList.add("opacity-0","pointer-events-none")};a?.addEventListener("click",o);n?.addEventListener("click",r);e?.addEventListener("click",r);</script> </header> <div id="dev-warning" class="fixed top-[73px] left-0 right-0 z-20
+         bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-400 
+         dark:from-yellow-500 dark:via-amber-500 dark:to-yellow-500
+         shadow-lg border-b-2 border-yellow-500 dark:border-yellow-600
+         transition-all duration-300"> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4"> <div class="flex items-center gap-3 flex-1"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-yellow-800 dark:text-yellow-900 shrink-0"> <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"></path> </svg> <p class="text-sm sm:text-base font-semibold text-yellow-900 dark:text-yellow-950"> Esta página web está en desarrollo. Puede contener errores, información poco preccisa, y falta de información. </p> </div> <button id="close-dev-warning" aria-label="Cerrar advertencia" class="shrink-0 text-yellow-900 dark:text-yellow-950 hover:text-yellow-950 dark:hover:text-yellow-900 transition-colors p-1 rounded-full hover:bg-yellow-500/20 dark:hover:bg-yellow-600/20"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> <script type="module">(function(){if(window.__devWarningInitialized)return;window.__devWarningInitialized=!0;function t(){const e=document.getElementById("dev-warning"),i=document.getElementById("close-dev-warning");if(!e||!i)return;if(localStorage.getItem("dev-warning-closed")==="true"){e.style.display="none";return}function o(){const n=document.querySelector("main");if(n&&e.style.display!=="none"){const d=e.offsetHeight||56;n.style.paddingTop=`${d}px`}}setTimeout(o,100),i.addEventListener("click",()=>{e.style.opacity="0",e.style.transform="translateY(-100%)",setTimeout(()=>{e.style.display="none",localStorage.setItem("dev-warning-closed","true");const n=document.querySelector("main");n&&(n.style.paddingTop="0")},300)})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",t):t()})();</script> <main class="flex justify-center"> <div class="px-2 py-20 flex flex-col items-center gap-15 sm:justify-center max-w-6xl"> <section id="presentacion" class="py-12 sm:py-16 lg:py-24 
+         grid grid-cols-1 gap-6
+         lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto]
+         items-center lg:items-start"> <!-- Logo con borde animado --> <div class="row-span-2 lg:row-span-3
+              relative
+              h-32 w-32 mx-auto
+              sm:h-48 sm:w-48
+              lg:h-64 lg:w-64 lg:mr-6
+              flex-shrink-0"> <!-- Borde giratorio --> <div class="absolute inset-0
+             rounded-full
+             p-3 sm:p-4
+             bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500
+             animate-[spin_2s_linear_infinite]
+             shadow-lg shadow-cyan-500/20" aria-hidden="true"></div> <!-- Imagen del logo --> <div class="absolute inset-1 sm:inset-2 
+                rounded-full 
+                bg-gray-100 dark:bg-gray-900 
+                z-10 
+                overflow-hidden
+                shadow-inner"> <img draggable="false" class="h-full w-full rounded-full object-cover select-none" src="/imagenes/logo-fravelz.jpg" alt="Logo de Fravelz" width="256" height="256"> </div> </div> <!-- Nombre --> <h1 class="text-2xl sm:text-3xl lg:text-4xl
+           self-end
+           bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent
+           font-bold
+           text-center lg:text-left">
+Francisco J. Vélez O.
+</h1> <!-- Información y enlaces --> <div class="flex flex-col gap-4"> <p class="text-base sm:text-lg 
+              text-cyan-600 dark:text-cyan-300 
+              font-semibold
+              text-center lg:text-left">@Fravelz</p> <div class="flex flex-wrap justify-center lg:justify-start
+                items-center
+                gap-2 sm:gap-3"> <a href="https://github.com/FraVelz" target="_blank" rel="noreferrer noopener" aria-label="Visitar perfil de GitHub de Fravelz" class="
+    h-fit w-fit
+    flex items-center justify-center
+    bg-gray-900 dark:bg-gray-900 bg-gray-100
+    px-3 py-2 
+    border border-gray-700 dark:border-gray-700 border-gray-300 
+    rounded-full
+    hover:border-cyan-400 dark:hover:border-cyan-400 hover:border-cyan-500
+    hover:shadow-lg hover:shadow-cyan-500/30 dark:hover:shadow-cyan-500/30 hover:shadow-cyan-500/20
+    transition-all
+  "> <svg class="text-gray-300 dark:text-gray-300 text-gray-700 
+           hover:text-cyan-300 dark:hover:text-cyan-300 hover:text-cyan-600 
+           w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path> </svg> </a> <div class="
+  flex items-center gap-2
+  text-sm 
+  text-cyan-600 dark:text-cyan-300
+  max-w-fit pr-3
+  bg-gray-100 dark:bg-gray-900 
+  px-2 py-1 
+  rounded-full
+  border border-cyan-400/50 dark:border-cyan-500/40 
+  hover:border-cyan-500 dark:hover:border-cyan-400/60
+  transition-all 
+  hover:shadow-lg hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/10 hover:shadow-cyan-500/20
+"> <svg class="text-cyan-500 dark:text-cyan-400 w-4 h-4" fill="currentColor" viewBox="0 0 384 512" aria-hidden="true"> <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"></path> </svg> <span>Bogotá, Colombia</span> </div> <button class="flex items-center gap-2
+    col-span-2
+    text-sm 
+    text-purple-600 dark:text-purple-300
+    max-w-fit pr-3
+    p-1
+    bg-gray-100 dark:bg-gray-900 
+    px-2 
+    rounded-full
+    border border-purple-400/50 dark:border-purple-500/40 
+    hover:border-purple-500 dark:hover:border-purple-400/60
+    hover:text-purple-700 dark:hover:text-purple-200
+    transition-all 
+    cursor-pointer 
+    hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-500/10 hover:shadow-purple-500/20" aria-label="Copiar dirección de correo electrónico" data-email="fravelz@proton.me" data-success="✓ ¡Copiado!"> <!-- <FontAwesomeIcon icon={faEnvelope} className="text-purple-400" /> --> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"></path> </svg> <span class="email-text">fravelz@proton.me</span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"></path> </svg> <!-- <FontAwesomeIcon icon={faCopy} className="text-xs text-purple-500" /> --> </button>  </div> </div> <!-- Descripción --> <div class="lg:col-start-2 flex flex-col gap-2"> <p class="text-base sm:text-lg 
+              text-gray-700 dark:text-gray-200
+              text-center lg:text-left"> Hola :v, ¿qué tal? </p> <p class="text-lg sm:text-xl
+              text-cyan-600 dark:text-cyan-100
+              font-bold
+              text-center lg:text-left"> Desarrollador Web :) </p> </div> </section> <!-- Indicador para bajar --> <div class="flex h-fit w-fit px-3 py-5 justify-center"> <div class="text-cyan-300 rounded-xl border-cyan-500/40 border-2
+        hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20
+        transition-all select-none
+        animate-bounce z-10 p-2 flex gap-1"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path> </svg> Ir Abajo <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path> </svg> </div> </div> <!-- Sección: Proyectos Principales de Hacking  --> <section id="proyectos" class="mt-10"> <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><script>(()=>{var A=Object.defineProperty;var g=(i,o,a)=>o in i?A(i,o,{enumerable:!0,configurable:!0,writable:!0,value:a}):i[o]=a;var d=(i,o,a)=>g(i,typeof o!="symbol"?o+"":o,a);{let i={0:t=>m(t),1:t=>a(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(a(t)),5:t=>new Set(a(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t),11:t=>1/0*t},o=t=>{let[l,e]=t;return l in i?i[l](e):void 0},a=t=>t.map(o),m=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([l,e])=>[l,o(e)]));class y extends HTMLElement{constructor(){super(...arguments);d(this,"Component");d(this,"hydrator");d(this,"hydrate",async()=>{var b;if(!this.hydrator||!this.isConnected)return;let e=(b=this.parentElement)==null?void 0:b.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let c=this.querySelectorAll("astro-slot"),n={},h=this.querySelectorAll("template[data-astro-template]");for(let r of h){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of c){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(n[r.getAttribute("name")||"default"]=r.innerHTML)}let p;try{p=this.hasAttribute("props")?m(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",v=this.getAttribute("component-export");throw v&&(s+=` (export ${v})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}let u;await this.hydrator(this)(this.Component,p,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))});d(this,"unmount",()=>{this.isConnected||this.dispatchEvent(new CustomEvent("astro:unmount"))})}disconnectedCallback(){document.removeEventListener("astro:after-swap",this.unmount),document.addEventListener("astro:after-swap",this.unmount,{once:!0})}connectedCallback(){if(!this.hasAttribute("await-children")||document.readyState==="interactive"||document.readyState==="complete")this.childrenConnectedCallback();else{let e=()=>{document.removeEventListener("DOMContentLoaded",e),c.disconnect(),this.childrenConnectedCallback()},c=new MutationObserver(()=>{var n;((n=this.lastChild)==null?void 0:n.nodeType)===Node.COMMENT_NODE&&this.lastChild.nodeValue==="astro:end"&&(this.lastChild.remove(),e())});c.observe(this,{childList:!0}),document.addEventListener("DOMContentLoaded",e)}}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}async start(){let e=JSON.parse(this.getAttribute("opts")),c=this.getAttribute("client");if(Astro[c]===void 0){window.addEventListener(`astro:${c}`,()=>this.start(),{once:!0});return}try{await Astro[c](async()=>{let n=this.getAttribute("renderer-url"),[h,{default:p}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),u=this.getAttribute("component-export")||"default";if(!u.includes("."))this.Component=h[u];else{this.Component=h;for(let f of u.split("."))this.Component=this.Component[f]}return this.hydrator=p,this.hydrate},e,this)}catch(n){console.error(`[astro-island] Error hydrating ${this.getAttribute("component-url")}`,n)}}attributeChangedCallback(){this.hydrate()}}d(y,"observedAttributes",["props"]),customElements.get("astro-island")||customElements.define("astro-island",y)}})();</script><astro-island uid="COJEt" prefix="r2" component-url="/WEB-Fravelz/_assets/ProyectosHackingSection.D_kkhrmM.js" component-export="default" renderer-url="/WEB-Fravelz/_assets/client.9unXo8s5.js" props="{&quot;lang&quot;:[0,&quot;es&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;ProyectosHackingSectionClient&quot;,&quot;value&quot;:true}" await-children><link rel="preload" as="image" href="/WEB-Fravelz/imagenes/logo-fravelz.jpg"/><section class="mb-12"><div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6"><div class="h-1 bg-gradient-to-r from-cyan-500 to-transparent flex-1"></div><h3 class="text-xl sm:text-2xl font-bold text-cyan-600 dark:text-cyan-300 px-2 sm:px-4 whitespace-nowrap">Proyectos Principales</h3><div class="h-1 bg-gradient-to-l from-cyan-500 to-transparent flex-1"></div></div><div class="flex flex-wrap gap-2 mb-4 sm:mb-6"><button class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 shadow-lg shadow-cyan-500/50 text-white">Todos</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">React</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Frontend</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Portfolio</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Full-Stack</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">API</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Backend</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Herramientas</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Web App</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">JavaScript</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">UI/UX</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Diseño</button><button class="cursor-pointer px-4 py-2 rounded-full text-sm font-semibold transition-all bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70">Responsive</button></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6"><div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/90 dark:to-gray-900 backdrop-blur p-4 sm:p-6 rounded-xl border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/30 transition-all overflow-hidden"><img src="/WEB-Fravelz/imagenes/logo-fravelz.jpg" alt="Captura de pantalla del proyecto 1. ..." class="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4"/><div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><h4 class="text-base sm:text-lg font-bold text-cyan-600 dark:text-cyan-300">1. ...</h4></div><p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 line-clamp-3">...</p><div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4"><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">React</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Frontend</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Portfolio</span></div><a href="#" target="_blank" rel="noreferrer noopener" class="inline-block text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200 text-sm font-semibold border-b border-cyan-500/50 dark:border-cyan-500/50 hover:border-cyan-600 dark:hover:border-cyan-400 transition-all">Próximamente</a></div><div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/90 dark:to-gray-900 backdrop-blur p-4 sm:p-6 rounded-xl border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/30 transition-all overflow-hidden"><img src="/WEB-Fravelz/imagenes/logo-fravelz.jpg" alt="Captura de pantalla del proyecto 2. ..." class="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4"/><div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><h4 class="text-base sm:text-lg font-bold text-cyan-600 dark:text-cyan-300">2. ...</h4></div><p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 line-clamp-3">...</p><div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4"><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Full-Stack</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">API</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Backend</span></div><button class="inline-block text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200 text-sm font-semibold border-b border-cyan-500/50 dark:border-cyan-500/50 hover:border-cyan-600 dark:hover:border-cyan-400 transition-all cursor-pointer">Próximamente</button></div><div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/90 dark:to-gray-900 backdrop-blur p-4 sm:p-6 rounded-xl border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/30 transition-all overflow-hidden"><img src="/WEB-Fravelz/imagenes/logo-fravelz.jpg" alt="Captura de pantalla del proyecto 3. ..." class="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4"/><div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><h4 class="text-base sm:text-lg font-bold text-cyan-600 dark:text-cyan-300">3. ...</h4></div><p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 line-clamp-3">...</p><div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4"><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Herramientas</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Web App</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">JavaScript</span></div><a href="#" target="_blank" rel="noreferrer noopener" class="inline-block text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200 text-sm font-semibold border-b border-cyan-500/50 dark:border-cyan-500/50 hover:border-cyan-600 dark:hover:border-cyan-400 transition-all">Próximamente</a></div><div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800/90 dark:to-gray-900 backdrop-blur p-4 sm:p-6 rounded-xl border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/30 transition-all overflow-hidden"><img src="/WEB-Fravelz/imagenes/logo-fravelz.jpg" alt="Captura de pantalla del proyecto 4. ..." class="w-full h-32 sm:h-40 object-cover rounded-lg mb-3 sm:mb-4"/><div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><h4 class="text-base sm:text-lg font-bold text-cyan-600 dark:text-cyan-300">4. ...</h4></div><p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2 sm:mb-3 line-clamp-3">...</p><div class="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4"><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">UI/UX</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Diseño</span><span class="text-xs bg-gradient-to-r from-cyan-500/25 to-blue-500/15 dark:from-cyan-500/25 dark:to-blue-500/15 text-cyan-600 dark:text-cyan-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70 transition-all">Responsive</span></div><a href="#" target="_blank" rel="noreferrer noopener" class="inline-block text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200 text-sm font-semibold border-b border-cyan-500/50 dark:border-cyan-500/50 hover:border-cyan-600 dark:hover:border-cyan-400 transition-all">Próximamente</a></div></div></section><!--astro:end--></astro-island> </section> <hr class="
+  my-6
+  border-gray-700
+"> <!-- Sección: Tecnologías  --> <section id="tecnologia" class="w-full"> <h2 class="text-center text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"> Tecnologías </h2> <div class="grid grid-cols-1 sm:grid-cols-2
+    gap-4 text-gray-700 dark:text-gray-300"> <div class="bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-900 from-gray-100 to-gray-200 p-3 sm:p-4 rounded-lg border border-cyan-500/30 dark:border-cyan-500/30 border-cyan-400/50 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/10 hover:shadow-cyan-500/20"> <h3 class="text-sm sm:text-base font-semibold text-cyan-600 dark:text-cyan-300 mb-1 sm:mb-2"> Frontend </h3> <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400"> HTML5, CSS3, JavaScript (ES6+), Astro, React, Tailwind CSS, Responsive Design </p> </div> <div class="bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-900 from-gray-100 to-gray-200 p-3 sm:p-4 rounded-lg border border-purple-500/30 dark:border-purple-500/30 border-purple-400/50 hover:border-purple-400/60 dark:hover:border-purple-400/60 hover:border-purple-500 transition-all hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-500/10 hover:shadow-purple-500/20"> <h3 class="text-sm sm:text-base font-semibold text-purple-600 dark:text-purple-300 mb-1 sm:mb-2"> Fortaleciendo conocimientos... </h3> <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400"> ... </p> </div> <div class="bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-900 from-gray-100 to-gray-200 p-3 sm:p-4 rounded-lg border border-cyan-500/30 dark:border-cyan-500/30 border-cyan-400/50 hover:border-cyan-400/60 dark:hover:border-cyan-400/60 hover:border-cyan-500 transition-all hover:shadow-lg hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/10 hover:shadow-cyan-500/20"> <h3 class="text-sm sm:text-base font-semibold text-cyan-600 dark:text-cyan-300 mb-1 sm:mb-2"> Lista de cosas nuevas a aprender. </h3> <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400"> Typescript </p> </div> <div class="bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-800 dark:to-gray-900 from-gray-100 to-gray-200 p-3 sm:p-4 rounded-lg border border-purple-500/30 dark:border-purple-500/30 border-purple-400/50 hover:border-purple-400/60 dark:hover:border-purple-400/60 hover:border-purple-500 transition-all hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-500/10 hover:shadow-purple-500/20"> <h3 class="text-sm sm:text-base font-semibold text-purple-600 dark:text-purple-300 mb-1 sm:mb-2"> ... </h3> <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">  </p> </div> </div> </section> <hr class="
+  my-6
+  border-gray-700
+"> <!-- Sección: Sobre Mí --> <section id="sobre-mi"> <h2 class="text-center text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"> Sobre Mí </h2> <p class="
+  wrap-break-word
+  min-w-0
+  text-justify
+  text-gray-700 dark:text-gray-300 mb-4
+"> ¡Hola! Soy Fravelz. Desde que era niño, me ha gustado e interesado el mundo de la informática y el desarrollo de software, especialmente el desarrollo web y otros campos de la informática. </p> <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Mi Historia</h3> <p class="
+  wrap-break-word
+  min-w-0
+  text-justify
+  text-gray-700 dark:text-gray-300 mb-4
+"> A los 9 años (2017) recibí mi primera computadora. Al principio la usaba para ver series en YouTube, pero todo cambió cuando descubrí La Geekipedia de Ernesto. Gracias a su canal comencé a aprender Java y pronto logré crear mis primeras interfaces gráficas. </p> <astro-island uid="1i9gR0" prefix="r3" component-url="/WEB-Fravelz/_assets/SobreMiModalButton.DTkH09dn.js" component-export="default" renderer-url="/WEB-Fravelz/_assets/client.9unXo8s5.js" props="{&quot;lang&quot;:[0,&quot;es&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;SobreMiModalButton&quot;,&quot;value&quot;:true}" await-children><button class="
+          cursor-pointer
+          group relative inline-flex items-center justify-center gap-2
+          px-2 py-1
+          bg-gradient-to-r from-cyan-500 via-cyan-400 to-purple-500 hover:from-cyan-400 hover:via-purple-400 hover:to-cyan-400 text-white font-bold text-sm sm:text-base rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/50 active:scale-95 mb-6 overflow-hidden
+        "><span class="relative z-10">Más información</span><span class="relative z-10 text-lg">→</span><div class="absolute inset-0 bg-gradient-to-r from-cyan-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0 rounded-xl"></div></button><!--astro:end--></astro-island> <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">Actualmente</h3> <p class="
+  wrap-break-word
+  min-w-0
+  text-justify
+  text-gray-700 dark:text-gray-300
+"> Actualmente me enfoco en el desarrollo web full-stack, creando aplicaciones modernas y responsivas. Me especializo en React, JavaScript y diseño de interfaces de usuario atractivas y funcionales. </p> </section> <section id="pasatiempos" class="mt-10 w-full"> <h2 class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2"> Pasatiempos </h2> <ul class="cursor-default text-gray-700 dark:text-gray-300 space-y-2 list-none"> <li class="flex items-center hover:translate-x-2 transition-transform"> <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg">◆</span> Ejercicio y calistenia </li> <li class="flex items-center hover:translate-x-2 transition-transform"> <span draggable="false" class="select-none text-purple-500 dark:text-purple-400 mr-3 text-lg">◆</span> Tocar piano </li> <li class="flex items-center hover:translate-x-2 transition-transform"> <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg">◆</span> Desarrollar proyectos web </li> <li class="flex items-center hover:translate-x-2 transition-transform"> <span draggable="false" class="select-none text-purple-500 dark:text-purple-400 mr-3 text-lg">◆</span> Personalizar mi sistema operativo Arch Linux </li> <li class="flex items-center hover:translate-x-2 transition-transform"> <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg">◆</span> Mecanografía (35-50 PPM)
+( <a href="https://monkeytype.com/profile/Fravelz" target="_blank" rel="noreferrer noopener" class="text-cyan-600 dark:text-cyan-300 
+               hover:text-cyan-700 dark:hover:text-white 
+               underline underline-offset-2 decoration-dotted 
+               transition-colors duration-200"> Monkeytype </a>)
+</li> </ul> </section> </div> </main> <footer class="
+  border-t-2 border-gray-700 dark:border-gray-700 border-gray-300
+  text-center
+  py-8
+  sm:mt-4
+  "> <p class="text-gray-600 dark:text-gray-400 mb-2"> Autor: Fravelz </p> </footer>  </body>
