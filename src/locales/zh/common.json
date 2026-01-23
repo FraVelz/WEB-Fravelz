@@ -3,5 +3,11 @@
   "ir_abajo": "向下",
   "autor": "作者",
   "proyectos_personales": "个人项目",
-  "info_more_info": "更多信息"
+  "info_more_info": "更多信息",
+  "dev_warning": "此网站正在开发中。可能包含错误或意外更改。",
+  "nav_presentation": "介绍",
+  "nav_projects": "项目",
+  "nav_technologies": "技术",
+  "nav_about": "关于我",
+  "more_projects": "查看更多项目"
 }

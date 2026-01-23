@@ -1,7 +1,12 @@
 {
-  "change_language": "Cambiar idioma de la página",
   "ir_abajo": "Ir Abajo",
   "autor": "Autor",
   "proyectos_personales": "Proyectos Personales",
-  "info_more_info": "Más información"
+  "info_more_info": "Más información",
+  "dev_warning": "Esta página web está en desarrollo. Puede contener errores, información poco preccisa, y falta de información.",
+  "nav_presentation": "Presentación",
+  "nav_projects": "Proyectos",
+  "nav_technologies": "Tecnología",
+  "nav_about": "Sobre Mí",
+  "more_projects": "Ver más proyectos"
 }

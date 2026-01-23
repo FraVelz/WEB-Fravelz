@@ -1,11 +1,20 @@
 {
   "tech_title": "技术",
-  "tech_basic_title": "基础知识",
-  "tech_basic_desc": "基本 OSINT、匿名和隐私、网络、Linux 和 Windows",
-  "tech_automation_title": "自动化与脚本",
-  "tech_automation_desc": "Python、Bash 脚本",
-  "tech_network_title": "网络与安全",
-  "tech_network_desc": "Nmap、网络分析",
-  "tech_web_title": "Web",
-  "tech_web_desc": "..."
+  "tech_basic_title": "前端",
+  "tech_basic_desc": "HTML5、CSS3、JavaScript (ES6+)、React、Tailwind CSS、响应式设计",
+  "tech_automation_title": "后端 & APIs",
+  "tech_automation_desc": "Node.js、Express、REST APIs、Python、数据库",
+  "tech_network_title": "工具 & 构建",
+  "tech_network_desc": "Vite、Git、npm/pnpm、Webpack、现代开发",
+  "tech_web_title": "框架 & 库",
+  "tech_web_desc": "React、React Router、i18next、FontAwesome、可复用组件",
+  "tech_level_basic": "基础",
+  "tech_level_intermediate": "中级",
+  "tech_level_learning": "学习中",
+  "tech_category_frontend": "前端",
+  "tech_category_backend": "后端",
+  "tech_category_both": "前端和后端",
+  "tech_info_level": "水平",
+  "tech_info_category": "类别",
+  "tech_info_technology": "技术"
 }

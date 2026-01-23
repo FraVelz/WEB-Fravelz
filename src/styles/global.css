@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1::selection,
+    h2::selection,
+    h3::selection,
+    strong::selection {
+        background-color: #a855f7;
+        color: #ffffff;
+    }
+
+    ::selection {
+        background-color: #079bd6ef;
+        color: #ffffff;
+    }
+}

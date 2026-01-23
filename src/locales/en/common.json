@@ -3,5 +3,11 @@
   "ir_abajo": "Go Down",
   "autor": "Author",
   "proyectos_personales": "Personal Projects",
-  "info_more_info": "More information"
+  "info_more_info": "More information",
+  "dev_warning": "This website is under development. It may contain errors or unexpected changes.",
+  "nav_presentation": "Presentation",
+  "nav_projects": "Projects",
+  "nav_technologies": "Technologies",
+  "nav_about": "About Me",
+  "more_projects": "View more projects"
 }

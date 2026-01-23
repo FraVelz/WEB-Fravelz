@@ -1,0 +1,15 @@
+---
+import TecnologiasSection from "@/components/ui/TecnologiasSection";
+import { type Language, languages } from "../../utils/i18n";
+
+interface Props {
+  lang?: Language;
+}
+
+const param = Astro.params.lang;
+const lang: Language = Astro.props.lang 
+  ? Astro.props.lang 
+  : (languages.includes(param as Language) ? (param as Language) : "es");
+---
+
+<TecnologiasSection client:load lang={lang} />

@@ -1,0 +1,40 @@
+---
+import { getTranslations, type Language, languages } from '../../utils/i18n';
+import Parrafo from '../ui/Parrafo.astro';
+import SobreMiModalButton from '../ui/SobreMiModalButton';
+
+interface Props {
+  lang?: Language;
+}
+
+// Obtener el idioma de props o de los parámetros de Astro
+const param = Astro.params.lang;
+const lang: Language = Astro.props.lang 
+  ? Astro.props.lang 
+  : (languages.includes(param as Language) ? (param as Language) : 'es');
+
+const t = getTranslations(lang);
+---
+
+<section id="sobre-mi">
+  <h2 class="text-center text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+    {t.info_about_title}
+  </h2>
+  
+  <Parrafo className="text-gray-700 dark:text-gray-300 mb-4">
+    {t.about_intro_text}
+  </Parrafo>
+
+  <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">{t.info_about_subtitle}</h3>
+
+  <Parrafo className="text-gray-700 dark:text-gray-300 mb-4">
+    {t.about_history_text}
+  </Parrafo>
+
+  <SobreMiModalButton client:load lang={lang} />
+
+  <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-100">{t.info_currently_subtitle}</h3>
+  <Parrafo className="text-gray-700 dark:text-gray-300">
+    {t.about_current_text}
+  </Parrafo>
+</section>

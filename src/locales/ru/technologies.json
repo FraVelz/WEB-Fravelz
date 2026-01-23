@@ -1,11 +1,20 @@
 {
   "tech_title": "Технологии",
-  "tech_basic_title": "Основы",
-  "tech_basic_desc": "Базовый OSINT, Анонимность и Приватность, Сети, Linux и Windows",
-  "tech_automation_title": "Автоматизация и Скриптинг",
-  "tech_automation_desc": "Python, Bash скрипты",
-  "tech_network_title": "Сети и Безопасность",
-  "tech_network_desc": "Nmap, Анализ сетей",
-  "tech_web_title": "Web",
-  "tech_web_desc": "..."
+  "tech_basic_title": "Frontend",
+  "tech_basic_desc": "HTML5, CSS3, JavaScript (ES6+), React, Tailwind CSS, Адаптивный дизайн",
+  "tech_automation_title": "Backend & APIs",
+  "tech_automation_desc": "Node.js, Express, REST APIs, Python, Базы данных",
+  "tech_network_title": "Инструменты & Сборка",
+  "tech_network_desc": "Vite, Git, npm/pnpm, Webpack, Современная разработка",
+  "tech_web_title": "Фреймворки & Библиотеки",
+  "tech_web_desc": "React, React Router, i18next, FontAwesome, Переиспользуемые компоненты",
+  "tech_level_basic": "Базовый",
+  "tech_level_intermediate": "Средний",
+  "tech_level_learning": "Изучаю",
+  "tech_category_frontend": "Frontend",
+  "tech_category_backend": "Backend",
+  "tech_category_both": "Frontend и Backend",
+  "tech_info_level": "Уровень",
+  "tech_info_category": "Категория",
+  "tech_info_technology": "Технология"
 }

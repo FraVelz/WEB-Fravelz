@@ -1,0 +1,16 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "", children } = Astro.props;
+---
+
+<p class={`
+  wrap-break-word
+  min-w-0
+  text-justify
+  ${className}
+`}>
+  <slot>{children}</slot>
+</p>

@@ -3,5 +3,11 @@
   "ir_abajo": "Вниз",
   "autor": "Автор",
   "proyectos_personales": "Личные проекты",
-  "info_more_info": "Подробнее"
+  "info_more_info": "Подробнее",
+  "dev_warning": "Этот веб-сайт находится в разработке. Он может содержать ошибки или неожиданные изменения.",
+  "nav_presentation": "Презентация",
+  "nav_projects": "Проекты",
+  "nav_technologies": "Технологии",
+  "nav_about": "Обо мне",
+  "more_projects": "Посмотреть больше проектов"
 }

@@ -1,11 +1,19 @@
 {
   "tech_title": "Tecnologías",
-  "tech_basic_title": "Bases & Básico",
-  "tech_basic_desc": "OSINT básico, anonimato y privacidad, redes, Linux y Windows",
-  "tech_automation_title": "Automatización & Scripting",
-  "tech_automation_desc": "Python, Bash Script",
-  "tech_network_title": "Redes, Seguridad y Más",
-  "tech_network_desc": "Nmap, análisis de redes",
-  "tech_web_title": "Web",
-  "tech_web_desc": "..."
+  "tech_basic_title": "Frontend",
+  "tech_basic_desc": "HTML5, CSS3, JavaScript (ES6+), Astro, React, Tailwind CSS, Responsive Design",
+  "tech_automation_title": "Fortaleciendo conocimientos...",
+  "tech_automation_desc": "...",
+  "tech_network_title": "Lista de cosas nuevas a aprender.",
+  "tech_network_desc": "Typescript",
+  "tech_web_title": "...",
+  "tech_level_basic": "Básico",
+  "tech_level_intermediate": "Intermedio",
+  "tech_level_learning": "Aprendiendo",
+  "tech_category_frontend": "Frontend",
+  "tech_category_backend": "Backend",
+  "tech_category_both": "Frontend y Backend",
+  "tech_info_level": "Nivel",
+  "tech_info_category": "Categoría",
+  "tech_info_technology": "Tecnología"
 }

@@ -1,0 +1,59 @@
+---
+import ElementsHeader from "./ElementsHeader.astro";
+import MobileDrawer from "./MobileDrawer.astro";
+
+import { t, type Language, languages } from "@/utils/i18n";
+
+const param = Astro.params.lang;
+
+const lang: Language = languages.includes(param as Language)
+  ? (param as Language)
+  : "es";
+---
+
+<header class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/50">
+  <div
+    class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"
+  >
+    <!-- Logo -->
+    <button class="text-3xl font-bold text-gray-900 dark:text-gray-100"> Fravelz </button>
+
+    <!-- Desktop -->
+     <div class="hidden lg:flex justify-between flex-1">
+      <ElementsHeader lang={lang} />
+    </div>
+
+    <!-- Mobile Button -->
+    <button
+      data-drawer-open
+      class="lg:hidden text-2xl text-gray-700 dark:text-gray-300"
+      aria-label="Abrir menú"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-10"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div
+    aria-hidden
+    class="pointer-events-none absolute bottom-0 left-0 w-full h-px
+    bg-gradient-to-r from-transparent via-gray-600/80 dark:via-gray-600/80 via-gray-300/80 to-transparent"
+  >
+  </div>
+
+  <!-- Mobile Drawer -->
+  <MobileDrawer>
+    <ElementsHeader lang={lang} />
+  </MobileDrawer>
+</header>

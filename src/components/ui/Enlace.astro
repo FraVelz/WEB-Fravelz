@@ -1,0 +1,61 @@
+---
+const { href, target = '_self', className = '' } = Astro.props
+const isAnchor = href?.startsWith('#')
+---
+
+<a
+  href={href}
+  target={target}
+  draggable='false'
+  class={`select-none text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200 ${className}`}
+  data-smooth-scroll={isAnchor ? 'true' : undefined}
+>
+  <slot />
+</a>
+
+<script is:inline>
+  (function() {
+    if (window.__smoothScrollInitialized) return
+    window.__smoothScrollInitialized = true
+
+    function handleSmoothScroll(e) {
+      const link = e.target.closest('a[data-smooth-scroll="true"]')
+      if (!link) return
+
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) return
+
+      e.preventDefault()
+      e.stopPropagation()
+      e.stopImmediatePropagation()
+
+      const id = href.slice(1)
+      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+
+      if (!el) {
+        console.warn('Anchor target not found:', href)
+        return false
+      }
+
+      const header = document.querySelector('header')
+      const offset = header ? header.offsetHeight + 8 : 8
+
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth',
+      })
+
+      // Actualizar URL sin hacer scroll
+      if (history.pushState) {
+        history.pushState(null, '', href)
+      }
+
+      return false
+    }
+
+    // Usar capture phase para interceptar antes que otros handlers
+    document.addEventListener('click', handleSmoothScroll, true)
+  })()
+</script>

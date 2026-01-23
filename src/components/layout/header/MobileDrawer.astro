@@ -1,0 +1,70 @@
+<!-- Overlay -->
+<div
+  data-drawer-overlay
+  class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm
+    transition-opacity duration-300
+    opacity-0 pointer-events-none
+    lg:hidden"
+>
+</div>
+
+<!-- Drawer -->
+<aside
+  data-drawer
+  class="fixed top-0 right-0 z-50 h-screen w-[85%] max-w-sm overflow-y-scroll
+    bg-gray-900 dark:bg-gray-900 bg-white
+    transform translate-x-full
+    transition-transform duration-300 ease-in-out
+    lg:hidden"
+>
+  <!-- Header -->
+  <div class="flex justify-between items-center p-5 border-b border-gray-700 dark:border-gray-700 border-gray-300">
+    <span class="text-lg font-semibold text-gray-900 dark:text-gray-100">Menú</span>
+
+    <button
+      data-drawer-close
+      aria-label="Cerrar menú"
+      class="text-2xl text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5 flex flex-col gap-5 text-center">
+    <slot />
+  </div>
+</aside>
+
+<script is:inline>
+  const openBtn = document.querySelector("[data-drawer-open]");
+  const closeBtn = document.querySelector("[data-drawer-close]");
+  const drawer = document.querySelector("[data-drawer]");
+  const overlay = document.querySelector("[data-drawer-overlay]");
+
+  const openDrawer = () => {
+    drawer?.classList.remove("translate-x-full");
+    overlay?.classList.remove("opacity-0", "pointer-events-none");
+  };
+
+  const closeDrawer = () => {
+    drawer?.classList.add("translate-x-full");
+    overlay?.classList.add("opacity-0", "pointer-events-none");
+  };
+
+  openBtn?.addEventListener("click", openDrawer);
+  closeBtn?.addEventListener("click", closeDrawer);
+  overlay?.addEventListener("click", closeDrawer);
+</script>

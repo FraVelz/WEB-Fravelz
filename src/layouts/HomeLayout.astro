@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+interface Props { title?: string; }
+
+// Components Layout
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/header/Header.astro";
+import Main from "@/components/layout/HomeMain.astro";
+import DevelopmentWarning from "@/components/ui/DevelopmentWarning.astro";
+
+import { resolveLang } from "@/utils/lang";
+const { lang, t } = resolveLang(Astro.url.pathname);
+
+const { title } = Astro.props;
+---
+
+<Layout title={title} lang={lang}>
+    None
+    <Header />
+    <DevelopmentWarning lang={lang} />
+
+    <main class="flex justify-center">
+        <Main />
+    </main>
+
+    <Footer />
+</Layout>

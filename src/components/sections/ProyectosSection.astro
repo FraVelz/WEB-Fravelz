@@ -1,0 +1,22 @@
+---
+import { getTranslations, type Language, languages } from "../../utils/i18n";
+import ProyectosHackingSectionClient from "../ui/ProyectosHackingSection";
+
+interface Props {
+  lang?: Language;
+}
+
+// Obtener el idioma de props o de los parámetros de Astro
+const param = Astro.params.lang;
+const lang: Language = Astro.props.lang
+  ? Astro.props.lang
+  : languages.includes(param as Language)
+    ? (param as Language)
+    : "es";
+
+const t = getTranslations(lang);
+---
+
+<section id="proyectos" class="mt-10">
+  <ProyectosHackingSectionClient client:load lang={lang} />
+</section>

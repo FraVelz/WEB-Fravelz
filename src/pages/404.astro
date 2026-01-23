@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+interface Props { title?: string; }
+
+// Components Layout
+import Footer from "@/components/layout/Footer.astro";
+
+// Import and configuration languages
+import { resolveLang } from "@/utils/lang";
+const { lang, t } = resolveLang(Astro.url.pathname);
+
+const { title } = Astro.props;
+---
+
+<Layout title={title} lang={lang}>
+    <p>Error404:</p>
+</Layout>
+
+
