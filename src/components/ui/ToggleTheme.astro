@@ -13,12 +13,13 @@ const { classname } = Astro.props;
     type="button"
     aria-label="Cambiar entre tema claro y oscuro"
     class="relative w-14 h-8 rounded-full
-           bg-gray-300 dark:bg-gray-700
-           border-2 border-gray-400 dark:border-gray-600
+           bg-slate-200 dark:bg-gray-700
+           border-2 border-slate-300 dark:border-gray-600
            transition-all duration-300 ease-in-out
            focus:outline-none focus:ring-2 focus:ring-cyan-500/50
            hover:scale-105 active:scale-95
-           cursor-pointer"
+           hover:border-cyan-400 dark:hover:border-cyan-500
+           cursor-pointer shadow-sm"
   >
     <!-- Slider circle -->
     <span
@@ -150,11 +151,18 @@ const { classname } = Astro.props;
         localStorage.setItem("theme", initialTheme ? "dark" : "light");
       }
 
-      // Aplicar tema inicial (sincroniza el slider y los iconos con el estado actual)
-      // Pequeño delay para asegurar que los elementos estén en el DOM
-      setTimeout(() => {
+      // Aplicar tema inicial inmediatamente (sincroniza el slider y los iconos con el estado actual)
+      // Usar requestAnimationFrame para asegurar que el DOM esté listo
+      const initTheme = () => {
         applyTheme(initialTheme);
-      }, 0);
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+      } else {
+        // Si el DOM ya está listo, ejecutar inmediatamente
+        requestAnimationFrame(initTheme);
+      }
 
       // Listener para clicks con capture para asegurar que se ejecute
       toggle.addEventListener("click", toggleTheme, {
@@ -173,11 +181,29 @@ const { classname } = Astro.props;
       });
     }
 
-    // Ejecutar cuando el DOM esté listo
+    // Ejecutar inmediatamente si el DOM ya está listo, o esperar a que esté listo
+    // Usar múltiples estrategias para asegurar que se ejecute lo antes posible
+    const tryInit = () => {
+      if (document.getElementById("theme-toggle")) {
+        initThemeToggle();
+      } else {
+        // Si el elemento aún no existe, esperar un poco más
+        requestAnimationFrame(() => {
+          if (document.getElementById("theme-toggle")) {
+            initThemeToggle();
+          } else {
+            // Último intento después de un pequeño delay
+            setTimeout(tryInit, 50);
+          }
+        });
+      }
+    };
+
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initThemeToggle);
+      document.addEventListener("DOMContentLoaded", tryInit);
     } else {
-      initThemeToggle();
+      // Si el DOM ya está listo, intentar inmediatamente
+      tryInit();
     }
   })();
 </script>

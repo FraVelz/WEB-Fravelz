@@ -1,50 +1,55 @@
 ---
 // Import and configuration languages
-import { t, type Language, languages } from "@/utils/i18n";
+import { getTranslations, type Language, languages } from "@/utils/i18n";
+
+interface Props {
+  lang?: Language;
+}
 
 const param = Astro.params.lang;
+const lang: Language = Astro.props.lang 
+  ? Astro.props.lang 
+  : (languages.includes(param as Language) ? (param as Language) : "es");
 
-const lang: Language = languages.includes(param as Language)
-  ? (param as Language)
-  : "es";
+const t = getTranslations(lang);
 ---
 
 <section id="pasatiempos" class="mt-10 w-full">
   <h2
     class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2"
   >
-    {t("info_hobbies_title", lang)}
+    {t.info_hobbies_title}
   </h2>
   <ul class="cursor-default text-gray-700 dark:text-gray-300 space-y-2 list-none">
     <li class="flex items-center hover:translate-x-2 transition-transform">
       <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg"
         >◆</span
       >
-      {t("hobbies_exercise", lang)}
+      {t.hobbies_exercise}
     </li>
     <li class="flex items-center hover:translate-x-2 transition-transform">
       <span draggable="false" class="select-none text-purple-500 dark:text-purple-400 mr-3 text-lg"
         >◆</span
       >
-      {t("hobbies_piano", lang)}
+      {t.hobbies_piano}
     </li>
     <li class="flex items-center hover:translate-x-2 transition-transform">
       <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg"
         >◆</span
       >
-      {t("hobbies_webdev", lang)}
+      {t.hobbies_webdev}
     </li>
     <li class="flex items-center hover:translate-x-2 transition-transform">
       <span draggable="false" class="select-none text-purple-500 dark:text-purple-400 mr-3 text-lg"
         >◆</span
       >
-      {t("hobbies_linux", lang)}
+      {t.hobbies_linux}
     </li>
     <li class="flex items-center hover:translate-x-2 transition-transform">
       <span draggable="false" class="select-none text-cyan-500 dark:text-cyan-400 mr-3 text-lg"
         >◆</span
       >
-      {t("hobbies_typing_label", lang)}
+      {t.hobbies_typing_label}
       (      <a
         href="https://monkeytype.com/profile/Fravelz"
         target="_blank"
@@ -54,7 +59,7 @@ const lang: Language = languages.includes(param as Language)
                underline underline-offset-2 decoration-dotted 
                transition-colors duration-200"
       >
-        {t("hobbies_typing_link", lang)}
+        {t.hobbies_typing_link}
       </a>)
     </li>
   </ul>

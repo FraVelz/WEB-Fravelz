@@ -1,7 +1,7 @@
 ---
 import Enlace from "@/components/ui/Enlace.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
-import MusicButton from "@/components/ui/MusicButton";
+import MusicButton from "@/components/ui-react/MusicButton";
 import { getTranslations, type Language, languages } from "@/utils/i18n";
 
 interface Props {
@@ -38,7 +38,7 @@ const t = getTranslations(lang);
     <label for="select-language" class="sr-only"> Seleccionar idioma </label>
 
     <svg
-      class="text-cyan-200 dark:text-cyan-200 text-cyan-600 hover:text-cyan-300 dark:hover:text-cyan-300 hover:text-cyan-500 size-5"
+      class="text-cyan-600 dark:text-cyan-200 hover:text-cyan-700 dark:hover:text-cyan-300 size-5 transition-colors"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -54,13 +54,14 @@ const t = getTranslations(lang);
 
     <select
       id="select-language"
-      class="bg-gray-800 dark:bg-gray-800 bg-gray-100 text-cyan-200 dark:text-cyan-200 text-gray-800
-                border border-cyan-500/30 dark:border-cyan-500/30 border-gray-400
-                hover:border-cyan-400/60 dark:hover:border-cyan-400/60 hover:border-cyan-500
+      class="bg-blue-50 dark:bg-gray-800 text-cyan-700 dark:text-cyan-200
+                border border-cyan-300/60 dark:border-cyan-500/30
+                hover:border-cyan-500 dark:hover:border-cyan-400/60
                 rounded px-2 py-1
                 text-sm
                 transition-all
-                cursor-pointer"
+                cursor-pointer
+                shadow-sm"
       aria-label="Seleccionar idioma de la página"
     >
       <option value="es">Español</option>

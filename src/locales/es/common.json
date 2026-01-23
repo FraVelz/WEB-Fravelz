@@ -8,5 +8,17 @@
   "nav_projects": "Proyectos",
   "nav_technologies": "Tecnología",
   "nav_about": "Sobre Mí",
-  "more_projects": "Ver más proyectos"
+  "more_projects": "Ver más proyectos",
+  "projects_all": "Todos",
+  "projects_no_projects": "No hay proyectos con ese tag.",
+  "project_about": "Acerca del proyecto",
+  "project_features": "Características",
+  "project_screenshots": "Capturas de pantalla",
+  "project_technologies": "Tecnologías",
+  "project_visit_web": "Visitar sitio web",
+  "project_view_github": "Ver en GitHub",
+  "project_info": "Info",
+  "project_coming_soon": "Próximamente",
+  "project_web": "Web",
+  "project_github": "GitHub"
 }

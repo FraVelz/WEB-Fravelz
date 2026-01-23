@@ -14,11 +14,11 @@ export default function CopyEmailButton({ email, successText, lang = 'es' }: Cop
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
-      
+
       // Restaurar el texto original después de 2 segundos
       setTimeout(() => {
         setCopied(false);
-      }, 2000);
+      }, 3000);
     } catch (err) {
       console.error('Error al copiar el correo:', err);
       // Fallback para navegadores que no soportan clipboard API
@@ -47,25 +47,17 @@ export default function CopyEmailButton({ email, successText, lang = 'es' }: Cop
       className={`
         flex items-center gap-2
         text-sm 
-        ${copied 
-          ? 'text-green-600 dark:text-green-400' 
-          : 'text-purple-600 dark:text-purple-300'
-        }
         max-w-fit pr-3
         p-1
-        bg-gray-100 dark:bg-gray-900 
         px-2 
         rounded-full
-        border ${copied 
-          ? 'border-green-400/50 dark:border-green-500/40' 
-          : 'border-purple-400/50 dark:border-purple-500/40'
-        }
-        hover:border-purple-500 dark:hover:border-purple-400/60
-        hover:text-purple-700 dark:hover:text-purple-200
+        border
         transition-all duration-300
         cursor-pointer 
-        hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-500/10 hover:shadow-purple-500/20
-        ${copied ? 'scale-105' : ''}
+        ${copied
+          ? 'text-green-600 dark:text-green-400 border-green-400/60 dark:border-green-500/40 bg-green-50 dark:bg-gray-900 scale-105'
+          : 'text-purple-600 dark:text-purple-300 border-purple-300/60 dark:border-purple-500/40 bg-purple-50 dark:bg-gray-900 hover:border-purple-500 dark:hover:border-purple-400/60 hover:text-purple-700 dark:hover:text-purple-200 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-purple-500/10'
+        }
       `}
       aria-label="Copiar dirección de correo electrónico"
     >

@@ -15,5 +15,7 @@
   "tech_category_both": "Frontend y Backend",
   "tech_info_level": "Nivel",
   "tech_info_category": "Categoría",
-  "tech_info_technology": "Tecnología"
+  "tech_info_technology": "Tecnología",
+  "tech_show_info": "Mostrar información",
+  "tech_hide_info": "Ocultar información"
 }

@@ -10,19 +10,21 @@ import PasatiemposSection from "@/components/sections/PasatiemposSection.astro";
 import SobreMiSection from "@/components/sections/SobreMiSection.astro";
 
 // Import and configuration languages
-import { t, type Language, languages } from "@/utils/i18n";
+import { getTranslations, type Language, languages } from "@/utils/i18n";
 
 const param = Astro.params.lang;
 
 const lang: Language = languages.includes(param as Language)
   ? (param as Language)
   : "es";
+
+const t = getTranslations(lang);
 ---
 
 <div
   class="px-2 py-20 flex flex-col items-center gap-15 sm:justify-center max-w-6xl"
 >
-  <Presentacion />
+  <Presentacion lang={lang} />
 
   <!-- Indicador para bajar -->
   <div class="flex h-fit w-fit px-3 py-5 justify-center">
@@ -46,7 +48,7 @@ const lang: Language = languages.includes(param as Language)
           d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path>
       </svg>
 
-      {t("ir_abajo", lang)}
+      {t.ir_abajo}
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -65,15 +67,15 @@ const lang: Language = languages.includes(param as Language)
   </div>
 
   <!-- Sección: Proyectos Principales de Hacking  -->
-  <ProyectosSection />
+  <ProyectosSection lang={lang} />
   <Line />
 
   <!-- Sección: Tecnologías  -->
-  <TecnologiasSection />
+  <TecnologiasSection lang={lang} />
   <Line />
 
   <!-- Sección: Sobre Mí -->
-  <SobreMiSection />
+  <SobreMiSection lang={lang} />
 
-  <PasatiemposSection />
+  <PasatiemposSection lang={lang} />
 </div>

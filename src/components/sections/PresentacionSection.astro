@@ -1,53 +1,64 @@
 ---
-import CopyEmailButton from "@/components/ui/CopyEmailButton";
+import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
-import { t, type Language, languages } from "@/utils/i18n";
+import { getTranslations, type Language, languages } from "@/utils/i18n";
 
-// Obtener el idioma de los parámetros de Astro
+interface Props {
+  lang?: Language;
+}
+
+// Obtener el idioma de props o de los parámetros de Astro
 const param = Astro.params.lang;
-const lang: Language = languages.includes(param as Language)
-  ? (param as Language)
-  : "es";
+const lang: Language = Astro.props.lang
+  ? Astro.props.lang
+  : languages.includes(param as Language)
+    ? (param as Language)
+    : "es";
+
+const t = getTranslations(lang);
 ---
 
 <section
   id="presentacion"
-  class="py-12 sm:py-16 lg:py-24 
+  class="py-12 sm:py-16 lg:py-24
          grid grid-cols-1 gap-6
          lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto]
          items-center lg:items-start"
 >
   <!-- Logo con borde animado -->
-  <div class="row-span-2 lg:row-span-3
+  <div
+    class="row-span-2 lg:row-span-3
               relative
               h-32 w-32 mx-auto
               sm:h-48 sm:w-48
               lg:h-64 lg:w-64 lg:mr-6
-              flex-shrink-0">
+              flex-shrink-0"
+  >
     <!-- Borde giratorio -->
     <div
       class="absolute inset-0
              rounded-full
              p-3 sm:p-4
-             bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500
-             animate-[spin_2s_linear_infinite]
-             shadow-lg shadow-cyan-500/20"
+             bg-gradient-to-r from-cyan-500 via-transparent to-cyan-500
+             animate-[spin_2s_linear_infinite]"
       aria-hidden="true"
     >
     </div>
-    
+
     <!-- Imagen del logo -->
-    <div class="absolute inset-1 sm:inset-2 
-                rounded-full 
-                bg-gray-100 dark:bg-gray-900 
-                z-10 
+    <div
+      class="absolute inset-1 sm:inset-2
+                rounded-full
+                bg-gray-100 dark:bg-gray-900
+                z-10
                 overflow-hidden
-                shadow-inner">
+                shadow-inner"
+    >
       <img
         draggable="false"
         class="h-full w-full rounded-full object-cover select-none"
         src="/imagenes/logo-fravelz.jpg"
-        alt={t("hero_logo_alt", lang)}
+        alt={t.hero_logo_alt}
         width="256"
         height="256"
       />
@@ -67,20 +78,26 @@ const lang: Language = languages.includes(param as Language)
 
   <!-- Información y enlaces -->
   <div class="flex flex-col gap-4">
-    <p class="text-base sm:text-lg 
-              text-cyan-600 dark:text-cyan-300 
+    <p
+      class="text-base sm:text-lg
+              text-cyan-600 dark:text-cyan-300
               font-semibold
-              text-center lg:text-left">@Fravelz</p>
+              text-center lg:text-left"
+    >
+      @Fravelz
+    </p>
 
-    <div class="flex flex-wrap justify-center lg:justify-start
+    <div
+      class="flex flex-wrap justify-center lg:justify-start
                 items-center
-                gap-2 sm:gap-3">
-      <LocationBadge text={t("hero_location", lang)} />
+                gap-2 sm:gap-3"
+    >
+      <LocationBadge text={t.hero_location} />
 
       <CopyEmailButton
         client:load
         email="fravelz@proton.me"
-        successText={t("hero_copy_success", lang)}
+        successText={t.hero_copy_success}
         lang={lang}
       />
     </div>
@@ -88,16 +105,20 @@ const lang: Language = languages.includes(param as Language)
 
   <!-- Descripción -->
   <div class="lg:col-start-2 flex flex-col gap-2">
-    <p class="text-base sm:text-lg 
+    <p
+      class="text-base sm:text-lg
               text-gray-700 dark:text-gray-200
-              text-center lg:text-left">
-      {t("hola", lang)}
+              text-center lg:text-left"
+    >
+      {t.hola}
     </p>
-    <p class="text-lg sm:text-xl
+    <p
+      class="text-lg sm:text-xl
               text-cyan-600 dark:text-cyan-100
               font-bold
-              text-center lg:text-left">
-      {t("futuro_pentester", lang)}
+              text-center lg:text-left"
+    >
+      {t.futuro_pentester}
     </p>
   </div>
 </section>

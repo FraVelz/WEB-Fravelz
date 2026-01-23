@@ -128,7 +128,7 @@ export default function ProyectosHackingSection({ lang = 'es' }: ProyectosHackin
                 : 'bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70'
             }`}
         >
-          Todos
+          {(t as any).projects_all || "Todos"}
         </button>
         {allTags.map(tag => (
           <button
@@ -162,7 +162,7 @@ export default function ProyectosHackingSection({ lang = 'es' }: ProyectosHackin
           ))
         ) : (
           <p className="text-center text-gray-600 dark:text-gray-400 col-span-full py-8">
-            No hay proyectos con ese tag.
+            {(t as any).projects_no_projects || "No hay proyectos con ese tag."}
           </p>
         )}
       </div>

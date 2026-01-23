@@ -13,7 +13,7 @@ export default function MusicButton({ lang = 'es' }: MusicButtonProps) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+        className="cursor-pointer text-slate-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1 rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
         aria-label="Abrir reproductor de música"
         title="Reproductor de música"
       >

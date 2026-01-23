@@ -1,11 +1,16 @@
 ---
-import { t, type Language, languages } from "@/utils/i18n";
+import { getTranslations, type Language, languages } from "@/utils/i18n";
+
+interface Props {
+  lang?: Language;
+}
 
 const param = Astro.params.lang;
+const lang: Language = Astro.props.lang 
+  ? Astro.props.lang 
+  : (languages.includes(param as Language) ? (param as Language) : "es");
 
-const lang: Language = languages.includes(param as Language)
-  ? (param as Language)
-  : "es";
+const t = getTranslations(lang);
 ---
 
 <footer
@@ -17,6 +22,6 @@ const lang: Language = languages.includes(param as Language)
   "
 >
   <p class="text-gray-600 dark:text-gray-400 mb-2">
-    {t("footer.author", lang)}
+    {(t as any)["footer.author"] || t.autor}
   </p>
 </footer>

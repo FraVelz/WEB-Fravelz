@@ -3,7 +3,7 @@ interface Props {
   className?: string;
 }
 
-const { className = "", children } = Astro.props;
+const { className = "" } = Astro.props;
 ---
 
 <p class={`
@@ -12,5 +12,5 @@ const { className = "", children } = Astro.props;
   text-justify
   ${className}
 `}>
-  <slot>{children}</slot>
+  <slot />
 </p>

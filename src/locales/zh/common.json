@@ -9,5 +9,17 @@
   "nav_projects": "项目",
   "nav_technologies": "技术",
   "nav_about": "关于我",
-  "more_projects": "查看更多项目"
+  "more_projects": "查看更多项目",
+  "projects_all": "全部",
+  "projects_no_projects": "没有该标签的项目。",
+  "project_about": "关于项目",
+  "project_features": "特点",
+  "project_screenshots": "截图",
+  "project_technologies": "技术",
+  "project_visit_web": "访问网站",
+  "project_view_github": "在GitHub上查看",
+  "project_info": "信息",
+  "project_coming_soon": "即将推出",
+  "project_web": "网站",
+  "project_github": "GitHub"
 }

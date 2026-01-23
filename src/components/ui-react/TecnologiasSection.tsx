@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { getTranslations, type Language } from '../../utils/i18n';
-import ModalInfo from './ModalInfo';
 
 interface Technology {
   id: string;
@@ -20,7 +19,7 @@ interface TecnologiasSectionProps {
 
 export default function TecnologiasSection({ lang = 'es' }: TecnologiasSectionProps) {
   const t = getTranslations(lang);
-  const [selectedTech, setSelectedTech] = useState<Technology | null>(null);
+  const [showInfo, setShowInfo] = useState(false);
 
   const technologies: Technology[] = [
     {
@@ -129,19 +128,58 @@ export default function TecnologiasSection({ lang = 'es' }: TecnologiasSectionPr
   };
 
   return (
-    <>
-      <section id="tecnologia" className="w-full">
-        <h2 className="text-center text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+    <section id="tecnologia" className="w-full">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8">
+        <h2 className="text-center text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
           {t.tech_title || 'Tecnologías'}
         </h2>
+        
+        <button
+          onClick={() => setShowInfo(!showInfo)}
+          className={`
+            flex items-center gap-2 px-4 py-2 rounded-xl
+            transition-all duration-300
+            font-semibold text-sm sm:text-base
+            ${showInfo
+              ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50'
+              : 'bg-cyan-500/20 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-300 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 dark:hover:border-cyan-400/70'
+            }
+            hover:scale-105 active:scale-95
+            cursor-pointer
+          `}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            className={`w-5 h-5 transition-transform duration-300 ${showInfo ? 'rotate-180' : ''}`}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+            />
+          </svg>
+          <span>
+            {showInfo 
+              ? ((t as any).tech_hide_info || 'Ocultar información') 
+              : ((t as any).tech_show_info || 'Mostrar información')
+            }
+          </span>
+        </button>
+      </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {technologies.map((tech) => (
-            <button
-              key={tech.id}
-              onClick={() => setSelectedTech(tech)}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        {technologies.map((tech) => (
+          <div
+            key={tech.id}
+            className="group relative"
+          >
+            <div
               className={`
-                group relative
+                relative
                 bg-gradient-to-br ${tech.color} ${tech.darkColor}
                 dark:from-gray-800 dark:to-gray-900
                 from-gray-100 to-gray-200
@@ -153,68 +191,59 @@ export default function TecnologiasSection({ lang = 'es' }: TecnologiasSectionPr
                 hover:shadow-xl hover:shadow-cyan-500/20 dark:hover:shadow-cyan-500/40
                 hover:scale-105 active:scale-95
                 flex flex-col items-center justify-center gap-3
-                cursor-pointer
-                overflow-hidden
+                overflow-visible
+                ${showInfo ? 'pb-20 sm:pb-24' : ''}
               `}
             >
               <div 
-                className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center"
+                className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center z-10"
                 dangerouslySetInnerHTML={{ __html: tech.svg }}
               />
-              <h3 className="text-sm sm:text-base font-bold text-white dark:text-gray-100 text-center">
+              <h3 className="text-sm sm:text-base font-bold text-white dark:text-gray-100 text-center z-10">
                 {tech.name}
               </h3>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </button>
-          ))}
-        </div>
-      </section>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+              
+              {/* Información que aparece encima */}
+              {showInfo && (
+                <div className={`
+                  absolute bottom-0 left-0 right-0
+                  bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95
+                  dark:from-gray-900/95 dark:via-gray-800/95 dark:to-gray-900/95
+                  from-white/95 via-gray-50/95 to-white/95
+                  backdrop-blur-sm
+                  rounded-b-2xl
+                  p-3 sm:p-4
+                  border-t border-cyan-400/30 dark:border-cyan-500/30
+                  animate-fadeIn
+                  z-20
+                  shadow-lg
+                `}>
+                  <div className="space-y-2 text-xs sm:text-sm">
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-gray-300 dark:text-gray-400">
+                        {(t as any).tech_info_level || 'Nivel'}:
+                      </span>
+                      <span className={`font-bold ${getLevelColor(tech.level)}`}>
+                        {(t as any)[tech.levelKey] || tech.level}
+                      </span>
+                    </div>
 
-      {selectedTech && (
-        <ModalInfo
-          isOpen={!!selectedTech}
-          onClose={() => setSelectedTech(null)}
-          title={selectedTech.name}
-        >
-          <div className="space-y-4">
-            <div className="flex items-center justify-center mb-4">
-              <div 
-                className="w-20 h-20 flex items-center justify-center"
-                dangerouslySetInnerHTML={{ __html: selectedTech.svg }}
-              />
-            </div>
-
-            <div className="space-y-3">
-              <div>
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
-                  {(t as any).tech_info_level || 'Nivel'}:{' '}
-                </span>
-                <span className={`font-bold ${getLevelColor(selectedTech.level)}`}>
-                  {(t as any)[selectedTech.levelKey] || selectedTech.level}
-                </span>
-              </div>
-
-              <div>
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
-                  {(t as any).tech_info_category || 'Categoría'}:{' '}
-                </span>
-                <span className={`font-bold ${getCategoryColor(selectedTech.category)}`}>
-                  {(t as any)[selectedTech.categoryKey] || selectedTech.category}
-                </span>
-              </div>
-
-              <div>
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
-                  {(t as any).tech_info_technology || 'Tecnología'}:{' '}
-                </span>
-                <span className="text-gray-700 dark:text-gray-300">
-                  {selectedTech.name}
-                </span>
-              </div>
+                    <div className="flex items-center justify-between">
+                      <span className="font-semibold text-gray-300 dark:text-gray-400">
+                        {(t as any).tech_info_category || 'Categoría'}:
+                      </span>
+                      <span className={`font-bold ${getCategoryColor(tech.category)}`}>
+                        {(t as any)[tech.categoryKey] || tech.category}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </ModalInfo>
-      )}
-    </>
+        ))}
+      </div>
+    </section>
   );
 }

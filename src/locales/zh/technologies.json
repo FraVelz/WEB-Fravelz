@@ -16,5 +16,7 @@
   "tech_category_both": "前端和后端",
   "tech_info_level": "水平",
   "tech_info_category": "类别",
-  "tech_info_technology": "技术"
+  "tech_info_technology": "技术",
+  "tech_show_info": "显示信息",
+  "tech_hide_info": "隐藏信息"
 }

@@ -9,5 +9,17 @@
   "nav_projects": "Проекты",
   "nav_technologies": "Технологии",
   "nav_about": "Обо мне",
-  "more_projects": "Посмотреть больше проектов"
+  "more_projects": "Посмотреть больше проектов",
+  "projects_all": "Все",
+  "projects_no_projects": "Нет проектов с этим тегом.",
+  "project_about": "О проекте",
+  "project_features": "Особенности",
+  "project_screenshots": "Скриншоты",
+  "project_technologies": "Технологии",
+  "project_visit_web": "Посетить сайт",
+  "project_view_github": "Посмотреть на GitHub",
+  "project_info": "Инфо",
+  "project_coming_soon": "Скоро",
+  "project_web": "Веб",
+  "project_github": "GitHub"
 }

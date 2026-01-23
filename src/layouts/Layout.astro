@@ -87,25 +87,46 @@ const baseUrl = import.meta.env.BASE_URL || '';
 
     <title>{title}</title>
 
+    <!-- Script crítico: debe ejecutarse ANTES de cualquier otro script o estilo -->
     <script is:inline>
       (function() {
+        // Ejecutar inmediatamente, antes de que se renderice cualquier contenido
+        // Este script debe estar en el <head> para evitar FOUC
         try {
-          const getSystemTheme = () =>
-            window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+          const getSystemTheme = () => {
+            if (typeof window === 'undefined' || !window.matchMedia) return "light";
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          };
 
-          const storedTheme = localStorage.getItem("theme") || "auto";
+          // Leer tema guardado
+          let storedTheme = "auto";
+          try {
+            storedTheme = localStorage.getItem("theme") || "auto";
+          } catch (e) {
+            // Si localStorage no está disponible, usar auto
+            storedTheme = "auto";
+          }
+
           const finalTheme = storedTheme === "auto" ? getSystemTheme() : storedTheme;
 
+          // Aplicar tema inmediatamente - esto previene el flash de contenido sin estilo
           if (finalTheme === "dark") {
             document.documentElement.classList.add("dark");
+            document.documentElement.setAttribute("data-theme", "dark");
           } else {
             document.documentElement.classList.remove("dark");
+            document.documentElement.removeAttribute("data-theme");
           }
+
+          // Prevenir FOUC (Flash of Unstyled Content)
+          document.documentElement.style.colorScheme = finalTheme;
+          
+          // Marcar que el tema ya fue inicializado
+          document.documentElement.setAttribute("data-theme-initialized", "true");
         } catch (e) {
           // Si hay error, usar tema claro por defecto
           document.documentElement.classList.remove("dark");
+          document.documentElement.style.colorScheme = "light";
         }
       })();
     </script>
@@ -116,8 +137,8 @@ const baseUrl = import.meta.env.BASE_URL || '';
   class="h-fit
     scroll-smooth
     dark:bg-gradient-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
-    bg-gradient-to-b from-gray-50 via-white to-gray-50
-    dark:text-white text-gray-900
+    bg-gradient-to-b from-slate-50 via-white to-blue-50
+    dark:text-white text-slate-900
     selection:bg-blue-500 dark:selection:bg-blue-500 selection:text-white
     min-h-screen"
 >
