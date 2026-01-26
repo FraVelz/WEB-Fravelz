@@ -5,34 +5,36 @@ import Footer from "@/components/layout/Footer.astro";
 import { getTranslations } from "@/utils/i18n";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
-const t = getTranslations('es');
+const t = getTranslations("es");
 ---
 
 <Layout title="404 - Página no encontrada | Fravelz" lang="es">
-  <Header />
-  
-  <main class="flex flex-col items-center justify-center min-h-screen px-4 py-20">
+  <main class="flex justify-center items-center">
     <div class="max-w-2xl w-full text-center space-y-8">
       <!-- Número 404 con animación -->
       <div class="relative">
-        <h1 class="text-9xl sm:text-[12rem] font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
+        <h1
+          class="text-9xl sm:text-[12rem] font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse"
+        >
           404
         </h1>
-        <div class="absolute inset-0 text-9xl sm:text-[12rem] font-bold text-cyan-500/20 blur-2xl">
+        <div
+          class="absolute inset-0 text-9xl sm:text-[12rem] font-bold text-cyan-500/20 blur-2xl"
+        >
           404
         </div>
       </div>
 
       <!-- Mensaje principal -->
       <div class="space-y-4">
-        <h2 
+        <h2
           class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100"
           data-i18n="error_404_title"
         >
           {t.error_404_title}
         </h2>
-        
-        <p 
+
+        <p
           class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto"
           data-i18n="error_404_description"
         >
@@ -42,61 +44,52 @@ const t = getTranslations('es');
 
       <!-- Ilustración SVG animada -->
       <div class="flex justify-center my-8">
-        <svg 
+        <svg
           class="w-64 h-64 sm:w-80 sm:h-80 text-cyan-500/30 dark:text-cyan-400/20"
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
         >
           <!-- Círculo exterior animado -->
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="80" 
-            fill="none" 
-            stroke="currentColor" 
+          <circle
+            cx="100"
+            cy="100"
+            r="80"
+            fill="none"
+            stroke="currentColor"
             stroke-width="2"
             stroke-dasharray="5,5"
             class="animate-spin"
-            style="animation-duration: 20s;"
-          />
-          
+            style="animation-duration: 20s;"></circle>
+
           <!-- Círculo medio -->
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="50" 
-            fill="none" 
-            stroke="currentColor" 
+          <circle
+            cx="100"
+            cy="100"
+            r="50"
+            fill="none"
+            stroke="currentColor"
             stroke-width="2"
-            opacity="0.5"
-          />
-          
+            opacity="0.5"></circle>
+
           <!-- Círculo interior -->
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="20" 
-            fill="currentColor" 
-            opacity="0.3"
-            class="animate-pulse"
-          />
-          
-          <!-- Punto central -->
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="5" 
+          <circle
+            cx="100"
+            cy="100"
+            r="20"
             fill="currentColor"
-          />
+            opacity="0.3"
+            class="animate-pulse"></circle>
+
+          <!-- Punto central -->
+          <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
         </svg>
       </div>
 
       <!-- Botón para volver al inicio -->
       <div class="pt-4">
-        <a 
-          href="/"
-          class="
-            inline-flex items-center gap-2
+        <a
+          href="https://fravelz.github.io/WEB-Fravelz/"
+          class="inline-flex items-center gap-2
             px-6 py-3
             bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500
             hover:from-cyan-400 hover:via-purple-400 hover:to-cyan-400
@@ -105,64 +98,25 @@ const t = getTranslations('es');
             transition-all duration-300
             hover:shadow-2xl hover:shadow-cyan-500/50
             hover:scale-105 active:scale-95
-            cursor-pointer
-          "
+            cursor-pointer"
           data-i18n="error_404_back_home"
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke-width="2" 
-            stroke="currentColor" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
             class="w-5 h-5"
           >
-            <path 
-              stroke-linecap="round" 
-              stroke-linejoin="round" 
-              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" 
-            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
           </svg>
           {t.error_404_back_home}
         </a>
       </div>
-
-      <!-- Enlaces útiles -->
-      <div class="pt-8 flex flex-wrap justify-center gap-4 text-sm">
-        <a 
-          href="/#presentacion" 
-          class="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline underline-offset-2 transition-colors"
-          data-i18n="nav_presentation"
-        >
-          {t.nav_presentation}
-        </a>
-        <span class="text-gray-400">•</span>
-        <a 
-          href="/#proyectos" 
-          class="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline underline-offset-2 transition-colors"
-          data-i18n="nav_projects"
-        >
-          {t.nav_projects}
-        </a>
-        <span class="text-gray-400">•</span>
-        <a 
-          href="/#tecnologia" 
-          class="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline underline-offset-2 transition-colors"
-          data-i18n="nav_technologies"
-        >
-          {t.nav_technologies}
-        </a>
-        <span class="text-gray-400">•</span>
-        <a 
-          href="/#sobre-mi" 
-          class="text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 underline underline-offset-2 transition-colors"
-          data-i18n="nav_about"
-        >
-          {t.nav_about}
-        </a>
-      </div>
     </div>
   </main>
-
-  <Footer />
 </Layout>
