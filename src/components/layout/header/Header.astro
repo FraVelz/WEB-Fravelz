@@ -1,32 +1,28 @@
 ---
 import ElementsHeader from "./ElementsHeader.astro";
 import MobileDrawer from "./MobileDrawer.astro";
-
-import { t, type Language, languages } from "@/utils/i18n";
-
-const param = Astro.params.lang;
-
-const lang: Language = languages.includes(param as Language)
-  ? (param as Language)
-  : "es";
 ---
 
-<header class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/80 border-b border-gray-200/50 dark:border-gray-700/50">
+<header class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 border-cyan-200/60 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none">
   <div
     class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"
   >
     <!-- Logo -->
-    <button class="text-3xl font-bold text-slate-800 dark:text-gray-100 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"> Fravelz </button>
+    <button id="logo" class="text-3xl font-bold text-slate-900 dark:text-gray-100 transition-colors hover:text-cyan-600 dark:hover:text-cyan-300"> Fravelz </button>
+    <script is:inline>
+      const btn_logo = document.querySelector('#logo')
+      btn_logo.addEventListener("click", () => window.location.reload())
+    </script>
 
     <!-- Desktop -->
      <div class="hidden lg:flex justify-between flex-1">
-      <ElementsHeader lang={lang} />
+      <ElementsHeader />
     </div>
 
     <!-- Mobile Button -->
     <button
       data-drawer-open
-      class="lg:hidden text-2xl text-slate-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
+      class="lg:hidden text-2xl text-slate-800 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
       aria-label="Abrir menú"
     >
       <svg
@@ -48,12 +44,12 @@ const lang: Language = languages.includes(param as Language)
   <div
     aria-hidden
     class="pointer-events-none absolute bottom-0 left-0 w-full h-px
-    bg-gradient-to-r from-transparent via-gray-600/80 dark:via-gray-600/80 via-gray-300/80 to-transparent"
+    bg-gradient-to-r from-transparent via-cyan-400/60 dark:via-gray-600/80 to-transparent"
   >
   </div>
 
   <!-- Mobile Drawer -->
   <MobileDrawer>
-    <ElementsHeader lang={lang} />
+    <ElementsHeader />
   </MobileDrawer>
 </header>

@@ -1,10 +1,110 @@
-# 💡 Mejoras y Consejos para WEB-Fravelz
+# Mejoras y Consejos para WEB-Fravelz
 
 Este documento contiene recomendaciones específicas para mejorar y expandir tu proyecto.
 
 ---
 
-## 🎯 Mejoras Prioritarias (Alta)
+## Temario
+
+- [Mejoras y Consejos para WEB-Fravelz](#mejoras-y-consejos-para-web-fravelz)
+  - [Temario](#temario)
+  - [Mejoras Prioritarias (Alta)](#mejoras-prioritarias-alta)
+    - [1. **Optimización de Imágenes**](#1-optimización-de-imágenes)
+    - [2. **Sistema de Certificaciones Funcional**](#2-sistema-de-certificaciones-funcional)
+    - [3. **Rutas Multi-idioma**](#3-rutas-multi-idioma)
+    - [4. **GitHub Actions para Deploy Automático**](#4-github-actions-para-deploy-automático)
+    - [5. **Analytics y Tracking**](#5-analytics-y-tracking)
+  - [Mejoras de Funcionalidad (Media)](#mejoras-de-funcionalidad-media)
+    - [6. **Formulario de Contacto**](#6-formulario-de-contacto)
+    - [7. **Integración con GitHub API**](#7-integración-con-github-api)
+    - [8. **Sistema de Blog**](#8-sistema-de-blog)
+    - [9. **Búsqueda en el Sitio**](#9-búsqueda-en-el-sitio)
+    - [10. **RSS Feed**](#10-rss-feed)
+  - [Mejoras de Diseño (Media)](#mejoras-de-diseño-media)
+    - [11. **Animaciones de Entrada**](#11-animaciones-de-entrada)
+    - [12. **Particle Background**](#12-particle-background)
+    - [13. **Cursor Personalizado**](#13-cursor-personalizado)
+    - [14. **Scroll Progress Bar**](#14-scroll-progress-bar)
+    - [15. **Theme Toggle Visual Mejorado**](#15-theme-toggle-visual-mejorado)
+  - [Optimizaciones de Rendimiento (Alta)](#optimizaciones-de-rendimiento-alta)
+    - [16. **Service Worker para Cache**](#16-service-worker-para-cache)
+    - [17. **Preload de Recursos Críticos**](#17-preload-de-recursos-críticos)
+    - [18. **Code Splitting Mejorado**](#18-code-splitting-mejorado)
+    - [19. **Lazy Load de Componentes Pesados**](#19-lazy-load-de-componentes-pesados)
+    - [20. **Optimizar Font Awesome**](#20-optimizar-font-awesome)
+  - [Testing y Calidad (Media)](#testing-y-calidad-media)
+    - [21. **Tests Unitarios**](#21-tests-unitarios)
+    - [22. **Tests E2E**](#22-tests-e2e)
+    - [23. **Lighthouse CI**](#23-lighthouse-ci)
+    - [24. **Pre-commit Hooks**](#24-pre-commit-hooks)
+  - [Mejoras Mobile (Media)](#mejoras-mobile-media)
+    - [25. **Mejorar Menú Móvil**](#25-mejorar-menú-móvil)
+    - [26. **Touch Gestures**](#26-touch-gestures)
+    - [27. **PWA Manifest**](#27-pwa-manifest)
+  - [Seguridad y Privacidad (Alta)](#seguridad-y-privacidad-alta)
+    - [28. **Content Security Policy**](#28-content-security-policy)
+    - [29. **HTTPS Only**](#29-https-only)
+    - [30. **Privacy-First Analytics**](#30-privacy-first-analytics)
+  - [Analytics y Métricas (Media)](#analytics-y-métricas-media)
+    - [31. **Web Vitals Tracking**](#31-web-vitals-tracking)
+    - [32. **Error Tracking**](#32-error-tracking)
+    - [33. **Performance Monitoring**](#33-performance-monitoring)
+  - [Aprendizaje y Mejora Continua](#aprendizaje-y-mejora-continua)
+    - [34. **Documentación de Componentes**](#34-documentación-de-componentes)
+    - [35. **Changelog Automático**](#35-changelog-automático)
+    - [36. **Dependabot / Renovate**](#36-dependabot--renovate)
+  - [Herramientas Útiles](#herramientas-útiles)
+    - [Para Desarrollo](#para-desarrollo)
+    - [Para Testing](#para-testing)
+    - [Para Deploy](#para-deploy)
+  - [Checklist de Mejoras](#checklist-de-mejoras)
+    - [Inmediatas (Esta Semana)](#inmediatas-esta-semana)
+    - [Corto Plazo (Este Mes)](#corto-plazo-este-mes)
+    - [Medio Plazo (Próximos 3 Meses)](#medio-plazo-próximos-3-meses)
+    - [Largo Plazo (Futuro)](#largo-plazo-futuro)
+  - [Priorización Sugerida](#priorización-sugerida)
+  - [Notas Finales](#notas-finales)
+    - [Mantenimiento Regular](#mantenimiento-regular)
+    - [Recursos Útiles](#recursos-útiles)
+    - [Comunidad](#comunidad)
+  - [Paleta de Colores](#paleta-de-colores)
+    - [Colores Primarios](#colores-primarios)
+    - [Colores Secundarios](#colores-secundarios)
+    - [Combinaciones Recomendadas](#combinaciones-recomendadas)
+  - [Principios de Diseño](#principios-de-diseño)
+    - [1. **Gradientes en lugar de Colores Sólidos**](#1-gradientes-en-lugar-de-colores-sólidos)
+    - [2. **Opacidad en Bordes y Sombras**](#2-opacidad-en-bordes-y-sombras)
+    - [3. **Transiciones Suaves**](#3-transiciones-suaves)
+    - [4. **Jerarquía de Color**](#4-jerarquía-de-color)
+  - [Componentes Visuales](#componentes-visuales)
+    - [Tarjetas/Contenedores](#tarjetascontenedores)
+    - [Botones](#botones)
+    - [Textos](#textos)
+    - [Líneas Separadoras](#líneas-separadoras)
+  - [Mejores Prácticas](#mejores-prácticas)
+    - [1. **Usa Bordes Transparentes con Hover**](#1-usa-bordes-transparentes-con-hover)
+    - [2. **Combina Bordes con Sombras**](#2-combina-bordes-con-sombras)
+    - [3. **Paleta Limitada = Cohesión**](#3-paleta-limitada--cohesión)
+    - [4. **Consistencia en Redondez**](#4-consistencia-en-redondez)
+    - [5. **Opacidades Estratégicas**](#5-opacidades-estratégicas)
+  - [Ejemplos de Implementación](#ejemplos-de-implementación)
+    - [Ejemplo 1: Card de Tecnología](#ejemplo-1-card-de-tecnología)
+    - [Ejemplo 2: Botón de Acción](#ejemplo-2-botón-de-acción)
+    - [Ejemplo 3: Badge/Chip](#ejemplo-3-badgechip)
+    - [Ejemplo 4: Fondo Gradiente Sutil](#ejemplo-4-fondo-gradiente-sutil)
+  - [Consejos Avanzados](#consejos-avanzados)
+    - [1. **Dark Mode Consistency**](#1-dark-mode-consistency)
+    - [2. **Accesibilidad**](#2-accesibilidad)
+    - [3. **Performance**](#3-performance)
+    - [4. **Escala de Diseño**](#4-escala-de-diseño)
+    - [5. **Pseudo-elementos**](#5-pseudo-elementos)
+  - [Espaciado Recomendado](#espaciado-recomendado)
+  - [Lecciones Aprendidas](#lecciones-aprendidas)
+  - [Estilos - Recursos Útiles](#estilos---recursos-útiles)
+
+---
+
+## Mejoras Prioritarias (Alta)
 
 ### 1. **Optimización de Imágenes**
 
@@ -32,24 +132,29 @@ export default defineConfig({
 ```
 
 **Beneficios:**
+
 - Imágenes WebP/AVIF automáticas
 - Lazy loading nativo
 - Responsive images con srcset
 - Reducción de 60-80% en tamaño
 
 ### 2. **Sistema de Certificaciones Funcional**
+
 **Estado actual:** Componente existe pero falta implementación completa
 
 **Implementar:**
+
 - Agregar PDFs reales a `public/certificados/`
 - Actualizar `src/locales/*/certifications.json` con datos reales
 - Integrar `ModalCertificados` en la página principal
 - Agregar sección de certificaciones visible
 
 ### 3. **Rutas Multi-idioma**
+
 **Estado actual:** Idioma se detecta pero no hay rutas dedicadas
 
 **Implementar:**
+
 ```astro
 // src/pages/[lang]/index.astro
 ---
@@ -65,25 +170,31 @@ export async function getStaticPaths() {
 ```
 
 **Beneficios:**
+
 - URLs SEO-friendly (`/es/`, `/en/`)
 - Mejor indexación por idioma
 - Compartir links específicos por idioma
 
 ### 4. **GitHub Actions para Deploy Automático**
+
 **Crear:** `.github/workflows/deploy.yml`
 
 **Ventajas:**
+
 - Deploy automático en cada push
 - Build verificado antes de deploy
 - Historial de deployments
 
 ### 5. **Analytics y Tracking**
+
 **Opciones:**
+
 - **Plausible** (recomendado, privacidad-first)
 - **Google Analytics 4**
 - **Vercel Analytics** (si usas Vercel)
 
 **Implementación mínima:**
+
 ```astro
 <!-- src/layouts/Layout.astro -->
 <script>
@@ -98,15 +209,18 @@ export async function getStaticPaths() {
 
 ---
 
-## 🚀 Mejoras de Funcionalidad (Media)
+## Mejoras de Funcionalidad (Media)
 
 ### 6. **Formulario de Contacto**
+
 **Opciones:**
+
 - **Formspree** (gratis, fácil)
 - **EmailJS** (gratis, sin backend)
 - **Resend** (moderno, con API)
 
 **Implementación con Formspree:**
+
 ```tsx
 // src/components/react/ContactForm.tsx
 export default function ContactForm() {
@@ -127,6 +241,7 @@ export default function ContactForm() {
 ```
 
 ### 7. **Integración con GitHub API**
+
 **Mostrar proyectos reales desde GitHub:**
 
 ```tsx
@@ -138,11 +253,13 @@ export async function getGitHubRepos(username: string) {
 ```
 
 **Beneficios:**
+
 - Proyectos siempre actualizados
 - Stats automáticos (stars, forks)
 - Links directos a repositorios
 
 ### 8. **Sistema de Blog**
+
 **Usar Astro Content Collections:**
 
 ```bash
@@ -160,7 +277,8 @@ Contenido del post...
 ```
 
 **Estructura:**
-```
+
+``` text
 src/
 ├── content/
 │   └── blog/
@@ -173,12 +291,16 @@ src/
 ```
 
 ### 9. **Búsqueda en el Sitio**
+
 **Para blog o proyectos:**
+
 - **Pagefind** (recomendado para Astro)
 - **Algolia** (más potente, requiere setup)
 
 ### 10. **RSS Feed**
+
 **Para blog:**
+
 ```bash
 pnpm add @astrojs/rss
 ```
@@ -196,9 +318,10 @@ export async function GET() {
 
 ---
 
-## 🎨 Mejoras de Diseño (Media)
+## Mejoras de Diseño (Media)
 
 ### 11. **Animaciones de Entrada**
+
 **Con Framer Motion o CSS:**
 
 ```tsx
@@ -219,13 +342,17 @@ export default function AnimatedSection({ children }) {
 ```
 
 ### 12. **Particle Background**
+
 **Efecto visual sutil:**
+
 - Usar `particles.js` o `react-particles`
 - Solo en hero section
 - Opción de desactivar para rendimiento
 
 ### 13. **Cursor Personalizado**
+
 **Para dar personalidad:**
+
 ```css
 /* src/index.css */
 body {
@@ -238,7 +365,9 @@ a, button {
 ```
 
 ### 14. **Scroll Progress Bar**
+
 **Indicador de progreso de scroll:**
+
 ```tsx
 // src/components/react/ScrollProgress.tsx
 export default function ScrollProgress() {
@@ -263,7 +392,9 @@ export default function ScrollProgress() {
 ```
 
 ### 15. **Theme Toggle Visual Mejorado**
+
 **Reemplazar select por toggle switch:**
+
 ```tsx
 // Toggle visual con iconos de sol/luna/auto
 // Más intuitivo y moderno
@@ -271,20 +402,24 @@ export default function ScrollProgress() {
 
 ---
 
-## ⚡ Optimizaciones de Rendimiento (Alta)
+## Optimizaciones de Rendimiento (Alta)
 
 ### 16. **Service Worker para Cache**
+
 **PWA básico:**
+
 ```bash
 pnpm add @astrojs/pwa
 ```
 
 **Beneficios:**
+
 - Cache offline
 - Mejor rendimiento en visitas repetidas
 - Instalable como app
 
 ### 17. **Preload de Recursos Críticos**
+
 ```astro
 <!-- src/layouts/Layout.astro -->
 <link rel="preload" href="/fonts/main.woff2" as="font" type="font/woff2" crossorigin />
@@ -292,7 +427,9 @@ pnpm add @astrojs/pwa
 ```
 
 ### 18. **Code Splitting Mejorado**
+
 **Separar bundles por ruta:**
+
 ```js
 // astro.config.mjs
 export default defineConfig({
@@ -312,13 +449,16 @@ export default defineConfig({
 ```
 
 ### 19. **Lazy Load de Componentes Pesados**
+
 ```astro
 <!-- Cargar solo cuando sea visible -->
 <MusicPlayer client:visible />
 ```
 
 ### 20. **Optimizar Font Awesome**
+
 **Usar solo iconos necesarios:**
+
 ```tsx
 // En lugar de importar todo el paquete
 import { faMusic } from '@fortawesome/free-solid-svg-icons/faMusic';
@@ -326,14 +466,16 @@ import { faMusic } from '@fortawesome/free-solid-svg-icons/faMusic';
 
 ---
 
-## 🧪 Testing y Calidad (Media)
+## Testing y Calidad (Media)
 
 ### 21. **Tests Unitarios**
+
 ```bash
 pnpm add -D vitest @testing-library/react
 ```
 
 **Ejemplo:**
+
 ```ts
 // src/components/react/__tests__/Header.test.tsx
 import { render, screen } from '@testing-library/react';
@@ -346,22 +488,26 @@ test('renders logo', () => {
 ```
 
 ### 22. **Tests E2E**
+
 ```bash
 pnpm add -D @playwright/test
 ```
 
 **Test de flujo completo:**
+
 - Navegación
 - Cambio de idioma
 - Reproducción de música
 - Formularios (si se agregan)
 
 ### 23. **Lighthouse CI**
+
 ```bash
 pnpm add -D @lhci/cli
 ```
 
 **Configurar:**
+
 ```json
 // lighthouserc.json
 {
@@ -374,33 +520,41 @@ pnpm add -D @lhci/cli
 ```
 
 ### 24. **Pre-commit Hooks**
+
 ```bash
 pnpm add -D husky lint-staged
 ```
 
 **Validar antes de commit:**
+
 - Linting
 - Type checking
 - Tests
 
 ---
 
-## 📱 Mejoras Mobile (Media)
+## Mejoras Mobile (Media)
 
 ### 25. **Mejorar Menú Móvil**
+
 **Agregar animaciones:**
+
 - Slide in/out suave
 - Overlay oscuro
 - Cerrar al hacer click fuera
 
 ### 26. **Touch Gestures**
+
 **Swipe para cerrar modales:**
+
 ```tsx
 // Usar react-use-gesture o similar
 ```
 
 ### 27. **PWA Manifest**
+
 **Hacer instalable:**
+
 ```json
 // public/manifest.json
 {
@@ -415,9 +569,10 @@ pnpm add -D husky lint-staged
 
 ---
 
-## 🔒 Seguridad y Privacidad (Alta)
+## Seguridad y Privacidad (Alta)
 
 ### 28. **Content Security Policy**
+
 ```astro
 <!-- src/layouts/Layout.astro -->
 <meta http-equiv="Content-Security-Policy" 
@@ -425,19 +580,23 @@ pnpm add -D husky lint-staged
 ```
 
 ### 29. **HTTPS Only**
-**Forzar HTTPS en producción**
+
+**Forzar HTTPS en producción:**
 
 ### 30. **Privacy-First Analytics**
+
 **Usar Plausible en lugar de Google Analytics:**
+
 - No cookies
 - GDPR compliant
 - Más rápido
 
 ---
 
-## 📊 Analytics y Métricas (Media)
+## Analytics y Métricas (Media)
 
 ### 31. **Web Vitals Tracking**
+
 ```tsx
 // src/utils/webVitals.ts
 export function reportWebVitals(metric: any) {
@@ -447,87 +606,105 @@ export function reportWebVitals(metric: any) {
 ```
 
 ### 32. **Error Tracking**
+
 **Sentry o similar:**
+
 ```bash
 pnpm add @sentry/astro
 ```
 
 ### 33. **Performance Monitoring**
-**Real User Monitoring (RUM)**
+
+**Real User Monitoring (RUM):**
+
 - Tiempo de carga real
 - Errores en producción
 - Métricas de usuarios
 
 ---
 
-## 🎓 Aprendizaje y Mejora Continua
+## Aprendizaje y Mejora Continua
 
 ### 34. **Documentación de Componentes**
+
 **Usar Storybook:**
+
 ```bash
 pnpm add -D @storybook/react
 ```
 
 **Beneficios:**
+
 - Ver componentes aislados
 - Documentar props
 - Testing visual
 
 ### 35. **Changelog Automático**
+
 **Usar Conventional Commits:**
+
 ```bash
 pnpm add -D semantic-release
 ```
 
 ### 36. **Dependabot / Renovate**
-**Actualizaciones automáticas de dependencias**
+
+**Actualizaciones automáticas de dependencias:**
 
 **Configurar en GitHub:**
+
 - `.github/dependabot.yml`
 - O usar Renovate bot
 
 ---
 
-## 🛠 Herramientas Útiles
+## Herramientas Útiles
 
 ### Para Desarrollo
+
 - **Astro DevTools** (extensión de navegador)
 - **React DevTools** (para componentes React)
 - **Tailwind CSS IntelliSense** (VS Code)
 
 ### Para Testing
+
 - **Playwright** (E2E)
 - **Vitest** (Unit tests)
 - **Lighthouse** (Performance)
 
 ### Para Deploy
+
 - **Vercel** (recomendado para Astro)
 - **Netlify** (fácil setup)
 - **Cloudflare Pages** (rápido y gratis)
 
 ---
 
-## 📝 Checklist de Mejoras
+## Checklist de Mejoras
 
 ### Inmediatas (Esta Semana)
+
 - [ ] Optimizar imágenes existentes
 - [ ] Agregar certificaciones reales
 - [ ] Configurar GitHub Actions
 - [ ] Agregar analytics básico
 
 ### Corto Plazo (Este Mes)
+
 - [ ] Implementar formulario de contacto
 - [ ] Agregar animaciones de entrada
 - [ ] Mejorar menú móvil
 - [ ] Integrar GitHub API para proyectos
 
 ### Medio Plazo (Próximos 3 Meses)
+
 - [ ] Sistema de blog
 - [ ] Tests unitarios
 - [ ] PWA completo
 - [ ] Rutas multi-idioma
 
 ### Largo Plazo (Futuro)
+
 - [ ] Dashboard admin (si se necesita)
 - [ ] CMS headless (Contentful, Sanity)
 - [ ] E-commerce (si se venden servicios)
@@ -535,7 +712,7 @@ pnpm add -D semantic-release
 
 ---
 
-## 🎯 Priorización Sugerida
+## Priorización Sugerida
 
 **Orden recomendado de implementación:**
 
@@ -561,20 +738,23 @@ pnpm add -D semantic-release
 
 ---
 
-## 💬 Notas Finales
+## Notas Finales
 
 ### Mantenimiento Regular
+
 - **Cada mes:** Revisar y actualizar dependencias
 - **Cada trimestre:** Revisar métricas de rendimiento
 - **Cada 6 meses:** Audit completo de seguridad
 
 ### Recursos Útiles
+
 - [Astro Docs](https://docs.astro.build/)
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Web.dev](https://web.dev/) - Mejores prácticas
 - [MDN Web Docs](https://developer.mozilla.org/) - Referencia
 
 ### Comunidad
+
 - Únete a Discord de Astro
 - Sigue a desarrolladores en Twitter
 - Lee blogs de desarrollo web
@@ -582,31 +762,18 @@ pnpm add -D semantic-release
 
 ---
 
-**¡Éxito con tu portafolio! 🚀**
-
-
-
-# 🎨 Guía de Diseño Visual - WEB-Fravelz
-
-## Índice
-1. [Paleta de Colores](#paleta-de-colores)
-2. [Principios de Diseño](#principios-de-diseño)
-3. [Componentes Visuales](#componentes-visuales)
-4. [Mejores Prácticas](#mejores-prácticas)
-5. [Ejemplos de Implementación](#ejemplos-de-implementación)
-
----
-
-## 🎭 Paleta de Colores
+## Paleta de Colores
 
 ### Colores Primarios
-```
+
+``` text
 Cyan:     #06B6D4 (cyan-400/500)
 Purple:   #A855F7 (purple-500)
 ```
 
 ### Colores Secundarios
-```
+
+``` text
 Gris Oscuro:    #111827 (gray-950) - Fondo principal
 Gris Medio:     #1F2937 (gray-800) - Tarjetas
 Gris Claro:     #E5E7EB (gray-200) - Texto secundario
@@ -614,33 +781,39 @@ Blanco:         #FFFFFF - Texto principal
 ```
 
 ### Combinaciones Recomendadas
-| Elemento | Color Primario | Color Hover | Sombra |
-|----------|----------------|-------------|--------|
-| Títulos | Gradiente cyan→purple | N/A | Ninguna |
-| Botones | Gradiente cyan→purple | Más luminoso | cyan-500/30 |
-| Bordes | cyan-500/30 o purple-500/30 | cyan-400/60 | Sutil |
-| Acentos | Cyan o Purple | Versión más clara | N/A |
+
+| Elemento | Color Primario              | Color Hover       | Sombra      |
+| -------- | --------------------------- | ----------------- | ----------- |
+| Títulos  | Gradiente cyan→purple       | N/A               | Ninguna     |
+| Botones  | Gradiente cyan→purple       | Más luminoso      | cyan-500/30 |
+| Bordes   | cyan-500/30 o purple-500/30 | cyan-400/60       | Sutil       |
+| Acentos  | Cyan o Purple               | Versión más clara | N/A         |
 
 ---
 
-## 💡 Principios de Diseño
+## Principios de Diseño
 
 ### 1. **Gradientes en lugar de Colores Sólidos**
+
 Los gradientes dan profundidad y modernidad. Úsalos en:
+
 - ✅ Títulos principales
 - ✅ Botones importantes
 - ✅ Bordes decorativos
 - ✅ Fondos de secciones
 
 **Ejemplo:**
+
 ```jsx
 className="bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
 ```
 
 ### 2. **Opacidad en Bordes y Sombras**
+
 Crea elegancia con bordes transparentes que se iluminan al hover:
 
 **Bordes dinámicos:**
+
 ```jsx
 // Estado normal
 border border-cyan-500/30
@@ -650,11 +823,13 @@ hover:border-cyan-400/60 transition-all
 ```
 
 **Sombras glow:**
+
 ```jsx
 hover:shadow-lg hover:shadow-cyan-500/20
 ```
 
 ### 3. **Transiciones Suaves**
+
 Siempre incluye transiciones para interactividad fluida:
 
 ```jsx
@@ -664,17 +839,19 @@ className="transition-all"
 ```
 
 ### 4. **Jerarquía de Color**
+
 - **Primario (Cyan)**: Llamadas a acción, ubicación, información importante
 - **Secundario (Purple)**: Email, detalles, elementos destacados
 - **Neutro (Gris)**: Fondos, bordes sutiles, textos secundarios
 
 ---
 
-## 🎯 Componentes Visuales
+## Componentes Visuales
 
 ### Tarjetas/Contenedores
 
 **Estructura base:**
+
 ```jsx
 className="
   bg-gray-900 
@@ -686,6 +863,7 @@ className="
 ```
 
 **Variante Purple:**
+
 ```jsx
 className="
   bg-gray-900 
@@ -697,6 +875,7 @@ className="
 ### Botones
 
 **Botón primario (Acción):**
+
 ```jsx
 className="
   bg-linear-to-r from-cyan-600 to-purple-600 text-white
@@ -709,6 +888,7 @@ className="
 ```
 
 **Botón secundario (Enlace):**
+
 ```jsx
 className="
   bg-gray-900
@@ -723,6 +903,7 @@ className="
 ### Textos
 
 **Título con gradiente:**
+
 ```jsx
 className="
   text-3xl font-bold
@@ -732,11 +913,13 @@ className="
 ```
 
 **Texto destacado (Cyan):**
+
 ```jsx
 className="text-cyan-300 font-semibold"
 ```
 
 **Texto secundario (Purple):**
+
 ```jsx
 className="text-purple-300"
 ```
@@ -744,15 +927,17 @@ className="text-purple-300"
 ### Líneas Separadoras
 
 **Línea sutil:**
+
 ```jsx
 className="my-6 border-gray-700"
 ```
 
 ---
 
-## ✨ Mejores Prácticas
+## Mejores Prácticas
 
 ### 1. **Usa Bordes Transparentes con Hover**
+
 Esto evita que la interfaz "salte" al hacer hover:
 
 ```jsx
@@ -764,6 +949,7 @@ border-0 hover:border-2
 ```
 
 ### 2. **Combina Bordes con Sombras**
+
 Las sombras refuerzan el efecto visual:
 
 ```jsx
@@ -775,19 +961,23 @@ transition-all
 ```
 
 ### 3. **Paleta Limitada = Cohesión**
+
 Usa máximo 3-4 colores principales en todo el proyecto:
+
 - Cyan (primario)
 - Purple (secundario)
 - Grises (neutros)
 - Blanco (texto)
 
 ### 4. **Consistencia en Redondez**
+
 - Botones pequeños: `rounded-full`
 - Tarjetas: `rounded-lg` o `rounded-2xl`
 - Contenedores principales: `rounded-2xl`
 
 ### 5. **Opacidades Estratégicas**
-```
+
+``` text
 /10  → Muy sutil (sombras)
 /20  → Sutil (hover states)
 /30  → Visible (bordes normales)
@@ -797,9 +987,10 @@ Usa máximo 3-4 colores principales en todo el proyecto:
 
 ---
 
-## 📋 Ejemplos de Implementación
+## Ejemplos de Implementación
 
 ### Ejemplo 1: Card de Tecnología
+
 ```jsx
 <div className="
   bg-linear-to-br from-gray-800 to-gray-900
@@ -819,6 +1010,7 @@ Usa máximo 3-4 colores principales en todo el proyecto:
 ```
 
 ### Ejemplo 2: Botón de Acción
+
 ```jsx
 <button className="
   bg-linear-to-r from-cyan-600 to-purple-600
@@ -835,6 +1027,7 @@ Usa máximo 3-4 colores principales en todo el proyecto:
 ```
 
 ### Ejemplo 3: Badge/Chip
+
 ```jsx
 <div className="
   flex items-center gap-2
@@ -852,6 +1045,7 @@ Usa máximo 3-4 colores principales en todo el proyecto:
 ```
 
 ### Ejemplo 4: Fondo Gradiente Sutil
+
 ```jsx
 <div className="
   bg-linear-to-t 
@@ -865,31 +1059,37 @@ Usa máximo 3-4 colores principales en todo el proyecto:
 
 ---
 
-## 🚀 Consejos Avanzados
+## Consejos Avanzados
 
 ### 1. **Dark Mode Consistency**
+
 - Siempre usa `bg-gray-950` o `bg-gray-900` como base
 - Los colores primarios (cyan/purple) resaltan bien en fondos oscuros
 - Nunca uses blancos puros (#FFFFFF), usa `text-gray-50`
 
 ### 2. **Accesibilidad**
+
 - Cyan sobre gris oscuro: **Alto contraste ✅**
 - Purple sobre gris oscuro: **Alto contraste ✅**
 - Siempre prueba con herramientas de contraste
 
 ### 3. **Performance**
+
 - Limita el uso de sombras (shadow-lg es suficiente)
 - Usa `transition-all` pero especifica `duration-300` si es critico
 
 ### 4. **Escala de Diseño**
+
 Para mantener la cohesión:
-```
+
+``` text
 sm (640px)  → Versión móvil, colores igual
 md (768px)  → Transición
 lg (1024px) → Versión completa
 ```
 
 ### 5. **Pseudo-elementos**
+
 Combina con `group` para efectos más complejos:
 
 ```jsx
@@ -902,19 +1102,19 @@ Combina con `group` para efectos más complejos:
 
 ---
 
-## 📐 Espaciado Recomendado
+## Espaciado Recomendado
 
-| Elemento | Padding | Margin | Border Radius |
-|----------|---------|--------|---------------|
-| Button | px-4 py-2 | - | rounded-full |
-| Card | p-4 | mb-8 | rounded-lg |
-| Container | p-8 | - | rounded-2xl |
-| Chip | px-3 py-1 | - | rounded-full |
-| Badge | px-2 py-1 | - | rounded-full |
+| Elemento  | Padding   | Margin | Border Radius |
+| --------- | --------- | ------ | ------------- |
+| Button    | px-4 py-2 | -      | rounded-full  |
+| Card      | p-4       | mb-8   | rounded-lg    |
+| Container | p-8       | -      | rounded-2xl   |
+| Chip      | px-3 py-1 | -      | rounded-full  |
+| Badge     | px-2 py-1 | -      | rounded-full  |
 
 ---
 
-## 🎓 Lecciones Aprendidas
+## Lecciones Aprendidas
 
 1. **Los gradientes son tu amigo** → Usa `bg-linear-to-r` en títulos
 2. **Opacidad > Colores sólidos** → Crea profundidad con `/30` y `/60`
@@ -926,7 +1126,7 @@ Combina con `group` para efectos más complejos:
 
 ---
 
-## 🔗 Recursos Útiles
+## Estilos - Recursos Útiles
 
 - [Tailwind CSS Gradients](https://tailwindcss.com/docs/gradient)
 - [Color Contrast Checker](https://webaim.org/resources/contrastchecker/)

@@ -191,7 +191,7 @@ El sitio estará disponible en `http://localhost:4321/`.
 ```astro
 // src/components/astro/NuevaSeccion.astro
 ---
-import { getTranslations, type Language } from '../../utils/i18n';
+import { getTranslations, type Language } from '@/utils/i18n';
 
 interface Props {
   lang?: Language;
@@ -212,7 +212,7 @@ const t = getTranslations(lang);
 ```tsx
 // src/components/react/NuevaSeccion.tsx
 import { useState } from 'react';
-import { getTranslations, type Language } from '../../utils/i18n';
+import { getTranslations, type Language } from '@/utils/i18n';
 
 export default function NuevaSeccion({ lang = 'es' }: { lang?: Language }) {
   const t = getTranslations(lang);
@@ -389,7 +389,7 @@ const t = getTranslations('es');
 
 **En React:**
 ```tsx
-import { getTranslations, type Language } from '../../utils/i18n';
+import { getTranslations, type Language } from '@/utils/i18n';
 
 export default function Component({ lang = 'es' }: { lang?: Language }) {
   const t = getTranslations(lang);

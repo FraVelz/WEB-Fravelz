@@ -1,22 +1,7 @@
 ---
-import { getTranslations, type Language, languages } from "../../utils/i18n";
-import ProyectosHackingSectionClient from "../ui-react/ProyectosHackingSection";
-
-interface Props {
-  lang?: Language;
-}
-
-// Obtener el idioma de props o de los parámetros de Astro
-const param = Astro.params.lang;
-const lang: Language = Astro.props.lang
-  ? Astro.props.lang
-  : languages.includes(param as Language)
-    ? (param as Language)
-    : "es";
-
-const t = getTranslations(lang);
+import ProyectosHackingSectionClient from "@/components/ui-react/ProyectosHackingSection";
 ---
 
 <section id="proyectos" class="mt-10">
-  <ProyectosHackingSectionClient client:load lang={lang} />
+  <ProyectosHackingSectionClient client:load />
 </section>

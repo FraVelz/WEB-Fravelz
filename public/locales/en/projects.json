@@ -1,0 +1,32 @@
+{
+  "hacking_projects_title": "Main Projects",
+
+  "hacking_notes_title": "1. ...",
+  "hacking_notes_desc": "...",
+  "hacking_notes_link": "Coming Soon",
+
+  "hacking_ctf_title": "2. ...",
+  "hacking_ctf_desc": "...",
+  "hacking_ctf_coming": "Coming Soon",
+
+  "hacking_tool_title": "3. ...",
+  "hacking_tool_desc": "...",
+
+  "hacking_analysis_title": "4. ...",
+  "hacking_analysis_desc": "...",
+
+  "other_projects_title": "Other Projects",
+
+  "other_webhyprdots_title": "Web Hyprdots",
+  "other_webhyprdots_desc": "Personal web portfolio with Hyprland configuration. Modern, responsive and fully customized design.",
+  "other_webhyprdots_link": "View Project →",
+
+  "other_arch_title": "1) ...",
+  "other_arch_desc": "...",
+
+  "other_notes_title": "2) ...",
+  "other_notes_desc": "...",
+
+  "other_politics_title": "3) ...",
+  "other_politics_desc": "..."
+}

@@ -1,21 +1,12 @@
 ---
+import paths from "@/utils/paths";
+
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
-import { getTranslations, type Language, languages } from "@/utils/i18n";
+import { getTranslations } from "@/utils/i18n";
 
-interface Props {
-  lang?: Language;
-}
-
-// Obtener el idioma de props o de los parámetros de Astro
-const param = Astro.params.lang;
-const lang: Language = Astro.props.lang
-  ? Astro.props.lang
-  : languages.includes(param as Language)
-    ? (param as Language)
-    : "es";
-
-const t = getTranslations(lang);
+// Usar español por defecto - el cambio se maneja con JavaScript
+const t = getTranslations('es');
 ---
 
 <section
@@ -49,7 +40,7 @@ const t = getTranslations(lang);
     <div
       class="absolute inset-1 sm:inset-2
                 rounded-full
-                bg-gray-100 dark:bg-gray-900
+                bg-cyan-50 dark:bg-gray-900 shadow-inner border-2 border-cyan-200/50 dark:border-transparent
                 z-10
                 overflow-hidden
                 shadow-inner"
@@ -57,8 +48,9 @@ const t = getTranslations(lang);
       <img
         draggable="false"
         class="h-full w-full rounded-full object-cover select-none"
-        src="/imagenes/logo-fravelz.jpg"
-        alt={t.hero_logo_alt}
+        src={paths("./imagenes/logo-fravelz.jpg")}
+        data-i18n-attr="alt:hero_logo_alt"
+        alt="Logo de Fravelz"
         width="256"
         height="256"
       />
@@ -80,7 +72,7 @@ const t = getTranslations(lang);
   <div class="flex flex-col gap-4">
     <p
       class="text-base sm:text-lg
-              text-cyan-600 dark:text-cyan-300
+              text-cyan-700 dark:text-cyan-300 font-bold
               font-semibold
               text-center lg:text-left"
     >
@@ -98,7 +90,6 @@ const t = getTranslations(lang);
         client:load
         email="fravelz@proton.me"
         successText={t.hero_copy_success}
-        lang={lang}
       />
     </div>
   </div>
@@ -107,16 +98,18 @@ const t = getTranslations(lang);
   <div class="lg:col-start-2 flex flex-col gap-2">
     <p
       class="text-base sm:text-lg
-              text-gray-700 dark:text-gray-200
+              text-slate-800 dark:text-gray-200
               text-center lg:text-left"
+      data-i18n="hola"
     >
       {t.hola}
     </p>
     <p
       class="text-lg sm:text-xl
-              text-cyan-600 dark:text-cyan-100
+              text-cyan-700 dark:text-cyan-100
               font-bold
               text-center lg:text-left"
+      data-i18n="futuro_pentester"
     >
       {t.futuro_pentester}
     </p>

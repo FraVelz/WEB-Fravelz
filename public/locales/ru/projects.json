@@ -1,0 +1,32 @@
+{
+  "hacking_projects_title": "Основные Проекты",
+
+  "hacking_notes_title": "1. ...",
+  "hacking_notes_desc": "...",
+  "hacking_notes_link": "Скоро",
+
+  "hacking_ctf_title": "2. ...",
+  "hacking_ctf_desc": "...",
+  "hacking_ctf_coming": "Скоро",
+
+  "hacking_tool_title": "3. ...",
+  "hacking_tool_desc": "...",
+
+  "hacking_analysis_title": "4. ...",
+  "hacking_analysis_desc": "...",
+
+  "other_projects_title": "Другие Проекты",
+
+  "other_webhyprdots_title": "Web Hyprdots",
+  "other_webhyprdots_desc": "Личный веб-портфель с конфигурацией Hyprland. Современный, отзывчивый и полностью настраиваемый дизайн.",
+  "other_webhyprdots_link": "Посмотреть Проект →",
+
+  "other_arch_title": "1) ...",
+  "other_arch_desc": "...",
+
+  "other_notes_title": "2) ...",
+  "other_notes_desc": "...",
+
+  "other_politics_title": "3) ...",
+  "other_politics_desc": "..."
+}

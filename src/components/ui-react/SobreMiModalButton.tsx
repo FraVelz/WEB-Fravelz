@@ -1,15 +1,35 @@
-import { useState } from 'react';
-import { getTranslations, type Language } from '../../utils/i18n';
+import { useState, useEffect } from 'react';
 import ModalInfo from './ModalInfo';
 import Parrafo from './Parrafo';
 
 interface SobreMiModalButtonProps {
-  lang?: Language;
 }
 
-export default function SobreMiModalButton({ lang = 'es' }: SobreMiModalButtonProps) {
-  const t = getTranslations(lang);
+export default function SobreMiModalButton({}: SobreMiModalButtonProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [translations, setTranslations] = useState<any>({});
+
+  useEffect(() => {
+    // Escuchar cambios de idioma
+    const handleLanguageChange = (event: CustomEvent) => {
+      setTranslations(event.detail.translations || {});
+    };
+
+    window.addEventListener('language-changed', handleLanguageChange as EventListener);
+    
+    // Obtener traducción inicial
+    if (typeof window !== 'undefined' && (window as any).i18n) {
+      const currentLang = (window as any).i18n.getCurrentLanguage();
+      const t = (window as any).i18n.getTranslations(currentLang);
+      setTranslations(t || {});
+    }
+
+    return () => {
+      window.removeEventListener('language-changed', handleLanguageChange as EventListener);
+    };
+  }, []);
+
+  const t = translations;
 
   return (
     <>
@@ -32,19 +52,19 @@ export default function SobreMiModalButton({ lang = 'es' }: SobreMiModalButtonPr
         onClose={() => setShowMoreInfo(false)}
         title={t.about_modal_title}
       >
-        <Parrafo className="text-gray-700 dark:text-gray-300">
+        <Parrafo className="text-slate-800 dark:text-gray-300">
           {t.about_modal_paragraph1}
         </Parrafo>
 
-        <Parrafo className="text-gray-700 dark:text-gray-300">
+        <Parrafo className="text-slate-800 dark:text-gray-300">
           {t.about_modal_paragraph2}
         </Parrafo>
 
-        <Parrafo className="text-gray-700 dark:text-gray-300">
+        <Parrafo className="text-slate-800 dark:text-gray-300">
           {t.about_modal_paragraph3}
         </Parrafo>
 
-        <Parrafo className="text-gray-700 dark:text-gray-300">
+        <Parrafo className="text-slate-800 dark:text-gray-300">
           {t.about_modal_paragraph4}
         </Parrafo>
       </ModalInfo>

@@ -5,26 +5,21 @@ import Line from "@/components/ui/Line.astro";
 // Imports Section
 import Presentacion from "@/components/sections/PresentacionSection.astro";
 import TecnologiasSection from "@/components/sections/TecnologiasSection.astro";
-import ProyectosSection from "../sections/ProyectosSection.astro";
+import ProyectosSection from "@/components/sections/ProyectosSection.astro";
 import PasatiemposSection from "@/components/sections/PasatiemposSection.astro";
 import SobreMiSection from "@/components/sections/SobreMiSection.astro";
 
 // Import and configuration languages
-import { getTranslations, type Language, languages } from "@/utils/i18n";
+import { getTranslations } from "@/utils/i18n";
 
-const param = Astro.params.lang;
-
-const lang: Language = languages.includes(param as Language)
-  ? (param as Language)
-  : "es";
-
-const t = getTranslations(lang);
+// Usar español por defecto - el cambio se maneja con JavaScript
+const t = getTranslations('es');
 ---
 
 <div
   class="px-2 py-20 flex flex-col items-center gap-15 sm:justify-center max-w-6xl"
 >
-  <Presentacion lang={lang} />
+  <Presentacion />
 
   <!-- Indicador para bajar -->
   <div class="flex h-fit w-fit px-3 py-5 justify-center">
@@ -48,7 +43,7 @@ const t = getTranslations(lang);
           d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path>
       </svg>
 
-      {t.ir_abajo}
+      <span data-i18n="ir_abajo">{t.ir_abajo}</span>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -67,15 +62,15 @@ const t = getTranslations(lang);
   </div>
 
   <!-- Sección: Proyectos Principales de Hacking  -->
-  <ProyectosSection lang={lang} />
+  <ProyectosSection />
   <Line />
 
   <!-- Sección: Tecnologías  -->
-  <TecnologiasSection lang={lang} />
+  <TecnologiasSection />
   <Line />
 
   <!-- Sección: Sobre Mí -->
-  <SobreMiSection lang={lang} />
+  <SobreMiSection />
 
-  <PasatiemposSection lang={lang} />
+  <PasatiemposSection />
 </div>

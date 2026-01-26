@@ -17,19 +17,19 @@ export default function ModalInfo({ isOpen, onClose, title, children }: ModalInf
     >
       <div 
         className="relative z-10 
-                   bg-gradient-to-br from-white via-gray-50 to-gray-100 
+                   bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 
                    dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 
-                   border border-cyan-400/50 dark:border-cyan-500/40 
+                   border-2 border-cyan-400/70 dark:border-cyan-500/40 
                    rounded-2xl 
-                   shadow-2xl shadow-cyan-500/20 dark:shadow-cyan-500/40 
+                   shadow-2xl shadow-cyan-500/30 dark:shadow-cyan-500/40 
                    w-full max-w-3xl max-h-[85vh] sm:max-h-[90vh] 
                    overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 
-                        bg-gradient-to-r from-cyan-50/80 via-gray-50/80 to-purple-50/80 
+                        bg-gradient-to-r from-cyan-100/90 via-blue-100/90 to-purple-100/90 
                         dark:from-cyan-900/40 dark:via-gray-900/40 dark:to-purple-900/40 
-                        border-b border-cyan-400/50 dark:border-cyan-500/40 
+                        border-b-2 border-cyan-400/70 dark:border-cyan-500/40 
                         px-6 sm:px-8 py-5 sm:py-6 
                         flex items-center justify-between gap-4 
                         backdrop-blur-sm">
@@ -42,8 +42,8 @@ export default function ModalInfo({ isOpen, onClose, title, children }: ModalInf
           <button
             onClick={onClose}
             className="cursor-pointer shrink-0 
-                      text-gray-600 dark:text-gray-400 
-                      hover:text-cyan-600 dark:hover:text-cyan-300 
+                      text-slate-700 dark:text-gray-400 
+                      hover:text-cyan-700 dark:hover:text-cyan-300 
                       active:text-cyan-700 dark:active:text-cyan-400 
                       transition-all duration-200 
                       text-2xl sm:text-3xl font-bold 
@@ -58,7 +58,7 @@ export default function ModalInfo({ isOpen, onClose, title, children }: ModalInf
         </div>
 
         <div className="overflow-y-auto flex-1 px-6 sm:px-8 py-6 sm:py-8 
-                       text-gray-700 dark:text-gray-200 
+                       text-slate-800 dark:text-gray-200 
                        space-y-6 
                        scrollbar-thin scrollbar-thumb-cyan-500/40 dark:scrollbar-thumb-cyan-500/40 scrollbar-track-gray-200/50 dark:scrollbar-track-gray-900/50">
           <div className="space-y-5">

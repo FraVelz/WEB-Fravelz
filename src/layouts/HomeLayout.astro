@@ -7,22 +7,21 @@ interface Props { title?: string; }
 import Footer from "@/components/layout/Footer.astro";
 import Header from "@/components/layout/header/Header.astro";
 import Main from "@/components/layout/HomeMain.astro";
-import DevelopmentWarning from "@/components/ui/DevelopmentWarning.astro";
 
-import { resolveLang } from "@/utils/lang";
-const { lang, t } = resolveLang(Astro.url.pathname);
+// Usar español por defecto - el cambio de idioma se maneja con JavaScript
+import { getTranslations } from "@/utils/i18n";
+const lang = 'es';
+const t = getTranslations(lang);
 
 const { title } = Astro.props;
 ---
 
 <Layout title={title} lang={lang}>
-    None
     <Header />
-    <DevelopmentWarning lang={lang} />
 
     <main class="flex justify-center">
         <Main />
     </main>
 
-    <Footer lang={lang} />
+    <Footer />
 </Layout>

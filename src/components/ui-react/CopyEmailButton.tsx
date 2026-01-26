@@ -1,14 +1,37 @@
-import { useState } from 'react';
-import { type Language } from '../../utils/i18n';
+import { useState, useEffect } from 'react';
 
 interface CopyEmailButtonProps {
   email: string;
   successText: string;
-  lang?: Language;
 }
 
-export default function CopyEmailButton({ email, successText, lang = 'es' }: CopyEmailButtonProps) {
+export default function CopyEmailButton({ email, successText }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
+  const [currentSuccessText, setCurrentSuccessText] = useState(successText);
+
+  useEffect(() => {
+    // Escuchar cambios de idioma
+    const handleLanguageChange = (event: CustomEvent) => {
+      const translations = event.detail.translations;
+      if (translations && translations.hero_copy_success) {
+        setCurrentSuccessText(translations.hero_copy_success);
+      }
+    };
+
+    window.addEventListener('language-changed', handleLanguageChange as EventListener);
+    
+    // Obtener traducción inicial
+    if (typeof window !== 'undefined' && (window as any).i18n) {
+      const translations = (window as any).i18n.getTranslations();
+      if (translations && translations.hero_copy_success) {
+        setCurrentSuccessText(translations.hero_copy_success);
+      }
+    }
+
+    return () => {
+      window.removeEventListener('language-changed', handleLanguageChange as EventListener);
+    };
+  }, []);
 
   const handleCopy = async () => {
     try {
@@ -55,8 +78,8 @@ export default function CopyEmailButton({ email, successText, lang = 'es' }: Cop
         transition-all duration-300
         cursor-pointer 
         ${copied
-          ? 'text-green-600 dark:text-green-400 border-green-400/60 dark:border-green-500/40 bg-green-50 dark:bg-gray-900 scale-105'
-          : 'text-purple-600 dark:text-purple-300 border-purple-300/60 dark:border-purple-500/40 bg-purple-50 dark:bg-gray-900 hover:border-purple-500 dark:hover:border-purple-400/60 hover:text-purple-700 dark:hover:text-purple-200 hover:shadow-lg hover:shadow-purple-500/20 dark:hover:shadow-purple-500/10'
+          ? 'text-green-700 dark:text-green-400 border-2 border-green-500/70 dark:border-green-500/40 bg-green-100 dark:bg-gray-900 scale-105 shadow-lg shadow-green-500/30 dark:shadow-none'
+          : 'text-purple-700 dark:text-purple-300 border-2 border-purple-400/70 dark:border-purple-500/40 bg-purple-50 dark:bg-gray-900 hover:border-purple-600 dark:hover:border-purple-400/60 hover:text-purple-800 dark:hover:text-purple-200 shadow-md shadow-purple-500/20 dark:shadow-none hover:shadow-lg hover:shadow-purple-500/30 dark:hover:shadow-purple-500/10 font-medium'
         }
       `}
       aria-label="Copiar dirección de correo electrónico"
@@ -77,7 +100,7 @@ export default function CopyEmailButton({ email, successText, lang = 'es' }: Cop
       </svg>
 
       <span className="email-text whitespace-nowrap">
-        {copied ? successText : email}
+        {copied ? currentSuccessText : email}
       </span>
 
       {copied ? (

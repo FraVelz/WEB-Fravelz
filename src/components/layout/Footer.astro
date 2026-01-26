@@ -1,27 +1,19 @@
 ---
-import { getTranslations, type Language, languages } from "@/utils/i18n";
+import { getTranslations } from "@/utils/i18n";
 
-interface Props {
-  lang?: Language;
-}
-
-const param = Astro.params.lang;
-const lang: Language = Astro.props.lang 
-  ? Astro.props.lang 
-  : (languages.includes(param as Language) ? (param as Language) : "es");
-
-const t = getTranslations(lang);
+// Usar español por defecto - el cambio se maneja con JavaScript
+const t = getTranslations('es');
 ---
 
 <footer
   class="
-  border-t-2 border-gray-700 dark:border-gray-700 border-gray-300
+  border-t-2 border-cyan-300/60 dark:border-gray-700
   text-center
   py-8
   sm:mt-4
   "
 >
-  <p class="text-gray-600 dark:text-gray-400 mb-2">
+  <p class="text-slate-700 dark:text-gray-400 mb-2 font-medium" data-i18n="autor">
     {(t as any)["footer.author"] || t.autor}
   </p>
 </footer>

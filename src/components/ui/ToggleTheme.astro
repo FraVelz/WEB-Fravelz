@@ -9,22 +9,20 @@ const { classname } = Astro.props;
   <label for="theme-toggle" class="sr-only"> Cambiar tema </label>
 
   <button
-    id="theme-toggle"
-    type="button"
-    aria-label="Cambiar entre tema claro y oscuro"
-    class="relative w-14 h-8 rounded-full
-           bg-slate-200 dark:bg-gray-700
-           border-2 border-slate-300 dark:border-gray-600
+    class="theme-toggle-btn relative w-14 h-8 rounded-full
+           bg-cyan-100 dark:bg-gray-700
+           border-2 border-cyan-400/70 dark:border-gray-600
            transition-all duration-300 ease-in-out
            focus:outline-none focus:ring-2 focus:ring-cyan-500/50
            hover:scale-105 active:scale-95
-           hover:border-cyan-400 dark:hover:border-cyan-500
-           cursor-pointer shadow-sm"
+           hover:border-cyan-500 dark:hover:border-cyan-500
+           cursor-pointer shadow-md shadow-cyan-500/20 dark:shadow-none"
+    type="button"
+    aria-label="Cambiar entre tema claro y oscuro"
   >
     <!-- Slider circle -->
     <span
-      id="theme-slider"
-      class="absolute top-0.5 left-0.5 w-6 h-6 rounded-full
+      class="theme-toggle-slider absolute top-0.5 left-0.5 w-6 h-6 rounded-full
              bg-white dark:bg-gray-900
              shadow-md
              transition-all duration-300 ease-in-out
@@ -33,15 +31,14 @@ const { classname } = Astro.props;
     >
       <!-- Sun icon (light mode) -->
       <svg
-        id="sun-icon"
+        class="theme-toggle-sun-icon w-4 h-4 text-yellow-500
+               transition-opacity duration-300
+               opacity-100 dark:opacity-0"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-4 h-4 text-yellow-500
-               transition-opacity duration-300
-               opacity-100 dark:opacity-0"
       >
         <path
           stroke-linecap="round"
@@ -52,15 +49,14 @@ const { classname } = Astro.props;
 
       <!-- Moon icon (dark mode) -->
       <svg
-        id="moon-icon"
+        class="theme-toggle-moon-icon w-4 h-4 text-cyan-300 absolute
+               transition-opacity duration-300
+               opacity-0 dark:opacity-100"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-4 h-4 text-cyan-300 absolute
-               transition-opacity duration-300
-               opacity-0 dark:opacity-100"
       >
         <path
           stroke-linecap="round"
@@ -74,122 +70,131 @@ const { classname } = Astro.props;
 
 <script is:inline>
   (function () {
-    // Evitar múltiples inicializaciones
+    // Evitar múltiples inicializaciones globales
     if (window.__themeToggleInitialized) return;
     window.__themeToggleInitialized = true;
 
-    function initThemeToggle() {
-      const toggle = document.getElementById("theme-toggle");
-      const root = document.documentElement;
+    const root = document.documentElement;
+    let themeToggleHandler = null;
+    let mediaQueryListener = null;
 
-      if (!toggle) {
-        console.warn("Theme toggle not found");
-        return;
+    const applyTheme = (isDark) => {
+      // Forzar sincronización inmediata
+      if (isDark) {
+        root.classList.add("dark");
+        root.setAttribute("data-theme", "dark");
+      } else {
+        root.classList.remove("dark");
+        root.removeAttribute("data-theme");
       }
 
-      const getSystemTheme = () =>
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-
-      const slider = document.getElementById("theme-slider");
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
-
-      const applyTheme = (isDark) => {
-        // Forzar sincronización inmediata
+      // Actualizar todos los toggles
+      const toggles = document.querySelectorAll(".theme-toggle-btn");
+      toggles.forEach((toggle) => {
+        const slider = toggle.querySelector(".theme-toggle-slider");
+        const sunIcon = toggle.querySelector(".theme-toggle-sun-icon");
+        const moonIcon = toggle.querySelector(".theme-toggle-moon-icon");
+        
         if (isDark) {
-          root.classList.add("dark");
-          root.setAttribute("data-theme", "dark");
-          if (slider) {
-            slider.style.transform = "translateX(1.5rem)";
-          }
-          // Mostrar icono de luna, ocultar icono de sol
+          if (slider) slider.style.transform = "translateX(1.5rem)";
           if (sunIcon) sunIcon.style.opacity = "0";
           if (moonIcon) moonIcon.style.opacity = "1";
         } else {
-          root.classList.remove("dark");
-          root.removeAttribute("data-theme");
-          if (slider) {
-            slider.style.transform = "translateX(0)";
-          }
-          // Mostrar icono de sol, ocultar icono de luna
+          if (slider) slider.style.transform = "translateX(0)";
           if (sunIcon) sunIcon.style.opacity = "1";
           if (moonIcon) moonIcon.style.opacity = "0";
         }
-
-        // Forzar repaint y reflow
-        void root.offsetHeight;
-        document.body?.offsetHeight;
-
-        // Guardar como 'dark' o 'light', no 'auto'
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      };
-
-      const toggleTheme = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const isDark = root.classList.contains("dark");
-        applyTheme(!isDark);
-      };
-
-      // Inicializar tema al cargar
-      // Leer el tema actual del DOM (ya aplicado por el script del Layout)
-      // Si hay un tema guardado, usarlo; si no, usar el del sistema
-      const savedTheme = localStorage.getItem("theme");
-      let initialTheme;
-
-      if (savedTheme === "dark") {
-        initialTheme = true;
-      } else if (savedTheme === "light") {
-        initialTheme = false;
-      } else {
-        // Si es 'auto' o no hay guardado, usar el estado actual del DOM
-        initialTheme = root.classList.contains("dark");
-        // Guardar el tema detectado como preferencia
-        localStorage.setItem("theme", initialTheme ? "dark" : "light");
-      }
-
-      // Aplicar tema inicial inmediatamente (sincroniza el slider y los iconos con el estado actual)
-      // Usar requestAnimationFrame para asegurar que el DOM esté listo
-      const initTheme = () => {
-        applyTheme(initialTheme);
-      };
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTheme);
-      } else {
-        // Si el DOM ya está listo, ejecutar inmediatamente
-        requestAnimationFrame(initTheme);
-      }
-
-      // Listener para clicks con capture para asegurar que se ejecute
-      toggle.addEventListener("click", toggleTheme, {
-        capture: true,
-        once: false,
       });
 
-      // Listener para cambios del sistema (si el usuario no ha cambiado manualmente)
-      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      mediaQuery.addEventListener("change", (e) => {
-        // Solo seguir el sistema si el usuario no ha guardado una preferencia manual
-        const saved = localStorage.getItem("theme");
-        if (saved !== "dark" && saved !== "light") {
-          applyTheme(e.matches);
+      // Forzar repaint y reflow
+      void root.offsetHeight;
+      document.body?.offsetHeight;
+
+      // Guardar como 'dark' o 'light', no 'auto'
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+
+    const toggleTheme = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isDark = root.classList.contains("dark");
+      applyTheme(!isDark);
+    };
+
+    function initThemeToggle() {
+      // Buscar todos los toggles (puede haber múltiples instancias)
+      const toggles = document.querySelectorAll(".theme-toggle-btn");
+
+      if (toggles.length === 0) {
+        // Si no hay toggles, esperar a que se monten (pueden estar en el drawer)
+        setTimeout(initThemeToggle, 100);
+        return;
+      }
+
+      // Remover listeners anteriores si existen
+      if (themeToggleHandler) {
+        toggles.forEach((toggle) => {
+          toggle.removeEventListener("click", themeToggleHandler);
+        });
+      }
+
+      // Crear nuevo handler
+      themeToggleHandler = toggleTheme;
+
+      // Agregar listeners a todos los toggles (solo una vez)
+      toggles.forEach((toggle) => {
+        // Verificar si ya tiene el listener
+        if (!toggle.dataset.themeListenerAdded) {
+          toggle.addEventListener("click", themeToggleHandler, {
+            capture: true,
+            once: false,
+          });
+          toggle.dataset.themeListenerAdded = "true";
         }
       });
+
+      // Inicializar tema al cargar (solo una vez)
+      if (!window.__themeInitialized) {
+        window.__themeInitialized = true;
+        
+        const savedTheme = localStorage.getItem("theme");
+        let initialTheme;
+
+        if (savedTheme === "dark") {
+          initialTheme = true;
+        } else if (savedTheme === "light") {
+          initialTheme = false;
+        } else {
+          // Si es 'auto' o no hay guardado, usar el estado actual del DOM
+          initialTheme = root.classList.contains("dark");
+          // Guardar el tema detectado como preferencia
+          localStorage.setItem("theme", initialTheme ? "dark" : "light");
+        }
+
+        // Aplicar tema inicial
+        applyTheme(initialTheme);
+
+        // Listener para cambios del sistema (solo una vez)
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        mediaQueryListener = (e) => {
+          const saved = localStorage.getItem("theme");
+          if (saved !== "dark" && saved !== "light") {
+            applyTheme(e.matches);
+          }
+        };
+        mediaQuery.addEventListener("change", mediaQueryListener);
+      }
     }
 
     // Ejecutar inmediatamente si el DOM ya está listo, o esperar a que esté listo
-    // Usar múltiples estrategias para asegurar que se ejecute lo antes posible
     const tryInit = () => {
-      if (document.getElementById("theme-toggle")) {
+      if (document.querySelector(".theme-toggle-btn")) {
         initThemeToggle();
       } else {
         // Si el elemento aún no existe, esperar un poco más
         requestAnimationFrame(() => {
-          if (document.getElementById("theme-toggle")) {
+          if (document.querySelector(".theme-toggle-btn")) {
             initThemeToggle();
           } else {
             // Último intento después de un pequeño delay
@@ -205,5 +210,10 @@ const { classname } = Astro.props;
       // Si el DOM ya está listo, intentar inmediatamente
       tryInit();
     }
+
+    // También escuchar cuando se abre el drawer
+    window.addEventListener("drawer-opened", () => {
+      setTimeout(initThemeToggle, 150);
+    });
   })();
 </script>

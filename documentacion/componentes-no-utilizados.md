@@ -5,6 +5,7 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 ## Componentes React/JSX No Utilizados
 
 ### 1. `src/components/ui/Music.jsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Reemplazado por `MusicPlayer.tsx`
 - **Problemas**: 
@@ -13,20 +14,25 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 - **Acción recomendada**: Eliminar
 
 ### 2. `src/components/ui/ModalCertificados.jsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: No se encuentra ninguna referencia en el código
-- **Problemas**: 
+
+- **Problemas:**
+
   - Usa `react-i18next` que no está en el proyecto
   - Sistema de certificados no implementado actualmente
 - **Acción recomendada**: Eliminar o implementar si se necesita en el futuro
 
 ### 3. `src/components/ui/ModalInfo.jsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Reemplazado por `ModalInfo.tsx` (versión TypeScript)
 - **Problemas**: Versión antigua en JavaScript
 - **Acción recomendada**: Eliminar
 
 ### 4. `src/components/ui/Parrafo.jsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Reemplazado por `Parrafo.astro` (versión Astro)
 - **Problemas**: Versión antigua en JavaScript
@@ -35,6 +41,7 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 ## Componentes Astro No Utilizados
 
 ### 5. `src/components/ui/GithubLink.astro`
+
 - **Estado**: ❌ No utilizado (removido de PresentacionSection)
 - **Razón**: Eliminado según solicitud del usuario
 - **Acción recomendada**: Ya no se usa, puede eliminarse
@@ -42,24 +49,28 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 ## Componentes React No Utilizados (Versiones Alternativas)
 
 ### 6. `src/components/ui/Header.tsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Se usa `Header.astro` en su lugar
 - **Problemas**: Versión React que no se está usando
 - **Acción recomendada**: Eliminar
 
 ### 7. `src/components/ui/ThemeSelector.tsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Se usa `ToggleTheme.astro` en su lugar
 - **Problemas**: Versión React que no se está usando
 - **Acción recomendada**: Eliminar
 
 ### 8. `src/components/ui/LanguageSelector.tsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Se usa el selector inline en `ElementsHeader.astro`
 - **Problemas**: Versión React que no se está usando
 - **Acción recomendada**: Eliminar
 
 ### 9. `src/components/ui/SobreMiSection.tsx`
+
 - **Estado**: ❌ No utilizado
 - **Razón**: Se usa `SobreMiSection.astro` en su lugar
 - **Problemas**: Versión React que no se está usando
@@ -74,6 +85,7 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 ## Componentes Activos
 
 ### Componentes React (TypeScript) Activos
+
 - ✅ `MusicPlayer.tsx` - Reproductor de música
 - ✅ `MusicButton.tsx` - Botón para abrir reproductor
 - ✅ `CopyEmailButton.tsx` - Botón para copiar email
@@ -84,6 +96,7 @@ Este documento lista los componentes y archivos que no se están utilizando en e
 - ✅ `ModalInfo.tsx` - Modal de información
 
 ### Componentes Astro
+
 - ✅ `Parrafo.astro` - Párrafo con estilos
 - ✅ `Enlace.astro` - Enlace de navegación
 - ✅ `Line.astro` - Línea divisoria

@@ -1,24 +1,25 @@
-<!-- Overlay -->
+<!-- Overlay - Cubre toda la pantalla incluyendo el header -->
 <div
   data-drawer-overlay
-  class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm
+  class="fixed inset-0 z-[50] bg-black/50 backdrop-blur-sm
     transition-opacity duration-300
     opacity-0 pointer-events-none
     lg:hidden"
 >
 </div>
 
-<!-- Drawer -->
+<!-- Drawer - Encima de todo, altura completa -->
 <aside
   data-drawer
-  class="fixed top-0 right-0 z-50 h-screen w-[85%] max-w-sm overflow-y-scroll
-    bg-gray-900 dark:bg-gray-900 bg-white
+  class="fixed top-0 right-0 z-[60] h-screen w-[85%] max-w-sm overflow-y-auto
+    bg-white dark:bg-gray-900
     transform translate-x-full
     transition-transform duration-300 ease-in-out
-    lg:hidden"
+    lg:hidden
+    shadow-2xl"
 >
   <!-- Header -->
-  <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-gray-700">
+  <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-900 z-10">
     <span class="text-lg font-semibold text-slate-800 dark:text-gray-100">Menú</span>
 
     <button
@@ -43,28 +44,37 @@
   </div>
 
   <!-- Content -->
-  <div class="p-5 flex flex-col gap-5 text-center">
+  <div class="p-5 flex flex-col gap-5">
     <slot />
   </div>
 </aside>
 
 <script is:inline>
-  const openBtn = document.querySelector("[data-drawer-open]");
-  const closeBtn = document.querySelector("[data-drawer-close]");
-  const drawer = document.querySelector("[data-drawer]");
-  const overlay = document.querySelector("[data-drawer-overlay]");
+  (function() {
+    const openBtn = document.querySelector("[data-drawer-open]");
+    const closeBtn = document.querySelector("[data-drawer-close]");
+    const drawer = document.querySelector("[data-drawer]");
+    const overlay = document.querySelector("[data-drawer-overlay]");
 
-  const openDrawer = () => {
-    drawer?.classList.remove("translate-x-full");
-    overlay?.classList.remove("opacity-0", "pointer-events-none");
-  };
+    const openDrawer = () => {
+      drawer?.classList.remove("translate-x-full");
+      overlay?.classList.remove("opacity-0", "pointer-events-none");
+      
+      // Reinicializar scripts cuando se abre el drawer
+      // Esto asegura que los selectores y toggles funcionen
+      setTimeout(() => {
+        // Disparar evento personalizado para que los componentes se reinicialicen si es necesario
+        window.dispatchEvent(new CustomEvent('drawer-opened'));
+      }, 100);
+    };
 
-  const closeDrawer = () => {
-    drawer?.classList.add("translate-x-full");
-    overlay?.classList.add("opacity-0", "pointer-events-none");
-  };
+    const closeDrawer = () => {
+      drawer?.classList.add("translate-x-full");
+      overlay?.classList.add("opacity-0", "pointer-events-none");
+    };
 
-  openBtn?.addEventListener("click", openDrawer);
-  closeBtn?.addEventListener("click", closeDrawer);
-  overlay?.addEventListener("click", closeDrawer);
+    openBtn?.addEventListener("click", openDrawer);
+    closeBtn?.addEventListener("click", closeDrawer);
+    overlay?.addEventListener("click", closeDrawer);
+  })();
 </script>

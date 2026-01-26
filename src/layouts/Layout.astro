@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import "@/styles/global.css";
 
 interface Props {
   title?: string;
@@ -87,6 +87,9 @@ const baseUrl = import.meta.env.BASE_URL || '';
 
     <title>{title}</title>
 
+    <!-- Script de i18n: debe ejecutarse temprano para cargar traducciones -->
+    <script src="/i18n.js" defer></script>
+
     <!-- Script crítico: debe ejecutarse ANTES de cualquier otro script o estilo -->
     <script is:inline>
       (function() {
@@ -137,7 +140,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
   class="h-fit
     scroll-smooth
     dark:bg-gradient-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
-    bg-gradient-to-b from-slate-50 via-white to-blue-50
+    bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50
     dark:text-white text-slate-900
     selection:bg-blue-500 dark:selection:bg-blue-500 selection:text-white
     min-h-screen"
