@@ -1,0 +1,80 @@
+---
+import type { Project } from '../../data/projects';
+import { getTranslations } from '../../utils/i18n';
+
+interface Props {
+  project: Project;
+  lang?: string;
+}
+
+const { project, lang = 'es' } = Astro.props;
+const t = getTranslations(lang as 'es' | 'en' | 'ru' | 'zh');
+const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
+
+const title = project.title[currentLang];
+const description = project.shortDescription[currentLang];
+const baseUrl = import.meta.env.BASE_URL || '';
+const projectUrl = `${baseUrl}projects/${project.slug}`;
+---
+
+<article class="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 shadow-md hover:shadow-xl">
+  <!-- Imagen del proyecto -->
+  <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <img 
+      src={project.featuredImage} 
+      alt={`${title} - Preview`}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      loading="lazy"
+    />
+    {project.isComingSoon && (
+      <div class="absolute top-3 right-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+        {t.projects_coming_soon || 'Próximamente'}
+      </div>
+    )}
+    {project.featured && (
+      <div class="absolute top-3 left-3 bg-cyan-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+        {t.projects_featured || 'Destacado'}
+      </div>
+    )}
+  </div>
+
+  <!-- Contenido de la tarjeta -->
+  <div class="p-6">
+    <!-- Título -->
+    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+      {title}
+    </h3>
+
+    <!-- Descripción corta -->
+    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+      {description}
+    </p>
+
+    <!-- Tecnologías -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      {project.technologies.slice(0, 4).map((tech) => (
+        <span 
+          class="px-2 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-xs rounded-md font-medium"
+        >
+          {tech}
+        </span>
+      ))}
+      {project.technologies.length > 4 && (
+        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-md">
+          +{project.technologies.length - 4}
+        </span>
+      )}
+    </div>
+
+    <!-- Botón Ver Proyecto -->
+    <a 
+      href={projectUrl}
+      class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-semibold text-sm transition-colors group-hover:underline"
+    >
+      {t.projects_view_project || 'Ver Proyecto'}
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</article>

@@ -14,3 +14,8 @@ export function resolveLang(pathname: string) {
         t: getTranslations(lang),
     };
 }
+
+export function getLanguageFromPath(pathname: string): Language {
+    const urlLang = pathname.split("/").filter(Boolean)[0];
+    return validLangs.includes(urlLang as Language) ? (urlLang as Language) : "es";
+}

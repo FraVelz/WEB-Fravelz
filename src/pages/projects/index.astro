@@ -1,0 +1,160 @@
+---
+import { getAllProjects } from '../../data/projects';
+import { getTranslations } from '../../utils/i18n';
+import { getLanguageFromPath } from '../../utils/lang';
+import ProjectCard from '../../components/ui/ProjectCard.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const lang = getLanguageFromPath(Astro.url.pathname);
+const t = getTranslations(lang);
+const projects = getAllProjects();
+const baseUrl = import.meta.env.BASE_URL || '';
+---
+
+<Layout title={`${t.hacking_projects_title || 'Proyectos'} - ${t.proyectos_personales || 'Portafolio'}`} description={t.projects_section_description || 'Todos mis proyectos como desarrollador frontend.'}>
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <a 
+          href={`${baseUrl}#proyectos`}
+          class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-6 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          {t.projects_back || 'Volver'}
+        </a>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          {t.hacking_projects_title || 'Proyectos Principales'}
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          {t.projects_all_projects_description || 'Todos mis proyectos como desarrollador frontend. Explora cada uno para conocer más detalles.'}
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+          {t.projects_total || 'Total'}: <span class="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span> {t.projects_projects || 'proyectos'}
+        </p>
+      </div>
+
+      <!-- Filtros de tecnologías -->
+      <div id="project-filters" class="mb-8">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <button
+            data-filter="all"
+            class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50"
+          >
+            {t.projects_all || 'Todos'}
+          </button>
+          {[...new Set(projects.flatMap(p => p.technologies))].map((tech) => (
+            <button
+              data-filter={tech}
+              class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border-2 border-gray-300 dark:border-gray-600"
+            >
+              {tech}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Grid de proyectos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <div 
+            data-project-card
+            data-technologies={project.technologies.join(',')}
+          >
+            <ProjectCard project={project} lang={lang} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Mensaje si no hay proyectos -->
+      <div id="no-projects" class="hidden text-center py-12">
+        <p class="text-gray-600 dark:text-gray-400">
+          {t.projects_no_projects || 'No se encontraron proyectos con ese filtro.'}
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Sistema de filtrado de proyectos
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const projectCards = document.querySelectorAll('[data-project-card]');
+    const noProjectsMessage = document.getElementById('no-projects');
+
+    function filterProjects(selectedTech: string | null) {
+      let visibleCount = 0;
+
+      projectCards.forEach((card) => {
+        const cardTechs = card.getAttribute('data-technologies')?.split(',') || [];
+        const shouldShow = selectedTech === null || selectedTech === 'all' || cardTechs.includes(selectedTech);
+
+        if (shouldShow) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Mostrar/ocultar mensaje de "no proyectos"
+      if (visibleCount === 0) {
+        noProjectsMessage?.classList.remove('hidden');
+      } else {
+        noProjectsMessage?.classList.add('hidden');
+      }
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        // Actualizar estado activo de botones
+        filterButtons.forEach((btn) => {
+          btn.classList.remove(
+            'bg-gradient-to-r',
+            'from-cyan-500',
+            'to-blue-500',
+            'text-white',
+            'shadow-lg',
+            'shadow-cyan-500/50'
+          );
+          btn.classList.add(
+            'bg-gray-100',
+            'dark:bg-gray-800',
+            'text-gray-700',
+            'dark:text-gray-300',
+            'border-2',
+            'border-gray-300',
+            'dark:border-gray-600'
+          );
+        });
+
+        button.classList.remove(
+          'bg-gray-100',
+          'dark:bg-gray-800',
+          'text-gray-700',
+          'dark:text-gray-300',
+          'border-2',
+          'border-gray-300',
+          'dark:border-gray-600'
+        );
+        button.classList.add(
+          'bg-gradient-to-r',
+          'from-cyan-500',
+          'to-blue-500',
+          'text-white',
+          'shadow-lg',
+          'shadow-cyan-500/50'
+        );
+
+        // Filtrar proyectos
+        filterProjects(filter === 'all' ? null : filter);
+      });
+    });
+  });
+</script>

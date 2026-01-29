@@ -1,0 +1,170 @@
+---
+import { getAllProjects } from '../../data/projects';
+import { getTranslations } from '../../utils/i18n';
+import { getLanguageFromPath } from '../../utils/lang';
+import Layout from '../../layouts/Layout.astro';
+
+// Función requerida para rutas dinámicas estáticas
+export async function getStaticPaths() {
+  const projects = getAllProjects();
+  
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+// Props ahora viene de getStaticPaths
+const { project } = Astro.props;
+const lang = getLanguageFromPath(Astro.url.pathname);
+const t = getTranslations(lang);
+
+const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
+const title = project.title[currentLang];
+const description = project.fullDescription[currentLang];
+const baseUrl = import.meta.env.BASE_URL || '';
+---
+
+<Layout title={`${title} - ${t.proyectos_personales || 'Portafolio'}`} description={description}>
+  <article class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <!-- Botón Volver -->
+      <a 
+        href={`${baseUrl}#proyectos`}
+        class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-8 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        {t.projects_back || 'Volver a Proyectos'}
+      </a>
+
+      <!-- Header del proyecto -->
+      <header class="mb-8">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          {project.technologies.map((tech) => (
+            <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm rounded-full font-medium">
+              {tech}
+            </span>
+          ))}
+          {project.year && (
+            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full">
+              {project.year}
+            </span>
+          )}
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+          {title}
+        </h1>
+
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
+          {description}
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-wrap gap-4">
+          {project.demoUrl && !project.isComingSoon && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              {t.projects_view_demo || 'Ver Demo'}
+            </a>
+          )}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-gray-800 dark:bg-gray-700 text-white rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-all"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              {t.projects_view_code || 'Ver Código'}
+            </a>
+          )}
+          {project.isComingSoon && (
+            <span class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-lg font-semibold">
+              {t.projects_coming_soon || 'Próximamente'}
+            </span>
+          )}
+        </div>
+      </header>
+
+      <!-- Imagen destacada -->
+      <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
+        <img 
+          src={project.featuredImage} 
+          alt={`${title} - Vista previa`}
+          class="w-full h-auto object-cover"
+        />
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <!-- Qué aprendí -->
+        {project.whatILearned && project.whatILearned[currentLang] && (
+          <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+              {t.projects_what_i_learned || 'Qué aprendí'}
+            </h2>
+            <ul class="space-y-3">
+              {project.whatILearned[currentLang].map((item) => (
+                <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+                  <svg class="w-6 h-6 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <!-- Detalles técnicos -->
+        {project.technicalDetails && project.technicalDetails[currentLang] && (
+          <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+              {t.projects_technical_details || 'Detalles Técnicos'}
+            </h2>
+            <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
+              <ul class="space-y-2">
+                {project.technicalDetails[currentLang].map((detail) => (
+                  <li class="text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                    <span class="text-cyan-500">•</span>
+                    <span>{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        <!-- Capturas adicionales -->
+        {project.screenshots && project.screenshots.length > 0 && (
+          <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+              {t.projects_screenshots || 'Capturas del Proyecto'}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.screenshots.map((screenshot) => (
+                <img 
+                  src={screenshot} 
+                  alt={`${title} - Captura`}
+                  class="w-full rounded-lg shadow-lg"
+                />
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
+    </div>
+  </article>
+</Layout>

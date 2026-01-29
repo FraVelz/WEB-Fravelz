@@ -61,7 +61,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
 const hackingProjectsData: Project[] = [
   {
     id: 1,
-    img: `${baseUrl}imagenes/logo-fravelz.jpg`,
+    img: `${baseUrl}images/portfolio/`,
     titleKey: 'hacking_notes_title',
     descKey: 'hacking_notes_desc',
     link: '#',
@@ -70,7 +70,7 @@ const hackingProjectsData: Project[] = [
   },
   {
     id: 2,
-    img: `${baseUrl}imagenes/logo-fravelz.jpg`,
+    img: `${baseUrl}images/others/logo-fravelz.jpg`,
     titleKey: 'hacking_ctf_title',
     descKey: 'hacking_ctf_desc',
     link: '#',
@@ -79,20 +79,11 @@ const hackingProjectsData: Project[] = [
   },
   {
     id: 3,
-    img: `${baseUrl}imagenes/logo-fravelz.jpg`,
+    img: `${baseUrl}images/others/logo-fravelz.jpg`,
     titleKey: 'hacking_tool_title',
     descKey: 'hacking_tool_desc',
     link: '#',
     tags: ['Herramientas', 'Web App', 'JavaScript'],
-    isComingSoon: false
-  },
-  {
-    id: 4,
-    img: `${baseUrl}imagenes/logo-fravelz.jpg`,
-    titleKey: 'hacking_analysis_title',
-    descKey: 'hacking_analysis_desc',
-    link: '#',
-    tags: ['UI/UX', 'Diseño', 'Responsive'],
     isComingSoon: false
   }
 ];
