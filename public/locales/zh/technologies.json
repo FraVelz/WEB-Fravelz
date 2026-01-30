@@ -18,5 +18,7 @@
   "tech_info_category": "类别",
   "tech_info_technology": "技术",
   "tech_show_info": "显示信息",
-  "tech_hide_info": "隐藏信息"
+  "tech_hide_info": "隐藏信息",
+  "tech_note": "说明：",
+  "tech_disclaimer": "此信息不代表也不基于全球或精确的衡量标准。仅用于大致说明我如何使用每种工具以及与其他工具相比，我觉得自己最擅长哪些。"
 }

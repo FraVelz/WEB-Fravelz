@@ -13,18 +13,19 @@ import SobreMiSection from "@/components/sections/SobreMiSection.astro";
 import { getTranslations } from "@/utils/i18n";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
-const t = getTranslations('es');
+const t = getTranslations("es");
 ---
 
 <div
-  class="px-2 py-20 flex flex-col items-center gap-15 sm:justify-center max-w-6xl"
+  class="px-2 py-20 flex flex-col items-center gap-12 sm:justify-center max-w-6xl"
 >
   <Presentacion />
 
   <!-- Indicador para bajar -->
   <div class="flex h-fit w-fit px-3 py-5 justify-center">
     <div
-      class="text-cyan-300 rounded-xl border-cyan-500/40 border-2
+      class="text-cyan-700 rounded-xl border-cyan-700/80 border-2
+      dark:text-cyan-400 dark:border-cyan-400/40
         hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20
         transition-all select-none
         animate-bounce z-10 p-2 flex gap-1"
@@ -63,11 +64,9 @@ const t = getTranslations('es');
 
   <!-- Sección: Proyectos Principales de Hacking  -->
   <ProyectosSection />
-  <Line />
 
   <!-- Sección: Tecnologías  -->
   <TecnologiasSection />
-  <Line />
 
   <!-- Sección: Sobre Mí -->
   <SobreMiSection />

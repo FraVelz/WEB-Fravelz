@@ -1,6 +1,6 @@
 ---
-import ElementsHeader from "./ElementsHeader.astro";
-import MobileDrawer from "./MobileDrawer.astro";
+import ElementsHeader from "@/components/layout/header/ElementsHeader.astro";
+import MobileDrawer from "@/components/layout/header/MobileDrawer.astro";
 ---
 
 <header class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 border-cyan-200/60 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none">
@@ -24,6 +24,7 @@ import MobileDrawer from "./MobileDrawer.astro";
       data-drawer-open
       class="lg:hidden text-2xl text-slate-800 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
       aria-label="Abrir menú"
+      data-i18n-attr="aria-label:nav_open_menu"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

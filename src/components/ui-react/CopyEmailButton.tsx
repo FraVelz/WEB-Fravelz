@@ -8,23 +8,25 @@ interface CopyEmailButtonProps {
 export default function CopyEmailButton({ email, successText }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const [currentSuccessText, setCurrentSuccessText] = useState(successText);
+  const [ariaLabel, setAriaLabel] = useState('Copiar dirección de correo electrónico');
 
   useEffect(() => {
-    // Escuchar cambios de idioma
     const handleLanguageChange = (event: CustomEvent) => {
       const translations = event.detail.translations;
-      if (translations && translations.hero_copy_success) {
-        setCurrentSuccessText(translations.hero_copy_success);
+      if (translations) {
+        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
       }
     };
 
     window.addEventListener('language-changed', handleLanguageChange as EventListener);
-    
-    // Obtener traducción inicial
+
     if (typeof window !== 'undefined' && (window as any).i18n) {
-      const translations = (window as any).i18n.getTranslations();
-      if (translations && translations.hero_copy_success) {
-        setCurrentSuccessText(translations.hero_copy_success);
+      const currentLang = (window as any).i18n.getCurrentLanguage();
+      const translations = (window as any).i18n.getTranslations(currentLang);
+      if (translations) {
+        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
       }
     }
 
@@ -82,7 +84,7 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
           : 'text-purple-700 dark:text-purple-300 border-2 border-purple-400/70 dark:border-purple-500/40 bg-purple-50 dark:bg-gray-900 hover:border-purple-600 dark:hover:border-purple-400/60 hover:text-purple-800 dark:hover:text-purple-200 shadow-md shadow-purple-500/20 dark:shadow-none hover:shadow-lg hover:shadow-purple-500/30 dark:hover:shadow-purple-500/10 font-medium'
         }
       `}
-      aria-label="Copiar dirección de correo electrónico"
+      aria-label={ariaLabel}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

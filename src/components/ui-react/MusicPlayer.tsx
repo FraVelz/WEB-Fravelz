@@ -16,12 +16,12 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   
-  const baseUrl = import.meta.env.BASE_URL || '';
+  const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 
   const t = translations;
 
   const canciones = useMemo(() => {
-    const getPath = (filename: string) => `${baseUrl}canciones/${filename}`;
+    const getPath = (filename: string) => `${baseUrl}music/${encodeURIComponent(filename)}`;
     return [
       { nombre: t.cancion_chopin, src: getPath('Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3') },
       { nombre: t.cancion_maluma, src: getPath('Maluma - Hawái (LetraLyrics).mp3') },
@@ -31,8 +31,8 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
     ];
   }, [t, baseUrl]);
 
-  const [selectedSong, setSelectedSong] = useState(() => 
-    `${baseUrl}canciones/Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3`
+  const [selectedSong, setSelectedSong] = useState(() =>
+    `${baseUrl}music/${encodeURIComponent('Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3')}`
   );
 
   useEffect(() => {

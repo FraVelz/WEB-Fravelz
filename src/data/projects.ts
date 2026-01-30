@@ -78,7 +78,7 @@ export const projects: Project[] = [
       ru: 'Образовательная веб-платформа с заметками и руководствами по кибербезопасности и этичному взлому.',
       zh: '关于网络安全和道德黑客的笔记和指南的教育网络平台。'
     },
-    featuredImage: '/images/portfolio/Portfolio.png',
+    featuredImage: 'images/portfolio/Portfolio.png',
     technologies: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Markdown'],
     category: 'frontend',
     demoUrl: 'https://fravelz.github.io/WEB-Notas-de-Hacking',
@@ -162,7 +162,7 @@ export const projects: Project[] = [
       ru: 'Современное и адаптивное личное веб-портфолио с чистым и профессиональным дизайном.',
       zh: '具有简洁专业设计的现代响应式个人网络作品集。'
     },
-    featuredImage: '/images/portfolio/Portfolio.png',
+    featuredImage: 'images/portfolio/Portfolio.png',
     technologies: ['Astro', 'React', 'TypeScript', 'Tailwind CSS'],
     category: 'frontend',
     demoUrl: 'https://fravelz.github.io/WEB-Fravelz',
@@ -242,7 +242,7 @@ export const projects: Project[] = [
       ru: 'Личное веб-портфолио с конфигурацией Hyprland. Современный, адаптивный и полностью настраиваемый дизайн.',
       zh: '带有 Hyprland 配置的个人网络作品集。现代、响应式且完全自定义的设计。'
     },
-    featuredImage: '/images/others/logo-fravelz.jpg',
+    featuredImage: 'images/others/logo-fravelz.jpg',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     category: 'frontend',
     demoUrl: 'https://fravelz.github.io/WEB-Hyprdots',

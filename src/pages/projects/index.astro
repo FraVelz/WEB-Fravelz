@@ -1,9 +1,9 @@
 ---
-import { getAllProjects } from '../../data/projects';
-import { getTranslations } from '../../utils/i18n';
-import { getLanguageFromPath } from '../../utils/lang';
-import ProjectCard from '../../components/ui/ProjectCard.astro';
-import Layout from '../../layouts/Layout.astro';
+import { getAllProjects } from '@/data/projects';
+import { getTranslations } from '@/utils/i18n';
+import { getLanguageFromPath } from '@/utils/lang';
+import ProjectCard from '@/components/ui/ProjectCard.astro';
+import Layout from '@/layouts/Layout.astro';
 
 const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);

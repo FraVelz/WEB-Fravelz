@@ -6,7 +6,8 @@
 
   const languages = ['es', 'en', 'ru', 'zh'];
   const defaultLang = 'es';
-  
+  const base = (typeof window !== 'undefined' && window.__BASE_URL__) ? window.__BASE_URL__ : '';
+
   // Cache de traducciones
   let translationsCache = {};
   let currentLang = defaultLang;
@@ -50,16 +51,16 @@
 
     try {
       const [common, hero, music, certifications, info, technologies, projects, about, hobbies, footer] = await Promise.all([
-        fetch(`/locales/${lang}/common.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/hero.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/music.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/certifications.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/info.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/technologies.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/projects.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/about.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/hobbies.json`).then(r => r.json()),
-        fetch(`/locales/${lang}/footer.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/common.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/hero.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/music.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/certifications.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/info.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/technologies.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/projects.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/about.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/hobbies.json`).then(r => r.json()),
+        fetch(`${base}locales/${lang}/footer.json`).then(r => r.json()),
       ]);
 
       const translations = {

@@ -1,8 +1,8 @@
 ---
-import { getAllProjects } from '../../data/projects';
-import { getTranslations } from '../../utils/i18n';
-import { getLanguageFromPath } from '../../utils/lang';
-import Layout from '../../layouts/Layout.astro';
+import { getAllProjects } from '@/data/projects';
+import { getTranslations } from '@/utils/i18n';
+import { getLanguageFromPath } from '@/utils/lang';
+import Layout from '@/layouts/Layout.astro';
 
 // Función requerida para rutas dinámicas estáticas
 export async function getStaticPaths() {
@@ -22,7 +22,7 @@ const t = getTranslations(lang);
 const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
 const title = project.title[currentLang];
 const description = project.fullDescription[currentLang];
-const baseUrl = import.meta.env.BASE_URL || '';
+const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 ---
 
 <Layout title={`${title} - ${t.proyectos_personales || 'Portafolio'}`} description={description}>
@@ -30,7 +30,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
     <div class="max-w-5xl mx-auto">
       <!-- Botón Volver -->
       <a 
-        href={`${baseUrl}#proyectos`}
+        href={`${base}#proyectos`}
         class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-8 transition-colors"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
       <!-- Imagen destacada -->
       <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
         <img 
-          src={project.featuredImage} 
+          src={`${base}${project.featuredImage}`} 
           alt={`${title} - Vista previa`}
           class="w-full h-auto object-cover"
         />

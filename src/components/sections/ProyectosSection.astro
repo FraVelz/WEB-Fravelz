@@ -1,8 +1,8 @@
 ---
-import { getAllProjects } from '../../data/projects';
-import { getTranslations } from '../../utils/i18n';
-import { getLanguageFromPath } from '../../utils/lang';
-import ProjectCard from '../ui/ProjectCard.astro';
+import { getAllProjects } from '@/data/projects';
+import { getTranslations } from '@/utils/i18n';
+import { getLanguageFromPath } from '@/utils/lang';
+import ProjectCard from '@/components/ui/ProjectCard.astro';
 
 const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);
@@ -10,14 +10,14 @@ const projects = getAllProjects();
 const baseUrl = import.meta.env.BASE_URL || '';
 ---
 
-<section id="proyectos" class="py-16 px-4 sm:px-6 lg:px-8">
+<section id="proyectos" class="px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Título de la sección -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4" data-i18n="hacking_projects_title">
         {t.hacking_projects_title || 'Proyectos Principales'}
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="projects_section_description">
         {t.projects_section_description || 'Una selección de mis proyectos más destacados como desarrollador frontend.'}
       </p>
     </div>
@@ -28,6 +28,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
         <button
           data-filter="all"
           class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50"
+          data-i18n="projects_all"
         >
           {t.projects_all || 'Todos'}
         </button>
@@ -56,7 +57,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
 
     <!-- Mensaje si no hay proyectos -->
     <div id="no-projects" class="hidden text-center py-12">
-      <p class="text-gray-600 dark:text-gray-400">
+      <p class="text-gray-600 dark:text-gray-400" data-i18n="projects_no_projects">
         {t.projects_no_projects || 'No se encontraron proyectos con ese filtro.'}
       </p>
     </div>
@@ -66,6 +67,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
       <a
         href={`${baseUrl}projects`}
         class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+        data-i18n="projects_view_all"
       >
         {t.projects_view_all || 'Ver Todos los Proyectos'}
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

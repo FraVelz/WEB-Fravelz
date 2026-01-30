@@ -1,5 +1,5 @@
 ---
-import paths from "@/utils/paths";
+import { base } from "@/utils/paths";
 
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
@@ -48,7 +48,7 @@ const t = getTranslations('es');
       <img
         draggable="false"
         class="h-full w-full rounded-full object-cover select-none"
-        src={paths("./images/others/logo-fravelz.jpg")}
+        src={`${base}images/others/logo-fravelz.jpg`}
         data-i18n-attr="alt:hero_logo_alt"
         alt="Logo de Fravelz"
         width="256"

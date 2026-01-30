@@ -281,10 +281,9 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
           </svg>
           <p className="text-xs sm:text-sm text-slate-700 dark:text-gray-300 leading-relaxed">
             <span className="font-semibold text-cyan-700 dark:text-cyan-300">
-              Nota:
+              {t.tech_note || 'Nota:'}
             </span>{' '}
-            {t.tech_disclaimer || 
-              'Esta información no es representativa ni se basa en una medida global o exacta. Se utiliza únicamente para dar énfasis aproximado de cómo uso cada herramienta y cuáles son las que más siento que domino en comparación con otras.'}
+            {t.tech_disclaimer || ''}
           </p>
         </div>
       </div>

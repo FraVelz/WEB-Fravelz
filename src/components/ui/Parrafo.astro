@@ -1,16 +1,20 @@
 ---
 interface Props {
   className?: string;
+  [key: string]: unknown;
 }
 
-const { className = "" } = Astro.props;
+const { className = "", ...rest } = Astro.props;
 ---
 
-<p class={`
+<p
+  class={`
   wrap-break-word
   min-w-0
   text-justify
   ${className}
-`}>
+`}
+  {...rest}
+>
   <slot />
 </p>
