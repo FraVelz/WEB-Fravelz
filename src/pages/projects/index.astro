@@ -19,21 +19,22 @@ const baseUrl = import.meta.env.BASE_URL || '';
         <a 
           href={`${baseUrl}#proyectos`}
           class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-6 transition-colors"
+          data-i18n="projects_back"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
-          {t.projects_back || 'Volver'}
+          <span>{t.projects_back || 'Volver'}</span>
         </a>
         
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4" data-i18n="hacking_projects_title">
           {t.hacking_projects_title || 'Proyectos Principales'}
         </h1>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="projects_all_projects_description">
           {t.projects_all_projects_description || 'Todos mis proyectos como desarrollador frontend. Explora cada uno para conocer más detalles.'}
         </p>
         <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
-          {t.projects_total || 'Total'}: <span class="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span> {t.projects_projects || 'proyectos'}
+          <span data-i18n="projects_total">{t.projects_total || 'Total'}</span>: <span class="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span> <span data-i18n="projects_projects">{t.projects_projects || 'proyectos'}</span>
         </p>
       </div>
 
@@ -80,8 +81,31 @@ const baseUrl = import.meta.env.BASE_URL || '';
 </Layout>
 
 <script>
+  // Actualizar títulos y descripciones de proyectos al cambiar idioma
+  function updateProjectCardsLanguage(lang: string) {
+    const cards = document.querySelectorAll<HTMLElement>('[data-project-card-content]');
+    const fallback = 'es';
+    cards.forEach((card) => {
+      const titleEl = card.querySelector('[data-project-title]');
+      const descEl = card.querySelector('[data-project-description]');
+      const title = card.getAttribute(`data-title-${lang}`) || card.getAttribute(`data-title-${fallback}`);
+      const desc = card.getAttribute(`data-desc-${lang}`) || card.getAttribute(`data-desc-${fallback}`);
+      if (titleEl && title) titleEl.textContent = title;
+      if (descEl && desc) descEl.textContent = desc;
+    });
+  }
+
+  window.addEventListener('language-changed', (e: Event) => {
+    const lang = (e as CustomEvent<{ lang: string }>).detail?.lang;
+    if (lang) updateProjectCardsLanguage(lang);
+  });
+
   // Sistema de filtrado de proyectos
   document.addEventListener('DOMContentLoaded', () => {
+    const i18n = (window as Window & { i18n?: { getCurrentLanguage: () => string } }).i18n;
+    if (i18n?.getCurrentLanguage) {
+      updateProjectCardsLanguage(i18n.getCurrentLanguage());
+    }
     const filterButtons = document.querySelectorAll('[data-filter]');
     const projectCards = document.querySelectorAll('[data-project-card]');
     const noProjectsMessage = document.getElementById('no-projects');

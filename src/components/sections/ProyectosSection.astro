@@ -79,8 +79,32 @@ const baseUrl = import.meta.env.BASE_URL || '';
 </section>
 
 <script>
+  // Actualizar títulos y descripciones de proyectos al cambiar idioma
+  function updateProjectCardsLanguage(lang: string) {
+    const cards = document.querySelectorAll<HTMLElement>('[data-project-card-content]');
+    const fallback = 'es';
+    cards.forEach((card) => {
+      const titleEl = card.querySelector('[data-project-title]');
+      const descEl = card.querySelector('[data-project-description]');
+      const title = card.getAttribute(`data-title-${lang}`) || card.getAttribute(`data-title-${fallback}`);
+      const desc = card.getAttribute(`data-desc-${lang}`) || card.getAttribute(`data-desc-${fallback}`);
+      if (titleEl && title) titleEl.textContent = title;
+      if (descEl && desc) descEl.textContent = desc;
+    });
+  }
+
+  window.addEventListener('language-changed', (e: Event) => {
+    const lang = (e as CustomEvent<{ lang: string }>).detail?.lang;
+    if (lang) updateProjectCardsLanguage(lang);
+  });
+
   // Sistema de filtrado de proyectos
   document.addEventListener('DOMContentLoaded', () => {
+    // Aplicar idioma actual a las tarjetas (por si se cargó con idioma distinto al inicial)
+    const i18n = (window as Window & { i18n?: { getCurrentLanguage: () => string } }).i18n;
+    if (i18n?.getCurrentLanguage) {
+      updateProjectCardsLanguage(i18n.getCurrentLanguage());
+    }
     const filterButtons = document.querySelectorAll('[data-filter]');
     const projectCards = document.querySelectorAll('[data-project-card]');
     const noProjectsMessage = document.getElementById('no-projects');

@@ -23,25 +23,49 @@ const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
 const title = project.title[currentLang];
 const description = project.fullDescription[currentLang];
 const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
+
+// Datos del proyecto en todos los idiomas para actualización en el cliente
+const projectData = {
+  es: { title: project.title.es, fullDescription: project.fullDescription.es, whatILearned: project.whatILearned?.es, technicalDetails: project.technicalDetails?.es },
+  en: { title: project.title.en, fullDescription: project.fullDescription.en, whatILearned: project.whatILearned?.en, technicalDetails: project.technicalDetails?.en },
+  ru: { title: project.title.ru, fullDescription: project.fullDescription.ru, whatILearned: project.whatILearned?.ru, technicalDetails: project.technicalDetails?.ru },
+  zh: { title: project.title.zh, fullDescription: project.fullDescription.zh, whatILearned: project.whatILearned?.zh, technicalDetails: project.technicalDetails?.zh },
+};
 ---
 
 <Layout title={`${title} - ${t.proyectos_personales || 'Portafolio'}`} description={description}>
-  <article class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+  <article
+    class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8"
+    data-project-page
+  >
+    <script is:inline data-project-data={JSON.stringify(projectData)}>
+      (function(){var s=document.currentScript;var d=s&&s.getAttribute('data-project-data');window.__PROJECT_PAGE_DATA__=d?JSON.parse(d):{};}());
+    </script>
     <div class="max-w-5xl mx-auto">
       <!-- Botón Volver -->
       <a 
         href={`${base}#proyectos`}
         class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-8 transition-colors"
+        data-i18n="projects_back"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
-        {t.projects_back || 'Volver a Proyectos'}
+        <span>{t.projects_back || 'Volver a Proyectos'}</span>
       </a>
 
       <!-- Header del proyecto -->
       <header class="mb-8">
         <div class="flex flex-wrap items-center gap-3 mb-4">
+          {project.inDevelopment ? (
+            <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 text-sm rounded-full font-medium" data-i18n="project_status_development">
+              {t.project_status_development ?? 'En desarrollo'}
+            </span>
+          ) : (
+            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200 text-sm rounded-full font-medium" data-i18n="project_status_finished">
+              {t.project_status_finished ?? 'Finalizado'}
+            </span>
+          )}
           {project.technologies.map((tech) => (
             <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-sm rounded-full font-medium">
               {tech}
@@ -54,11 +78,11 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
           )}
         </div>
 
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4" data-project-page-title>
           {title}
         </h1>
 
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-6" data-project-page-description>
           {description}
         </p>
 
@@ -74,7 +98,7 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
-              {t.projects_view_demo || 'Ver Demo'}
+              <span data-i18n="projects_view_demo">{t.projects_view_demo || 'Ver Demo'}</span>
             </a>
           )}
           {project.githubUrl && (
@@ -87,11 +111,11 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
-              {t.projects_view_code || 'Ver Código'}
+              <span data-i18n="projects_view_code">{t.projects_view_code || 'Ver Código'}</span>
             </a>
           )}
           {project.isComingSoon && (
-            <span class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-lg font-semibold">
+            <span class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 rounded-lg font-semibold" data-i18n="projects_coming_soon">
               {t.projects_coming_soon || 'Próximamente'}
             </span>
           )}
@@ -109,13 +133,13 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 
       <!-- Contenido principal -->
       <div class="prose prose-lg dark:prose-invert max-w-none">
-        <!-- Qué aprendí -->
+        <!-- Qué aprendí (se actualiza con el idioma en el cliente) -->
         {project.whatILearned && project.whatILearned[currentLang] && (
-          <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <section class="mb-12" id="project-what-i-learned-section">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6" data-i18n="projects_what_i_learned">
               {t.projects_what_i_learned || 'Qué aprendí'}
             </h2>
-            <ul class="space-y-3">
+            <ul class="space-y-3" id="project-what-i-learned-list">
               {project.whatILearned[currentLang].map((item) => (
                 <li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">
                   <svg class="w-6 h-6 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,14 +152,14 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
           </section>
         )}
 
-        <!-- Detalles técnicos -->
+        <!-- Detalles técnicos (se actualiza con el idioma en el cliente) -->
         {project.technicalDetails && project.technicalDetails[currentLang] && (
-          <section class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+          <section class="mb-12" id="project-technical-details-section">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6" data-i18n="projects_technical_details">
               {t.projects_technical_details || 'Detalles Técnicos'}
             </h2>
             <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6">
-              <ul class="space-y-2">
+              <ul class="space-y-2" id="project-technical-details-list">
                 {project.technicalDetails[currentLang].map((detail) => (
                   <li class="text-gray-700 dark:text-gray-300 flex items-start gap-2">
                     <span class="text-cyan-500">•</span>
@@ -166,5 +190,54 @@ const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
         )}
       </div>
     </div>
+
+    <script is:inline>
+      (function() {
+        var fallback = 'es';
+        function updateProjectPageLanguage(lang) {
+          var data = window.__PROJECT_PAGE_DATA__;
+          if (!data) return;
+          var d = data[lang] || data[fallback];
+          if (!d) return;
+
+          var titleEl = document.querySelector('[data-project-page-title]');
+          var descEl = document.querySelector('[data-project-page-description]');
+          if (titleEl && d.title) titleEl.textContent = d.title;
+          if (descEl && d.fullDescription) descEl.textContent = d.fullDescription;
+
+          var whatList = document.getElementById('project-what-i-learned-list');
+          if (whatList && d.whatILearned && Array.isArray(d.whatILearned)) {
+            whatList.innerHTML = d.whatILearned.map(function(item) {
+              return '<li class="flex items-start gap-3 text-gray-700 dark:text-gray-300">' +
+                '<svg class="w-6 h-6 text-cyan-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">' +
+                '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' +
+                '<span>' + escapeHtml(item) + '</span></li>';
+            }).join('');
+          }
+
+          var techList = document.getElementById('project-technical-details-list');
+          if (techList && d.technicalDetails && Array.isArray(d.technicalDetails)) {
+            techList.innerHTML = d.technicalDetails.map(function(detail) {
+              return '<li class="text-gray-700 dark:text-gray-300 flex items-start gap-2">' +
+                '<span class="text-cyan-500">•</span><span>' + escapeHtml(detail) + '</span></li>';
+            }).join('');
+          }
+        }
+        function escapeHtml(text) {
+          var div = document.createElement('div');
+          div.textContent = text;
+          return div.innerHTML;
+        }
+        function init() {
+          var i18n = window.i18n;
+          var lang = (i18n && i18n.getCurrentLanguage) ? i18n.getCurrentLanguage() : fallback;
+          updateProjectPageLanguage(lang);
+        }
+        window.addEventListener('DOMContentLoaded', init);
+        window.addEventListener('language-changed', function(e) {
+          if (e.detail && e.detail.lang) updateProjectPageLanguage(e.detail.lang);
+        });
+      })();
+    </script>
   </article>
 </Layout>

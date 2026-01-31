@@ -15,9 +15,24 @@ const title = project.title[currentLang];
 const description = project.shortDescription[currentLang];
 const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 const projectUrl = `${base}projects/${project.slug}`;
+
+// Textos en todos los idiomas para actualización al cambiar idioma en el cliente
+const titles = { es: project.title.es, en: project.title.en, ru: project.title.ru, zh: project.title.zh };
+const descriptions = { es: project.shortDescription.es, en: project.shortDescription.en, ru: project.shortDescription.ru, zh: project.shortDescription.zh };
 ---
 
-<article class="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 shadow-md hover:shadow-xl">
+<article
+  class="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 shadow-md hover:shadow-xl"
+  data-project-card-content
+  data-title-es={titles.es}
+  data-title-en={titles.en}
+  data-title-ru={titles.ru}
+  data-title-zh={titles.zh}
+  data-desc-es={descriptions.es}
+  data-desc-en={descriptions.en}
+  data-desc-ru={descriptions.ru}
+  data-desc-zh={descriptions.zh}
+>
   <!-- Imagen del proyecto -->
   <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
     <img 
@@ -36,17 +51,27 @@ const projectUrl = `${base}projects/${project.slug}`;
         {t.projects_featured || 'Destacado'}
       </div>
     )}
+    <!-- Estado: en desarrollo o finalizado -->
+    {project.inDevelopment ? (
+      <div class="absolute bottom-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="project_status_development">
+        {t.project_status_development ?? 'En desarrollo'}
+      </div>
+    ) : (
+      <div class="absolute bottom-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="project_status_finished">
+        {t.project_status_finished ?? 'Finalizado'}
+      </div>
+    )}
   </div>
 
   <!-- Contenido de la tarjeta -->
   <div class="p-6">
-    <!-- Título -->
-    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+    <!-- Título (se actualiza con el idioma en el cliente) -->
+    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" data-project-title>
       {title}
     </h3>
 
-    <!-- Descripción corta -->
-    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
+    <!-- Descripción corta (se actualiza con el idioma en el cliente) -->
+    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2" data-project-description>
       {description}
     </p>
 
