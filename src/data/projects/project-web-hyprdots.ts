@@ -14,7 +14,7 @@ export const projectWebHyprdots: Project = {
     ru: 'Личное веб-портфолио с конфигурацией Hyprland. Современный, адаптивный и полностью настраиваемый дизайн.',
     zh: '带有 Hyprland 配置的个人网络作品集。现代、响应式且完全自定义的设计。'
   },
-  featuredImage: 'images/others/logo-fravelz.jpg',
+  featuredImage: 'images/portfolio/web-hyprdots.png',
   technologies: ['HTML', 'CSS', 'JavaScript'],
   category: 'frontend',
   demoUrl: 'https://fravelz.github.io/WEB-Hyprdots',

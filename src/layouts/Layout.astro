@@ -25,12 +25,16 @@ const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
     <link
       rel="icon"
       type="image/png"
-      href={`${baseUrl}images/others/icono-fravelz.png`}
+      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
     />
     <link
       rel="shortcut icon"
       type="image/png"
-      href={`${baseUrl}images/others/icono-fravelz.png`}
+      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
+    />
+    <link
+      rel="apple-touch-icon"
+      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
     />
 
     <!-- Open Graph -->
