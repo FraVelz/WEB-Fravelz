@@ -6,7 +6,8 @@ import ProjectCard from '@/components/ui/ProjectCard.astro';
 
 const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);
-const projects = getAllProjects();
+const allProjects = getAllProjects();
+const projects = allProjects.slice(0, 3);
 const baseUrl = import.meta.env.BASE_URL || '';
 ---
 
@@ -22,59 +23,30 @@ const baseUrl = import.meta.env.BASE_URL || '';
       </p>
     </div>
 
-    <!-- Filtros de tecnologías -->
-    <div id="project-filters" class="mb-8">
-      <div class="flex flex-wrap gap-2 justify-center">
-        <button
-          data-filter="all"
-          class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50"
-          data-i18n="projects_all"
-        >
-          {t.projects_all || 'Todos'}
-        </button>
-        {[...new Set(projects.flatMap(p => p.technologies))].map((tech) => (
-          <button
-            data-filter={tech}
-            class="px-4 py-2 rounded-full text-sm font-semibold transition-all bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border-2 border-gray-300 dark:border-gray-600"
-          >
-            {tech}
-          </button>
-        ))}
-      </div>
-    </div>
-
-    <!-- Grid de proyectos -->
+    <!-- Grid de proyectos (solo los 3 primeros en la página principal) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project) => (
-        <div 
-          data-project-card
-          data-technologies={project.technologies.join(',')}
-        >
+        <div data-project-card>
           <ProjectCard project={project} lang={lang} />
         </div>
       ))}
     </div>
 
-    <!-- Mensaje si no hay proyectos -->
-    <div id="no-projects" class="hidden text-center py-12">
-      <p class="text-gray-600 dark:text-gray-400" data-i18n="projects_no_projects">
-        {t.projects_no_projects || 'No se encontraron proyectos con ese filtro.'}
-      </p>
-    </div>
-
-    <!-- Botón Ver Todos los Proyectos -->
-    <div class="text-center mt-12">
-      <a
-        href={`${baseUrl}projects`}
-        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
-        data-i18n="projects_view_all"
-      >
-        {t.projects_view_all || 'Ver Todos los Proyectos'}
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
+    <!-- Enlace al apartado completo de proyectos -->
+    {allProjects.length > 3 && (
+      <div class="text-center mt-12">
+        <a
+          href={`${baseUrl}projects`}
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+          data-i18n="projects_view_all"
+        >
+          {t.projects_view_all || 'Ver Todos los Proyectos'}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    )}
   </div>
 </section>
 
@@ -98,86 +70,10 @@ const baseUrl = import.meta.env.BASE_URL || '';
     if (lang) updateProjectCardsLanguage(lang);
   });
 
-  // Sistema de filtrado de proyectos
   document.addEventListener('DOMContentLoaded', () => {
-    // Aplicar idioma actual a las tarjetas (por si se cargó con idioma distinto al inicial)
     const i18n = (window as Window & { i18n?: { getCurrentLanguage: () => string } }).i18n;
     if (i18n?.getCurrentLanguage) {
       updateProjectCardsLanguage(i18n.getCurrentLanguage());
     }
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const projectCards = document.querySelectorAll('[data-project-card]');
-    const noProjectsMessage = document.getElementById('no-projects');
-
-    function filterProjects(selectedTech: string | null) {
-      let visibleCount = 0;
-
-      projectCards.forEach((card) => {
-        const cardTechs = card.getAttribute('data-technologies')?.split(',') || [];
-        const shouldShow = selectedTech === null || selectedTech === 'all' || cardTechs.includes(selectedTech);
-
-        if (shouldShow) {
-          card.classList.remove('hidden');
-          visibleCount++;
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-
-      // Mostrar/ocultar mensaje de "no proyectos"
-      if (visibleCount === 0) {
-        noProjectsMessage?.classList.remove('hidden');
-      } else {
-        noProjectsMessage?.classList.add('hidden');
-      }
-    }
-
-    filterButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-
-        // Actualizar estado activo de botones
-        filterButtons.forEach((btn) => {
-          btn.classList.remove(
-            'bg-gradient-to-r',
-            'from-cyan-500',
-            'to-blue-500',
-            'text-white',
-            'shadow-lg',
-            'shadow-cyan-500/50'
-          );
-          btn.classList.add(
-            'bg-gray-100',
-            'dark:bg-gray-800',
-            'text-gray-700',
-            'dark:text-gray-300',
-            'border-2',
-            'border-gray-300',
-            'dark:border-gray-600'
-          );
-        });
-
-        button.classList.remove(
-          'bg-gray-100',
-          'dark:bg-gray-800',
-          'text-gray-700',
-          'dark:text-gray-300',
-          'border-2',
-          'border-gray-300',
-          'dark:border-gray-600'
-        );
-        button.classList.add(
-          'bg-gradient-to-r',
-          'from-cyan-500',
-          'to-blue-500',
-          'text-white',
-          'shadow-lg',
-          'shadow-cyan-500/50'
-        );
-
-        // Filtrar proyectos
-        filterProjects(filter === 'all' ? null : filter);
-      });
-    });
   });
 </script>

@@ -14,7 +14,7 @@ export const projectNotasHacking: Project = {
     ru: 'Образовательная веб-платформа с заметками и руководствами по кибербезопасности и этичному взлому.',
     zh: '关于网络安全和道德黑客的笔记和指南的教育网络平台。'
   },
-  featuredImage: 'images/portfolio/web-notas-hacking.png',
+  featuredImage: 'images/portfolio/web-notas-de-hacking.png',
   technologies: ['Astro', 'React', 'TypeScript', 'Tailwind CSS', 'Markdown'],
   category: 'frontend',
   demoUrl: 'https://fravelz.github.io/WEB-Notas-de-Hacking',

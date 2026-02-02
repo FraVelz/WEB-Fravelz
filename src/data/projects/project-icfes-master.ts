@@ -1,83 +1,31 @@
 import type { Project } from '../project-types';
 
-export const projectPortafolioWeb: Project = {
-  slug: 'portafolio-web',
+export const projectIcfesMaster: Project = {
+  slug: 'icfes-master',
   title: {
-    es: 'Portafolio Web Personal',
-    en: 'Personal Web Portfolio',
-    ru: 'Личное веб-портфолио',
-    zh: '个人网络作品集'
+    es: 'ICFES Master',
+    en: 'ICFES Master',
+    ru: 'ICFES Master',
+    zh: 'ICFES Master'
   },
   shortDescription: {
-    es: 'Portafolio web personal moderno y responsivo con diseño limpio y profesional.',
-    en: 'Modern and responsive personal web portfolio with clean and professional design.',
-    ru: 'Современное и адаптивное личное веб-портфолио с чистым и профессиональным дизайном.',
-    zh: '具有简洁专业设计的现代响应式个人网络作品集。'
+    es: 'Plataforma educativa para preparación de pruebas ICFES con React, Firebase y Astro. Incluye app móvil con Capacitor.',
+    en: 'Educational platform for ICFES exam preparation with React, Firebase and Astro. Includes mobile app with Capacitor.',
+    ru: 'Образовательная платформа для подготовки к экзаменам ICFES с React, Firebase и Astro. Включает мобильное приложение с Capacitor.',
+    zh: '使用 React、Firebase 和 Astro 的 ICFES 考试备考教育平台。包含 Capacitor 移动应用。'
   },
-  featuredImage: 'images/portfolio/Portfolio.png',
-  technologies: ['Astro', 'Rkact', 'TypeScript', 'Tailwind CSS'],
-  category: 'frontend',
-  demoUrl: 'https://fravelz.github.io/WEB-Fravelz',
-  githubUrl: 'https://github.com/FraVelz/WEB-Fravelz',
+  featuredImage: 'images/portfolio/web-icfes-master.png',
+  technologies: ['Astro', 'React', 'Firebase', 'TypeScript', 'Tailwind CSS', 'Capacitor'],
+  category: 'fullstack',
+  demoUrl: undefined,
+  githubUrl: 'https://github.com/FraVelz/WEB-ICFES-Master',
   featured: true,
-  year: 2025,
+  year: 2024,
   inDevelopment: true,
   fullDescription: {
-    es: 'Portafolio web personal desarrollado con Astro que muestra mis proyectos, habilidades y experiencia como desarrollador frontend. Incluye sistema de internacionalización (i18n) y diseño responsive.',
-    en: 'Personal web portfolio developed with Astro showcasing my projects, skills and experience as a frontend developer. Includes internationalization (i18n) system and responsive design.',
-    ru: 'Личное веб-портфолио, разработанное с использованием Astro, демонстрирующее мои проекты, навыки и опыт как фронтенд-разработчика. Включает систему интернационализации (i18n) и адаптивный дизайн.',
-    zh: '使用 Astro 开发的个人网络作品集，展示我作为前端开发人员的项目、技能和经验。包括国际化 (i18n) 系统和响应式设计。'
-  },
-  whatILearned: {
-    es: [
-      'Arquitectura de componentes con Astro',
-      'Sistema de i18n personalizado',
-      'Optimización de imágenes y assets',
-      'SEO y meta tags'
-    ],
-    en: [
-      'Component architecture with Astro',
-      'Custom i18n system',
-      'Image and asset optimization',
-      'SEO and meta tags'
-    ],
-    ru: [
-      'Архитектура компонентов с Astro',
-      'Пользовательская система i18n',
-      'Оптимизация изображений и ресурсов',
-      'SEO и мета-теги'
-    ],
-    zh: [
-      '使用 Astro 的组件架构',
-      '自定义 i18n 系统',
-      '图像和资源优化',
-      'SEO 和元标签'
-    ]
-  },
-  technicalDetails: {
-    es: [
-      'Astro para mejor rendimiento',
-      'React para interactividad',
-      'Tailwind CSS para diseño',
-      'Sistema de temas (dark/light mode)'
-    ],
-    en: [
-      'Astro for better performance',
-      'React for interactivity',
-      'Tailwind CSS for design',
-      'Theme system (dark/light mode)'
-    ],
-    ru: [
-      'Astro для лучшей производительности',
-      'React для интерактивности',
-      'Tailwind CSS для дизайна',
-      'Система тем (темный/светлый режим)'
-    ],
-    zh: [
-      'Astro 以获得更好的性能',
-      'React 用于交互性',
-      'Tailwind CSS 用于设计',
-      '主题系统（深色/浅色模式）'
-    ]
+    es: 'Plataforma educativa completa para preparar las pruebas ICFES (examen de estado colombiano). Desarrollada con Astro, React y Firebase. Incluye versión móvil para Android con Capacitor. Contenido educativo, quizzes y seguimiento de progreso.',
+    en: 'Complete educational platform to prepare for ICFES exams (Colombian state exam). Built with Astro, React and Firebase. Includes mobile version for Android with Capacitor. Educational content, quizzes and progress tracking.',
+    ru: 'Полная образовательная платформа для подготовки к экзаменам ICFES (государственный экзамен Колумбии). Создана с Astro, React и Firebase. Включает мобильную версию для Android с Capacitor.',
+    zh: '完整的 ICFES 考试（哥伦比亚国家考试）备考教育平台。使用 Astro、React 和 Firebase 构建。包含使用 Capacitor 的 Android 移动版本。'
   }
 };
