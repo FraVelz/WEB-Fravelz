@@ -1,7 +1,6 @@
 import type { Project } from './project-types';
 
 import { projectNotasHacking } from './projects/project-notas-hacking';
-import { projectPortafolioWeb } from './projects/project-portafolio-web';
 import { projectWebHyprdots } from './projects/project-web-hyprdots';
 import { projectIcfesMaster } from './projects/project-icfes-master';
 import { projectWebAtajos } from './projects/project-web-atajos';
@@ -13,7 +12,6 @@ export const projects: Project[] = [
   projectNotasHacking,
   projectWebHyprdots,
   projectIcfesMaster,
-  projectPortafolioWeb,
   projectWebAtajos,
   projectWebSorteo,
   projectWebVulnerable
