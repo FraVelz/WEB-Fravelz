@@ -1,19 +1,66 @@
 ---
-import { getTranslations } from "@/utils/i18n";
+import Enlace from '@/components/ui/Enlace.astro';
+import { getTranslations } from '@/utils/i18n';
 
-// Usar español por defecto - el cambio se maneja con JavaScript
 const t = getTranslations('es');
+const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1');
 ---
 
 <footer
   class="
-  border-t-2 border-cyan-300/60 dark:border-gray-700
-  text-center
-  py-8
-  sm:mt-4
+    mt-auto
+    border-t border-slate-200/80 dark:border-slate-700/80
+    bg-slate-50/70 dark:bg-slate-900/50
+    text-slate-600 dark:text-slate-400
   "
+  role="contentinfo"
 >
-  <p class="text-slate-700 dark:text-gray-400 mb-2 font-medium" data-i18n="footer_author">
-    {t.footer_author}
-  </p>
+  <div class="max-w-5xl mx-auto px-6 py-12 sm:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
+      <!-- Navegación -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-4" data-i18n="footer_links_title">
+          {t.footer_links_title}
+        </h3>
+        <nav class="flex flex-col gap-2 sm:gap-3" aria-label="Enlaces del sitio">
+          <Enlace href="#presentacion" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <span data-i18n="nav_presentation">{t.nav_presentation}</span>
+          </Enlace>
+          <Enlace href="#proyectos" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <span data-i18n="nav_projects">{t.nav_projects}</span>
+          </Enlace>
+          <Enlace href={`${baseUrl}projects`} className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <span data-i18n="projects_view_all">{t.projects_view_all}</span>
+          </Enlace>
+          <Enlace href="#tecnologia" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <span data-i18n="nav_technologies">{t.nav_technologies}</span>
+          </Enlace>
+          <Enlace href="#sobre-mi" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+            <span data-i18n="nav_about">{t.nav_about}</span>
+          </Enlace>
+        </nav>
+      </div>
+
+      <!-- Legal e información -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-4" data-i18n="footer_author">
+          {t.footer_author}
+        </h3>
+        <div class="flex flex-col gap-2 text-sm">
+          <p class="text-slate-600 dark:text-slate-400" data-i18n="footer_copyright">
+            {t.footer_copyright}
+          </p>
+          <p data-i18n="footer_license">
+            {t.footer_license}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra inferior -->
+    <div class="mt-10 pt-8 border-t border-slate-200/60 dark:border-slate-700/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-500">
+      <span data-i18n="footer_built_with">{t.footer_built_with}</span>
+      <span class="font-medium text-slate-600 dark:text-slate-400">Fravelz</span>
+    </div>
+  </div>
 </footer>

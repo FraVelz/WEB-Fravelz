@@ -1,3 +1,7 @@
 {
-    "footer_author": "автор: Fravelz"
+  "footer_author": "Fravelz",
+  "footer_links_title": "Ссылки",
+  "footer_copyright": "© 2025 Fravelz. Все права защищены.",
+  "footer_license": "Лицензия MIT.",
+  "footer_built_with": "Сделано с Astro и Tailwind CSS."
 }

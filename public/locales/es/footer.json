@@ -1,3 +1,7 @@
 {
-    "footer_author": "Autor: Fravelz"
+  "footer_author": "Fravelz",
+  "footer_links_title": "Enlaces",
+  "footer_copyright": "© 2025 Fravelz. Todos los derechos reservados.",
+  "footer_license": "Bajo licencia MIT.",
+  "footer_built_with": "Hecho con Astro y Tailwind CSS."
 }
