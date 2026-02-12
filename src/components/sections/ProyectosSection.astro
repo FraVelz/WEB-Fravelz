@@ -1,77 +1,108 @@
 ---
-import { getAllProjects } from '@/data/projects';
-import { getTranslations } from '@/utils/i18n';
-import { getLanguageFromPath } from '@/utils/lang';
-import ProjectCard from '@/components/ui/ProjectCard.astro';
+import { getAllProjects } from "@/data/projects";
+import { getTranslations } from "@/utils/i18n";
+import { getLanguageFromPath } from "@/utils/lang";
+import ProjectCard from "@/components/ui/ProjectCard.astro";
 
 const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);
 const allProjects = getAllProjects();
 const projects = allProjects.slice(0, 3);
-const baseUrl = import.meta.env.BASE_URL || '';
+const baseUrl = import.meta.env.BASE_URL || "";
 ---
 
 <section id="proyectos" class="px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Título de la sección -->
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4" data-i18n="hacking_projects_title">
-        {t.hacking_projects_title || 'Proyectos Principales'}
+      <h2
+        class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+        data-i18n="hacking_projects_title"
+      >
+        {t.hacking_projects_title || "Proyectos Principales"}
       </h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-i18n="projects_section_description">
-        {t.projects_section_description || 'Una selección de mis proyectos más destacados como desarrollador frontend.'}
+      <p
+        class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+        data-i18n="projects_section_description"
+      >
+        {
+          t.projects_section_description ||
+            "Una selección de mis proyectos más destacados como desarrollador frontend."
+        }
       </p>
     </div>
 
     <!-- Grid de proyectos (solo los 3 primeros en la página principal) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project) => (
-        <div data-project-card>
-          <ProjectCard project={project} lang={lang} />
-        </div>
-      ))}
+      {
+        projects.map((project) => (
+          <div data-project-card>
+            <ProjectCard project={project} lang={lang} />
+          </div>
+        ))
+      }
     </div>
 
     <!-- Enlace al apartado completo de proyectos -->
-    {allProjects.length > 3 && (
-      <div class="text-center mt-12">
-        <a
-          href={`${baseUrl}projects`}
-          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
-          data-i18n="projects_view_all"
-        >
-          {t.projects_view_all || 'Ver Todos los Proyectos'}
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    )}
+    {
+      allProjects.length > 3 && (
+        <div class="text-center mt-12">
+          <a
+            href={`${baseUrl}projects`}
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+            data-i18n="projects_view_all"
+          >
+            {t.projects_view_all || "Ver Todos los Proyectos"}
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </div>
+      )
+    }
   </div>
 </section>
 
 <script>
   // Actualizar títulos y descripciones de proyectos al cambiar idioma
   function updateProjectCardsLanguage(lang: string) {
-    const cards = document.querySelectorAll<HTMLElement>('[data-project-card-content]');
-    const fallback = 'es';
+    const cards = document.querySelectorAll<HTMLElement>(
+      "[data-project-card-content]",
+    );
+    const fallback = "es";
     cards.forEach((card) => {
-      const titleEl = card.querySelector('[data-project-title]');
-      const descEl = card.querySelector('[data-project-description]');
-      const title = card.getAttribute(`data-title-${lang}`) || card.getAttribute(`data-title-${fallback}`);
-      const desc = card.getAttribute(`data-desc-${lang}`) || card.getAttribute(`data-desc-${fallback}`);
+      const titleEl = card.querySelector("[data-project-title]");
+      const descEl = card.querySelector("[data-project-description]");
+      const title =
+        card.getAttribute(`data-title-${lang}`) ||
+        card.getAttribute(`data-title-${fallback}`);
+      const desc =
+        card.getAttribute(`data-desc-${lang}`) ||
+        card.getAttribute(`data-desc-${fallback}`);
       if (titleEl && title) titleEl.textContent = title;
       if (descEl && desc) descEl.textContent = desc;
     });
   }
 
-  window.addEventListener('language-changed', (e: Event) => {
+  window.addEventListener("language-changed", (e: Event) => {
     const lang = (e as CustomEvent<{ lang: string }>).detail?.lang;
     if (lang) updateProjectCardsLanguage(lang);
   });
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const i18n = (window as Window & { i18n?: { getCurrentLanguage: () => string } }).i18n;
+  document.addEventListener("DOMContentLoaded", () => {
+    const i18n = (
+      window as Window & { i18n?: { getCurrentLanguage: () => string } }
+    ).i18n;
     if (i18n?.getCurrentLanguage) {
       updateProjectCardsLanguage(i18n.getCurrentLanguage());
     }

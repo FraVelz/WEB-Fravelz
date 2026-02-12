@@ -13,7 +13,7 @@ const {
   lang = "es",
 } = Astro.props;
 
-const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
+const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 // URL absoluta de la imagen de previsualización para redes (og:image, twitter:image).
 // En GitHub Pages: https://fravelz.github.io/WEB-Fravelz/images/others/portfolio.png
 const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
@@ -70,7 +70,6 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
 
     <!-- Base URL para i18n y recursos (debe cargar antes que i18n.js) -->
     <script is:inline define:vars={{ baseUrl }}>
-      
       window.__BASE_URL__ = baseUrl;
     </script>
     <!-- Script de i18n: debe ejecutarse temprano para cargar traducciones -->
@@ -78,13 +77,16 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
 
     <!-- Script crítico: debe ejecutarse ANTES de cualquier otro script o estilo -->
     <script is:inline>
-      (function() {
+      (function () {
         // Ejecutar inmediatamente, antes de que se renderice cualquier contenido
         // Este script debe estar en el <head> para evitar FOUC
         try {
           const getSystemTheme = () => {
-            if (typeof window === 'undefined' || !window.matchMedia) return "light";
-            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            if (typeof window === "undefined" || !window.matchMedia)
+              return "light";
+            return window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
           };
 
           // Leer tema guardado
@@ -96,7 +98,8 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
             storedTheme = "auto";
           }
 
-          const finalTheme = storedTheme === "auto" ? getSystemTheme() : storedTheme;
+          const finalTheme =
+            storedTheme === "auto" ? getSystemTheme() : storedTheme;
 
           // Aplicar tema inmediatamente - esto previene el flash de contenido sin estilo
           if (finalTheme === "dark") {
@@ -109,9 +112,12 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
 
           // Prevenir FOUC (Flash of Unstyled Content)
           document.documentElement.style.colorScheme = finalTheme;
-          
+
           // Marcar que el tema ya fue inicializado
-          document.documentElement.setAttribute("data-theme-initialized", "true");
+          document.documentElement.setAttribute(
+            "data-theme-initialized",
+            "true",
+          );
         } catch (e) {
           // Si hay error, usar tema claro por defecto
           document.documentElement.classList.remove("dark");
@@ -127,24 +133,9 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
     scroll-smooth
     dark:bg-gradient-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
     bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50
-    dark:text-white text-slate-900
-    selection:bg-blue-500 dark:selection:bg-blue-500 selection:text-white
+   dark:text-white text-slate-900
     min-h-screen"
 >
-  <style is:global>
-    h1::selection,
-    h2::selection,
-    h3::selection,
-    strong::selection {
-      background-color: #a855f7;
-      color: #ffffff;
-    }
-
-    ::selection {
-      background-color: #079bd6ef;
-      color: #ffffff;
-    }
-  </style>
-
   <slot />
+  }
 </body>

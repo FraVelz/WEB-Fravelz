@@ -1,7 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-interface Props { title?: string; }
+interface Props {
+    title?: string;
+    animation?: boolean;
+}
 
 // Components Layout
 import Footer from "@/components/layout/Footer.astro";
@@ -10,7 +13,7 @@ import Main from "@/components/layout/HomeMain.astro";
 
 // Usar español por defecto - el cambio de idioma se maneja con JavaScript
 import { getTranslations } from "@/utils/i18n";
-const lang = 'es';
+const lang = "es";
 const t = getTranslations(lang);
 
 const { title } = Astro.props;
