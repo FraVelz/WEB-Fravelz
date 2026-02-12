@@ -1,0 +1,316 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import repos from '@/data/github-repos.json';
+import { getLanguageFromPath } from '@/utils/lang';
+import { getTranslations } from '@/utils/i18n';
+
+const lang = getLanguageFromPath(Astro.url.pathname);
+const t = getTranslations(lang);
+
+const typeLabels: Record<string, string> = {
+  web: 'Web',
+  'mobile-flutter': 'App móvil (Flutter)',
+  'wm-config': 'Config gestor de ventanas',
+  python: 'Python',
+  scripting: 'Scripting / CLI',
+  other: 'Otros',
+};
+
+const repoTypeOrder = ['web', 'mobile-flutter', 'wm-config', 'python', 'scripting', 'other'];
+
+const types = ['all', ...Array.from(new Set((repos as any[]).map((r) => r.type as string)))].filter(
+  (v, idx, arr) => arr.indexOf(v) === idx
+);
+---
+
+<Layout
+  title={`Repos GitHub - ${t.proyectos_personales || 'Proyectos'}`}
+  description="Listado de todos mis repos públicos de GitHub clasificados por tipo (web, Flutter, configuraciones, scripting, etc.)."
+>
+  <div
+    class="min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-14 px-4 sm:px-6 lg:px-8"
+  >
+    <div class="max-w-7xl mx-auto space-y-10">
+      <!-- Header -->
+      <header class="text-center space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/70 dark:bg-cyan-900/40 text-xs font-medium text-cyan-800 dark:text-cyan-200 border border-cyan-300/70 dark:border-cyan-700/70">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75 0 4.302 2.791 7.956 6.667 9.252.487.09.666-.211.666-.47 0-.232-.009-.848-.013-1.665-2.712.589-3.283-1.306-3.283-1.306-.443-1.125-1.082-1.425-1.082-1.425-.885-.605.067-.593.067-.593  .98.069 1.496 1.007 1.496 1.007  .87 1.49 2.285 1.06 2.842.81.088-.63.341-1.06.62-1.305-2.166-.246-4.444-1.083-4.444-4.819 0-1.065.38-1.936 1.004-2.618-.101-.246-.435-1.237.096-2.58 0 0 .817-.262 2.676 1.001A9.293 9.293 0 0 1 12 6.06a9.28 9.28 0 0 1 2.438.328c1.858-1.263 2.674-1.001 2.674-1.001.533 1.343.199 2.334.098 2.58.626.682 1.003 1.553 1.003 2.618 0 3.744-2.282 4.57-4.456 4.81.351.303.664.902.664 1.818 0 1.312-.012 2.371-.012 2.695 0 .261.176.565.671.469C19.963 19.952 22.75 16.298 22.75 12c0-5.385-4.365-9.75-9.75-9.75Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <span>Repos públicos de GitHub</span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-50">
+          Todos mis proyectos de programación
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          Webs, apps móviles en Flutter, configuraciones de gestores de ventanas, scripts y otros
+          experimentos. Todo lo que tengo público en GitHub.
+        </p>
+        <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1">
+          Total:{' '}
+          <span class="font-semibold text-cyan-700 dark:text-cyan-300">
+            {(repos as any[]).length}
+          </span>{' '}
+          repos
+        </p>
+      </header>
+
+      <!-- Filtros por tipo -->
+      <section class="mb-6">
+        <div class="flex flex-wrap gap-2 justify-center">
+          {types.map((type) => (
+            <button
+              data-type-filter={type}
+              class={`px-4 py-2 rounded-full text-sm font-semibold transition-all border
+                ${
+                  type === 'all'
+                    ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/40 border-transparent'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border-gray-300 dark:border-gray-600'
+                }`}
+            >
+              {type === 'all' ? 'Todos' : typeLabels[type] || type}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <!-- Grid de repos -->
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="repos-grid">
+        {(repos as any[])
+          .sort((a, b) => repoTypeOrder.indexOf(a.type) - repoTypeOrder.indexOf(b.type))
+          .map((repo) => (
+            <article
+              class="rounded-2xl border border-slate-200/80 dark:border-slate-700/70 bg-white/80 dark:bg-slate-900/70 backdrop-blur-sm p-5 shadow-sm hover:shadow-lg hover:border-cyan-400/80 hover:-translate-y-0.5 transition-all flex flex-col gap-3"
+              data-repo-type={repo.type}
+            >
+              <header class="flex items-start justify-between gap-2">
+                <div>
+                  <h2 class="text-base font-semibold text-slate-900 dark:text-slate-50 mb-1 flex items-center gap-2">
+                    <a
+                      href={repo.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="hover:text-cyan-600 dark:hover:text-cyan-400"
+                    >
+                      {repo.name}
+                    </a>
+                    {repo.fork && (
+                      <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] font-medium text-slate-600 dark:text-slate-300">
+                        Fork
+                      </span>
+                    )}
+                  </h2>
+                  <div class="flex flex-wrap items-center gap-2 mt-1">
+                    <span class="text-[11px] inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-900/40 text-cyan-800 dark:text-cyan-200 border border-cyan-200/70 dark:border-cyan-700/60">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                      {typeLabels[repo.type] || 'Otro'}
+                    </span>
+                    {repo.language && (
+                      <span class="text-[11px] inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/70">
+                        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500"></span>
+                        {repo.language}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div class="text-xs text-slate-500 dark:text-slate-400 text-right">
+                  {repo.stars > 0 && (
+                    <div class="inline-flex items-center gap-1 mt-1">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="w-4 h-4 text-yellow-400"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.396c1.164.085 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.476L12 18.354 7.373 21.194c-.996.557-2.231-.34-1.96-1.477l1.257-5.272-4.117-3.527c-.887-.76-.415-2.22.749-2.305l5.404-.396 2.082-5.006Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      <span>{repo.stars}</span>
+                    </div>
+                  )}
+                </div>
+              </header>
+
+              {repo.description && (
+                <p class="text-sm text-slate-600 dark:text-slate-300 line-clamp-3">
+                  {repo.description}
+                </p>
+              )}
+
+              <div class="mt-auto flex flex-wrap items-center justify-between gap-2 pt-3 text-[11px] text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-700/70">
+                <span class="inline-flex items-center gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    class="w-3.5 h-3.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                  Actualizado:{' '}
+                  {new Date(repo.updatedAt).toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                  })}
+                </span>
+                <div class="flex gap-3">
+                  <a
+                    href={repo.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1 text-cyan-700 dark:text-cyan-300 hover:underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.5 4.5A3 3 0 0 1 7.5 1.5h3.879a.75.75 0 0 1 0 1.5H7.5A1.5 1.5 0 0 0 6 4.5v10.5A1.5 1.5 0 0 0 7.5 16.5h10.5A1.5 1.5 0 0 0 19.5 15v-3.879a.75.75 0 0 1 1.5 0V15A3 3 0 0 1 18 18H7.5A3 3 0 0 1 4.5 15Z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M21.75 2.25a.75.75 0 0 0-.75-.75h-6a.75.75 0 0 0 0 1.5h4.19L9.22 13.97a.75.75 0 1 0 1.06 1.06L20.25 4.06V8.25a.75.75 0 0 0 1.5 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    GitHub
+                  </a>
+                  {repo.homepage && (
+                    <a
+                      href={repo.homepage}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex items-center gap-1 text-cyan-700 dark:text-cyan-300 hover:underline"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        class="w-3.5 h-3.5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M3.75 9.75 12 3l8.25 6.75M4.5 10.5v9.75h15v-9.75"
+                        />
+                      </svg>
+                      Demo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+      </section>
+
+      <!-- Mensaje si no hay repos visibles con el filtro -->
+      <div id="no-repos-message" class="hidden text-center py-12">
+        <p class="text-slate-600 dark:text-slate-400 text-sm">
+          No hay repositorios con este filtro.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-type-filter]');
+    const repoCards = document.querySelectorAll<HTMLElement>('[data-repo-type]');
+    const noReposMessage = document.getElementById('no-repos-message');
+
+    function applyFilter(type: string | null) {
+      let visible = 0;
+
+      repoCards.forEach((card) => {
+        const cardType = card.getAttribute('data-repo-type');
+        const shouldShow = !type || type === 'all' || cardType === type;
+
+        if (shouldShow) {
+          card.classList.remove('hidden');
+          visible += 1;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (noReposMessage) {
+        noReposMessage.classList.toggle('hidden', visible > 0);
+      }
+    }
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const type = button.getAttribute('data-type-filter');
+
+        // Actualizar clases activas
+        filterButtons.forEach((btn) => {
+          btn.classList.remove(
+            'bg-gradient-to-r',
+            'from-cyan-500',
+            'to-blue-500',
+            'text-white',
+            'shadow-lg',
+            'shadow-cyan-500/40',
+            'border-transparent'
+          );
+          btn.classList.add(
+            'bg-gray-100',
+            'dark:bg-gray-800',
+            'text-gray-700',
+            'dark:text-gray-300',
+            'border-gray-300',
+            'dark:border-gray-600'
+          );
+        });
+
+        button.classList.remove(
+          'bg-gray-100',
+          'dark:bg-gray-800',
+          'text-gray-700',
+          'dark:text-gray-300',
+          'border-gray-300',
+          'dark:border-gray-600'
+        );
+        button.classList.add(
+          'bg-gradient-to-r',
+          'from-cyan-500',
+          'to-blue-500',
+          'text-white',
+          'shadow-lg',
+          'shadow-cyan-500/40',
+          'border-transparent'
+        );
+
+        applyFilter(type === 'all' ? null : type);
+      });
+    });
+  });
+</script>
+

@@ -1,0 +1,207 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { certificates } from '@/data/certificates';
+import { getTranslations } from '@/utils/i18n';
+import { getLanguageFromPath } from '@/utils/lang';
+
+const lang = getLanguageFromPath(Astro.url.pathname);
+const t = getTranslations(lang);
+
+const webCerts = certificates.filter((c) => c.category === 'web');
+const otherCerts = certificates.filter((c) => c.category !== 'web');
+---
+
+<Layout
+  title={`${t.cert_section_title || 'Certificaciones'}`}
+  description={t.cert_intro_paragraph1 || 'Resumen de mis certificaciones y objetivos de formación.'}
+>
+  <div
+    class="min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-14 px-4 sm:px-6 lg:px-8"
+  >
+    <div class="max-w-5xl mx-auto space-y-10">
+      <!-- Intro -->
+      <section class="space-y-4 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-100/70 dark:bg-cyan-900/40 text-xs font-medium text-cyan-800 dark:text-cyan-200 border border-cyan-300/70 dark:border-cyan-700/70">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-4 h-4"
+          >
+            <path d="M11.7 2.294a.75.75 0 0 1 .6 0l8.25 3.75a.75.75 0 0 1 0 1.372l-8.25 3.75a.75.75 0 0 1-.6 0l-8.25-3.75a.75.75 0 0 1 0-1.372l8.25-3.75Z" />
+            <path d="M3.26 10.226 11 13.722v7.028a.75.75 0 0 1-1.053.69l-6.75-3a.75.75 0 0 1-.447-.69v-7.524Z" />
+            <path d="M12.5 20.75v-7.028l7.74-3.496v7.524a.75.75 0 0 1-.447.69l-6.75 3a.75.75 0 0 1-1.043-.69Z" />
+          </svg>
+          <span>Formación y certificados</span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50">
+          {t.cert_section_title || 'Certificaciones en Progreso'}
+        </h1>
+        <p class="text-sm text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
+          {t.cert_intro_paragraph1}
+        </p>
+        <p class="text-sm text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
+          {t.cert_intro_paragraph2}
+        </p>
+      </section>
+
+      <!-- Certificados de Desarrollo Web -->
+      <section class="space-y-4">
+        <div class="flex items-center justify-between gap-4">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-50 flex items-center gap-2">
+            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25H12"
+                />
+              </svg>
+            </span>
+            Certificados de Desarrollo Web
+          </h2>
+          <span class="text-xs px-2 py-1 rounded-full bg-cyan-100 dark:bg-cyan-900/40 text-cyan-800 dark:text-cyan-200 border border-cyan-200/70 dark:border-cyan-700/60">
+            Enfocado en frontend / web
+          </span>
+        </div>
+
+        {webCerts.length === 0 ? (
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            Aún no he subido certificados web aquí. Cuando los tenga, aparecerán listados con sus
+            PDFs descargables.
+          </p>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {webCerts.map((cert) => (
+              <article class="rounded-2xl border border-cyan-200/70 dark:border-cyan-700/60 bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:border-cyan-400/80 hover:-translate-y-0.5 transition-all flex flex-col gap-2">
+                <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
+                  {cert.title}
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400">
+                  {cert.issuer}
+                  {cert.year && <> · {cert.year}</>}
+                </p>
+                {cert.shortDescription && (
+                  <p class="text-xs text-slate-600 dark:text-slate-300">
+                    {cert.shortDescription}
+                  </p>
+                )}
+                {cert.pdfPath && (
+                  <a
+                    href={cert.pdfPath}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="mt-auto inline-flex items-center gap-1 text-xs text-cyan-700 dark:text-cyan-300 hover:underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m0 0-6.75-6.75M12 19.5 18.75 12.75"
+                      />
+                    </svg>
+                    {t.cert_click_to_view || 'Haz clic para ver →'}
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <!-- Otros certificados -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-slate-50 flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              class="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              />
+            </svg>
+          </span>
+          Otros Certificados
+        </h2>
+
+        {otherCerts.length === 0 ? (
+          <p class="text-sm text-slate-600 dark:text-slate-400">
+            Aquí aparecerán certificados de ciberseguridad, backend u otras áreas cuando los subas a{' '}
+            <code class="px-1 rounded bg-slate-900 text-slate-100 text-xs">public/pdfs/</code> y los
+            registres en{' '}
+            <code class="px-1 rounded bg-slate-900 text-slate-100 text-xs">
+              src/data/certificates.ts
+            </code>
+            .
+          </p>
+        ) : (
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {otherCerts.map((cert) => (
+              <article class="rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm p-4 shadow-sm hover:shadow-lg hover:border-cyan-400/80 hover:-translate-y-0.5 transition-all flex-col gap-2">
+                <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-50">
+                  {cert.title}
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400">
+                  {cert.issuer}
+                  {cert.year && <> · {cert.year}</>}
+                </p>
+                {cert.shortDescription && (
+                  <p class="text-xs text-slate-600 dark:text-slate-300">
+                    {cert.shortDescription}
+                  </p>
+                )}
+                {cert.pdfPath && (
+                  <a
+                    href={cert.pdfPath}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="mt-auto inline-flex items-center gap-1 text-xs text-cyan-700 dark:text-cyan-300 hover:underline"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      class="w-3.5 h-3.5"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m0 0-6.75-6.75M12 19.5 18.75 12.75"
+                      />
+                    </svg>
+                    {t.cert_click_to_view || 'Haz clic para ver →'}
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+    </div>
+  </div>
+</Layout>
+

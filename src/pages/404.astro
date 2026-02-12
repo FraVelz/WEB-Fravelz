@@ -1,7 +1,5 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/layout/header/Header.astro";
-import Footer from "@/components/layout/Footer.astro";
 import { getTranslations } from "@/utils/i18n";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
@@ -9,11 +7,56 @@ const t = getTranslations("es");
 ---
 
 <Layout title="404 - Página no encontrada | Fravelz" lang="es">
-  <main class="flex justify-center items-center">
+  <main class="flex justify-center items-center h-screen">
+    <!-- Ilustración SVG animada -->
+    <div class="absolute inset-0 flex justify-center items-center my-8">
+      <svg
+        id="animation-404-circle"
+        class="w-64 h-64 sm:w-80 sm:h-80 overflow-visible text-cyan-500/30 dark:text-cyan-400/20"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- Círculo exterior animado -->
+        <circle
+          cx="100"
+          cy="100"
+          r="80"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-dasharray="5,5"
+          class="animate-spin"
+          style="animation-duration: 20s;"></circle>
+
+        <!-- Círculo medio -->
+        <circle
+          cx="100"
+          cy="100"
+          r="50"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          opacity="0.5"></circle>
+
+        <!-- Círculo interior -->
+        <circle
+          cx="100"
+          cy="100"
+          r="20"
+          fill="currentColor"
+          opacity="0.3"
+          class="animate-pulse"></circle>
+
+        <!-- Punto central -->
+        <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
+      </svg>
+    </div>
+
     <div class="max-w-2xl w-full text-center space-y-8">
       <!-- Número 404 con animación -->
       <div class="relative">
         <h1
+          id="element-404-1"
           class="text-9xl sm:text-[12rem] font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse"
         >
           404
@@ -28,6 +71,7 @@ const t = getTranslations("es");
       <!-- Mensaje principal -->
       <div class="space-y-4">
         <h2
+          id="element-404-2"
           class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100"
           data-i18n="error_404_title"
         >
@@ -35,6 +79,7 @@ const t = getTranslations("es");
         </h2>
 
         <p
+          id="element-404-3"
           class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto"
           data-i18n="error_404_description"
         >
@@ -42,57 +87,14 @@ const t = getTranslations("es");
         </p>
       </div>
 
-      <!-- Ilustración SVG animada -->
-      <div class="flex justify-center my-8">
-        <svg
-          class="w-64 h-64 sm:w-80 sm:h-80 text-cyan-500/30 dark:text-cyan-400/20"
-          viewBox="0 0 200 200"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!-- Círculo exterior animado -->
-          <circle
-            cx="100"
-            cy="100"
-            r="80"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-dasharray="5,5"
-            class="animate-spin"
-            style="animation-duration: 20s;"></circle>
-
-          <!-- Círculo medio -->
-          <circle
-            cx="100"
-            cy="100"
-            r="50"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            opacity="0.5"></circle>
-
-          <!-- Círculo interior -->
-          <circle
-            cx="100"
-            cy="100"
-            r="20"
-            fill="currentColor"
-            opacity="0.3"
-            class="animate-pulse"></circle>
-
-          <!-- Punto central -->
-          <circle cx="100" cy="100" r="5" fill="currentColor"></circle>
-        </svg>
-      </div>
-
       <!-- Botón para volver al inicio -->
-      <div class="pt-4">
+      <div id="element-404-4" class="pt-4">
         <a
           href="https://fravelz.github.io/WEB-Fravelz/"
           class="inline-flex items-center gap-2
             px-6 py-3
-            bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-500
-            hover:from-cyan-400 hover:via-purple-400 hover:to-cyan-400
+            bg-gradient-to-r from-cyan-500 to-purple-500
+            hover:from-cyan-400 hover:to-purple-400
             text-white font-bold text-lg
             rounded-xl
             transition-all duration-300
@@ -120,3 +122,9 @@ const t = getTranslations("es");
     </div>
   </main>
 </Layout>
+
+<script>
+  import { runAnimation } from "@/scripts-animations/404.ts";
+
+  runAnimation();
+</script>

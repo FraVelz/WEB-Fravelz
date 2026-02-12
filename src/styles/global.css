@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+
     h1::selection,
     h2::selection,
     h3::selection,
@@ -14,5 +15,16 @@
     ::selection {
         background-color: #079bd6ef;
         color: #ffffff;
+    }
+
+    #animation-404-circle {
+        opacity: 0;
+        animation: entry 1s linear 2.4s forwards;
+    }
+
+    @keyframes entry {
+        to {
+            opacity: 100%;
+        }
     }
 }
