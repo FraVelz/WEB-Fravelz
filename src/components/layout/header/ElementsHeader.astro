@@ -3,16 +3,25 @@ import Enlace from "@/components/ui/Enlace.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 import MusicButton from "@/components/ui-react/MusicButton";
 
-import { getTranslations } from '@/utils/i18n';
+import { getTranslations } from "@/utils/i18n";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
-const t = getTranslations('es');
+const t = getTranslations("es");
 ---
 
-<div class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center">
-  <Enlace href="#presentacion"><span data-i18n="nav_presentation">Presentación</span></Enlace>
-  <Enlace href="#proyectos"><span data-i18n="nav_projects">Proyectos</span></Enlace>
-  <Enlace href="#tecnologia"><span data-i18n="nav_technologies">Tecnología</span></Enlace>
+<div
+  id="header-nav"
+  class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"
+>
+  <Enlace href="#presentacion"
+    ><span data-i18n="nav_presentation">Presentación</span></Enlace
+  >
+  <Enlace href="#proyectos"
+    ><span data-i18n="nav_projects">Proyectos</span></Enlace
+  >
+  <Enlace href="#tecnologia"
+    ><span data-i18n="nav_technologies">Tecnología</span></Enlace
+  >
   <Enlace href="#sobre-mi"><span data-i18n="nav_about">Sobre Mí</span></Enlace>
 </div>
 
@@ -24,11 +33,16 @@ const t = getTranslations('es');
 <!-- Extras  -->
 
 <!-- <div class="grid grid-cols-2 px-2 sm:px-4"> -->
-<div class="flex justify-between sm:items-center lg:items-center lg:gap-14">
+<div
+  id="header-opc1"
+  class="flex justify-between sm:items-center lg:items-center lg:gap-14"
+>
   <ToggleTheme classname="order-1" />
 
   <div class="place-self-right flex justify-end items-center gap-2">
-    <label for="select-language" class="sr-only" data-i18n="nav_select_language">Seleccionar idioma</label>
+    <label for="select-language" class="sr-only" data-i18n="nav_select_language"
+      >Seleccionar idioma</label
+    >
 
     <svg
       class="text-cyan-700 dark:text-cyan-200 hover:text-cyan-800 dark:hover:text-cyan-300 size-5 transition-colors"
@@ -71,7 +85,7 @@ const t = getTranslations('es');
 >
 </div>
 
-<div class="flex justify-center items-center gap-4">
+<div id="header-opc2" class="flex justify-center items-center gap-4">
   <a href="https://github.com/FraVelz" target="_blank" aria-label="GitHub">
     <svg
       xmlns="http://www.w3.org/2000/svg"

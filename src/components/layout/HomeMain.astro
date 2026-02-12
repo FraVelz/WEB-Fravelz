@@ -65,11 +65,21 @@ const t = getTranslations("es");
   <!-- Sección: Proyectos Principales de Hacking  -->
   <ProyectosSection />
 
-  <!-- Sección: Tecnologías  -->
-  <TecnologiasSection />
+  <div
+    id="horizontal-scroll"
+    class="px-2 py-20 flex flex-col items-center gap-12 sm:justify-center max-w-6xl"
+  >
+    <!-- Sección: Tecnologías  -->
+    <TecnologiasSection />
 
-  <!-- Sección: Sobre Mí -->
-  <SobreMiSection />
+    <!-- Sección: Sobre Mí -->
+    <SobreMiSection />
 
-  <PasatiemposSection />
+    <PasatiemposSection />
+  </div>
 </div>
+
+<script type="module">
+  import { horizontal_scroll } from "@/scripts-animations/horizontal-scroll";
+  horizontal_scroll();
+</script>
