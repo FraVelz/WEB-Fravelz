@@ -2,16 +2,17 @@
 interface Props {
   className?: string;
   [key: string]: unknown;
+  justify?: "left" | "center" | "right";
 }
 
-const { className = "", ...rest } = Astro.props;
+const { className = "", justify = "justify", ...rest } = Astro.props;
 ---
 
 <p
   class={`
   wrap-break-word
   min-w-0
-  text-justify
+  text-${justify}
   ${className}
 `}
   {...rest}

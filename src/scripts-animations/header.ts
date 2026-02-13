@@ -5,7 +5,15 @@ export function runAnimation() {
     if (window.innerWidth >= 1024) {
         const tl = gsap.timeline();
 
-        tl.from("#logo", {
+        tl.from('#header-main', {
+            delay: 0.5,
+            y: -200,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power3.out"
+        })
+        .from("#logo", {
+            delay: 0.7,
             x: -200,
             opacity: 0,
             duration: 0.6,

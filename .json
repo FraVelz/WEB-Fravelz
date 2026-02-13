@@ -1,0 +1,103 @@
+// Coloque sus atajos de teclado en este archivo para sobreescribir los valores predeterminados
+[
+    {
+        // Renombrar archivo o carpeta en el explorador de archivos con r
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !renameInputVisible"
+    },
+    {
+        // Crear nuevo archivo en el explorador de archivos con a
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !renameInputVisible"
+    },
+    {
+        // Crear nueva carpeta en el explorador de archivos con ctrl+a
+        "key": "ctrl+a",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && !renameInputVisible"
+    },
+    {
+        // Abrir la vista del explorador con ctrl+n
+        "key": "ctrl+n",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        // Desactivar el atajo predeterminado ctrl+shift+e para abrir el explorador
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        // Crear nuevo archivo sin nombre con ctrl+shift+e
+        "key": "ctrl+shift+e",
+        "command": "workbench.action.files.newUntitledFile"
+    },
+    {
+        // Desactivar el atajo predeterminado ctrl+n para crear nuevo archivo
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        // Deshacer cambios del chat en el editor con ctrl+z cuando hay modificaciones
+        "key": "ctrl+z",
+        "command": "chatEditor.action.undoHunk",
+        "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookCellListFocused && !chatEdits.isCurrentlyBeingModified"
+    },
+    {
+        // Desactivar el atajo predeterminado ctrl+n para deshacer cambios del chat
+        "key": "ctrl+n",
+        "command": "-chatEditor.action.undoHunk",
+        "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isCurrentlyBeingModified || chatEdits.hasEditorModifications && notebookCellListFocused && !chatEdits.isCurrentlyBeingModified"
+    },
+    {
+        // Crear nuevo chat con ctrl+shift+a seguido de ctrl+shift+c
+        "key": "ctrl+shift+a ctrl+shift+c",
+        "command": "workbench.action.chat.newChat",
+        "when": "chatIsEnabled && inChat"
+    },
+    {
+        // Desactivar el atajo predeterminado ctrl+n para crear nuevo chat
+        "key": "ctrl+n",
+        "command": "-workbench.action.chat.newChat",
+        "when": "chatIsEnabled && inChat"
+    },
+    {
+        // Abrir chat con ctrl+shift+k seguido de ctrl+shift
+        "key": "ctrl+shift+k ctrl+shift",
+        "command": "workbench.action.openChat",
+        "when": "chatIsEnabled && inChat && inChatEditor"
+    },
+    {
+        // Desactivar el atajo predeterminado ctrl+n para abrir chat
+        "key": "ctrl+n",
+        "command": "-workbench.action.openChat",
+        "when": "chatIsEnabled && inChat && inChatEditor"
+    },
+    {
+        // Seleccionar siguiente sugerencia en el widget de autocompletado con tab
+        "key": "tab",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        // Seleccionar sugerencia anterior en el widget de autocompletado con shift+tab
+        "key": "shift+tab",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        // Buscar en el explorador de archivos con /
+        "key": "/",
+        "command": "list.find",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        // Cerrar búsqueda en el explorador de archivos con z seguido de x
+        "key": "z x",
+        "command": "list.closeFind",
+        "when": "explorerViewletVisible && filesExplorerFocus"
+    }
+]
