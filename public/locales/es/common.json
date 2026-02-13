@@ -49,5 +49,18 @@
   "error_404_title": "404 - Página no encontrada",
   "error_404_message": "Oops! La página que buscas no existe.",
   "error_404_description": "Parece que te has perdido en el ciberespacio. No te preocupes, todos nos perdemos a veces.",
-  "error_404_back_home": "Volver al inicio"
+  "error_404_back_home": "Volver al inicio",
+  "contact_title": "Contáctame",
+  "contact_subtitle": "Escríbeme o copia mi correo para ponerte en contacto.",
+  "contact_copy_label": "Copiar mi correo:",
+  "contact_name_label": "Tu nombre",
+  "contact_name_placeholder": "Ej. Juan Pérez",
+  "contact_email_label": "Tu correo",
+  "contact_email_placeholder": "tu@correo.com",
+  "contact_subject_label": "Asunto",
+  "contact_subject_placeholder": "Ej. Propuesta de proyecto",
+  "contact_message_label": "Mensaje",
+  "contact_message_placeholder": "Escribe tu mensaje aquí...",
+  "contact_send_btn": "Abrir correo para enviar",
+  "contact_mailto_hint": "Se abrirá tu cliente de correo (Gmail, Outlook, etc.) con el mensaje listo para enviar."
 }
