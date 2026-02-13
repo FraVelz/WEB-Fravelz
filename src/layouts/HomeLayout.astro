@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 
 interface Props {
     title?: string;
-    animation?: boolean;
+    classname?: string;
 }
 
 // Components Layout
@@ -16,13 +16,13 @@ import { getTranslations } from "@/utils/i18n";
 const lang = "es";
 const t = getTranslations(lang);
 
-const { title } = Astro.props;
+const { title, classname='' } = Astro.props;
 ---
 
 <Layout title={title} lang={lang}>
     <Header />
 
-    <main class="flex justify-center">
+    <main class={classname}>
         <Main />
     </main>
 

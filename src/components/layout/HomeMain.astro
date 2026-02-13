@@ -1,13 +1,11 @@
 ---
-// Component Line Divider
-import Line from "@/components/ui/Line.astro";
-
 // Imports Section
 import Presentacion from "@/components/sections/PresentacionSection.astro";
 import TecnologiasSection from "@/components/sections/TecnologiasSection.astro";
 import ProyectosSection from "@/components/sections/ProyectosSection.astro";
 import PasatiemposSection from "@/components/sections/PasatiemposSection.astro";
 import SobreMiSection from "@/components/sections/SobreMiSection.astro";
+import Contactame from "@/components/sections/Contactame.astro";
 
 // Import and configuration languages
 import { getTranslations } from "@/utils/i18n";
@@ -16,29 +14,23 @@ import { getTranslations } from "@/utils/i18n";
 const t = getTranslations("es");
 ---
 
-<div
-  class="px-2 py-20 flex flex-col items-center sm:justify-center max-w-6xl"
->
-  <Presentacion />
+<Presentacion />
 
-  <!-- Sección: Proyectos Principales de Desarrollo Web -->
-  <ProyectosSection />
+<div class="horizontal relative w-full overflow-x-hidden">
+  <div class="containera flex h-full">
+    <ProyectosSection
+      classname="panel min-w-[100vw] h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
+    />
 
-  <div
-    id="horizontal-scroll"
-    class="px-2 py-20 flex flex-col items-center gap-12 sm:justify-center max-w-6xl"
-  >
-    <!-- Sección: Tecnologías  -->
-    <TecnologiasSection />
-
-    <!-- Sección: Sobre Mí -->
-    <SobreMiSection />
-
-    <PasatiemposSection />
+    <TecnologiasSection classname="panel min-w-[100vw] h-screen mt-10" />
+    <PasatiemposSection classname="panel min-w-[100vw] h-screen mt-10" />
+    <SobreMiSection classname="panel min-w-[100vw] space-y-8 h-screen" />
   </div>
 </div>
 
-<script type="module">
-  import { horizontal_scroll } from "@/scripts-animations/horizontal-scroll";
-  horizontal_scroll();
+<Contactame />
+
+<script>
+  import { horizontalScroll } from "@/scripts-animations/horizontalScroll.ts";
+  horizontalScroll();
 </script>

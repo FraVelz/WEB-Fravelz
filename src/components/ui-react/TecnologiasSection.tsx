@@ -160,7 +160,7 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
 
   return (
     <section id="tecnologia" className="w-full">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8">
+      <div className="horizontal-scroll h-screen flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8">
         <h2 className="text-center text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
           {t.tech_title || 'Tecnologías'}
         </h2>
