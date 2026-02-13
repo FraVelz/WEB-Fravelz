@@ -49,5 +49,18 @@
   "error_404_title": "404 - 页面未找到",
   "error_404_message": "糟糕！您要找的页面不存在。",
   "error_404_description": "看来您在网络空间中迷路了。别担心，我们有时都会迷路。",
-  "error_404_back_home": "返回首页"
+  "error_404_back_home": "返回首页",
+  "contact_title": "联系我",
+  "contact_subtitle": "给我写信或复制我的邮箱以取得联系。",
+  "contact_copy_label": "复制我的邮箱：",
+  "contact_name_label": "您的姓名",
+  "contact_name_placeholder": "例如：张三",
+  "contact_email_label": "您的邮箱",
+  "contact_email_placeholder": "you@email.com",
+  "contact_subject_label": "主题",
+  "contact_subject_placeholder": "例如：项目合作",
+  "contact_message_label": "留言",
+  "contact_message_placeholder": "在此输入您的留言...",
+  "contact_send_btn": "打开邮箱发送",
+  "contact_mailto_hint": "将打开您的邮件客户端（Gmail、Outlook 等）并预填好内容。"
 }

@@ -2,16 +2,23 @@
 import { getAllProjects } from "@/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { getLanguageFromPath } from "@/utils/lang";
+
 import ProjectCard from "@/components/ui/ProjectCard.astro";
+import Button1 from "@/components/ui/Button.astro";
 
 const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);
 const allProjects = getAllProjects();
 const projects = allProjects.slice(0, 3);
 const baseUrl = import.meta.env.BASE_URL || "";
+
+interface Props {
+  classname?: string;
+}
+const { classname = "" } = Astro.props;
 ---
 
-<section id="proyectos" class="w-screen min-h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8">
+<section id="proyectos" class={classname}>
   <div class="max-w-7xl mx-auto">
     <!-- Título de la sección -->
     <div class="text-center mb-12">
@@ -47,26 +54,7 @@ const baseUrl = import.meta.env.BASE_URL || "";
     {
       allProjects.length > 3 && (
         <div class="text-center mt-12">
-          <a
-            href={`${baseUrl}projects`}
-            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
-            data-i18n="projects_view_all"
-          >
-            {t.projects_view_all || "Ver Todos los Proyectos"}
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
+          <Button1 />
         </div>
       )
     }

@@ -49,5 +49,18 @@
   "error_404_title": "404 - Страница не найдена",
   "error_404_message": "Упс! Страница, которую вы ищете, не существует.",
   "error_404_description": "Похоже, вы заблудились в киберпространстве. Не волнуйтесь, мы все иногда теряемся.",
-  "error_404_back_home": "Вернуться на главную"
+  "error_404_back_home": "Вернуться на главную",
+  "contact_title": "Связаться со мной",
+  "contact_subtitle": "Напишите мне или скопируйте мою почту.",
+  "contact_copy_label": "Скопировать почту:",
+  "contact_name_label": "Ваше имя",
+  "contact_name_placeholder": "Напр. Иван Иванов",
+  "contact_email_label": "Ваша почта",
+  "contact_email_placeholder": "you@email.com",
+  "contact_subject_label": "Тема",
+  "contact_subject_placeholder": "Напр. Предложение по проекту",
+  "contact_message_label": "Сообщение",
+  "contact_message_placeholder": "Напишите сообщение...",
+  "contact_send_btn": "Открыть почту для отправки",
+  "contact_mailto_hint": "Откроется ваш почтовый клиент с готовым сообщением."
 }

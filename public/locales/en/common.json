@@ -49,5 +49,18 @@
   "error_404_title": "404 - Page Not Found",
   "error_404_message": "Oops! The page you're looking for doesn't exist.",
   "error_404_description": "It seems you've gotten lost in cyberspace. Don't worry, we all get lost sometimes.",
-  "error_404_back_home": "Back to Home"
+  "error_404_back_home": "Back to Home",
+  "contact_title": "Contact Me",
+  "contact_subtitle": "Write to me or copy my email to get in touch.",
+  "contact_copy_label": "Copy my email:",
+  "contact_name_label": "Your name",
+  "contact_name_placeholder": "e.g. John Doe",
+  "contact_email_label": "Your email",
+  "contact_email_placeholder": "you@email.com",
+  "contact_subject_label": "Subject",
+  "contact_subject_placeholder": "e.g. Project proposal",
+  "contact_message_label": "Message",
+  "contact_message_placeholder": "Write your message here...",
+  "contact_send_btn": "Open email to send",
+  "contact_mailto_hint": "Your email client (Gmail, Outlook, etc.) will open with the message ready to send."
 }
