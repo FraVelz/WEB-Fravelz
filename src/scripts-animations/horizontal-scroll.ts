@@ -1,4 +1,4 @@
-import gsap from "gsap";
+zmport gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);

@@ -5,7 +5,7 @@ import MobileDrawer from "@/components/layout/header/MobileDrawer.astro";
 
 <header
   id="header-main"
-  class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 border-cyan-200/60 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none"
+  class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none"
 >
   <div
     class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"
@@ -67,8 +67,6 @@ import MobileDrawer from "@/components/layout/header/MobileDrawer.astro";
 
 <script>
   import { runAnimation } from "@/scripts-animations/header";
-  import { runAnimation as runAnimation2 } from "@/scripts-animations/scrollanimation";
 
   runAnimation();
-  runAnimation2();
 </script>
