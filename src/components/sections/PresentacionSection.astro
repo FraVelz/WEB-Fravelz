@@ -4,114 +4,170 @@ import { base } from "@/utils/paths";
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
 import { getTranslations } from "@/utils/i18n";
+import Parrafo from "@/components/ui/Parrafo.astro";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
-const t = getTranslations('es');
+const t = getTranslations("es");
 ---
 
 <section
   id="presentacion"
-  class="py-12 sm:py-16 lg:py-24
+  class="h-screen w-screen flex flex-col justify-center items-center"
+>
+  <div
+    class="py-12 sm:py-16 lg:py-24
          grid grid-cols-1 gap-6
          lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto]
          items-center lg:items-start"
->
-  <!-- Logo con borde animado -->
-  <div
-    class="row-span-2 lg:row-span-3
+  >
+    <!-- Logo con borde animado -->
+    <div
+      class="row-span-2 lg:row-span-3
               relative
               h-32 w-32 mx-auto
               sm:h-48 sm:w-48
               lg:h-64 lg:w-64 lg:mr-6
               flex-shrink-0"
-  >
-    <!-- Borde giratorio -->
-    <div
-      class="absolute inset-0
+    >
+      <!-- Borde giratorio -->
+      <div
+        class="absolute inset-0
              rounded-full
              p-3 sm:p-4
              bg-gradient-to-r from-purple-500 via-transparent to-cyan-500
              animate-[spin_2s_linear_infinite]"
-      aria-hidden="true"
-    >
-    </div>
+        aria-hidden="true"
+      >
+      </div>
 
-    <!-- Imagen del logo -->
-    <div
-      class="absolute inset-1 sm:inset-2
+      <!-- Imagen del logo -->
+      <div
+        class="absolute inset-1 sm:inset-2
                 rounded-full
                 bg-cyan-50 dark:bg-gray-900 shadow-inner border-2 border-cyan-200/50 dark:border-transparent
                 z-10
                 overflow-hidden
                 shadow-inner"
-    >
-      <img
-        draggable="false"
-        class="h-full w-full rounded-full object-cover select-none"
-        src={`${base}images/others/icono-fravelz.png`}
-        data-i18n-attr="alt:hero_logo_alt"
-        alt="Logo de Fravelz"
-        width="256"
-        height="256"
-      />
+      >
+        <img
+          draggable="false"
+          class="h-full w-full rounded-full object-cover select-none"
+          src={`${base}images/others/icono-fravelz.png`}
+          data-i18n-attr="alt:hero_logo_alt"
+          alt="Logo de Fravelz"
+          width="256"
+          height="256"
+        />
+      </div>
     </div>
-  </div>
 
-  <!-- Nombre -->
-  <h1
-    class="text-2xl sm:text-3xl lg:text-4xl
+    <!-- Nombre -->
+    <h1
+      class="text-2xl sm:text-3xl lg:text-4xl
            self-end
            bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent
            font-bold
            text-center lg:text-left"
-  >
-    Francisco J. Vélez O.
-  </h1>
+    >
+      Francisco J. Vélez O.
+    </h1>
 
-  <!-- Información y enlaces -->
-  <div class="flex flex-col gap-4">
-    <p
-      class="text-base sm:text-lg
+    <!-- Información y enlaces -->
+    <div class="flex flex-col gap-4">
+      <p
+        class="text-base sm:text-lg
               text-cyan-700 dark:text-cyan-300 font-bold
               font-semibold
               text-center lg:text-left"
-    >
-      @Fravelz
-    </p>
+      >
+        @Fravelz
+      </p>
 
-    <div
-      class="flex flex-wrap justify-center lg:justify-start
+      <div
+        class="flex flex-wrap justify-center lg:justify-start
                 items-center
                 gap-2 sm:gap-3"
-    >
-      <LocationBadge text={t.hero_location} />
+      >
+        <LocationBadge text={t.hero_location} />
 
-      <CopyEmailButton
-        client:load
-        email="fravelz@proton.me"
-        successText={t.hero_copy_success}
-      />
+        <CopyEmailButton
+          client:load
+          email="fravelz@proton.me"
+          successText={t.hero_copy_success}
+        />
+      </div>
     </div>
-  </div>
 
-  <!-- Descripción -->
-  <div class="lg:col-start-2 flex flex-col gap-2">
-    <p
-      class="text-base sm:text-lg
+    <!-- Descripción -->
+    <div class="lg:col-start-2 flex flex-col gap-2">
+      <p
+        class="text-base sm:text-lg
               text-slate-800 dark:text-gray-200
               text-center lg:text-left"
-      data-i18n="hola"
-    >
-      {t.hola}
-    </p>
-    <p
-      class="text-lg sm:text-xl
+        data-i18n="hola"
+      >
+        {t.hola}
+      </p>
+      <p
+        class="text-lg sm:text-xl
               text-cyan-700 dark:text-cyan-100
               font-bold
               text-center lg:text-left"
-      data-i18n="futuro_pentester"
+        data-i18n="futuro_pentester"
+      >
+        {t.futuro_pentester}
+      </p>
+    </div>
+
+    <div class="col-span-2 max-w-2xl mt-5">
+      <Parrafo
+        justify="center"
+        className="text-slate-800 dark:text-gray-300"
+        data-i18n="about_current_text"
+      >
+        {t.about_current_text}
+      </Parrafo>
+    </div>
+  </div>
+
+  <!-- Indicador para bajar -->
+  <div class="flex h-fit w-fit px-3 py-5 justify-center">
+    <div
+      class="text-cyan-700 rounded-xl border-cyan-700/80 border-2
+      dark:text-cyan-400 dark:border-cyan-400/40
+        hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20
+        transition-all select-none
+        animate-bounce z-10 p-2 flex gap-1"
     >
-      {t.futuro_pentester}
-    </p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path>
+      </svg>
+
+      <span data-i18n="ir_abajo">{t.ir_abajo}</span>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3"></path>
+      </svg>
+    </div>
   </div>
 </section>
