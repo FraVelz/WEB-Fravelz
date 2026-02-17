@@ -14,7 +14,7 @@ export const projectWebSorteo: Project = {
     ru: 'Шаблон платформы онлайн-розыгрыша с продажей билетов, несколькими способами оплаты и автоматической лотереей. Готов к интеграции Firebase.',
     zh: '在线抽奖平台模板，含门票销售、多种支付方式和自动抽奖。准备集成 Firebase。'
   },
-  featuredImage: 'images/portfolio/web-sorteo.png',
+  featuredImage: 'images/projects/web-sorteo.png',
   technologies: ['Astro', 'Tailwind CSS'],
   category: 'frontend',
   demoUrl: 'https://fravelz.github.io/WEB-Sorteo',

@@ -14,7 +14,7 @@ export const projectWebVulnerable: Project = {
     ru: 'Образовательная лаборатория веб-безопасности для изучения уязвимостей в контролируемой среде. CTF с флагами и сохранением прогресса.',
     zh: '在受控环境中学习漏洞的 Web 安全教育实验室。带旗帜和进度保存的 CTF。'
   },
-  featuredImage: 'images/portfolio/web-vulnerable.png',
+  featuredImage: 'images/projects/web-vulnerable.png',
   technologies: ['Astro', 'Tailwind CSS', 'TypeScript'],
   category: 'frontend',
   demoUrl: 'https://fravelz.github.io/WEB-Vulnerable',

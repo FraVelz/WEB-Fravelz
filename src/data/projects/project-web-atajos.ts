@@ -14,7 +14,7 @@ export const projectWebAtajos: Project = {
     ru: 'Краткий справочник горячих клавиш для Firefox, VSCode, Vim, Hyprland, Kitty и Zsh. Для пользователей Arch Linux.',
     zh: 'Firefox、VSCode、Vim、Hyprland、Kitty 和 Zsh 的键盘快捷键快速参考。面向 Arch Linux 用户。'
   },
-  featuredImage: 'images/portfolio/web-atajos.png',
+  featuredImage: 'images/projects/web-atajos.png',
   technologies: ['Astro', 'Tailwind CSS'],
   category: 'frontend',
   demoUrl: 'https://fravelz.github.io/WEB-Atajos',
