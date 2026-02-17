@@ -16,7 +16,7 @@ const description = project.shortDescription[currentLang];
 const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 const projectUrl = `${base}projects/${project.slug}`;
 
-// Textos en todos los idiomas para actualización al cambiar idioma en el cliente
+// Texts in all languages for client-side update when language changes
 const titles = { es: project.title.es, en: project.title.en, ru: project.title.ru, zh: project.title.zh };
 const descriptions = { es: project.shortDescription.es, en: project.shortDescription.en, ru: project.shortDescription.ru, zh: project.shortDescription.zh };
 ---

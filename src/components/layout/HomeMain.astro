@@ -1,11 +1,11 @@
 ---
 // Imports Section
-import Presentacion from "@/components/sections/PresentacionSection.astro";
-import TecnologiasSection from "@/components/sections/TecnologiasSection.astro";
-import ProyectosSection from "@/components/sections/ProyectosSection.astro";
-import PasatiemposSection from "@/components/sections/PasatiemposSection.astro";
-import SobreMiSection from "@/components/sections/SobreMiSection.astro";
-import Contactame from "@/components/sections/Contactame.astro";
+import Presentation from "@/components/sections/PresentationSection.astro";
+import TechnologiesSection from "@/components/sections/TechnologiesSection.astro";
+import ProjectsSection from "@/components/sections/ProjectsSection.astro";
+import HobbiesSection from "@/components/sections/HobbiesSection.astro";
+import AboutMeSection from "@/components/sections/AboutMeSection.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
 
 // Import and configuration languages
 import { getTranslations } from "@/utils/i18n";
@@ -14,21 +14,21 @@ import { getTranslations } from "@/utils/i18n";
 const t = getTranslations("es");
 ---
 
-<Presentacion />
+<Presentation />
 
 <div class="horizontal relative w-full overflow-x-hidden">
   <div class="containera flex h-full">
-    <ProyectosSection
+    <ProjectsSection
       classname="panel min-w-[100vw] h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
     />
 
-    <TecnologiasSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
-    <PasatiemposSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
-    <SobreMiSection classname="panel min-w-[100vw] space-y-8 h-screen flex justify-center items-center" />
+    <TechnologiesSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
+    <HobbiesSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
+    <AboutMeSection classname="panel min-w-[100vw] space-y-8 h-screen flex justify-center items-center" />
   </div>
 </div>
 
-<Contactame />
+<ContactSection />
 
 <script>
   import { horizontalScroll } from "@/scripts-animations/horizontalScroll.ts";

@@ -1,4 +1,4 @@
-// Sistema de i18n para Astro - carga desde public/locales (única fuente de verdad)
+// i18n system for Astro - loads from public/locales (single source of truth)
 
 import { readFileSync } from 'fs';
 import { join } from 'path';
@@ -31,7 +31,7 @@ function loadLocale(lang: Language): Record<string, string> {
       ) as Record<string, string>;
       Object.assign(out, data);
     } catch {
-      // Archivo no encontrado o inválido, seguir
+      // File not found or invalid, skip
     }
   }
   return out;

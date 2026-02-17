@@ -12,22 +12,22 @@ interface Technology {
   darkColor: string;
 }
 
-interface TecnologiasSectionProps {
+interface TechnologiesSectionProps {
 }
 
-export default function TecnologiasSection({}: TecnologiasSectionProps) {
+export default function TechnologiesSection({}: TechnologiesSectionProps) {
   const [translations, setTranslations] = useState<any>({});
   const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
-    // Escuchar cambios de idioma
+    // Listen for language changes
     const handleLanguageChange = (event: CustomEvent) => {
       setTranslations(event.detail.translations || {});
     };
 
     window.addEventListener('language-changed', handleLanguageChange as EventListener);
     
-    // Obtener traducción inicial
+    // Get initial translation
     if (typeof window !== 'undefined' && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
       const t = (window as any).i18n.getTranslations(currentLang);
@@ -162,7 +162,7 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
     <section id="tecnologia" className="w-full">
       <div className="horizontal-scroll h-screen flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 sm:mb-8">
         <h2 className="text-center text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          {t.tech_title || 'Tecnologías'}
+          {t.tech_title || 'Technologies'}
         </h2>
         
         <button
@@ -195,8 +195,8 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
           </svg>
           <span>
             {showInfo 
-              ? ((t as any).tech_hide_info || 'Ocultar información') 
-              : ((t as any).tech_show_info || 'Mostrar información')
+? ((t as any).tech_hide_info || 'Hide info')
+              : ((t as any).tech_show_info || 'Show info')
             }
           </span>
         </button>
@@ -234,7 +234,7 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
               </h3>
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
               
-              {/* Información que aparece encima */}
+              {/* Info shown on hover */}
               {showInfo && (
                 <div className={`
                   absolute bottom-0 left-0 right-0
@@ -251,7 +251,7 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
                   <div className="space-y-2 text-xs sm:text-sm">
                     <div className="flex items-center justify-between">
                       <span className="font-semibold text-slate-800 dark:text-gray-300">
-                        {(t as any).tech_info_level || 'Nivel'}:
+                        {(t as any).tech_info_level || 'Level'}:
                       </span>
                       <span className={`font-bold ${getLevelColor(tech.level)}`}>
                         {(t as any)[tech.levelKey] || tech.level}
@@ -260,7 +260,7 @@ export default function TecnologiasSection({}: TecnologiasSectionProps) {
 
                     <div className="flex items-center justify-between">
                       <span className="font-semibold text-slate-800 dark:text-gray-300">
-                        {(t as any).tech_info_category || 'Categoría'}:
+                        {(t as any).tech_info_category || 'Category'}:
                       </span>
                       <span className={`font-bold ${getCategoryColor(tech.category)}`}>
                         {(t as any)[tech.categoryKey] || tech.category}
