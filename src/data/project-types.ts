@@ -1,19 +1,19 @@
 /**
- * Estructura de datos para proyectos del portafolio.
+ * Data structure for portfolio projects.
  *
- * Cada proyecto debe tener:
- * - slug: identificador único para la URL (ej: "notas-hacking")
- * - Información básica (título, descripción, imagen)
- * - Tecnologías utilizadas
+ * Each project must have:
+ * - slug: unique identifier for the URL (e.g. "notas-hacking")
+ * - Basic info (title, description, image)
+ * - Technologies used
  * - Links (demo, GitHub)
- * - Contenido detallado para la vista individual
+ * - Detailed content for the individual view
  */
 
 export interface Project {
-  /** Identificador único para la URL */
+  /** Unique identifier for the URL */
   slug: string;
 
-  /** Títulos por idioma */
+  /** Titles per language */
   title: {
     es: string;
     en: string;
@@ -21,7 +21,7 @@ export interface Project {
     zh: string;
   };
 
-  /** Descripción corta por idioma */
+  /** Short description per language */
   shortDescription: {
     es: string;
     en: string;
@@ -29,30 +29,30 @@ export interface Project {
     zh: string;
   };
 
-  /** Ruta a la imagen principal */
+  /** Path to the main image */
   featuredImage: string;
 
-  /** Tecnologías utilizadas */
+  /** Technologies used */
   technologies: string[];
 
-  /** Categoría del proyecto */
+  /** Project category */
   category: 'frontend' | 'fullstack' | 'tool' | 'other';
 
-  /** URL de demo */
+  /** Demo URL */
   demoUrl?: string;
 
-  /** URL del repositorio */
+  /** Repository URL */
   githubUrl?: string;
 
-  /** Si está en desarrollo */
+  /** Whether it is in development */
   isComingSoon?: boolean;
 
   /**
-   * Estado del proyecto: true = en desarrollo, false = finalizado.
+   * Project status: true = in development, false = completed.
    */
   inDevelopment: boolean;
 
-  /** Descripción larga por idioma (vista individual) */
+  /** Long description per language (individual view) */
   fullDescription: {
     es: string;
     en: string;
@@ -60,10 +60,10 @@ export interface Project {
     zh: string;
   };
 
-  /** Rutas a capturas de pantalla */
+  /** Paths to screenshots */
   screenshots?: string[];
 
-  /** Lo que aprendí (por idioma) */
+  /** What I learned (per language) */
   whatILearned?: {
     es: string[];
     en: string[];
@@ -71,7 +71,7 @@ export interface Project {
     zh: string[];
   };
 
-  /** Detalles técnicos (por idioma) */
+  /** Technical details (per language) */
   technicalDetails?: {
     es: string[];
     en: string[];
@@ -79,9 +79,9 @@ export interface Project {
     zh: string[];
   };
 
-  /** Si es proyecto destacado */
+  /** Whether it is a featured project */
   featured?: boolean;
 
-  /** Año del proyecto */
+  /** Project year */
   year?: number;
 }

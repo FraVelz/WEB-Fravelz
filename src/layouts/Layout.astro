@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
-// URL absoluta de la imagen de previsualización para redes (og:image, twitter:image).
+// Absolute URL for the preview image for social (og:image, twitter:image).
 // En GitHub Pages: https://fravelz.github.io/WEB-Fravelz/images/others/portfolio.png
 const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
 ---
@@ -71,18 +71,18 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
 
     <title>{title}</title>
 
-    <!-- Base URL para i18n y recursos (debe cargar antes que i18n.js) -->
+    <!-- Base URL for i18n and assets (must load before i18n.js) -->
     <script is:inline define:vars={{ baseUrl }}>
       window.__BASE_URL__ = baseUrl;
     </script>
-    <!-- Script de i18n: debe ejecutarse temprano para cargar traducciones -->
+    <!-- i18n script: must run early to load translations -->
     <script src={`${baseUrl}i18n.js`} defer></script>
 
-    <!-- Script crítico: debe ejecutarse ANTES de cualquier otro script o estilo -->
+    <!-- Critical script: must run BEFORE any other script or style -->
     <script is:inline>
       (function () {
-        // Ejecutar inmediatamente, antes de que se renderice cualquier contenido
-        // Este script debe estar en el <head> para evitar FOUC
+        // Run immediately, before any content is rendered
+        // This script must be in <head> to prevent FOUC
         try {
           const getSystemTheme = () => {
             if (typeof window === "undefined" || !window.matchMedia)
@@ -92,19 +92,19 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
               : "light";
           };
 
-          // Leer tema guardado
+          // Read stored theme
           let storedTheme = "auto";
           try {
             storedTheme = localStorage.getItem("theme") || "auto";
           } catch (e) {
-            // Si localStorage no está disponible, usar auto
+            // If localStorage is not available, use auto
             storedTheme = "auto";
           }
 
           const finalTheme =
             storedTheme === "auto" ? getSystemTheme() : storedTheme;
 
-          // Aplicar tema inmediatamente - esto previene el flash de contenido sin estilo
+          // Apply theme immediately - this prevents unstyled content flash
           if (finalTheme === "dark") {
             document.documentElement.classList.add("dark");
             document.documentElement.setAttribute("data-theme", "dark");

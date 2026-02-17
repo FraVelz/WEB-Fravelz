@@ -1,11 +1,11 @@
 ---
-import Enlace from "@/components/ui/Enlace.astro";
+import Link from "@/components/ui/Link.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 import MusicButton from "@/components/ui-react/MusicButton";
 
 import { getTranslations } from "@/utils/i18n";
 
-// Usar español por defecto - el cambio se maneja con JavaScript
+// Use Spanish as default - language change is handled with JavaScript
 const t = getTranslations("es");
 ---
 
@@ -13,16 +13,16 @@ const t = getTranslations("es");
   id="header-nav"
   class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"
 >
-  <Enlace href="#presentacion"
-    ><span data-i18n="nav_presentation">Presentación</span></Enlace
+  <Link href="#presentacion"
+    ><span data-i18n="nav_presentation">Presentación</span></Link
   >
-  <Enlace href="#proyectos"
-    ><span data-i18n="nav_projects">Proyectos</span></Enlace
+  <Link href="#proyectos"
+    ><span data-i18n="nav_projects">Proyectos</span></Link
   >
-  <Enlace href="#tecnologia"
-    ><span data-i18n="nav_technologies">Tecnología</span></Enlace
+  <Link href="#tecnologia"
+    ><span data-i18n="nav_technologies">Tecnología</span></Link
   >
-  <Enlace href="#sobre-mi"><span data-i18n="nav_about">Sobre Mí</span></Enlace>
+  <Link href="#sobre-mi"><span data-i18n="nav_about">Sobre Mí</span></Link>
 </div>
 
 <div

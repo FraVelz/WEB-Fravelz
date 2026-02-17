@@ -40,13 +40,13 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
       await navigator.clipboard.writeText(email);
       setCopied(true);
 
-      // Restaurar el texto original después de 2 segundos
+      // Restore original text after 2 seconds
       setTimeout(() => {
         setCopied(false);
       }, 3000);
     } catch (err) {
-      console.error('Error al copiar el correo:', err);
-      // Fallback para navegadores que no soportan clipboard API
+      console.error('Error copying email:', err);
+      // Fallback for browsers that do not support clipboard API
       const textArea = document.createElement('textarea');
       textArea.value = email;
       textArea.style.position = 'fixed';

@@ -5,17 +5,17 @@ export interface Certificate {
   title: string;
   issuer: string;
   year?: number;
-  /** Categoría principal del certificado (para énfasis en web). */
+  /** Main certificate category (for web emphasis). */
   category: CertificateCategory;
-  /** Ruta al PDF dentro de `public/pdfs/...`, por ejemplo `/pdfs/web/mi-certificado.pdf`. */
+  /** Path to PDF under `public/pdfs/...`, e.g. `/pdfs/web/my-certificate.pdf`. */
   pdfPath?: string;
-  /** Texto corto opcional para mostrar debajo del título. */
+  /** Optional short text to show below the title. */
   shortDescription?: string;
 }
 
 /**
- * Rellena este array con tus certificados reales.
- * Ejemplo:
+ * Fill this array with your actual certificates.
+ * Example:
  *
  * {
  *   id: 'freecodecamp-responsive-web',
@@ -24,11 +24,11 @@ export interface Certificate {
  *   year: 2025,
  *   category: 'web',
  *   pdfPath: '/pdfs/web/freecodecamp-responsive-web.pdf',
- *   shortDescription: 'HTML, CSS, Flexbox, Grid y accesibilidad.'
+ *   shortDescription: 'HTML, CSS, Flexbox, Grid and accessibility.'
  * }
  */
 export const certificates: Certificate[] = [
-  // --- Desarrollo Web (midudev) ---
+  // --- Web Development (midudev) ---
   {
     id: 'midudev-html',
     title: 'HTML desde cero',
@@ -94,7 +94,7 @@ export const certificates: Certificate[] = [
     shortDescription: 'Uso de utility types de TypeScript para tipar mejor aplicaciones web.'
   },
 
-  // --- Ciberseguridad / Hacking ético (Hixec) ---
+  // --- Cybersecurity / Ethical hacking (Hixec) ---
   {
     id: 'hixec-ciberseguridad-101',
     title: 'Ciberseguridad y Privacidad 101',
@@ -159,7 +159,7 @@ export const certificates: Certificate[] = [
     pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Deteccion-y-Proteccion-Contra-Malware-HXC-3388-Hixec.pdf'
   },
 
-  // --- Ciberseguridad / Hacking ético (Hack4u) ---
+  // --- Cybersecurity / Ethical hacking (Hack4u) ---
   {
     id: 'hack4u-intro-linux',
     title: 'Introducción a Linux',

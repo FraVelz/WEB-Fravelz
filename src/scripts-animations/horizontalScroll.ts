@@ -23,7 +23,7 @@ export function horizontalScroll() {
         }
     });
 
-    // Navegación con enlaces
+    // Navigation with links
     const links = document.querySelectorAll<HTMLAnchorElement>("nav a");
     const horizontalSection = document.querySelector<HTMLElement>(".horizontal");
 

@@ -20,7 +20,7 @@ const { classname = "" } = Astro.props;
 
 <section id="proyectos" class={classname}>
   <div class="max-w-7xl mx-auto">
-    <!-- Título de la sección -->
+    <!-- Section title -->
     <div class="text-center mb-12">
       <h2
         class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
@@ -39,7 +39,7 @@ const { classname = "" } = Astro.props;
       </p>
     </div>
 
-    <!-- Grid de proyectos (solo los 3 primeros en la página principal) -->
+    <!-- Projects grid (only first 3 on main page) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         projects.map((project) => (
@@ -50,7 +50,7 @@ const { classname = "" } = Astro.props;
       }
     </div>
 
-    <!-- Enlace al apartado completo de proyectos -->
+    <!-- Link to full projects section -->
     {
       allProjects.length > 3 && (
         <div class="text-center mt-12">
@@ -62,7 +62,7 @@ const { classname = "" } = Astro.props;
 </section>
 
 <script>
-  // Actualizar títulos y descripciones de proyectos al cambiar idioma
+  // Update project titles and descriptions when language changes
   function updateProjectCardsLanguage(lang: string) {
     const cards = document.querySelectorAll<HTMLElement>(
       "[data-project-card-content]",

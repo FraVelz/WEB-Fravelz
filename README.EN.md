@@ -39,7 +39,7 @@ All web projects modified, created, or last modified in 2026 will have documenta
 - Astro v5.16.11 - Modern web framework
 - React v19.1.1 - UI library for interactive components
 - TypeScript - Static typing
-- Tailwind CSS v3.4.17 - Utility-first CSS framework
+- Tailwind CSS v4.1.0 - Utility-first CSS framework
 
 ### Development Tools
 

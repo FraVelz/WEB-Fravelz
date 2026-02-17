@@ -1,5 +1,5 @@
 ---
-import Enlace from '@/components/ui/Enlace.astro';
+import Link from '@/components/ui/Link.astro';
 import { getTranslations } from '@/utils/i18n';
 
 const t = getTranslations('es');
@@ -18,31 +18,31 @@ const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1');
 >
   <div class="max-w-6xl mx-auto px-0 py-12 sm:px-0">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
-      <!-- Navegación -->
+      <!-- Navigation -->
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-4 pl-4" data-i18n="footer_links_title">
           {t.footer_links_title}
         </h3>
-        <nav class="flex flex-col gap-2 sm:gap-3 pl-4" aria-label="Enlaces del sitio">
-          <Enlace href="#presentacion" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+        <nav class="flex flex-col gap-2 sm:gap-3 pl-4" aria-label="Site links">
+          <Link href="#presentacion" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <span data-i18n="nav_presentation">{t.nav_presentation}</span>
-          </Enlace>
-          <Enlace href="#proyectos" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          </Link>
+          <Link href="#proyectos" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <span data-i18n="nav_projects">{t.nav_projects}</span>
-          </Enlace>
-          <Enlace href={`${baseUrl}projects`} className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          </Link>
+          <Link href={`${baseUrl}projects`} className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <span data-i18n="projects_view_all">{t.projects_view_all}</span>
-          </Enlace>
-          <Enlace href="#tecnologia" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          </Link>
+          <Link href="#tecnologia" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <span data-i18n="nav_technologies">{t.nav_technologies}</span>
-          </Enlace>
-          <Enlace href="#sobre-mi" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
+          </Link>
+          <Link href="#sobre-mi" className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
             <span data-i18n="nav_about">{t.nav_about}</span>
-          </Enlace>
+          </Link>
         </nav>
       </div>
 
-      <!-- Legal e información -->
+      <!-- Legal and info -->
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-500 mb-4 pl-4" data-i18n="footer_author">
           {t.footer_author}

@@ -39,7 +39,7 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 - **[Astro](https://astro.build/)** v5.16.11 - Framework web moderno
 - **[React](https://react.dev/)** v19.1.1 - Biblioteca UI para componentes interactivos
 - **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
-- **[Tailwind CSS](https://tailwindcss.com/)** v3.4.17 - Framework CSS utility-first
+- **[Tailwind CSS](https://tailwindcss.com/)** v4.1.0 - Framework CSS utility-first
 
 ### Herramientas de Desarrollo
 
