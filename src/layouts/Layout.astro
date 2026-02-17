@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-  title = "Fravelz | Desarrollador Web Frontend | Reactjs, Astro, tailwindcss",
+  title = "Fravelz | Desarrollador Web Frontend | Francisco Velez",
   description = "Desarrollador web frontend especializado en UX/UI | Minimalismo y Funcional. Portafolio con proyectos.",
   lang = "es",
 } = Astro.props;
@@ -41,6 +41,9 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
     />
 
     <!-- Open Graph -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />

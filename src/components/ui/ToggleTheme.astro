@@ -6,15 +6,15 @@ const { classname } = Astro.props;
 ---
 
 <div class={`place-self-left flex items-center ${classname || ""}`}>
-  <label for="theme-toggle" class="sr-only" data-i18n="theme_toggle_label">Cambiar tema</label>
+  <label for="theme-toggle" class="sr-only" data-i18n="theme_toggle_label"
+    >Cambiar tema</label
+  >
 
   <button
     class="theme-toggle-btn relative w-14 h-8 rounded-full
-           bg-cyan-100 dark:bg-gray-700
-           border-2 border-cyan-400/70 dark:border-gray-600
+           outline-none
+           bg-cyan-400 dark:bg-gray-700
            transition-all duration-300 ease-in-out
-           focus:outline-none focus:ring-2 focus:ring-cyan-500/50
-           hover:scale-105 active:scale-95
            hover:border-cyan-500 dark:hover:border-cyan-500
            cursor-pointer shadow-md shadow-cyan-500/20 dark:shadow-none"
     type="button"
@@ -23,7 +23,7 @@ const { classname } = Astro.props;
   >
     <!-- Slider circle -->
     <span
-      class="theme-toggle-slider absolute top-0.5 left-0.5 w-6 h-6 rounded-full
+      class="theme-toggle-slider absolute top-1 left-0.5 w-6 h-6 rounded-full
              bg-white dark:bg-gray-900
              shadow-md
              transition-all duration-300 ease-in-out
@@ -95,7 +95,7 @@ const { classname } = Astro.props;
         const slider = toggle.querySelector(".theme-toggle-slider");
         const sunIcon = toggle.querySelector(".theme-toggle-sun-icon");
         const moonIcon = toggle.querySelector(".theme-toggle-moon-icon");
-        
+
         if (isDark) {
           if (slider) slider.style.transform = "translateX(1.5rem)";
           if (sunIcon) sunIcon.style.opacity = "0";
@@ -158,7 +158,7 @@ const { classname } = Astro.props;
       // Inicializar tema al cargar (solo una vez)
       if (!window.__themeInitialized) {
         window.__themeInitialized = true;
-        
+
         const savedTheme = localStorage.getItem("theme");
         let initialTheme;
 

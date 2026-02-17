@@ -1,61 +1,100 @@
 ---
-const { href, target = '_self', className = '' } = Astro.props
-const isAnchor = href?.startsWith('#')
+const { href, target = "_self", className = "" } = Astro.props;
+const isAnchor = href?.startsWith("#");
 ---
 
 <a
   href={href}
   target={target}
-  draggable='false'
-  class={`select-none text-slate-700 font-medium transition-colors hover:text-cyan-600 dark:text-slate-400 dark:hover:text-slate-200 ${className}`}
-  data-smooth-scroll={isAnchor ? 'true' : undefined}
+  draggable="false"
+  class={`link-animation select-none text-slate-700 font-medium transition-colors hover:text-cyan-600 dark:text-slate-400 dark:hover:text-slate-200 ${className}`}
+  data-smooth-scroll={isAnchor ? "true" : undefined}
 >
   <slot />
 </a>
 
 <script is:inline>
-  (function() {
-    if (window.__smoothScrollInitialized) return
-    window.__smoothScrollInitialized = true
+  (function () {
+    if (window.__smoothScrollInitialized) return;
+    window.__smoothScrollInitialized = true;
 
     function handleSmoothScroll(e) {
-      const link = e.target.closest('a[data-smooth-scroll="true"]')
-      if (!link) return
+      const link = e.target.closest('a[data-smooth-scroll="true"]');
+      if (!link) return;
 
-      const href = link.getAttribute('href')
-      if (!href || !href.startsWith('#')) return
+      const href = link.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
 
-      e.preventDefault()
-      e.stopPropagation()
-      e.stopImmediatePropagation()
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
 
-      const id = href.slice(1)
-      const el = document.getElementById(id) || document.getElementsByName(id)[0]
+      const id = href.slice(1);
+      const el =
+        document.getElementById(id) || document.getElementsByName(id)[0];
 
       if (!el) {
-        console.warn('Anchor target not found:', href)
-        return false
+        console.warn("Anchor target not found:", href);
+        return false;
       }
 
-      const header = document.querySelector('header')
-      const offset = header ? header.offsetHeight + 8 : 8
+      const header = document.querySelector("header");
+      const offset = header ? header.offsetHeight + 8 : 8;
 
-      const y = el.getBoundingClientRect().top + window.pageYOffset - offset
+      const y = el.getBoundingClientRect().top + window.pageYOffset - offset;
 
       window.scrollTo({
         top: y,
-        behavior: 'smooth',
-      })
+        behavior: "smooth",
+      });
 
       // Actualizar URL sin hacer scroll
       if (history.pushState) {
-        history.pushState(null, '', href)
+        history.pushState(null, "", href);
       }
 
-      return false
+      return false;
     }
 
     // Usar capture phase para interceptar antes que otros handlers
-    document.addEventListener('click', handleSmoothScroll, true)
-  })()
+    document.addEventListener("click", handleSmoothScroll, true);
+  })();
 </script>
+
+<style>
+  .link-animation {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .link-animation:before {
+    margin: auto;
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #22d3ee;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+  }
+  .dark .link-animation:before {
+    background-color: rgb(0, 96, 111);
+  }
+  .link-animation:hover::before {
+    width: 35px;
+    opacity: 1;
+    visibility: visible;
+    transition: all .5s;
+  }
+  .link-animation:hover {
+    color: #22d3ee;
+    transition: all .5s;
+  }
+  .dark .link-animation:hover {
+    color: rgb(0, 64, 74);
+  }
+</style>
