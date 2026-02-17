@@ -100,6 +100,10 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 
 [Ir a manual de contribución...](./docs/es/contribution.md)
 
+[Ir a arquitectura...](./docs/es/architecture.md)
+
+[Ir a comentarios...](./docs/es/feedback.md)
+
 ---
 
 ## 📄 Licencia
