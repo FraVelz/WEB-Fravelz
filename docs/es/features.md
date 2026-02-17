@@ -73,7 +73,8 @@
 - **Build estático** sin necesidad de servidor
 - **CI/CD** con GitHub Actions (`.github/workflows/`)
 
-[Regresar al readme...](https://github.com/FraVelz/WEB-Fravelz)
+[Regresar al readme...](../../README.md)
 
 > Autor: Fravelz  
-> Documentación actualizada: 2026
+> Documentación actualizada: 2026/Feb/17  
+> Vision generada por IA
