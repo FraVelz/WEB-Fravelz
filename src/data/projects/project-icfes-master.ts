@@ -14,7 +14,7 @@ export const projectIcfesMaster: Project = {
     ru: 'Образовательная платформа для подготовки к экзаменам ICFES с React, Firebase и Astro. Включает мобильное приложение с Capacitor.',
     zh: '使用 React、Firebase 和 Astro 的 ICFES 考试备考教育平台。包含 Capacitor 移动应用。'
   },
-  featuredImage: 'images/portfolio/web-icfes-master.png',
+  featuredImage: 'images/projects/web-icfes-master.png',
   technologies: ['Astro', 'React', 'Firebase', 'TypeScript', 'Tailwind CSS', 'Capacitor'],
   category: 'fullstack',
   demoUrl: undefined,
