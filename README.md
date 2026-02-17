@@ -90,15 +90,15 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 
 ### Características Extras
 
-[Ir a la características...](./docs/es/caracteristicas.md)
+[Ir a la características...](./docs/es/features.md)
 
 ---
 
 ## 🤝 Contribuir
 
-[Ir a la estructura del proyecto...](./docs/es/estructura.md)
+[Ir a la estructura del proyecto...](./docs/es/structure.md)
 
-[Ir a manual de contribución...](./docs/es/contribucion.md)
+[Ir a manual de contribución...](./docs/es/contribution.md)
 
 ---
 

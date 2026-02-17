@@ -73,6 +73,8 @@
 - **Static build** without server needed
 - **CI/CD** with GitHub Actions (`.github/workflows/`)
 
+[Return to readme...](../../README.md)
+
 > Author: Fravelz  
 > Documentation updated: 2026/Feb/17  
 > AI-generated vision.

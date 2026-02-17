@@ -109,6 +109,8 @@ WEB-Fravelz/
 - **Integrations**: React, Tailwind CSS
 - **Animations**: GSAP with ScrollTrigger for horizontal scroll and header
 
+[Return to readme...](../../README.md)
+
 > Author: Fravelz  
 > Documentation updated: 2026/Feb/17  
 > AI-generated vision.
