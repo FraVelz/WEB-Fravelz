@@ -1,6 +1,6 @@
 # Fravelz's Portfolio
 
-[English version](./README.EN.md)
+[Version en Español](./README.md)
 
 This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
 
