@@ -4,7 +4,7 @@ import { getTranslations } from '@/utils/i18n';
 import { getLanguageFromPath } from '@/utils/lang';
 import Layout from '@/layouts/Layout.astro';
 
-// Función requerida para rutas dinámicas estáticas
+// Required for static dynamic routes
 export async function getStaticPaths() {
   const projects = getAllProjects();
   
@@ -24,7 +24,7 @@ const title = project.title[currentLang];
 const description = project.fullDescription[currentLang];
 const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 
-// Datos del proyecto en todos los idiomas para actualización en el cliente
+// Project data in all languages for client-side updates
 const projectData = {
   es: { title: project.title.es, fullDescription: project.fullDescription.es, whatILearned: project.whatILearned?.es, technicalDetails: project.technicalDetails?.es },
   en: { title: project.title.en, fullDescription: project.fullDescription.en, whatILearned: project.whatILearned?.en, technicalDetails: project.technicalDetails?.en },

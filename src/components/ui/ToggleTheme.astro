@@ -71,7 +71,7 @@ const { classname } = Astro.props;
 
 <script is:inline>
   (function () {
-    // Evitar múltiples inicializaciones globales
+    // Avoid multiple global initializations
     if (window.__themeToggleInitialized) return;
     window.__themeToggleInitialized = true;
 
@@ -80,7 +80,7 @@ const { classname } = Astro.props;
     let mediaQueryListener = null;
 
     const applyTheme = (isDark) => {
-      // Forzar sincronización inmediata
+      // Force immediate sync
       if (isDark) {
         root.classList.add("dark");
         root.setAttribute("data-theme", "dark");
@@ -89,7 +89,7 @@ const { classname } = Astro.props;
         root.removeAttribute("data-theme");
       }
 
-      // Actualizar todos los toggles
+      // Update all toggles
       const toggles = document.querySelectorAll(".theme-toggle-btn");
       toggles.forEach((toggle) => {
         const slider = toggle.querySelector(".theme-toggle-slider");
@@ -107,11 +107,11 @@ const { classname } = Astro.props;
         }
       });
 
-      // Forzar repaint y reflow
+      // Force repaint and reflow
       void root.offsetHeight;
       document.body?.offsetHeight;
 
-      // Guardar como 'dark' o 'light', no 'auto'
+      // Save as 'dark' or 'light', not 'auto'
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
 
@@ -124,28 +124,28 @@ const { classname } = Astro.props;
     };
 
     function initThemeToggle() {
-      // Buscar todos los toggles (puede haber múltiples instancias)
+      // Find all toggles (there may be multiple instances)
       const toggles = document.querySelectorAll(".theme-toggle-btn");
 
       if (toggles.length === 0) {
-        // Si no hay toggles, esperar a que se monten (pueden estar en el drawer)
+        // If no toggles, wait for them to mount (they may be in the drawer)
         setTimeout(initThemeToggle, 100);
         return;
       }
 
-      // Remover listeners anteriores si existen
+      // Remove previous listeners if any
       if (themeToggleHandler) {
         toggles.forEach((toggle) => {
           toggle.removeEventListener("click", themeToggleHandler);
         });
       }
 
-      // Crear nuevo handler
+      // Create new handler
       themeToggleHandler = toggleTheme;
 
-      // Agregar listeners a todos los toggles (solo una vez)
+      // Add listeners to all toggles (only once)
       toggles.forEach((toggle) => {
-        // Verificar si ya tiene el listener
+        // Check if it already has the listener
         if (!toggle.dataset.themeListenerAdded) {
           toggle.addEventListener("click", themeToggleHandler, {
             capture: true,
@@ -155,7 +155,7 @@ const { classname } = Astro.props;
         }
       });
 
-      // Inicializar tema al cargar (solo una vez)
+      // Initialize theme on load (only once)
       if (!window.__themeInitialized) {
         window.__themeInitialized = true;
 
@@ -167,16 +167,16 @@ const { classname } = Astro.props;
         } else if (savedTheme === "light") {
           initialTheme = false;
         } else {
-          // Si es 'auto' o no hay guardado, usar el estado actual del DOM
+          // If 'auto' or nothing saved, use current DOM state
           initialTheme = root.classList.contains("dark");
-          // Guardar el tema detectado como preferencia
+          // Save detected theme as preference
           localStorage.setItem("theme", initialTheme ? "dark" : "light");
         }
 
-        // Aplicar tema inicial
+        // Apply initial theme
         applyTheme(initialTheme);
 
-        // Listener para cambios del sistema (solo una vez)
+        // Listener for system changes (only once)
         const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
         mediaQueryListener = (e) => {
           const saved = localStorage.getItem("theme");
@@ -188,17 +188,17 @@ const { classname } = Astro.props;
       }
     }
 
-    // Ejecutar inmediatamente si el DOM ya está listo, o esperar a que esté listo
+    // Run immediately if DOM is ready, or wait until ready
     const tryInit = () => {
       if (document.querySelector(".theme-toggle-btn")) {
         initThemeToggle();
       } else {
-        // Si el elemento aún no existe, esperar un poco más
+        // If element does not exist yet, wait a bit longer
         requestAnimationFrame(() => {
           if (document.querySelector(".theme-toggle-btn")) {
             initThemeToggle();
           } else {
-            // Último intento después de un pequeño delay
+            // Last attempt after a short delay
             setTimeout(tryInit, 50);
           }
         });
@@ -208,11 +208,11 @@ const { classname } = Astro.props;
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", tryInit);
     } else {
-      // Si el DOM ya está listo, intentar inmediatamente
+      // If DOM is already ready, try immediately
       tryInit();
     }
 
-    // También escuchar cuando se abre el drawer
+    // Also listen when drawer is opened
     window.addEventListener("drawer-opened", () => {
       setTimeout(initThemeToggle, 150);
     });

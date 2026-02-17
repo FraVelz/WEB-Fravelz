@@ -1,27 +1,27 @@
 import type { Project } from './project-types';
 import { projects } from './projects-list';
 
-/** Obtener todos los proyectos */
+/** Get all projects */
 export function getAllProjects(): Project[] {
   return projects;
 }
 
-/** Obtener proyecto por slug */
+/** Get project by slug */
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
-/** Obtener proyectos destacados */
+/** Get featured projects */
 export function getFeaturedProjects(): Project[] {
   return projects.filter((p) => p.featured);
 }
 
-/** Obtener proyectos por categoría */
+/** Get projects by category */
 export function getProjectsByCategory(category: Project['category']): Project[] {
   return projects.filter((p) => p.category === category);
 }
 
-/** Obtener todas las tecnologías únicas (ordenadas) */
+/** Get all unique technologies (sorted) */
 export function getAllTechnologies(): string[] {
   const allTechs = projects.flatMap((p) => p.technologies);
   return [...new Set(allTechs)].sort();

@@ -43,7 +43,7 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
 
     window.addEventListener('language-changed', handleLanguageChange as EventListener);
     
-    // Obtener traducción inicial
+    // Get initial translation
     if (typeof window !== 'undefined' && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
       const t = (window as any).i18n.getTranslations(currentLang);

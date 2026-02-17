@@ -81,7 +81,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
 </Layout>
 
 <script>
-  // Actualizar títulos y descripciones de proyectos al cambiar idioma
+  // Update project titles and descriptions when language changes
   function updateProjectCardsLanguage(lang: string) {
     const cards = document.querySelectorAll<HTMLElement>('[data-project-card-content]');
     const fallback = 'es';
@@ -100,7 +100,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
     if (lang) updateProjectCardsLanguage(lang);
   });
 
-  // Sistema de filtrado de proyectos
+  // Project filtering system
   document.addEventListener('DOMContentLoaded', () => {
     const i18n = (window as Window & { i18n?: { getCurrentLanguage: () => string } }).i18n;
     if (i18n?.getCurrentLanguage) {
