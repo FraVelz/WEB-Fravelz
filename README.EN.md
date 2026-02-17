@@ -100,6 +100,10 @@ All web projects modified, created, or last modified in 2026 will have documenta
 
 [Go to contribution manual...](./docs/es/contribution.md)
 
+[Go to architecture...](./docs/es/architecture.md)
+
+[Go to feedback...](./docs/es/feedback.md)
+
 ---
 
 ## 📄 License
