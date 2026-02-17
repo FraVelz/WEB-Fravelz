@@ -12,65 +12,67 @@ const { classname = "" } = Astro.props;
 ---
 
 <section id="pasatiempos" class={classname}>
-  <h2
-    class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2"
-    data-i18n="info_hobbies_title"
-  >
-    {t.info_hobbies_title}
-  </h2>
-  <ul
-    class="cursor-default text-slate-800 dark:text-gray-300 space-y-2 list-none"
-  >
-    <li class="flex items-center hover:translate-x-2 transition-transform">
-      <span
-        draggable="false"
-        class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
-        >◆</span
-      >
-      <span data-i18n="hobbies_exercise">{t.hobbies_exercise}</span>
-    </li>
-    <li class="flex items-center hover:translate-x-2 transition-transform">
-      <span
-        draggable="false"
-        class="select-none text-purple-600 dark:text-purple-400 mr-3 text-lg"
-        >◆</span
-      >
-      <span data-i18n="hobbies_piano">{t.hobbies_piano}</span>
-    </li>
-    <li class="flex items-center hover:translate-x-2 transition-transform">
-      <span
-        draggable="false"
-        class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
-        >◆</span
-      >
-      <span data-i18n="hobbies_webdev">{t.hobbies_webdev}</span>
-    </li>
-    <li class="flex items-center hover:translate-x-2 transition-transform">
-      <span
-        draggable="false"
-        class="select-none text-purple-600 dark:text-purple-400 mr-3 text-lg"
-        >◆</span
-      >
-      <span data-i18n="hobbies_linux">{t.hobbies_linux}</span>
-    </li>
-    <li class="flex items-center hover:translate-x-2 transition-transform">
-      <span
-        draggable="false"
-        class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
-        >◆</span
-      >
-      <span data-i18n="hobbies_typing_label">{t.hobbies_typing_label}</span>
-      ( <a
-        href="https://monkeytype.com/profile/Fravelz"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="text-cyan-700 dark:text-cyan-300 font-semibold
+  <div>
+    <h2
+      class="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2"
+      data-i18n="info_hobbies_title"
+    >
+      {t.info_hobbies_title}
+    </h2>
+    <ul
+      class="cursor-default text-slate-800 dark:text-gray-300 space-y-2 list-none"
+    >
+      <li class="flex items-center hover:translate-x-2 transition-transform">
+        <span
+          draggable="false"
+          class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
+          >◆</span
+        >
+        <span data-i18n="hobbies_exercise">{t.hobbies_exercise}</span>
+      </li>
+      <li class="flex items-center hover:translate-x-2 transition-transform">
+        <span
+          draggable="false"
+          class="select-none text-purple-600 dark:text-purple-400 mr-3 text-lg"
+          >◆</span
+        >
+        <span data-i18n="hobbies_piano">{t.hobbies_piano}</span>
+      </li>
+      <li class="flex items-center hover:translate-x-2 transition-transform">
+        <span
+          draggable="false"
+          class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
+          >◆</span
+        >
+        <span data-i18n="hobbies_webdev">{t.hobbies_webdev}</span>
+      </li>
+      <li class="flex items-center hover:translate-x-2 transition-transform">
+        <span
+          draggable="false"
+          class="select-none text-purple-600 dark:text-purple-400 mr-3 text-lg"
+          >◆</span
+        >
+        <span data-i18n="hobbies_linux">{t.hobbies_linux}</span>
+      </li>
+      <li class="flex items-center hover:translate-x-2 transition-transform">
+        <span
+          draggable="false"
+          class="select-none text-cyan-600 dark:text-cyan-400 mr-3 text-lg"
+          >◆</span
+        >
+        <span data-i18n="hobbies_typing_label">{t.hobbies_typing_label}</span>
+        ( <a
+          href="https://monkeytype.com/profile/Fravelz"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="text-cyan-700 dark:text-cyan-300 font-semibold
                hover:text-cyan-800 dark:hover:text-white
                underline underline-offset-2 decoration-2 decoration-cyan-500/60
                transition-colors duration-200"
-      >
-        <span data-i18n="hobbies_typing_link">{t.hobbies_typing_link}</span>
-      </a>)
-    </li>
-  </ul>
+        >
+          <span data-i18n="hobbies_typing_link">{t.hobbies_typing_link}</span>
+        </a>)
+      </li>
+    </ul>
+  </div>
 </section>

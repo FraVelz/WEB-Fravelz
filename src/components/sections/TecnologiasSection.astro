@@ -139,19 +139,20 @@ const { classname = "" } = Astro.props;
 ---
 
 <section id="tecnologia" class={classname}>
-  <h2
-    class="text-center text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
-    data-i18n="tech_title"
-  >
-    {t.tech_title || "Tecnologías"}
-  </h2>
+  <div class="">
+    <h2
+      class="text-center text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent"
+      data-i18n="tech_title"
+    >
+      {t.tech_title || "Tecnologías"}
+    </h2>
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-    {
-      technologies.map((tech) => (
-        <div class="group relative">
-          <div
-            class={`
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      {
+        technologies.map((tech) => (
+          <div class="group relative">
+            <div
+              class={`
               relative bg-gradient-to-br ${tech.color} ${tech.darkColor}
               p-4 sm:p-6 rounded-xl
               border-2 border-cyan-300/60 dark:border-gray-700/60
@@ -163,82 +164,83 @@ const { classname = "" } = Astro.props;
               flex flex-col items-center justify-center gap-3
               overflow-visible pb-20 sm:pb-24
             `}
-          >
-            <div
-              class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center z-10 opacity-90 dark:opacity-95 [&>svg]:max-w-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:h-full"
-              set:html={tech.svg}
-            />
-            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-gray-200 text-center z-10">
-              {tech.name}
-            </h3>
+            >
+              <div
+                class="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center z-10 opacity-90 dark:opacity-95 [&>svg]:max-w-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:h-full"
+                set:html={tech.svg}
+              />
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-gray-200 text-center z-10">
+                {tech.name}
+              </h3>
 
-            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-br from-cyan-50/95 via-blue-50/95 to-cyan-100/95 dark:from-gray-900/95 dark:via-gray-800/95 dark:to-gray-900/95 backdrop-blur-sm rounded-b-2xl p-3 sm:p-4 border-t-2 border-cyan-400/60 dark:border-gray-700/60 z-20 shadow-lg shadow-cyan-500/20 dark:shadow-cyan-500/30">
-              <div class="space-y-2 text-xs sm:text-sm">
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-semibold text-slate-800 dark:text-gray-300"
-                    data-i18n="tech_info_level"
-                  >
-                    {t.tech_info_level || "Nivel"}:
-                  </span>
-                  <span
-                    class={`font-bold ${getLevelClass(tech.level)}`}
-                    data-i18n={tech.levelKey}
-                  >
-                    {t[tech.levelKey] || tech.level}
-                  </span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span
-                    class="font-semibold text-slate-800 dark:text-gray-300"
-                    data-i18n="tech_info_category"
-                  >
-                    {t.tech_info_category || "Categoría"}:
-                  </span>
-                  <span
-                    class={`font-bold ${getCategoryClass(tech.category)}`}
-                    data-i18n={tech.categoryKey}
-                  >
-                    {t[tech.categoryKey] || tech.category}
-                  </span>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-br from-cyan-50/95 via-blue-50/95 to-cyan-100/95 dark:from-gray-900/95 dark:via-gray-800/95 dark:to-gray-900/95 backdrop-blur-sm rounded-b-2xl p-3 sm:p-4 border-t-2 border-cyan-400/60 dark:border-gray-700/60 z-20 shadow-lg shadow-cyan-500/20 dark:shadow-cyan-500/30">
+                <div class="space-y-2 text-xs sm:text-sm">
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="font-semibold text-slate-800 dark:text-gray-300"
+                      data-i18n="tech_info_level"
+                    >
+                      {t.tech_info_level || "Nivel"}:
+                    </span>
+                    <span
+                      class={`font-bold ${getLevelClass(tech.level)}`}
+                      data-i18n={tech.levelKey}
+                    >
+                      {t[tech.levelKey] || tech.level}
+                    </span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span
+                      class="font-semibold text-slate-800 dark:text-gray-300"
+                      data-i18n="tech_info_category"
+                    >
+                      {t.tech_info_category || "Categoría"}:
+                    </span>
+                    <span
+                      class={`font-bold ${getCategoryClass(tech.category)}`}
+                      data-i18n={tech.categoryKey}
+                    >
+                      {t[tech.categoryKey] || tech.category}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))
-    }
-  </div>
+        ))
+      }
+    </div>
 
-  <div
-    class="mt-8 p-4 sm:p-5 rounded-xl bg-cyan-50/80 dark:bg-gray-800/50 border-2 border-cyan-300/60 dark:border-cyan-500/30 backdrop-blur-sm"
-  >
-    <div class="flex items-start gap-3">
-      <svg
-        class="w-5 h-5 sm:w-6 sm:h-6 text-cyan-600 dark:text-cyan-400 flex-shrink-0 mt-0.5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="2"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-        ></path>
-      </svg>
-      <p
-        class="text-xs sm:text-sm text-slate-700 dark:text-gray-300 leading-relaxed"
-      >
-        <span
-          class="font-semibold text-cyan-700 dark:text-cyan-300"
-          data-i18n="tech_note"
+    <div
+      class="mt-8 p-4 sm:p-5 rounded-xl bg-cyan-50/80 dark:bg-gray-800/50 border-2 border-cyan-300/60 dark:border-cyan-500/30 backdrop-blur-sm"
+    >
+      <div class="flex items-start gap-3">
+        <svg
+          class="w-5 h-5 sm:w-6 sm:h-6 text-cyan-600 dark:text-cyan-400 flex-shrink-0 mt-0.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          aria-hidden="true"
         >
-          {t.tech_note || "Nota:"}
-        </span>{" "}
-        <span data-i18n="tech_disclaimer">{t.tech_disclaimer || ""}</span>
-      </p>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+          ></path>
+        </svg>
+        <p
+          class="text-xs sm:text-sm text-slate-700 dark:text-gray-300 leading-relaxed"
+        >
+          <span
+            class="font-semibold text-cyan-700 dark:text-cyan-300"
+            data-i18n="tech_note"
+          >
+            {t.tech_note || "Nota:"}
+          </span>{" "}
+          <span data-i18n="tech_disclaimer">{t.tech_disclaimer || ""}</span>
+        </p>
+      </div>
     </div>
   </div>
 </section>

@@ -5,6 +5,7 @@ import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
 import { getTranslations } from "@/utils/i18n";
 import Parrafo from "@/components/ui/Parrafo.astro";
+import Particles from "../ui/Particles.astro";
 
 // Usar español por defecto - el cambio se maneja con JavaScript
 const t = getTranslations("es");
@@ -170,4 +171,7 @@ const t = getTranslations("es");
       </svg>
     </div>
   </div>
+
+  <!-- Partículas animadas -->
+  <Particles />
 </section>
