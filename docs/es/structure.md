@@ -50,12 +50,14 @@ WEB-Fravelz/
 ## Organización de Componentes
 
 ### Layout (`src/components/layout/`)
+
 - **Header.astro**: Header fijo con navegación
 - **Footer.astro**: Pie de página con enlaces
 - **HomeMain.astro**: Contenedor principal del home
 - **header/**: Componentes del header (ElementsHeader, MobileDrawer)
 
 ### Sections (`src/components/sections/`)
+
 - **PresentacionSection.astro**: Sección hero/presentación
 - **ProyectosSection.astro**: Grid de proyectos con filtros
 - **TecnologiasSection.astro**: Tarjetas de tecnologías
@@ -64,6 +66,7 @@ WEB-Fravelz/
 - **Contactame.astro**: Formulario de contacto
 
 ### UI Components (`src/components/ui/`)
+
 - **Enlace.astro**: Enlace con scroll suave
 - **Parrafo.astro**: Párrafo con soporte i18n
 - **ToggleTheme.astro**: Selector de tema claro/oscuro
@@ -72,6 +75,7 @@ WEB-Fravelz/
 - **Line.astro**: Divisor visual
 
 ### React Components (`src/components/ui-react/`)
+
 - **MusicButton.tsx**: Botón para abrir reproductor
 - **MusicPlayer.tsx**: Reproductor de música modal
 - **CopyEmailButton.tsx**: Botón para copiar email
@@ -108,6 +112,8 @@ WEB-Fravelz/
 - **Integrations**: React, Tailwind CSS
 - **Animations**: GSAP con ScrollTrigger para scroll horizontal y header
 
+[Regresar al readme...](../../README.md)
+
 > Autor: Fravelz  
-> Documentación actualizada: 2026/Feb/17
+> Documentación actualizada: 2026/Feb/17  
 > Vision generada por IA
