@@ -15,8 +15,7 @@ const {
 
 const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 // Absolute URL for the preview image for social (og:image, twitter:image).
-// En GitHub Pages: https://fravelz.github.io/WEB-Fravelz/images/others/portfolio.png
-const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
+const ogImageUrl = `${Astro.site}images/portfolio/portfolio.png`;
 ---
 
 <!doctype html>
@@ -28,16 +27,16 @@ const ogImageUrl = `${Astro.site}images/others/portfolio.png`;
     <link
       rel="icon"
       type="image/png"
-      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
+      href={`${Astro.site}images/portfolio/icon-fravelz-without-border.png`}
     />
     <link
       rel="shortcut icon"
       type="image/png"
-      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
+      href={`${Astro.site}images/portfolio/icon-fravelz-without-border.png`}
     />
     <link
       rel="apple-touch-icon"
-      href={`${Astro.site}images/others/icono-fravelz-without-border.png`}
+      href={`${Astro.site}images/portfolio/icon-fravelz-without-border.png`}
     />
 
     <!-- Open Graph -->
