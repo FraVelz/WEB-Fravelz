@@ -10,7 +10,6 @@ const lang = getLanguageFromPath(Astro.url.pathname);
 const t = getTranslations(lang);
 const allProjects = getAllProjects();
 const projects = allProjects.slice(0, 3);
-const baseUrl = import.meta.env.BASE_URL || "";
 
 interface Props {
   classname?: string;

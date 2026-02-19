@@ -17,14 +17,20 @@ const t = getTranslations("es");
 <Presentation />
 
 <div class="horizontal relative w-full overflow-x-hidden">
-  <div class="containera flex h-full">
+  <div class="containera flex max-lg:gap-14 max-lg:flex-col min-h-full">
     <ProjectsSection
-      classname="panel min-w-[100vw] h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
+      classname="panel min-w-[100vw] h-fit lg:h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
     />
 
-    <TechnologiesSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
-    <HobbiesSection classname="panel min-w-[100vw] h-screen flex justify-center items-center" />
-    <AboutMeSection classname="panel min-w-[100vw] space-y-8 h-screen flex justify-center items-center" />
+    <TechnologiesSection
+      classname="panel min-w-[100vw] h-fit lg:h-screen flex justify-center items-center"
+    />
+    <HobbiesSection
+      classname="panel min-w-[100vw] h-fit lg:h-screen flex justify-center items-center"
+    />
+    <AboutMeSection
+      classname="panel min-w-[100vw] h-fit lg:h-screen flex justify-center items-center space-y-8"
+    />
   </div>
 </div>
 
@@ -32,5 +38,7 @@ const t = getTranslations("es");
 
 <script>
   import { horizontalScroll } from "@/scripts-animations/horizontalScroll.ts";
-  horizontalScroll();
+  if (window.innerWidth >= 1024) {
+    horizontalScroll();
+  }
 </script>
