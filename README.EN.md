@@ -26,7 +26,6 @@ All web projects modified, created, or last modified in 2026 will have documenta
     - [SEO](#seo)
     - [Code](#code)
     - [Extra Features](#extra-features)
-  - [🤝 Contribute](#-contribute)
   - [📄 License](#-license)
   - [👤 Author](#-author)
 
@@ -91,18 +90,6 @@ All web projects modified, created, or last modified in 2026 will have documenta
 ### Extra Features
 
 [Go to features...](./docs/es/features.md)
-
----
-
-## 🤝 Contribute
-
-[Go to project structure...](./docs/es/structure.md)
-
-[Go to contribution manual...](./docs/es/contribution.md)
-
-[Go to architecture...](./docs/es/architecture.md)
-
-[Go to feedback...](./docs/es/feedback.md)
 
 ---
 

@@ -26,7 +26,6 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
     - [SEO](#seo)
     - [Código](#código)
     - [Características Extras](#características-extras)
-  - [🤝 Contribuir](#-contribuir)
   - [📄 Licencia](#-licencia)
   - [👤 Autor](#-autor)
 
@@ -91,18 +90,6 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 ### Características Extras
 
 [Ir a la características...](./docs/es/features.md)
-
----
-
-## 🤝 Contribuir
-
-[Ir a la estructura del proyecto...](./docs/es/structure.md)
-
-[Ir a manual de contribución...](./docs/es/contribution.md)
-
-[Ir a arquitectura...](./docs/es/architecture.md)
-
-[Ir a comentarios...](./docs/es/feedback.md)
 
 ---
 
