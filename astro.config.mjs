@@ -6,8 +6,6 @@ import { fileURLToPath } from 'url';
 export default defineConfig({
   integrations: [react()],
   output: 'static',
-  base: '/WEB-Fravelz/',
-  site: 'https://fravelz.github.io/WEB-Fravelz/',
 
   vite: {
     plugins: [tailwindcss()],
