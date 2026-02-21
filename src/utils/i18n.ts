@@ -3,6 +3,7 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
+
 type Language = 'es' | 'en' | 'ru' | 'zh';
 
 const LOCALE_FILES = [
@@ -51,6 +52,10 @@ export function getTranslations(lang: Language = 'es') {
 export function t(key: string, lang: Language = 'es'): string {
   const dict = getTranslations(lang);
   return dict[key] || key;
+}
+
+export function isValidLanguage(lang: string): lang is Language {
+  return languages.includes(lang as Language);
 }
 
 export const languages: Language[] = ['es', 'en', 'ru', 'zh'];

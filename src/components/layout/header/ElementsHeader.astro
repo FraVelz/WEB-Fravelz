@@ -16,9 +16,7 @@ const t = getTranslations("es");
   <Link href="#presentacion"
     ><span data-i18n="nav_presentation">Presentación</span></Link
   >
-  <Link href="#proyectos"
-    ><span data-i18n="nav_projects">Proyectos</span></Link
-  >
+  <Link href="#proyectos"><span data-i18n="nav_projects">Proyectos</span></Link>
   <Link href="#tecnologia"
     ><span data-i18n="nav_technologies">Tecnología</span></Link
   >
@@ -30,7 +28,7 @@ const t = getTranslations("es");
 >
 </div>
 
-<!-- Extras  -->
+<!-- Extra -->
 
 <div
   id="header-opc1"
@@ -73,6 +71,27 @@ const t = getTranslations("es");
       <option value="zh">中文</option>
     </select>
   </div>
+
+  <script>
+    const selector = document.querySelector<HTMLSelectElement>(".language-selector");
+
+    const currentLang = window.location.pathname.split("/")[1];
+
+    if (selector && currentLang) {
+      selector.value = currentLang;
+    }
+
+    selector?.addEventListener("change", (e) => {
+      const target = e.target as HTMLSelectElement;
+      const lang = target.value;
+
+      // Guardar cookie por 1 año
+      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+
+      // Redirigir
+      window.location.href = `/${lang}/`;
+    });
+  </script>
 </div>
 
 <div
