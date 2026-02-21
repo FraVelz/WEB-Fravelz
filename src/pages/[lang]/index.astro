@@ -1,0 +1,38 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+// Components Layout
+import Footer from "@/components/layout/Footer.astro";
+import Header from "@/components/layout/header/Header.astro";
+import Main from "@/components/layout/HomeMain.astro";
+
+// Use Spanish as default - language change is handled with JavaScript
+import { getTranslations } from "@/utils/i18n";
+import { languages, type Language } from "@/utils/i18n";
+
+export async function getStaticPaths() {
+    return languages.map((lang) => ({
+        params: { lang },
+    }));
+}
+
+// const lang = "es";
+const { lang } = Astro.params;
+
+if (!languages.includes(lang as Language)) {
+    return Astro.redirect("/es");
+}
+
+// const t = getTranslations(lang);
+const t = getTranslations(lang as Language);
+---
+
+<Layout title={t.home_title} lang={lang}>
+    <Header />
+
+    <main class="overflow-x-hidden">
+        <Main />
+    </main>
+
+    <Footer />
+</Layout>
