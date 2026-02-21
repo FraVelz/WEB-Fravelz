@@ -1,6 +1,4 @@
 ---
-import { base } from "@/utils/paths";
-
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
 import { getTranslations } from "@/utils/i18n";
@@ -53,7 +51,7 @@ const t = getTranslations("es");
         <img
           draggable="false"
           class="h-full w-full rounded-full object-cover select-none"
-          src={`${base}images/portfolio/icon-fravelz.png`}
+          src={`/images/portfolio/icon-fravelz.png`}
           data-i18n-attr="alt:hero_logo_alt"
           alt="Logo de Fravelz"
           width="256"

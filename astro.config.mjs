@@ -1,11 +1,16 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+import vercel from "@astrojs/vercel";
+
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
+
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
   integrations: [react()],
-  output: 'static',
+
+  output: "static",
+  adapter: vercel(),
 
   vite: {
     plugins: [tailwindcss()],
