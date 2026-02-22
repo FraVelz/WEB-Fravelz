@@ -1,22 +1,23 @@
 ---
 import { getAllProjects } from '@/data/projects';
-import { getTranslations } from '@/utils/i18n';
-import { getLanguageFromPath } from '@/utils/lang';
+import { getTranslations, type Language, languages } from '@/utils/i18n';
 import Layout from '@/layouts/Layout.astro';
 
 // Required for static dynamic routes
 export async function getStaticPaths() {
   const projects = getAllProjects();
-  
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
+
+  return languages.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang, slug: project.slug },
+      props: { project },
+    })),
+  );
 }
 
 // Props ahora viene de getStaticPaths
 const { project } = Astro.props;
-const lang = getLanguageFromPath(Astro.url.pathname);
+const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
 
 const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
@@ -44,7 +45,7 @@ const projectData = {
     <div class="max-w-5xl mx-auto">
       <!-- Botón Volver -->
       <a 
-        href={`${base}#proyectos`}
+        href={`${base}${lang}#proyectos`}
         class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-8 transition-colors"
         data-i18n="projects_back"
       >

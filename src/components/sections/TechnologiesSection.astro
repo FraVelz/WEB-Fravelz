@@ -1,7 +1,8 @@
 ---
-import { getTranslations } from "@/utils/i18n";
+import { getTranslations, type Language } from "@/utils/i18n";
 
-const t = getTranslations("es");
+const lang = Astro.params.lang as Language;
+const t = getTranslations(lang);
 
 interface Technology {
   id: string;

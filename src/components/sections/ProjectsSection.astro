@@ -1,12 +1,11 @@
 ---
 import { getAllProjects } from "@/data/projects";
-import { getTranslations } from "@/utils/i18n";
-import { getLanguageFromPath } from "@/utils/lang";
+import { getTranslations, type Language } from "@/utils/i18n";
 
 import ProjectCard from "@/components/ui/ProjectCard.astro";
 import Button1 from "@/components/ui/Button.astro";
 
-const lang = getLanguageFromPath(Astro.url.pathname);
+const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
 const allProjects = getAllProjects();
 const projects = allProjects.slice(0, 3);

@@ -1,11 +1,16 @@
 ---
 import { getAllProjects } from '@/data/projects';
-import { getTranslations } from '@/utils/i18n';
-import { getLanguageFromPath } from '@/utils/lang';
+import { getTranslations, type Language, languages } from '@/utils/i18n';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import Layout from '@/layouts/Layout.astro';
 
-const lang = getLanguageFromPath(Astro.url.pathname);
+export async function getStaticPaths() {
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
 const projects = getAllProjects();
 const baseUrl = import.meta.env.BASE_URL || '';
@@ -17,7 +22,7 @@ const baseUrl = import.meta.env.BASE_URL || '';
       <!-- Header -->
       <div class="text-center mb-12">
         <a 
-          href={`${baseUrl}#proyectos`}
+          href={`${baseUrl}${lang}#proyectos`}
           class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 mb-6 transition-colors"
           data-i18n="projects_back"
         >

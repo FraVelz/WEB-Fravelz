@@ -3,10 +3,10 @@ import Link from "@/components/ui/Link.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 import MusicButton from "@/components/ui-react/MusicButton";
 
-import { getTranslations } from "@/utils/i18n";
+import { getTranslations, type Language } from "@/utils/i18n";
 
-// Use Spanish as default - language change is handled with JavaScript
-const t = getTranslations("es");
+const lang = Astro.params.lang as Language;
+const t = getTranslations(lang);
 ---
 
 <div

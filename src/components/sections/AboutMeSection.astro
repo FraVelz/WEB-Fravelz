@@ -1,8 +1,9 @@
 ---
-import { getTranslations } from "@/utils/i18n";
+import { getTranslations, type Language } from "@/utils/i18n";
 import Paragraph from "@/components/ui/Paragraph.astro";
 
-const t = getTranslations("es");
+const lang = Astro.params.lang as Language;
+const t = getTranslations(lang);
 
 interface Props {
   classname?: string;

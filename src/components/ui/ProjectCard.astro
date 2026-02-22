@@ -14,7 +14,7 @@ const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
 const title = project.title[currentLang];
 const description = project.shortDescription[currentLang];
 const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
-const projectUrl = `${base}projects/${project.slug}`;
+const projectUrl = `${base}${currentLang}/projects/${project.slug}`;
 
 // Texts in all languages for client-side update when language changes
 const titles = { es: project.title.es, en: project.title.en, ru: project.title.ru, zh: project.title.zh };
