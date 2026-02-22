@@ -1,9 +1,26 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { getTranslations } from "@/utils/i18n";
+export const prerender = false;
 
-// Use Spanish as default - language change is handled with JavaScript
-const t = getTranslations("es");
+import { getTranslations, isValidLanguage, type Language } from "@/utils/i18n";
+let lang: Language = "es";
+
+// Check for language in cookies
+const cookieLang = Astro.cookies.get("lang")?.value;
+
+if (cookieLang && isValidLanguage(cookieLang)) { lang = cookieLang; }
+
+// Check for language in Accept-Language header
+const acceptLanguage = Astro.request.headers.get("accept-language");
+
+if (acceptLanguage) {
+    const browserLang = acceptLanguage.split(",")[0].split("-")[0];
+
+    if (isValidLanguage(browserLang)) { lang = browserLang; }
+}
+
+const t = getTranslations(lang);
+
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <style>
@@ -25,7 +42,7 @@ const t = getTranslations("es");
   }
 </style>
 
-<Layout title="404 - Página no encontrada | Fravelz" lang="es">
+<Layout title="404 - Página no encontrada | Fravelz" description="Page 404 - Fravelz" lang={lang}>
   <main class="flex justify-center items-center h-screen">
     <!-- Ilustración SVG animada -->
     <div class="absolute inset-0 flex justify-center items-center my-8">
