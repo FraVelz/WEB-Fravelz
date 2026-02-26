@@ -1,8 +1,13 @@
 {
   "hobbies_exercise": "Ejercicio y calistenia",
+  "hobbies_exercise_desc": "Entreno por salud, disciplina y energía.",
   "hobbies_piano": "Tocar piano",
+  "hobbies_piano_desc": "Una forma de desconectar, enfocarme y mejorar mi creatividad.",
   "hobbies_webdev": "Desarrollar proyectos web",
+  "hobbies_webdev_desc": "Construyo interfaces, pruebo ideas y experimento con animaciones.",
   "hobbies_linux": "Personalizar mi sistema operativo Arch Linux",
+  "hobbies_linux_desc": "Tuning de mi entorno: dotfiles, productividad, rendimiento y estética.",
   "hobbies_typing_label": "Mecanografía (35-50 PPM)",
+  "hobbies_typing_desc": "Practico velocidad y precisión; puedes ver mi perfil aquí:",
   "hobbies_typing_link": "Monkeytype"
 }

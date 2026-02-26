@@ -23,38 +23,144 @@ const { classname = "" } = Astro.props;
     id="cards"
     class="w-full max-w-6xl grid grid-cols-3 auto-cols-[200px] auto-rows-[200px] grid-flow-row-dense gap-4"
   >
-    <div class="card row-span-2">
+    <div class="card row-span-2" data-card="webdev">
       <div class="card-content">
-        <h3>Apartments</h3>
-        <h4>Places to be apart. Wait, what?</h4>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M16 18l6-6-6-6M8 6l-6 6 6 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 data-i18n="hobbies_webdev">{t.hobbies_webdev}</h3>
+        <h4 data-i18n="hobbies_webdev_desc">{t.hobbies_webdev_desc}</h4>
       </div>
     </div>
 
-    <div class="card col-span-2">
+    <div class="card col-span-2" data-card="linux">
       <div class="card-content">
-        <h3>Apartments</h3>
-        <h4>Places to be apart. Wait, what?</h4>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M8 21h8M10 17h4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <h3 data-i18n="hobbies_linux">{t.hobbies_linux}</h3>
+        <h4 data-i18n="hobbies_linux_desc">{t.hobbies_linux_desc}</h4>
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" data-card="piano">
       <div class="card-content">
-        <h3>Apartments</h3>
-        <h4>Places to be apart. Wait, what?</h4>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 18V5l12-2v13"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 18a2.5 2.5 0 1 1-2-2.45V5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M21 16a2.5 2.5 0 1 1-2-2.45"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 data-i18n="hobbies_piano">{t.hobbies_piano}</h3>
+        <h4 data-i18n="hobbies_piano_desc">{t.hobbies_piano_desc}</h4>
       </div>
     </div>
 
-    <div class="card row-span-2">
+    <div class="card row-span-2" data-card="exercise">
       <div class="card-content">
-        <h3>Apartments</h3>
-        <h4>Places to be apart. Wait, what?</h4>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 10v4M20 10v4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M6.5 9.5v5M17.5 9.5v5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M6.5 12h11"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M3 9.5h2v5H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Zm18 0h-2v5h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h3 data-i18n="hobbies_exercise">{t.hobbies_exercise}</h3>
+        <h4 data-i18n="hobbies_exercise_desc">{t.hobbies_exercise_desc}</h4>
       </div>
     </div>
 
-    <div class="card col-span-2">
+    <div class="card col-span-2" data-card="typing">
       <div class="card-content">
-        <h3>Apartments</h3>
-        <h4>Places to be apart. Wait, what?</h4>
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path
+              d="M4 8h16a2 2 0 0 1 2 2v6H2v-6a2 2 0 0 1 2-2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M6 12h.01M9 12h.01M12 12h.01M15 12h.01M18 12h.01M7 15h10"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <h3 data-i18n="hobbies_typing_label">{t.hobbies_typing_label}</h3>
+        <h4 data-i18n="hobbies_typing_desc">{t.hobbies_typing_desc}</h4>
+
+        <a
+          href="https://monkeytype.com/profile/Fravelz"
+          target="_blank"
+          rel="noreferrer noopener"
+          class="card-link cursor-pointer mt-2 inline-flex w-fit font-semibold underline underline-offset-2 decoration-2 transition-colors duration-200"
+        >
+          <span data-i18n="hobbies_typing_link">{t.hobbies_typing_link}</span>
+        </a>
       </div>
     </div>
   </div>
@@ -72,10 +178,29 @@ const { classname = "" } = Astro.props;
     .card {
       background-color: rgb(var(--color-white) / 0.1);
       border-radius: 10px;
-      cursor: pointer;
       display: flex;
       flex-direction: column;
       position: relative;
+    }
+
+    /* Visual style per-card via accent token */
+    .card {
+      --card-accent: rgb(var(--color-primary));
+    }
+    .card[data-card="webdev"] {
+      --card-accent: rgb(var(--color-accent));
+    }
+    .card[data-card="linux"] {
+      --card-accent: rgb(var(--color-primary));
+    }
+    .card[data-card="piano"] {
+      --card-accent: rgb(var(--color-accent-hover));
+    }
+    .card[data-card="exercise"] {
+      --card-accent: rgb(var(--color-success));
+    }
+    .card[data-card="typing"] {
+      --card-accent: rgb(var(--color-info));
     }
 
     .card:hover::before {
@@ -123,6 +248,87 @@ const { classname = "" } = Astro.props;
       padding: 10px;
       position: absolute;
       z-index: 2;
+    }
+
+    .card > .card-content {
+      gap: 6px;
+      padding: 14px;
+      border: 1px solid rgb(var(--color-white) / 0.06);
+      box-shadow: inset 0 0 0 1px rgb(var(--color-black) / 0.06);
+    }
+
+    .card > .card-content::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px rgb(var(--color-white) / 0.08);
+      opacity: 0.65;
+    }
+
+    .card > .card-content {
+      overflow: hidden;
+    }
+
+    .card > .card-content::after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      top: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--card-accent) 0%, transparent 70%);
+      opacity: 0.18;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: var(--card-accent);
+      background: rgb(var(--color-white) / 0.04);
+      border: 1px solid rgb(var(--color-white) / 0.06);
+      box-shadow: 0 10px 30px rgb(var(--color-black) / 0.12);
+      margin-bottom: 2px;
+    }
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: rgb(var(--color-text));
+      letter-spacing: -0.01em;
+    }
+    .dark .card h3 {
+      color: rgb(var(--color-text));
+    }
+
+    .card h4 {
+      font-size: 0.82rem;
+      line-height: 1.35;
+      color: rgb(var(--color-text-muted));
+    }
+    .dark .card h4 {
+      color: rgb(var(--color-text-muted));
+    }
+
+    .card-link {
+      color: var(--card-accent);
+      text-decoration-color: color-mix(in oklab, var(--card-accent) 60%, transparent);
+    }
+    .card-link:hover {
+      color: var(--card-accent);
+      text-decoration-color: var(--card-accent);
     }
   </style>
 

@@ -1,8 +1,13 @@
 {
   "hobbies_exercise": "锻炼和健美操",
+  "hobbies_exercise_desc": "我锻炼是为了健康、纪律与精力。",
   "hobbies_piano": "弹钢琴",
+  "hobbies_piano_desc": "用来放松、专注，并提升创造力。",
   "hobbies_webdev": "开发 Web 项目",
+  "hobbies_webdev_desc": "我构建界面、验证想法，并尝试各种动画效果。",
   "hobbies_linux": "定制我的 Arch Linux 操作系统",
+  "hobbies_linux_desc": "优化我的环境：dotfiles、效率、性能与美观。",
   "hobbies_typing_label": "打字练习（每分钟 35-50 字）",
+  "hobbies_typing_desc": "我练习速度与准确率；你可以在这里查看我的资料：",
   "hobbies_typing_link": "Monkeytype"
 }
