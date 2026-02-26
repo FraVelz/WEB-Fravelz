@@ -24,9 +24,16 @@ const { classname = "" } = Astro.props;
   <div
     class="relative flex justify-between items-center h-screen w-full mx-auto max-md:flex-col max-md:items-start"
   >
+    <h2
+      class="absolute top-32 left-0 w-full text-center text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+      data-i18n="info_about_title"
+    >
+      {t.info_about_title || "Sobre Mí"}
+    </h2>
+
     <!-- Línea -->
     <div
-      class="absolute top-1/2 left-0 w-full h-1 bg-blue-500 -translate-y-1/2 z-10
+      class="about-timeline-line absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 z-10
               max-md:top-0 max-md:left-5 max-md:w-1 max-md:h-full max-md:translate-y-0"
     >
     </div>
@@ -44,7 +51,7 @@ const { classname = "" } = Astro.props;
                     ${index % 2 === 0 ? "bottom-10" : "top-10"}
                     max-md:relative max-md:top-0 max-md:bottom-0 max-md:w-full`}
           >
-            <div class="font-bold mb-2 text-blue-500">{value[1]}</div>
+            <div class="about-timeline-year font-bold mb-2">{value[1]}</div>
             {value[0]}
 
             {(value[1]=='2021') ? (
@@ -52,12 +59,7 @@ const { classname = "" } = Astro.props;
                 href="https://github.com/divelz"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 
-                  text-cyan-700 dark:text-cyan-300
-                  font-semibold underline underline-offset-4
-                  hover:text-cyan-800 dark:hover:text-cyan-200
-                  focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900
-                  transition-colors"
+                class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
               >
                 Github
               </a>
@@ -68,7 +70,7 @@ const { classname = "" } = Astro.props;
           </div>
 
           <div
-            class="w-5 h-5 bg-blue-500 rounded-full mx-auto
+            class="about-timeline-dot w-5 h-5 rounded-full mx-auto
                     max-md:absolute max-md:left-[11px]"
           />
         </div>
@@ -76,3 +78,38 @@ const { classname = "" } = Astro.props;
     }
   </div>
 </section>
+
+<style>
+  .about-timeline-line,
+  .about-timeline-dot {
+    background-color: rgb(var(--color-primary));
+  }
+
+  .about-timeline-year {
+    color: rgb(var(--color-primary));
+  }
+
+  .about-link {
+    color: rgb(var(--color-primary));
+  }
+  .dark .about-link {
+    color: rgb(var(--color-primary));
+  }
+  .about-link:hover {
+    color: rgb(var(--color-primary-hover));
+  }
+  .dark .about-link:hover {
+    color: rgb(var(--color-primary-hover));
+  }
+  .about-link:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px rgb(var(--color-primary)),
+      0 0 0 4px rgb(var(--color-surface));
+  }
+  .dark .about-link:focus-visible {
+    box-shadow:
+      0 0 0 2px rgb(var(--color-primary)),
+      0 0 0 4px rgb(var(--color-bg));
+  }
+</style>
