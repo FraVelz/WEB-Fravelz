@@ -34,11 +34,13 @@ const { classname = "" } = Astro.props;
     {
       history.map((value, index) => (
         <div
-          class="relative min-w-45 w-full text-center z-20 
-                  max-md:mb-12 max-md:pl-12"
+          class={`relative min-w-45 max-w-80 w-full text-center z-20 
+                  max-md:mb-12 max-md:pl-12
+                  ${index % 2 === 0 ? "" : "-translate-x-10"}
+                  `}
         >
           <div
-            class={`absolute h-fit min-w-45 w-full p-4 rounded-lg
+            class={`absolute h-fit w-45 min-w-full p-4 rounded-lg
                     ${index % 2 === 0 ? "bottom-10" : "top-10"}
                     max-md:relative max-md:top-0 max-md:bottom-0 max-md:w-full`}
           >
@@ -46,7 +48,19 @@ const { classname = "" } = Astro.props;
             {value[0]}
 
             {(value[1]=='2021') ? (
-              <a href="https://github.com/divelz" target="_blank">Github</a>
+              <a
+                href="https://github.com/divelz"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 
+                  text-cyan-700 dark:text-cyan-300
+                  font-semibold underline underline-offset-4
+                  hover:text-cyan-800 dark:hover:text-cyan-200
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-900
+                  transition-colors"
+              >
+                Github
+              </a>
             ) : (
               <></>
             )
