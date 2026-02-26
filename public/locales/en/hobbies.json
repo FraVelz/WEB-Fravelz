@@ -1,8 +1,13 @@
 {
   "hobbies_exercise": "Exercise and calisthenics",
+  "hobbies_exercise_desc": "I train for health, discipline, and energy.",
   "hobbies_piano": "Playing piano",
+  "hobbies_piano_desc": "A way to disconnect, focus, and boost creativity.",
   "hobbies_webdev": "Developing web projects",
+  "hobbies_webdev_desc": "I build interfaces, test ideas, and experiment with animations.",
   "hobbies_linux": "Customizing my Arch Linux OS",
+  "hobbies_linux_desc": "Tuning my setup: dotfiles, productivity, performance, and aesthetics.",
   "hobbies_typing_label": "Typing practice (35-50 WPM)",
+  "hobbies_typing_desc": "I practice speed and accuracy; you can see my profile here:",
   "hobbies_typing_link": "Monkeytype"
 }
