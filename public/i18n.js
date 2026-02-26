@@ -57,7 +57,6 @@
         fetch(`${base}locales/${lang}/certifications.json`).then(r => r.json()),
         fetch(`${base}locales/${lang}/info.json`).then(r => r.json()),
         fetch(`${base}locales/${lang}/technologies.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/projects.json`).then(r => r.json()),
         fetch(`${base}locales/${lang}/about.json`).then(r => r.json()),
         fetch(`${base}locales/${lang}/hobbies.json`).then(r => r.json()),
         fetch(`${base}locales/${lang}/footer.json`).then(r => r.json()),

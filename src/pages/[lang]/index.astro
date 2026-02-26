@@ -16,18 +16,15 @@ export async function getStaticPaths() {
     }));
 }
 
-// const lang = "es";
 const { lang } = Astro.params;
 
 if (!languages.includes(lang as Language)) {
     return Astro.redirect("/es");
 }
-
-// const t = getTranslations(lang);
 const t = getTranslations(lang as Language);
 ---
 
-<Layout title={t.home_title} lang={lang}>
+<Layout title={t.home_title} description={t.home_description} lang={lang}>
     <Header />
 
     <main class="overflow-x-hidden">
