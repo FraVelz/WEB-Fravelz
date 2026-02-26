@@ -39,6 +39,32 @@
   --color-warning: 245 158 11;  /* amber-500 */
   --color-danger: 239 68 68;    /* red-500 */
   --color-info: 59 130 246;     /* blue-500 */
+
+  /* =========================
+     TOKENS ESPECÍFICOS DEL UI
+  ========================== */
+
+  /* Selección de texto */
+  --color-selection-strong: 168 85 247; /* purple-500 */
+  --color-selection: 7 155 214;         /* aprox. #079bd6 (se usa con alpha) */
+
+  /* Partículas (sky-400) */
+  --color-particles: 56 189 248;        /* #38bdf8 */
+
+  /* Link animation (cyan-400 + tonos dark heredados del proyecto) */
+  --color-link-underline: 34 211 238;   /* #22d3ee */
+  --color-link-underline-dark: 0 96 111;
+  --color-link-hover: 34 211 238;       /* #22d3ee */
+  --color-link-hover-dark: 0 64 74;
+
+  /* Botón custom (valores existentes en el proyecto) */
+  --color-btn-base: 0 0 0;              /* #000 */
+  --color-btn-on-base: 255 255 255;     /* #fff */
+  --color-btn-accent: 2 162 248;        /* #02a2f8 */
+
+  /* Base constants */
+  --color-black: 0 0 0;
+  --color-white: 255 255 255;
 }
 
 .dark {
@@ -81,13 +107,13 @@
   h2::selection,
   h3::selection,
   strong::selection {
-    background-color: #a855f7;
-    color: #ffffff;
+    background-color: rgb(var(--color-selection-strong));
+    color: rgb(var(--color-btn-on-base));
   }
 
   ::selection {
-    background-color: #079bd6ef;
-    color: #ffffff;
+    background-color: rgb(var(--color-selection) / 0.94);
+    color: rgb(var(--color-btn-on-base));
   }
 
   /* index.astro */
