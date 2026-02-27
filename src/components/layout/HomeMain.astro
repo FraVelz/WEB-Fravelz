@@ -33,8 +33,30 @@ import ContactSection from "@/components/sections/ContactSection.astro";
 <ContactSection />
 
 <script>
-  import { horizontalScroll } from "@/scripts-animations/horizontalScroll.ts";
-  if (window.innerWidth >= 1024) {
-    horizontalScroll();
-  }
+  import {
+    horizontalScroll,
+    desactiveHorizontalScroll,
+  } from "@/scripts-animations/horizontalScroll.ts";
+
+  let isActiveHorizontalScroll = false;
+
+  // Ejecutar al cargar
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
+      horizontalScroll();
+      isActiveHorizontalScroll = true;
+    }
+  });
+
+  // Ejecutar al cambiar tamaño
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
+      horizontalScroll();
+      isActiveHorizontalScroll = true;
+
+    } else {
+      desactiveHorizontalScroll();
+      isActiveHorizontalScroll = false;
+    }
+  });
 </script>
