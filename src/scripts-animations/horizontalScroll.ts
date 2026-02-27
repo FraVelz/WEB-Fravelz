@@ -1,14 +1,20 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+let horizontalAnim: gsap.core.Tween | null = null;
 
 export function horizontalScroll() {
-
-    // Desplazamiento horizontal
+    // Horizontal scrolling
     const sections = gsap.utils.toArray<HTMLElement>(".panel");
+    const container = document.querySelector<HTMLElement>(".containera");
 
-    gsap.to(sections, {
+    if (!container) return;
+
+    // Store the animation in the global variable
+    horizontalAnim = gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
         scrollTrigger: {
@@ -16,10 +22,7 @@ export function horizontalScroll() {
             pin: true,
             scrub: 1,
             snap: 1 / (sections.length - 1),
-            end: () => {
-                const container = document.querySelector<HTMLElement>(".containera");
-                return container ? "+=" + container.scrollWidth : "+=0";
-            }
+            end: () => "+=" + container.scrollWidth
         }
     });
 
@@ -41,4 +44,16 @@ export function horizontalScroll() {
             });
         });
     });
+}
+
+export function desactiveHorizontalScroll() {
+    // Destroy the horizontal animation if it exists
+    if (horizontalAnim) {
+        horizontalAnim.scrollTrigger?.kill(); // destroys the ScrollTrigger
+        horizontalAnim.kill(); // destroys the animation
+        horizontalAnim = null;
+    }
+
+    // Also make sure there are no leftover triggers
+    ScrollTrigger.getAll().forEach(st => st.kill());
 }
