@@ -10,16 +10,16 @@ const t = getTranslations(lang);
 ---
 
 <section
-  id="presentacion"
+  id="presentation"
   class="h-screen w-screen flex flex-col justify-center items-center"
 >
   <div
-    class="py-12 sm:py-16 lg:py-24
+    class="px-4 py-12 sm:py-16 lg:py-24
          grid grid-cols-1 gap-6
          lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto]
          items-center lg:items-start"
   >
-    <!-- Logo con borde animado -->
+    <!-- Logo with animated border -->
     <div
       class="row-span-2 lg:row-span-3
               relative
@@ -28,7 +28,7 @@ const t = getTranslations(lang);
               lg:h-64 lg:w-64 lg:mr-6
               flex-shrink-0"
     >
-      <!-- Borde giratorio -->
+      <!-- Rotating border -->
       <div
         class="absolute inset-0
              rounded-full
@@ -39,7 +39,7 @@ const t = getTranslations(lang);
       >
       </div>
 
-      <!-- Imagen del logo -->
+      <!-- Logo image -->
       <div
         class="absolute inset-1 sm:inset-2
                 rounded-full
@@ -60,19 +60,17 @@ const t = getTranslations(lang);
       </div>
     </div>
 
-    <!-- Nombre -->
-    <h1
-      class="text-2xl sm:text-3xl lg:text-4xl
-           self-end
+    <div>
+      <!-- Name -->
+      <h1
+        class="text-2xl sm:text-3xl lg:text-4xl self-end
            bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent
            font-bold
            text-center lg:text-left"
-    >
-      Francisco J. Vélez O.
-    </h1>
+      >
+        Francisco J. Vélez O.
+      </h1>
 
-    <!-- Información y enlaces -->
-    <div class="flex flex-col gap-4">
       <p
         class="text-base sm:text-lg
               text-cyan-700 dark:text-cyan-300 font-bold
@@ -82,43 +80,46 @@ const t = getTranslations(lang);
         @Fravelz
       </p>
 
-      <div
-        class="flex flex-wrap justify-center lg:justify-start
-                items-center
-                gap-2 sm:gap-3"
-      >
-        <LocationBadge text={t.hero_location} />
-
-        <CopyEmailButton
-          client:load
-          email="fravelz@proton.me"
-          successText={t.hero_copy_success}
-        />
-      </div>
-    </div>
-
-    <!-- Descripción -->
-    <div class="lg:col-start-2 flex flex-col gap-2">
-      <p
-        class="text-base sm:text-lg
+      <div class="flex flex-col gap-4 mt-3 lg:mt-10">
+        <!-- Description -->
+        <div class="lg:col-start-2 flex flex-col gap-2">
+          <p
+            class="text-base sm:text-lg
               text-slate-800 dark:text-gray-200
               text-center lg:text-left"
-        data-i18n="hola"
-      >
-        {t.hola}
-      </p>
-      <p
-        class="text-lg sm:text-xl
+            data-i18n="hola"
+          >
+            {t.hola}
+          </p>
+          <p
+            class="text-lg sm:text-xl
               text-cyan-700 dark:text-cyan-100
               font-bold
               text-center lg:text-left"
-        data-i18n="futuro_pentester"
-      >
-        {t.futuro_pentester}
-      </p>
+            data-i18n="futuro_pentester"
+          >
+            {t.futuro_pentester}
+          </p>
+        </div>
+
+        <!-- Info and links -->
+        <div
+          class="flex flex-wrap justify-center lg:justify-start
+                items-center
+                gap-2 sm:gap-3"
+        >
+          <LocationBadge text={t.hero_location} />
+
+          <CopyEmailButton
+            client:load
+            email="fravelz@proton.me"
+            successText={t.hero_copy_success}
+          />
+        </div>
+      </div>
     </div>
 
-    <div class="col-span-2 max-w-2xl mt-5">
+    <div class="col-span-1 lg:col-span-2 max-w-2xl mt-5">
       <Paragraph
         justify="center"
         className="text-slate-800 dark:text-gray-300"
@@ -129,7 +130,7 @@ const t = getTranslations(lang);
     </div>
   </div>
 
-  <!-- Indicador para bajar -->
+  <!-- Scroll down indicator -->
   <div class="flex h-fit w-fit px-3 py-5 justify-center">
     <div
       class="text-cyan-700 rounded-xl border-cyan-700/80 border-2
@@ -170,6 +171,6 @@ const t = getTranslations(lang);
     </div>
   </div>
 
-  <!-- Partículas animadas -->
+  <!-- Animated particles -->
   <Particles />
 </section>
