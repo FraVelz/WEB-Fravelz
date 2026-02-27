@@ -22,10 +22,10 @@ const { classname = "" } = Astro.props;
 
 <section id="sobre-mi" class={classname}>
   <div
-    class="relative flex justify-between items-center h-screen w-full mx-auto max-md:flex-col max-md:items-start"
+    class="relative flex justify-between items-center h-fit lg:h-screen w-full mx-auto max-lg:flex-col max-lg:items-start"
   >
     <h2
-      class="absolute top-32 left-0 w-full text-center text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+      class="lg:absolute lg:top-32 left-0 w-full text-center text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
       data-i18n="info_about_title"
     >
       {t.info_about_title || "Sobre Mí"}
@@ -34,25 +34,30 @@ const { classname = "" } = Astro.props;
     <!-- Línea -->
     <div
       class="about-timeline-line absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 z-10
-              max-md:top-0 max-md:left-5 max-md:w-1 max-md:h-full max-md:translate-y-0"
+              max-lg:top-0 max-lg:left-5 max-lg:w-1 max-lg:h-full max-lg:translate-y-0"
     >
     </div>
 
     {
       history.map((value, index) => (
         <div
-          class={`relative min-w-45 max-w-80 w-full text-center z-20 
-                  max-md:mb-12 max-md:pl-12
-                  ${index % 2 === 0 ? "" : "-translate-x-10"}
+          class={`relative min-w-45 w-full text-center z-20 
+                  max-lg:mb-12 max-lg:pl-12
                   `}
         >
           <div
-            class={`absolute h-fit w-45 min-w-full p-4 rounded-lg
+            class={`absolute text-left lg:text-center h-fit w-45 py-4 rounded-lg
                     ${index % 2 === 0 ? "bottom-10" : "top-10"}
-                    max-md:relative max-md:top-0 max-md:bottom-0 max-md:w-full`}
+                    max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full`}
           >
             <div class="about-timeline-year font-bold mb-2">{value[1]}</div>
-            {value[0]}
+
+              { (index!==0 && index!==history.length-1) ? (
+                <div class="lg:relative lg:w-60 lg:left-[50%] lg:translate-x-[-50%]">
+                  {value[0]}
+                </div>
+
+              ) : ( value[0] )} 
 
             {(value[1]=='2021') ? (
               <a
@@ -71,7 +76,7 @@ const { classname = "" } = Astro.props;
 
           <div
             class="about-timeline-dot w-5 h-5 rounded-full mx-auto
-                    max-md:absolute max-md:left-[11px]"
+                    max-lg:absolute max-lg:top-5 max-lg:left-[11px]"
           />
         </div>
       ))
