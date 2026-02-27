@@ -13,7 +13,7 @@ const t = getTranslations(lang);
   id="header-nav"
   class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"
 >
-  <Link href="#presentacion"
+  <Link href="#presentation"
     ><span data-i18n="nav_presentation">Presentación</span></Link
   >
   <Link href="#proyectos"><span data-i18n="nav_projects">Proyectos</span></Link>
@@ -73,7 +73,8 @@ const t = getTranslations(lang);
   </div>
 
   <script>
-    const selector = document.querySelector<HTMLSelectElement>(".language-selector");
+    const selector =
+      document.querySelector<HTMLSelectElement>(".language-selector");
 
     const currentLang = window.location.pathname.split("/")[1];
 
