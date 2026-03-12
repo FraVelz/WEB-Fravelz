@@ -1,4 +1,10 @@
 {
+  "cert_formacion_badge": "Обучение и сертификаты",
+  "cert_web_title": "Сертификаты веб-разработки",
+  "cert_web_focus": "Фокус на frontend / web",
+  "cert_web_empty": "Я ещё не загрузил веб-сертификаты сюда. Когда загружу, они появятся со ссылками на PDF.",
+  "cert_other_title": "Другие сертификаты",
+  "cert_other_empty": "Сертификаты по кибербезопасности, backend и другим областям появятся здесь, когда вы добавите их в public/pdfs/ и зарегистрируете в src/data/certificates.ts.",
   "cert_section_title": "Сертификаты в процессе",
   "cert_completed_title": "Выполненные сертификаты",
   "cert_view_all": "Показать все",

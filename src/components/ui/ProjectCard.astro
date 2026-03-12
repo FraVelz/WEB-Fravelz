@@ -37,7 +37,7 @@ const descriptions = { es: project.shortDescription.es, en: project.shortDescrip
   <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
     <img 
       src={`${base}${project.featuredImage}`}
-      alt={`${title} - Preview`}
+      alt={`${title} - ${t.project_preview_alt || 'Preview'}`}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       loading="lazy"
     />

@@ -1,4 +1,10 @@
 {
+  "cert_formacion_badge": "Formación y certificados",
+  "cert_web_title": "Certificados de Desarrollo Web",
+  "cert_web_focus": "Enfocado en frontend / web",
+  "cert_web_empty": "Aún no he subido certificados web aquí. Cuando los tenga, aparecerán listados con sus PDFs descargables.",
+  "cert_other_title": "Otros Certificados",
+  "cert_other_empty": "Aquí aparecerán certificados de ciberseguridad, backend u otras áreas cuando los subas a public/pdfs/ y los registres en src/data/certificates.ts.",
   "cert_section_title": "Certificaciones en Progreso",
   "cert_completed_title": "Certificados Completados",
   "cert_view_all": "Ver Todos",
