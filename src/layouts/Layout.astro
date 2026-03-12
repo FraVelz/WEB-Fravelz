@@ -65,8 +65,7 @@ const ogImageUrl = `${Astro.site}images/portfolio/portfolio.png`;
       content="desarrollador web, desarrollador full-stack, React, JavaScript, Node.js, desarrollador frontend, desarrollador backend, programador web, portafolio desarrollador"
     />
 
-    <link rel="canonical" href="https://fravelz.github.io/WEB-Fravelz/" />
-    <link rel="canonical" href={Astro.site + Astro.url.pathname} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site || "https://fravelz.github.io/WEB-Fravelz/").href} />
 
     <title>{title}</title>
 

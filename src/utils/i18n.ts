@@ -13,7 +13,6 @@ const LOCALE_FILES = [
   'certifications',
   'info',
   'technologies',
-  'projects',
   'about',
   'hobbies',
   'footer',

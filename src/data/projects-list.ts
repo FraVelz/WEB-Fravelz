@@ -1,18 +1,14 @@
 import type { Project } from './project-types';
 
 import { projectNotasHacking } from './projects/project-notas-hacking';
-import { projectWebHyprdots } from './projects/project-web-hyprdots';
 import { projectIcfesMaster } from './projects/project-icfes-master';
-import { projectWebAtajos } from './projects/project-web-atajos';
-import { projectWebSorteo } from './projects/project-web-sorteo';
-import { projectWebVulnerable } from './projects/project-web-vulnerable';
+import { projectWebTodoList } from './projects/project-web-todo-list';
+import { projectWebMarcadores } from './projects/project-web-marcadores';
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
-  projectNotasHacking,
-  projectWebHyprdots,
   projectIcfesMaster,
-  projectWebAtajos,
-  projectWebSorteo,
-  projectWebVulnerable
+  projectWebTodoList,
+  projectWebMarcadores,
+  projectNotasHacking
 ];

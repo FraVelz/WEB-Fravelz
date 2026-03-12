@@ -4,10 +4,6 @@ import { getTranslations, type Language } from "@/utils/i18n";
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
 
-interface Props {
-  classname?: string;
-}
-
 const history = [
   [t.about_history_text, "2017"],
   [t.about_modal_paragraph1, "2018-2021"],
@@ -16,6 +12,10 @@ const history = [
   [t.about_modal_paragraph4, "2025"],
   [t.about_modal_paragraph5, "+2026"],
 ];
+
+interface Props {
+  classname?: string;
+}
 
 const { classname = "" } = Astro.props;
 ---

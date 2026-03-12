@@ -7,6 +7,7 @@ import react from '@astrojs/react';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
+  site: "https://fravelz.github.io/WEB-Fravelz/",
   integrations: [react()],
 
   output: "static",

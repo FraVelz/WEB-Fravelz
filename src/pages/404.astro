@@ -42,7 +42,7 @@ import Layout from "@/layouts/Layout.astro";
   }
 </style>
 
-<Layout title="404 - Página no encontrada | Fravelz" description="Page 404 - Fravelz" lang={lang}>
+<Layout title={t.error_404_page_title || "404 - Página no encontrada | Fravelz"} description={t.error_404_description || "Página no encontrada"} lang={lang}>
   <main class="flex justify-center items-center h-screen">
     <!-- Ilustración SVG animada -->
     <div class="absolute inset-0 flex justify-center items-center my-8">
@@ -126,7 +126,7 @@ import Layout from "@/layouts/Layout.astro";
       <!-- Botón para volver al inicio -->
       <div id="element-404-4" class="pt-4">
         <a
-          href="https://fravelz.github.io/WEB-Fravelz/"
+          href={`/${lang}/`}
           class="inline-flex items-center gap-2
             px-6 py-3
             bg-gradient-to-r from-cyan-500 to-purple-500
@@ -160,6 +160,35 @@ import Layout from "@/layouts/Layout.astro";
 </Layout>
 
 <script>
-  import { runAnimation } from "@/scripts-animations/404.ts";
-  runAnimation();
+  // import { runAnimation } from "@/scripts-animations/404.ts";
+
+  import gsap from "gsap";
+  const tl = gsap.timeline();
+
+  tl.to("#element-404-1", {
+      x: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power3.out"
+  })
+      .to("#element-404-2", {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out"
+      })
+      .to("#element-404-3", {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out"
+      })
+      .to("#element-404-4", {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out"
+      });
+
+  // runAnimation();
 </script>

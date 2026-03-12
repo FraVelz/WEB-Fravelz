@@ -66,6 +66,8 @@ import MobileDrawer from "@/components/layout/header/MobileDrawer.astro";
       id="header-mobile-button"
       class="lg:hidden text-2xl text-slate-800 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
       aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="drawer-menu"
       data-i18n-attr="aria-label:nav_open_menu"
     >
       <svg
@@ -91,7 +93,7 @@ import MobileDrawer from "@/components/layout/header/MobileDrawer.astro";
 </header>
 
 <script>
-  import { runAnimation } from "@/scripts-animations/header";
+  import { runAnimation } from "@/components/layout/header/header.ts";
 
   runAnimation();
 </script>

@@ -1,4 +1,4 @@
-# 📁 Project Structure
+# Project Structure
 
 ## Main Directories
 
@@ -19,31 +19,36 @@ WEB-Fravelz/
 ├── src/                      # Source code
 │   ├── components/          # Reusable components
 │   │   ├── layout/          # Structure components (Header, Footer, etc.)
-│   │   ├── sections/        # Main sections (Astro)
+│   │   │   ├── header/      # Header, ElementsHeader, MobileDrawer
+│   │   │   └── home-animation/  # horizontalScroll (GSAP)
 │   │   ├── ui/              # Basic UI components (Astro)
 │   │   └── ui-react/        # Interactive components (React)
-│   ├── data/                # Data and configurations
-│   │   ├── projects.ts     # Projects list
-│   │   └── projects/       # Individual projects
+│   ├── features/            # Sections by feature
+│   │   ├── hero/            # HeroSection
+│   │   ├── about-me/        # AboutMeSection
+│   │   ├── projects/        # ProjectsSection
+│   │   ├── technologies/    # TechnologiesSection (data.ts, functions.ts)
+│   │   ├── hobbies/         # HobbiesSection
+│   │   └── contact/         # ContactSection
+│   ├── data/                # Shared data
+│   │   ├── projects.ts      # Projects list and utilities
+│   │   ├── projects/        # Individual projects
+│   │   └── certificates.ts # Certificates
 │   ├── layouts/             # Main layouts
 │   ├── pages/               # Pages and routes
-│   │   ├── index.astro      # Home page
-│   │   ├── projects/        # Project pages
+│   │   ├── index.astro      # Language redirect
+│   │   ├── [lang]/          # Language-specific routes
 │   │   └── 404.astro        # Error page
-│   ├── scripts-animations/  # Animation scripts (GSAP)
 │   ├── styles/              # Global styles
-│   └── utils/               # Utilities and helpers
+│   └── utils/               # Utilities
 │       ├── i18n.ts          # Translation system (server)
-│       ├── i18n-client.ts    # Translation system (client)
-│       ├── paths.ts          # Path utilities
-│       └── lang.ts           # Language utilities
+│       └── lang.ts          # Language utilities
 │
 ├── docs/                     # Documentation
 │   ├── es/                  # Spanish documentation
 │   └── en/                  # English documentation
 │
 ├── astro.config.mjs         # Astro configuration
-├── tailwind.config.mjs      # Tailwind CSS configuration
 ├── tsconfig.json            # TypeScript configuration
 └── package.json             # Dependencies and scripts
 ```
@@ -54,29 +59,29 @@ WEB-Fravelz/
 - **Header.astro**: Fixed header with navigation
 - **Footer.astro**: Footer with links
 - **HomeMain.astro**: Main home container
-- **header/**: Header components (ElementsHeader, MobileDrawer)
+- **header/**: ElementsHeader, MobileDrawer
+- **home-animation/**: horizontalScroll.ts (GSAP ScrollTrigger)
 
-### Sections (`src/components/sections/`)
-- **PresentacionSection.astro**: Hero/presentation section
-- **ProyectosSection.astro**: Projects grid with filters
-- **TecnologiasSection.astro**: Technology cards
-- **SobreMiSection.astro**: Personal information
-- **PasatiemposSection.astro**: Hobbies and interests
-- **Contactame.astro**: Contact form
+### Features (`src/features/`)
+- **hero/HeroSection.astro**: Hero/presentation section
+- **about-me/AboutMeSection.astro**: Personal information
+- **projects/ProjectsSection.astro**: Projects grid
+- **technologies/TechnologiesSection.astro**: Technology cards (uses data.ts, functions.ts)
+- **hobbies/HobbiesSection.astro**: Hobbies and interests
+- **contact/ContactSection.astro**: Contact form
 
 ### UI Components (`src/components/ui/`)
-- **Enlace.astro**: Link with smooth scroll
-- **Parrafo.astro**: Paragraph with i18n support
+- **Link.astro**: Link with smooth scroll
+- **Paragraph.astro**: Paragraph with i18n support
 - **ToggleTheme.astro**: Light/dark theme selector
 - **LocationBadge.astro**: Location badge
 - **ProjectCard.astro**: Project card
-- **Line.astro**: Visual divider
+- **Button.astro**, **Particles.astro**
 
 ### React Components (`src/components/ui-react/`)
 - **MusicButton.tsx**: Button to open player
 - **MusicPlayer.tsx**: Modal music player
 - **CopyEmailButton.tsx**: Button to copy email
-- **TecnologiasSection.tsx**: (Legacy - migrated to Astro)
 
 ## Translation System
 
@@ -84,7 +89,6 @@ WEB-Fravelz/
   - `common.json`: Common texts and navigation
   - `hero.json`: Main section
   - `about.json`: About me
-  - `projects.json`: Projects
   - `technologies.json`: Technologies
   - `music.json`: Music player
   - `hobbies.json`: Hobbies
@@ -97,20 +101,21 @@ WEB-Fravelz/
 
 ## Routes and Pages
 
-- **`/`**: Home page (index.astro)
-- **`/projects`**: All projects list
-- **`/projects/[slug]`**: Individual project view
+- **`/`**: Redirects to `/{lang}/` based on cookie or Accept-Language
+- **`/{lang}/`**: Home page (es, en, ru, zh)
+- **`/{lang}/projects`**: All projects list
+- **`/{lang}/projects/[slug]`**: Individual project view
+- **`/{lang}/certifications`**: Certifications
 - **`/404`**: Custom error page
 
 ## Configuration
 
-- **Base path**: `/WEB-Fravelz/` (configured in `astro.config.mjs`)
+- **Site**: `https://fravelz.github.io/WEB-Fravelz/` (configured in astro.config.mjs)
 - **Output**: Static (pre-rendered HTML)
-- **Integrations**: React, Tailwind CSS
+- **Integrations**: React, Tailwind CSS v4 (@tailwindcss/vite)
 - **Animations**: GSAP with ScrollTrigger for horizontal scroll and header
 
 [Return to readme...](../../README.md)
 
 > Author: Fravelz  
-> Documentation updated: 2026/Feb/17  
-> AI-generated vision.
+> Documentation updated: 2026/Feb/20

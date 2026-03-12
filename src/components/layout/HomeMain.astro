@@ -1,13 +1,22 @@
 ---
 // Imports Section
-import Presentation from "@/components/sections/PresentationSection.astro";
-import TechnologiesSection from "@/components/sections/TechnologiesSection.astro";
-import ProjectsSection from "@/components/sections/ProjectsSection.astro";
-import HobbiesSection from "@/components/sections/HobbiesSection.astro";
-import AboutMeSection from "@/components/sections/AboutMeSection.astro";
-import ContactSection from "@/components/sections/ContactSection.astro";
+import Presentation from "@/features/hero/HeroSection.astro";
+
+import AboutMeSection from "@/features/about-me/AboutMeSection.astro";
+import ProjectsSection from "@/features/projects/ProjectsSection.astro";
+import TechnologiesSection from "@/features/technologies/TechnologiesSection.astro";
+import HobbiesSection from "@/features/hobbies/HobbiesSection.astro";
+
+import ContactSection from "@/features/contact/ContactSection.astro";
+
+// Particles
+import Particles from "@/components/ui/Particles.astro";
 ---
 
+<!-- Animated particles -->
+<Particles />
+
+<!-- Main content -->
 <Presentation />
 
 <div class="horizontal relative w-full overflow-x-hidden">
@@ -31,12 +40,11 @@ import ContactSection from "@/components/sections/ContactSection.astro";
 </div>
 
 <ContactSection />
-
 <script>
   import {
     horizontalScroll,
     desactiveHorizontalScroll,
-  } from "@/scripts-animations/horizontalScroll.ts";
+  } from "@/components/layout/home-animation/horizontalScroll.ts";
 
   let isActiveHorizontalScroll = false;
 
