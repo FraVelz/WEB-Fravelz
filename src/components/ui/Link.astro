@@ -22,6 +22,9 @@ const isAnchor = href?.startsWith("#");
       const link = e.target.closest('a[data-smooth-scroll="true"]');
       if (!link) return;
 
+      // Dejar que horizontalScroll maneje los enlaces del header en desktop
+      if (link.closest("#header-nav-desktop") && window.innerWidth >= 1024) return;
+
       const href = link.getAttribute("href");
       if (!href || !href.startsWith("#")) return;
 

@@ -7,20 +7,22 @@ import { getTranslations, type Language } from "@/utils/i18n";
 
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
+
+const {id} = Astro.props;
 ---
 
 <div
-  id="header-nav"
+  id={id}
   class="flex flex-col lg:flex-row gap-5 lg:gap-8 items-center"
 >
   <Link href="#presentation"
     ><span data-i18n="nav_presentation">Presentación</span></Link
   >
-  <Link href="#proyectos"><span data-i18n="nav_projects">Proyectos</span></Link>
-  <Link href="#tecnologia"
-    ><span data-i18n="nav_technologies">Tecnología</span></Link
+  <Link href="#about-me"><span data-i18n="nav_about">Sobre Mí</span></Link>
+  <Link href="#technologies"
+      ><span data-i18n="nav_technologies">Tecnología</span></Link
   >
-  <Link href="#sobre-mi"><span data-i18n="nav_about">Sobre Mí</span></Link>
+  <Link href="#projects"><span data-i18n="nav_projects">Proyectos</span></Link>
 </div>
 
 <div
