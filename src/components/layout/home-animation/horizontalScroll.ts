@@ -27,20 +27,35 @@ export function horizontalScroll() {
     });
 
     // Navigation with links
-    const links = document.querySelectorAll<HTMLAnchorElement>("nav a");
-    const horizontalSection = document.querySelector<HTMLElement>(".horizontal");
+    const links = document.querySelectorAll<HTMLAnchorElement>("#header-nav a");
 
-    if (!horizontalSection) return;
-
-    links.forEach((link, i) => {
-        link.addEventListener("click", e => {
+    links.forEach((link) => {
+        link.addEventListener("click", (e) => {
             e.preventDefault();
 
+            if (!horizontalAnim || !horizontalAnim.scrollTrigger) return;
+
+            const targetId = link.getAttribute("href")?.replace("#", "");
+            if (!targetId) return;
+
+            const targetPanel = document.getElementById(targetId);
+            if (!targetPanel) return;
+
+            const sections = gsap.utils.toArray<HTMLElement>(".panel");
+            const index = sections.indexOf(targetPanel);
+
+            if (index === -1) return;
+
+            const st = horizontalAnim.scrollTrigger;
+            const total = sections.length - 1;
+            const progress = index / total;
+
+            const scrollPosition = st.start + (st.end - st.start) * progress;
+
             gsap.to(window, {
-                scrollTo: {
-                    y: horizontalSection.offsetTop + i * window.innerWidth,
-                },
-                duration: 1
+                scrollTo: scrollPosition,
+                duration: 1,
+                ease: "power2.inOut"
             });
         });
     });

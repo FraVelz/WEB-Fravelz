@@ -37,7 +37,7 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
             <path d="M3.26 10.226 11 13.722v7.028a.75.75 0 0 1-1.053.69l-6.75-3a.75.75 0 0 1-.447-.69v-7.524Z" />
             <path d="M12.5 20.75v-7.028l7.74-3.496v7.524a.75.75 0 0 1-.447.69l-6.75 3a.75.75 0 0 1-1.043-.69Z" />
           </svg>
-          <span>Formación y certificados</span>
+          <span data-i18n="cert_formacion_badge">{t.cert_formacion_badge || 'Formación y certificados'}</span>
         </div>
 
         <h1 class="text-3xl md:text-4xl font-bold text-center text-slate-900 dark:text-slate-50">
@@ -71,17 +71,16 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
                 />
               </svg>
             </span>
-            Certificados de Desarrollo Web
+            <span data-i18n="cert_web_title">{t.cert_web_title || 'Certificados de Desarrollo Web'}</span>
           </h2>
           <span class="text-xs px-2 py-1 rounded-full bg-cyan-100 dark:bg-cyan-900/40 text-cyan-800 dark:text-cyan-200 border border-cyan-200/70 dark:border-cyan-700/60">
-            Enfocado en frontend / web
+            <span data-i18n="cert_web_focus">{t.cert_web_focus || 'Enfocado en frontend / web'}</span>
           </span>
         </div>
 
         {webCerts.length === 0 ? (
           <p class="text-sm text-slate-600 dark:text-slate-400">
-            Aún no he subido certificados web aquí. Cuando los tenga, aparecerán listados con sus
-            PDFs descargables.
+            <span data-i18n="cert_web_empty">{t.cert_web_empty || 'Aún no he subido certificados web aquí.'}</span>
           </p>
         ) : (
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -103,7 +102,7 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
                   <a
                     href={cert.pdfPath}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     class="mt-auto inline-flex items-center gap-1 text-xs text-cyan-700 dark:text-cyan-300 hover:underline"
                   >
                     <svg
@@ -148,18 +147,12 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
               />
             </svg>
           </span>
-          Otros Certificados
+          <span data-i18n="cert_other_title">{t.cert_other_title || 'Otros Certificados'}</span>
         </h2>
 
         {otherCerts.length === 0 ? (
           <p class="text-sm text-slate-600 dark:text-slate-400">
-            Aquí aparecerán certificados de ciberseguridad, backend u otras áreas cuando los subas a{' '}
-            <code class="px-1 rounded bg-slate-900 text-slate-100 text-xs">public/pdfs/</code> y los
-            registres en{' '}
-            <code class="px-1 rounded bg-slate-900 text-slate-100 text-xs">
-              src/data/certificates.ts
-            </code>
-            .
+            <span data-i18n="cert_other_empty">{t.cert_other_empty || 'Aquí aparecerán certificados cuando los registres.'}</span>
           </p>
         ) : (
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -181,7 +174,7 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
                   <a
                     href={cert.pdfPath}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     class="mt-auto inline-flex items-center gap-1 text-xs text-cyan-700 dark:text-cyan-300 hover:underline"
                   >
                     <svg

@@ -10,7 +10,11 @@
 
 <!-- Drawer - Encima de todo, altura completa -->
 <aside
+  id="drawer-menu"
   data-drawer
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
   class="fixed top-0 right-0 z-[60] h-screen w-[85%] max-w-sm overflow-y-auto
     bg-white dark:bg-gray-900
     transform translate-x-full
@@ -60,6 +64,7 @@
     const openDrawer = () => {
       drawer?.classList.remove("translate-x-full");
       overlay?.classList.remove("opacity-0", "pointer-events-none");
+      openBtn?.setAttribute("aria-expanded", "true");
       
       // Reinicializar scripts cuando se abre el drawer
       // Esto asegura que los selectores y toggles funcionen
@@ -72,6 +77,7 @@
     const closeDrawer = () => {
       drawer?.classList.add("translate-x-full");
       overlay?.classList.add("opacity-0", "pointer-events-none");
+      openBtn?.setAttribute("aria-expanded", "false");
     };
 
     openBtn?.addEventListener("click", openDrawer);
