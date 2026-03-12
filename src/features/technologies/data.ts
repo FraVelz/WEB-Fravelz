@@ -1,9 +1,3 @@
----
-import { getTranslations, type Language } from "@/utils/i18n";
-
-const lang = Astro.params.lang as Language;
-const t = getTranslations(lang);
-
 interface Technology {
   id: string;
   name: string;
@@ -16,7 +10,7 @@ interface Technology {
   darkColor: string;
 }
 
-const technologies: Technology[] = [
+export const technologies: Technology[] = [
   {
     id: "html",
     name: "HTML",
@@ -95,6 +89,19 @@ const technologies: Technology[] = [
     darkColor: "dark:from-gray-800 dark:to-gray-850",
   },
   {
+    id: "next",
+    name: "Next.js",
+    level: "básico",
+    levelKey: "tech_level_basic",
+    category: "frontend",
+    categoryKey: "tech_category_frontend",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path fill="currentColor" d="M386.3985596,35.5079727C217.0600281-64.0607605,1.8845311,57.5499001,0.012267,253.8817902c-1.8282685,191.716507,201.0625916,315.5454712,370.0206604,231.1632233L185.5603943,213.6362915l0.0000305,167.9969177c0,18.6138916-35.6191101,18.6138916-35.6191101,0V156.4207916c0-14.7758484,27.4472504-15.9884033,35.2252045-3.1443481l210.2631683,317.2959595C553.3806763,368.835144,551.2467041,132.4364166,386.3985596,35.5079727z M362.6429443,353.4465332l-35.7316284-54.5765381V149.4583282c0-13.9324646,35.7316284-13.9324646,35.7316284,0V353.4465332z"/>
+    </svg>`,
+    color: "from-gray-50 to-gray-200",
+    darkColor: "dark:from-gray-800 dark:to-gray-900",
+  },
+  {
     id: "supabase",
     name: "Supabase",
     level: "aprendiendo",
@@ -106,308 +113,3 @@ const technologies: Technology[] = [
     darkColor: "dark:from-gray-800 dark:to-gray-900",
   },
 ];
-
-function getLevelClass(level: string): string {
-  switch (level) {
-    case "intermedio":
-      return "tech-level tech-level--intermediate";
-    case "básico":
-      return "tech-level tech-level--basic";
-    case "aprendiendo":
-      return "tech-level tech-level--learning";
-    default:
-      return "tech-level";
-  }
-}
-
-function getCategoryClass(category: string): string {
-  switch (category) {
-    case "frontend":
-      return "tech-cat tech-cat--frontend";
-    case "backend":
-      return "tech-cat tech-cat--backend";
-    case "both":
-      return "text-amber-700 dark:text-yellow-400";
-    default:
-      return "tech-cat";
-  }
-}
-
-interface Props {
-  classname?: string;
-}
-const { classname = "" } = Astro.props;
-
-const frontendTech = technologies.filter((t) => t.category === "frontend");
-const backendTech = technologies.filter((t) => t.category === "backend");
-const bothTech = technologies.filter((t) => t.category === "both");
-
-function getProgressPercent(level: string): number {
-  switch (level) {
-    case "intermedio":
-      return 85;
-    case "básico":
-      return 65;
-    case "aprendiendo":
-      return 40;
-    default:
-      return 50;
-  }
-}
-
-function getBarVar(level: string): string {
-  switch (level) {
-    case "intermedio":
-      return "var(--color-success)";
-    case "básico":
-      return "var(--color-info)";
-    case "aprendiendo":
-      return "var(--color-warning)";
-    default:
-      return "var(--color-primary)";
-  }
-}
-
-function getAccentVar(techId: string): string {
-  switch (techId) {
-    case "html":
-    case "astro":
-    case "firebase":
-      return "var(--color-warning)";
-    case "css":
-    case "tailwind":
-    case "react":
-      return "var(--color-primary)";
-    case "js":
-      return "var(--color-warning)";
-    case "supabase":
-      return "var(--color-success)";
-    default:
-      return "var(--color-accent)";
-  }
-}
----
-
-<section id="tecnologia" class={classname}>
-  <div class="max-w-7xl flex flex-col gap-10  mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- TITULO -->
-    <div>
-      <h2 class="text-4xl font-bold mb-4 tech-title" data-i18n="tech_title">
-        {t.tech_title || "Tecnologías"}
-      </h2>
-
-      <p class="mt-4 text-sm tech-muted max-w-3xl">
-        <span class="font-semibold tech-accent" data-i18n="tech_note">
-          {t.tech_note || "Nota:"}
-        </span>{" "}
-        <span data-i18n="tech_disclaimer">{t.tech_disclaimer || ""}</span>
-      </p>
-    </div>
-
-    <!-- FRONTEND -->
-    {
-      frontendTech.length > 0 && (
-        <div>
-          <h3
-            class="text-2xl font-semibold mb-5 tech-section-title"
-            style="--section-accent: var(--color-success)"
-            data-i18n="tech_category_frontend"
-          >
-            {t.tech_category_frontend || "Frontend"}
-          </h3>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {frontendTech.map((tech) => {
-              const pct = getProgressPercent(tech.level);
-              return (
-                <div
-                  class="tech-card p-6 rounded-2xl border transition"
-                  style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
-                >
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="tech-icon w-12 h-12 rounded-xl flex items-center justify-center">
-                      <div
-                        class="w-7 h-7 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
-                        set:html={tech.svg}
-                      />
-                    </div>
-                    <h4 class="text-lg font-semibold tech-text">{tech.name}</h4>
-                  </div>
-
-                  <p class="text-sm tech-muted mb-4">
-                    <span class="font-semibold" data-i18n="tech_info_level">
-                      {t.tech_info_level || "Nivel"}:
-                    </span>{" "}
-                    <span
-                      class={getLevelClass(tech.level)}
-                      data-i18n={tech.levelKey}
-                    >
-                      {t[tech.levelKey] || tech.level}
-                    </span>
-                    <span class="tech-dot">·</span>
-                    <span class="font-semibold" data-i18n="tech_info_category">
-                      {t.tech_info_category || "Categoría"}:
-                    </span>{" "}
-                    <span
-                      class={getCategoryClass(tech.category)}
-                      data-i18n={tech.categoryKey}
-                    >
-                      {t[tech.categoryKey] || tech.category}
-                    </span>
-                  </p>
-
-                  <div class="tech-meter h-2 rounded-full">
-                    <div
-                      class="tech-meter-bar h-2 rounded-full"
-                      style={`width: ${pct}%`}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )
-    }
-
-    <!-- BACKEND -->
-    {
-      backendTech.length > 0 && (
-        <div>
-          <h3
-            class="text-2xl font-semibold mb-5 tech-section-title"
-            style="--section-accent: var(--color-warning)"
-            data-i18n="tech_category_backend"
-          >
-            {t.tech_category_backend || "Backend"}{" "}
-            <span class="tech-muted font-medium">
-              ({t.tech_level_learning || "En aprendizaje"})
-            </span>
-          </h3>
-
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {backendTech.map((tech) => {
-              const pct = getProgressPercent(tech.level);
-              return (
-                <div
-                  class="tech-card p-6 rounded-2xl border transition"
-                  style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
-                >
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="tech-icon w-12 h-12 rounded-xl flex items-center justify-center">
-                      <div
-                        class="w-7 h-7 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
-                        set:html={tech.svg}
-                      />
-                    </div>
-                    <h4 class="text-lg font-semibold tech-text">{tech.name}</h4>
-                  </div>
-
-                  <p class="text-sm tech-muted mb-4">
-                    <span class="font-semibold" data-i18n="tech_info_level">
-                      {t.tech_info_level || "Nivel"}:
-                    </span>{" "}
-                    <span
-                      class={getLevelClass(tech.level)}
-                      data-i18n={tech.levelKey}
-                    >
-                      {t[tech.levelKey] || tech.level}
-                    </span>
-                    <span class="tech-dot">·</span>
-                    <span class="font-semibold" data-i18n="tech_info_category">
-                      {t.tech_info_category || "Categoría"}:
-                    </span>{" "}
-                    <span
-                      class={getCategoryClass(tech.category)}
-                      data-i18n={tech.categoryKey}
-                    >
-                      {t[tech.categoryKey] || tech.category}
-                    </span>
-                  </p>
-
-                  <div class="tech-meter h-2 rounded-full">
-                    <div
-                      class="tech-meter-bar h-2 rounded-full"
-                      style={`width: ${pct}%`}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )
-    }
-  </div>
-</section>
-
-<style>
-  .tech-title,
-  .tech-text {
-    color: rgb(var(--color-text));
-  }
-
-  .tech-muted {
-    color: rgb(var(--color-text-muted));
-  }
-
-  .tech-section-title {
-    color: rgb(var(--section-accent));
-  }
-
-  .tech-card {
-    background: rgb(var(--color-surface));
-    border-color: rgb(var(--color-card) / 0.9);
-  }
-
-  .tech-card:hover {
-    border-color: rgb(var(--accent) / 0.9);
-  }
-
-  .tech-icon {
-    background: rgb(var(--accent) / 0.18);
-    box-shadow: 0 10px 30px rgb(var(--accent) / 0.1);
-  }
-
-  .tech-meter {
-    background: rgb(var(--color-card));
-  }
-
-  .tech-meter-bar {
-    background: rgb(var(--bar));
-  }
-
-  .tech-dot {
-    margin: 0 0.35rem;
-    opacity: 0.8;
-  }
-
-  .tech-callout {
-    background: rgb(var(--color-surface));
-    border-color: rgb(var(--color-card) / 0.9);
-  }
-
-  .tech-accent {
-    color: rgb(var(--color-primary));
-  }
-
-  .tech-level--intermediate {
-    color: rgb(var(--color-success));
-  }
-  .tech-level--basic {
-    color: rgb(var(--color-info));
-  }
-  .tech-level--learning {
-    color: rgb(var(--color-warning));
-  }
-
-  .tech-cat--frontend {
-    color: rgb(var(--color-primary));
-  }
-  .tech-cat--backend {
-    color: rgb(var(--color-accent));
-  }
-  .tech-cat--both {
-    color: rgb(var(--color-warning));
-  }
-</style>

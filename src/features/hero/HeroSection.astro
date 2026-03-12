@@ -3,7 +3,6 @@ import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
 import { getTranslations, type Language } from "@/utils/i18n";
 import Paragraph from "@/components/ui/Paragraph.astro";
-import Particles from "../ui/Particles.astro";
 
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
@@ -171,6 +170,4 @@ const t = getTranslations(lang);
     </div>
   </div>
 
-  <!-- Animated particles -->
-  <Particles />
 </section>
