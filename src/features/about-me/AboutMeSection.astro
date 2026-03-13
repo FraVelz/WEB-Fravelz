@@ -3,6 +3,7 @@ import { getTranslations, type Language } from "@/utils/i18n";
 
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
+const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 
 const history = [
   [t.about_history_text, "2017"],
@@ -72,6 +73,20 @@ const { classname = "" } = Astro.props;
               <></>
             )
             }
+
+            {(value[1]=='2025') ? (
+              <a
+                href={`${baseUrl}${lang}/certifications`}
+                class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
+                data-i18n="nav_certifications"
+              >
+                {t.nav_certifications || 'Certificaciones'}
+              </a>
+            ) : (
+              <></>
+            )
+            }
+      
           </div>
 
           <div
