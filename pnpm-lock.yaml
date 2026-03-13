@@ -57,6 +57,10 @@ importers:
       tailwindcss:
         specifier: ^4.1.0
         version: 4.1.18
+    optionalDependencies:
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
 
 packages:
 
