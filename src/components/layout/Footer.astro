@@ -57,6 +57,12 @@ const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
           >
             <span data-i18n="nav_about">{t.nav_about}</span>
           </Link>
+          <Link
+            href={`${baseUrl}${lang}/certifications`}
+            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+          >
+            <span data-i18n="nav_certifications">{t.nav_certifications || 'Certificaciones'}</span>
+          </Link>
         </nav>
       </div>
 
