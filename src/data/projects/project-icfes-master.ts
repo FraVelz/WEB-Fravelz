@@ -17,7 +17,7 @@ export const projectIcfesMaster: Project = {
   featuredImage: 'images/projects/web-icfes-master.png',
   technologies: ['Next.js', 'React', 'Firebase', 'TypeScript', 'Tailwind CSS', 'Capacitor'],
   category: 'fullstack',
-  demoUrl: undefined,
+  demoUrl: 'https://icfes-master.vercel.app/',
   githubUrl: 'https://github.com/FraVelz/WEB-ICFES-Master',
   featured: true,
   year: 2024,
