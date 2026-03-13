@@ -1,5 +1,7 @@
 # Francisco J. Vélez O. (@Fravelz)
 
+> **Generado por IA - documento no exacto y con muchos errores**
+
 **Desarrollador Web - Frontend**
 
 📍 Bogotá, Colombia  
