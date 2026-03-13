@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Header from '@/components/layout/header/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import CertificatesWithViewer from '@/components/ui-react/CertificatesWithViewer';
 import { certificates } from '@/data/certificates';
@@ -14,9 +13,11 @@ export async function getStaticPaths() {
 
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
+const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 
 const webCerts = certificates.filter((c) => c.category === 'web');
-const otherCerts = certificates.filter((c) => c.category !== 'web');
+const hixecCerts = certificates.filter((c) => c.issuer === 'Hixec');
+const savitarCerts = certificates.filter((c) => c.category !== 'web' && c.issuer !== 'Hixec');
 ---
 
 <Layout
@@ -24,9 +25,20 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
   description={t.cert_intro_paragraph1 || 'Resumen de mis certificaciones y objetivos de formación.'}
   lang={lang}
 >
-  <Header />
-
-  <main class="min-h-screen flex flex-col pt-20">
+  <main class="min-h-screen flex flex-col pt-8">
+  <div
+    class="px-4 sm:px-6 lg:px-8 py-4 max-w-5xl mx-auto w-full"
+  >
+    <a
+      href={`${baseUrl}${lang}/#about-me`}
+      class="inline-flex items-center gap-2 text-sm font-medium text-cyan-700 dark:text-cyan-300 hover:text-cyan-800 dark:hover:text-cyan-200 underline underline-offset-4 transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" class="inline-block shrink-0" aria-hidden="true">
+        <path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd" />
+      </svg>
+      <span data-i18n="cert_back_to_about">{t.cert_back_to_about || 'Volver a Sobre Mí'}</span>
+    </a>
+  </div>
   <div
     class="min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-14 px-4 sm:px-6 lg:px-8"
   >
@@ -66,7 +78,7 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
           </span>
         </div>
 
-        {webCerts.length === 0 && otherCerts.length === 0 ? (
+        {webCerts.length === 0 && hixecCerts.length === 0 && savitarCerts.length === 0 ? (
           <p class="text-sm text-slate-600 dark:text-slate-400">
             <span data-i18n="cert_web_empty">{t.cert_web_empty || 'Aún no he subido certificados web aquí.'}</span>
           </p>
@@ -74,12 +86,14 @@ const otherCerts = certificates.filter((c) => c.category !== 'web');
           <CertificatesWithViewer
             client:load
             webCerts={webCerts}
-            otherCerts={otherCerts}
+            hixecCerts={hixecCerts}
+            savitarCerts={savitarCerts}
             clickToViewText={t.cert_click_to_view || 'Haz clic para ver →'}
             closeText={t.cert_viewer_close || 'Cerrar'}
             downloadText={t.cert_viewer_download || 'Descargar PDF'}
             webTitle={t.cert_web_title || 'Certificados de Desarrollo Web'}
-            otherTitle={t.cert_other_title || 'Otros Certificados'}
+            hixecTitle={t.cert_hixec_title || 'Certificados Hixec'}
+            savitarTitle={t.cert_savitar_title || 'Certificados Savitar'}
           />
         )}
       </section>

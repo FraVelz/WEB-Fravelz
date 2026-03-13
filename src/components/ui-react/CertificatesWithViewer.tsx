@@ -13,22 +13,26 @@ interface Certificate {
 
 interface CertificatesWithViewerProps {
   webCerts: Certificate[];
-  otherCerts: Certificate[];
+  hixecCerts: Certificate[];
+  savitarCerts: Certificate[];
   clickToViewText: string;
   closeText: string;
   downloadText: string;
   webTitle: string;
-  otherTitle: string;
+  hixecTitle: string;
+  savitarTitle: string;
 }
 
 export default function CertificatesWithViewer({
   webCerts,
-  otherCerts,
+  hixecCerts,
+  savitarCerts,
   clickToViewText,
   closeText,
   downloadText,
   webTitle,
-  otherTitle,
+  hixecTitle,
+  savitarTitle,
 }: CertificatesWithViewerProps) {
   const [modalState, setModalState] = useState<{
     isOpen: boolean;
@@ -127,7 +131,40 @@ export default function CertificatesWithViewer({
         </section>
       )}
 
-      {otherCerts.length > 0 && (
+      {hixecCerts.length > 0 && (
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-50 flex items-center gap-2">
+            <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
+            </span>
+            {hixecTitle}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {hixecCerts.map((cert) => (
+            <CertCard
+              key={cert.id}
+              cert={cert}
+              borderClass="border-amber-200/70 dark:border-amber-700/60 bg-white/90 dark:bg-slate-900/80 hover:border-amber-400/80"
+            />
+          ))}
+          </div>
+        </section>
+      )}
+
+      {savitarCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-50 flex items-center gap-2">
             <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
@@ -146,10 +183,10 @@ export default function CertificatesWithViewer({
                 />
               </svg>
             </span>
-            {otherTitle}
+            {savitarTitle}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {otherCerts.map((cert) => (
+          {savitarCerts.map((cert) => (
             <CertCard
               key={cert.id}
               cert={cert}
