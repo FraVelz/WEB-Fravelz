@@ -1,9 +1,12 @@
 {
+  "cert_back_to_about": "Back to About Me",
   "cert_formacion_badge": "Training and certificates",
   "cert_web_title": "Web Development Certificates",
   "cert_web_focus": "Focused on frontend / web",
   "cert_web_empty": "I haven't uploaded web certificates here yet. When I do, they will be listed with downloadable PDFs.",
   "cert_other_title": "Other Certificates",
+  "cert_hixec_title": "Hacking - Hixec Certificates",
+  "cert_savitar_title": "Hacking - Savitar Certificates",
   "cert_other_empty": "Certificates for backend or other areas will appear here when you add them to public/pdfs/ and register them in src/data/certificates.ts.",
   "cert_section_title": "Certifications In Progress",
   "cert_completed_title": "Completed Certificates",
