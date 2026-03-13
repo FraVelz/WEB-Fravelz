@@ -100,63 +100,63 @@ export const certificates: Certificate[] = [
     title: 'Ciberseguridad y Privacidad 101',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Ciberseguridad-y-Privacidad-101-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-101-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-ciberseguridad-202',
     title: 'Ciberseguridad y Privacidad 202',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Ciberseguridad-y-Privacidad-202-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-202-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-ciberseguridad-303',
     title: 'Ciberseguridad y Privacidad 303',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Ciberseguridad-y-Privacidad-303-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-303-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-linux-hacking',
     title: 'Linux para Hacking Ético',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Linux-para-Hacking-Etico-HXC-1133-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Linux-para-Hacking-Etico-HXC-1133-Hixec.pdf'
   },
   {
     id: 'hixec-redes-hacking',
     title: 'Redes para Hacking Ético',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Redes-para-Hacking-Etico-HXC-1133-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Redes-para-Hacking-Etico-HXC-1133-Hixec.pdf'
   },
   {
     id: 'hixec-windows-hacking',
     title: 'Windows para Hacking Ético',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Windows-para-Hacking-Etico-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Windows-para-Hacking-Etico-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-osint',
     title: 'OSINT para Hackers Éticos',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-OSINT-para-Hackers-Eticos-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-OSINT-para-Hackers-Eticos-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-privacidad-hackers',
     title: 'Privacidad para Hackers Éticos',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Privacidad-para-Hackers-Eticos-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Privacidad-para-Hackers-Eticos-HXC-3388-Hixec.pdf'
   },
   {
     id: 'hixec-malware',
     title: 'Detección y Protección Contra Malware',
     issuer: 'Hixec',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hixec/Fravelz-Deteccion-y-Proteccion-Contra-Malware-HXC-3388-Hixec.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hixec/Fravelz-Deteccion-y-Proteccion-Contra-Malware-HXC-3388-Hixec.pdf'
   },
 
   // --- Cybersecurity / Ethical hacking (Hack4u) ---
@@ -165,21 +165,21 @@ export const certificates: Certificate[] = [
     title: 'Introducción a Linux',
     issuer: 'Hack4u',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hack4u/certificado-hack4u-introduccion-a-linux.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hack4u/certificado-hack4u-introduccion-a-linux.pdf'
   },
   {
     id: 'hack4u-personalizacion',
     title: 'Personalización de Entorno',
     issuer: 'Hack4u',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hack4u/certificado-hack4u-personalizacion.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hack4u/certificado-hack4u-personalizacion.pdf'
   },
   {
     id: 'hack4u-python-ofensivo',
     title: 'Python Ofensivo',
     issuer: 'Hack4u',
     category: 'security',
-    pdfPath: '/pdfs/certificados-hacking/hack4u/certificado-hack4u-python-ofensivo.pdf'
+    pdfPath: '/pdfs/hacking-certificates/hack4u/certificado-hack4u-python-ofensivo.pdf'
   }
 ];
 
