@@ -17,7 +17,7 @@ export const projectWebTodoList: Project = {
   featuredImage: 'images/projects/web-todo-list.png',
   technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
   category: 'frontend',
-  demoUrl: undefined,
+  demoUrl: 'https://web-to-do-list-pi.vercel.app/ ',
   githubUrl: 'https://github.com/FraVelz/WEB-To-do-List',
   featured: false,
   year: 2025,
