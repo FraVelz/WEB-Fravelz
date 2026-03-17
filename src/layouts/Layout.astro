@@ -14,7 +14,7 @@ const { title, description, lang } = Astro.props;
 
 const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 // Absolute URL for the preview image for social (og:image, twitter:image).
-const ogImageUrl = `${Astro.site}images/portfolio/portfolio.png`;
+const ogImageUrl = `${Astro.site}images/portfolio.png`;
 ---
 
 <!doctype html>
@@ -27,16 +27,16 @@ const ogImageUrl = `${Astro.site}images/portfolio/portfolio.png`;
     <link
       rel="icon"
       type="image/png"
-      href={`/images/portfolio/icon-fravelz-without-border.png`}
+      href={`/images/favicon.png`}
     />
     <link
       rel="shortcut icon"
       type="image/png"
-      href={`/images/portfolio/icon-fravelz-without-border.png`}
+      href={`/images/favicon.png`}
     />
     <link
       rel="apple-touch-icon"
-      href={`/images/portfolio/icon-fravelz-without-border.png`}
+      href={`/images/favicon.png`}
     />
 
     <!-- Open Graph -->
@@ -128,12 +128,12 @@ const ogImageUrl = `${Astro.site}images/portfolio/portfolio.png`;
     </script>
   </head>
 
-  <body
-    class="min-h-screen w-screen
-    dark:bg-gradient-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
-    bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50
-   dark:text-white text-slate-900"
-  >
+  <body class="
+    min-h-screen w-screen
+    dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+    bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50
+    dark:text-white text-slate-900
+  ">
     <slot />
   </body>
 </html>

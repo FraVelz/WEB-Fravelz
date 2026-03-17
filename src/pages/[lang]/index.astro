@@ -1,11 +1,4 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-
-// Components Layout
-import Footer from "@/components/layout/Footer.astro";
-import Header from "@/components/layout/header/Header.astro";
-import Main from "@/components/layout/HomeMain.astro";
-
 // Use Spanish as default - language change is handled with JavaScript
 import { getTranslations } from "@/utils/i18n";
 import { languages, type Language } from "@/utils/i18n";
@@ -21,15 +14,12 @@ const { lang } = Astro.params;
 if (!languages.includes(lang as Language)) {
     return Astro.redirect("/es");
 }
-const t = getTranslations(lang as Language);
+const t = await getTranslations(lang as Language);
+
+import Layout from "@/layouts/Layout.astro";
+import HomeMain from "@/components/features/home-main/PageFeature/HomeMain.astro";
 ---
 
 <Layout title={t.home_title} description={t.home_description} lang={lang}>
-    <Header />
-
-    <main class="overflow-x-hidden">
-        <Main />
-    </main>
-
-    <Footer />
+    <HomeMain />
 </Layout>

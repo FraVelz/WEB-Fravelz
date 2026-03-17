@@ -2,9 +2,9 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://fravelz.github.io/WEB-Fravelz/sitemap.xml
+Sitemap: https://fravelz.vercel.app/sitemap.xml
 
-# Deshabilitar rastreo de archivos de desarrollo
+# Disable development file tracking
 Disallow: /node_modules/
 Disallow: /src/
 Disallow: /*.config.js

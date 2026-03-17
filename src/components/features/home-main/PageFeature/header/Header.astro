@@ -1,0 +1,99 @@
+---
+import ElementsHeader from "./components/ElementsHeader.astro";
+import MobileDrawer from "./components/MobileDrawer.astro";
+---
+
+<style>
+  @media (min-width: 1024px) {
+    /* desktop */
+    #header-main {
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+
+    #header-main div {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    /* móviles y tablets */
+    #header-main {
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+
+    #logo {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+
+    #header-mobile-button {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+  }
+</style>
+
+<header
+  id="header-main"
+  class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none"
+>
+  <div
+    class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"
+  >
+    <!-- Logo -->
+    <button
+      id="logo"
+      class="text-3xl font-bold text-slate-900 dark:text-gray-100 transition-colors hover:text-cyan-600 dark:hover:text-cyan-300"
+    >
+      Fravelz
+    </button>
+
+    <script is:inline>
+      const btn_logo = document.querySelector("#logo");
+      btn_logo.addEventListener("click", () => window.location.reload());
+    </script>
+
+    <!-- Desktop -->
+    <div class="hidden lg:flex justify-between flex-1">
+      <ElementsHeader id="header-nav-desktop"/>
+    </div>
+
+    <!-- Mobile Button -->
+    <button
+      data-drawer-open
+      id="header-mobile-button"
+      class="lg:hidden text-2xl text-slate-800 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="drawer-menu"
+      data-i18n-attr="aria-label:nav_open_menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-10"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <MobileDrawer>
+    <ElementsHeader id="header-nav-mobile" />
+  </MobileDrawer>
+</header>
+
+<script>
+  import { runAnimation } from "./utils/header.ts";
+
+  runAnimation();
+</script>

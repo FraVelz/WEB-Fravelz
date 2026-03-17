@@ -1,8 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Footer from '@/components/layout/Footer.astro';
+
+import Footer from '@/components/ui/Footer.astro';
 import CertificatesWithViewer from '@/components/ui-react/CertificatesWithViewer';
-import { certificates } from '@/data/certificates';
+
+import { certificates } from '@/utils/data/certificates';
 import { getTranslations, type Language, languages } from '@/utils/i18n';
 
 export async function getStaticPaths() {
@@ -12,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Language;
-const t = getTranslations(lang);
+const t = await getTranslations(lang);
 const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
 
 const webCerts = certificates.filter((c) => c.category === 'web');
