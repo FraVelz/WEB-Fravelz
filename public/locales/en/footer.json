@@ -1,6 +1,7 @@
 {
   "footer_author": "Fravelz",
   "footer_links_title": "Links",
+  "footer_nav_home": "Home",
   "footer_copyright": "© 2025 Fravelz. All rights reserved.",
   "footer_license": "Licensed under MIT.",
   "footer_built_with": "Built with Astro, React and Tailwind CSS."

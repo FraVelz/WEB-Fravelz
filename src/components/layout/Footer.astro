@@ -27,42 +27,24 @@ const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
           {t.footer_links_title}
         </h3>
         <nav class="flex flex-col gap-2 sm:gap-3 pl-4" aria-label="Site links">
-          <Link
-            href="#presentacion"
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+          <a
+            href={`${baseUrl}${lang}`}
+            class="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
           >
-            <span data-i18n="nav_presentation">{t.nav_presentation}</span>
-          </Link>
-          <Link
-            href="#proyectos"
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+            <span data-i18n="footer_nav_home">{t.footer_nav_home}</span>
+          </a>
+          <a
+            href={`${baseUrl}${lang}/certifications`}
+            class="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+          >
+            <span data-i18n="nav_certifications">{t.nav_certifications}</span>
+          </a>
+          <a
+            href={`${baseUrl}${lang}/projects`}
+            class="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
           >
             <span data-i18n="nav_projects">{t.nav_projects}</span>
-          </Link>
-          <Link
-            href={`${baseUrl}${lang}/projects`}
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-          >
-            <span data-i18n="projects_view_all">{t.projects_view_all}</span>
-          </Link>
-          <Link
-            href="#tecnologia"
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-          >
-            <span data-i18n="nav_technologies">{t.nav_technologies}</span>
-          </Link>
-          <Link
-            href="#sobre-mi"
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-          >
-            <span data-i18n="nav_about">{t.nav_about}</span>
-          </Link>
-          <Link
-            href={`${baseUrl}${lang}/certifications`}
-            className="text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-          >
-            <span data-i18n="nav_certifications">{t.nav_certifications || 'Certificaciones'}</span>
-          </Link>
+          </a>
         </nav>
       </div>
 
