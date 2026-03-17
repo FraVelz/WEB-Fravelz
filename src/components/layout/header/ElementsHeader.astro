@@ -92,6 +92,13 @@ const {id} = Astro.props;
       // Guardar cookie por 1 año
       document.cookie = `lang=${lang}; path=/; max-age=31536000`;
 
+      // Sincronizar localStorage con i18n.js
+      try {
+        localStorage.setItem("preferred-language", lang);
+      } catch (_e) {
+        /* localStorage no disponible */
+      }
+
       // Redirigir
       window.location.href = `/${lang}/`;
     });
