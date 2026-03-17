@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faMusic } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPlay, faPause, faMusic } from "@fortawesome/free-solid-svg-icons";
 
 interface MusicPlayerProps {
   isOpen: boolean;
@@ -183,7 +183,7 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
       >
         <div className="sticky top-0 bg-gradient-to-r from-cyan-100 via-slate-100 to-purple-100 dark:from-cyan-900/90 dark:via-gray-900/70 dark:to-purple-900/90 border-b border-slate-200 dark:border-cyan-500/40 px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between gap-3 sm:gap-4 backdrop-blur-sm shrink-0">
           <h3 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-cyan-300 dark:to-purple-300 bg-clip-text text-transparent flex-1 flex items-center gap-2">
-            <FontAwesomeIcon icon={faMusic} className="text-base sm:text-lg md:text-xl" />
+            {/* <FontAwesomeIcon icon={faMusic} className="text-base sm:text-lg md:text-xl" /> */}
             <span className="truncate">{t.selector_musica}</span>
           </h3>
           <button
@@ -231,7 +231,7 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
                 w-full justify-center
               "
             >
-              <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} className="text-sm sm:text-base" />
+              {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} className="text-sm sm:text-base" /> */}
               {isPlaying ? t.pausar : t.reproducir}
             </button>
 
