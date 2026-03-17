@@ -1,5 +1,7 @@
 import { defineConfig } from 'astro/config';
+
 import vercel from "@astrojs/vercel";
+import sitemap from '@astrojs/sitemap';
 
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
@@ -7,8 +9,8 @@ import react from '@astrojs/react';
 import { fileURLToPath } from 'url';
 
 export default defineConfig({
-  site: "https://fravelz.github.io/WEB-Fravelz/",
-  integrations: [react()],
+  site: "https://fravelz.vercel.app/",
+  integrations: [react(), sitemap()],
 
   output: "static",
   adapter: vercel(),

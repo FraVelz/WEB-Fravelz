@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-
   /* =========================
      SUPERFICIES
   ========================== */
@@ -141,7 +140,6 @@
     animation: 6s cubic-bezier(0.25, 1, 0.3, 1) desvanecido both;
   }
 
-  /*      */
   /* 404.astro */
   @keyframes entry {
     to {

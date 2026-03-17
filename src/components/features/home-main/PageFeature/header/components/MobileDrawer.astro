@@ -1,0 +1,87 @@
+<!-- Overlay - Cubre toda la pantalla incluyendo el header -->
+<div
+  data-drawer-overlay
+  class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm
+    transition-opacity duration-300
+    opacity-0 pointer-events-none
+    lg:hidden"
+>
+</div>
+
+<!-- Drawer - Encima de todo, altura completa -->
+<aside
+  id="drawer-menu"
+  data-drawer
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
+  class="fixed top-0 right-0 z-60 h-screen w-[85%] max-w-sm overflow-y-auto
+    bg-white dark:bg-gray-900
+    transform translate-x-full
+    transition-transform duration-300 ease-in-out
+    lg:hidden
+    shadow-2xl"
+>
+  <!-- Header -->
+  <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-900 z-10">
+    <span class="text-lg font-semibold text-slate-800 dark:text-gray-100" data-i18n="nav_menu">Menú</span>
+
+    <button
+      data-drawer-close
+      aria-label="Cerrar menú"
+      data-i18n-attr="aria-label:nav_close_menu"
+      class="text-2xl text-slate-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-white transition-colors"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div class="p-5 flex flex-col gap-5">
+    <slot />
+  </div>
+</aside>
+
+<script is:inline>
+  (function() {
+    const openBtn = document.querySelector("[data-drawer-open]");
+    const closeBtn = document.querySelector("[data-drawer-close]");
+    const drawer = document.querySelector("[data-drawer]");
+    const overlay = document.querySelector("[data-drawer-overlay]");
+
+    const openDrawer = () => {
+      drawer?.classList.remove("translate-x-full");
+      overlay?.classList.remove("opacity-0", "pointer-events-none");
+      openBtn?.setAttribute("aria-expanded", "true");
+      
+      // Reinicializar scripts cuando se abre el drawer
+      // Esto asegura que los selectores y toggles funcionen
+      setTimeout(() => {
+        // Disparar evento personalizado para que los componentes se reinicialicen si es necesario
+        window.dispatchEvent(new CustomEvent('drawer-opened'));
+      }, 100);
+    };
+
+    const closeDrawer = () => {
+      drawer?.classList.add("translate-x-full");
+      overlay?.classList.add("opacity-0", "pointer-events-none");
+      openBtn?.setAttribute("aria-expanded", "false");
+    };
+
+    openBtn?.addEventListener("click", openDrawer);
+    closeBtn?.addEventListener("click", closeDrawer);
+    overlay?.addEventListener("click", closeDrawer);
+  })();
+</script>
