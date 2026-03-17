@@ -1,5 +1,5 @@
 ---
-import { getAllProjects } from '@/data/projects';
+import { getAllProjects } from '@/utils/data/projects';
 import { getTranslations, type Language, languages } from '@/utils/i18n';
 import ProjectCard from '@/components/ui/ProjectCard.astro';
 import Layout from '@/layouts/Layout.astro';
@@ -16,7 +16,10 @@ const projects = getAllProjects();
 const baseUrl = import.meta.env.BASE_URL || '';
 ---
 
-<Layout title={`${t.hacking_projects_title || 'Proyectos'} - ${t.proyectos_personales || 'Portafolio'}`} description={t.projects_section_description || 'Todos mis proyectos como desarrollador frontend.'}>
+<Layout 
+  title={`${t.hacking_projects_title || 'Proyectos'} - ${t.proyectos_personales || 'Portafolio'}`} 
+  description={t.projects_section_description || 'Todos mis proyectos como desarrollador frontend.'}
+>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
       <!-- Header -->

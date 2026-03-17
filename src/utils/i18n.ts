@@ -1,9 +1,5 @@
 // i18n system for Astro - loads from public/locales (single source of truth)
 
-import { readFileSync } from 'fs';
-import { join } from 'path';
-
-
 type Language = 'es' | 'en' | 'ru' | 'zh';
 
 const LOCALE_FILES = [
@@ -18,38 +14,28 @@ const LOCALE_FILES = [
   'footer',
 ] as const;
 
-function loadLocale(lang: Language): Record<string, string> {
-  if (typeof process === 'undefined' || !process.cwd) {
-    return {};
-  }
-  const base = join(process.cwd(), 'public', 'locales', lang);
+async function loadLocale(lang: Language): Promise<Record<string, string>> {
   const out: Record<string, string> = {};
+
   for (const name of LOCALE_FILES) {
     try {
-      const data = JSON.parse(
-        readFileSync(join(base, `${name}.json`), 'utf-8')
-      ) as Record<string, string>;
+      const data = await import(`../assets/locales/${lang}/${name}.json`);
       Object.assign(out, data);
+
     } catch {
-      // File not found or invalid, skip
+       console.warn(`No se encontró el archivo: ${lang}/${name}.json`);
     }
   }
   return out;
 }
 
-const translations: Record<Language, Record<string, string>> = {
-  es: loadLocale('es'),
-  en: loadLocale('en'),
-  ru: loadLocale('ru'),
-  zh: loadLocale('zh'),
-};
-
-export function getTranslations(lang: Language = 'es') {
-  return translations[lang] || translations.es;
+export async function getTranslations(lang: Language = 'es') {
+  let translations = await loadLocale(lang);
+  return translations;
 }
 
-export function t(key: string, lang: Language = 'es'): string {
-  const dict = getTranslations(lang);
+export async function t(key: string, lang: Language = 'es'): Promise<string> {
+  const dict = await getTranslations(lang);
   return dict[key] || key;
 }
 

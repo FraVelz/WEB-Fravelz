@@ -1,0 +1,98 @@
+---
+import { getAllProjects } from "@/utils/data/projects";
+import { getTranslations, type Language } from "@/utils/i18n";
+
+import ProjectCard from "./components/ProjectCard.astro";
+import Button1 from "@/components/ui/Button.astro";
+
+const lang = Astro.params.lang as Language;
+const t = getTranslations(lang);
+const allProjects = getAllProjects();
+const projects = allProjects.slice(0, 3);
+
+interface Props {
+  classname?: string;
+}
+const { classname = "" } = Astro.props;
+---
+
+<section id="projects" class={classname}>
+  <div class="max-w-7xl mx-auto">
+    <!-- Section title -->
+    <div class="text-center mb-12">
+      <h2
+        class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+        data-i18n="hacking_projects_title"
+      >
+        {t.hacking_projects_title || "Proyectos Principales"}
+      </h2>
+      <p
+        class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+        data-i18n="projects_section_description"
+      >
+        {
+          t.projects_section_description ||
+            "Una selección de mis proyectos más destacados como desarrollador frontend."
+        }
+      </p>
+    </div>
+
+    <!-- Projects grid (only first 3 on main page) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        projects.map((project) => (
+          <div data-project-card>
+            <ProjectCard project={project} lang={lang} />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Link to full projects section -->
+    {
+      allProjects.length > 3 && (
+        <div class="text-center mt-12">
+          <Button1 />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  // Update project titles and descriptions when language changes
+  function updateProjectCardsLanguage(lang: string) {
+    const cards = document.querySelectorAll<HTMLElement>(
+      "[data-project-card-content]",
+    );
+
+    const fallback = "es";
+
+    cards.forEach((card) => {
+      const titleEl = card.querySelector("[data-project-title]");
+      const descEl = card.querySelector("[data-project-description]");
+      const title =
+        card.getAttribute(`data-title-${lang}`) ||
+        card.getAttribute(`data-title-${fallback}`);
+      const desc =
+        card.getAttribute(`data-desc-${lang}`) ||
+        card.getAttribute(`data-desc-${fallback}`);
+      if (titleEl && title) titleEl.textContent = title;
+      if (descEl && desc) descEl.textContent = desc;
+    });
+  }
+
+  window.addEventListener("language-changed", (e: Event) => {
+    const lang = (e as CustomEvent<{ lang: string }>).detail?.lang;
+    if (lang) updateProjectCardsLanguage(lang);
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const i18n = (
+      window as Window & { i18n?: { getCurrentLanguage: () => string } }
+    ).i18n;
+    if (i18n?.getCurrentLanguage) {
+      updateProjectCardsLanguage(i18n.getCurrentLanguage());
+    }
+  });
+</script>
