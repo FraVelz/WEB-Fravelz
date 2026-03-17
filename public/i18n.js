@@ -12,8 +12,32 @@
   let translationsCache = {};
   let currentLang = defaultLang;
 
-  // Obtener idioma guardado o detectar del navegador
+  // Extraer idioma del pathname (compatible con /es/, /en/projects/, /WEB-Fravelz/es/)
+  function getLangFromUrl() {
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const langSegment = segments.find(function(s) { return languages.includes(s); });
+    return langSegment || null;
+  }
+
+  // Leer cookie lang
+  function getCookieLang() {
+    try {
+      const match = document.cookie.match(/lang=([^;]+)/);
+      return match && languages.includes(match[1]) ? match[1] : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Obtener idioma con prioridad URL-first (sincronizado con SSR)
   function getStoredLanguage() {
+    // 1. URL - la página ya fue renderizada con este idioma
+    const langFromUrl = getLangFromUrl();
+    if (langFromUrl) {
+      return langFromUrl;
+    }
+
+    // 2. localStorage
     try {
       const stored = localStorage.getItem('preferred-language');
       if (stored && languages.includes(stored)) {
@@ -22,15 +46,21 @@
     } catch (e) {
       console.warn('localStorage not available', e);
     }
-    
-    // Detectar del navegador
+
+    // 3. Cookie (alineado con el header que usa cookie para redirect)
+    const cookieLang = getCookieLang();
+    if (cookieLang) {
+      return cookieLang;
+    }
+
+    // 4. Navegador
     const browserLang = navigator.language || navigator.userLanguage || '';
     const langCode = browserLang.toLowerCase().split('-')[0];
-    
     if (languages.includes(langCode)) {
       return langCode;
     }
-    
+
+    // 5. Por defecto
     return defaultLang;
   }
 
@@ -154,12 +184,20 @@
   // Inicializar
   async function init() {
     currentLang = getStoredLanguage();
-    
-    // Cargar traducciones iniciales
+    const langFromUrl = getLangFromUrl();
+
+    // Sincronizar localStorage cuando el idioma viene de la URL
+    if (langFromUrl) {
+      setStoredLanguage(langFromUrl);
+    }
+
+    // Cargar traducciones (necesarias para i18n.t() y changeLanguage)
     await loadTranslations(currentLang);
-    
-    // Actualizar la página con el idioma inicial
-    updateTranslations(currentLang);
+
+    // No sobrescribir el DOM si la URL ya tiene idioma: el SSR ya renderizó correctamente
+    if (!langFromUrl) {
+      updateTranslations(currentLang);
+    }
 
     // Inicializar selectores de idioma
     const selects = document.querySelectorAll('.language-selector');
