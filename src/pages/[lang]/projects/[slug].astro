@@ -1,6 +1,8 @@
 ---
 import { getAllProjects } from '@/utils/data/projects';
 import { getTranslations, type Language, languages } from '@/utils/i18n';
+
+import { Image } from 'astro:assets';
 import Layout from '@/layouts/Layout.astro';
 
 // Required for static dynamic routes
@@ -125,8 +127,8 @@ const projectData = {
 
       <!-- Imagen destacada -->
       <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-        <img 
-          src={`${base}${project.featuredImage}`} 
+        <Image
+          src={project.featuredImage}
           alt={`${title} - Vista previa`}
           class="w-full h-auto object-cover"
         />

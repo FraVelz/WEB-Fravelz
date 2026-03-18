@@ -1,7 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import type { Project } from '@/utils/data/projects';
 import { getTranslations } from '@/utils/i18n';
-import { MockPropertyContext } from 'node:test';
 
 interface Props {
   project: Project;
@@ -9,6 +9,7 @@ interface Props {
 }
 
 const { project, lang = 'es' } = Astro.props;
+
 const t = getTranslations(lang as 'es' | 'en' | 'ru' | 'zh');
 const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
 
@@ -36,12 +37,13 @@ const descriptions = { es: project.shortDescription.es, en: project.shortDescrip
 >
   <!-- Imagen del proyecto -->
   <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
-    <img 
-      src={`${project.featuredImage}`}
+    <Image
+      src={project.featuredImage}
       alt={`${title} - ${t.project_preview_alt || 'Preview'}`}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       loading="lazy"
     />
+
     {project.isComingSoon && (
       <div class="absolute top-3 right-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="projects_coming_soon">
         {t.projects_coming_soon || 'Próximamente'}

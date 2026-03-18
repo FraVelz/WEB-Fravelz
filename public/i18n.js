@@ -81,15 +81,15 @@
 
     try {
       const [common, hero, music, certifications, info, technologies, projects, about, hobbies, footer] = await Promise.all([
-        fetch(`${base}locales/${lang}/common.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/hero.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/music.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/certifications.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/info.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/technologies.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/about.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/hobbies.json`).then(r => r.json()),
-        fetch(`${base}locales/${lang}/footer.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/common.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/hero.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/music.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/certifications.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/info.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/technologies.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/about.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/hobbies.json`).then(r => r.json()),
+        fetch(`${base}locals/${lang}/footer.json`).then(r => r.json()),
       ]);
 
       const translations = {

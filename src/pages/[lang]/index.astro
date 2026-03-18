@@ -17,7 +17,7 @@ if (!languages.includes(lang as Language)) {
 const t = await getTranslations(lang as Language);
 
 import Layout from "@/layouts/Layout.astro";
-import HomeMain from "@/components/features/home-main/PageFeature/HomeMain.astro";
+import HomeMain from "@/components/features/PageFeature/HomeMain.astro";
 ---
 
 <Layout title={t.home_title} description={t.home_description} lang={lang}>
