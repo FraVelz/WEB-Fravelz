@@ -2,7 +2,7 @@
 
 ## Main Directories
 
-``` text
+```text
 WEB-Fravelz/
 ├── public/                    # Static files served directly
 │   ├── locales/              # i18n translations (es, en, ru, zh)
@@ -56,6 +56,7 @@ WEB-Fravelz/
 ## Component Organization
 
 ### Layout (`src/components/layout/`)
+
 - **Header.astro**: Fixed header with navigation
 - **Footer.astro**: Footer with links
 - **HomeMain.astro**: Main home container
@@ -63,6 +64,7 @@ WEB-Fravelz/
 - **home-animation/**: horizontalScroll.ts (GSAP ScrollTrigger)
 
 ### Features (`src/features/`)
+
 - **hero/HeroSection.astro**: Hero/presentation section
 - **about-me/AboutMeSection.astro**: Personal information
 - **projects/ProjectsSection.astro**: Projects grid
@@ -71,6 +73,7 @@ WEB-Fravelz/
 - **contact/ContactSection.astro**: Contact form
 
 ### UI Components (`src/components/ui/`)
+
 - **Link.astro**: Link with smooth scroll
 - **Paragraph.astro**: Paragraph with i18n support
 - **ToggleTheme.astro**: Light/dark theme selector
@@ -79,6 +82,7 @@ WEB-Fravelz/
 - **Button.astro**, **Particles.astro**
 
 ### React Components (`src/components/ui-react/`)
+
 - **MusicButton.tsx**: Button to open player
 - **MusicPlayer.tsx**: Modal music player
 - **CopyEmailButton.tsx**: Button to copy email

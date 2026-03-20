@@ -1,30 +1,40 @@
 ---
-import { Image } from 'astro:assets';
-import type { Project } from '@/utils/data/projects';
-import { getTranslations } from '@/utils/i18n';
+import { Image } from "astro:assets";
+import type { Project } from "@/utils/data/projects";
+import { getTranslations } from "@/utils/i18n";
 
 interface Props {
   project: Project;
   lang?: string;
 }
 
-const { project, lang = 'es' } = Astro.props;
+const { project, lang = "es" } = Astro.props;
 
-const t = getTranslations(lang as 'es' | 'en' | 'ru' | 'zh');
-const currentLang = lang as 'es' | 'en' | 'ru' | 'zh';
+const t = getTranslations(lang as "es" | "en" | "ru" | "zh");
+const currentLang = lang as "es" | "en" | "ru" | "zh";
 
 const title = project.title[currentLang];
 const description = project.shortDescription[currentLang];
-const base = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
+const base = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 const projectUrl = `${base}${currentLang}/projects/${project.slug}`;
 
 // Texts in all languages for client-side update when language changes
-const titles = { es: project.title.es, en: project.title.en, ru: project.title.ru, zh: project.title.zh };
-const descriptions = { es: project.shortDescription.es, en: project.shortDescription.en, ru: project.shortDescription.ru, zh: project.shortDescription.zh };
+const titles = {
+  es: project.title.es,
+  en: project.title.en,
+  ru: project.title.ru,
+  zh: project.title.zh,
+};
+const descriptions = {
+  es: project.shortDescription.es,
+  en: project.shortDescription.en,
+  ru: project.shortDescription.ru,
+  zh: project.shortDescription.zh,
+};
 ---
 
 <article
-  class="group h-full relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 shadow-md hover:shadow-xl"
+  class="group relative h-full overflow-hidden rounded-xl border-2 border-gray-200 bg-white shadow-md transition-all duration-300 hover:border-cyan-500 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400"
   data-project-card-content
   data-title-es={titles.es}
   data-title-en={titles.en}
@@ -39,70 +49,107 @@ const descriptions = { es: project.shortDescription.es, en: project.shortDescrip
   <div class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
     <Image
       src={project.featuredImage}
-      alt={`${title} - ${t.project_preview_alt || 'Preview'}`}
-      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      alt={`${title} - ${t.project_preview_alt || "Preview"}`}
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       loading="lazy"
     />
 
-    {project.isComingSoon && (
-      <div class="absolute top-3 right-3 bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="projects_coming_soon">
-        {t.projects_coming_soon || 'Próximamente'}
-      </div>
-    )}
-    {project.featured && (
-      <div class="absolute top-3 left-3 bg-cyan-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="projects_featured">
-        {t.projects_featured || 'Destacado'}
-      </div>
-    )}
+    {
+      project.isComingSoon && (
+        <div
+          class="absolute top-3 right-3 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white"
+          data-i18n="projects_coming_soon"
+        >
+          {t.projects_coming_soon || "Próximamente"}
+        </div>
+      )
+    }
+    {
+      project.featured && (
+        <div
+          class="absolute top-3 left-3 rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white"
+          data-i18n="projects_featured"
+        >
+          {t.projects_featured || "Destacado"}
+        </div>
+      )
+    }
     <!-- Estado: en desarrollo o finalizado -->
-    {project.inDevelopment ? (
-      <div class="absolute bottom-3 left-3 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="project_status_development">
-        {t.project_status_development ?? 'En desarrollo'}
-      </div>
-    ) : (
-      <div class="absolute bottom-3 left-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold" data-i18n="project_status_finished">
-        {t.project_status_finished ?? 'Finalizado'}
-      </div>
-    )}
+    {
+      project.inDevelopment ? (
+        <div
+          class="absolute bottom-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white"
+          data-i18n="project_status_development"
+        >
+          {t.project_status_development ?? "En desarrollo"}
+        </div>
+      ) : (
+        <div
+          class="absolute bottom-3 left-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white"
+          data-i18n="project_status_finished"
+        >
+          {t.project_status_finished ?? "Finalizado"}
+        </div>
+      )
+    }
   </div>
 
   <!-- Contenido de la tarjeta -->
   <div class="p-6">
     <!-- Título (se actualiza con el idioma en el cliente) -->
-    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" data-project-title>
+    <h3
+      class="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-cyan-600 dark:text-gray-100 dark:group-hover:text-cyan-400"
+      data-project-title
+    >
       {title}
     </h3>
 
     <!-- Descripción corta (se actualiza con el idioma en el cliente) -->
-    <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2" data-project-description>
+    <p
+      class="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-300"
+      data-project-description
+    >
       {description}
     </p>
 
     <!-- Tecnologías -->
-    <div class="flex flex-wrap gap-2 mb-4">
-      {project.technologies.slice(0, 4).map((tech) => (
-        <span 
-          class="px-2 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 text-xs rounded-md font-medium"
-        >
-          {tech}
-        </span>
-      ))}
-      {project.technologies.length > 4 && (
-        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-md">
-          +{project.technologies.length - 4}
-        </span>
-      )}
+    <div class="mb-4 flex flex-wrap gap-2">
+      {
+        project.technologies
+          .slice(0, 4)
+          .map((tech) => (
+            <span class="rounded-md bg-cyan-100 px-2 py-1 text-xs font-medium text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300">
+              {tech}
+            </span>
+          ))
+      }
+      {
+        project.technologies.length > 4 && (
+          <span class="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+            +{project.technologies.length - 4}
+          </span>
+        )
+      }
     </div>
 
     <!-- Botón Ver Proyecto -->
-    <a 
+    <a
       href={projectUrl}
-      class="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-semibold text-sm transition-colors group-hover:underline"
+      class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 transition-colors group-hover:underline hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
       data-i18n="projects_view_project"
     >
-      {t.projects_view_project || 'Ver Proyecto'}
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      {t.projects_view_project || "Ver Proyecto"}
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
       </svg>
     </a>
   </div>

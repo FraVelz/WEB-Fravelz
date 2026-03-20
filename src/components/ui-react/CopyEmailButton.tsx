@@ -1,37 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface CopyEmailButtonProps {
   email: string;
   successText: string;
 }
 
-export default function CopyEmailButton({ email, successText }: CopyEmailButtonProps) {
+export default function CopyEmailButton({
+  email,
+  successText,
+}: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const [currentSuccessText, setCurrentSuccessText] = useState(successText);
-  const [ariaLabel, setAriaLabel] = useState('Copiar dirección de correo electrónico');
+  const [ariaLabel, setAriaLabel] = useState(
+    "Copiar dirección de correo electrónico",
+  );
 
   useEffect(() => {
     const handleLanguageChange = (event: CustomEvent) => {
       const translations = event.detail.translations;
       if (translations) {
-        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
+        if (translations.hero_copy_success)
+          setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria)
+          setAriaLabel(translations.copy_email_aria);
       }
     };
 
-    window.addEventListener('language-changed', handleLanguageChange as EventListener);
+    window.addEventListener(
+      "language-changed",
+      handleLanguageChange as EventListener,
+    );
 
-    if (typeof window !== 'undefined' && (window as any).i18n) {
+    if (typeof window !== "undefined" && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
       const translations = (window as any).i18n.getTranslations(currentLang);
       if (translations) {
-        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
+        if (translations.hero_copy_success)
+          setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria)
+          setAriaLabel(translations.copy_email_aria);
       }
     }
 
     return () => {
-      window.removeEventListener('language-changed', handleLanguageChange as EventListener);
+      window.removeEventListener(
+        "language-changed",
+        handleLanguageChange as EventListener,
+      );
     };
   }, []);
 
@@ -45,22 +60,22 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
         setCopied(false);
       }, 3000);
     } catch (err) {
-      console.error('Error copying email:', err);
+      console.error("Error copying email:", err);
       // Fallback for browsers that do not support clipboard API
-      const textArea = document.createElement('textarea');
+      const textArea = document.createElement("textarea");
       textArea.value = email;
-      textArea.style.position = 'fixed';
-      textArea.style.opacity = '0';
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
       document.body.appendChild(textArea);
       textArea.select();
       try {
-        document.execCommand('copy');
+        document.execCommand("copy");
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
         }, 2000);
       } catch (e) {
-        console.error('Error al copiar:', e);
+        console.error("Error al copiar:", e);
       }
       document.body.removeChild(textArea);
     }
@@ -69,21 +84,11 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
   return (
     <button
       onClick={handleCopy}
-      className={`
-        flex items-center gap-2
-        text-sm 
-        max-w-fit pr-3
-        p-1
-        px-2 
-        rounded-full
-        border
-        transition-all duration-300
-        cursor-pointer 
-        ${copied
-          ? 'text-green-700 dark:text-green-400 border-2 border-green-500/70 dark:border-green-500/40 bg-green-100 dark:bg-gray-900 scale-105 shadow-lg shadow-green-500/30 dark:shadow-none'
-          : 'text-purple-700 dark:text-purple-300 border-2 border-purple-400/70 dark:border-purple-500/40 bg-purple-50 dark:bg-gray-900 hover:border-purple-600 dark:hover:border-purple-400/60 hover:text-purple-800 dark:hover:text-purple-200 shadow-md shadow-purple-500/20 dark:shadow-none hover:shadow-lg hover:shadow-purple-500/30 dark:hover:shadow-purple-500/10 font-medium'
-        }
-      `}
+      className={`flex max-w-fit cursor-pointer items-center gap-2 rounded-full border p-1 px-2 pr-3 text-sm transition-all duration-300 ${
+        copied
+          ? "scale-105 border-2 border-green-500/70 bg-green-100 text-green-700 shadow-lg shadow-green-500/30 dark:border-green-500/40 dark:bg-gray-900 dark:text-green-400 dark:shadow-none"
+          : "border-2 border-purple-400/70 bg-purple-50 font-medium text-purple-700 shadow-md shadow-purple-500/20 hover:border-purple-600 hover:text-purple-800 hover:shadow-lg hover:shadow-purple-500/30 dark:border-purple-500/40 dark:bg-gray-900 dark:text-purple-300 dark:shadow-none dark:hover:border-purple-400/60 dark:hover:text-purple-200 dark:hover:shadow-purple-500/10"
+      } `}
       aria-label={ariaLabel}
     >
       <svg

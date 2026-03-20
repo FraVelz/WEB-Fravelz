@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import MusicPlayer from './MusicPlayer';
+import { useState } from "react";
+import MusicPlayer from "./MusicPlayer";
 
-interface MusicButtonProps {
-}
+interface MusicButtonProps {}
 
 export default function MusicButton({}: MusicButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +10,7 @@ export default function MusicButton({}: MusicButtonProps) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="cursor-pointer text-slate-800 dark:text-gray-300 hover:text-cyan-700 dark:hover:text-cyan-400 transition-colors p-1 rounded-lg hover:bg-cyan-100 dark:hover:bg-cyan-900/20 shadow-sm hover:shadow-md shadow-cyan-500/10"
+        className="cursor-pointer rounded-lg p-1 text-slate-800 shadow-sm shadow-cyan-500/10 transition-colors hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-md dark:text-gray-300 dark:hover:bg-cyan-900/20 dark:hover:text-cyan-400"
         aria-label="Abrir reproductor de música"
         title="Reproductor de música"
       >
@@ -30,10 +29,7 @@ export default function MusicButton({}: MusicButtonProps) {
           />
         </svg>
       </button>
-      <MusicPlayer
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
+      <MusicPlayer isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );
 }

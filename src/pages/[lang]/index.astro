@@ -4,15 +4,15 @@ import { getTranslations } from "@/utils/i18n";
 import { languages, type Language } from "@/utils/i18n";
 
 export async function getStaticPaths() {
-    return languages.map((lang) => ({
-        params: { lang },
-    }));
+  return languages.map((lang) => ({
+    params: { lang },
+  }));
 }
 
 const { lang } = Astro.params;
 
 if (!languages.includes(lang as Language)) {
-    return Astro.redirect("/es");
+  return Astro.redirect("/es");
 }
 const t = await getTranslations(lang as Language);
 
@@ -21,5 +21,5 @@ import HomeMain from "@/components/features/PageFeature/HomeMain.astro";
 ---
 
 <Layout title={t.home_title} description={t.home_description} lang={lang}>
-    <HomeMain />
+  <HomeMain />
 </Layout>

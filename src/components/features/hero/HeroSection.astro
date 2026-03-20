@@ -10,42 +10,25 @@ const t = getTranslations(lang);
 
 <section
   id="presentation"
-  class="h-screen w-screen flex flex-col justify-center items-center"
+  class="flex h-screen w-screen flex-col items-center justify-center"
 >
   <div
-    class="mt-32 px-4 py-12 sm:py-16 lg:py-24
-         grid grid-cols-1 gap-6
-         lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto]
-         items-center lg:items-start"
+    class="mt-32 grid grid-cols-1 items-center gap-6 px-4 py-12 sm:py-16 lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto] lg:items-start lg:py-24"
   >
     <!-- Logo with animated border -->
     <div
-      class="row-span-2 lg:row-span-3
-              relative
-              h-32 w-32 mx-auto
-              sm:h-48 sm:w-48
-              lg:h-64 lg:w-64 lg:mr-6
-              flex-shrink-0"
+      class="relative row-span-2 mx-auto h-32 w-32 flex-shrink-0 sm:h-48 sm:w-48 lg:row-span-3 lg:mr-6 lg:h-64 lg:w-64"
     >
       <!-- Rotating border -->
       <div
-        class="absolute inset-0
-             rounded-full
-             p-3 sm:p-4
-             bg-gradient-to-r from-purple-500 via-transparent to-cyan-500
-             animate-[spin_2s_linear_infinite]"
+        class="absolute inset-0 animate-[spin_2s_linear_infinite] rounded-full bg-gradient-to-r from-purple-500 via-transparent to-cyan-500 p-3 sm:p-4"
         aria-hidden="true"
       >
       </div>
 
       <!-- Logo image -->
       <div
-        class="absolute inset-1 sm:inset-2
-                rounded-full
-                bg-cyan-50 dark:bg-gray-900 shadow-inner border-2 border-cyan-200/50 dark:border-transparent
-                z-10
-                overflow-hidden
-                shadow-inner"
+        class="absolute inset-1 z-10 overflow-hidden rounded-full border-2 border-cyan-200/50 bg-cyan-50 shadow-inner sm:inset-2 dark:border-transparent dark:bg-gray-900"
       >
         <img
           draggable="false"
@@ -62,50 +45,37 @@ const t = getTranslations(lang);
     <div>
       <!-- Name -->
       <h1
-        class="text-2xl sm:text-3xl lg:text-4xl self-end
-           bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent
-           font-bold
-           text-center lg:text-left"
+        class="self-end bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl lg:text-left lg:text-4xl"
       >
         Francisco J. Vélez O.
       </h1>
 
       <p
-        class="text-base sm:text-lg
-              text-cyan-700 dark:text-cyan-300 font-bold
-              font-semibold
-              text-center lg:text-left"
+        class="text-center text-base font-bold font-semibold text-cyan-700 sm:text-lg lg:text-left dark:text-cyan-300"
       >
         @Fravelz
       </p>
 
-      <div class="flex flex-col gap-4 mt-3 lg:mt-10">
+      <div class="mt-3 flex flex-col gap-4 lg:mt-10">
         <!-- Description -->
-        <div class="lg:col-start-2 flex flex-col gap-2">
+        <div class="flex flex-col gap-2 lg:col-start-2">
           <p
-            class="text-base sm:text-lg
-              text-slate-800 dark:text-gray-200
-              text-center lg:text-left"
+            class="text-center text-base text-slate-800 sm:text-lg lg:text-left dark:text-gray-200"
             data-i18n="hola"
           >
             {t.hola}
           </p>
           <p
-            class="text-lg sm:text-xl
-              text-cyan-700 dark:text-cyan-100
-              font-bold
-              text-center lg:text-left"
+            class="text-center text-lg font-bold text-cyan-700 sm:text-xl lg:text-left dark:text-cyan-100"
             data-i18n="hero_role"
           >
-            {t.hero_role || 'Desarrollador Web - Frontend :)'}
+            {t.hero_role || "Desarrollador Web - Frontend :)"}
           </p>
         </div>
 
         <!-- Info and links -->
         <div
-          class="flex flex-wrap justify-center lg:justify-start
-                items-center
-                gap-2 sm:gap-3"
+          class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 lg:justify-start"
         >
           <LocationBadge text={t.hero_location} />
 
@@ -118,7 +88,7 @@ const t = getTranslations(lang);
       </div>
     </div>
 
-    <div class="col-span-1 lg:col-span-2 max-w-2xl mt-5">
+    <div class="col-span-1 mt-5 max-w-2xl lg:col-span-2">
       <Paragraph
         justify="center"
         className="text-slate-800 dark:text-gray-300"
@@ -130,13 +100,9 @@ const t = getTranslations(lang);
   </div>
 
   <!-- Scroll down indicator -->
-  <div class="max-md:hidden flex h-fit w-fit px-3 py-5 justify-center">
+  <div class="flex h-fit w-fit justify-center px-3 py-5 max-md:hidden">
     <div
-      class="text-cyan-700 rounded-xl border-cyan-700/80 border-2
-      dark:text-cyan-400 dark:border-cyan-400/40
-        hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20
-        transition-all select-none
-        animate-bounce z-10 p-2 flex gap-1"
+      class="z-10 flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700 transition-all select-none hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -169,5 +135,4 @@ const t = getTranslations(lang);
       </svg>
     </div>
   </div>
-
 </section>

@@ -23,10 +23,10 @@ const { classname = "" } = Astro.props;
 
 <section id="about-me" class={classname}>
   <div
-    class="relative flex justify-between items-center h-fit lg:h-screen w-full mx-auto max-lg:flex-col max-lg:items-start"
+    class="relative mx-auto flex h-fit w-full items-center justify-between max-lg:flex-col max-lg:items-start lg:h-screen"
   >
     <h2
-      class="lg:absolute lg:top-32 left-0 w-full text-center text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+      class="left-0 mb-4 w-full text-center text-4xl font-bold text-gray-900 lg:absolute lg:top-32 dark:text-gray-100"
       data-i18n="info_about_title"
     >
       {t.info_about_title || "Sobre Mí"}
@@ -34,33 +34,29 @@ const { classname = "" } = Astro.props;
 
     <!-- Línea -->
     <div
-      class="about-timeline-line absolute top-1/2 left-0 w-full h-1 -translate-y-1/2 z-10
-              max-lg:top-0 max-lg:left-5 max-lg:w-1 max-lg:h-full max-lg:translate-y-0"
+      class="about-timeline-line absolute top-1/2 left-0 z-10 h-1 w-full -translate-y-1/2 max-lg:top-0 max-lg:left-5 max-lg:h-full max-lg:w-1 max-lg:translate-y-0"
     >
     </div>
 
     {
       history.map((value, index) => (
         <div
-          class={`relative min-w-45 w-full text-center z-20 
-                  max-lg:mb-12 max-lg:pl-12
-                  `}
+          class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
         >
           <div
-            class={`absolute text-left lg:text-center h-fit w-45 py-4 rounded-lg
-                    ${index % 2 === 0 ? "bottom-10" : "top-10"}
-                    max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full`}
+            class={`absolute h-fit w-45 rounded-lg py-4 text-left lg:text-center ${index % 2 === 0 ? "bottom-10" : "top-10"} max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full`}
           >
-            <div class="about-timeline-year font-bold mb-2">{value[1]}</div>
+            <div class="about-timeline-year mb-2 font-bold">{value[1]}</div>
 
-              { (index!==0 && index!==history.length-1) ? (
-                <div class="lg:relative lg:w-60 lg:left-[50%] lg:translate-x-[-50%]">
-                  {value[0]}
-                </div>
+            {index !== 0 && index !== history.length - 1 ? (
+              <div class="lg:relative lg:left-[50%] lg:w-60 lg:translate-x-[-50%]">
+                {value[0]}
+              </div>
+            ) : (
+              value[0]
+            )}
 
-              ) : ( value[0] )} 
-
-            {(value[1]=='2021') ? (
+            {value[1] == "2021" ? (
               <a
                 href="https://github.com/divelz"
                 target="_blank"
@@ -69,30 +65,20 @@ const { classname = "" } = Astro.props;
               >
                 Github
               </a>
-            ) : (
-              <></>
-            )
-            }
+            ) : null}
 
-            {(value[1]=='2025') ? (
+            {value[1] == "2025" ? (
               <a
                 href={`${baseUrl}${lang}/certifications`}
                 class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
                 data-i18n="nav_certifications"
               >
-                {t.nav_certifications || 'Certificaciones'}
+                {t.nav_certifications || "Certificaciones"}
               </a>
-            ) : (
-              <></>
-            )
-            }
-      
+            ) : null}
           </div>
 
-          <div
-            class="about-timeline-dot w-5 h-5 rounded-full mx-auto
-                    max-lg:absolute max-lg:top-5 max-lg:left-[11px]"
-          />
+          <div class="about-timeline-dot mx-auto h-5 w-5 rounded-full max-lg:absolute max-lg:top-5 max-lg:left-[11px]" />
         </div>
       ))
     }

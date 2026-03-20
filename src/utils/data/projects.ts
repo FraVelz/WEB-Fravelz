@@ -9,12 +9,12 @@
  * - project-utils.ts     → getAllProjects, getProjectBySlug, etc.
  */
 
-export type { Project } from './project-types';
-export { projects } from './projects-list';
+export type { Project } from "./project-types";
+export { projects } from "./projects-list";
 export {
   getAllProjects,
   getProjectBySlug,
   getFeaturedProjects,
   getProjectsByCategory,
-  getAllTechnologies
-} from './project-utils';
+  getAllTechnologies,
+} from "./project-utils";

@@ -13,7 +13,7 @@ const { classname = "" } = Astro.props;
 
 <section id="hobbies" class={classname}>
   <h2
-    class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+    class="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100"
     data-i18n="info_hobbies_title"
   >
     {t.info_hobbies_title}
@@ -21,7 +21,7 @@ const { classname = "" } = Astro.props;
 
   <div
     id="cards"
-    class="w-full max-w-6xl grid grid-cols-3 auto-cols-[200px] auto-rows-[200px] grid-flow-row-dense gap-1 md:gap-2 lg:gap-4"
+    class="grid w-full max-w-6xl auto-cols-[200px] grid-flow-row-dense auto-rows-[200px] grid-cols-3 gap-1 md:gap-2 lg:gap-4"
   >
     <div class="card row-span-2" data-card="webdev">
       <div class="card-content">
@@ -32,8 +32,7 @@ const { classname = "" } = Astro.props;
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
           </svg>
         </div>
         <h3 data-i18n="hobbies_webdev">{t.hobbies_webdev}</h3>
@@ -49,14 +48,12 @@ const { classname = "" } = Astro.props;
               d="M4 17V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
             <path
               d="M8 21h8M10 17h4"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
           </svg>
         </div>
         <h3 data-i18n="hobbies_linux">{t.hobbies_linux}</h3>
@@ -73,22 +70,19 @@ const { classname = "" } = Astro.props;
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
             <path
               d="M9 18a2.5 2.5 0 1 1-2-2.45V5"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
             <path
               d="M21 16a2.5 2.5 0 1 1-2-2.45"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
           </svg>
         </div>
         <h3 data-i18n="hobbies_piano">{t.hobbies_piano}</h3>
@@ -104,27 +98,23 @@ const { classname = "" } = Astro.props;
               d="M4 10v4M20 10v4"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
             <path
               d="M6.5 9.5v5M17.5 9.5v5"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
             <path
               d="M6.5 12h11"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
             <path
               d="M3 9.5h2v5H3a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Zm18 0h-2v5h2a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Z"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
           </svg>
         </div>
         <h3 data-i18n="hobbies_exercise">{t.hobbies_exercise}</h3>
@@ -140,14 +130,12 @@ const { classname = "" } = Astro.props;
               d="M4 8h16a2 2 0 0 1 2 2v6H2v-6a2 2 0 0 1 2-2Z"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
             <path
               d="M6 12h.01M9 12h.01M12 12h.01M15 12h.01M18 12h.01M7 15h10"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-            />
+              stroke-linecap="round"></path>
           </svg>
         </div>
         <h3 data-i18n="hobbies_typing_label">{t.hobbies_typing_label}</h3>
@@ -157,7 +145,7 @@ const { classname = "" } = Astro.props;
           href="https://monkeytype.com/profile/Fravelz"
           target="_blank"
           rel="noreferrer noopener"
-          class="card-link cursor-pointer mt-2 inline-flex w-fit font-semibold underline underline-offset-2 decoration-2 transition-colors duration-200"
+          class="card-link mt-2 inline-flex w-fit cursor-pointer font-semibold underline decoration-2 underline-offset-2 transition-colors duration-200"
         >
           <span data-i18n="hobbies_typing_link">{t.hobbies_typing_link}</span>
         </a>
@@ -280,7 +268,11 @@ const { classname = "" } = Astro.props;
       width: 140px;
       height: 140px;
       border-radius: 999px;
-      background: radial-gradient(circle, var(--card-accent) 0%, transparent 70%);
+      background: radial-gradient(
+        circle,
+        var(--card-accent) 0%,
+        transparent 70%
+      );
       opacity: 0.18;
       pointer-events: none;
       filter: blur(2px);
@@ -325,7 +317,11 @@ const { classname = "" } = Astro.props;
 
     .card-link {
       color: var(--card-accent);
-      text-decoration-color: color-mix(in oklab, var(--card-accent) 60%, transparent);
+      text-decoration-color: color-mix(
+        in oklab,
+        var(--card-accent) 60%,
+        transparent
+      );
     }
     .card-link:hover {
       color: var(--card-accent);

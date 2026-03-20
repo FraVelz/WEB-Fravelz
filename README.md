@@ -2,13 +2,13 @@
 
 [English version](./README.EN.md)
 
-Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web como la estructuración  código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al código.
+Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web como la estructuración código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al código.
 
 Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a nivel mundial en frontend, y llegar trabajar en google.
 
 Este portfolio y demás proyectos que estarán en construcción, mejora, y finalización, sera el camino que muestre mi progreso y mis detalles que tengo en cuenta para mi objetivo.
 
-todos los proyectos web modificados, creados, o con ultima modificación en el año 2026, tendrán su documentación en español e ingles, y comentarios y commits del código en ingles, esto haciendo un proyectos multi-lenguaje con el lenguaje principal ingles porque es el estándar  internacional en la programación. (esto en cuanto a proyectos personales).
+todos los proyectos web modificados, creados, o con ultima modificación en el año 2026, tendrán su documentación en español e ingles, y comentarios y commits del código en ingles, esto haciendo un proyectos multi-lenguaje con el lenguaje principal ingles porque es el estándar internacional en la programación. (esto en cuanto a proyectos personales).
 
 ---
 

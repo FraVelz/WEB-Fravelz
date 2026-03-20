@@ -2,8 +2,11 @@
 import { getTranslations, type Language } from "@/utils/i18n";
 
 import {
-  getProgressPercent, getBarVar, getAccentVar,
-  getCategoryClass, getLevelClass 
+  getProgressPercent,
+  getBarVar,
+  getAccentVar,
+  getCategoryClass,
+  getLevelClass,
 } from "@/components/features/technologies/functions";
 
 import { technologies } from "@/components/features/technologies/data";
@@ -19,19 +22,18 @@ const { classname = "" } = Astro.props;
 const frontendTech = technologies.filter((t) => t.category === "frontend");
 const backendTech = technologies.filter((t) => t.category === "backend");
 // const bothTech = technologies.filter((t) => t.category === "both");
-
 ---
 
 <section id="technologies" class={classname}>
-  <div class="max-w-7xl flex flex-col gap-10  mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
     <!-- TITULO -->
     <div>
-      <h2 class="text-4xl font-bold mb-4 tech-title" data-i18n="tech_title">
+      <h2 class="tech-title mb-4 text-4xl font-bold" data-i18n="tech_title">
         {t.tech_title || "Tecnologías"}
       </h2>
 
-      <p class="mt-4 text-sm tech-muted max-w-3xl">
-        <span class="font-semibold tech-accent" data-i18n="tech_note">
+      <p class="tech-muted mt-4 max-w-3xl text-sm">
+        <span class="tech-accent font-semibold" data-i18n="tech_note">
           {t.tech_note || "Nota:"}
         </span>{" "}
         <span data-i18n="tech_disclaimer">{t.tech_disclaimer || ""}</span>
@@ -43,32 +45,32 @@ const backendTech = technologies.filter((t) => t.category === "backend");
       frontendTech.length > 0 && (
         <div>
           <h3
-            class="text-2xl font-semibold mb-5 tech-section-title"
+            class="tech-section-title mb-5 text-2xl font-semibold"
             style="--section-accent: var(--color-success)"
             data-i18n="tech_category_frontend"
           >
             {t.tech_category_frontend || "Frontend"}
           </h3>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {frontendTech.map((tech) => {
               const pct = getProgressPercent(tech.level);
               return (
                 <div
-                  class="tech-card p-6 rounded-2xl border transition"
+                  class="tech-card rounded-2xl border p-6 transition"
                   style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
                 >
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="tech-icon w-12 h-12 rounded-xl flex items-center justify-center">
+                  <div class="mb-4 flex items-center gap-4">
+                    <div class="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
                       <div
-                        class="w-7 h-7 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
+                        class="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
                         set:html={tech.svg}
                       />
                     </div>
-                    <h4 class="text-lg font-semibold tech-text">{tech.name}</h4>
+                    <h4 class="tech-text text-lg font-semibold">{tech.name}</h4>
                   </div>
 
-                  <p class="text-sm tech-muted mb-4">
+                  <p class="tech-muted mb-4 text-sm">
                     <span class="font-semibold" data-i18n="tech_info_level">
                       {t.tech_info_level || "Nivel"}:
                     </span>{" "}
@@ -109,7 +111,7 @@ const backendTech = technologies.filter((t) => t.category === "backend");
       backendTech.length > 0 && (
         <div>
           <h3
-            class="text-2xl font-semibold mb-5 tech-section-title"
+            class="tech-section-title mb-5 text-2xl font-semibold"
             style="--section-accent: var(--color-warning)"
             data-i18n="tech_category_backend"
           >
@@ -119,25 +121,25 @@ const backendTech = technologies.filter((t) => t.category === "backend");
             </span>
           </h3>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {backendTech.map((tech) => {
               const pct = getProgressPercent(tech.level);
               return (
                 <div
-                  class="tech-card p-6 rounded-2xl border transition"
+                  class="tech-card rounded-2xl border p-6 transition"
                   style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
                 >
-                  <div class="flex items-center gap-4 mb-4">
-                    <div class="tech-icon w-12 h-12 rounded-xl flex items-center justify-center">
+                  <div class="mb-4 flex items-center gap-4">
+                    <div class="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
                       <div
-                        class="w-7 h-7 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
+                        class="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
                         set:html={tech.svg}
                       />
                     </div>
-                    <h4 class="text-lg font-semibold tech-text">{tech.name}</h4>
+                    <h4 class="tech-text text-lg font-semibold">{tech.name}</h4>
                   </div>
 
-                  <p class="text-sm tech-muted mb-4">
+                  <p class="tech-muted mb-4 text-sm">
                     <span class="font-semibold" data-i18n="tech_info_level">
                       {t.tech_info_level || "Nivel"}:
                     </span>{" "}

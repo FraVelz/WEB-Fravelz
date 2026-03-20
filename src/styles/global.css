@@ -5,39 +5,36 @@
      SUPERFICIES
   ========================== */
 
-  --color-bg: 248 250 252;        /* slate-50 */
-  --color-surface: 255 255 255;   /* white */
-  --color-card: 241 245 249;      /* slate-100 */
-
+  --color-bg: 248 250 252; /* slate-50 */
+  --color-surface: 255 255 255; /* white */
+  --color-card: 241 245 249; /* slate-100 */
 
   /* =========================
      TEXTO
   ========================== */
 
-  --color-text: 15 23 42;         /* slate-900 */
+  --color-text: 15 23 42; /* slate-900 */
   --color-text-muted: 100 116 139; /* slate-500 */
   --color-text-inverse: 255 255 255;
-
 
   /* =========================
      BRAND
   ========================== */
 
-  --color-primary: 6 182 212;        /* cyan-500 */
-  --color-primary-hover: 8 145 178;  /* cyan-600 */
+  --color-primary: 6 182 212; /* cyan-500 */
+  --color-primary-hover: 8 145 178; /* cyan-600 */
 
-  --color-accent: 168 85 247;        /* purple-500 */
-  --color-accent-hover: 147 51 234;  /* purple-600 */
-
+  --color-accent: 168 85 247; /* purple-500 */
+  --color-accent-hover: 147 51 234; /* purple-600 */
 
   /* =========================
      ESTADOS
   ========================== */
 
-  --color-success: 16 185 129;  /* emerald-500 */
-  --color-warning: 245 158 11;  /* amber-500 */
-  --color-danger: 239 68 68;    /* red-500 */
-  --color-info: 59 130 246;     /* blue-500 */
+  --color-success: 16 185 129; /* emerald-500 */
+  --color-warning: 245 158 11; /* amber-500 */
+  --color-danger: 239 68 68; /* red-500 */
+  --color-info: 59 130 246; /* blue-500 */
 
   /* =========================
      TOKENS ESPECÍFICOS DEL UI
@@ -45,21 +42,21 @@
 
   /* Selección de texto */
   --color-selection-strong: 168 85 247; /* purple-500 */
-  --color-selection: 7 155 214;         /* aprox. #079bd6 (se usa con alpha) */
+  --color-selection: 7 155 214; /* aprox. #079bd6 (se usa con alpha) */
 
   /* Partículas (sky-400) */
-  --color-particles: 56 189 248;        /* #38bdf8 */
+  --color-particles: 56 189 248; /* #38bdf8 */
 
   /* Link animation (cyan-400 + tonos dark heredados del proyecto) */
-  --color-link-underline: 34 211 238;   /* #22d3ee */
+  --color-link-underline: 34 211 238; /* #22d3ee */
   --color-link-underline-dark: 0 96 111;
-  --color-link-hover: 34 211 238;       /* #22d3ee */
+  --color-link-hover: 34 211 238; /* #22d3ee */
   --color-link-hover-dark: 0 64 74;
 
   /* Botón custom (valores existentes en el proyecto) */
-  --color-btn-base: 0 0 0;              /* #000 */
-  --color-btn-on-base: 255 255 255;     /* #fff */
-  --color-btn-accent: 2 162 248;        /* #02a2f8 */
+  --color-btn-base: 0 0 0; /* #000 */
+  --color-btn-on-base: 255 255 255; /* #fff */
+  --color-btn-accent: 2 162 248; /* #02a2f8 */
 
   /* Base constants */
   --color-black: 0 0 0;
@@ -67,18 +64,18 @@
 }
 
 .dark {
-  --color-bg: 3 7 18;          /* slate-950 */
-  --color-surface: 17 24 39;   /* gray-900 */
-  --color-card: 31 41 55;      /* gray-800 */
+  --color-bg: 3 7 18; /* slate-950 */
+  --color-surface: 17 24 39; /* gray-900 */
+  --color-card: 31 41 55; /* gray-800 */
 
-  --color-text: 243 244 246;     
+  --color-text: 243 244 246;
   --color-text-muted: 156 163 175;
   --color-text-inverse: 15 23 42;
 
-  --color-primary: 34 211 238;       
+  --color-primary: 34 211 238;
   --color-primary-hover: 6 182 212;
 
-  --color-accent: 192 132 252;       
+  --color-accent: 192 132 252;
   --color-accent-hover: 168 85 247;
 }
 

@@ -1,10 +1,7 @@
 <!-- Overlay - Cubre toda la pantalla incluyendo el header -->
 <div
   data-drawer-overlay
-  class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm
-    transition-opacity duration-300
-    opacity-0 pointer-events-none
-    lg:hidden"
+  class="pointer-events-none fixed inset-0 z-50 bg-black/50 opacity-0 backdrop-blur-sm transition-opacity duration-300 lg:hidden"
 >
 </div>
 
@@ -15,22 +12,22 @@
   role="dialog"
   aria-modal="true"
   aria-label="Menú de navegación"
-  class="fixed top-0 right-0 z-60 h-screen w-[85%] max-w-sm overflow-y-auto
-    bg-white dark:bg-gray-900
-    transform translate-x-full
-    transition-transform duration-300 ease-in-out
-    lg:hidden
-    shadow-2xl"
+  class="fixed top-0 right-0 z-60 h-screen w-[85%] max-w-sm translate-x-full transform overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ease-in-out lg:hidden dark:bg-gray-900"
 >
   <!-- Header -->
-  <div class="flex justify-between items-center p-5 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-900 z-10">
-    <span class="text-lg font-semibold text-slate-800 dark:text-gray-100" data-i18n="nav_menu">Menú</span>
+  <div
+    class="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white p-5 dark:border-gray-700 dark:bg-gray-900"
+  >
+    <span
+      class="text-lg font-semibold text-slate-800 dark:text-gray-100"
+      data-i18n="nav_menu">Menú</span
+    >
 
     <button
       data-drawer-close
       aria-label="Cerrar menú"
       data-i18n-attr="aria-label:nav_close_menu"
-      class="text-2xl text-slate-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-white transition-colors"
+      class="text-2xl text-slate-700 transition-colors hover:text-cyan-600 dark:text-gray-300 dark:hover:text-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,13 +46,13 @@
   </div>
 
   <!-- Content -->
-  <div class="p-5 flex flex-col gap-5">
+  <div class="flex flex-col gap-5 p-5">
     <slot />
   </div>
 </aside>
 
 <script is:inline>
-  (function() {
+  (function () {
     const openBtn = document.querySelector("[data-drawer-open]");
     const closeBtn = document.querySelector("[data-drawer-close]");
     const drawer = document.querySelector("[data-drawer]");
@@ -65,12 +62,12 @@
       drawer?.classList.remove("translate-x-full");
       overlay?.classList.remove("opacity-0", "pointer-events-none");
       openBtn?.setAttribute("aria-expanded", "true");
-      
+
       // Reinicializar scripts cuando se abre el drawer
       // Esto asegura que los selectores y toggles funcionen
       setTimeout(() => {
         // Disparar evento personalizado para que los componentes se reinicialicen si es necesario
-        window.dispatchEvent(new CustomEvent('drawer-opened'));
+        window.dispatchEvent(new CustomEvent("drawer-opened"));
       }, 100);
     };
 

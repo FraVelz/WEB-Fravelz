@@ -23,7 +23,8 @@ const isAnchor = href?.startsWith("#");
       if (!link) return;
 
       // Dejar que horizontalScroll maneje los enlaces del header en desktop
-      if (link.closest("#header-nav-desktop") && window.innerWidth >= 1024) return;
+      if (link.closest("#header-nav-desktop") && window.innerWidth >= 1024)
+        return;
 
       const href = link.getAttribute("href");
       if (!href || !href.startsWith("#")) return;
@@ -82,7 +83,7 @@ const isAnchor = href?.startsWith("#");
     bottom: -5px;
     opacity: 0;
     visibility: hidden;
-    transition: all .5s;
+    transition: all 0.5s;
   }
   .dark .link-animation:before {
     background-color: rgb(var(--color-link-underline-dark));
@@ -91,11 +92,11 @@ const isAnchor = href?.startsWith("#");
     width: 35px;
     opacity: 1;
     visibility: visible;
-    transition: all .5s;
+    transition: all 0.5s;
   }
   .link-animation:hover {
     color: rgb(var(--color-link-hover));
-    transition: all .5s;
+    transition: all 0.5s;
   }
   .dark .link-animation:hover {
     color: rgb(var(--color-link-hover-dark));

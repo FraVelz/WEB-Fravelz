@@ -9,30 +9,51 @@ interface MusicPlayerProps {
   className?: string;
 }
 
-export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPlayerProps) {
+export default function MusicPlayer({
+  isOpen,
+  onClose,
+  className = "",
+}: MusicPlayerProps) {
   const [translations, setTranslations] = useState<any>({});
   const audioRef = useRef<HTMLAudioElement>(null);
   const initializedRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
-  
-  const baseUrl = (import.meta.env.BASE_URL || '/').replace(/([^/])$/, '$1/');
+
+  const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 
   const t = translations;
 
   const canciones = useMemo(() => {
-    const getPath = (filename: string) => `${baseUrl}music/${encodeURIComponent(filename)}`;
+    const getPath = (filename: string) =>
+      `${baseUrl}music/${encodeURIComponent(filename)}`;
     return [
-      { nombre: t.cancion_chopin, src: getPath('Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3') },
-      { nombre: t.cancion_maluma, src: getPath('Maluma - Hawái (LetraLyrics).mp3') },
-      { nombre: t.cancion_bernes, src: getPath('Mark Bernes - Dark Night Марк Бернес - Тёмная Ночь.mp3') },
-      { nombre: t.cancion_bbno, src: getPath('bbno_-meant-to-be-_Sub.-español_.mp3') },
-      { nombre: t.cancion_skai, src: getPath('攬佬SKAI ISYOUGOD八方來財因果HD 高清官方完整版 MV.mp3') },
+      {
+        nombre: t.cancion_chopin,
+        src: getPath("Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3"),
+      },
+      {
+        nombre: t.cancion_maluma,
+        src: getPath("Maluma - Hawái (LetraLyrics).mp3"),
+      },
+      {
+        nombre: t.cancion_bernes,
+        src: getPath("Mark Bernes - Dark Night Марк Бернес - Тёмная Ночь.mp3"),
+      },
+      {
+        nombre: t.cancion_bbno,
+        src: getPath("bbno_-meant-to-be-_Sub.-español_.mp3"),
+      },
+      {
+        nombre: t.cancion_skai,
+        src: getPath("攬佬SKAI ISYOUGOD八方來財因果HD 高清官方完整版 MV.mp3"),
+      },
     ];
   }, [t, baseUrl]);
 
-  const [selectedSong, setSelectedSong] = useState(() =>
-    `${baseUrl}music/${encodeURIComponent('Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3')}`
+  const [selectedSong, setSelectedSong] = useState(
+    () =>
+      `${baseUrl}music/${encodeURIComponent("Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3")}`,
   );
 
   useEffect(() => {
@@ -41,17 +62,23 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
       setTranslations(event.detail.translations || {});
     };
 
-    window.addEventListener('language-changed', handleLanguageChange as EventListener);
-    
+    window.addEventListener(
+      "language-changed",
+      handleLanguageChange as EventListener,
+    );
+
     // Get initial translation
-    if (typeof window !== 'undefined' && (window as any).i18n) {
+    if (typeof window !== "undefined" && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
       const t = (window as any).i18n.getTranslations(currentLang);
       setTranslations(t || {});
     }
 
     return () => {
-      window.removeEventListener('language-changed', handleLanguageChange as EventListener);
+      window.removeEventListener(
+        "language-changed",
+        handleLanguageChange as EventListener,
+      );
     };
   }, []);
 
@@ -94,22 +121,22 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
     if (!audio || !initializedRef.current) return;
 
     const getFileName = (src: string) => {
-      if (!src) return '';
+      if (!src) return "";
       try {
         const url = new URL(src, window.location.href);
-        return url.pathname.split('/').pop();
+        return url.pathname.split("/").pop();
       } catch {
-        return src.split('/').pop();
+        return src.split("/").pop();
       }
     };
 
     const currentFileName = getFileName(audio.src);
     const newFileName = getFileName(selectedSong);
-    
+
     if (currentFileName === newFileName) return;
 
     const wasPlaying = isPlaying && audio.currentTime > 0 && !audio.paused;
-    
+
     audio.pause();
     audio.currentTime = 0;
     setIsPlaying(false);
@@ -120,18 +147,21 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
 
     if (wasPlaying) {
       const tryPlay = () => {
-        audio.play().then(() => {
-          setIsPlaying(true);
-        }).catch((err) => {
-          console.error("Error al reproducir nueva canción:", err);
-          setIsPlaying(false);
-        });
+        audio
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((err) => {
+            console.error("Error al reproducir nueva canción:", err);
+            setIsPlaying(false);
+          });
       };
 
       if (audio.readyState >= 1) {
         tryPlay();
       } else {
-        audio.addEventListener('loadedmetadata', tryPlay, { once: true });
+        audio.addEventListener("loadedmetadata", tryPlay, { once: true });
       }
     }
   }, [selectedSong, isPlaying]);
@@ -174,42 +204,33 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
 
   const modalContent = (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-3 sm:p-4 md:p-6"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 p-3 backdrop-blur-sm sm:p-4 md:p-6 dark:bg-black/60"
       onClick={onClose}
     >
       <div
-        className={`relative z-10 bg-gradient-to-br from-white via-slate-50 to-cyan-50/50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 border border-slate-200 dark:border-cyan-500/40 rounded-xl sm:rounded-2xl shadow-2xl shadow-slate-300/50 dark:shadow-cyan-500/40 w-full max-w-sm sm:max-w-md max-h-[90vh] sm:max-h-[85vh] overflow-hidden flex flex-col mx-auto my-auto ${className}`}
+        className={`relative z-10 mx-auto my-auto flex max-h-[90vh] w-full max-w-sm flex-col overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-cyan-50/50 shadow-2xl shadow-slate-300/50 sm:max-h-[85vh] sm:max-w-md sm:rounded-2xl dark:border-cyan-500/40 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:shadow-cyan-500/40 ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 bg-gradient-to-r from-cyan-100 via-slate-100 to-purple-100 dark:from-cyan-900/90 dark:via-gray-900/70 dark:to-purple-900/90 border-b border-slate-200 dark:border-cyan-500/40 px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex items-center justify-between gap-3 sm:gap-4 backdrop-blur-sm shrink-0">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-cyan-300 dark:to-purple-300 bg-clip-text text-transparent flex-1 flex items-center gap-2">
+        <div className="sticky top-0 flex shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-gradient-to-r from-cyan-100 via-slate-100 to-purple-100 px-4 py-4 backdrop-blur-sm sm:gap-4 sm:px-6 sm:py-5 md:px-8 md:py-6 dark:border-cyan-500/40 dark:from-cyan-900/90 dark:via-gray-900/70 dark:to-purple-900/90">
+          <h3 className="flex flex-1 items-center gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-lg font-bold text-transparent sm:text-xl md:text-2xl dark:from-cyan-300 dark:to-purple-300">
             {/* <FontAwesomeIcon icon={faMusic} className="text-base sm:text-lg md:text-xl" /> */}
             <span className="truncate">{t.selector_musica}</span>
           </h3>
           <button
             onClick={onClose}
-            className="cursor-pointer shrink-0 text-slate-500 hover:text-cyan-600 dark:text-gray-400 dark:hover:text-cyan-300 active:text-cyan-700 dark:active:text-cyan-400 transition-all duration-200 text-xl sm:text-2xl md:text-3xl font-bold hover:bg-cyan-500/20 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 flex items-center justify-center hover:scale-110 active:scale-95"
+            className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full text-xl font-bold text-slate-500 transition-all duration-200 hover:scale-110 hover:bg-cyan-500/20 hover:text-cyan-600 active:scale-95 active:text-cyan-700 sm:h-10 sm:w-10 sm:text-2xl md:h-12 md:w-12 md:text-3xl dark:text-gray-400 dark:hover:text-cyan-300 dark:active:text-cyan-400"
             aria-label="Cerrar"
           >
             ✕
           </button>
         </div>
 
-        <div className="overflow-y-auto flex-1 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 min-h-0 bg-white/50 dark:bg-transparent">
+        <div className="min-h-0 flex-1 overflow-y-auto bg-white/50 px-4 py-4 sm:px-6 sm:py-6 md:px-8 md:py-8 dark:bg-transparent">
           <div className="flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
             <select
               value={selectedSong}
               onChange={(e) => setSelectedSong(e.target.value)}
-              className="
-                w-full
-                py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg
-                bg-slate-100 dark:bg-gray-800 text-slate-800 dark:text-cyan-200 text-sm sm:text-base
-                border-2 border-slate-300 dark:border-cyan-500/30
-                hover:border-cyan-400 dark:hover:border-cyan-400/60
-                shadow-md shadow-slate-200 dark:shadow-cyan-500/20
-                cursor-pointer transition-all
-                focus:outline-none focus:ring-2 focus:ring-cyan-500/50
-              "
+              className="w-full cursor-pointer rounded-lg border-2 border-slate-300 bg-slate-100 px-3 py-2.5 text-sm text-slate-800 shadow-md shadow-slate-200 transition-all hover:border-cyan-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none sm:px-4 sm:py-3 sm:text-base dark:border-cyan-500/30 dark:bg-gray-800 dark:text-cyan-200 dark:shadow-cyan-500/20 dark:hover:border-cyan-400/60"
             >
               {canciones.map((cancion, i) => (
                 <option key={i} value={cancion.src}>
@@ -220,16 +241,7 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
 
             <button
               onClick={togglePlay}
-              className="
-                bg-gradient-to-r from-cyan-500 to-purple-500 dark:from-cyan-600 dark:to-purple-600 text-white
-                hover:from-cyan-400 hover:to-purple-400 dark:hover:from-cyan-500 dark:hover:to-purple-500
-                transition
-                cursor-pointer
-                px-5 sm:px-6 py-2.5 sm:py-3 rounded-full
-                flex items-center gap-2
-                font-semibold text-sm sm:text-base shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50
-                w-full justify-center
-              "
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition hover:from-cyan-400 hover:to-purple-400 hover:shadow-cyan-500/50 sm:px-6 sm:py-3 sm:text-base dark:from-cyan-600 dark:to-purple-600 dark:hover:from-cyan-500 dark:hover:to-purple-500"
             >
               {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} className="text-sm sm:text-base" /> */}
               {isPlaying ? t.pausar : t.reproducir}
@@ -242,33 +254,24 @@ export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPl
                 max="100"
                 value={progress}
                 onChange={handleProgressChange}
-                className="
-                  w-full cursor-pointer accent-cyan-500 dark:accent-cyan-400 hover:accent-cyan-400 dark:hover:accent-cyan-300
-                  h-2 sm:h-2.5
-                "
+                className="h-2 w-full cursor-pointer accent-cyan-500 hover:accent-cyan-400 sm:h-2.5 dark:accent-cyan-400 dark:hover:accent-cyan-300"
               />
             </div>
           </div>
         </div>
 
-        <div className="h-1 bg-gradient-to-r from-cyan-400/60 via-purple-400/40 to-cyan-400/60 dark:from-cyan-500/50 dark:via-purple-500/30 dark:to-cyan-500/50 shrink-0"></div>
+        <div className="h-1 shrink-0 bg-gradient-to-r from-cyan-400/60 via-purple-400/40 to-cyan-400/60 dark:from-cyan-500/50 dark:via-purple-500/30 dark:to-cyan-500/50"></div>
       </div>
     </div>
   );
 
   return (
     <>
-      <audio 
-        ref={audioRef} 
-        preload="metadata" 
-        loop 
-        crossOrigin="anonymous"
-      />
+      <audio ref={audioRef} preload="metadata" loop crossOrigin="anonymous" />
 
-      {isOpen && typeof document !== 'undefined' 
+      {isOpen && typeof document !== "undefined"
         ? createPortal(modalContent, document.body)
-        : null
-      }
+        : null}
     </>
   );
 }

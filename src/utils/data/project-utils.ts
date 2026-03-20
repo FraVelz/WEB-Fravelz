@@ -1,5 +1,5 @@
-import type { Project } from './project-types';
-import { projects } from './projects-list';
+import type { Project } from "./project-types";
+import { projects } from "./projects-list";
 
 /** Get all projects */
 export function getAllProjects(): Project[] {
@@ -17,7 +17,9 @@ export function getFeaturedProjects(): Project[] {
 }
 
 /** Get projects by category */
-export function getProjectsByCategory(category: Project['category']): Project[] {
+export function getProjectsByCategory(
+  category: Project["category"],
+): Project[] {
   return projects.filter((p) => p.category === category);
 }
 

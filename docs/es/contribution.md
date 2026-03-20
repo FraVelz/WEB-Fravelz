@@ -1,4 +1,3 @@
-
 # Contribuir
 
 Los pasos ordenados y cosas a tener en cuenta si quieres contribuir al proyecto, documentación para agregar cambios y entender el funcionamiento del proyecto.
@@ -44,7 +43,7 @@ Este es un proyecto personal, pero las sugerencias y mejoras son bienvenidas:
 
 **2. Instalar dependencias:**
 
-``` bash
+```bash
 pnpm install
 # o
 npm install
@@ -52,7 +51,7 @@ npm install
 
 **3. Iniciar servidor de desarrollo:**
 
-``` bash
+```bash
 pnpm dev
 ```
 
