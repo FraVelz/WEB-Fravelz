@@ -2,7 +2,7 @@
 
 ## Directorios Principales
 
-``` text
+```text
 WEB-Fravelz/
 ├── public/                    # Archivos estáticos servidos directamente
 │   ├── locales/              # Traducciones i18n (es, en, ru, zh)

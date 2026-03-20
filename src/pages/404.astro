@@ -7,15 +7,19 @@ let lang: Language = "es";
 // Check for language in cookies
 const cookieLang = Astro.cookies.get("lang")?.value;
 
-if (cookieLang && isValidLanguage(cookieLang)) { lang = cookieLang; }
+if (cookieLang && isValidLanguage(cookieLang)) {
+  lang = cookieLang;
+}
 
 // Check for language in Accept-Language header
 const acceptLanguage = Astro.request.headers.get("accept-language");
 
 if (acceptLanguage) {
-    const browserLang = acceptLanguage.split(",")[0].split("-")[0];
+  const browserLang = acceptLanguage.split(",")[0].split("-")[0];
 
-    if (isValidLanguage(browserLang)) { lang = browserLang; }
+  if (isValidLanguage(browserLang)) {
+    lang = browserLang;
+  }
 }
 
 const t = getTranslations(lang);
@@ -42,13 +46,17 @@ import Layout from "@/layouts/Layout.astro";
   }
 </style>
 
-<Layout title={t.error_404_page_title || "404 - Página no encontrada | Fravelz"} description={t.error_404_description || "Página no encontrada"} lang={lang}>
-  <main class="flex justify-center items-center h-screen">
+<Layout
+  title={t.error_404_page_title || "404 - Página no encontrada | Fravelz"}
+  description={t.error_404_description || "Página no encontrada"}
+  lang={lang}
+>
+  <main class="flex h-screen items-center justify-center">
     <!-- Ilustración SVG animada -->
-    <div class="absolute inset-0 flex justify-center items-center my-8">
+    <div class="absolute inset-0 my-8 flex items-center justify-center">
       <svg
         id="animation-404-circle"
-        class="w-64 h-64 sm:w-80 sm:h-80 overflow-visible text-cyan-500/30 dark:text-cyan-400/20"
+        class="h-64 w-64 overflow-visible text-cyan-500/30 sm:h-80 sm:w-80 dark:text-cyan-400/20"
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -88,17 +96,17 @@ import Layout from "@/layouts/Layout.astro";
       </svg>
     </div>
 
-    <div class="max-w-2xl w-full text-center space-y-8">
+    <div class="w-full max-w-2xl space-y-8 text-center">
       <!-- Número 404 con animación -->
       <div class="relative">
         <h1
           id="element-404-1"
-          class="text-9xl sm:text-[12rem] font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse"
+          class="animate-pulse bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-9xl font-bold text-transparent sm:text-[12rem]"
         >
           404
         </h1>
         <div
-          class="absolute inset-0 text-9xl sm:text-[12rem] font-bold text-cyan-500/20 blur-2xl"
+          class="absolute inset-0 text-9xl font-bold text-cyan-500/20 blur-2xl sm:text-[12rem]"
         >
           404
         </div>
@@ -108,7 +116,7 @@ import Layout from "@/layouts/Layout.astro";
       <div class="space-y-4">
         <h2
           id="element-404-2"
-          class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100"
+          class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-gray-100"
           data-i18n="error_404_title"
         >
           {t.error_404_title}
@@ -116,7 +124,7 @@ import Layout from "@/layouts/Layout.astro";
 
         <p
           id="element-404-3"
-          class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto"
+          class="mx-auto max-w-md text-base text-gray-600 sm:text-lg dark:text-gray-400"
           data-i18n="error_404_description"
         >
           {t.error_404_description}
@@ -127,16 +135,7 @@ import Layout from "@/layouts/Layout.astro";
       <div id="element-404-4" class="pt-4">
         <a
           href={`/${lang}/`}
-          class="inline-flex items-center gap-2
-            px-6 py-3
-            bg-gradient-to-r from-cyan-500 to-purple-500
-            hover:from-cyan-400 hover:to-purple-400
-            text-white font-bold text-lg
-            rounded-xl
-            transition-all duration-300
-            hover:shadow-2xl hover:shadow-cyan-500/50
-            hover:scale-105 active:scale-95
-            cursor-pointer"
+          class="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:from-cyan-400 hover:to-purple-400 hover:shadow-2xl hover:shadow-cyan-500/50 active:scale-95"
           data-i18n="error_404_back_home"
         >
           <svg
@@ -145,7 +144,7 @@ import Layout from "@/layouts/Layout.astro";
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
-            class="w-5 h-5"
+            class="h-5 w-5"
           >
             <path
               stroke-linecap="round"
@@ -166,29 +165,29 @@ import Layout from "@/layouts/Layout.astro";
   const tl = gsap.timeline();
 
   tl.to("#element-404-1", {
+    x: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power3.out",
+  })
+    .to("#element-404-2", {
       x: 0,
       opacity: 1,
       duration: 0.6,
-      ease: "power3.out"
-  })
-      .to("#element-404-2", {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power3.out"
-      })
-      .to("#element-404-3", {
-          x: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power3.out"
-      })
-      .to("#element-404-4", {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power3.out"
-      });
+      ease: "power3.out",
+    })
+    .to("#element-404-3", {
+      x: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power3.out",
+    })
+    .to("#element-404-4", {
+      y: 0,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power3.out",
+    });
 
   // runAnimation();
 </script>

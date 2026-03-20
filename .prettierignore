@@ -1,0 +1,33 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+package-lock.json
+
+# Build output
+dist
+.astro
+.vercel
+
+# Generated / cache
+*.min.js
+*.min.css
+
+# Assets (no need to format)
+public/fonts
+public/images
+public/pdfs
+*.pdf
+*.woff2
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.ico
+
+# Locales (JSON puede formatearse, descomenta si prefieres no tocarlos)
+# public/locals
+
+# Docs (pueden tener bloques de código que Prettier parsea incorrectamente)
+docs/

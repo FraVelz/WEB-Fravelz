@@ -37,15 +37,15 @@ import MobileDrawer from "./components/MobileDrawer.astro";
 
 <header
   id="header-main"
-  class="fixed top-0 w-full z-30 backdrop-blur-xl dark:bg-gray-900/50 bg-white/95 border-b-2 dark:border-gray-700/50 shadow-md shadow-cyan-500/10 dark:shadow-none"
+  class="fixed top-0 z-30 w-full border-b-2 bg-white/95 shadow-md shadow-cyan-500/10 backdrop-blur-xl dark:border-gray-700/50 dark:bg-gray-900/50 dark:shadow-none"
 >
   <div
-    class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between lg:justify-normal lg:gap-20"
+    class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:justify-normal lg:gap-20"
   >
     <!-- Logo -->
     <button
       id="logo"
-      class="text-3xl font-bold text-slate-900 dark:text-gray-100 transition-colors hover:text-cyan-600 dark:hover:text-cyan-300"
+      class="text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600 dark:text-gray-100 dark:hover:text-cyan-300"
     >
       Fravelz
     </button>
@@ -56,15 +56,15 @@ import MobileDrawer from "./components/MobileDrawer.astro";
     </script>
 
     <!-- Desktop -->
-    <div class="hidden lg:flex justify-between flex-1">
-      <ElementsHeader id="header-nav-desktop"/>
+    <div class="hidden flex-1 justify-between lg:flex">
+      <ElementsHeader id="header-nav-desktop" />
     </div>
 
     <!-- Mobile Button -->
     <button
       data-drawer-open
       id="header-mobile-button"
-      class="lg:hidden text-2xl text-slate-800 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
+      class="text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden dark:text-gray-300 dark:hover:text-cyan-300"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="drawer-menu"

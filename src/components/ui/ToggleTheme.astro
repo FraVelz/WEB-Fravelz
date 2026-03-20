@@ -11,30 +11,19 @@ const { classname } = Astro.props;
   >
 
   <button
-    class="theme-toggle-btn relative w-14 h-8 rounded-full
-           outline-none
-           bg-cyan-400 dark:bg-gray-700
-           transition-all duration-300 ease-in-out
-           hover:border-cyan-500 dark:hover:border-cyan-500
-           cursor-pointer shadow-md shadow-cyan-500/20 dark:shadow-none"
+    class="theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full bg-cyan-400 shadow-md shadow-cyan-500/20 transition-all duration-300 ease-in-out outline-none hover:border-cyan-500 dark:bg-gray-700 dark:shadow-none dark:hover:border-cyan-500"
     type="button"
     aria-label="Cambiar entre tema claro y oscuro"
     data-i18n-attr="aria-label:theme_toggle_aria"
   >
     <!-- Slider circle -->
     <span
-      class="theme-toggle-slider absolute top-1 left-0.5 w-6 h-6 rounded-full
-             bg-white dark:bg-gray-900
-             shadow-md
-             transition-all duration-300 ease-in-out
-             flex items-center justify-center"
+      class="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900"
       style="transform: translateX(0);"
     >
       <!-- Sun icon (light mode) -->
       <svg
-        class="theme-toggle-sun-icon w-4 h-4 text-yellow-500
-               transition-opacity duration-300
-               opacity-100 dark:opacity-0"
+        class="theme-toggle-sun-icon h-4 w-4 text-yellow-500 opacity-100 transition-opacity duration-300 dark:opacity-0"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -50,9 +39,7 @@ const { classname } = Astro.props;
 
       <!-- Moon icon (dark mode) -->
       <svg
-        class="theme-toggle-moon-icon w-4 h-4 text-cyan-300 absolute
-               transition-opacity duration-300
-               opacity-0 dark:opacity-100"
+        class="theme-toggle-moon-icon absolute h-4 w-4 text-cyan-300 opacity-0 transition-opacity duration-300 dark:opacity-100"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

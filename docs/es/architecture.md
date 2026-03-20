@@ -4,16 +4,9 @@
 
 ```astro
 // src/components/astro/NuevaSeccion.astro
----
-import { getTranslations, type Language } from '@/utils/i18n';
 
-interface Props {
-  lang?: Language;
-}
-
-const { lang = 'es' } = Astro.props;
-const t = getTranslations(lang);
----
+import { getTranslations, type Language } from '@/utils/i18n'; interface Props { lang?:
+Language; } const { lang = 'es' } = Astro.props; const t = getTranslations(lang);
 
 <section id="nueva-seccion">
   <h2>{t.titulo_nueva_seccion}</h2>
@@ -25,18 +18,14 @@ const t = getTranslations(lang);
 
 ```tsx
 // src/components/react/NuevaSeccion.tsx
-import { useState } from 'react';
-import { getTranslations, type Language } from '@/utils/i18n';
+import { useState } from "react";
+import { getTranslations, type Language } from "@/utils/i18n";
 
-export default function NuevaSeccion({ lang = 'es' }: { lang?: Language }) {
+export default function NuevaSeccion({ lang = "es" }: { lang?: Language }) {
   const t = getTranslations(lang);
   const [estado, setEstado] = useState(false);
-  
-  return (
-    <section>
-      {/* Contenido interactivo */}
-    </section>
-  );
+
+  return <section>{/* Contenido interactivo */}</section>;
 }
 ```
 
@@ -44,9 +33,9 @@ export default function NuevaSeccion({ lang = 'es' }: { lang?: Language }) {
 
 ```astro
 ---
-import NuevaSeccion from '../components/astro/NuevaSeccion.astro';
+import NuevaSeccion from "../components/astro/NuevaSeccion.astro";
 // o para React:
-import NuevaSeccion from '../components/react/NuevaSeccion';
+import NuevaSeccion from "../components/react/NuevaSeccion";
 ---
 
 <NuevaSeccion lang={lang} />
@@ -91,10 +80,13 @@ const t = getTranslations(lang);
 3. **Actualizar** `src/components/react/MusicPlayer.tsx`:
 
 ```tsx
-const canciones = useMemo(() => [
-  // ... canciones existentes
-  { nombre: t.cancion_nueva, src: getPath('nueva-cancion.mp3') },
-], [t, baseUrl]);
+const canciones = useMemo(
+  () => [
+    // ... canciones existentes
+    { nombre: t.cancion_nueva, src: getPath("nueva-cancion.mp3") },
+  ],
+  [t, baseUrl],
+);
 ```
 
 ---
@@ -127,7 +119,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -146,13 +138,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm build
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
       - uses: actions/deploy-pages@v4
 ```
 
@@ -170,7 +162,7 @@ El proyecto usa un sistema de traducciones propio basado en archivos JSON.
 
 **Estructura:**
 
-``` text
+```text
 src/locales/
 ├── es/          # Español (idioma por defecto)
 ├── en/          # English
@@ -196,8 +188,8 @@ src/locales/
 
 ```astro
 ---
-import { getTranslations } from '../utils/i18n';
-const t = getTranslations('es');
+import { getTranslations } from "../utils/i18n";
+const t = getTranslations("es");
 ---
 
 <h1>{t.hero_title}</h1>
@@ -206,9 +198,9 @@ const t = getTranslations('es');
 **En React:**
 
 ```tsx
-import { getTranslations, type Language } from '@/utils/i18n';
+import { getTranslations, type Language } from "@/utils/i18n";
 
-export default function Component({ lang = 'es' }: { lang?: Language }) {
+export default function Component({ lang = "es" }: { lang?: Language }) {
   const t = getTranslations(lang);
   return <h1>{t.hero_title}</h1>;
 }
@@ -221,7 +213,7 @@ export default function Component({ lang = 'es' }: { lang?: Language }) {
 3. **Traducir todos los archivos JSON**
 4. **Actualizar** `src/utils/i18n.ts`:
 
-``` ts
+```ts
 import {nuevoIdioma}Common from '../locales/{codigo}/common.json';
 // ... otros imports
 

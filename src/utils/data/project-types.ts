@@ -36,7 +36,7 @@ export interface Project {
   technologies: string[];
 
   /** Project category */
-  category: 'frontend' | 'fullstack' | 'tool' | 'other';
+  category: "frontend" | "fullstack" | "tool" | "other";
 
   /** Demo URL */
   demoUrl?: string;

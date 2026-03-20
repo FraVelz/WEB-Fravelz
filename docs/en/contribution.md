@@ -43,7 +43,7 @@ This is a personal project, but suggestions and improvements are welcome:
 
 **2. Install dependencies:**
 
-``` bash
+```bash
 pnpm install
 # or
 npm install
@@ -51,7 +51,7 @@ npm install
 
 **3. Start development server:**
 
-``` bash
+```bash
 pnpm dev
 ```
 
@@ -61,12 +61,12 @@ The site will be available at `http://localhost:4321/WEB-Fravelz/`.
 
 ## Available Scripts
 
-| Script         | Description                                    |
-| -------------- | ---------------------------------------------- |
-| `pnpm dev`     | Starts development server with hot-reload       |
-| `pnpm build`   | Generates optimized production build           |
-| `pnpm preview` | Previews the production build locally          |
-| `pnpm astro`   | Runs Astro CLI commands                        |
+| Script         | Description                               |
+| -------------- | ----------------------------------------- |
+| `pnpm dev`     | Starts development server with hot-reload |
+| `pnpm build`   | Generates optimized production build      |
+| `pnpm preview` | Previews the production build locally     |
+| `pnpm astro`   | Runs Astro CLI commands                   |
 
 ---
 

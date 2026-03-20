@@ -20,62 +20,61 @@ import Header from "./header/Header.astro";
 <Header />
 
 <main class="overflow-x-hidden">
-    <!-- Animated particles -->
-    <Particles />
+  <!-- Animated particles -->
+  <Particles />
 
-    <!-- Main content -->
-    <Presentation />
+  <!-- Main content -->
+  <Presentation />
 
-    <div class="horizontal relative w-full overflow-x-hidden">
-        <div class="containera flex max-lg:gap-14 max-lg:flex-col min-h-full">
-            <AboutMeSection
-            classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center space-y-8 p-10"
-            />
+  <div class="horizontal relative w-full overflow-x-hidden">
+    <div class="containera flex min-h-full max-lg:flex-col max-lg:gap-14">
+      <AboutMeSection
+        classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center space-y-8 p-10"
+      />
 
-            <TechnologiesSection
-            classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center"
-            />
+      <TechnologiesSection
+        classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center"
+      />
 
-            <ProjectsSection
-            classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
-            />
+      <ProjectsSection
+        classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"
+      />
 
-            <HobbiesSection
-            classname="panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
-            />
-        </div>
+      <HobbiesSection
+        classname="panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
+      />
     </div>
+  </div>
 
-    <ContactSection />
+  <ContactSection />
 
-    <script>
+  <script>
     import {
-        horizontalScroll,
-        desactiveHorizontalScroll,
+      horizontalScroll,
+      desactiveHorizontalScroll,
     } from "./script/horizontalScroll";
 
     let isActiveHorizontalScroll = false;
 
     // Ejecutar al cargar
     document.addEventListener("DOMContentLoaded", () => {
-        if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
+      if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
         horizontalScroll();
         isActiveHorizontalScroll = true;
-        }
+      }
     });
 
     // Ejecutar al cambiar tamaño
     window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
+      if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
         horizontalScroll();
         isActiveHorizontalScroll = true;
-
-        } else {
+      } else {
         desactiveHorizontalScroll();
         isActiveHorizontalScroll = false;
-        }
+      }
     });
-    </script>
+  </script>
 </main>
 
 <Footer />

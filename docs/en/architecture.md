@@ -4,16 +4,9 @@
 
 ```astro
 // src/components/astro/NewSection.astro
----
-import { getTranslations, type Language } from '@/utils/i18n';
 
-interface Props {
-  lang?: Language;
-}
-
-const { lang = 'es' } = Astro.props;
-const t = getTranslations(lang);
----
+import { getTranslations, type Language } from '@/utils/i18n'; interface Props { lang?:
+Language; } const { lang = 'es' } = Astro.props; const t = getTranslations(lang);
 
 <section id="new-section">
   <h2>{t.new_section_title}</h2>
@@ -25,18 +18,14 @@ const t = getTranslations(lang);
 
 ```tsx
 // src/components/react/NewSection.tsx
-import { useState } from 'react';
-import { getTranslations, type Language } from '@/utils/i18n';
+import { useState } from "react";
+import { getTranslations, type Language } from "@/utils/i18n";
 
-export default function NewSection({ lang = 'es' }: { lang?: Language }) {
+export default function NewSection({ lang = "es" }: { lang?: Language }) {
   const t = getTranslations(lang);
   const [state, setState] = useState(false);
-  
-  return (
-    <section>
-      {/* Interactive content */}
-    </section>
-  );
+
+  return <section>{/* Interactive content */}</section>;
 }
 ```
 
@@ -44,9 +33,9 @@ export default function NewSection({ lang = 'es' }: { lang?: Language }) {
 
 ```astro
 ---
-import NewSection from '../components/astro/NewSection.astro';
+import NewSection from "../components/astro/NewSection.astro";
 // or for React:
-import NewSection from '../components/react/NewSection';
+import NewSection from "../components/react/NewSection";
 ---
 
 <NewSection lang={lang} />
@@ -91,10 +80,13 @@ const t = getTranslations(lang);
 3. **Update** `src/components/ui-react/MusicPlayer.tsx`:
 
 ```tsx
-const songs = useMemo(() => [
-  // ... existing songs
-  { name: t.new_song, src: getPath('new-song.mp3') },
-], [t, baseUrl]);
+const songs = useMemo(
+  () => [
+    // ... existing songs
+    { name: t.new_song, src: getPath("new-song.mp3") },
+  ],
+  [t, baseUrl],
+);
 ```
 
 ---
@@ -127,7 +119,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -146,13 +138,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm build
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: "./dist"
       - uses: actions/deploy-pages@v4
 ```
 
@@ -170,7 +162,7 @@ The project uses a custom translation system based on JSON files.
 
 **Structure:**
 
-``` text
+```text
 public/locales/
 ├── es/          # Spanish (default language)
 ├── en/          # English
@@ -196,8 +188,8 @@ public/locales/
 
 ```astro
 ---
-import { getTranslations } from '../utils/i18n';
-const t = getTranslations('es');
+import { getTranslations } from "../utils/i18n";
+const t = getTranslations("es");
 ---
 
 <h1>{t.hero_title}</h1>
@@ -206,9 +198,9 @@ const t = getTranslations('es');
 **In React:**
 
 ```tsx
-import { getTranslations, type Language } from '@/utils/i18n';
+import { getTranslations, type Language } from "@/utils/i18n";
 
-export default function Component({ lang = 'es' }: { lang?: Language }) {
+export default function Component({ lang = "es" }: { lang?: Language }) {
   const t = getTranslations(lang);
   return <h1>{t.hero_title}</h1>;
 }
@@ -221,7 +213,7 @@ export default function Component({ lang = 'es' }: { lang?: Language }) {
 3. **Translate all JSON files**
 4. **Update** `src/utils/i18n.ts`:
 
-``` ts
+```ts
 // Add new language to the loadLocale / translations logic
 // (e.g. include the new code in the Language type and in the translations object)
 ```
