@@ -11,7 +11,6 @@ let horizontalAnim: gsap.core.Tween | null = null;
 let navClickHandler: ((e: MouseEvent) => void) | null = null;
 
 export function horizontalScroll() {
-
   // Get all panels that will move horizontally
   const sections = gsap.utils.toArray<HTMLElement>(".panel");
 
@@ -40,16 +39,17 @@ export function horizontalScroll() {
       scrub: 1,
 
       // Define how long the scroll should last
-      end: () => "+=" + (container.scrollWidth - window.innerWidth)
-    }
+      end: () => "+=" + (container.scrollWidth - window.innerWidth),
+    },
   });
 
   // Handler for header navigation links
   // (Link.astro does not handle #header-nav-desktop correctly on desktop)
   navClickHandler = (e: MouseEvent) => {
-
     // Detect clicks inside the desktop navigation
-    const link = (e.target as Element).closest<HTMLAnchorElement>("#header-nav-desktop a");
+    const link = (e.target as Element).closest<HTMLAnchorElement>(
+      "#header-nav-desktop a",
+    );
     if (!link) return;
 
     const id = link.getAttribute("href");
@@ -69,7 +69,7 @@ export function horizontalScroll() {
       gsap.to(window, {
         scrollTo: { y: 0 },
         duration: 1,
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       });
 
       history.replaceState(null, "", id);
@@ -98,7 +98,7 @@ export function horizontalScroll() {
     gsap.to(window, {
       scrollTo: { y: scrollPosition, autoKill: false },
       duration: 1,
-      ease: "power2.inOut"
+      ease: "power2.inOut",
     });
 
     history.replaceState(null, "", id);
@@ -109,7 +109,6 @@ export function horizontalScroll() {
 }
 
 export function desactiveHorizontalScroll() {
-
   // Remove navigation click handler
   if (navClickHandler) {
     document.removeEventListener("click", navClickHandler, true);
@@ -124,5 +123,5 @@ export function desactiveHorizontalScroll() {
   }
 
   // Kill any remaining ScrollTriggers
-  ScrollTrigger.getAll().forEach(st => st.kill());
+  ScrollTrigger.getAll().forEach((st) => st.kill());
 }

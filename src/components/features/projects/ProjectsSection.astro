@@ -17,17 +17,17 @@ const { classname = "" } = Astro.props;
 ---
 
 <section id="projects" class={classname}>
-  <div class="max-w-7xl mx-auto">
+  <div class="mx-auto max-w-7xl">
     <!-- Section title -->
-    <div class="text-center mb-12">
+    <div class="mb-12 text-center">
       <h2
-        class="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4"
+        class="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100"
         data-i18n="hacking_projects_title"
       >
         {t.hacking_projects_title || "Proyectos Principales"}
       </h2>
       <p
-        class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+        class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
         data-i18n="projects_section_description"
       >
         {
@@ -38,7 +38,7 @@ const { classname = "" } = Astro.props;
     </div>
 
     <!-- Projects grid (only first 3 on main page) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {
         projects.map((project) => (
           <div data-project-card>
@@ -51,7 +51,7 @@ const { classname = "" } = Astro.props;
     <!-- Link to full projects section -->
     {
       allProjects.length > 3 && (
-        <div class="text-center mt-12">
+        <div class="mt-12 text-center">
           <Button1 />
         </div>
       )
