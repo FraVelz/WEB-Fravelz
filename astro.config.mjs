@@ -1,12 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 import vercel from "@astrojs/vercel";
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
+import tailwindcss from "@tailwindcss/vite";
+import react from "@astrojs/react";
 
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
 export default defineConfig({
   site: "https://fravelz.vercel.app/",
@@ -19,7 +19,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
       },
     },
   },
