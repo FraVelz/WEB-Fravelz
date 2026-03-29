@@ -28,6 +28,31 @@ export interface Certificate {
  * }
  */
 
+/** Agrupa certificados en secciones disjuntas (cada certificado aparece una sola vez). */
+export function groupCertificates(certs: Certificate[]) {
+  const hixec = certs.filter((c) => c.issuer === "Hixec");
+  const hack4u = certs.filter((c) => c.issuer === "Hack4u");
+  const web = certs.filter(
+    (c) =>
+      c.category === "web" &&
+      c.issuer !== "Hixec" &&
+      c.issuer !== "Hack4u",
+  );
+  const other = certs.filter(
+    (c) =>
+      c.category !== "web" &&
+      c.issuer !== "Hixec" &&
+      c.issuer !== "Hack4u",
+  );
+  const n = hixec.length + hack4u.length + web.length + other.length;
+  if (n !== certs.length) {
+    throw new Error(
+      `groupCertificates: se agruparon ${n} de ${certs.length} certificados; revisa categorías e issuers.`,
+    );
+  }
+  return { web, hixec, hack4u, other };
+}
+
 export const certificates: Certificate[] = [
   // --- Web Development (midudev) ---
   {
@@ -101,6 +126,82 @@ export const certificates: Certificate[] = [
     pdfPath: "/pdfs/midudev/utilityTypes-typescript.pdf",
     shortDescription:
       "Uso de utility types de TypeScript para tipar mejor aplicaciones web.",
+  },
+
+  // --- Web / frontend (SoloLearn) ---
+  {
+    id: "sololearn-html",
+    title: "Introducción a HTML",
+    issuer: "SoloLearn",
+    category: "web",
+    pdfPath: "/pdfs/sololearn/introduction-to-html.pdf",
+    shortDescription:
+      "Fundamentos de HTML en la plataforma SoloLearn.",
+  },
+  {
+    id: "sololearn-javascript",
+    title: "Introducción a JavaScript",
+    issuer: "SoloLearn",
+    category: "web",
+    pdfPath: "/pdfs/sololearn/introduction-to-javascript.pdf",
+    shortDescription:
+      "Bases de JavaScript para desarrollo web interactivo.",
+  },
+
+  // --- Programación general (SoloLearn) ---
+  {
+    id: "sololearn-python-intro",
+    title: "Introducción a Python",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/introduction-to-python.pdf",
+    shortDescription:
+      "Primeros pasos en Python y sintaxis esencial.",
+  },
+  {
+    id: "sololearn-python-intermediate",
+    title: "Python intermedio",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/python-intermediate.pdf",
+    shortDescription:
+      "Conceptos intermedios de Python y práctica estructurada.",
+  },
+  {
+    id: "sololearn-c-intro",
+    title: "Introducción a C",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/introduction-to-c.pdf",
+    shortDescription:
+      "Fundamentos del lenguaje C.",
+  },
+  {
+    id: "sololearn-c-intermediate",
+    title: "C intermedio",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/c-intermediate.pdf",
+    shortDescription:
+      "Profundización en C más allá del nivel básico.",
+  },
+  {
+    id: "sololearn-cpp-intro",
+    title: "Introducción a C++",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/introduction-to-cpp.pdf",
+    shortDescription:
+      "Primeros pasos en C++ y paradigmas básicos.",
+  },
+  {
+    id: "sololearn-cpp-intermediate",
+    title: "C++ intermedio",
+    issuer: "SoloLearn",
+    category: "other",
+    pdfPath: "/pdfs/sololearn/cpp-Intermediate.pdf",
+    shortDescription:
+      "Conceptos intermedios de C++ en SoloLearn.",
   },
 
   // --- Cybersecurity / Ethical hacking (Hixec) ---
