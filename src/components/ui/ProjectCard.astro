@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import { Image } from "astro:assets";
 import type { Project } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
@@ -34,7 +36,11 @@ const descriptions = {
 ---
 
 <article
-  class="group relative h-full overflow-hidden rounded-xl border-2 border-gray-200 bg-white shadow-md transition-all duration-300 hover:border-cyan-500 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400"
+  class={clsx(
+    "group relative h-full overflow-hidden rounded-xl border-2 border-gray-200 bg-white shadow-md",
+    "transition-all duration-300 hover:border-cyan-500 hover:shadow-xl",
+    "dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400",
+  )}
   data-project-card-content
   data-title-es={titles.es}
   data-title-en={titles.en}
@@ -98,7 +104,10 @@ const descriptions = {
   <div class="p-6">
     <!-- Título (se actualiza con el idioma en el cliente) -->
     <h3
-      class="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-cyan-600 dark:text-gray-100 dark:group-hover:text-cyan-400"
+      class={clsx(
+        "mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-cyan-600",
+        "dark:text-gray-100 dark:group-hover:text-cyan-400",
+      )}
       data-project-title
     >
       {title}
@@ -135,7 +144,10 @@ const descriptions = {
     <!-- Botón Ver Proyecto -->
     <a
       href={projectUrl}
-      class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 transition-colors group-hover:underline hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300"
+      class={clsx(
+        "inline-flex items-center gap-2 text-sm font-semibold text-cyan-600 transition-colors",
+        "group-hover:underline hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300",
+      )}
       data-i18n="projects_view_project"
     >
       {t.projects_view_project || "Ver Proyecto"}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import clsx from "clsx";
 import PdfViewerModal from "./PdfViewerModal";
 
 interface Certificate {
@@ -60,7 +61,11 @@ export default function CertificatesWithViewer({
     borderClass: string;
   }) => (
     <article
-      className={`flex flex-col gap-2 rounded-2xl border p-4 shadow-sm backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:shadow-lg ${borderClass}`}
+      className={clsx(
+        "flex flex-col gap-2 rounded-2xl border p-4 shadow-sm backdrop-blur-sm transition-all",
+        "hover:-translate-y-0.5 hover:shadow-lg",
+        borderClass,
+      )}
     >
       <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50">
         {cert.title}
@@ -78,7 +83,10 @@ export default function CertificatesWithViewer({
         <button
           type="button"
           onClick={() => openViewer(cert.pdfPath!, cert.title)}
-          className="mt-auto inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 text-left text-xs text-cyan-700 hover:underline dark:text-cyan-300"
+          className={clsx(
+            "mt-auto inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 text-left",
+            "text-xs text-cyan-700 hover:underline dark:text-cyan-300",
+          )}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +113,12 @@ export default function CertificatesWithViewer({
       {webCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-700 dark:bg-cyan-900/50 dark:text-cyan-200">
+            <span
+              className={clsx(
+                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-700",
+                "dark:bg-cyan-900/50 dark:text-cyan-200",
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -138,7 +151,12 @@ export default function CertificatesWithViewer({
       {hixecCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-200">
+            <span
+              className={clsx(
+                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-amber-700",
+                "dark:bg-amber-900/50 dark:text-amber-200",
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -171,7 +189,12 @@ export default function CertificatesWithViewer({
       {hack4uCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200">
+            <span
+              className={clsx(
+                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-800",
+                "dark:bg-emerald-900/50 dark:text-emerald-200",
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -204,7 +227,12 @@ export default function CertificatesWithViewer({
       {otherCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+            <span
+              className={clsx(
+                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700",
+                "dark:bg-slate-800 dark:text-slate-200",
+              )}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
