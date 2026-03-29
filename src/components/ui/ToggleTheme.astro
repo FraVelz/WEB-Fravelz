@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 interface Props {
   classname?: string;
 }
@@ -11,14 +13,21 @@ const { classname } = Astro.props;
   >
 
   <button
-    class="theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full bg-cyan-400 shadow-md shadow-cyan-500/20 transition-all duration-300 ease-in-out outline-none hover:border-cyan-500 dark:bg-gray-700 dark:shadow-none dark:hover:border-cyan-500"
+    class={clsx(
+      "theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full bg-cyan-400 shadow-md shadow-cyan-500/20",
+      "transition-all duration-300 ease-in-out outline-none hover:border-cyan-500",
+      "dark:bg-gray-700 dark:shadow-none dark:hover:border-cyan-500",
+    )}
     type="button"
     aria-label="Cambiar entre tema claro y oscuro"
     data-i18n-attr="aria-label:theme_toggle_aria"
   >
     <!-- Slider circle -->
     <span
-      class="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900"
+      class={clsx(
+        "theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full",
+        "bg-white shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900",
+      )}
       style="transform: translateX(0);"
     >
       <!-- Sun icon (light mode) -->

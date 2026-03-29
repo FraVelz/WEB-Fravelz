@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import "@/styles/global.css";
 
 interface Props {
@@ -123,7 +125,10 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
   </head>
 
   <body
-    class="min-h-screen w-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 text-slate-900 dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-white"
+    class={clsx(
+      "min-h-screen w-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 text-slate-900",
+      "dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-white",
+    )}
   >
     <slot />
   </body>

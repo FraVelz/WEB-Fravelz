@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import Link from "@/components/ui/Link.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
 
@@ -60,7 +62,10 @@ const { id } = Astro.props;
     </svg>
 
     <select
-      class="language-selector cursor-pointer rounded-lg bg-transparent text-sm font-medium text-cyan-600 transition-all dark:text-cyan-200"
+      class={clsx(
+        "language-selector cursor-pointer rounded-lg bg-transparent text-sm font-medium",
+        "text-cyan-600 transition-all dark:text-cyan-200",
+      )}
       aria-label="Seleccionar idioma de la página"
       data-i18n-attr="aria-label:nav_select_language_aria"
     >

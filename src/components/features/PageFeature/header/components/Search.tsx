@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { useState, useEffect, useRef, useMemo } from "react";
+import clsx from "clsx";
 import { getAllProjects } from "@/utils/data/projects";
 import { certificates } from "@/utils/data/certificates";
 import { technologies } from "@/components/features/technologies/data";
@@ -299,7 +300,10 @@ function Modal({
       />
 
       <div
-        className="relative w-full max-w-xl overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-gray-200/50 dark:bg-gray-900 dark:ring-gray-700/50"
+        className={clsx(
+          "relative w-full max-w-xl overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-gray-200/50",
+          "dark:bg-gray-900 dark:ring-gray-700/50",
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
@@ -325,12 +329,18 @@ function Modal({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar en toda la página..."
-            className="min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none dark:text-gray-100 dark:placeholder-gray-500"
+            className={clsx(
+              "min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none",
+              "dark:text-gray-100 dark:placeholder-gray-500",
+            )}
           />
           <button
             type="button"
             onClick={() => setIsActive(false)}
-            className="shrink-0 cursor-pointer rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+            className={clsx(
+              "shrink-0 cursor-pointer rounded-lg p-1.5 text-gray-400 transition-colors",
+              "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300",
+            )}
             aria-label="Cerrar búsqueda"
           >
             <svg
