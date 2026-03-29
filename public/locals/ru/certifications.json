@@ -6,6 +6,8 @@
   "cert_web_empty": "Я ещё не загрузил веб-сертификаты сюда. Когда загружу, они появятся со ссылками на PDF.",
   "cert_other_title": "Другие сертификаты",
   "cert_hixec_title": "Хакинг - Сертификаты Hixec",
+  "cert_hack4u_title": "Хакинг - Сертификаты Hack4u",
+  "cert_other_courses_title": "Другие курсы (SoloLearn и др.)",
   "cert_savitar_title": "Хакинг - Сертификаты Savitar",
   "cert_other_empty": "Сертификаты по backend и другим областям появятся здесь, когда вы добавите их в public/pdfs/ и зарегистрируете в src/data/certificates.ts.",
   "cert_section_title": "Сертификаты в процессе",
