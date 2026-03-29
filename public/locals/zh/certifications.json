@@ -6,6 +6,8 @@
   "cert_web_empty": "我尚未在此上传Web证书。上传后，将列出可下载的PDF。",
   "cert_other_title": "其他证书",
   "cert_hixec_title": "黑客 - Hixec 证书",
+  "cert_hack4u_title": "黑客 - Hack4u 证书",
+  "cert_other_courses_title": "其他课程（SoloLearn 等）",
   "cert_savitar_title": "黑客 - Savitar 证书",
   "cert_other_empty": "当您将证书添加到 public/pdfs/ 并在 src/data/certificates.ts 中注册后，后端或其他领域的证书将显示在此处。",
   "cert_section_title": "正在进行的认证",

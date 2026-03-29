@@ -19,8 +19,8 @@ interface Props {
 }
 const { classname = "" } = Astro.props;
 
-const frontendTech = technologies.filter((t) => t.category === "frontend");
-const backendTech = technologies.filter((t) => t.category === "backend");
+// const frontendTech = technologies.filter((t) => t.category === "frontend");
+// const backendTech = technologies.filter((t) => t.category === "backend");
 // const bothTech = technologies.filter((t) => t.category === "both");
 ---
 
@@ -42,135 +42,56 @@ const backendTech = technologies.filter((t) => t.category === "backend");
 
     <!-- FRONTEND -->
     {
-      frontendTech.length > 0 && (
-        <div>
-          <h3
-            class="tech-section-title mb-5 text-2xl font-semibold"
-            style="--section-accent: var(--color-success)"
-            data-i18n="tech_category_frontend"
-          >
-            {t.tech_category_frontend || "Frontend"}
-          </h3>
-
-          <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {frontendTech.map((tech) => {
-              const pct = getProgressPercent(tech.level);
-              return (
-                <div
-                  class="tech-card rounded-2xl border p-6 transition"
-                  style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
-                >
-                  <div class="mb-4 flex items-center gap-4">
-                    <div class="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
-                      <div
-                        class="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
-                        set:html={tech.svg}
-                      />
-                    </div>
-                    <h4 class="tech-text text-lg font-semibold">{tech.name}</h4>
-                  </div>
-
-                  <p class="tech-muted mb-4 text-sm">
-                    <span class="font-semibold" data-i18n="tech_info_level">
-                      {t.tech_info_level || "Nivel"}:
-                    </span>{" "}
-                    <span
-                      class={getLevelClass(tech.level)}
-                      data-i18n={tech.levelKey}
-                    >
-                      {t[tech.levelKey] || tech.level}
-                    </span>
-                    <span class="tech-dot">·</span>
-                    <span class="font-semibold" data-i18n="tech_info_category">
-                      {t.tech_info_category || "Categoría"}:
-                    </span>{" "}
-                    <span
-                      class={getCategoryClass(tech.category)}
-                      data-i18n={tech.categoryKey}
-                    >
-                      {t[tech.categoryKey] || tech.category}
-                    </span>
-                  </p>
-
-                  <div class="tech-meter h-2 rounded-full">
+      technologies.length > 0 && (
+        <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {technologies.map((tech) => {
+            const pct = getProgressPercent(tech.level);
+            return (
+              <div
+                class="tech-card rounded-2xl border p-6 transition"
+                style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
+              >
+                <div class="mb-4 flex items-center gap-4">
+                  <div class="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
                     <div
-                      class="tech-meter-bar h-2 rounded-full"
-                      style={`width: ${pct}%`}
+                      class="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
+                      set:html={tech.svg}
                     />
                   </div>
+                  <h4 class="tech-text text-lg font-semibold">{tech.name}</h4>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      )
-    }
 
-    <!-- BACKEND -->
-    {
-      backendTech.length > 0 && (
-        <div>
-          <h3
-            class="tech-section-title mb-5 text-2xl font-semibold"
-            style="--section-accent: var(--color-warning)"
-            data-i18n="tech_category_backend"
-          >
-            {t.tech_category_backend || "Backend"}{" "}
-            <span class="tech-muted font-medium">
-              ({t.tech_level_learning || "En aprendizaje"})
-            </span>
-          </h3>
+                <p class="tech-muted mb-4 text-sm">
+                  <span class="font-semibold" data-i18n="tech_info_level">
+                    {t.tech_info_level || "Nivel"}:
+                  </span>{" "}
+                  <span
+                    class={getLevelClass(tech.level)}
+                    data-i18n={tech.levelKey}
+                  >
+                    {t[tech.levelKey] || tech.level}
+                  </span>
+                  <span class="tech-dot">·</span>
+                  <span class="font-semibold" data-i18n="tech_info_category">
+                    {t.tech_info_category || "Categoría"}:
+                  </span>{" "}
+                  <span
+                    class={getCategoryClass(tech.category)}
+                    data-i18n={tech.categoryKey}
+                  >
+                    {t[tech.categoryKey] || tech.category}
+                  </span>
+                </p>
 
-          <div class="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-            {backendTech.map((tech) => {
-              const pct = getProgressPercent(tech.level);
-              return (
-                <div
-                  class="tech-card rounded-2xl border p-6 transition"
-                  style={`--accent: ${getAccentVar(tech.id)}; --bar: ${getBarVar(tech.level)};`}
-                >
-                  <div class="mb-4 flex items-center gap-4">
-                    <div class="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
-                      <div
-                        class="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
-                        set:html={tech.svg}
-                      />
-                    </div>
-                    <h4 class="tech-text text-lg font-semibold">{tech.name}</h4>
-                  </div>
-
-                  <p class="tech-muted mb-4 text-sm">
-                    <span class="font-semibold" data-i18n="tech_info_level">
-                      {t.tech_info_level || "Nivel"}:
-                    </span>{" "}
-                    <span
-                      class={getLevelClass(tech.level)}
-                      data-i18n={tech.levelKey}
-                    >
-                      {t[tech.levelKey] || tech.level}
-                    </span>
-                    <span class="tech-dot">·</span>
-                    <span class="font-semibold" data-i18n="tech_info_category">
-                      {t.tech_info_category || "Categoría"}:
-                    </span>{" "}
-                    <span
-                      class={getCategoryClass(tech.category)}
-                      data-i18n={tech.categoryKey}
-                    >
-                      {t[tech.categoryKey] || tech.category}
-                    </span>
-                  </p>
-
-                  <div class="tech-meter h-2 rounded-full">
-                    <div
-                      class="tech-meter-bar h-2 rounded-full"
-                      style={`width: ${pct}%`}
-                    />
-                  </div>
+                <div class="tech-meter h-2 rounded-full">
+                  <div
+                    class="tech-meter-bar h-2 rounded-full"
+                    style={`width: ${pct}%`}
+                  />
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       )
     }

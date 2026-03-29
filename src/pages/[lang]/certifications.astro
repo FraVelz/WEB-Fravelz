@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import Footer from "@/components/ui/Footer.astro";
 import CertificatesWithViewer from "@/components/ui-react/CertificatesWithViewer";
 
-import { certificates } from "@/utils/data/certificates";
+import { certificates, groupCertificates } from "@/utils/data/certificates";
 import { getTranslations, type Language, languages } from "@/utils/i18n";
 
 export async function getStaticPaths() {
@@ -17,11 +17,8 @@ const lang = Astro.params.lang as Language;
 const t = await getTranslations(lang);
 const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 
-const webCerts = certificates.filter((c) => c.category === "web");
-const hixecCerts = certificates.filter((c) => c.issuer === "Hixec");
-const savitarCerts = certificates.filter(
-  (c) => c.category !== "web" && c.issuer !== "Hixec",
-);
+const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts } =
+  groupCertificates(certificates);
 ---
 
 <Layout
@@ -117,7 +114,8 @@ const savitarCerts = certificates.filter(
           {
             webCerts.length === 0 &&
             hixecCerts.length === 0 &&
-            savitarCerts.length === 0 ? (
+            hack4uCerts.length === 0 &&
+            otherCerts.length === 0 ? (
               <p class="text-sm text-slate-600 dark:text-slate-400">
                 <span data-i18n="cert_web_empty">
                   {t.cert_web_empty ||
@@ -129,13 +127,15 @@ const savitarCerts = certificates.filter(
                 client:load
                 webCerts={webCerts}
                 hixecCerts={hixecCerts}
-                savitarCerts={savitarCerts}
+                hack4uCerts={hack4uCerts}
+                otherCerts={otherCerts}
                 clickToViewText={t.cert_click_to_view || "Haz clic para ver →"}
                 closeText={t.cert_viewer_close || "Cerrar"}
                 downloadText={t.cert_viewer_download || "Descargar PDF"}
                 webTitle={t.cert_web_title || "Certificados de Desarrollo Web"}
                 hixecTitle={t.cert_hixec_title || "Certificados Hixec"}
-                savitarTitle={t.cert_savitar_title || "Certificados Savitar"}
+                hack4uTitle={t.cert_hack4u_title || "Certificados Hack4u"}
+                otherTitle={t.cert_other_courses_title || "Otros cursos"}
               />
             )
           }

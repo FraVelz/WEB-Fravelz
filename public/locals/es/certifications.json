@@ -6,6 +6,8 @@
   "cert_web_empty": "Aún no he subido certificados web aquí. Cuando los tenga, aparecerán listados con sus PDFs descargables.",
   "cert_other_title": "Otros Certificados",
   "cert_hixec_title": "Hacking - Certificados Hixec",
+  "cert_hack4u_title": "Hacking - Certificados Hack4u",
+  "cert_other_courses_title": "Otros cursos (SoloLearn, etc.)",
   "cert_savitar_title": "Hacking - Certificados Savitar",
   "cert_other_empty": "Aquí aparecerán certificados de backend u otras áreas cuando los subas a public/pdfs/ y los registres en src/data/certificates.ts.",
   "cert_section_title": "Certificaciones en Progreso",
