@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import { getTranslations, type Language } from "@/utils/i18n";
 
 const lang = Astro.params.lang as Language;
@@ -34,7 +36,10 @@ const { classname = "" } = Astro.props;
 
     <!-- Línea -->
     <div
-      class="about-timeline-line absolute top-1/2 left-0 z-10 h-1 w-full -translate-y-1/2 max-lg:top-0 max-lg:left-5 max-lg:h-full max-lg:w-1 max-lg:translate-y-0"
+      class={clsx(
+        "about-timeline-line absolute top-1/2 left-0 z-10 h-1 w-full -translate-y-1/2",
+        "max-lg:top-0 max-lg:left-5 max-lg:h-full max-lg:w-1 max-lg:translate-y-0",
+      )}
     >
     </div>
 
@@ -44,7 +49,10 @@ const { classname = "" } = Astro.props;
           class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
         >
           <div
-            class={`absolute h-fit w-45 rounded-lg py-4 text-left lg:text-center ${index % 2 === 0 ? "bottom-10" : "top-10"} max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full`}
+            class={clsx(
+              "absolute h-fit w-45 rounded-lg py-4 text-left lg:text-center max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full",
+              index % 2 === 0 ? "bottom-10" : "top-10",
+            )}
           >
             <div class="about-timeline-year mb-2 font-bold">{value[1]}</div>
 

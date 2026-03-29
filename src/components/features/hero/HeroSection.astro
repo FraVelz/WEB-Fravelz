@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
 import LocationBadge from "@/components/ui/LocationBadge.astro";
 import { getTranslations, type Language } from "@/utils/i18n";
@@ -13,22 +15,34 @@ const t = getTranslations(lang);
   class="flex h-screen w-screen flex-col items-center justify-center"
 >
   <div
-    class="mt-32 grid grid-cols-1 items-center gap-6 px-4 py-12 sm:py-16 lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto] lg:items-start lg:py-24"
+    class={clsx(
+      "mt-32 grid grid-cols-1 items-center gap-6 px-4 py-12 sm:py-16",
+      "lg:grid-cols-[auto_1fr] lg:grid-rows-[auto_1fr_auto] lg:items-start lg:py-24",
+    )}
   >
     <!-- Logo with animated border -->
     <div
-      class="relative row-span-2 mx-auto h-32 w-32 flex-shrink-0 sm:h-48 sm:w-48 lg:row-span-3 lg:mr-6 lg:h-64 lg:w-64"
+      class={clsx(
+        "relative row-span-2 mx-auto h-32 w-32 flex-shrink-0 sm:h-48 sm:w-48",
+        "lg:row-span-3 lg:mr-6 lg:h-64 lg:w-64",
+      )}
     >
       <!-- Rotating border -->
       <div
-        class="absolute inset-0 animate-[spin_2s_linear_infinite] rounded-full bg-gradient-to-r from-purple-500 via-transparent to-cyan-500 p-3 sm:p-4"
+        class={clsx(
+          "absolute inset-0 animate-[spin_2s_linear_infinite] rounded-full bg-gradient-to-r",
+          "from-purple-500 via-transparent to-cyan-500 p-3 sm:p-4",
+        )}
         aria-hidden="true"
       >
       </div>
 
       <!-- Logo image -->
       <div
-        class="absolute inset-1 z-10 overflow-hidden rounded-full border-2 border-cyan-200/50 bg-cyan-50 shadow-inner sm:inset-2 dark:border-transparent dark:bg-gray-900"
+        class={clsx(
+          "absolute inset-1 z-10 overflow-hidden rounded-full border-2 border-cyan-200/50 bg-cyan-50 shadow-inner",
+          "sm:inset-2 dark:border-transparent dark:bg-gray-900",
+        )}
       >
         <img
           draggable="false"
@@ -45,7 +59,10 @@ const t = getTranslations(lang);
     <div>
       <!-- Name -->
       <h1
-        class="self-end bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl lg:text-left lg:text-4xl"
+        class={clsx(
+          "self-end bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-center text-2xl font-bold",
+          "text-transparent sm:text-3xl lg:text-left lg:text-4xl",
+        )}
       >
         Francisco J. Vélez O.
       </h1>
@@ -102,7 +119,10 @@ const t = getTranslations(lang);
   <!-- Scroll down indicator -->
   <div class="flex h-fit w-fit justify-center px-3 py-5 max-md:hidden">
     <div
-      class="z-10 flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700 transition-all select-none hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400"
+      class={clsx(
+        "z-10 flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700 transition-all select-none",
+        "hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400",
+      )}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

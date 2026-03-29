@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
+import clsx from "clsx";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPlay, faPause, faMusic } from "@fortawesome/free-solid-svg-icons";
 
@@ -208,17 +209,40 @@ export default function MusicPlayer({
       onClick={onClose}
     >
       <div
-        className={`relative z-10 mx-auto my-auto flex max-h-[90vh] w-full max-w-sm flex-col overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-cyan-50/50 shadow-2xl shadow-slate-300/50 sm:max-h-[85vh] sm:max-w-md sm:rounded-2xl dark:border-cyan-500/40 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:shadow-cyan-500/40 ${className}`}
+        className={clsx(
+          "relative z-10 mx-auto my-auto flex max-h-[90vh] w-full max-w-sm flex-col overflow-hidden rounded-xl",
+          "border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-cyan-50/50 shadow-2xl shadow-slate-300/50",
+          "sm:max-h-[85vh] sm:max-w-md sm:rounded-2xl",
+          "dark:border-cyan-500/40 dark:from-gray-900 dark:via-gray-900 dark:to-gray-950 dark:shadow-cyan-500/40",
+          className,
+        )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 flex shrink-0 items-center justify-between gap-3 border-b border-slate-200 bg-gradient-to-r from-cyan-100 via-slate-100 to-purple-100 px-4 py-4 backdrop-blur-sm sm:gap-4 sm:px-6 sm:py-5 md:px-8 md:py-6 dark:border-cyan-500/40 dark:from-cyan-900/90 dark:via-gray-900/70 dark:to-purple-900/90">
-          <h3 className="flex flex-1 items-center gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-lg font-bold text-transparent sm:text-xl md:text-2xl dark:from-cyan-300 dark:to-purple-300">
+        <div
+          className={clsx(
+            "sticky top-0 flex shrink-0 items-center justify-between gap-3 border-b border-slate-200",
+            "bg-gradient-to-r from-cyan-100 via-slate-100 to-purple-100 px-4 py-4 backdrop-blur-sm",
+            "sm:gap-4 sm:px-6 sm:py-5 md:px-8 md:py-6",
+            "dark:border-cyan-500/40 dark:from-cyan-900/90 dark:via-gray-900/70 dark:to-purple-900/90",
+          )}
+        >
+          <h3
+            className={clsx(
+              "flex flex-1 items-center gap-2 bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text",
+              "text-lg font-bold text-transparent sm:text-xl md:text-2xl dark:from-cyan-300 dark:to-purple-300",
+            )}
+          >
             {/* <FontAwesomeIcon icon={faMusic} className="text-base sm:text-lg md:text-xl" /> */}
             <span className="truncate">{t.selector_musica}</span>
           </h3>
           <button
             onClick={onClose}
-            className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full text-xl font-bold text-slate-500 transition-all duration-200 hover:scale-110 hover:bg-cyan-500/20 hover:text-cyan-600 active:scale-95 active:text-cyan-700 sm:h-10 sm:w-10 sm:text-2xl md:h-12 md:w-12 md:text-3xl dark:text-gray-400 dark:hover:text-cyan-300 dark:active:text-cyan-400"
+            className={clsx(
+              "flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full text-xl font-bold",
+              "text-slate-500 transition-all duration-200 hover:scale-110 hover:bg-cyan-500/20 hover:text-cyan-600",
+              "active:scale-95 active:text-cyan-700 sm:h-10 sm:w-10 sm:text-2xl md:h-12 md:w-12 md:text-3xl",
+              "dark:text-gray-400 dark:hover:text-cyan-300 dark:active:text-cyan-400",
+            )}
             aria-label="Cerrar"
           >
             ✕
@@ -230,7 +254,12 @@ export default function MusicPlayer({
             <select
               value={selectedSong}
               onChange={(e) => setSelectedSong(e.target.value)}
-              className="w-full cursor-pointer rounded-lg border-2 border-slate-300 bg-slate-100 px-3 py-2.5 text-sm text-slate-800 shadow-md shadow-slate-200 transition-all hover:border-cyan-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none sm:px-4 sm:py-3 sm:text-base dark:border-cyan-500/30 dark:bg-gray-800 dark:text-cyan-200 dark:shadow-cyan-500/20 dark:hover:border-cyan-400/60"
+              className={clsx(
+                "w-full cursor-pointer rounded-lg border-2 border-slate-300 bg-slate-100 px-3 py-2.5 text-sm text-slate-800",
+                "shadow-md shadow-slate-200 transition-all hover:border-cyan-400 focus:ring-2 focus:ring-cyan-500/50 focus:outline-none",
+                "sm:px-4 sm:py-3 sm:text-base",
+                "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-cyan-200 dark:shadow-cyan-500/20 dark:hover:border-cyan-400/60",
+              )}
             >
               {canciones.map((cancion, i) => (
                 <option key={i} value={cancion.src}>
@@ -241,7 +270,12 @@ export default function MusicPlayer({
 
             <button
               onClick={togglePlay}
-              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition hover:from-cyan-400 hover:to-purple-400 hover:shadow-cyan-500/50 sm:px-6 sm:py-3 sm:text-base dark:from-cyan-600 dark:to-purple-600 dark:hover:from-cyan-500 dark:hover:to-purple-500"
+              className={clsx(
+                "flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500",
+                "px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition",
+                "hover:from-cyan-400 hover:to-purple-400 hover:shadow-cyan-500/50 sm:px-6 sm:py-3 sm:text-base",
+                "dark:from-cyan-600 dark:to-purple-600 dark:hover:from-cyan-500 dark:hover:to-purple-500",
+              )}
             >
               {/* <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} className="text-sm sm:text-base" /> */}
               {isPlaying ? t.pausar : t.reproducir}
@@ -260,7 +294,12 @@ export default function MusicPlayer({
           </div>
         </div>
 
-        <div className="h-1 shrink-0 bg-gradient-to-r from-cyan-400/60 via-purple-400/40 to-cyan-400/60 dark:from-cyan-500/50 dark:via-purple-500/30 dark:to-cyan-500/50"></div>
+        <div
+          className={clsx(
+            "h-1 shrink-0 bg-gradient-to-r from-cyan-400/60 via-purple-400/40 to-cyan-400/60",
+            "dark:from-cyan-500/50 dark:via-purple-500/30 dark:to-cyan-500/50",
+          )}
+        ></div>
       </div>
     </div>
   );

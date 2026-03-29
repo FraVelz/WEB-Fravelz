@@ -1,4 +1,6 @@
 ---
+import clsx from "clsx";
+
 import Layout from "@/layouts/Layout.astro";
 
 import Footer from "@/components/ui/Footer.astro";
@@ -31,7 +33,10 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
     <div class="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
       <a
         href={`${baseUrl}${lang}/#about-me`}
-        class="inline-flex items-center gap-2 text-sm font-medium text-cyan-700 underline underline-offset-4 transition-colors hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200"
+        class={clsx(
+          "inline-flex items-center gap-2 text-sm font-medium text-cyan-700 underline underline-offset-4",
+          "transition-colors hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200",
+        )}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -53,13 +58,19 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
       </a>
     </div>
     <div
-      class="min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+      class={clsx(
+        "min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
+        "dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
+      )}
     >
       <div class="mx-auto max-w-5xl space-y-10">
         <!-- Intro -->
         <section class="space-y-4 text-center">
           <div
-            class="inline-flex items-center gap-2 rounded-full border border-cyan-300/70 bg-cyan-100/70 px-3 py-1 text-xs font-medium text-cyan-800 dark:border-cyan-700/70 dark:bg-cyan-900/40 dark:text-cyan-200"
+            class={clsx(
+              "inline-flex items-center gap-2 rounded-full border border-cyan-300/70 bg-cyan-100/70 px-3 py-1",
+              "text-xs font-medium text-cyan-800 dark:border-cyan-700/70 dark:bg-cyan-900/40 dark:text-cyan-200",
+            )}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +114,10 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
         <section class="space-y-4">
           <div class="flex items-center justify-between gap-4">
             <span
-              class="rounded-full border border-cyan-200/70 bg-cyan-100 px-2 py-1 text-xs text-cyan-800 dark:border-cyan-700/60 dark:bg-cyan-900/40 dark:text-cyan-200"
+              class={clsx(
+                "rounded-full border border-cyan-200/70 bg-cyan-100 px-2 py-1 text-xs text-cyan-800",
+                "dark:border-cyan-700/60 dark:bg-cyan-900/40 dark:text-cyan-200",
+              )}
             >
               <span data-i18n="cert_web_focus"
                 >{t.cert_web_focus || "Enfocado en frontend / web"}</span

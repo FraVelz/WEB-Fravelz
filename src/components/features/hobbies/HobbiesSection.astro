@@ -1,5 +1,7 @@
 ---
 // Import and configuration languages
+import clsx from "clsx";
+
 import { getTranslations, type Language } from "@/utils/i18n";
 
 const lang = Astro.params.lang as Language;
@@ -21,7 +23,10 @@ const { classname = "" } = Astro.props;
 
   <div
     id="cards"
-    class="grid w-full max-w-6xl auto-cols-[200px] grid-flow-row-dense auto-rows-[200px] grid-cols-3 gap-1 md:gap-2 lg:gap-4"
+    class={clsx(
+      "grid w-full max-w-6xl auto-cols-[200px] grid-flow-row-dense auto-rows-[200px] grid-cols-3 gap-1",
+      "max-md:flex max-md:flex-col md:grid md:gap-2 lg:gap-4",
+    )}
   >
     <div class="card row-span-2" data-card="webdev">
       <div class="card-content">
@@ -145,7 +150,10 @@ const { classname = "" } = Astro.props;
           href="https://monkeytype.com/profile/Fravelz"
           target="_blank"
           rel="noreferrer noopener"
-          class="card-link mt-2 inline-flex w-fit cursor-pointer font-semibold underline decoration-2 underline-offset-2 transition-colors duration-200"
+          class={clsx(
+            "card-link mt-2 inline-flex w-fit cursor-pointer font-semibold underline decoration-2",
+            "underline-offset-2 transition-colors duration-200",
+          )}
         >
           <span data-i18n="hobbies_typing_link">{t.hobbies_typing_link}</span>
         </a>

@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from "react";
+import clsx from "clsx";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
@@ -50,7 +51,12 @@ export default function PdfViewerModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between gap-4 border-b border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-800/50">
+        <div
+          className={clsx(
+            "flex items-center justify-between gap-4 border-b border-slate-200 bg-slate-50 px-4 py-3",
+            "dark:border-slate-700 dark:bg-slate-800/50",
+          )}
+        >
           <h2
             id="pdf-modal-title"
             className="flex-1 truncate text-sm font-semibold text-slate-900 dark:text-slate-100"
@@ -63,7 +69,11 @@ export default function PdfViewerModal({
               download
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium text-cyan-700 transition-colors hover:bg-cyan-200/80 dark:bg-cyan-900/40 dark:text-cyan-300 dark:hover:bg-cyan-800/50"
+              className={clsx(
+                "inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium",
+                "text-cyan-700 transition-colors hover:bg-cyan-200/80",
+                "dark:bg-cyan-900/40 dark:text-cyan-300 dark:hover:bg-cyan-800/50",
+              )}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +93,11 @@ export default function PdfViewerModal({
             </a>
             <button
               onClick={onClose}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-slate-200 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100"
+              className={clsx(
+                "inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
+                "hover:bg-slate-200 hover:text-slate-900",
+                "dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100",
+              )}
               aria-label={closeText}
             >
               <svg
