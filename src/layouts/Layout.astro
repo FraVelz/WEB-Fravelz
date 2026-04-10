@@ -57,10 +57,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
 
     <link
       rel="canonical"
-      href={new URL(
-        Astro.url.pathname,
-        Astro.site || "https://fravelz.github.io/WEB-Fravelz/",
-      ).href}
+      href={new URL(Astro.url.pathname, Astro.site || "https://fravelz.github.io/WEB-Fravelz/").href}
     />
 
     <title>{title}</title>
@@ -79,11 +76,8 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
         // This script must be in <head> to prevent FOUC
         try {
           const getSystemTheme = () => {
-            if (typeof window === "undefined" || !window.matchMedia)
-              return "light";
-            return window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            if (typeof window === "undefined" || !window.matchMedia) return "light";
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           };
 
           // Read stored theme
@@ -95,8 +89,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
             storedTheme = "auto";
           }
 
-          const finalTheme =
-            storedTheme === "auto" ? getSystemTheme() : storedTheme;
+          const finalTheme = storedTheme === "auto" ? getSystemTheme() : storedTheme;
 
           // Apply theme immediately - this prevents unstyled content flash
           if (finalTheme === "dark") {
@@ -111,10 +104,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
           document.documentElement.style.colorScheme = finalTheme;
 
           // Marcar que el tema ya fue inicializado
-          document.documentElement.setAttribute(
-            "data-theme-initialized",
-            "true",
-          );
+          document.documentElement.setAttribute("data-theme-initialized", "true");
         } catch (e) {
           // Si hay error, usar tema claro por defecto
           document.documentElement.classList.remove("dark");
@@ -126,7 +116,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
 
   <body
     class={cn(
-      "min-h-screen w-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 antialiased",
+      "min-h-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 antialiased",
       "dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
     )}
   >
