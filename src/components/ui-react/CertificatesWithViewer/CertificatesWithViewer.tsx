@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 import PdfViewerModal from "../PdfViewerModal";
 
 import { CertCard } from "./component/CertCard";
@@ -26,7 +26,7 @@ export default function CertificatesWithViewer({
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
             <span
-              className={clsx(
+              className={cn(
                 "inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-700",
                 "dark:bg-cyan-900/50 dark:text-cyan-200",
               )}
@@ -66,7 +66,7 @@ export default function CertificatesWithViewer({
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
             <span
-              className={clsx(
+              className={cn(
                 "inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-amber-700",
                 "dark:bg-amber-900/50 dark:text-amber-200",
               )}
@@ -106,7 +106,7 @@ export default function CertificatesWithViewer({
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
             <span
-              className={clsx(
+              className={cn(
                 "inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-800",
                 "dark:bg-emerald-900/50 dark:text-emerald-200",
               )}
@@ -146,7 +146,7 @@ export default function CertificatesWithViewer({
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
             <span
-              className={clsx(
+              className={cn(
                 "inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700",
                 "dark:bg-slate-800 dark:text-slate-200",
               )}

@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getTranslations, type Language } from "@/utils/i18n";
 
@@ -56,7 +56,7 @@ const { classname = "" } = Astro.props;
 
     <!-- Línea -->
     <div
-      class={clsx(
+      class={cn(
         "about-timeline-line absolute top-1/2 left-0 z-10 h-1 w-full -translate-y-1/2",
         "max-lg:top-0 max-lg:left-5 max-lg:h-full max-lg:w-1 max-lg:translate-y-0",
       )}
@@ -68,7 +68,7 @@ const { classname = "" } = Astro.props;
           class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
         >
           <div
-            class={clsx(
+            class={cn(
               "absolute h-fit w-45 rounded-lg py-4 text-left max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full lg:text-center",
               index % 2 === 0 ? "bottom-10" : "top-10",
             )}

@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 interface Props {
   text: string;
@@ -9,7 +9,7 @@ const { text } = Astro.props;
 ---
 
 <div
-  class={clsx(
+  class={cn(
     "flex max-w-fit items-center gap-2 rounded-full border-2 border-cyan-400/70 bg-cyan-50 px-3 py-1.5 pr-3",
     "text-sm font-medium text-cyan-800 shadow-md shadow-cyan-500/20 transition-all",
     "hover:border-cyan-600 hover:shadow-lg hover:shadow-cyan-500/30",
