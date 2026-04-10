@@ -25,7 +25,7 @@ const { classname = "" } = Astro.props;
     id="cards"
     class={clsx(
       "grid w-full max-w-6xl auto-cols-[200px] grid-flow-row-dense auto-rows-[200px] grid-cols-3 gap-1",
-      "max-md:flex max-md:flex-col md:grid md:gap-2 lg:gap-4",
+      "md:gap-2 lg:gap-4",
     )}
   >
     <div class="card row-span-2" data-card="webdev">
@@ -66,32 +66,26 @@ const { classname = "" } = Astro.props;
       </div>
     </div>
 
-    <div class="card" data-card="piano">
+    <div class="card" data-card="politics">
       <div class="card-content">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none">
             <path
-              d="M9 18V5l12-2v13"
+              d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
             <path
-              d="M9 18a2.5 2.5 0 1 1-2-2.45V5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <path
-              d="M21 16a2.5 2.5 0 1 1-2-2.45"
+              d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"></path>
           </svg>
         </div>
-        <h3 data-i18n="hobbies_piano">{t.hobbies_piano}</h3>
-        <h4 data-i18n="hobbies_piano_desc">{t.hobbies_piano_desc}</h4>
+        <h3 data-i18n="hobbies_politics">{t.hobbies_politics}</h3>
+        <h4 data-i18n="hobbies_politics_desc">{t.hobbies_politics_desc}</h4>
       </div>
     </div>
 
@@ -189,7 +183,7 @@ const { classname = "" } = Astro.props;
     .card[data-card="linux"] {
       --card-accent: rgb(var(--color-primary));
     }
-    .card[data-card="piano"] {
+    .card[data-card="politics"] {
       --card-accent: rgb(var(--color-accent-hover));
     }
     .card[data-card="exercise"] {
