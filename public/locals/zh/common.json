@@ -66,5 +66,11 @@
   "contact_message_label": "留言",
   "contact_message_placeholder": "在此输入您的留言...",
   "contact_send_btn": "打开邮箱发送",
-  "contact_mailto_hint": "将打开您的邮件客户端（Gmail、Outlook 等）并预填好内容。"
+  "contact_mailto_hint": "将打开您的邮件客户端（Gmail、Outlook 等）并预填好内容。",
+  "search_dialog_aria": "搜索",
+  "search_placeholder": "全站搜索…",
+  "search_close_aria": "关闭搜索",
+  "search_min_chars": "请至少输入 2 个字符…",
+  "search_no_results": "未找到与「{query}」相关的结果",
+  "search_result_technology": "技术"
 }

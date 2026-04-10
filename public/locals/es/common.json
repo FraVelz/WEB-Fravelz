@@ -66,5 +66,11 @@
   "contact_message_label": "Mensaje",
   "contact_message_placeholder": "Escribe tu mensaje aquí...",
   "contact_send_btn": "Abrir correo para enviar",
-  "contact_mailto_hint": "Se abrirá tu cliente de correo (Gmail, Outlook, etc.) con el mensaje listo para enviar."
+  "contact_mailto_hint": "Se abrirá tu cliente de correo (Gmail, Outlook, etc.) con el mensaje listo para enviar.",
+  "search_dialog_aria": "Buscar",
+  "search_placeholder": "Buscar en toda la página…",
+  "search_close_aria": "Cerrar búsqueda",
+  "search_min_chars": "Escribe al menos 2 caracteres para buscar…",
+  "search_no_results": "No se encontraron resultados para «{query}»",
+  "search_result_technology": "Tecnología"
 }
