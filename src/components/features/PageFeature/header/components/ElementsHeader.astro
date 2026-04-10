@@ -77,32 +77,43 @@ const { id } = Astro.props;
   </div>
 
   <script>
-    const selector =
-      document.querySelector<HTMLSelectElement>(".language-selector");
+    const langs = ["es", "en", "ru", "zh"] as const;
 
-    const currentLang = window.location.pathname.split("/")[1];
-
-    if (selector && currentLang) {
-      selector.value = currentLang;
+    function getLangFromPath(): string {
+      const seg = window.location.pathname.split("/").filter(Boolean);
+      const found = seg.find((s) => langs.includes(s as (typeof langs)[number]));
+      return found ?? "es";
     }
 
-    selector?.addEventListener("change", (e) => {
-      const target = e.target as HTMLSelectElement;
-      const lang = target.value;
+    function baseWithTrailingSlash(): string {
+      const w = window as Window & { __BASE_URL__?: string };
+      const raw = w.__BASE_URL__ ?? "/";
+      return raw.replace(/\/?$/, "/");
+    }
 
-      // Guardar cookie por 1 año
-      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+    document.querySelectorAll<HTMLSelectElement>(".language-selector").forEach(
+      (selector) => {
+        if (selector.dataset.langRedirectBound === "true") return;
+        selector.dataset.langRedirectBound = "true";
 
-      // Sincronizar localStorage con i18n.js
-      try {
-        localStorage.setItem("preferred-language", lang);
-      } catch (_e) {
-        /* localStorage no disponible */
-      }
+        selector.value = getLangFromPath();
 
-      // Redirigir
-      window.location.href = `/${lang}/`;
-    });
+        selector.addEventListener("change", (e) => {
+          const target = e.target as HTMLSelectElement;
+          const lang = target.value;
+
+          document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+
+          try {
+            localStorage.setItem("preferred-language", lang);
+          } catch (_e) {
+            /* localStorage no disponible */
+          }
+
+          window.location.href = `${baseWithTrailingSlash()}${lang}/`;
+        });
+      },
+    );
   </script>
 </div>
 

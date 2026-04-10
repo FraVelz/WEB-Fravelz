@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Layout from "@/layouts/Layout.astro";
 
 import Footer from "@/components/ui/Footer.astro";
-import CertificatesWithViewer from "@/components/ui-react/CertificatesWithViewer";
+import CertificatesWithViewer from "@/components/ui-react/CertificatesWithViewer/CertificatesWithViewer";
 
 import { certificates, groupCertificates } from "@/utils/data/certificates";
 import { getTranslations, type Language, languages } from "@/utils/i18n";
@@ -19,8 +19,12 @@ const lang = Astro.params.lang as Language;
 const t = await getTranslations(lang);
 const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 
-const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts } =
-  groupCertificates(certificates);
+const {
+  web: webCerts,
+  hixec: hixecCerts,
+  hack4u: hack4uCerts,
+  other: otherCerts,
+} = groupCertificates(certificates);
 ---
 
 <Layout
@@ -29,7 +33,7 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
     "Resumen de mis certificaciones y objetivos de formación."}
   lang={lang}
 >
-  <main class="flex min-h-screen flex-col pt-8">
+  <section class="flex min-h-screen flex-col pt-8">
     <div class="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
       <a
         href={`${baseUrl}${lang}/#about-me`}
@@ -57,10 +61,11 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
         >
       </a>
     </div>
+
     <div
       class={clsx(
-        "min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
-        "dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
+        "min-h-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
+        "dark:bg-linear-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
       )}
     >
       <div class="mx-auto max-w-5xl space-y-10">
@@ -110,7 +115,7 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
           </p>
         </section>
 
-        <!-- Certificados de Desarrollo Web -->
+        <!-- Certificados -->
         <section class="space-y-4">
           <div class="flex items-center justify-between gap-4">
             <span
@@ -158,5 +163,5 @@ const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts
     </div>
 
     <Footer />
-  </main>
+  </section>
 </Layout>
