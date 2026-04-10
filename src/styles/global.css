@@ -117,6 +117,29 @@
 }
 
 @layer base {
+  /*
+   * Color y fondo por defecto según tema: los tokens --color-* cambian en .dark (html).
+   * Así el texto hereda bien al cambiar claro/oscuro sin depender solo de utilidades en body.
+   */
+  html {
+    color: rgb(var(--color-text));
+    background-color: rgb(var(--color-bg));
+    color-scheme: light dark;
+  }
+
+  body {
+    color: inherit;
+  }
+
+  a:not([class]) {
+    color: inherit;
+    text-decoration-color: rgb(var(--color-link-underline) / 0.6);
+  }
+
+  .dark a:not([class]) {
+    text-decoration-color: rgb(var(--color-link-underline-dark) / 0.55);
+  }
+
   h1::selection,
   h2::selection,
   h3::selection,
