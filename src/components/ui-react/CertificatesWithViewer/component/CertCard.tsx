@@ -1,5 +1,5 @@
 import type { Certificate } from "../types";
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 type CertCardState = {
   cert: Certificate;
@@ -15,7 +15,7 @@ export const CertCard = ({
   clickToViewText,
 }: CertCardState) => (
   <article
-    className={clsx(
+    className={cn(
       "flex flex-col gap-2 rounded-2xl border p-4 shadow-sm backdrop-blur-sm transition-all",
       "hover:-translate-y-0.5 hover:shadow-lg",
       borderClass,
@@ -37,7 +37,7 @@ export const CertCard = ({
       <button
         type="button"
         onClick={() => openViewer(cert.pdfPath!, cert.title)}
-        className={clsx(
+        className={cn(
           "mt-auto inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 text-left",
           "text-xs text-cyan-700 hover:underline dark:text-cyan-300",
         )}

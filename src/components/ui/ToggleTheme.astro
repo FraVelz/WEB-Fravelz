@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 interface Props {
   classname?: string;
@@ -7,7 +7,7 @@ interface Props {
 const { classname } = Astro.props;
 ---
 
-<div class={clsx("place-self-left flex items-center", classname)}>
+<div class={cn("place-self-left flex items-center", classname)}>
   <span class="sr-only" data-i18n="theme_toggle_label">Cambiar tema</span>
 
   <button

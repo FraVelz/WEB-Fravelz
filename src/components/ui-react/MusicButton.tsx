@@ -1,5 +1,5 @@
 import { useState } from "react";
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 import MusicPlayer from "./MusicPlayer";
 
 interface MusicButtonProps {}
@@ -11,7 +11,7 @@ export default function MusicButton({}: MusicButtonProps) {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className={clsx(
+        className={cn(
           "cursor-pointer rounded-lg p-1 text-slate-800 shadow-sm shadow-cyan-500/10 transition-colors",
           "hover:bg-cyan-100 hover:text-cyan-700 hover:shadow-md",
           "dark:text-gray-300 dark:hover:bg-cyan-900/20 dark:hover:text-cyan-400",

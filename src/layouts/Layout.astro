@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import "@/styles/global.css";
 
@@ -70,7 +70,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
       window.__BASE_URL__ = baseUrl;
     </script>
     <!-- i18n script: must run early to load translations -->
-    <script src={`${baseUrl}i18n.js`} defer></script>
+    <script is:inline src={`${baseUrl}i18n.js`} defer></script>
 
     <!-- Critical script: must run BEFORE any other script or style -->
     <script is:inline>
@@ -125,7 +125,7 @@ const ogImageUrl = `${Astro.site}images/portfolio.png`;
   </head>
 
   <body
-    class={clsx(
+    class={cn(
       "min-h-screen w-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 text-slate-900",
       "dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 dark:text-white",
     )}
