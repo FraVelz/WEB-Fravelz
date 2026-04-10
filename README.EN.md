@@ -2,6 +2,8 @@
 
 [Version en Español](./README.md)
 
+![Image Portfolio](./public/images/portfolio.png)
+
 This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
 
 I'm Fravelz (Francisco Velez), a Front-End Developer. My goal is simple: to be one of the best front-end programmers in the world and eventually work at Google.
