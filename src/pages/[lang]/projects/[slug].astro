@@ -76,12 +76,12 @@ const projectData = {
     </script>
     <div class="mx-auto max-w-5xl">
       <!-- Botón Volver -->
-      <a
-        href={`${base}${lang}#projects`}
+      <button
         class={cn(
           "mb-8 inline-flex items-center gap-2 text-cyan-600 transition-colors hover:text-cyan-700",
-          "dark:text-cyan-400 dark:hover:text-cyan-300",
+          "dark:text-cyan-400 dark:hover:text-cyan-300 cursor-pointer",
         )}
+        onclick="window.history.back()"
         data-i18n="projects_back"
       >
         <svg
@@ -97,7 +97,7 @@ const projectData = {
             d="M15 19l-7-7 7-7"></path>
         </svg>
         <span>{t.projects_back || "Volver a Proyectos"}</span>
-      </a>
+      </button>
 
       <!-- Header del proyecto -->
       <header class="mb-8">
@@ -158,8 +158,14 @@ const projectData = {
                 target="_blank"
                 rel="noopener noreferrer"
                 class={cn(
-                  "inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3",
-                  "font-semibold text-white shadow-lg transition-all hover:from-cyan-600 hover:to-blue-600 hover:shadow-xl",
+                  "inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold",
+                  "bg-gradient-to-r from-[rgb(var(--color-primary))] to-[rgb(var(--color-info))]",
+                  "text-[rgb(var(--color-text-inverse))]",
+                  "shadow-[0_4px_18px_rgb(var(--color-primary)/0.38)]",
+                  "transition-all hover:from-[rgb(var(--color-primary-hover))] hover:to-[rgb(var(--color-info)/0.92)]",
+                  "hover:shadow-[0_6px_22px_rgb(var(--color-primary)/0.45)]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]",
+                  "focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--color-bg))]",
                 )}
               >
                 <svg
@@ -188,8 +194,14 @@ const projectData = {
                 target="_blank"
                 rel="noopener noreferrer"
                 class={cn(
-                  "inline-flex items-center gap-2 rounded-lg bg-gray-800 px-6 py-3 font-semibold text-white",
-                  "transition-all hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600",
+                  "inline-flex items-center gap-2 rounded-lg border border-[rgb(var(--color-drawer-border))]",
+                  "bg-[rgb(var(--color-text))] px-6 py-3 font-semibold text-[rgb(var(--color-text-inverse))]",
+                  "shadow-[0_2px_12px_rgb(var(--color-black)/0.12)]",
+                  "transition-all hover:border-[rgb(var(--color-primary))]",
+                  "hover:bg-[rgb(var(--color-card))] hover:text-[rgb(var(--color-text))]",
+                  "hover:shadow-[0_4px_16px_rgb(var(--color-primary)/0.2)]",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]",
+                  "focus-visible:ring-offset-2 focus-visible:ring-offset-[rgb(var(--color-bg))]",
                 )}
               >
                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
