@@ -7,32 +7,23 @@ interface Props {
 const { classname } = Astro.props;
 ---
 
-<div class={`place-self-left flex items-center ${classname || ""}`}>
-  <label for="theme-toggle" class="sr-only" data-i18n="theme_toggle_label"
-    >Cambiar tema</label
-  >
+<div class={clsx("place-self-left flex items-center", classname)}>
+  <span class="sr-only" data-i18n="theme_toggle_label">Cambiar tema</span>
 
   <button
-    class={clsx(
-      "theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full bg-cyan-400 shadow-md shadow-cyan-500/20",
-      "transition-all duration-300 ease-in-out outline-none hover:border-cyan-500",
-      "dark:bg-gray-700 dark:shadow-none dark:hover:border-cyan-500",
-    )}
+    class="theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full border border-transparent transition-all duration-300 ease-in-out outline-none"
     type="button"
     aria-label="Cambiar entre tema claro y oscuro"
     data-i18n-attr="aria-label:theme_toggle_aria"
   >
     <!-- Slider circle -->
     <span
-      class={clsx(
-        "theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full",
-        "bg-white shadow-md transition-all duration-300 ease-in-out dark:bg-gray-900",
-      )}
+      class="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full shadow-md transition-all duration-300 ease-in-out"
       style="transform: translateX(0);"
     >
       <!-- Sun icon (light mode) -->
       <svg
-        class="theme-toggle-sun-icon h-4 w-4 text-yellow-500 opacity-100 transition-opacity duration-300 dark:opacity-0"
+        class="theme-toggle-sun-icon h-4 w-4 opacity-100 transition-opacity duration-300 dark:opacity-0"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -48,7 +39,7 @@ const { classname } = Astro.props;
 
       <!-- Moon icon (dark mode) -->
       <svg
-        class="theme-toggle-moon-icon absolute h-4 w-4 text-cyan-300 opacity-0 transition-opacity duration-300 dark:opacity-100"
+        class="theme-toggle-moon-icon absolute h-4 w-4 opacity-0 transition-opacity duration-300 dark:opacity-100"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -64,6 +55,37 @@ const { classname } = Astro.props;
     </span>
   </button>
 </div>
+
+<style>
+  /* Colores: tokens en src/styles/global.css (--color-theme-toggle-*) */
+  .theme-toggle-btn {
+    background-color: rgb(var(--color-theme-toggle-track));
+    box-shadow:
+      0 4px 6px -1px rgb(var(--color-theme-toggle-shadow) / 0.18),
+      0 2px 4px -2px rgb(var(--color-theme-toggle-shadow) / 0.12);
+  }
+
+  .theme-toggle-btn:hover {
+    border-color: rgb(var(--color-theme-toggle-hover));
+  }
+
+  :global(html.dark) .theme-toggle-btn,
+  :global(.dark) .theme-toggle-btn {
+    box-shadow: none;
+  }
+
+  .theme-toggle-slider {
+    background-color: rgb(var(--color-theme-toggle-thumb));
+  }
+
+  .theme-toggle-sun-icon {
+    color: rgb(var(--color-theme-toggle-sun));
+  }
+
+  .theme-toggle-moon-icon {
+    color: rgb(var(--color-theme-toggle-moon));
+  }
+</style>
 
 <script is:inline>
   (function () {

@@ -2,14 +2,17 @@
 import clsx from "clsx";
 ---
 
-<!-- Overlay - Cubre toda la pantalla incluyendo el header -->
+<!-- Overlay — scrim oscuro (tokens: --color-black) -->
 <div
   data-drawer-overlay
-  class="pointer-events-none fixed inset-0 z-50 bg-black/50 opacity-0 backdrop-blur-sm transition-opacity duration-300 lg:hidden"
+  class={clsx(
+    "pointer-events-none fixed inset-0 z-50 bg-[rgb(var(--color-black)/0.45)] opacity-0 backdrop-blur-sm",
+    "transition-opacity duration-300 lg:hidden",
+  )}
 >
 </div>
 
-<!-- Drawer - Encima de todo, altura completa -->
+<!-- Panel — superficie opaca alineada con --color-surface (no bg-white suelto) -->
 <aside
   id="drawer-menu"
   data-drawer
@@ -17,19 +20,19 @@ import clsx from "clsx";
   aria-modal="true"
   aria-label="Menú de navegación"
   class={clsx(
-    "fixed top-0 right-0 z-60 h-screen w-[85%] max-w-sm translate-x-full transform overflow-y-auto bg-white",
-    "shadow-2xl transition-transform duration-300 ease-in-out lg:hidden dark:bg-gray-900",
+    "drawer-panel fixed top-0 right-0 z-[60] h-dvh w-[85%] max-w-sm translate-x-full transform overflow-y-auto",
+    "bg-[rgb(var(--color-surface))] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden",
   )}
 >
-  <!-- Header -->
+  <!-- Cabecera — mismo fondo sólido que el panel (evita “transparencia” al hacer scroll) -->
   <div
     class={clsx(
-      "sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 bg-white p-5",
-      "dark:border-gray-700 dark:bg-gray-900",
+      "sticky top-0 z-10 flex items-center justify-between border-b border-[rgb(var(--color-drawer-border))]",
+      "bg-[rgb(var(--color-surface))] p-5",
     )}
   >
     <span
-      class="text-lg font-semibold text-slate-800 dark:text-gray-100"
+      class="text-lg font-semibold text-[rgb(var(--color-text))]"
       data-i18n="nav_menu">Menú</span
     >
 
@@ -37,7 +40,10 @@ import clsx from "clsx";
       data-drawer-close
       aria-label="Cerrar menú"
       data-i18n-attr="aria-label:nav_close_menu"
-      class="text-2xl text-slate-700 transition-colors hover:text-cyan-600 dark:text-gray-300 dark:hover:text-white"
+      class={clsx(
+        "text-2xl text-[rgb(var(--color-text))] transition-colors",
+        "hover:text-[rgb(var(--color-primary))] dark:hover:text-[rgb(var(--color-white))]",
+      )}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -55,11 +61,18 @@ import clsx from "clsx";
     </button>
   </div>
 
-  <!-- Content -->
-  <div class="flex flex-col gap-5 p-5">
+  <!-- Contenido -->
+  <div class="flex flex-col gap-5 bg-[rgb(var(--color-surface))] p-5">
     <slot />
   </div>
 </aside>
+
+<style>
+  /* Refuerzo opaco por si alguna utilidad de Tailwind no aplica el token en runtime */
+  .drawer-panel {
+    background-color: rgb(var(--color-surface));
+  }
+</style>
 
 <script is:inline>
   (function () {
