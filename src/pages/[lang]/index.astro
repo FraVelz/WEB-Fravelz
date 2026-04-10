@@ -14,7 +14,7 @@ const { lang } = Astro.params;
 if (!languages.includes(lang as Language)) {
   return Astro.redirect("/es");
 }
-const t = await getTranslations(lang as Language);
+const t = getTranslations(lang as Language);
 
 import Layout from "@/layouts/Layout.astro";
 import HomeMain from "@/components/features/PageFeature/HomeMain.astro";

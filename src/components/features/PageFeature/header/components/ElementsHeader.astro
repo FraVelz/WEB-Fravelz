@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import Link from "@/components/ui/Link.astro";
 import ToggleTheme from "@/components/ui/ToggleTheme.astro";
@@ -10,7 +10,6 @@ import { getTranslations, type Language } from "@/utils/i18n";
 
 const lang = Astro.params.lang as Language;
 const t = getTranslations(lang);
-const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
 
 const { id } = Astro.props;
 ---
@@ -62,7 +61,7 @@ const { id } = Astro.props;
     </svg>
 
     <select
-      class={clsx(
+      class={cn(
         "language-selector cursor-pointer rounded-lg bg-transparent text-sm font-medium",
         "text-cyan-600 transition-all dark:text-cyan-200",
       )}
@@ -81,7 +80,9 @@ const { id } = Astro.props;
 
     function getLangFromPath(): string {
       const seg = window.location.pathname.split("/").filter(Boolean);
-      const found = seg.find((s) => langs.includes(s as (typeof langs)[number]));
+      const found = seg.find((s) =>
+        langs.includes(s as (typeof langs)[number]),
+      );
       return found ?? "es";
     }
 
@@ -91,8 +92,9 @@ const { id } = Astro.props;
       return raw.replace(/\/?$/, "/");
     }
 
-    document.querySelectorAll<HTMLSelectElement>(".language-selector").forEach(
-      (selector) => {
+    document
+      .querySelectorAll<HTMLSelectElement>(".language-selector")
+      .forEach((selector) => {
         if (selector.dataset.langRedirectBound === "true") return;
         selector.dataset.langRedirectBound = "true";
 
@@ -112,8 +114,7 @@ const { id } = Astro.props;
 
           window.location.href = `${baseWithTrailingSlash()}${lang}/`;
         });
-      },
-    );
+      });
   </script>
 </div>
 

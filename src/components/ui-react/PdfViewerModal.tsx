@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from "react";
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 interface PdfViewerModalProps {
   isOpen: boolean;
@@ -52,7 +52,7 @@ export default function PdfViewerModal({
       >
         {/* Header */}
         <div
-          className={clsx(
+          className={cn(
             "flex items-center justify-between gap-4 border-b border-slate-200 bg-slate-50 px-4 py-3",
             "dark:border-slate-700 dark:bg-slate-800/50",
           )}
@@ -69,7 +69,7 @@ export default function PdfViewerModal({
               download
               target="_blank"
               rel="noopener noreferrer"
-              className={clsx(
+              className={cn(
                 "inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium",
                 "text-cyan-700 transition-colors hover:bg-cyan-200/80",
                 "dark:bg-cyan-900/40 dark:text-cyan-300 dark:hover:bg-cyan-800/50",
@@ -93,7 +93,7 @@ export default function PdfViewerModal({
             </a>
             <button
               onClick={onClose}
-              className={clsx(
+              className={cn(
                 "inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
                 "hover:bg-slate-200 hover:text-slate-900",
                 "dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100",

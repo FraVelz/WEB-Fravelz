@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getAllProjects } from "@/utils/data/projects";
 import { getTranslations, type Language, languages } from "@/utils/i18n";
@@ -22,6 +22,7 @@ const baseUrl = import.meta.env.BASE_URL || "";
   title={`${t.hacking_projects_title || "Proyectos"} - ${t.proyectos_personales || "Portafolio"}`}
   description={t.projects_section_description ||
     "Todos mis proyectos como desarrollador frontend."}
+  lang={lang}
 >
   <div
     class="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900"
@@ -31,7 +32,7 @@ const baseUrl = import.meta.env.BASE_URL || "";
       <div class="mb-12 text-center">
         <a
           href={`${baseUrl}${lang}#projects`}
-          class={clsx(
+          class={cn(
             "mb-6 inline-flex items-center gap-2 text-cyan-600 transition-colors hover:text-cyan-700",
             "dark:text-cyan-400 dark:hover:text-cyan-300",
           )}
@@ -83,7 +84,7 @@ const baseUrl = import.meta.env.BASE_URL || "";
         <div class="flex flex-wrap justify-center gap-2">
           <button
             data-filter="all"
-            class={clsx(
+            class={cn(
               "rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-2 text-sm font-semibold text-white",
               "shadow-lg shadow-cyan-500/50 transition-all",
             )}
@@ -95,7 +96,7 @@ const baseUrl = import.meta.env.BASE_URL || "";
               (tech) => (
                 <button
                   data-filter={tech}
-                  class={clsx(
+                  class={cn(
                     "rounded-full border-2 border-gray-300 bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700",
                     "transition-all hover:bg-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
                   )}

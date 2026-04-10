@@ -16,6 +16,7 @@
     "style": "pnpm run format && pnpm run lint:fix"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.8",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.7.1",
     "@eslint/js": "^10.0.1",
@@ -24,7 +25,9 @@
     "gsap": "^3.14.2",
     "postcss": "^8.5.8",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0",
+    "typescript": "^6.0.2"
   },
   "devDependencies": {
     "@astrojs/vercel": "^9.0.5",

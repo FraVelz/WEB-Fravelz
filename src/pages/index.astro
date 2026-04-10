@@ -1,6 +1,9 @@
 ---
 export const prerender = false;
-import { isValidLanguage, type Language } from "@/utils/i18n";
+import {
+  isValidLanguage,
+  localePathFromAcceptHeader,
+} from "@/utils/i18n";
 
 // Check for language in cookies
 const cookieLang = Astro.cookies.get("lang")?.value;
@@ -9,18 +12,11 @@ if (cookieLang && isValidLanguage(cookieLang)) {
   return Astro.redirect(`/${cookieLang}/`);
 }
 
-// Check for language in Accept-Language header
-const acceptLanguage = Astro.request.headers.get("accept-language");
-
-let lang: Language = "es";
-
-if (acceptLanguage) {
-  const browserLang = acceptLanguage.split(",")[0].split("-")[0];
-
-  if (isValidLanguage(browserLang)) {
-    lang = browserLang;
-  }
+const nextPath = localePathFromAcceptHeader(
+  Astro.request.headers.get("accept-language"),
+);
+if (nextPath) {
+  return Astro.redirect(nextPath);
 }
-
-return Astro.redirect(`/${lang}/`);
+return Astro.redirect("/es/");
 ---

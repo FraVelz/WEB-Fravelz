@@ -1,11 +1,11 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 ---
 
 <!-- Overlay — scrim oscuro (tokens: --color-black) -->
 <div
   data-drawer-overlay
-  class={clsx(
+  class={cn(
     "pointer-events-none fixed inset-0 z-50 bg-[rgb(var(--color-black)/0.45)] opacity-0 backdrop-blur-sm",
     "transition-opacity duration-300 lg:hidden",
   )}
@@ -19,14 +19,14 @@ import clsx from "clsx";
   role="dialog"
   aria-modal="true"
   aria-label="Menú de navegación"
-  class={clsx(
+  class={cn(
     "drawer-panel fixed top-0 right-0 z-[60] h-dvh w-[85%] max-w-sm translate-x-full transform overflow-y-auto",
     "bg-[rgb(var(--color-surface))] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden",
   )}
 >
   <!-- Cabecera — mismo fondo sólido que el panel (evita “transparencia” al hacer scroll) -->
   <div
-    class={clsx(
+    class={cn(
       "sticky top-0 z-10 flex items-center justify-between border-b border-[rgb(var(--color-drawer-border))]",
       "bg-[rgb(var(--color-surface))] p-5",
     )}
@@ -40,7 +40,7 @@ import clsx from "clsx";
       data-drawer-close
       aria-label="Cerrar menú"
       data-i18n-attr="aria-label:nav_close_menu"
-      class={clsx(
+      class={cn(
         "text-2xl text-[rgb(var(--color-text))] transition-colors",
         "hover:text-[rgb(var(--color-primary))] dark:hover:text-[rgb(var(--color-white))]",
       )}

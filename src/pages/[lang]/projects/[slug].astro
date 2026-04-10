@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getAllProjects } from "@/utils/data/projects";
 import { getTranslations, type Language, languages } from "@/utils/i18n";
@@ -61,6 +61,7 @@ const projectData = {
 <Layout
   title={`${title} - ${t.proyectos_personales || "Portafolio"}`}
   description={description}
+  lang={lang}
 >
   <article
     class="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900"
@@ -77,7 +78,7 @@ const projectData = {
       <!-- Botón Volver -->
       <a
         href={`${base}${lang}#projects`}
-        class={clsx(
+        class={cn(
           "mb-8 inline-flex items-center gap-2 text-cyan-600 transition-colors hover:text-cyan-700",
           "dark:text-cyan-400 dark:hover:text-cyan-300",
         )}
@@ -156,7 +157,7 @@ const projectData = {
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class={clsx(
+                class={cn(
                   "inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3",
                   "font-semibold text-white shadow-lg transition-all hover:from-cyan-600 hover:to-blue-600 hover:shadow-xl",
                 )}
@@ -186,7 +187,7 @@ const projectData = {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class={clsx(
+                class={cn(
                   "inline-flex items-center gap-2 rounded-lg bg-gray-800 px-6 py-3 font-semibold text-white",
                   "transition-all hover:bg-gray-900 dark:bg-gray-700 dark:hover:bg-gray-600",
                 )}
@@ -203,7 +204,7 @@ const projectData = {
           {
             project.isComingSoon && (
               <span
-                class={clsx(
+                class={cn(
                   "inline-flex items-center gap-2 rounded-lg bg-yellow-100 px-6 py-3 font-semibold text-yellow-800",
                   "dark:bg-yellow-900/30 dark:text-yellow-300",
                 )}

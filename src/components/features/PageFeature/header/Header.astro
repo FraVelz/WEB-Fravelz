@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import ElementsHeader from "./components/ElementsHeader.astro";
 import MobileDrawer from "./components/MobileDrawer.astro";
@@ -39,7 +39,7 @@ import MobileDrawer from "./components/MobileDrawer.astro";
 
 <header
   id="header-main"
-  class={clsx(
+  class={cn(
     "fixed top-0 z-30 w-full border-b-2 bg-white/95 shadow-md shadow-cyan-500/10 backdrop-blur-xl",
     "dark:border-gray-700/50 dark:bg-gray-900/50 dark:shadow-none",
   )}
