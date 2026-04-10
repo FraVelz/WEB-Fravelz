@@ -21,7 +21,7 @@ export default function CertificatesWithViewer({
   const { modalState, openViewer, closeViewer } = usePdfViewer();
 
   return (
-    <>
+    <div className="flex flex-col gap-10">
       {webCerts.length > 0 && (
         <section className="space-y-4">
           <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
@@ -190,6 +190,6 @@ export default function CertificatesWithViewer({
         closeText={closeText}
         downloadText={downloadText}
       />
-    </>
+    </div>
   );
 }
