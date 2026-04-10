@@ -1,6 +1,6 @@
 ---
 // Import and configuration languages
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getTranslations, type Language } from "@/utils/i18n";
 
@@ -23,7 +23,7 @@ const { classname = "" } = Astro.props;
 
   <div
     id="cards"
-    class={clsx(
+    class={cn(
       "grid w-full max-w-6xl auto-cols-[200px] grid-flow-row-dense auto-rows-[200px] grid-cols-3 gap-1",
       "md:gap-2 lg:gap-4",
     )}
@@ -144,7 +144,7 @@ const { classname = "" } = Astro.props;
           href="https://monkeytype.com/profile/Fravelz"
           target="_blank"
           rel="noreferrer noopener"
-          class={clsx(
+          class={cn(
             "card-link mt-2 inline-flex w-fit cursor-pointer font-semibold underline decoration-2",
             "underline-offset-2 transition-colors duration-200",
           )}

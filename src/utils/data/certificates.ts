@@ -34,15 +34,11 @@ export function groupCertificates(certs: Certificate[]) {
   const hack4u = certs.filter((c) => c.issuer === "Hack4u");
   const web = certs.filter(
     (c) =>
-      c.category === "web" &&
-      c.issuer !== "Hixec" &&
-      c.issuer !== "Hack4u",
+      c.category === "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u",
   );
   const other = certs.filter(
     (c) =>
-      c.category !== "web" &&
-      c.issuer !== "Hixec" &&
-      c.issuer !== "Hack4u",
+      c.category !== "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u",
   );
   const n = hixec.length + hack4u.length + web.length + other.length;
   if (n !== certs.length) {
@@ -135,8 +131,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "web",
     pdfPath: "/pdfs/sololearn/introduction-to-html.pdf",
-    shortDescription:
-      "Fundamentos de HTML en la plataforma SoloLearn.",
+    shortDescription: "Fundamentos de HTML en la plataforma SoloLearn.",
   },
   {
     id: "sololearn-javascript",
@@ -144,8 +139,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "web",
     pdfPath: "/pdfs/sololearn/introduction-to-javascript.pdf",
-    shortDescription:
-      "Bases de JavaScript para desarrollo web interactivo.",
+    shortDescription: "Bases de JavaScript para desarrollo web interactivo.",
   },
 
   // --- Programación general (SoloLearn) ---
@@ -155,8 +149,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/introduction-to-python.pdf",
-    shortDescription:
-      "Primeros pasos en Python y sintaxis esencial.",
+    shortDescription: "Primeros pasos en Python y sintaxis esencial.",
   },
   {
     id: "sololearn-python-intermediate",
@@ -173,8 +166,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/introduction-to-c.pdf",
-    shortDescription:
-      "Fundamentos del lenguaje C.",
+    shortDescription: "Fundamentos del lenguaje C.",
   },
   {
     id: "sololearn-c-intermediate",
@@ -182,8 +174,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/c-intermediate.pdf",
-    shortDescription:
-      "Profundización en C más allá del nivel básico.",
+    shortDescription: "Profundización en C más allá del nivel básico.",
   },
   {
     id: "sololearn-cpp-intro",
@@ -191,8 +182,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/introduction-to-cpp.pdf",
-    shortDescription:
-      "Primeros pasos en C++ y paradigmas básicos.",
+    shortDescription: "Primeros pasos en C++ y paradigmas básicos.",
   },
   {
     id: "sololearn-cpp-intermediate",
@@ -200,8 +190,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/cpp-Intermediate.pdf",
-    shortDescription:
-      "Conceptos intermedios de C++ en SoloLearn.",
+    shortDescription: "Conceptos intermedios de C++ en SoloLearn.",
   },
 
   // --- Cybersecurity / Ethical hacking (Hixec) ---

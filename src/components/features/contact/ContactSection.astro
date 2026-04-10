@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getTranslations, type Language } from "@/utils/i18n";
 import CopyEmailButton from "@/components/ui-react/CopyEmailButton";
@@ -26,14 +26,14 @@ const email = "fravelz@proton.me";
     </p>
 
     <div
-      class={clsx(
+      class={cn(
         "rounded-2xl border-2 border-cyan-200/60 bg-white/50 p-6 shadow-lg shadow-cyan-500/10 sm:p-8",
         "dark:border-cyan-500/30 dark:bg-gray-800/50 dark:shadow-none",
       )}
     >
       <!-- Opción 1: Copiar correo -->
       <div
-        class={clsx(
+        class={cn(
           "mb-8 flex flex-col items-center justify-center gap-4 border-b border-slate-200 pb-8 sm:flex-row",
           "dark:border-gray-600",
         )}
@@ -66,7 +66,7 @@ const email = "fravelz@proton.me";
             id="contact-name"
             name="name"
             required
-            class={clsx(
+            class={cn(
               "w-full rounded-lg border-2 border-cyan-200/60 bg-slate-50 px-4 py-2.5 text-slate-900 transition-colors",
               "focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500",
               "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-cyan-400",
@@ -88,7 +88,7 @@ const email = "fravelz@proton.me";
             id="contact-email"
             name="email"
             required
-            class={clsx(
+            class={cn(
               "w-full rounded-lg border-2 border-cyan-200/60 bg-slate-50 px-4 py-2.5 text-slate-900 transition-colors",
               "focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500",
               "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-cyan-400",
@@ -110,7 +110,7 @@ const email = "fravelz@proton.me";
             id="contact-subject"
             name="subject"
             required
-            class={clsx(
+            class={cn(
               "w-full rounded-lg border-2 border-cyan-200/60 bg-slate-50 px-4 py-2.5 text-slate-900 transition-colors",
               "focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500",
               "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-cyan-400",
@@ -132,7 +132,7 @@ const email = "fravelz@proton.me";
             name="message"
             rows="4"
             required
-            class={clsx(
+            class={cn(
               "min-h-[100px] w-full resize-y rounded-lg border-2 border-cyan-200/60 bg-slate-50 px-4 py-2.5 text-slate-900",
               "transition-colors focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500",
               "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:focus:border-cyan-400",
@@ -142,7 +142,7 @@ const email = "fravelz@proton.me";
         </div>
         <button
           type="submit"
-          class={clsx(
+          class={cn(
             "w-full cursor-pointer rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3 font-semibold text-white",
             "shadow-lg shadow-cyan-500/25 transition-all hover:from-cyan-600 hover:to-purple-600",
             "focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900",
@@ -162,7 +162,7 @@ const email = "fravelz@proton.me";
   </div>
 </section>
 
-<script define:vars={{ email }}>
+<script is:inline define:vars={{ email }}>
   const form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", (e) => {

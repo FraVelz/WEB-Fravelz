@@ -61,23 +61,7 @@ export default function CopyEmailButton({
       }, 3000);
     } catch (err) {
       console.error("Error copying email:", err);
-      // Fallback for browsers that do not support clipboard API
-      const textArea = document.createElement("textarea");
-      textArea.value = email;
-      textArea.style.position = "fixed";
-      textArea.style.opacity = "0";
-      document.body.appendChild(textArea);
-      textArea.select();
-      try {
-        document.execCommand("copy");
-        setCopied(true);
-        setTimeout(() => {
-          setCopied(false);
-        }, 2000);
-      } catch (e) {
-        console.error("Error al copiar:", e);
-      }
-      document.body.removeChild(textArea);
+      window.prompt("Copia el correo (Ctrl+C y cierra):", email);
     }
   };
 

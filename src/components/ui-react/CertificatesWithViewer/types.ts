@@ -6,7 +6,7 @@ export type Certificate = {
   category: string;
   pdfPath?: string;
   shortDescription?: string;
-}
+};
 
 export type CertificatesWithViewerProps = {
   webCerts: Certificate[];
@@ -20,5 +20,4 @@ export type CertificatesWithViewerProps = {
   hixecTitle: string;
   hack4uTitle: string;
   otherTitle: string;
-}
-
+};

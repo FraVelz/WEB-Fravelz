@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import clsx from "clsx";
+import { cn } from "@/utils/cn";
 
 import { getTranslations, isValidLanguage, type Language } from "@/utils/i18n";
 import Layout from "@/layouts/Layout.astro";
@@ -103,7 +103,7 @@ const t = getTranslations(lang);
       <div class="relative">
         <h1
           id="element-404-1"
-          class={clsx(
+          class={cn(
             "animate-pulse bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-9xl font-bold",
             "text-transparent sm:text-[12rem]",
           )}
@@ -140,7 +140,7 @@ const t = getTranslations(lang);
       <div id="element-404-4" class="pt-4">
         <a
           href={`/${lang}/`}
-          class={clsx(
+          class={cn(
             "inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3",
             "text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:from-cyan-400 hover:to-purple-400",
             "hover:shadow-2xl hover:shadow-cyan-500/50 active:scale-95",
