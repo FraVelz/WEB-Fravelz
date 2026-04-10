@@ -1,30 +1,9 @@
-import { useState } from "react";
 import clsx from "clsx";
-import PdfViewerModal from "./PdfViewerModal";
+import PdfViewerModal from "../PdfViewerModal";
 
-interface Certificate {
-  id: string;
-  title: string;
-  issuer: string;
-  year?: number;
-  category: string;
-  pdfPath?: string;
-  shortDescription?: string;
-}
-
-interface CertificatesWithViewerProps {
-  webCerts: Certificate[];
-  hixecCerts: Certificate[];
-  hack4uCerts: Certificate[];
-  otherCerts: Certificate[];
-  clickToViewText: string;
-  closeText: string;
-  downloadText: string;
-  webTitle: string;
-  hixecTitle: string;
-  hack4uTitle: string;
-  otherTitle: string;
-}
+import { CertCard } from "./component/CertCard";
+import type { CertificatesWithViewerProps } from "./types";
+import { usePdfViewer } from "./hook/usePdfViewer";
 
 export default function CertificatesWithViewer({
   webCerts,
@@ -39,74 +18,7 @@ export default function CertificatesWithViewer({
   hack4uTitle,
   otherTitle,
 }: CertificatesWithViewerProps) {
-  const [modalState, setModalState] = useState<{
-    isOpen: boolean;
-    pdfUrl: string;
-    title: string;
-  }>({ isOpen: false, pdfUrl: "", title: "" });
-
-  const openViewer = (pdfPath: string, title: string) => {
-    setModalState({ isOpen: true, pdfUrl: pdfPath, title });
-  };
-
-  const closeViewer = () => {
-    setModalState((s) => ({ ...s, isOpen: false }));
-  };
-
-  const CertCard = ({
-    cert,
-    borderClass,
-  }: {
-    cert: Certificate;
-    borderClass: string;
-  }) => (
-    <article
-      className={clsx(
-        "flex flex-col gap-2 rounded-2xl border p-4 shadow-sm backdrop-blur-sm transition-all",
-        "hover:-translate-y-0.5 hover:shadow-lg",
-        borderClass,
-      )}
-    >
-      <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50">
-        {cert.title}
-      </h3>
-      <p className="text-xs text-slate-600 dark:text-slate-400">
-        {cert.issuer}
-        {cert.year && <> · {cert.year}</>}
-      </p>
-      {cert.shortDescription && (
-        <p className="text-xs text-slate-600 dark:text-slate-300">
-          {cert.shortDescription}
-        </p>
-      )}
-      {cert.pdfPath && (
-        <button
-          type="button"
-          onClick={() => openViewer(cert.pdfPath!, cert.title)}
-          className={clsx(
-            "mt-auto inline-flex cursor-pointer items-center gap-1 border-0 bg-transparent p-0 text-left",
-            "text-xs text-cyan-700 hover:underline dark:text-cyan-300",
-          )}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="h-3.5 w-3.5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4.5v15m0 0-6.75-6.75M12 19.5 18.75 12.75"
-            />
-          </svg>
-          {clickToViewText}
-        </button>
-      )}
-    </article>
-  );
+  const { modalState, openViewer, closeViewer } = usePdfViewer();
 
   return (
     <>
@@ -139,6 +51,8 @@ export default function CertificatesWithViewer({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {webCerts.map((cert) => (
               <CertCard
+                clickToViewText={clickToViewText}
+                openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
                 borderClass="border-cyan-200/70 dark:border-cyan-700/60 bg-white/90 dark:bg-slate-900/80 hover:border-cyan-400/80"
@@ -177,6 +91,8 @@ export default function CertificatesWithViewer({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {hixecCerts.map((cert) => (
               <CertCard
+                clickToViewText={clickToViewText}
+                openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
                 borderClass="border-amber-200/70 dark:border-amber-700/60 bg-white/90 dark:bg-slate-900/80 hover:border-amber-400/80"
@@ -215,6 +131,8 @@ export default function CertificatesWithViewer({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {hack4uCerts.map((cert) => (
               <CertCard
+                clickToViewText={clickToViewText}
+                openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
                 borderClass="border-emerald-200/80 dark:border-emerald-800/60 bg-white/90 dark:bg-slate-900/80 hover:border-emerald-400/80"
@@ -253,6 +171,8 @@ export default function CertificatesWithViewer({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {otherCerts.map((cert) => (
               <CertCard
+                clickToViewText={clickToViewText}
+                openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
                 borderClass="border-slate-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 hover:border-cyan-400/80"
