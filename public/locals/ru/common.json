@@ -66,5 +66,11 @@
   "contact_message_label": "Сообщение",
   "contact_message_placeholder": "Напишите сообщение...",
   "contact_send_btn": "Открыть почту для отправки",
-  "contact_mailto_hint": "Откроется ваш почтовый клиент с готовым сообщением."
+  "contact_mailto_hint": "Откроется ваш почтовый клиент с готовым сообщением.",
+  "search_dialog_aria": "Поиск",
+  "search_placeholder": "Поиск по всему сайту…",
+  "search_close_aria": "Закрыть поиск",
+  "search_min_chars": "Введите не менее 2 символов…",
+  "search_no_results": "Ничего не найдено по запросу «{query}»",
+  "search_result_technology": "Технология"
 }
