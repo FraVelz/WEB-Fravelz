@@ -2,6 +2,8 @@
 
 [English version](./README.EN.md)
 
+![Image Portfolio](./public/images/portfolio.png)
+
 Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web como la estructuración código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al código.
 
 Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a nivel mundial en frontend, y llegar trabajar en google.
