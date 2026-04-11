@@ -36,7 +36,7 @@ import Header from "./header/Header.astro";
       />
 
       <AboutMeSection
-        classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center space-y-8 p-10"
+        classname="panel min-w-screen h-screen flex justify-center items-center space-y-8 p-10"
       />
 
       <HobbiesSection
@@ -51,27 +51,32 @@ import Header from "./header/Header.astro";
     import {
       horizontalScroll,
       desactiveHorizontalScroll,
+      refreshHorizontalScroll,
     } from "./script/horizontalScroll";
 
     let isActiveHorizontalScroll = false;
 
-    // Ejecutar al cargar
-    document.addEventListener("DOMContentLoaded", () => {
-      if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
-        horizontalScroll();
-        isActiveHorizontalScroll = true;
-      }
-    });
-
-    // Ejecutar al cambiar tamaño
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= 1024 && !isActiveHorizontalScroll) {
-        horizontalScroll();
-        isActiveHorizontalScroll = true;
-      } else {
+    function applyHorizontalScrollForViewport() {
+      var wide = window.innerWidth >= 1024;
+      if (wide) {
+        if (!isActiveHorizontalScroll) {
+          horizontalScroll();
+          isActiveHorizontalScroll = true;
+        } else {
+          refreshHorizontalScroll();
+        }
+      } else if (isActiveHorizontalScroll) {
         desactiveHorizontalScroll();
         isActiveHorizontalScroll = false;
       }
+    }
+
+    document.addEventListener("DOMContentLoaded", applyHorizontalScrollForViewport);
+
+    var resizeTimer = null;
+    window.addEventListener("resize", function () {
+      if (resizeTimer != null) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(applyHorizontalScrollForViewport, 150);
     });
   </script>
 </main>
