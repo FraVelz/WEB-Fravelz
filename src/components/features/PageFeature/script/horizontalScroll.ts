@@ -108,6 +108,11 @@ export function horizontalScroll() {
   document.addEventListener("click", navClickHandler, true);
 }
 
+/** Recalcula posiciones tras redimensionar sin destruir la animación (viewport ≥ lg). */
+export function refreshHorizontalScroll() {
+  ScrollTrigger.refresh();
+}
+
 export function desactiveHorizontalScroll() {
   // Remove navigation click handler
   if (navClickHandler) {

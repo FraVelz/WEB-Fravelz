@@ -41,11 +41,27 @@ interface Props {
 }
 
 const { classname = "" } = Astro.props;
+
+const readMoreLabel = t.about_read_more || "Leer más";
+const closeModalAria = t.cert_viewer_close || "Cerrar";
+
+/** max-lg: columna vertical, más ancho útil. */
+const maxCharsMaxLg = 420;
+/** lg–xl: timeline horizontal con columnas estrechas. */
+const maxCharsLgToXl = 105;
+/** xl+ (≥1280px): más caracteres en línea que en lg–xl; sigue truncando si el texto es muy largo y se muestra «Leer más» → modal. */
+const maxCharsXlPlus = 170;
 ---
 
-<section id="about-me" class={classname}>
+<section
+  id="about-me"
+  class={cn(
+    "relative h-screen max-h-screen min-h-0 w-full min-w-0 shrink-0 overflow-hidden overflow-x-hidden",
+    classname,
+  )}
+>
   <div
-    class="relative mx-auto flex h-fit w-full items-center justify-between max-lg:flex-col max-lg:items-start lg:h-screen"
+    class="relative mx-auto flex h-full min-h-0 w-full min-w-0 items-center justify-between overflow-hidden max-lg:flex-col max-lg:items-start"
   >
     <h2
       class="left-0 mb-4 w-full text-center text-4xl font-bold lg:absolute lg:top-32"
@@ -63,52 +79,140 @@ const { classname = "" } = Astro.props;
     >
     </div>
     {
-      historyEntries.map((entry, index) => (
-        <div
-          class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
-        >
+      historyEntries.map((entry, index) => {
+        const expandable = (
           <div
-            class={cn(
-              "absolute h-fit w-45 rounded-lg py-4 text-left max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full lg:text-center",
-              index % 2 === 0 ? "bottom-10" : "top-10",
-            )}
+            data-about-expandable
+            data-about-i18n-key={entry.i18nKey}
+            data-about-year={entry.year}
+            class="about-timeline-expandable"
           >
-            <div class="about-timeline-year mb-2 font-bold">{entry.year}</div>
-
-            {index !== 0 && index !== historyEntries.length - 1 ? (
-              <div class="lg:relative lg:left-[50%] lg:w-60 lg:translate-x-[-50%]">
-                <span data-i18n={entry.i18nKey}>{entry.text}</span>
-              </div>
-            ) : (
-              <span data-i18n={entry.i18nKey}>{entry.text}</span>
-            )}
-
-            {entry.year === "2021" ? (
-              <a
-                href="https://github.com/divelz"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
-              >
-                Github
-              </a>
-            ) : null}
-
-            {entry.year === "2025" ? (
-              <a
-                href={`${baseUrl}${lang}/certifications`}
-                class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
-                data-i18n="nav_certifications"
-              >
-                {t.nav_certifications || "Certificaciones"}
-              </a>
-            ) : null}
+            <span
+              data-i18n={entry.i18nKey}
+              data-about-timeline-text
+              class="about-timeline-text block hyphens-auto break-words"
+            >
+              {entry.text}
+            </span>
+            <button
+              type="button"
+              class="about-read-more about-link mt-1 hidden text-sm font-semibold underline underline-offset-4 transition-colors"
+              data-about-read-more
+              aria-haspopup="dialog"
+              aria-controls="about-timeline-modal-dialog"
+            >
+              {readMoreLabel}
+            </button>
           </div>
+        );
 
-          <div class="about-timeline-dot mx-auto h-5 w-5 rounded-full max-lg:absolute max-lg:top-5 max-lg:left-[11px]" />
-        </div>
-      ))
+        return (
+          <div
+            class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
+          >
+            <div
+              class={cn(
+                "absolute h-fit w-45 rounded-lg py-4 text-left max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full lg:text-center",
+                index % 2 === 0 ? "bottom-10" : "top-10",
+              )}
+            >
+              <div class="about-timeline-year mb-2 font-bold">{entry.year}</div>
+
+              {index !== 0 && index !== historyEntries.length - 1 ? (
+                <div class="lg:relative lg:left-[50%] lg:w-60 lg:translate-x-[-50%]">
+                  {expandable}
+                </div>
+              ) : (
+                expandable
+              )}
+
+              {entry.year === "2021" ? (
+                <a
+                  href="https://github.com/divelz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
+                >
+                  Github
+                </a>
+              ) : null}
+
+              {entry.year === "2025" ? (
+                <a
+                  href={`${baseUrl}${lang}/certifications`}
+                  class="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
+                  data-i18n="nav_certifications"
+                >
+                  {t.nav_certifications || "Certificaciones"}
+                </a>
+              ) : null}
+            </div>
+
+            <div class="about-timeline-dot mx-auto h-5 w-5 rounded-full max-lg:absolute max-lg:top-5 max-lg:left-[11px]" />
+          </div>
+        );
+      })
     }
+  </div>
+
+  <!-- Modal texto completo (Leer más) -->
+  <div
+    class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+    data-about-timeline-modal
+    aria-hidden="true"
+  >
+    <div
+      class="absolute inset-0 bg-[rgb(var(--color-black)/0.45)] backdrop-blur-sm"
+      data-about-modal-backdrop
+    >
+    </div>
+    <div
+      id="about-timeline-modal-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="about-timeline-modal-title"
+      class="relative z-10 flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-xl border border-[rgb(var(--color-drawer-border))] bg-[rgb(var(--color-surface))] shadow-2xl"
+    >
+      <div
+        class="flex shrink-0 items-start justify-between gap-4 border-b border-[rgb(var(--color-drawer-border))] p-4 sm:p-5"
+      >
+        <h3
+          id="about-timeline-modal-title"
+          class="text-lg font-bold text-[rgb(var(--color-text))]"
+          data-about-modal-year
+        >
+        </h3>
+        <button
+          type="button"
+          class="shrink-0 rounded-md text-[rgb(var(--color-text))] transition-colors hover:text-[rgb(var(--color-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]"
+          data-about-modal-close
+          aria-label={closeModalAria}
+          data-i18n-attr="aria-label:cert_viewer_close"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="min-h-0 flex-1 overflow-y-auto p-4 sm:p-5">
+        <p
+          class="whitespace-pre-wrap text-left text-[rgb(var(--color-text))] leading-relaxed"
+          data-about-modal-text
+        >
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -146,3 +250,168 @@ const { classname = "" } = Astro.props;
       0 0 0 4px rgb(var(--color-bg));
   }
 </style>
+
+<script
+  define:vars={{
+    maxCharsMaxLg,
+    maxCharsLgToXl,
+    maxCharsXlPlus,
+    readMoreLabel,
+  }}
+>
+  var aboutModalLastFocus = null;
+
+  function getMaxChars() {
+    if (window.matchMedia("(max-width: 1023px)").matches) return maxCharsMaxLg;
+    if (window.matchMedia("(max-width: 1279px)").matches) return maxCharsLgToXl;
+    return maxCharsXlPlus;
+  }
+
+  function labelMore() {
+    var tFn = window.i18n && window.i18n.t;
+    return tFn ? tFn("about_read_more") : readMoreLabel;
+  }
+
+  function getFullTimelineText(container, span) {
+    var key = container.getAttribute("data-about-i18n-key");
+    var tFn = window.i18n && window.i18n.t;
+    if (key && tFn) {
+      var fromDict = tFn(key);
+      if (fromDict && fromDict !== key) return fromDict.trim();
+    }
+    return (span.textContent || "").trim();
+  }
+
+  function getModalEls() {
+    var modal = document.querySelector("[data-about-timeline-modal]");
+    if (!modal) return null;
+    return {
+      root: modal,
+      year: modal.querySelector("[data-about-modal-year]"),
+      text: modal.querySelector("[data-about-modal-text]"),
+      backdrop: modal.querySelector("[data-about-modal-backdrop]"),
+      closeBtn: modal.querySelector("[data-about-modal-close]"),
+    };
+  }
+
+  function openAboutTextModal(year, fullText, triggerBtn) {
+    var els = getModalEls();
+    if (!els || !els.year || !els.text) return;
+    aboutModalLastFocus =
+      triggerBtn && triggerBtn.focus
+        ? triggerBtn
+        : document.activeElement;
+    els.year.textContent = year || "";
+    els.text.textContent = fullText;
+    els.root.classList.remove("hidden");
+    els.root.classList.add("flex");
+    els.root.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (els.closeBtn && els.closeBtn.focus) els.closeBtn.focus();
+  }
+
+  function closeAboutTextModal() {
+    var els = getModalEls();
+    if (!els || !els.root) return;
+    els.root.classList.add("hidden");
+    els.root.classList.remove("flex");
+    els.root.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (aboutModalLastFocus && aboutModalLastFocus.focus) {
+      aboutModalLastFocus.focus();
+    }
+    aboutModalLastFocus = null;
+  }
+
+  function onAboutModalKeydown(e) {
+    var modal = document.querySelector("[data-about-timeline-modal]");
+    if (!modal || modal.classList.contains("hidden")) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeAboutTextModal();
+    }
+  }
+
+  function applyExpandable(container) {
+    var span = container.querySelector("[data-about-timeline-text]");
+    var btn = container.querySelector("[data-about-read-more]");
+    if (!span || !btn) return;
+
+    var full = getFullTimelineText(container, span);
+    var max = getMaxChars();
+
+    if (full.length <= max) {
+      span.textContent = full;
+      btn.classList.add("hidden");
+      btn.setAttribute("aria-hidden", "true");
+      return;
+    }
+
+    span.textContent = full.slice(0, max).trimEnd() + "\u2026";
+    btn.textContent = labelMore();
+    btn.classList.remove("hidden");
+    btn.removeAttribute("aria-hidden");
+  }
+
+  function bindExpandable(container) {
+    var btn = container.querySelector("[data-about-read-more]");
+    if (!btn || btn.dataset.bound === "true") return;
+    btn.dataset.bound = "true";
+    btn.addEventListener("click", function () {
+      var span = container.querySelector("[data-about-timeline-text]");
+      if (!span) return;
+      var full = getFullTimelineText(container, span);
+      var year = container.getAttribute("data-about-year") || "";
+      openAboutTextModal(year, full, btn);
+    });
+  }
+
+  function bindAboutModal() {
+    var els = getModalEls();
+    if (!els || els.root.dataset.modalBound === "true") return;
+    els.root.dataset.modalBound = "true";
+    if (els.backdrop) {
+      els.backdrop.addEventListener("click", function () {
+        closeAboutTextModal();
+      });
+    }
+    if (els.closeBtn) {
+      els.closeBtn.addEventListener("click", function () {
+        closeAboutTextModal();
+      });
+    }
+    document.addEventListener("keydown", onAboutModalKeydown);
+  }
+
+  function refreshAllExpandables() {
+    document.querySelectorAll("[data-about-expandable]").forEach(function (el) {
+      bindExpandable(el);
+      applyExpandable(el);
+    });
+  }
+
+  var resizeTimer;
+  function onResize() {
+    if (resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      document.querySelectorAll("[data-about-expandable]").forEach(function (el) {
+        applyExpandable(el);
+      });
+    }, 120);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    bindAboutModal();
+    refreshAllExpandables();
+  });
+
+  window.addEventListener("language-changed", function () {
+    closeAboutTextModal();
+    document.querySelectorAll("[data-about-expandable]").forEach(function (el) {
+      bindExpandable(el);
+      applyExpandable(el);
+    });
+  });
+
+  window.addEventListener("resize", onResize);
+</script>
