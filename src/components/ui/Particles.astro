@@ -5,62 +5,90 @@
 <style>
   /* Container */
   .particles {
-    /* display: fixed; */
     position: fixed;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     overflow: hidden;
   }
 
-  /* Base particle */
+  /* Base particle — --drift: deriva horizontal al subir (evita “filas”) */
   .particle {
+    --drift: 0px;
+    --size: 8px;
     position: absolute;
     bottom: -20px;
-    width: 8px;
-    height: 8px;
+    width: var(--size);
+    height: var(--size);
     background: rgb(var(--color-particles));
     border-radius: 50%;
     opacity: 0.7;
-    animation: float 6s linear infinite;
+    animation: float var(--duration, 6s) linear var(--delay, 0s) infinite;
   }
 
-  /* Animation */
   @keyframes float {
     0% {
-      transform: translateY(0) scale(1);
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.65;
+    }
+    45% {
+      transform: translateY(-48vh) translateX(calc(var(--drift) * 0.35)) scale(0.92);
       opacity: 0.7;
     }
     100% {
-      transform: translateY(-110vh) scale(0.5);
+      transform: translateY(-115vh) translateX(var(--drift)) scale(0.48);
       opacity: 0;
     }
   }
 
-  /* Different positions and timings */
+  /* Posiciones irregulares, duraciones, retrasos y deriva distinta por burbuja */
   .particle:nth-child(1) {
-    left: 10%;
-    animation-duration: 5s;
+    left: 7%;
+    --size: 7px;
+    --drift: min(18vw, 72px);
+    --duration: 5.7s;
+    --delay: -1.2s;
+    bottom: -18px;
   }
   .particle:nth-child(2) {
-    left: 25%;
-    animation-duration: 7s;
+    left: 19%;
+    --size: 9px;
+    --drift: max(-14vw, -52px);
+    --duration: 8.1s;
+    --delay: -4.6s;
+    bottom: -26px;
   }
   .particle:nth-child(3) {
-    left: 40%;
-    animation-duration: 6s;
+    left: 34%;
+    --size: 8px;
+    --drift: min(10vw, 38px);
+    --duration: 6.4s;
+    --delay: -0.4s;
+    bottom: -22px;
   }
   .particle:nth-child(4) {
-    left: 55%;
-    animation-duration: 8s;
+    left: 48%;
+    --size: 6px;
+    --drift: max(-20vw, -68px);
+    --duration: 7.3s;
+    --delay: -3.1s;
+    bottom: -16px;
   }
   .particle:nth-child(5) {
-    left: 70%;
-    animation-duration: 5.5s;
+    left: 61%;
+    --size: 9px;
+    --drift: min(22vw, 84px);
+    --duration: 5.2s;
+    --delay: -2.8s;
+    bottom: -24px;
   }
   .particle:nth-child(6) {
-    left: 85%;
-    animation-duration: 6.5s;
+    left: 76%;
+    --size: 7px;
+    --drift: max(-11vw, -44px);
+    --duration: 9.2s;
+    --delay: -5.5s;
+    bottom: -20px;
   }
 </style>
 
