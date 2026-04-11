@@ -1,4 +1,7 @@
 {
+  "about_read_more": "Read more",
+  "about_read_less": "Read less",
+
   "about_intro_text": "Hi! I'm Fravelz. Since I was a kid I've enjoyed and been interested in the world of computing and software development, especially web development.",
   "about_current_text": "I'm a frontend developer specialized in web layout, creating fluid, animated, functional, minimalist interfaces. I work with proper semantics and SEO, integrate backend data and services into the frontend, and I also focus on structuring and maintaining frontend code correctly.",
 

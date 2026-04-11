@@ -1,4 +1,7 @@
 {
+  "about_read_more": "Leer más",
+  "about_read_less": "Leer menos",
+
   "about_intro_text": "¡Hola! Soy Fravelz. Desde que era niño me han gustado e interesado el mundo de la informática y el desarrollo de software, especialmente el desarrollo web.",
   "about_current_text": "Soy desarrollador frontend especializado en maquetación web, creando interfaces fluidas, animadas, funcionales y minimalistas. Trabajo con el buen uso de la semántica y el SEO, integro datos y servicios del backend en el frontend, y también me enfoco en la correcta estructuración y mantenimiento del código frontend.",
 
