@@ -1,222 +1,84 @@
-# Adding a New Section
+# Architecture and development guide (Next.js)
 
-**1. Create Astro component (if static):**
-
-```astro
-// src/components/astro/NewSection.astro
-
-import { getTranslations, type Language } from '@/utils/i18n'; interface Props { lang?:
-Language; } const { lang = 'es' } = Astro.props; const t = getTranslations(lang);
-
-<section id="new-section">
-  <h2>{t.new_section_title}</h2>
-  <!-- HTML content -->
-</section>
-```
-
-**2. Or create React component (if it needs interactivity):**
-
-```tsx
-// src/components/react/NewSection.tsx
-import { useState } from "react";
-import { getTranslations, type Language } from "@/utils/i18n";
-
-export default function NewSection({ lang = "es" }: { lang?: Language }) {
-  const t = getTranslations(lang);
-  const [state, setState] = useState(false);
-
-  return <section>{/* Interactive content */}</section>;
-}
-```
-
-**3. Use on the page:**
-
-```astro
----
-import NewSection from "../components/astro/NewSection.astro";
-// or for React:
-import NewSection from "../components/react/NewSection";
----
-
-<NewSection lang={lang} />
-<!-- If React, add client:load -->
-<NewSection client:load lang={lang} />
-```
-
-## Adding Translations
-
-1. **Edit JSON files** in `public/locales/{language}/`:
-
-```json
-// public/locales/es/common.json
-{
-  "new_key": "Text in Spanish"
-}
-
-// public/locales/en/common.json
-{
-  "new_key": "Text in English"
-}
-```
-
-2. **Use in components**:
-
-```tsx
-const t = getTranslations(lang);
-// Access: t.new_key
-```
-
-### Adding a New Song
-
-1. **Add MP3 file** to `public/music/`
-2. **Add translation** in `public/locales/{language}/music.json`:
-
-```json
-{
-  "new_song": "Song Name"
-}
-```
-
-3. **Update** `src/components/ui-react/MusicPlayer.tsx`:
-
-```tsx
-const songs = useMemo(
-  () => [
-    // ... existing songs
-    { name: t.new_song, src: getPath("new-song.mp3") },
-  ],
-  [t, baseUrl],
-);
-```
+How to extend the portfolio after the **Next.js** (App Router) migration.
 
 ---
 
-## 🏗 Build and Deploy
+## Add a new section to the home page
 
-### Production Build
+1. **Server Component (default)**  
+   Add `src/components/features/<name>/<Name>Section.tsx` that receives `lang` and uses `getTranslations` from `@/utils/i18n`.
+
+2. **Client Component** (state, GSAP, DOM listeners)  
+   Add **`"use client"`** at the top, or split interactive UI into a small client child.
+
+3. **Wire it on the home**  
+   Import the section in [`src/components/features/PageFeature/HomeMain.tsx`](../../src/components/features/PageFeature/HomeMain.tsx) in the desired order (keep `.horizontal` / `.panel` structure if it participates in horizontal scroll on desktop).
+
+---
+
+## Translations
+
+1. Edit JSON files under **`public/locals/{es,en,ru,zh}/`** and keep keys in sync across languages.
+2. If you add a new JSON file name, append it to **`LOCALE_FILES`** in [`src/utils/i18n.ts`](../../src/utils/i18n.ts).
+3. In Server Components: `getTranslations(lang)` (wrapped with React `cache`).
+4. **`public/i18n.js`** still updates `data-i18n` nodes on the client.
+
+---
+
+## Add a new language
+
+1. Create `public/locals/<code>/` by copying the `es/` layout.
+2. Extend the **`Language`** type and **`languages`** array in [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts).
+3. Ensure [`src/app/[lang]/layout.tsx`](../../src/app/[lang]/layout.tsx) includes the new locale in `generateStaticParams` (it should follow `languages`).
+
+---
+
+## Build and deploy
+
+### Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Default URL: **http://localhost:3000** (Turbopack).
+
+### Production locally
 
 ```bash
 pnpm build
+pnpm start
 ```
 
-The build is generated in `dist/` with optimized static HTML.
+Output: **`.next/`** (not a static `dist/` folder).
 
-### Deploy to GitHub Pages
+### Recommended: Vercel
 
-The project is configured for GitHub Pages with base path `/WEB-Fravelz/`.
+- Framework preset: **Next.js**
+- Build: `pnpm build`
+- Connect the GitHub repo for automatic deployments from `main`
 
-1. **Build the project**
+### Production URL
 
-```bash
-pnpm build
-```
+- **https://fravelz.vercel.app/**
 
-2. **Configure GitHub Actions** (optional, recommended):
+### Archived Astro version
 
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
+- Branch: [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro)  
+- Tag: [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1)
 
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "pnpm"
-      - run: pnpm install
-      - run: pnpm build
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./dist"
-      - uses: actions/deploy-pages@v4
-```
-
-3. **Manual deploy**:
-
-```bash
-# After build, copy dist/ to gh-pages branch
-```
-
-## 🌐 Internationalization (i18n)
-
-### Translation System
-
-The project uses a custom translation system based on JSON files.
-
-**Structure:**
-
-```text
-public/locales/
-├── es/          # Spanish (default language)
-├── en/          # English
-├── ru/          # Русский
-└── zh/          # 中文
-```
-
-**Files per language:**
-
-- `common.json` - Common texts (navigation, buttons)
-- `hero.json` - Presentation section
-- `music.json` - Music player
-- `technologies.json` - Technologies
-- `projects.json` - Projects
-- `about.json` - About me
-- `hobbies.json` - Hobbies
-- `certifications.json` - Certifications
-- `info.json` - Section titles
-
-### Usage in Components
-
-**In Astro:**
-
-```astro
----
-import { getTranslations } from "../utils/i18n";
-const t = getTranslations("es");
 ---
 
-<h1>{t.hero_title}</h1>
-```
+## i18n stack (summary)
 
-**In React:**
-
-```tsx
-import { getTranslations, type Language } from "@/utils/i18n";
-
-export default function Component({ lang = "es" }: { lang?: Language }) {
-  const t = getTranslations(lang);
-  return <h1>{t.hero_title}</h1>;
-}
-```
-
-### Adding a New Language
-
-1. **Create folder** `public/locales/{code}/`
-2. **Copy structure** from `public/locales/es/`
-3. **Translate all JSON files**
-4. **Update** `src/utils/i18n.ts`:
-
-```ts
-// Add new language to the loadLocale / translations logic
-// (e.g. include the new code in the Language type and in the translations object)
-```
+| Layer | Role |
+|-------|------|
+| `src/middleware.ts` | Redirects `/` using `lang` cookie or `Accept-Language`. |
+| `src/lib/i18n-routing.ts` | Supported locales and validation (Edge-safe). |
+| `src/utils/i18n.ts` | Loads JSON from `public/locals/` on the server. |
+| `public/i18n.js` | Client updates and events for legacy `data-i18n` usage. |
 
 [Return to readme...](../../README.md)
 

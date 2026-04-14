@@ -1,72 +1,61 @@
 # Contributing
 
-Ordered steps and things to keep in mind if you want to contribute to the project: documentation for adding changes and understanding how the project works.
+Steps and conventions if you want to suggest improvements to this personal project.
 
 ---
 
-## Table of Contents
+## Table of contents
 
 - [Contributing](#contributing)
-  - [Table of Contents](#table-of-contents)
-  - [Steps/Recommendations for PR](#stepsrecommendations-for-pr)
-  - [Local Deployment](#local-deployment)
-    - [Prerequisites](#prerequisites)
+  - [Table of contents](#table-of-contents)
+  - [Pull requests](#pull-requests)
+  - [Local setup](#local-setup)
+    - [Requirements](#requirements)
     - [Steps](#steps)
-  - [Available Scripts](#available-scripts)
+  - [Scripts](#scripts)
 
 ---
 
-## Steps/Recommendations for PR
+## Pull requests
 
-This is a personal project, but suggestions and improvements are welcome:
-
-1. Fork the project
-2. Create a branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-> Commits should preferably use the conventional commits model.
+1. Fork the repository
+2. Use a descriptive branch (`git checkout -b feature/clear-name`)
+3. Commit messages in English using [Conventional Commits](https://www.conventionalcommits.org/)
+4. Push and open a Pull Request against `main`
 
 ---
 
-## Local Deployment
+## Local setup
 
-### Prerequisites
+### Requirements
 
-- **Node.js** >= 18.0.0
-- **pnpm** >= 8.0.0 (recommended) or npm/yarn
+- **Node.js** 20+ (recommended for Next.js 16)
+- **pnpm** (used in this repo; see `package.json`)
 
 ### Steps
 
-**Step 1:** Have the repo locally.
-
-**2. Install dependencies:**
-
 ```bash
+git clone <fork-or-upstream-url>
+cd WEB-Fravelz
 pnpm install
-# or
-npm install
-```
-
-**3. Start development server:**
-
-```bash
 pnpm dev
 ```
 
-The site will be available at `http://localhost:4321/WEB-Fravelz/`.
+Development server: **http://localhost:3000** (`/` redirects to `/{lang}/`).
 
 ---
 
-## Available Scripts
+## Scripts
 
-| Script         | Description                               |
-| -------------- | ----------------------------------------- |
-| `pnpm dev`     | Starts development server with hot-reload |
-| `pnpm build`   | Generates optimized production build      |
-| `pnpm preview` | Previews the production build locally     |
-| `pnpm astro`   | Runs Astro CLI commands                   |
+| Script | Description |
+|--------|-------------|
+| `pnpm dev` | Development server (Turbopack) |
+| `pnpm build` | Production build (output in `.next/`) |
+| `pnpm start` | Run production build locally |
+| `pnpm lint` | ESLint on `src/` |
+| `pnpm lint:fix` | ESLint with auto-fix |
+| `pnpm format` | Prettier |
+| `pnpm style` | `format` + `lint:fix` |
 
 ---
 
