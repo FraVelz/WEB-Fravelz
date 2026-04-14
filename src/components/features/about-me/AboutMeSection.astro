@@ -63,10 +63,7 @@ const maxCharsXlPlus = 170;
   <div
     class="relative mx-auto flex h-full min-h-0 w-full min-w-0 items-center justify-between overflow-hidden max-lg:flex-col max-lg:items-start"
   >
-    <h2
-      class="left-0 mb-4 w-full text-center text-4xl font-bold lg:absolute lg:top-32"
-      data-i18n="info_about_title"
-    >
+    <h2 class="left-0 mb-4 w-full text-center text-4xl font-bold lg:absolute lg:top-32" data-i18n="info_about_title">
       {t.info_about_title || "Sobre Mí"}
     </h2>
 
@@ -90,13 +87,13 @@ const maxCharsXlPlus = 170;
             <span
               data-i18n={entry.i18nKey}
               data-about-timeline-text
-              class="about-timeline-text block hyphens-auto break-words"
+              class="about-timeline-text block break-words hyphens-auto"
             >
               {entry.text}
             </span>
             <button
               type="button"
-              class="about-read-more about-link mt-1 hidden text-sm font-semibold underline underline-offset-4 transition-colors"
+              class="cursor-pointer about-read-more about-link mt-1 hidden text-sm font-semibold underline underline-offset-4 transition-colors"
               data-about-read-more
               aria-haspopup="dialog"
               aria-controls="about-timeline-modal-dialog"
@@ -107,9 +104,7 @@ const maxCharsXlPlus = 170;
         );
 
         return (
-          <div
-            class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}
-          >
+          <div class={`relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12`}>
             <div
               class={cn(
                 "absolute h-fit w-45 rounded-lg py-4 text-left max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full lg:text-center",
@@ -119,9 +114,7 @@ const maxCharsXlPlus = 170;
               <div class="about-timeline-year mb-2 font-bold">{entry.year}</div>
 
               {index !== 0 && index !== historyEntries.length - 1 ? (
-                <div class="lg:relative lg:left-[50%] lg:w-60 lg:translate-x-[-50%]">
-                  {expandable}
-                </div>
+                <div class="lg:relative lg:left-[50%] lg:w-60 lg:translate-x-[-50%]">{expandable}</div>
               ) : (
                 expandable
               )}
@@ -136,7 +129,6 @@ const maxCharsXlPlus = 170;
                   Github
                 </a>
               ) : null}
-
               {entry.year === "2025" ? (
                 <a
                   href={`${baseUrl}${lang}/certifications`}
@@ -161,11 +153,7 @@ const maxCharsXlPlus = 170;
     data-about-timeline-modal
     aria-hidden="true"
   >
-    <div
-      class="absolute inset-0 bg-[rgb(var(--color-black)/0.45)] backdrop-blur-sm"
-      data-about-modal-backdrop
-    >
-    </div>
+    <div class="absolute inset-0 bg-[rgb(var(--color-black)/0.45)] backdrop-blur-sm" data-about-modal-backdrop></div>
     <div
       id="about-timeline-modal-dialog"
       role="dialog"
@@ -184,7 +172,7 @@ const maxCharsXlPlus = 170;
         </h3>
         <button
           type="button"
-          class="shrink-0 rounded-md text-[rgb(var(--color-text))] transition-colors hover:text-[rgb(var(--color-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]"
+          class="shrink-0 cursor-pointer rounded-md text-[rgb(var(--color-text))] transition-colors hover:text-[rgb(var(--color-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]"
           data-about-modal-close
           aria-label={closeModalAria}
           data-i18n-attr="aria-label:cert_viewer_close"
@@ -198,18 +186,12 @@ const maxCharsXlPlus = 170;
             class="size-6"
             aria-hidden="true"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18 18 6M6 6l12 12"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
       <div class="min-h-0 flex-1 overflow-y-auto p-4 sm:p-5">
-        <p
-          class="whitespace-pre-wrap text-left text-[rgb(var(--color-text))] leading-relaxed"
-          data-about-modal-text
-        >
+        <p class="text-left leading-relaxed whitespace-pre-wrap text-[rgb(var(--color-text))]" data-about-modal-text>
         </p>
       </div>
     </div>
@@ -268,8 +250,13 @@ const maxCharsXlPlus = 170;
   }
 
   function labelMore() {
+    var key = "about_read_more";
     var tFn = window.i18n && window.i18n.t;
-    return tFn ? tFn("about_read_more") : readMoreLabel;
+    if (!tFn) return readMoreLabel;
+    var s = tFn(key);
+    // i18n del cliente puede devolver la clave si el diccionario aún no cargó (race con DOMContentLoaded).
+    if (s && s !== key) return s;
+    return readMoreLabel;
   }
 
   function getFullTimelineText(container, span) {
@@ -297,10 +284,7 @@ const maxCharsXlPlus = 170;
   function openAboutTextModal(year, fullText, triggerBtn) {
     var els = getModalEls();
     if (!els || !els.year || !els.text) return;
-    aboutModalLastFocus =
-      triggerBtn && triggerBtn.focus
-        ? triggerBtn
-        : document.activeElement;
+    aboutModalLastFocus = triggerBtn && triggerBtn.focus ? triggerBtn : document.activeElement;
     els.year.textContent = year || "";
     els.text.textContent = fullText;
     els.root.classList.remove("hidden");
