@@ -6,9 +6,4 @@ import { projectWebTodoList } from "./projects/project-web-todo-list";
 import { projectWebMarcadores } from "./projects/project-web-marcadores";
 
 /** Lista de todos los proyectos del portafolio */
-export const projects: Project[] = [
-  projectIcfesMaster,
-  projectWebTodoList,
-  projectWebMarcadores,
-  projectNotasHacking,
-];
+export const projects: Project[] = [projectIcfesMaster, projectWebTodoList, projectWebMarcadores, projectNotasHacking];

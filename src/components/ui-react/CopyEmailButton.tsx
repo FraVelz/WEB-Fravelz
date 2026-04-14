@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n bridge */
+/* eslint-disable react-hooks/set-state-in-effect -- sync with client i18n */
+"use client";
+
 import { useState, useEffect } from "react";
 
 interface CopyEmailButtonProps {
@@ -5,48 +9,33 @@ interface CopyEmailButtonProps {
   successText: string;
 }
 
-export default function CopyEmailButton({
-  email,
-  successText,
-}: CopyEmailButtonProps) {
+export default function CopyEmailButton({ email, successText }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const [currentSuccessText, setCurrentSuccessText] = useState(successText);
-  const [ariaLabel, setAriaLabel] = useState(
-    "Copiar dirección de correo electrónico",
-  );
+  const [ariaLabel, setAriaLabel] = useState("Copiar dirección de correo electrónico");
 
   useEffect(() => {
     const handleLanguageChange = (event: CustomEvent) => {
       const translations = event.detail.translations;
       if (translations) {
-        if (translations.hero_copy_success)
-          setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria)
-          setAriaLabel(translations.copy_email_aria);
+        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
       }
     };
 
-    window.addEventListener(
-      "language-changed",
-      handleLanguageChange as EventListener,
-    );
+    window.addEventListener("language-changed", handleLanguageChange as EventListener);
 
     if (typeof window !== "undefined" && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
       const translations = (window as any).i18n.getTranslations(currentLang);
       if (translations) {
-        if (translations.hero_copy_success)
-          setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria)
-          setAriaLabel(translations.copy_email_aria);
+        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
+        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
       }
     }
 
     return () => {
-      window.removeEventListener(
-        "language-changed",
-        handleLanguageChange as EventListener,
-      );
+      window.removeEventListener("language-changed", handleLanguageChange as EventListener);
     };
   }, []);
 
@@ -90,9 +79,7 @@ export default function CopyEmailButton({
         />
       </svg>
 
-      <span className="email-text whitespace-nowrap">
-        {copied ? currentSuccessText : email}
-      </span>
+      <span className="email-text whitespace-nowrap">{copied ? currentSuccessText : email}</span>
 
       {copied ? (
         <svg
@@ -103,11 +90,7 @@ export default function CopyEmailButton({
           stroke="currentColor"
           className="size-5 text-green-500"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4.5 12.75l6 6 9-13.5"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
       ) : (
         <svg

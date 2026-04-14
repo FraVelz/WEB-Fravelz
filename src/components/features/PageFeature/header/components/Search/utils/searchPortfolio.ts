@@ -1,4 +1,3 @@
-
 import { getAllProjects } from "@/utils/data/projects";
 import { certificates } from "@/utils/data/certificates";
 import { technologies } from "@/components/features/technologies/data";

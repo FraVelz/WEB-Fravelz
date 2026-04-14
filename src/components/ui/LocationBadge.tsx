@@ -1,0 +1,25 @@
+import { cn } from "@/utils/cn";
+
+export default function LocationBadge({ text }: { text: string }) {
+  return (
+    <div
+      className={cn(
+        "flex max-w-fit items-center gap-2 rounded-full border-2 border-cyan-400/70 bg-cyan-50 px-3 py-1.5 pr-3",
+        "text-sm font-medium text-cyan-800 shadow-md shadow-cyan-500/20 transition-all",
+        "hover:border-cyan-600 hover:shadow-lg hover:shadow-cyan-500/30",
+        "dark:border-cyan-500/40 dark:bg-gray-900 dark:text-cyan-300 dark:shadow-none",
+        "dark:hover:border-cyan-400/60 dark:hover:shadow-cyan-500/10",
+      )}
+    >
+      <svg
+        className="h-4 w-4 text-cyan-700 dark:text-cyan-400"
+        fill="currentColor"
+        viewBox="0 0 384 512"
+        aria-hidden="true"
+      >
+        <path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+      </svg>
+      <span data-i18n="hero_location">{text}</span>
+    </div>
+  );
+}

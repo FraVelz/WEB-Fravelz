@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n */
+/* eslint-disable react-hooks/set-state-in-effect -- modal open sync */
+/* eslint-disable jsx-a11y/role-has-required-aria-props -- combobox options */
+"use client";
+
 import { createPortal } from "react-dom";
 import { useState, useEffect, useRef, useMemo } from "react";
 
@@ -58,8 +63,7 @@ export function Modal({
 
     setQuery("");
 
-    const l =
-      (typeof window !== "undefined" && (window as any).i18n?.getCurrentLanguage?.()) || getLangFromPath();
+    const l = (typeof window !== "undefined" && (window as any).i18n?.getCurrentLanguage?.()) || getLangFromPath();
     const langKey = LANGUAGES.includes(l as Lang) ? (l as Lang) : "es";
     setLang(langKey);
 
@@ -111,136 +115,136 @@ export function Modal({
           )}
           onClick={(e) => e.stopPropagation()}
         >
-        <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
-          <svg
-            className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-          <input
-            ref={inputRef}
-            type="search"
-            name="search"
-            id="search"
-            autoComplete="off"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={searchLabel(translations, "search_placeholder")}
-            className={cn(
-              "min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none",
-              "dark:text-gray-100 dark:placeholder-gray-500",
-            )}
-          />
-          <button
-            type="button"
-            onClick={() => setIsActive(false)}
-            className={cn(
-              "shrink-0 cursor-pointer rounded-lg p-1.5 text-gray-400 transition-colors",
-              "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300",
-            )}
-            aria-label={searchLabel(translations, "search_close_aria")}
-          >
-            <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
+            <svg
+              className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
             </svg>
-          </button>
-        </div>
+            <input
+              ref={inputRef}
+              type="search"
+              name="search"
+              id="search"
+              autoComplete="off"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={searchLabel(translations, "search_placeholder")}
+              className={cn(
+                "min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none",
+                "dark:text-gray-100 dark:placeholder-gray-500",
+              )}
+            />
+            <button
+              type="button"
+              onClick={() => setIsActive(false)}
+              className={cn(
+                "shrink-0 cursor-pointer rounded-lg p-1.5 text-gray-400 transition-colors",
+                "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300",
+              )}
+              aria-label={searchLabel(translations, "search_close_aria")}
+            >
+              <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
 
-        <div className="max-h-[50vh] overflow-y-auto">
-          {query.trim().length < 2 ? (
-            <p className="p-4 text-sm text-gray-500 dark:text-gray-400">
-              {searchLabel(translations, "search_min_chars")}
-            </p>
-          ) : results.length === 0 ? (
-            <p className="p-4 text-sm text-gray-500 dark:text-gray-400">{noResultsText}</p>
-          ) : (
-            <ul className="py-2" role="listbox">
-              {results.map((r, idx) => {
-                if (r.type === "project") {
+          <div className="max-h-[50vh] overflow-y-auto">
+            {query.trim().length < 2 ? (
+              <p className="p-4 text-sm text-gray-500 dark:text-gray-400">
+                {searchLabel(translations, "search_min_chars")}
+              </p>
+            ) : results.length === 0 ? (
+              <p className="p-4 text-sm text-gray-500 dark:text-gray-400">{noResultsText}</p>
+            ) : (
+              <ul className="py-2" role="listbox">
+                {results.map((r, idx) => {
+                  if (r.type === "project") {
+                    return (
+                      <li key={`p-${r.slug}`} role="option">
+                        <a
+                          href={`${baseUrl}${lang}/projects/${r.slug}`}
+                          className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          onClick={() => setIsActive(false)}
+                        >
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
+                            <HighlightMatch text={r.title} query={query} />
+                          </span>
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                            {r.technologies.slice(0, 5).map((tech, i) => (
+                              <span key={`${tech}-${i}`}>
+                                {i > 0 && " · "}
+                                <HighlightMatch text={tech} query={query} />
+                              </span>
+                            ))}
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  }
+                  if (r.type === "technology") {
+                    return (
+                      <li key={`t-${r.id}`} role="option">
+                        <a
+                          href={`${baseUrl}${lang}/#technologies`}
+                          className="flex items-center gap-2 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          onClick={() => setIsActive(false)}
+                        >
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
+                            <HighlightMatch text={r.name} query={query} />
+                          </span>
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                            {searchLabel(translations, "search_result_technology")}
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  }
+                  if (r.type === "certificate") {
+                    return (
+                      <li key={`c-${r.id}`} role="option">
+                        <a
+                          href={`${baseUrl}${lang}/certifications`}
+                          className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          onClick={() => setIsActive(false)}
+                        >
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
+                            <HighlightMatch text={r.title} query={query} />
+                          </span>
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                            <HighlightMatch text={r.issuer} query={query} />
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  }
                   return (
-                    <li key={`p-${r.slug}`} role="option">
+                    <li key={`pg-${idx}-${r.url}`} role="option">
                       <a
-                        href={`${baseUrl}${lang}/projects/${r.slug}`}
+                        href={r.url}
                         className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
                         onClick={() => setIsActive(false)}
                       >
-                        <span className="font-medium text-gray-900 dark:text-gray-100">
-                          <HighlightMatch text={r.title} query={query} />
-                        </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
-                          {r.technologies.slice(0, 5).map((tech, i) => (
-                            <span key={`${tech}-${i}`}>
-                              {i > 0 && " · "}
-                              <HighlightMatch text={tech} query={query} />
-                            </span>
-                          ))}
+                        <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
+                        <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
+                          <HighlightMatch text={r.snippet} query={query} />
                         </span>
                       </a>
                     </li>
                   );
-                }
-                if (r.type === "technology") {
-                  return (
-                    <li key={`t-${r.id}`} role="option">
-                      <a
-                        href={`${baseUrl}${lang}/#technologies`}
-                        className="flex items-center gap-2 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-                        onClick={() => setIsActive(false)}
-                      >
-                        <span className="font-medium text-gray-900 dark:text-gray-100">
-                          <HighlightMatch text={r.name} query={query} />
-                        </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
-                          {searchLabel(translations, "search_result_technology")}
-                        </span>
-                      </a>
-                    </li>
-                  );
-                }
-                if (r.type === "certificate") {
-                  return (
-                    <li key={`c-${r.id}`} role="option">
-                      <a
-                        href={`${baseUrl}${lang}/certifications`}
-                        className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-                        onClick={() => setIsActive(false)}
-                      >
-                        <span className="font-medium text-gray-900 dark:text-gray-100">
-                          <HighlightMatch text={r.title} query={query} />
-                        </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
-                          <HighlightMatch text={r.issuer} query={query} />
-                        </span>
-                      </a>
-                    </li>
-                  );
-                }
-                return (
-                  <li key={`pg-${idx}-${r.url}`} role="option">
-                    <a
-                      href={r.url}
-                      className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-                      onClick={() => setIsActive(false)}
-                    >
-                      <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
-                      <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
-                        <HighlightMatch text={r.snippet} query={query} />
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
+                })}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </div>,

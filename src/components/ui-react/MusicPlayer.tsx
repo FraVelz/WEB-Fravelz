@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- legacy i18n window bridge */
+"use client";
+
 import { useRef, useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/utils/cn";
@@ -10,24 +13,22 @@ interface MusicPlayerProps {
   className?: string;
 }
 
-export default function MusicPlayer({
-  isOpen,
-  onClose,
-  className = "",
-}: MusicPlayerProps) {
+export default function MusicPlayer({ isOpen, onClose, className = "" }: MusicPlayerProps) {
   const [translations, setTranslations] = useState<any>({});
   const audioRef = useRef<HTMLAudioElement>(null);
   const initializedRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const baseUrl = (import.meta.env.BASE_URL || "/").replace(/([^/])$/, "$1/");
+  const baseUrl = ((typeof process !== "undefined" && process.env.NEXT_PUBLIC_BASE_PATH) || "/").replace(
+    /([^/])$/,
+    "$1/",
+  );
 
   const t = translations;
 
   const canciones = useMemo(() => {
-    const getPath = (filename: string) =>
-      `${baseUrl}music/${encodeURIComponent(filename)}`;
+    const getPath = (filename: string) => `${baseUrl}music/${encodeURIComponent(filename)}`;
     return [
       {
         nombre: t.cancion_chopin,
@@ -53,8 +54,7 @@ export default function MusicPlayer({
   }, [t, baseUrl]);
 
   const [selectedSong, setSelectedSong] = useState(
-    () =>
-      `${baseUrl}music/${encodeURIComponent("Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3")}`,
+    () => `${baseUrl}music/${encodeURIComponent("Chopin - Etude Op. 25 No. 11 (Winter Wind).mp3")}`,
   );
 
   useEffect(() => {
@@ -63,10 +63,7 @@ export default function MusicPlayer({
       setTranslations(event.detail.translations || {});
     };
 
-    window.addEventListener(
-      "language-changed",
-      handleLanguageChange as EventListener,
-    );
+    window.addEventListener("language-changed", handleLanguageChange as EventListener);
 
     // Get initial translation
     if (typeof window !== "undefined" && (window as any).i18n) {
@@ -76,10 +73,7 @@ export default function MusicPlayer({
     }
 
     return () => {
-      window.removeEventListener(
-        "language-changed",
-        handleLanguageChange as EventListener,
-      );
+      window.removeEventListener("language-changed", handleLanguageChange as EventListener);
     };
   }, []);
 
@@ -115,6 +109,7 @@ export default function MusicPlayer({
     audio.src = selectedSong;
     audio.load();
     initializedRef.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- one-time audio init with initial selectedSong
   }, []);
 
   useEffect(() => {
@@ -308,9 +303,7 @@ export default function MusicPlayer({
     <>
       <audio ref={audioRef} preload="metadata" loop crossOrigin="anonymous" />
 
-      {isOpen && typeof document !== "undefined"
-        ? createPortal(modalContent, document.body)
-        : null}
+      {isOpen && typeof document !== "undefined" ? createPortal(modalContent, document.body) : null}
     </>
   );
 }

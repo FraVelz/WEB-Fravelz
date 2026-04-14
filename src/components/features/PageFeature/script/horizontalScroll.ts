@@ -47,9 +47,7 @@ export function horizontalScroll() {
   // (Link.astro does not handle #header-nav-desktop correctly on desktop)
   navClickHandler = (e: MouseEvent) => {
     // Detect clicks inside the desktop navigation
-    const link = (e.target as Element).closest<HTMLAnchorElement>(
-      "#header-nav-desktop a",
-    );
+    const link = (e.target as Element).closest<HTMLAnchorElement>("#header-nav-desktop a");
     if (!link) return;
 
     const id = link.getAttribute("href");

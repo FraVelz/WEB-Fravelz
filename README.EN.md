@@ -6,6 +6,8 @@
 
 This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
 
+The previous **Astro** version of the site is preserved on branch [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+
 I'm Fravelz (Francisco Velez), a Front-End Developer. My goal is simple: to be one of the best front-end programmers in the world and eventually work at Google.
 
 This portfolio, along with other projects that will be under construction, being improved, and completed, will demonstrate my progress and the details I consider to achieve my goal.
@@ -38,15 +40,15 @@ All web projects modified, created, or last modified in 2026 will have documenta
 
 ### Core
 
-- Astro v5.16.11 - Modern web framework
-- React v19.1.1 - UI library for interactive components
-- TypeScript - Static typing
-- Tailwind CSS v4.1.0 - Utility-first CSS framework
+- **Next.js** (App Router) — React framework with SSG for this portfolio
+- **React** — UI and interactive components
+- **TypeScript** — Static typing
+- **Tailwind CSS** v4 — Utility-first CSS framework
 
 ### Development Tools
 
-- pnpm - Fast package manager
-- **Vite** - Build tool (included in Astro)
+- **pnpm** — Fast package manager
+- **Next.js / Turbopack** — `pnpm dev` and production builds
 
 ### Documentation Tools
 

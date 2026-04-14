@@ -1,10 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { cn } from "@/utils/cn";
 import MusicPlayer from "./MusicPlayer";
 
-interface MusicButtonProps {}
-
-export default function MusicButton({}: MusicButtonProps) {
+export default function MusicButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

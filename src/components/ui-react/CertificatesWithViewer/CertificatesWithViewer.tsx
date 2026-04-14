@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/utils/cn";
 import PdfViewerModal from "../PdfViewerModal";
 
@@ -39,11 +41,7 @@ export default function CertificatesWithViewer({
                 strokeWidth="1.5"
                 className="h-4 w-4"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25H12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25H12" />
               </svg>
             </span>
             {webTitle}
@@ -159,11 +157,7 @@ export default function CertificatesWithViewer({
                 strokeWidth="1.5"
                 className="h-4 w-4"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4.5 12.75l6 6 9-13.5"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </span>
             {otherTitle}

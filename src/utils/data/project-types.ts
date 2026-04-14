@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 /**
  * Data structure for portfolio projects.
  *
@@ -30,7 +32,7 @@ export interface Project {
   };
 
   /** Path to the main image */
-  featuredImage: ImageMetadata;
+  featuredImage: StaticImageData;
 
   /** Technologies used */
   technologies: string[];

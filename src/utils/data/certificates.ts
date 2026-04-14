@@ -32,14 +32,8 @@ export interface Certificate {
 export function groupCertificates(certs: Certificate[]) {
   const hixec = certs.filter((c) => c.issuer === "Hixec");
   const hack4u = certs.filter((c) => c.issuer === "Hack4u");
-  const web = certs.filter(
-    (c) =>
-      c.category === "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u",
-  );
-  const other = certs.filter(
-    (c) =>
-      c.category !== "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u",
-  );
+  const web = certs.filter((c) => c.category === "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u");
+  const other = certs.filter((c) => c.category !== "web" && c.issuer !== "Hixec" && c.issuer !== "Hack4u");
   const n = hixec.length + hack4u.length + web.length + other.length;
   if (n !== certs.length) {
     throw new Error(
@@ -57,8 +51,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/html.pdf",
-    shortDescription:
-      "Fundamentos de HTML para maquetar páginas web accesibles.",
+    shortDescription: "Fundamentos de HTML para maquetar páginas web accesibles.",
   },
   {
     id: "midudev-css",
@@ -66,8 +59,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/css.pdf",
-    shortDescription:
-      "Selectores, cascada, maquetación básica y buenas prácticas de estilos.",
+    shortDescription: "Selectores, cascada, maquetación básica y buenas prácticas de estilos.",
   },
   {
     id: "midudev-css-grid",
@@ -75,8 +67,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/css-grid.pdf",
-    shortDescription:
-      "Maquetación moderna con CSS Grid para layouts complejos y responsivos.",
+    shortDescription: "Maquetación moderna con CSS Grid para layouts complejos y responsivos.",
   },
   {
     id: "midudev-tailwind",
@@ -84,8 +75,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/tailwindcss.pdf",
-    shortDescription:
-      "Diseño con utilidades Tailwind, componentes reutilizables y buenas prácticas.",
+    shortDescription: "Diseño con utilidades Tailwind, componentes reutilizables y buenas prácticas.",
   },
   {
     id: "midudev-animaciones-css",
@@ -93,8 +83,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/animaciones-css.pdf",
-    shortDescription:
-      "Transiciones, keyframes y micro-interacciones con CSS moderno.",
+    shortDescription: "Transiciones, keyframes y micro-interacciones con CSS moderno.",
   },
   {
     id: "midudev-gsap-js",
@@ -102,8 +91,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/gsap-animaciones-js.pdf",
-    shortDescription:
-      "Animaciones avanzadas con GSAP y JavaScript para interfaces web dinámicas.",
+    shortDescription: "Animaciones avanzadas con GSAP y JavaScript para interfaces web dinámicas.",
   },
   {
     id: "midudev-astro-headless",
@@ -111,8 +99,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/astro-headlessCMS.pdf",
-    shortDescription:
-      "Integración de Astro con CMS headless para sitios rápidos y mantenibles.",
+    shortDescription: "Integración de Astro con CMS headless para sitios rápidos y mantenibles.",
   },
   {
     id: "midudev-utility-types-ts",
@@ -120,8 +107,7 @@ export const certificates: Certificate[] = [
     issuer: "midudev",
     category: "web",
     pdfPath: "/pdfs/midudev/utilityTypes-typescript.pdf",
-    shortDescription:
-      "Uso de utility types de TypeScript para tipar mejor aplicaciones web.",
+    shortDescription: "Uso de utility types de TypeScript para tipar mejor aplicaciones web.",
   },
 
   // --- Web / frontend (SoloLearn) ---
@@ -157,8 +143,7 @@ export const certificates: Certificate[] = [
     issuer: "SoloLearn",
     category: "other",
     pdfPath: "/pdfs/sololearn/python-intermediate.pdf",
-    shortDescription:
-      "Conceptos intermedios de Python y práctica estructurada.",
+    shortDescription: "Conceptos intermedios de Python y práctica estructurada.",
   },
   {
     id: "sololearn-c-intro",
@@ -199,72 +184,63 @@ export const certificates: Certificate[] = [
     title: "Ciberseguridad y Privacidad 101",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-101-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-101-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-ciberseguridad-202",
     title: "Ciberseguridad y Privacidad 202",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-202-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-202-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-ciberseguridad-303",
     title: "Ciberseguridad y Privacidad 303",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-303-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Ciberseguridad-y-Privacidad-303-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-linux-hacking",
     title: "Linux para Hacking Ético",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Linux-para-Hacking-Etico-HXC-1133-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Linux-para-Hacking-Etico-HXC-1133-Hixec.pdf",
   },
   {
     id: "hixec-redes-hacking",
     title: "Redes para Hacking Ético",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Redes-para-Hacking-Etico-HXC-1133-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Redes-para-Hacking-Etico-HXC-1133-Hixec.pdf",
   },
   {
     id: "hixec-windows-hacking",
     title: "Windows para Hacking Ético",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Windows-para-Hacking-Etico-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Windows-para-Hacking-Etico-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-osint",
     title: "OSINT para Hackers Éticos",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-OSINT-para-Hackers-Eticos-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-OSINT-para-Hackers-Eticos-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-privacidad-hackers",
     title: "Privacidad para Hackers Éticos",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Privacidad-para-Hackers-Eticos-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Privacidad-para-Hackers-Eticos-HXC-3388-Hixec.pdf",
   },
   {
     id: "hixec-malware",
     title: "Detección y Protección Contra Malware",
     issuer: "Hixec",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hixec/Fravelz-Deteccion-y-Proteccion-Contra-Malware-HXC-3388-Hixec.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hixec/Fravelz-Deteccion-y-Proteccion-Contra-Malware-HXC-3388-Hixec.pdf",
   },
 
   // --- Cybersecurity / Ethical hacking (Hack4u) ---
@@ -273,23 +249,20 @@ export const certificates: Certificate[] = [
     title: "Introducción a Linux",
     issuer: "Hack4u",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hack4u/certificado-hack4u-introduccion-a-linux.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hack4u/certificado-hack4u-introduccion-a-linux.pdf",
   },
   {
     id: "hack4u-personalizacion",
     title: "Personalización de Entorno",
     issuer: "Hack4u",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hack4u/certificado-hack4u-personalizacion.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hack4u/certificado-hack4u-personalizacion.pdf",
   },
   {
     id: "hack4u-python-ofensivo",
     title: "Python Ofensivo",
     issuer: "Hack4u",
     category: "security",
-    pdfPath:
-      "/pdfs/hacking-certificates/hack4u/certificado-hack4u-python-ofensivo.pdf",
+    pdfPath: "/pdfs/hacking-certificates/hack4u/certificado-hack4u-python-ofensivo.pdf",
   },
 ];
