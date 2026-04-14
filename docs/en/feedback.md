@@ -1,177 +1,79 @@
-# Feedbacks
+# Feedback and roadmap
+
+Improvement ideas and maintenance notes for the **Next.js** portfolio.
 
 ---
 
-## Table of Contents
+## Table of contents
 
-- [Feedbacks](#feedbacks)
-  - [Table of Contents](#table-of-contents)
-  - [🗺 Roadmap and Future Improvements](#-roadmap-and-future-improvements)
-    - [Performance Improvements](#performance-improvements)
-    - [Features](#features)
-    - [SEO and Marketing](#seo-and-marketing)
-    - [Development](#development)
-    - [UX/UI](#uxui)
-    - [Internationalization](#internationalization)
-  - [🎯 Tips and Recommendations](#-tips-and-recommendations)
-    - [Maintenance](#maintenance)
-    - [Code Improvements](#code-improvements)
-    - [Optimizations](#optimizations)
-    - [Security](#security)
-  - [📊 Metrics and Analytics](#-metrics-and-analytics)
-    - [Recommended Tools](#recommended-tools)
-  - [Data Flow](#data-flow)
+- [Feedback and roadmap](#feedback-and-roadmap)
+  - [Suggested roadmap](#suggested-roadmap)
+  - [Maintenance](#maintenance)
+  - [Current data flow](#current-data-flow)
 
 ---
 
-## 🗺 Roadmap and Future Improvements
+## Suggested roadmap
 
-### Performance Improvements
+### Performance
 
-- [ ] Image optimization with `@astrojs/image`
-- [ ] Implement image lazy loading
-- [ ] More granular code splitting
-- [ ] Service Worker for offline cache
-- [ ] Preload critical resources
+- [ ] Optional bundle analysis with `@next/bundle-analyzer`
+- [ ] Review images under `public/` and `src/assets/` (modern formats, sizing)
+- [ ] Service Worker / PWA (optional)
 
 ### Features
 
-- [ ] Certifications system with PDF viewer
-- [ ] Blog or articles section
-- [ ] Functional contact form
-- [ ] GitHub API integration for projects
-- [ ] Analytics (Plausible, Google Analytics)
-- [ ] Improved visual Dark/Light mode toggle
+- [x] Certificates with PDF viewer (`ui-react`)
+- [ ] Blog or articles (new routes under `src/app/[lang]/…`)
+- [ ] Contact form with a backend or third-party service (currently `mailto:` only)
+- [ ] GitHub API integration for dynamic projects
+- [ ] Analytics (e.g. Plausible, Vercel Analytics)
 
-### SEO and Marketing
+### SEO
 
-- [ ] Schema.org markup (JSON-LD)
-- [ ] Dynamic Open Graph images
-- [ ] Automatically generated sitemap
-- [ ] RSS feed for blog (if implemented)
-- [ ] Google Search Console integration
+- [x] Generated sitemap (`src/app/sitemap.ts` → `/sitemap.xml`)
+- [ ] Schema.org JSON-LD in layout or per page
+- [ ] Richer per-route Open Graph (dynamic images per project)
 
 ### Development
 
-- [ ] Unit tests (Vitest)
-- [ ] E2E tests (Playwright)
-- [ ] CI/CD with GitHub Actions
-- [ ] Pre-commit hooks (Husky)
-- [ ] Storybook for components
-- [ ] Component documentation
+- [ ] Tests (Vitest / Playwright)
+- [ ] CI on GitHub Actions (lint + build)
+- [ ] Husky + lint-staged (optional)
 
-### UX/UI
+### UX
 
-- [ ] Entry animations (Framer Motion)
-- [ ] Page transitions
-- [ ] Improved loading states
-- [ ] Error boundaries
-- [ ] Toast notifications
-- [ ] Better visual feedback on interactions
+- [ ] View transitions (e.g. `template.tsx` or an animation library)
+- [ ] Toasts for actions (copy email, errors)
 
 ### Internationalization
 
-- [ ] Automatic browser language detection
-- [ ] Language persistence in localStorage
-- [ ] Multi-language URLs (`/es/`, `/en/`, etc.)
-- [ ] RTL support for languages that require it
+- [x] Locale URLs `/{lang}/…`
+- [x] Initial detection via middleware + cookie
+- [ ] RTL if a language requires it
 
 ---
 
-## 🎯 Tips and Recommendations
-
-### Maintenance
-
-1. **Update dependencies regularly**
+## Maintenance
 
 ```bash
 pnpm update
 pnpm audit
-```
-
-2. **Review bundle size**
-
-```bash
 pnpm build
-# Check dist/ for file sizes
+pnpm lint
 ```
 
-3. **Optimize images before adding them**
-   - Use modern formats (WebP, AVIF)
-   - Compress images
-   - Appropriate sizes for each breakpoint
-
-### Code Improvements
-
-1. **Extract constants**
-   - URLs, repeated texts, configurations
-   - Create `src/utils/constants.ts`
-
-2. **Shared types**
-   - Create `src/types/index.ts` for common interfaces
-
-3. **Custom hooks**
-   - `useTheme.ts` - Theme logic
-   - `useLanguage.ts` - Language logic
-   - `useScroll.ts` - Scroll behavior
-
-4. **Data validation**
-   - Validate component props
-   - Validate translations (avoid missing keys)
-
-### Optimizations
-
-1. **Font Awesome**
-   - Consider using only required icons
-   - Or migrate to inline SVG icons
-
-2. **CSS**
-   - Review duplicate classes
-   - Use Tailwind's `@apply` for common components
-
-3. **Images**
-   - Implement lazy loading
-   - Use `srcset` for responsive images
-   - Consider CDN for assets
-
-### Security
-
-1. **Environment variables**
-   - Do not commit secrets
-   - Use `.env` for sensitive configurations
-
-2. **Dependencies**
-   - Check for vulnerabilities: `pnpm audit`
-   - Keep dependencies up to date
-
-3. **Content Security Policy**
-   - Implement CSP headers
-   - Restrict script sources
+- Keep **Next.js** and **React** updated using the official [upgrade guides](https://nextjs.org/docs/app/building-your-application/upgrading).
+- After major dependency bumps, run `pnpm build` and review the output.
 
 ---
 
-## 📊 Metrics and Analytics
+## Current data flow
 
-### Recommended Tools
-
-1. **Lighthouse CI**
-   - Integrate in CI/CD
-   - Monitor performance metrics
-
-2. **Web Vitals**
-   - LCP, FID, CLS
-   - Integrate with Google Analytics
-
-3. **Bundle Analyzer**
-   - Analyze bundle size
-   - Identify optimization opportunities
-
-## Data Flow
-
-1. **Astro page** (`index.astro`) detects language from URL
-2. **Loads translations** from `utils/i18n.ts`
-3. **Renders static components** as HTML
-4. **Hydrates React components** only where needed
+1. Request to `/{lang}/…`: Next resolves the `[lang]` segment and renders the `app/[lang]/` tree.
+2. **Server translations**: `getTranslations(lang)` reads JSON from `public/locals/` (see `LOCALE_FILES` in `src/utils/i18n.ts`).
+3. **Components**: Server Components by default; interactivity lives in client components with **`"use client"`** (search, theme, client GSAP, etc.).
+4. **Client**: `public/i18n.js` can update `data-i18n` nodes and fire `language-changed` when the legacy client i18n path runs.
 
 [Return to readme...](../../README.md)
 

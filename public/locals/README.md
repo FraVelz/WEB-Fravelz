@@ -1,40 +1,45 @@
 # Locales / Internationalization (i18n)
 
-Translation files for the Fravelz portfolio, organized by language and section.
+Translation files for the Fravelz portfolio. The folder name is **`locals`** (not `locales`) and matches the path used in [`src/utils/i18n.ts`](../../src/utils/i18n.ts).
 
-## Supported Languages
+## Supported languages
 
-| Code | Language          |
-| ---- | ----------------- |
+| Code | Language |
+| ---- | -------- |
 | `es` | Spanish (Español) |
-| `en` | English           |
+| `en` | English |
 | `ru` | Russian (Русский) |
-| `zh` | Chinese (中文)    |
+| `zh` | Chinese (中文) |
 
-## File Structure
+## File layout
 
-Each language folder (`es/`, `en/`, `ru/`, `zh/`) contains the same set of JSON files:
+Each language directory (`es/`, `en/`, `ru/`, `zh/`) should expose the same logical set of JSON files. The app merges these files **in order** defined by `LOCALE_FILES` in `src/utils/i18n.ts`:
 
-| File                  | Description                                     |
-| --------------------- | ----------------------------------------------- |
-| `common.json`         | Common texts, navigation, and shared UI strings |
-| `hero.json`           | Main hero section content                       |
-| `music.json`          | Music player and selector                       |
-| `certifications.json` | Certifications and training section             |
-| `info.json`           | Section titles and info labels                  |
-| `technologies.json`   | Technologies and skills                         |
-| `about.json`          | About me (biography and story)                  |
-| `hobbies.json`        | Hobbies and interests                           |
-| `footer.json`         | Footer content and links                        |
+`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`.
 
-## How It Works
+Typical files include:
 
-- **Build time:** `src/utils/i18n.ts` loads translations from these JSON files for server-side rendering.
-- **Client side:** `public/i18n.js` fetches and merges locale files when the user changes language.
-- Elements with `data-i18n="key_name"` are automatically updated with the translated text.
+| File | Contents |
+| ---- | -------- |
+| `common.json` | Navigation, shared UI |
+| `hero.json` | Hero / presentation |
+| `music.json` | Music player strings |
+| `certifications.json` | Certifications page |
+| `info.json` | Section titles |
+| `technologies.json` | Tech section |
+| `about.json` | About / biography |
+| `hobbies.json` | Hobbies |
+| `footer.json` | Footer |
 
-## Adding or Updating Translations
+If the same key appears in more than one file for a language, **the last merged file wins**.
 
-1. Add or edit the key in all language files to keep them in sync.
-2. Use the Spanish (`es/`) files as the reference when adding new keys.
-3. Keys are merged across all JSON files per language, so the same key in different files will be overwritten (last wins).
+## How it works
+
+- **Server (Next.js):** at build/request time, `getTranslations(lang)` reads and merges the JSON files from `public/locals/<lang>/`.
+- **Client:** [`public/i18n.js`](../i18n.js) updates elements with `data-i18n` and related attributes when the user changes language from the legacy client flow; it can dispatch `language-changed` for components that listen.
+
+## Adding or changing strings
+
+1. Add or edit the key in **all** language folders so keys stay aligned.
+2. Use `es/` as the reference when introducing new keys.
+3. Prefer short, stable key names (e.g. `nav_projects`).

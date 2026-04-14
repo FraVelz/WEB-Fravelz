@@ -1,80 +1,68 @@
-# ✨ Características del Portafolio
+# Características del portafolio
 
-## 🎨 Diseño
+## Diseño
 
-- **Dark Mode** con soporte para tema automático, claro y oscuro
-- **Gradientes Cyan/Purple** en títulos y elementos destacados
-- **Diseño Responsive** optimizado para móvil, tablet y desktop
-- **Animaciones suaves** con GSAP y transiciones CSS fluidas
-- **Backdrop blur** en header y elementos flotantes
-- **Scroll horizontal** con GSAP ScrollTrigger para secciones de tecnologías
+- **Dark mode** con tema automático / claro / oscuro (script en layout + `localStorage`)
+- **Gradientes cyan/púrpura** en títulos y CTAs
+- **Responsive**: móvil, tablet y escritorio
+- **Animaciones**: GSAP (scroll horizontal en paneles, header, 404) y transiciones CSS
+- **Backdrop blur** en cabecera y overlays
+- **Scroll horizontal** (desktop) en el bloque de proyectos / tecnologías / sobre mí / hobbies
 
-## 🌍 Internacionalización (i18n)
+## Internacionalización (i18n)
 
-- **4 idiomas**: Español, English, Русский, 中文
-- **Detección automática** del idioma del navegador
-- **Cambio dinámico** de idioma sin recargar la página
-- **Sistema de traducciones** modular en `public/locales/`
-- **Persistencia** del idioma seleccionado en localStorage
-- **Soporte completo** para todos los textos del sitio
+- **4 idiomas**: español, inglés, ruso, chino (`es`, `en`, `ru`, `zh`)
+- **Rutas** con prefijo: `/{lang}/…`
+- **Middleware** en `/`: cookie `lang` o cabecera `Accept-Language`
+- **Traducciones**: JSON en `public/locals/{lang}/` fusionados en servidor (`src/utils/i18n.ts`)
+- **Cliente**: `public/i18n.js` para `data-i18n` y evento `language-changed`
+- **Selector de idioma**: navega a la misma ruta en otro locale (recarga de página)
 
-## 🎵 Funcionalidades Interactivas
+## Funcionalidades interactivas
 
-- **Reproductor de música** con múltiples canciones y controles
-- **Selector de tema** (Auto/Dark/Light) con persistencia
-- **Selector de idioma** con persistencia en localStorage
-- **Navegación suave** con scroll automático a secciones
-- **Scroll horizontal** con GSAP para secciones de tecnologías y proyectos
-- **Formulario de contacto** que abre el cliente de correo con datos pre-rellenados
+- **Búsqueda** en el header (portfolio y traducciones vía fetch a `public/locals/`)
+- **Certificados** con visor PDF (componentes cliente)
+- **Reproductor de música** (opcional / componentes existentes)
+- **Tema**: toggle accesible
+- **Formulario de contacto**: `mailto:` con cuerpo generado en cliente
+- **Timeline “Sobre mí”** con modal “Leer más” (lógica en cliente)
 
-## 📱 Responsive
+## Rendimiento
 
-- **Menú móvil** con drawer animado
-- **Grid adaptativo** para proyectos y tecnologías
-- **Imágenes optimizadas** con lazy loading
-- **Breakpoints** optimizados para todos los dispositivos
+- **SSG**: páginas pre-renderizadas con `generateStaticParams` donde aplica
+- **React Server Components** por defecto; **`"use client"`** solo donde hace falta
+- **`next/image`** para imágenes optimizadas cuando se usa el componente `Image`
+- **Tailwind CSS v4** con PostCSS
+- **Bundle**: código dividido por rutas y límites cliente/servidor de Next
 
-## ⚡ Rendimiento
+## Secciones principales
 
-- **Astro Islands**: Solo se hidratan componentes interactivos (React)
-- **HTML estático** pre-renderizado para mejor SEO y velocidad
-- **Bundle optimizado** con mínimo JavaScript
-- **Lazy loading** de componentes React (`client:load`)
-- **CSS crítico** inline para evitar FOUC
-- **Build estático** sin servidor necesario
+- **Presentación**: hero con logo y ubicación
+- **Proyectos**: grid y página de detalle por `slug`
+- **Tecnologías**: tarjetas con niveles (datos en `src/components/features/technologies/data.ts`)
+- **Sobre mí**: línea de tiempo + modal
+- **Pasatiempos**: grid de tarjetas con efecto de cursor
+- **Contacto**: email y formulario mailto
 
-## 🎯 Secciones Principales
+## Stack técnico
 
-- **Presentación**: Hero section con logo animado y ubicación
-- **Proyectos**: Grid con filtros por tecnología y vista individual
-- **Tecnologías**: Tarjetas con niveles y categorías
-- **Sobre Mí**: Información personal con sección desplegable
-- **Pasatiempos**: Intereses y hobbies
-- **Contacto**: Formulario y botón para copiar email
+- **Next.js** 16 (App Router)
+- **React** 19
+- **TypeScript**
+- **Tailwind CSS** 4
+- **GSAP** 3
 
-## 🔧 Tecnologías Utilizadas
+## Datos y configuración
 
-- **Astro** v5.16.11 - Framework web moderno
-- **React** v19.1.1 - Componentes interactivos
-- **TypeScript** - Tipado estático
-- **Tailwind CSS** v3.4.19 - Estilos utility-first
-- **GSAP** v3.14.2 - Animaciones avanzadas
-- **Vite** - Build tool (incluido en Astro)
+- **Proyectos**: `src/utils/data/` (`projects-list.ts`, `project-*.ts`, `project-types.ts`)
+- **Traducciones**: `public/locals/` (no usar el nombre `locales` en rutas; la carpeta real es **`locals`**)
+- **SEO**: `generateMetadata`, `app/sitemap.ts`, `public/robots.txt`
 
-## 📦 Estructura de Datos
+## Despliegue
 
-- **Proyectos**: Definidos en `src/data/projects.ts` con soporte multi-idioma
-- **Traducciones**: Organizadas por sección en `public/locales/{lang}/`
-- **Configuración**: Centralizada en `astro.config.mjs` y `tailwind.config.mjs`
-
-## 🚀 Deploy
-
-- **GitHub Pages** con base path `/WEB-Fravelz/`
-- **Build estático** sin necesidad de servidor
-- **CI/CD** con GitHub Actions (`.github/workflows/`)
+- **Recomendado**: [Vercel](https://vercel.com/) con preset Next.js
+- **URL**: https://fravelz.vercel.app/
 
 [Regresar al readme...](../../README.md)
 
-> Autor: Fravelz  
-> Documentación actualizada: 2026/Feb/17  
-> Vision generada por IA
+> Autor: Fravelz · Documentación actualizada: 2026

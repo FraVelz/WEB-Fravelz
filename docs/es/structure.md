@@ -1,135 +1,99 @@
 # Estructura del Proyecto
 
-## Directorios Principales
+## Directorios principales
 
 ```text
 WEB-Fravelz/
-├── public/                    # Archivos estáticos servidos directamente
-│   ├── locales/              # Traducciones i18n (es, en, ru, zh)
-│   │   ├── es/              # Español
-│   │   ├── en/              # Inglés
-│   │   ├── ru/              # Ruso
-│   │   └── zh/              # Chino
-│   ├── music/               # Archivos de audio MP3
-│   ├── images/              # Imágenes del portafolio
-│   ├── i18n.js              # Script cliente para cambio de idioma
-│   ├── robots.txt           # Configuración SEO
-│   └── sitemap.xml          # Mapa del sitio
+├── public/                         # Archivos estáticos (URL pública)
+│   ├── locals/                     # Traducciones i18n (es, en, ru, zh) — JSON por sección
+│   ├── music/                      # Audio MP3
+│   ├── images/                     # Imágenes del sitio
+│   ├── i18n.js                     # Script cliente: data-i18n y evento language-changed
+│   ├── robots.txt                  # SEO (robots)
+│   └── pdfs/                       # PDFs de certificados (referenciados en datos)
 │
-├── src/                      # Código fuente
-│   ├── components/          # Componentes reutilizables
-│   │   ├── layout/          # Componentes de estructura (Header, Footer, etc.)
-│   │   │   ├── header/      # Header, ElementsHeader, MobileDrawer
-│   │   │   └── home-animation/  # horizontalScroll (GSAP)
-│   │   ├── ui/              # Componentes UI básicos (Astro)
-│   │   └── ui-react/        # Componentes interactivos (React)
-│   ├── features/            # Secciones por feature
-│   │   ├── hero/            # HeroSection
-│   │   ├── about-me/        # AboutMeSection
-│   │   ├── projects/       # ProjectsSection
-│   │   ├── technologies/    # TechnologiesSection (data.ts, functions.ts)
-│   │   ├── hobbies/         # HobbiesSection
-│   │   └── contact/         # ContactSection
-│   ├── data/                # Datos compartidos
-│   │   ├── projects.ts      # Lista y utilidades de proyectos
-│   │   ├── projects/        # Proyectos individuales
-│   │   └── certificates.ts  # Certificados
-│   ├── layouts/             # Layouts principales
-│   ├── pages/               # Páginas y rutas
-│   │   ├── index.astro      # Redirección por idioma
-│   │   ├── [lang]/          # Rutas por idioma
-│   │   └── 404.astro        # Página de error
-│   ├── styles/              # Estilos globales
-│   └── utils/               # Utilidades
-│       ├── i18n.ts          # Sistema de traducciones (servidor)
-│       └── lang.ts          # Utilidades de idioma
+├── src/
+│   ├── app/                        # Next.js App Router
+│   │   ├── layout.tsx              # Layout raíz (scripts tema, i18n.js, estilos globales)
+│   │   ├── globals.css             # Importa estilos globales del proyecto
+│   │   ├── not-found.tsx           # Página 404
+│   │   ├── sitemap.ts              # Sitemap generado en build (/sitemap.xml)
+│   │   └── [lang]/                 # Rutas con prefijo de idioma
+│   │       ├── layout.tsx          # HtmlLang + children
+│   │       ├── page.tsx            # Inicio (home)
+│   │       ├── certifications/     # Certificaciones
+│   │       └── projects/           # Lista y detalle [slug]
+│   ├── components/
+│   │   ├── features/               # Secciones (hero, proyectos, about, etc.)
+│   │   ├── header/                 # Header, drawer, navegación
+│   │   ├── ui/                     # UI reutilizable (Footer, NavLink, Particles…)
+│   │   └── ui-react/               # Componentes cliente (búsqueda, PDF, música…)
+│   ├── lib/
+│   │   └── i18n-routing.ts         # Idiomas válidos y helpers sin fs (middleware)
+│   ├── styles/
+│   │   └── global.css              # Tailwind v4 + tokens y utilidades del diseño
+│   ├── utils/
+│   │   ├── i18n.ts                 # Traducciones en servidor (fs + server-only)
+│   │   ├── cn.ts                   # Utilidad classnames
+│   │   └── data/                   # Proyectos, certificados, tipos
+│   ├── assets/                     # Imágenes importadas en datos de proyectos
+│   └── middleware.ts               # Redirección de / → /{lang}/ (cookie + Accept-Language)
 │
-├── docs/                     # Documentación
-│   ├── es/                  # Documentación en español
-│   └── en/                  # Documentación en inglés
+├── docs/
+│   ├── es/                         # Documentación en español
+│   └── en/                         # Documentación en inglés
 │
-├── astro.config.mjs         # Configuración de Astro
-├── tsconfig.json            # Configuración de TypeScript
-└── package.json             # Dependencias y scripts
+├── next.config.ts                  # Configuración de Next.js
+├── eslint.config.mjs               # ESLint (Next + Prettier)
+├── postcss.config.mjs              # PostCSS + Tailwind v4
+├── prettier.config.mjs             # Prettier + prettier-plugin-tailwindcss
+├── tsconfig.json
+└── package.json
 ```
 
-## Organización de Componentes
+## Organización de código
 
-### Layout (`src/components/layout/`)
+### App Router (`src/app/`)
 
-- **Header.astro**: Header fijo con navegación
-- **Footer.astro**: Pie de página con enlaces
-- **HomeMain.astro**: Contenedor principal del home
-- **header/**: ElementsHeader, MobileDrawer
-- **home-animation/**: horizontalScroll.ts (GSAP ScrollTrigger)
+- Rutas bajo **`/[lang]`** generadas con `generateStaticParams` (es, en, ru, zh).
+- **`middleware.ts`** en la raíz de `src/`: solo la ruta `/` redirige al idioma preferido.
+- Metadatos SEO: `generateMetadata` en páginas donde aplica.
 
-### Features (`src/features/`)
+### Componentes
 
-- **hero/HeroSection.astro**: Sección hero/presentación
-- **about-me/AboutMeSection.astro**: Información personal
-- **projects/ProjectsSection.astro**: Grid de proyectos
-- **technologies/TechnologiesSection.astro**: Tarjetas de tecnologías (usa data.ts, functions.ts)
-- **hobbies/HobbiesSection.astro**: Hobbies e intereses
-- **contact/ContactSection.astro**: Formulario de contacto
+- **`src/components/features/`**: secciones de la home y lógica por feature (p. ej. `PageFeature/HomeMain.tsx`, scroll horizontal GSAP).
+- **`src/components/header/`**: cabecera, drawer móvil, selector de idioma.
+- **`src/components/ui/`**: piezas presentacionales (muchas como Server Components).
+- **`src/components/ui-react/`**: piezas que requieren **`"use client"`** (estado, DOM, GSAP en cliente).
 
-### UI Components (`src/components/ui/`)
+### Datos
 
-- **Link.astro**: Enlace con scroll suave
-- **Paragraph.astro**: Párrafo con soporte i18n
-- **ToggleTheme.astro**: Selector de tema claro/oscuro
-- **LocationBadge.astro**: Badge de ubicación
-- **ProjectCard.astro**: Tarjeta de proyecto
-- **Button.astro**, **Particles.astro**
+- **`src/utils/data/`**: lista de proyectos, certificados, tipos (`project-types.ts` usa `StaticImageData` de `next/image`).
 
-### React Components (`src/components/ui-react/`)
+## Sistema de traducciones
 
-- **MusicButton.tsx**: Botón para abrir reproductor
-- **MusicPlayer.tsx**: Reproductor de música modal
-- **CopyEmailButton.tsx**: Botón para copiar email
+- **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
+- **Servidor**: `getTranslations(lang)` solo en componentes/páginas de servidor (o datos serializados a cliente).
+- **Cliente**: `public/i18n.js` actualiza nodos con `data-i18n` y dispara `language-changed` para componentes que lo escuchan.
 
-## Sistema de Traducciones
+## Rutas
 
-- **`public/locales/{lang}/`**: Archivos JSON por idioma
-  - `common.json`: Textos comunes y navegación
-  - `hero.json`: Sección principal
-  - `about.json`: Sobre mí
-  - `technologies.json`: Tecnologías
-  - `music.json`: Reproductor de música
-  - `hobbies.json`: Pasatiempos
-  - `footer.json`: Pie de página
-  - `info.json`: Títulos de secciones
-  - `certifications.json`: Certificaciones
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Redirección (middleware) a `/{lang}/` |
+| `/{lang}/` | Home |
+| `/{lang}/projects` | Listado de proyectos |
+| `/{lang}/projects/[slug]` | Detalle de proyecto |
+| `/{lang}/certifications` | Certificaciones |
+| 404 | `not-found.tsx` |
 
-- **`src/utils/i18n.ts`**: Carga traducciones desde `public/locales/` en build time
-- **`public/i18n.js`**: Script cliente que actualiza elementos con `data-i18n` al cambiar idioma
+## Configuración y despliegue
 
-### ¿Qué hace `data-i18n`?
-
-`data-i18n` es un atributo `data-*` que guarda una **clave de traducción** (por ejemplo `nav_technologies`). En este repo se usa como "puente" para que el i18n del **lado del cliente** pueda actualizar el DOM sin depender de que todo se renderice de nuevo.
-
-- **Cómo se usa**: el script `public/i18n.js` hace `querySelectorAll('[data-i18n]')`, busca la key, y reemplaza `textContent` (o `innerHTML` si existe `data-i18n-html`).
-- **Atributos**: también soporta `data-i18n-attr="attr:key"` para actualizar atributos (por ejemplo `aria-label` o `alt`).
-- **Evento**: después de actualizar, dispara el evento `language-changed` para que cualquier JavaScript del cliente (si lo necesitas) pueda reaccionar al cambio de idioma. No depende de React.
-
-**Nota práctica**: si una vista ya renderiza el texto con `{t.algo}` (SSR/SSG), `data-i18n` puede parecer redundante, pero aquí sí tiene utilidad porque habilita sincronización/actualización en cliente y accesibilidad (atributos) de forma consistente.
-
-## Rutas y Páginas
-
-- **`/`**: Redirección a `/{lang}/` según cookie o Accept-Language
-- **`/{lang}/`**: Página principal (es, en, ru, zh)
-- **`/{lang}/projects`**: Lista de todos los proyectos
-- **`/{lang}/projects/[slug]`**: Vista individual de proyecto
-- **`/{lang}/certifications`**: Certificaciones
-- **`/404`**: Página de error personalizada
-
-## Configuración
-
-- **Site**: `https://fravelz.github.io/WEB-Fravelz/` (configurado en astro.config.mjs)
-- **Output**: Static (HTML pre-renderizado)
-- **Integrations**: React, Tailwind CSS v4 (@tailwindcss/vite)
-- **Animations**: GSAP con ScrollTrigger para scroll horizontal y header
+- **Producción típica**: [Vercel](https://vercel.app/) con proyecto Next (build: `pnpm build`, start: `pnpm start`).
+- **Sitio de referencia**: `https://fravelz.vercel.app/` (metadatos y enlaces canónicos).
+- La versión **Astro** anterior está en la rama `archive/astro` y el tag `astro-v1`.
 
 [Regresar al readme...](../../README.md)
 
 > Autor: Fravelz  
-> Documentación actualizada: 2026/Feb/20
+> Documentación actualizada: 2026

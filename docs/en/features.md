@@ -1,80 +1,68 @@
-# ✨ Portfolio Features
+# Portfolio features
 
-## 🎨 Design
+## Design
 
-- **Dark Mode** with support for automatic, light, and dark themes
-- **Cyan/Purple gradients** in titles and highlighted elements
-- **Responsive Design** optimized for mobile, tablet, and desktop
-- **Smooth animations** with GSAP and fluid CSS transitions
-- **Backdrop blur** on header and floating elements
-- **Horizontal scroll** with GSAP ScrollTrigger for technology sections
+- **Dark mode** with auto / light / dark (layout scripts + `localStorage`)
+- **Cyan/purple gradients** on titles and CTAs
+- **Responsive** layout for mobile, tablet, and desktop
+- **Animations**: GSAP (horizontal panels, header, 404) and CSS transitions
+- **Backdrop blur** on header and overlays
+- **Horizontal scroll** (desktop) for the projects / technologies / about / hobbies strip
 
-## 🌍 Internationalization (i18n)
+## Internationalization (i18n)
 
-- **4 languages**: Spanish, English, Русский, 中文
-- **Automatic detection** of browser language
-- **Dynamic language switching** without page reload
-- **Modular translation system** in `public/locales/`
-- **Persistence** of selected language in localStorage
-- **Full support** for all site texts
+- **4 languages**: Spanish, English, Russian, Chinese (`es`, `en`, `ru`, `zh`)
+- **Prefixed routes**: `/{lang}/…`
+- **Middleware** on `/`: `lang` cookie or `Accept-Language`
+- **Translations**: JSON under `public/locals/{lang}/`, merged on the server (`src/utils/i18n.ts`)
+- **Client**: `public/i18n.js` for `data-i18n` and the `language-changed` event
+- **Language selector**: navigates to the same path in another locale (full navigation)
 
-## 🎵 Interactive Features
+## Interactive features
 
-- **Music player** with multiple songs and controls
-- **Theme selector** (Auto/Dark/Light) with persistence
-- **Language selector** with localStorage persistence
-- **Smooth navigation** with automatic scroll to sections
-- **Horizontal scroll** with GSAP for technology and project sections
-- **Contact form** that opens email client with pre-filled data
+- **Header search** (portfolio + translations via `public/locals/`)
+- **Certificates** with PDF viewer (client components)
+- **Music player** (existing components)
+- **Theme** toggle
+- **Contact form**: `mailto:` body built on the client
+- **About timeline** with “Read more” modal (client logic)
 
-## 📱 Responsive
+## Performance
 
-- **Mobile menu** with animated drawer
-- **Adaptive grid** for projects and technologies
-- **Optimized images** with lazy loading
-- **Optimized breakpoints** for all devices
+- **SSG** with `generateStaticParams` where applicable
+- **React Server Components** by default; **`"use client"`** only when needed
+- **`next/image`** for optimized images when using the `Image` component
+- **Tailwind CSS v4** via PostCSS
+- **Bundling**: Next.js route-based splitting and client/server boundaries
 
-## ⚡ Performance
+## Main sections
 
-- **Astro Islands**: Only interactive components (React) are hydrated
-- **Static HTML** pre-rendered for better SEO and speed
-- **Optimized bundle** with minimal JavaScript
-- **Lazy loading** of React components (`client:load`)
-- **Critical CSS** inline to prevent FOUC
-- **Static build** without server needed
+- **Presentation**: hero with logo and location
+- **Projects**: grid + per-`slug` detail page
+- **Technologies**: skill cards (`src/components/features/technologies/data.ts`)
+- **About me**: timeline + modal
+- **Hobbies**: card grid with pointer effect
+- **Contact**: email copy + mailto form
 
-## 🎯 Main Sections
+## Tech stack
 
-- **Presentation**: Hero section with animated logo and location
-- **Projects**: Grid with technology filters and individual view
-- **Technologies**: Cards with levels and categories
-- **About Me**: Personal information with expandable section
-- **Hobbies**: Interests and hobbies
-- **Contact**: Form and button to copy email
+- **Next.js** 16 (App Router)
+- **React** 19
+- **TypeScript**
+- **Tailwind CSS** 4
+- **GSAP** 3
 
-## 🔧 Technologies Used
+## Data and configuration
 
-- **Astro** v5.16.11 - Modern web framework
-- **React** v19.1.1 - Interactive components
-- **TypeScript** - Static typing
-- **Tailwind CSS** v3.4.19 - Utility-first styles
-- **GSAP** v3.14.2 - Advanced animations
-- **Vite** - Build tool (included in Astro)
+- **Projects**: `src/utils/data/` (`projects-list.ts`, `project-*.ts`, `project-types.ts`)
+- **Translations**: `public/locals/` (folder name is **`locals`**, not `locales`)
+- **SEO**: `generateMetadata`, `app/sitemap.ts`, `public/robots.txt`
 
-## 📦 Data Structure
+## Deployment
 
-- **Projects**: Defined in `src/data/projects.ts` with multi-language support
-- **Translations**: Organized by section in `public/locales/{lang}/`
-- **Configuration**: Centralized in `astro.config.mjs` and `tailwind.config.mjs`
-
-## 🚀 Deploy
-
-- **GitHub Pages** with base path `/WEB-Fravelz/`
-- **Static build** without server needed
-- **CI/CD** with GitHub Actions (`.github/workflows/`)
+- **Recommended**: [Vercel](https://vercel.com/) with the Next.js preset
+- **URL**: https://fravelz.vercel.app/
 
 [Return to readme...](../../README.md)
 
-> Author: Fravelz  
-> Documentation updated: 2026/Feb/17  
-> AI-generated vision.
+> Author: Fravelz · Documentation updated: 2026

@@ -1,6 +1,6 @@
 # Fravelz's Portfolio
 
-[Version en Español](./README.md)
+[Spanish version](./README.md)
 
 ![Image Portfolio](./public/images/portfolio.png)
 
@@ -48,7 +48,7 @@ All web projects modified, created, or last modified in 2026 will have documenta
 ### Development Tools
 
 - **pnpm** — Fast package manager
-- **Next.js / Turbopack** — `pnpm dev` and production builds
+- **Next.js / Turbopack** — `pnpm dev` (default **http://localhost:3000**) and `pnpm build` for production
 
 ### Documentation Tools
 
@@ -62,11 +62,12 @@ All web projects modified, created, or last modified in 2026 will have documenta
 
 ### Performance
 
-- ✅ Pre-rendered static HTML
+- ✅ Pre-rendered HTML (App Router / static generation where applicable)
+- ✅ Server Components by default; client components with `"use client"` only when needed
 - ✅ Lazy loading of React components
-- ✅ Optimized images
+- ✅ `next/image` for optimized images where appropriate
 - ✅ Critical inline CSS
-- ✅ Minimum bundle size
+- ✅ Reasonable bundle size
 
 ### Accessibility
 
@@ -94,19 +95,19 @@ All web projects modified, created, or last modified in 2026 will have documenta
 
 ### Extra Features
 
-[Go to features...](./docs/es/features.md)
+[Go to features...](./docs/en/features.md)
 
 ---
 
 ## 🤝 Contribute
 
-[Go to project structure...](./docs/es/structure.md)
+[Go to project structure...](./docs/en/structure.md)
 
-[Go to contribution manual...](./docs/es/contribution.md)
+[Go to contribution manual...](./docs/en/contribution.md)
 
-[Go to architecture...](./docs/es/architecture.md)
+[Go to architecture...](./docs/en/architecture.md)
 
-[Go to feedback...](./docs/es/feedback.md)
+[Go to feedback...](./docs/en/feedback.md)
 
 ---
 

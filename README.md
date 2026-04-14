@@ -48,7 +48,7 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 ### Herramientas de Desarrollo
 
 - **pnpm** — Gestor de paquetes rápido
-- **Next.js / Turbopack** — `pnpm dev` y build de producción
+- **Next.js / Turbopack** — `pnpm dev` (por defecto **http://localhost:3000**) y `pnpm build` para producción
 
 ### Herramientas de Documentación
 
@@ -62,11 +62,12 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 
 ### Rendimiento
 
-- ✅ HTML estático pre-renderizado
+- ✅ HTML pre-renderizado (App Router / generación estática donde aplica)
+- ✅ Server Components por defecto; componentes cliente con `"use client"` solo donde hace falta
 - ✅ Lazy loading de componentes React
-- ✅ Imágenes optimizadas
+- ✅ `next/image` para imágenes optimizadas cuando corresponde
 - ✅ CSS crítico inline
-- ✅ Bundle size mínimo
+- ✅ Bundle size razonable
 
 ### Accesibilidad
 
