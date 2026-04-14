@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useCallback } from "react";
 import { cn } from "@/utils/cn";
 
@@ -57,10 +59,7 @@ export default function PdfViewerModal({
             "dark:border-slate-700 dark:bg-slate-800/50",
           )}
         >
-          <h2
-            id="pdf-modal-title"
-            className="flex-1 truncate text-sm font-semibold text-slate-900 dark:text-slate-100"
-          >
+          <h2 id="pdf-modal-title" className="flex-1 truncate text-sm font-semibold text-slate-900 dark:text-slate-100">
             {title}
           </h2>
           <div className="flex shrink-0 items-center gap-2">
@@ -108,11 +107,7 @@ export default function PdfViewerModal({
                 strokeWidth="2"
                 className="h-5 w-5"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18 18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
