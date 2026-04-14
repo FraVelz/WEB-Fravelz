@@ -5,12 +5,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const DESKTOP_MQ = "(min-width: 1024px)";
 
-const HEADER_TARGETS = [
-  "#header-main",
-  "#header-main div",
-  "#logo",
-  "#header-mobile-button",
-] as const;
+const HEADER_TARGETS = ["#header-main", "#header-main div", "#logo", "#header-mobile-button"] as const;
 
 function resetHeaderTweenState() {
   gsap.killTweensOf([...HEADER_TARGETS]);

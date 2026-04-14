@@ -6,6 +6,8 @@
 
 Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web como la estructuración código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al código.
 
+La versión anterior del sitio construida con **Astro** queda archivada en la rama [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) y en el tag [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+
 Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a nivel mundial en frontend, y llegar trabajar en google.
 
 Este portfolio y demás proyectos que estarán en construcción, mejora, y finalización, sera el camino que muestre mi progreso y mis detalles que tengo en cuenta para mi objetivo.
@@ -38,15 +40,15 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 
 ### Core
 
-- **[Astro](https://astro.build/)** v5.17+ - Framework web moderno
-- **[React](https://react.dev/)** v19.1.1 - Biblioteca UI para componentes interactivos
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipado estático
-- **[Tailwind CSS](https://tailwindcss.com/)** v4.1.0 - Framework CSS utility-first
+- **[Next.js](https://nextjs.org/)** (App Router) — framework React con SSG para este portafolio
+- **[React](https://react.dev/)** — UI y componentes interactivos
+- **[TypeScript](https://www.typescriptlang.org/)** — Tipado estático
+- **[Tailwind CSS](https://tailwindcss.com/)** v4 — Framework CSS utility-first
 
 ### Herramientas de Desarrollo
 
-- **pnpm** - Gestor de paquetes rapido.
-- **Vite** - Build tool (incluido en Astro)
+- **pnpm** — Gestor de paquetes rápido
+- **Next.js / Turbopack** — `pnpm dev` y build de producción
 
 ### Herramientas de Documentación
 
