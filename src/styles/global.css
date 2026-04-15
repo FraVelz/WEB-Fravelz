@@ -47,11 +47,11 @@
   /* Partículas (sky-400) */
   --color-particles: 56 189 248; /* #38bdf8 */
 
-  /* Link animation (cyan-400 + tonos dark heredados del proyecto) */
+  /* Link animation — cyan legible en claro; en .dark el texto del hover debe ser claro, no un cyan oscuro */
   --color-link-underline: 34 211 238; /* #22d3ee */
-  --color-link-underline-dark: 0 96 111;
-  --color-link-hover: 34 211 238; /* #22d3ee */
-  --color-link-hover-dark: 0 64 74;
+  --color-link-underline-dark: 34 211 238; /* cyan-400, visible sobre fondo oscuro */
+  --color-link-hover: 34 211 238; /* #22d3ee — cyan-400 */
+  --color-link-hover-dark: 103 232 249; /* cyan-300, hover legible sobre slate-950 */
 
   /* Botón custom (valores existentes en el proyecto) */
   --color-btn-base: 0 0 0; /* #000 */
