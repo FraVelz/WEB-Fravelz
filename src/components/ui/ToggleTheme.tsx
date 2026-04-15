@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, type MouseEvent } from "react";
 
 export default function ToggleTheme({ className }: { className?: string }) {
   const applyTheme = useCallback((isDark: boolean) => {
@@ -31,17 +31,11 @@ export default function ToggleTheme({ className }: { className?: string }) {
     localStorage.setItem("theme", isDark ? "dark" : "light");
   }, []);
 
-  useEffect(() => {
-    const onToggle = (e: MouseEvent) => {
-      const t = e.target as HTMLElement;
-      if (!t.closest(".theme-toggle-btn")) return;
-      e.preventDefault();
-      e.stopPropagation();
-      const isDark = document.documentElement.classList.contains("dark");
-      applyTheme(!isDark);
-    };
-    document.addEventListener("click", onToggle, true);
-    return () => document.removeEventListener("click", onToggle, true);
+  const handleToggle = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const isDark = document.documentElement.classList.contains("dark");
+    applyTheme(!isDark);
   }, [applyTheme]);
 
   useEffect(() => {
@@ -80,6 +74,7 @@ export default function ToggleTheme({ className }: { className?: string }) {
         type="button"
         aria-label="Cambiar entre tema claro y oscuro"
         data-i18n-attr="aria-label:theme_toggle_aria"
+        onClick={handleToggle}
       >
         <span
           className="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full shadow-md transition-all duration-300 ease-in-out"
