@@ -20,7 +20,7 @@ export default function NavLink({
       href={href}
       target={target}
       draggable={false}
-      className={`link-animation font-medium text-slate-700 transition-colors select-none hover:text-cyan-600 dark:text-slate-400 dark:hover:text-slate-200 ${className}`}
+      className={`link-animation font-medium text-slate-700 transition-colors select-none dark:text-slate-400 ${className}`}
       data-smooth-scroll={isAnchor ? "true" : undefined}
       onClick={(e) => {
         if (!isAnchor) return;
