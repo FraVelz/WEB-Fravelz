@@ -38,7 +38,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
             <Image
               draggable={false}
               className="h-full w-full rounded-full object-cover select-none"
-              src="/images/favicon.png"
+              src="/images/image-hero.png"
               alt="Logo de Fravelz"
               width={256}
               height={256}

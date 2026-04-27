@@ -15,18 +15,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     });
+
     entries.push({
       url: `${site}/${lang}/projects`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     });
+
     entries.push({
       url: `${site}/${lang}/certifications`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     });
+
     for (const p of projects) {
       entries.push({
         url: `${site}/${lang}/projects/${p.slug}`,

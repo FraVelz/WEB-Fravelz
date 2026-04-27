@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import gsap from "gsap";
 
@@ -15,6 +16,7 @@ export default function NotFound() {
     setLang(found || "es");
 
     const tl = gsap.timeline();
+
     tl.to("#element-404-1", { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" })
       .to("#element-404-2", { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" })
       .to("#element-404-3", { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" })
@@ -82,7 +84,7 @@ export default function NotFound() {
           <Link
             href={`/${lang}/`}
             className={cn(
-              "inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3",
+              "inline-flex cursor-pointer items-center gap-2 rounded-xl bg-linear-to-r from-cyan-500 to-purple-500 px-6 py-3",
               "text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:from-cyan-400 hover:to-purple-400",
             )}
             data-i18n="error_404_back_home"
