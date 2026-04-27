@@ -21,7 +21,7 @@ export const projectWebTodoList: Project = {
   demoUrl: "https://web-to-do-list-pi.vercel.app/ ",
   githubUrl: "https://github.com/FraVelz/WEB-To-do-List",
   featured: false,
-  year: 2025,
+  year: 2026,
   inDevelopment: true,
   fullDescription: {
     es: "Gestor de tareas desarrollado con Next.js 16 y React 19. Incluye vistas Inbox, Hoy, Próximos, Completadas, búsqueda y filtros. Organiza tu día a día con una interfaz intuitiva y diseño responsive.",

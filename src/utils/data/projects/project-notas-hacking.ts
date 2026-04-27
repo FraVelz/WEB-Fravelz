@@ -20,7 +20,7 @@ export const projectNotasHacking: Project = {
   category: "frontend",
   demoUrl: "https://fravelz.github.io/WEB-Notas-de-Hacking",
   githubUrl: "https://github.com/FraVelz/WEB-Notas-de-Hacking",
-  year: 2025,
+  year: 2026,
   inDevelopment: true,
   fullDescription: {
     es: "Plataforma web completa desarrollada con Astro que contiene notas educativas sobre ciberseguridad, hacking ético y tecnologías relacionadas. Incluye sistema de búsqueda, navegación por categorías y renderizado de contenido Markdown.",
