@@ -9,6 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const title = (t as Record<string, string>).home_title || `Fravelz | ${t.proyectos_personales || "Portfolio"}`;
   const description = (t as Record<string, string>).home_description || t.projects_section_description || "";
   const siteUrl = "https://fravelz.vercel.app";
+
   return {
     title,
     description,
