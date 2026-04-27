@@ -46,7 +46,7 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
               <WebdevIcon />
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex max-w-[320px] flex-col gap-4">
               <h3
                 className="text-[0.95rem] leading-[1.1] font-extrabold tracking-tight text-[rgb(var(--color-text))]"
                 data-i18n="hobbies_webdev"
@@ -128,7 +128,7 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
               <PoliticsIcon />
             </div>
 
-            <div className="space-y-3">
+            <div className="max-w-[320px] space-y-3">
               <h3
                 className="text-[0.95rem] leading-[1.1] font-extrabold tracking-tight text-[rgb(var(--color-text))]"
                 data-i18n="hobbies_politics"
@@ -169,7 +169,7 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
               <ExerciseIcon />
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex max-w-[320px] flex-col gap-4">
               <h3
                 className="text-[0.95rem] leading-[1.1] font-extrabold tracking-tight text-[rgb(var(--color-text))]"
                 data-i18n="hobbies_exercise"
