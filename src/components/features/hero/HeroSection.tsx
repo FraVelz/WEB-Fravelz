@@ -9,7 +9,14 @@ export default async function HeroSection({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
 
   return (
-    <section id="presentation" className="flex h-screen w-full flex-col items-center justify-center">
+    <section
+      id="presentation"
+      className={cn(
+        "box-border flex min-h-dvh w-full flex-col items-center",
+        "justify-start pb-6",
+        "lg:justify-center lg:pb-0",
+      )}
+    >
       <div
         className={cn(
           "mt-32 grid grid-cols-1 items-center gap-6 px-4 py-12 sm:py-16",
