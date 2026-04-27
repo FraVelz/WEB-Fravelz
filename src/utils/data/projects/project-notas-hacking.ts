@@ -20,7 +20,6 @@ export const projectNotasHacking: Project = {
   category: "frontend",
   demoUrl: "https://fravelz.github.io/WEB-Notas-de-Hacking",
   githubUrl: "https://github.com/FraVelz/WEB-Notas-de-Hacking",
-  featured: true,
   year: 2025,
   inDevelopment: true,
   fullDescription: {

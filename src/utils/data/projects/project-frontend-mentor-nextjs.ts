@@ -19,7 +19,8 @@ export const projectFrontendMentorNextjs: Project = {
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vitest"],
   category: "frontend",
   githubUrl: "https://github.com/FraVelz/Frontend-Mentor-Nextjs",
-  featured: false,
+  demoUrl: "https://frontend-mentor-nextjs-one.vercel.app/",
+  featured: true,
   year: 2026,
   inDevelopment: true,
   fullDescription: {
