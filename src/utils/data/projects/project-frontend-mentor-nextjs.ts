@@ -24,7 +24,7 @@ export const projectFrontendMentorNextjs: Project = {
   year: 2026,
   inDevelopment: true,
   fullDescription: {
-    es: "Aplicación Next.js 16 con React 19 para practicar retos de Frontend Mentor: estructura por challenge (assets, rutas y estilos aislados), índice de dificultades y estados, y convenciones documentadas en el repositorio. Incluye pruebas con Vitest y reglas de lint/formato.",
+    es: "Aplicación Next.js 16 con React 19 para practicar retos de Frontend Mentor: estructura por challenge (assets, rutas y estilos aislados), índice de dificultades y estados, y convenciones documentadas en el repositorio. Reglas de lint/formato.",
     en: "Next.js 16 app with React 19 to practice Frontend Mentor challenges: per-challenge structure (isolated assets, routes, and styles), difficulty and status index, and repo-documented conventions. Includes Vitest tests and lint/format rules.",
     ru: "Приложение Next.js 16 с React 19 для заданий Frontend Mentor: структура по челленджу (изолированные ассеты, маршруты, стили), индекс сложностей и статусов, соглашения в репозитории. Тесты Vitest, lint и форматирование.",
     zh: "用于 Frontend Mentor 练习的 Next.js 16 与 React 19 应用：按挑战划分的结构（独立资源、路由与样式）、难度与状态索引，以及仓库内约定。包含 Vitest 测试与代码规范。",

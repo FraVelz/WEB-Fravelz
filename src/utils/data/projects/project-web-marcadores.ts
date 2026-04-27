@@ -20,7 +20,7 @@ export const projectWebMarcadores: Project = {
   category: "fullstack",
   demoUrl: "https://web-marcadores.vercel.app/",
   featured: false,
-  year: 2025,
+  year: 2026,
   inDevelopment: true,
   fullDescription: {
     es: "Gestor de marcadores con autenticación y base de datos en Supabase. Dashboard con carpetas, etiquetas, búsqueda y panel de atajos de teclado. Incluye modo demo para probar sin cuenta.",
