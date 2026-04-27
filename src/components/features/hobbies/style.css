@@ -1,0 +1,84 @@
+/* Spotlight y acentos por tarjeta; el resto está en Tailwind (HobbiesSection). */
+#cards:hover > .card::after {
+  opacity: 1;
+}
+
+.card {
+  --card-accent: rgb(var(--color-primary));
+}
+
+.card[data-card="webdev"] {
+  --card-accent: rgb(var(--color-accent));
+}
+.card[data-card="linux"] {
+  --card-accent: rgb(var(--color-primary));
+}
+.card[data-card="politics"] {
+  --card-accent: rgb(var(--color-accent-hover));
+}
+.card[data-card="exercise"] {
+  --card-accent: rgb(var(--color-success));
+}
+.card[data-card="typing"] {
+  --card-accent: rgb(var(--color-info));
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card::before,
+.card::after {
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transition: opacity 500ms;
+  width: 100%;
+}
+
+.card::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgb(var(--color-white) / 0.06),
+    transparent 40%
+  );
+  z-index: 3;
+}
+
+.card::after {
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgb(var(--color-white) / 0.4),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.card > .card-content::before {
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgb(var(--color-white) / 0.08);
+  content: "";
+  inset: 0;
+  opacity: 0.65;
+  pointer-events: none;
+  position: absolute;
+}
+
+.card > .card-content::after {
+  background: radial-gradient(circle, var(--card-accent) 0%, transparent 70%);
+  border-radius: 999px;
+  content: "";
+  filter: blur(2px);
+  height: 140px;
+  left: -40px;
+  opacity: 0.18;
+  pointer-events: none;
+  position: absolute;
+  top: -40px;
+  width: 140px;
+}
