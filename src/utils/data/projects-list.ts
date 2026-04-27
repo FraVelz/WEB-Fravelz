@@ -8,9 +8,9 @@ import { projectWebMarcadores } from "./projects/project-web-marcadores";
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
-  projectFrontendMentorNextjs,
+  projectWebMarcadores,
   projectIcfesMaster,
   projectWebTodoList,
-  projectWebMarcadores,
+  projectFrontendMentorNextjs,
   projectNotasHacking,
 ];
