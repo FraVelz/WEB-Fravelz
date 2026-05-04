@@ -5,6 +5,7 @@ import {
   getLevelClass,
   getProgressPercent,
 } from "@/components/features/technologies/functions";
+
 import { technologies } from "@/components/features/technologies/data";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
