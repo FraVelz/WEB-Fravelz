@@ -3,5 +3,7 @@
   "hero_role": "Web Developer - Frontend :)",
   "hero_logo_alt": "Fravelz logo",
   "hero_location": "Bogotá, Colombia",
-  "hero_copy_success": "Copied!"
+  "hero_copy_success": "Copied!",
+  "hero_cv_button": "View CV",
+  "hero_cv_title": "CV — ATS Harvard"
 }

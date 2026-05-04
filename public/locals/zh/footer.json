@@ -4,5 +4,5 @@
   "footer_nav_home": "首页",
   "footer_copyright": "© 2025 Fravelz. 保留所有权利。",
   "footer_license": "采用 MIT 许可。",
-  "footer_built_with": "使用 Astro、React 和 Tailwind CSS 构建。"
+  "footer_built_with": "使用 Next.js 和 Tailwind CSS 构建。"
 }

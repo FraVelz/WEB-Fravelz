@@ -2,14 +2,17 @@
 /* eslint-disable react-hooks/set-state-in-effect -- sync with client i18n */
 "use client";
 
+import { cn } from "@/utils/cn";
 import { useState, useEffect } from "react";
 
 interface CopyEmailButtonProps {
   email: string;
   successText: string;
+  /** `solid`: fondo plano tipo botón (p. ej. hero). `outlined`: borde y fondo suave (p. ej. contacto). */
+  variant?: "outlined" | "solid";
 }
 
-export default function CopyEmailButton({ email, successText }: CopyEmailButtonProps) {
+export default function CopyEmailButton({ email, successText, variant = "outlined" }: CopyEmailButtonProps) {
   const [copied, setCopied] = useState(false);
   const [currentSuccessText, setCurrentSuccessText] = useState(successText);
   const [ariaLabel, setAriaLabel] = useState("Copiar dirección de correo electrónico");
@@ -57,11 +60,41 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
   return (
     <button
       onClick={handleCopy}
-      className={`flex max-w-fit cursor-pointer items-center gap-2 rounded-full border p-1 px-2 pr-3 text-sm transition-all duration-300 ${
-        copied
-          ? "scale-105 border-2 border-green-500/70 bg-green-100 text-green-700 shadow-lg shadow-green-500/30 dark:border-green-500/40 dark:bg-gray-900 dark:text-green-400 dark:shadow-none"
-          : "border-2 border-purple-400/70 bg-purple-50 font-medium text-purple-700 shadow-md shadow-purple-500/20 hover:border-purple-600 hover:text-purple-800 hover:shadow-lg hover:shadow-purple-500/30 dark:border-purple-500/40 dark:bg-gray-900 dark:text-purple-300 dark:shadow-none dark:hover:border-purple-400/60 dark:hover:text-purple-200 dark:hover:shadow-purple-500/10"
-      } `}
+      className={cn(
+        "flex max-w-fit cursor-pointer items-center gap-2 text-sm transition-all duration-300",
+        variant === "solid" &&
+          cn(
+            "min-h-[2.625rem] items-center justify-center rounded-lg px-3.5 py-2.5 font-medium sm:px-4",
+            "focus-visible:ring-2 focus-visible:ring-cyan-400/90 focus-visible:ring-offset-2 focus-visible:outline-none",
+            "focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950",
+          ),
+        variant === "outlined" && "rounded-full border p-1 px-2 pr-3",
+        copied &&
+          (variant === "solid"
+            ? cn(
+                "scale-[1.01] border-0 bg-gradient-to-r from-emerald-600 to-teal-600 text-white",
+                "shadow-md shadow-emerald-600/30 dark:from-emerald-500 dark:to-teal-500 dark:shadow-emerald-900/40",
+              )
+            : cn(
+                "scale-105 border-2 border-green-500/70 bg-green-100 text-green-700 shadow-lg shadow-green-500/30",
+                "dark:border-green-500/40 dark:bg-gray-900 dark:text-green-400 dark:shadow-none",
+              )),
+        !copied &&
+          (variant === "solid"
+            ? cn(
+                "border-0 bg-gradient-to-r from-cyan-600 to-purple-600 text-white",
+                "shadow-md ring-1 shadow-purple-500/25 ring-white/15",
+                "hover:from-cyan-500 hover:to-purple-500 hover:shadow-lg hover:shadow-cyan-500/20",
+                "dark:from-cyan-500 dark:to-purple-600 dark:shadow-purple-950/50 dark:ring-white/10",
+                "dark:hover:from-cyan-400 dark:hover:to-purple-500",
+              )
+            : cn(
+                "border-2 border-purple-400/70 bg-purple-50 font-medium text-purple-700 shadow-md shadow-purple-500/20",
+                "hover:border-purple-600 hover:text-purple-800 hover:shadow-lg hover:shadow-purple-500/30",
+                "dark:border-purple-500/40 dark:bg-gray-900 dark:text-purple-300 dark:shadow-none",
+                "dark:hover:border-purple-400/60 dark:hover:text-purple-200 dark:hover:shadow-purple-500/10",
+              )),
+      )}
       aria-label={ariaLabel}
     >
       <svg
@@ -70,7 +103,7 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="size-6"
+        className={cn("shrink-0", variant === "solid" ? "size-5" : "size-6")}
       >
         <path
           strokeLinecap="round"
@@ -79,7 +112,16 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
         />
       </svg>
 
-      <span className="email-text whitespace-nowrap">{copied ? currentSuccessText : email}</span>
+      <span
+        className={cn(
+          "email-text",
+          copied && "whitespace-nowrap",
+          !copied && variant === "solid" && "max-w-[min(100vw-6rem,16rem)] truncate text-[13px] sm:text-sm",
+          !copied && variant === "outlined" && "whitespace-nowrap",
+        )}
+      >
+        {copied ? currentSuccessText : email}
+      </span>
 
       {copied ? (
         <svg
@@ -88,7 +130,7 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
           viewBox="0 0 24 24"
           strokeWidth="2"
           stroke="currentColor"
-          className="size-5 text-green-500"
+          className={cn("size-5", variant === "solid" ? "text-white" : "text-green-500")}
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
@@ -99,7 +141,7 @@ export default function CopyEmailButton({ email, successText }: CopyEmailButtonP
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="size-6"
+          className={cn("shrink-0", variant === "solid" ? "size-5" : "size-6")}
         >
           <path
             strokeLinecap="round"
