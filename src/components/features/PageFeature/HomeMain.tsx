@@ -40,6 +40,7 @@ export default async function HomeMain({ lang }: { lang: Language }) {
             />
           </div>
         </div>
+
         <ContactSection lang={lang} />
         <HomeScroll />
       </main>
