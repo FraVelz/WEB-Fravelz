@@ -4,5 +4,5 @@
   "footer_nav_home": "Главная",
   "footer_copyright": "© 2025 Fravelz. Все права защищены.",
   "footer_license": "Лицензия MIT.",
-  "footer_built_with": "Сделано с Astro, React и Tailwind CSS."
+  "footer_built_with": "Сделано с Next.js и Tailwind CSS."
 }
