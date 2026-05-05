@@ -13,7 +13,8 @@ export default async function HeroSection({ lang }: { lang: Language }) {
     <section id="presentation" className="relative flex min-h-dvh w-full flex-col bg-transparent">
       <div
         className={cn(
-          "mx-auto flex w-full max-w-6xl flex-1 flex-col gap-10 px-5 sm:gap-12 sm:px-6 lg:flex-row lg:items-center lg:gap-14 lg:px-8",
+          "mx-auto flex w-full max-w-6xl flex-1 flex-col-reverse gap-10 px-5",
+          "sm:flex-row sm:gap-12 sm:px-6 lg:items-center lg:gap-14 lg:px-8",
           "pt-[7.25rem] pb-14 sm:pt-32 lg:pt-36 lg:pb-20",
         )}
       >
@@ -72,7 +73,12 @@ export default async function HeroSection({ lang }: { lang: Language }) {
         </div>
 
         {/* Foto + badge de ciudad (absolute respecto a la foto) */}
-        <div className="flex shrink-0 flex-col items-center justify-center pb-6 sm:pb-8 lg:pb-4 gap-4">
+        <div
+          className={cn(
+            "flex shrink-0 flex-col gap-4 pb-4",
+            "max-sm:items-center max-sm:justify-center lg:items-center lg:justify-center",
+          )}
+        >
           <Photo />
 
           <LocationBadge text={t.hero_location} />
