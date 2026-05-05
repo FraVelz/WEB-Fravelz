@@ -5,5 +5,8 @@
   "hero_location": "波哥大，哥伦比亚",
   "hero_copy_success": "已复制！",
   "hero_cv_button": "查看简历",
-  "hero_cv_title": "简历 — ATS Harvard"
+  "hero_cv_title": "简历 — ATS Harvard",
+  "hero_availability_available": "目前可接洽",
+  "hero_availability_freelance": "承接自由职业项目",
+  "hero_availability_busy": "暂不接新项目"
 }

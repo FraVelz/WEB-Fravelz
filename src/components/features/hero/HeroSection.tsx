@@ -1,6 +1,9 @@
 import HeroCvCopyActions from "./components/HeroCvCopyActions";
+import AvailabilityBadge from "./components/AvailabilityBadge";
 import LocationBadge from "./components/LocationBadge";
 import { Photo } from "./components/Photo";
+
+import { HERO_AVAILABILITY_I18N_KEY, HERO_AVAILABILITY_STATUS } from "./heroAvailabilityConfig";
 
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
@@ -8,6 +11,9 @@ import { getTranslations } from "@/utils/i18n";
 
 export default async function HeroSection({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
+
+  const availabilityKey = HERO_AVAILABILITY_I18N_KEY[HERO_AVAILABILITY_STATUS];
+  const availabilityLabel = t[availabilityKey] ?? availabilityKey;
 
   return (
     <section id="presentation" className="relative flex min-h-dvh w-full flex-col bg-transparent">
@@ -76,12 +82,15 @@ export default async function HeroSection({ lang }: { lang: Language }) {
         <div
           className={cn(
             "flex shrink-0 flex-col gap-4 pb-4",
-            "max-sm:items-center max-sm:justify-center lg:items-center lg:justify-center",
+            "items-center max-sm:justify-center lg:items-center lg:justify-center",
           )}
         >
           <Photo />
 
-          <LocationBadge text={t.hero_location} />
+          <div className="flex flex-col items-center gap-2 sm:gap-2.5">
+            <AvailabilityBadge status={HERO_AVAILABILITY_STATUS} text={availabilityLabel} />
+            <LocationBadge text={t.hero_location} />
+          </div>
         </div>
       </div>
 
