@@ -8,7 +8,7 @@ export function Photo() {
   return (
     <div
       className={cn(
-        "relative col-start-1 row-start-1 self-start justify-self-start",
+        "relative col-start-1 row-start-1 sm:self-start sm:justify-self-start",
         "h-28 w-28 shrink-0 sm:h-32 sm:w-32 lg:row-span-2 lg:h-52 lg:w-52 xl:h-56 xl:w-56",
       )}
     >
