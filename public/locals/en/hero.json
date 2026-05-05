@@ -5,5 +5,8 @@
   "hero_location": "Bogotá, Colombia",
   "hero_copy_success": "Copied!",
   "hero_cv_button": "View CV",
-  "hero_cv_title": "CV — ATS Harvard"
+  "hero_cv_title": "CV — ATS Harvard",
+  "hero_availability_available": "Available",
+  "hero_availability_freelance": "Open to freelance work",
+  "hero_availability_busy": "Busy"
 }
