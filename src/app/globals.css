@@ -118,6 +118,37 @@
 
 @layer base {
   /*
+   * Primer paint con preferencia "auto", sin clase .dark aún en <html>:
+   * alinea tokens y fondo con prefers-color-scheme. No debe aplicarse si data-theme="light".
+   */
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]):not(.dark) {
+      --color-bg: 3 7 18;
+      --color-surface: 17 24 39;
+      --color-card: 31 41 55;
+      --color-text: 243 244 246;
+      --color-text-muted: 156 163 175;
+      --color-text-inverse: 15 23 42;
+      --color-primary: 34 211 238;
+      --color-primary-hover: 6 182 212;
+      --color-accent: 192 132 252;
+      --color-accent-hover: 168 85 247;
+      --color-theme-toggle-track: 55 65 81;
+      --color-theme-toggle-thumb: 17 24 39;
+      --color-theme-toggle-moon: 34 211 238;
+      --color-theme-toggle-hover: 34 211 238;
+      --color-drawer-border: 55 65 81;
+      color: rgb(var(--color-text));
+      background-color: rgb(var(--color-bg));
+      color-scheme: dark;
+    }
+
+    html:not([data-theme="light"]):not(.dark) body {
+      background-image: linear-gradient(to bottom, rgb(3 7 18), rgb(17 24 39), rgb(3 7 18)) !important;
+    }
+  }
+
+  /*
    * Color y fondo por defecto según tema: los tokens --color-* cambian en .dark (html).
    * Así el texto hereda bien al cambiar claro/oscuro sin depender solo de utilidades en body.
    */
