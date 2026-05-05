@@ -1,58 +1,68 @@
 "use client";
 
+import { setThemeCookieClient } from "@/lib/theme-cookie";
 import { cn } from "@/utils/cn";
 import { useCallback, useEffect, type MouseEvent } from "react";
 
+type PersistMode = "explicit" | "auto";
+
 export default function ToggleTheme({ className }: { className?: string }) {
-  const applyTheme = useCallback((isDark: boolean) => {
+  const applyTheme = useCallback((isDark: boolean, persist: PersistMode = "explicit") => {
     const root = document.documentElement;
     if (isDark) {
       root.classList.add("dark");
       root.setAttribute("data-theme", "dark");
     } else {
       root.classList.remove("dark");
-      root.removeAttribute("data-theme");
+      root.setAttribute("data-theme", "light");
     }
-    document.querySelectorAll(".theme-toggle-btn").forEach((toggle) => {
-      const slider = toggle.querySelector(".theme-toggle-slider");
-      const sunIcon = toggle.querySelector(".theme-toggle-sun-icon");
-      const moonIcon = toggle.querySelector(".theme-toggle-moon-icon");
-      if (isDark) {
-        if (slider) (slider as HTMLElement).style.transform = "translateX(1.5rem)";
-        if (sunIcon) (sunIcon as HTMLElement).style.opacity = "0";
-        if (moonIcon) (moonIcon as HTMLElement).style.opacity = "1";
-      } else {
-        if (slider) (slider as HTMLElement).style.transform = "translateX(0)";
-        if (sunIcon) (sunIcon as HTMLElement).style.opacity = "1";
-        if (moonIcon) (moonIcon as HTMLElement).style.opacity = "0";
+    root.style.colorScheme = isDark ? "dark" : "light";
+    root.setAttribute("data-theme-initialized", "true");
+
+    if (persist === "explicit") {
+      try {
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      } catch {
+        /* noop */
       }
-    });
-    void root.offsetHeight;
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+      setThemeCookieClient(isDark ? "dark" : "light");
+    } else {
+      try {
+        localStorage.removeItem("theme");
+      } catch {
+        /* noop */
+      }
+      setThemeCookieClient("auto");
+    }
   }, []);
 
-  const handleToggle = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const isDark = document.documentElement.classList.contains("dark");
-    applyTheme(!isDark);
-  }, [applyTheme]);
+  const handleToggle = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isDark = document.documentElement.classList.contains("dark");
+      applyTheme(!isDark, "explicit");
+    },
+    [applyTheme],
+  );
 
   useEffect(() => {
     const init = () => {
       const saved = localStorage.getItem("theme");
-      let isDark: boolean;
-      if (saved === "dark") isDark = true;
-      else if (saved === "light") isDark = false;
-      else isDark = document.documentElement.classList.contains("dark");
-      applyTheme(isDark);
+      if (saved === "dark") {
+        applyTheme(true, "explicit");
+      } else if (saved === "light") {
+        applyTheme(false, "explicit");
+      } else {
+        applyTheme(document.documentElement.classList.contains("dark"), "auto");
+      }
     };
     init();
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
-      const saved = localStorage.getItem("theme");
-      if (saved !== "dark" && saved !== "light") {
-        applyTheme(mq.matches);
+      const s = localStorage.getItem("theme");
+      if (s !== "dark" && s !== "light") {
+        applyTheme(mq.matches, "auto");
       }
     };
     mq.addEventListener("change", onChange);
@@ -76,10 +86,7 @@ export default function ToggleTheme({ className }: { className?: string }) {
         data-i18n-attr="aria-label:theme_toggle_aria"
         onClick={handleToggle}
       >
-        <span
-          className="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 items-center justify-center rounded-full shadow-md transition-all duration-300 ease-in-out"
-          style={{ transform: "translateX(0)" }}
-        >
+        <span className="theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 translate-x-0 transform items-center justify-center rounded-full shadow-md transition-all duration-300 ease-in-out dark:translate-x-6">
           <svg
             className="theme-toggle-sun-icon h-4 w-4 opacity-100 transition-opacity duration-300 dark:opacity-0"
             xmlns="http://www.w3.org/2000/svg"
