@@ -5,5 +5,8 @@
   "hero_location": "Богота, Колумбия",
   "hero_copy_success": "Скопировано!",
   "hero_cv_button": "Смотреть CV",
-  "hero_cv_title": "CV — ATS Harvard"
+  "hero_cv_title": "CV — ATS Harvard",
+  "hero_availability_available": "Доступен для проектов",
+  "hero_availability_freelance": "Рассматриваю фриланс",
+  "hero_availability_busy": "Занят"
 }
