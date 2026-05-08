@@ -1,4 +1,4 @@
-import { HtmlLang } from "@/components/HtmlLang";
+import { HtmlLang } from "./_components/HtmlLang";
 import { type Language, languages } from "@/lib/i18n-routing";
 import { notFound } from "next/navigation";
 
@@ -17,6 +17,7 @@ export default async function LangLayout({
   if (!languages.includes(lang as Language)) {
     notFound();
   }
+
   return (
     <>
       <HtmlLang lang={lang} />
