@@ -1,11 +1,14 @@
-import CertificatesWithViewer from "@/components/ui-react/CertificatesWithViewer/CertificatesWithViewer";
-import Footer from "@/components/ui/Footer";
+import CertificatesWithViewer from "@/components/ui/CertificatesWithViewer/CertificatesWithViewer";
+import Footer from "@/components/layout/Footer";
+
 import { certificates, groupCertificates } from "@/utils/data/certificates";
 import type { Language } from "@/lib/i18n-routing";
-import { getTranslations } from "@/utils/i18n";
-import { cn } from "@/utils/cn";
+
 import type { Metadata } from "next";
 import Link from "next/link";
+
+import { getTranslations } from "@/utils/i18n";
+import { cn } from "@/utils/cn";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
