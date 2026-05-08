@@ -20,7 +20,7 @@ export const projectFrontendMentorNextjs: Project = {
   category: "frontend",
   githubUrl: "https://github.com/FraVelz/Frontend-Mentor-Nextjs",
   demoUrl: "https://frontend-mentor-nextjs-one.vercel.app/",
-  featured: true,
+  featured: false,
   year: 2026,
   inDevelopment: true,
   fullDescription: {
