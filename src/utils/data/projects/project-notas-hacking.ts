@@ -23,10 +23,22 @@ export const projectNotasHacking: Project = {
   year: 2026,
   inDevelopment: true,
   fullDescription: {
-    es: "Plataforma web completa desarrollada con Astro que contiene notas educativas sobre ciberseguridad, hacking ético y tecnologías relacionadas. Incluye sistema de búsqueda, navegación por categorías y renderizado de contenido Markdown.",
-    en: "Complete web platform developed with Astro containing educational notes on cybersecurity, ethical hacking and related technologies. Includes search system, category navigation and Markdown content rendering.",
-    ru: "Полная веб-платформа, разработанная с использованием Astro, содержащая образовательные заметки по кибербезопасности, этичному взлому и связанным технологиям. Включает систему поиска, навигацию по категориям и рендеринг контента Markdown.",
-    zh: "使用 Astro 开发的完整网络平台，包含有关网络安全、道德黑客和相关技术的教育笔记。包括搜索系统、类别导航和 Markdown 内容渲染。",
+    es:
+      "Plataforma web completa desarrollada con Astro que contiene notas educativas " +
+      "sobre ciberseguridad, hacking ético y tecnologías relacionadas. Incluye " +
+      "sistema de búsqueda, navegación por categorías y renderizado de contenido Markdown.",
+    en:
+      "Complete web platform developed with Astro containing educational notes " +
+      "on cybersecurity, ethical hacking and related technologies. Includes search " +
+      "system, category navigation and Markdown content rendering.",
+    ru:
+      "Полная веб-платформа, разработанная с использованием Astro, содержащая " +
+      "образовательные заметки по кибербезопасности, этичному взлому и связанным " +
+      "технологиям. Включает систему поиска, навигацию по категориям и рендеринг " +
+      "контента Markdown.",
+    zh:
+      "使用 Astro 开发的完整网络平台，包含有关网络安全、道德黑客和相关技术的教育笔记。" +
+      "包括搜索系统、类别导航和 Markdown 内容渲染。",
   },
   whatILearned: {
     es: [

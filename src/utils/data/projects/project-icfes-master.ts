@@ -24,9 +24,23 @@ export const projectIcfesMaster: Project = {
   year: 2026,
   inDevelopment: true,
   fullDescription: {
-    es: "Plataforma educativa completa para preparar las pruebas ICFES (examen de estado colombiano). Desarrollada con Next.js, React y Supabase. Contenido educativo por áreas (Matemáticas, Lenguaje, Ciencias, Sociales, Inglés), quizzes, simulacros, gamificación con 40+ logros y seguimiento de progreso.",
-    en: "Complete educational platform to prepare for ICFES exams (Colombian state exam). Built with Next.js, React and Supabase. Educational content by subject, quizzes, mock exams, gamification with 40+ achievements and progress tracking.",
-    ru: "Полная образовательная платформа для подготовки к экзаменам ICFES (государственный экзамен Колумбии). Создана с Next.js, React и Supabase. Образовательный контент по предметам, викторины, пробные экзамены, геймификация с 40+ достижениями и отслеживание прогресса.",
-    zh: "完整的 ICFES 考试（哥伦比亚国家考试）备考教育平台。使用 Next.js、React 和 Supabase 构建。按科目划分的教育内容、测验、模拟考试、40+ 成就的游戏化与进度跟踪。",
+    es:
+      "Plataforma educativa completa para preparar las pruebas ICFES " +
+      "(examen de estado colombiano). Desarrollada con Next.js, React y Supabase. " +
+      "Contenido educativo por áreas (Matemáticas, Lenguaje, Ciencias, Sociales, " +
+      "Inglés), quizzes, simulacros, gamificación con 40+ logros y seguimiento de progreso.",
+    en:
+      "Complete educational platform to prepare for ICFES exams " +
+      "(Colombian state exam). Built with Next.js, React and Supabase. " +
+      "Educational content by subject, quizzes, mock exams, gamification with " +
+      "40+ achievements and progress tracking.",
+    ru:
+      "Полная образовательная платформа для подготовки к экзаменам ICFES " +
+      "(государственный экзамен Колумбии). Создана с Next.js, React и Supabase. " +
+      "Образовательный контент по предметам, викторины, пробные экзамены, геймификация с " +
+      "40+ достижениями и отслеживание прогресса.",
+    zh:
+      "完整的 ICFES 考试（哥伦比亚国家考试）备考教育平台。使用 Next.js、React " +
+      "和 Supabase 构建。按科目划分的教育内容、测验、模拟考试、40+ 成就的游戏化与进度跟踪。",
   },
 };

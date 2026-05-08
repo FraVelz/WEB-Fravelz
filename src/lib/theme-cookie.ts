@@ -39,7 +39,9 @@ export function getServerHtmlThemeFromCookieAndHint(
 }
 
 export function serializeThemeCookieClient(value: ThemePreference): string {
-  return `${THEME_COOKIE_NAME}=${encodeURIComponent(value)};path=/;max-age=${String(THEME_COOKIE_MAX_AGE)};SameSite=Lax`;
+  const v = encodeURIComponent(value);
+  const max = String(THEME_COOKIE_MAX_AGE);
+  return `${THEME_COOKIE_NAME}=${v};path=/;max-age=${max};SameSite=Lax`;
 }
 
 export function setThemeCookieClient(value: ThemePreference): void {

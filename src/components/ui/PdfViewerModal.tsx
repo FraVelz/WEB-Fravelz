@@ -42,14 +42,20 @@ export default function PdfViewerModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      className={cn(
+        "fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4",
+        "backdrop-blur-sm",
+      )}
       role="dialog"
       aria-modal="true"
       aria-labelledby="pdf-modal-title"
       onClick={onClose}
     >
       <div
-        className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-slate-900"
+        className={cn(
+          "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl",
+          "bg-white shadow-2xl dark:bg-slate-900",
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -59,7 +65,10 @@ export default function PdfViewerModal({
             "dark:border-slate-700 dark:bg-slate-800/50",
           )}
         >
-          <h2 id="pdf-modal-title" className="flex-1 truncate text-sm font-semibold text-slate-900 dark:text-slate-100">
+          <h2
+            id="pdf-modal-title"
+            className={cn("flex-1 truncate text-sm font-semibold text-slate-900", "dark:text-slate-100")}
+          >
             {title}
           </h2>
           <div className="flex shrink-0 items-center gap-2">
@@ -85,7 +94,10 @@ export default function PdfViewerModal({
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  d={
+                    "M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 " +
+                    "12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  }
                 />
               </svg>
               {downloadText}

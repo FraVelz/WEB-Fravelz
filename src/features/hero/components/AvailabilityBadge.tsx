@@ -36,7 +36,12 @@ export default function AvailabilityBadge({ status, text, className }: Availabil
       <span className="relative flex h-2.5 w-2.5 shrink-0 items-center justify-center" aria-hidden="true">
         {status === "available" ? (
           <>
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 dark:bg-emerald-300" />
+            <span
+              className={cn(
+                "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75",
+                "dark:bg-emerald-300",
+              )}
+            />
             <span className={cn("relative inline-flex size-2.5 rounded-full", dotClass[status])} />
           </>
         ) : (

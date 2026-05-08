@@ -3,6 +3,10 @@ import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
 import Link from "next/link";
 
+const PROJECTS_VIEW_ARROW_PATH =
+  "M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 " +
+  "6.912 2.304.024z";
+
 export default async function ProjectsViewAllButton({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
 
@@ -18,10 +22,7 @@ export default async function ProjectsViewAllButton({ lang }: { lang: Language }
     >
       <span className="button__icon-wrapper">
         <svg width="10" className="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
-          <path
-            fill="currentColor"
-            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-          />
+          <path fill="currentColor" d={PROJECTS_VIEW_ARROW_PATH} />
         </svg>
         <svg
           className="button__icon-svg button__icon-svg--copy"
@@ -30,10 +31,7 @@ export default async function ProjectsViewAllButton({ lang }: { lang: Language }
           fill="none"
           viewBox="0 0 14 15"
         >
-          <path
-            fill="currentColor"
-            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
-          />
+          <path fill="currentColor" d={PROJECTS_VIEW_ARROW_PATH} />
         </svg>
       </span>
       <span data-i18n="projects_view_all">{t.projects_view_all || "Ver Todos los Proyectos"}</span>
