@@ -99,8 +99,10 @@ export default async function HeroSection({ lang }: { lang: Language }) {
         <div className="pointer-events-auto flex">
           <div
             className={cn(
-              "flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700 transition-all select-none",
-              "hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400",
+              "flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700",
+              "transition-all select-none",
+              "hover:border-cyan-400/60 hover:shadow-lg",
+              "hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400",
             )}
           >
             <svg

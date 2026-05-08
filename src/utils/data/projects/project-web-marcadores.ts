@@ -23,9 +23,19 @@ export const projectWebMarcadores: Project = {
   year: 2026,
   inDevelopment: true,
   fullDescription: {
-    es: "Gestor de marcadores con autenticación y base de datos en Supabase. Dashboard con carpetas, etiquetas, búsqueda y panel de atajos de teclado. Incluye modo demo para probar sin cuenta.",
-    en: "Bookmark manager with Supabase authentication and database. Dashboard with folders, tags, search and keyboard shortcuts panel. Includes demo mode to try without an account.",
-    ru: "Менеджер закладок с аутентификацией и базой данных Supabase. Панель с папками, тегами, поиском и справочником горячих клавиш. Включает демо-режим.",
-    zh: "使用 Supabase 认证和数据库的书签管理器。支持文件夹、标签、搜索和快捷键面板的仪表板。包含无需账户即可试用的演示模式。",
+    es:
+      "Gestor de marcadores con autenticación y base de datos en Supabase. " +
+      "Dashboard con carpetas, etiquetas, búsqueda y panel de atajos de teclado. " +
+      "Incluye modo demo para probar sin cuenta.",
+    en:
+      "Bookmark manager with Supabase authentication and database. " +
+      "Dashboard with folders, tags, search and keyboard shortcuts panel. " +
+      "Includes demo mode to try without an account.",
+    ru:
+      "Менеджер закладок с аутентификацией и базой данных Supabase. Панель с папками, тегами, " +
+      "поиском и справочником горячих клавиш. Включает демо-режим.",
+    zh:
+      "使用 Supabase 认证和数据库的书签管理器。" +
+      "支持文件夹、标签、搜索和快捷键面板的仪表板。包含无需账户即可试用的演示模式。",
   },
 };

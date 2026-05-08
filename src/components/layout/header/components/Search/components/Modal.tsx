@@ -39,6 +39,26 @@ function searchLabel(translations: Record<string, string>, key: keyof typeof SEA
   return translations[key] ?? SEARCH_TEXT_FALLBACK[key] ?? key;
 }
 
+const searchBackdropClass = cn(
+  "absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity",
+  "dark:bg-black/60 dark:backdrop-blur-sm",
+);
+
+const searchPanelClass = cn(
+  "w-full max-w-xl overflow-hidden rounded-xl border border-slate-200 bg-[rgb(var(--color-surface))]",
+  "shadow-2xl shadow-slate-900/15 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/40",
+);
+
+const searchResultColumnLinkClass = cn(
+  "flex flex-col gap-0.5 px-4 py-3 transition-colors",
+  "hover:bg-gray-100 dark:hover:bg-gray-800",
+);
+
+const searchResultInlineLinkClass = cn(
+  "flex items-center gap-2 px-4 py-3 transition-colors",
+  "hover:bg-gray-100 dark:hover:bg-gray-800",
+);
+
 export function Modal({
   isActive,
   setIsActive,
@@ -101,20 +121,10 @@ export function Modal({
       aria-label={searchLabel(translations, "search_dialog_aria")}
     >
       {/* Capa de atenuación: más opaca en claro para separar el panel del fondo */}
-      <div
-        className="absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity dark:bg-black/60 dark:backdrop-blur-sm"
-        aria-hidden="true"
-        onClick={() => setIsActive(false)}
-      />
+      <div className={searchBackdropClass} aria-hidden="true" onClick={() => setIsActive(false)} />
 
       <div className="relative z-10 flex items-start justify-center px-4 pt-[15vh] pb-8 sm:px-6">
-        <div
-          className={cn(
-            "w-full max-w-xl overflow-hidden rounded-xl border border-slate-200 bg-[rgb(var(--color-surface))] shadow-2xl shadow-slate-900/15",
-            "dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/40",
-          )}
-          onClick={(e) => e.stopPropagation()}
-        >
+        <div className={searchPanelClass} onClick={(e) => e.stopPropagation()}>
           <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
             <svg
               className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
@@ -173,7 +183,7 @@ export function Modal({
                       <li key={`p-${r.slug}`} role="option">
                         <a
                           href={`${baseUrl}${lang}/projects/${r.slug}`}
-                          className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className={searchResultColumnLinkClass}
                           onClick={() => setIsActive(false)}
                         >
                           <span className="font-medium text-gray-900 dark:text-gray-100">
@@ -196,7 +206,7 @@ export function Modal({
                       <li key={`t-${r.id}`} role="option">
                         <a
                           href={`${baseUrl}${lang}/#technologies`}
-                          className="flex items-center gap-2 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className={searchResultInlineLinkClass}
                           onClick={() => setIsActive(false)}
                         >
                           <span className="font-medium text-gray-900 dark:text-gray-100">
@@ -214,7 +224,7 @@ export function Modal({
                       <li key={`c-${r.id}`} role="option">
                         <a
                           href={`${baseUrl}${lang}/certifications`}
-                          className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className={searchResultColumnLinkClass}
                           onClick={() => setIsActive(false)}
                         >
                           <span className="font-medium text-gray-900 dark:text-gray-100">
@@ -231,7 +241,7 @@ export function Modal({
                     <li key={`pg-${idx}-${r.url}`} role="option">
                       <a
                         href={r.url}
-                        className="flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                        className={searchResultColumnLinkClass}
                         onClick={() => setIsActive(false)}
                       >
                         <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>

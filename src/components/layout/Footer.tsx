@@ -2,6 +2,10 @@ import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
 
+const footerNavLinkClass = cn(
+  "text-sm text-slate-600 transition-colors hover:text-cyan-600",
+  "dark:text-slate-400 dark:hover:text-cyan-400",
+);
 export default async function Footer({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
 
@@ -25,19 +29,19 @@ export default async function Footer({ lang }: { lang: Language }) {
             <nav className="flex flex-col gap-2 pl-4 sm:gap-3" aria-label="Site links">
               <a
                 href={`/${lang}`}
-                className="text-sm text-slate-600 transition-colors hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400"
+                className={footerNavLinkClass}
               >
                 <span data-i18n="footer_nav_home">{t.footer_nav_home}</span>
               </a>
               <a
                 href={`/${lang}/certifications`}
-                className="text-sm text-slate-600 transition-colors hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400"
+                className={footerNavLinkClass}
               >
                 <span data-i18n="nav_certifications">{t.nav_certifications}</span>
               </a>
               <a
                 href={`/${lang}/projects`}
-                className="text-sm text-slate-600 transition-colors hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400"
+                className={footerNavLinkClass}
               >
                 <span data-i18n="nav_projects">{t.nav_projects}</span>
               </a>

@@ -87,13 +87,21 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md bg-cyan-100 px-2 py-1 text-xs font-medium text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300"
+              className={cn(
+                "rounded-md bg-cyan-100 px-2 py-1 text-xs font-medium text-cyan-700",
+                "dark:bg-cyan-900/30 dark:text-cyan-300",
+              )}
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-400">
+            <span
+              className={cn(
+                "rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600",
+                "dark:bg-gray-700 dark:text-gray-400",
+              )}
+            >
               +{project.technologies.length - 4}
             </span>
           )}

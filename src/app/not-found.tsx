@@ -24,7 +24,12 @@ export default function NotFound() {
   }, []);
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
+    <main
+      className={cn(
+        "flex min-h-screen items-center justify-center bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50",
+        "dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
+      )}
+    >
       <div className="absolute inset-0 my-8 flex items-center justify-center">
         <svg
           id="animation-404-circle"
@@ -84,8 +89,9 @@ export default function NotFound() {
           <Link
             href={`/${lang}/`}
             className={cn(
-              "inline-flex cursor-pointer items-center gap-2 rounded-xl bg-linear-to-r from-cyan-500 to-purple-500 px-6 py-3",
-              "text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:from-cyan-400 hover:to-purple-400",
+              "inline-flex cursor-pointer items-center gap-2 rounded-xl px-6 py-3 text-lg font-bold text-white",
+              "bg-linear-to-r from-cyan-500 to-purple-500 transition-all duration-300",
+              "hover:scale-105 hover:from-cyan-400 hover:to-purple-400",
             )}
             data-i18n="error_404_back_home"
           >

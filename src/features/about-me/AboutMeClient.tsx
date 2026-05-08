@@ -189,7 +189,12 @@ export default function AboutMeClient({
         classname,
       )}
     >
-      <div className="relative mx-auto flex h-full min-h-0 w-full min-w-0 items-center justify-between overflow-hidden max-lg:flex-col max-lg:items-start">
+      <div
+        className={cn(
+          "relative mx-auto flex h-full min-h-0 w-full min-w-0 items-center justify-between overflow-hidden",
+          "max-lg:flex-col max-lg:items-start",
+        )}
+      >
         <h2
           className="left-0 mb-4 w-full text-center text-4xl font-bold lg:absolute lg:top-32"
           data-i18n="info_about_title"
@@ -222,7 +227,10 @@ export default function AboutMeClient({
               </span>
               <button
                 type="button"
-                className="about-read-more about-link mt-1 hidden cursor-pointer text-sm font-semibold underline underline-offset-4 transition-colors"
+                className={cn(
+                  "about-read-more about-link mt-1 hidden cursor-pointer text-sm font-semibold",
+                  "underline underline-offset-4 transition-colors",
+                )}
                 data-about-read-more
                 aria-haspopup="dialog"
                 aria-controls="about-timeline-modal-dialog"
@@ -235,11 +243,15 @@ export default function AboutMeClient({
           return (
             <div
               key={`${entry.i18nKey}-${entry.year}`}
-              className="relative z-20 w-full min-w-45 text-center max-lg:mb-12 max-lg:pl-12"
+              className={cn(
+                "relative z-20 w-full min-w-45 text-center",
+                "max-lg:mb-12 max-lg:pl-12",
+              )}
             >
               <div
                 className={cn(
-                  "absolute h-fit w-45 rounded-lg py-4 text-left max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full lg:text-center",
+                  "absolute h-fit w-45 rounded-lg py-4 text-left lg:text-center",
+                  "max-lg:relative max-lg:top-0 max-lg:bottom-0 max-lg:w-full",
                   index % 2 === 0 ? "bottom-10" : "top-10",
                 )}
               >
@@ -256,7 +268,10 @@ export default function AboutMeClient({
                     href="https://github.com/divelz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
+                    className={cn(
+                      "about-link inline-flex items-center gap-2 font-semibold",
+                      "underline underline-offset-4 transition-colors",
+                    )}
                   >
                     Github
                   </a>
@@ -264,7 +279,10 @@ export default function AboutMeClient({
                 {entry.year === "2025" ? (
                   <Link
                     href={`/${lang}/certifications`}
-                    className="about-link inline-flex items-center gap-2 font-semibold underline underline-offset-4 transition-colors"
+                    className={cn(
+                      "about-link inline-flex items-center gap-2 font-semibold",
+                      "underline underline-offset-4 transition-colors",
+                    )}
                     data-i18n="nav_certifications"
                   >
                     {navCertifications || "Certificaciones"}
@@ -272,7 +290,12 @@ export default function AboutMeClient({
                 ) : null}
               </div>
 
-              <div className="about-timeline-dot mx-auto h-5 w-5 rounded-full max-lg:absolute max-lg:top-5 max-lg:left-[11px]" />
+              <div
+                className={cn(
+                  "about-timeline-dot mx-auto h-5 w-5 rounded-full",
+                  "max-lg:absolute max-lg:top-5 max-lg:left-[11px]",
+                )}
+              />
             </div>
           );
         })}
@@ -292,9 +315,18 @@ export default function AboutMeClient({
           role="dialog"
           aria-modal="true"
           aria-labelledby="about-timeline-modal-title"
-          className="relative z-10 flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-xl border border-[rgb(var(--color-drawer-border))] bg-[rgb(var(--color-surface))] shadow-2xl"
+          className={cn(
+            "relative z-10 flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-xl shadow-2xl",
+            "border border-[rgb(var(--color-drawer-border))]",
+            "bg-[rgb(var(--color-surface))]",
+          )}
         >
-          <div className="flex shrink-0 items-start justify-between gap-4 border-b border-[rgb(var(--color-drawer-border))] p-4 sm:p-5">
+          <div
+            className={cn(
+              "flex shrink-0 items-start justify-between gap-4 border-b p-4 sm:p-5",
+              "border-[rgb(var(--color-drawer-border))]",
+            )}
+          >
             <h3
               id="about-timeline-modal-title"
               className="text-lg font-bold text-[rgb(var(--color-text))]"
@@ -302,7 +334,11 @@ export default function AboutMeClient({
             />
             <button
               type="button"
-              className="shrink-0 cursor-pointer rounded-md text-[rgb(var(--color-text))] transition-colors hover:text-[rgb(var(--color-primary))] focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]"
+              className={cn(
+                "shrink-0 cursor-pointer rounded-md text-[rgb(var(--color-text))] transition-colors",
+                "hover:text-[rgb(var(--color-primary))]",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary))]",
+              )}
               data-about-modal-close
               aria-label={closeModalAria}
               data-i18n-attr="aria-label:cert_viewer_close"

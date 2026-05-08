@@ -10,6 +10,14 @@ import Link from "next/link";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
 
+const certBackArrowPath =
+  "M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 " +
+  "12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z";
+
+const certFormationStackPath =
+  "M11.7 2.294a.75.75 0 0 1 .6 0l8.25 3.75a.75.75 0 0 1 0 1.372l-8.25 3.75a.75.75 0 0 1-.6 0l-" +
+  "8.25-3.75a.75.75 0 0 1 0-1.372l8.25-3.75Z";
+
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const t = getTranslations(lang as Language);
@@ -43,11 +51,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
             className="inline-block shrink-0"
             aria-hidden="true"
           >
-            <path
-              fillRule="evenodd"
-              d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z"
-              clipRule="evenodd"
-            />
+            <path fillRule="evenodd" d={certBackArrowPath} clipRule="evenodd" />
           </svg>
           <span data-i18n="cert_back_to_about">{t.cert_back_to_about || "Volver a Sobre Mí"}</span>
         </Link>
@@ -68,7 +72,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
               )}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                <path d="M11.7 2.294a.75.75 0 0 1 .6 0l8.25 3.75a.75.75 0 0 1 0 1.372l-8.25 3.75a.75.75 0 0 1-.6 0l-8.25-3.75a.75.75 0 0 1 0-1.372l8.25-3.75Z" />
+                <path d={certFormationStackPath} />
                 <path d="M3.26 10.226 11 13.722v7.028a.75.75 0 0 1-1.053.69l-6.75-3a.75.75 0 0 1-.447-.69v-7.524Z" />
                 <path d="M12.5 20.75v-7.028l7.74-3.496v7.524a.75.75 0 0 1-.447.69l-6.75 3a.75.75 0 0 1-1.043-.69Z" />
               </svg>
