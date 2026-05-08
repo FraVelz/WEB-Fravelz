@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/ui/ProjectCard";
-import Footer from "@/components/ui/Footer";
+import Footer from "@/components/layout/Footer";
 import { getAllProjects } from "@/utils/data/projects";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";

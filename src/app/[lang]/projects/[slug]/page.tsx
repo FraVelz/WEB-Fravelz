@@ -1,15 +1,21 @@
-import { cn } from "@/utils/cn";
+import { SectionsDetails } from "./_components/SectionsDetails";
+
 import { getAllProjects, getProjectBySlug } from "@/utils/data/projects";
+import { getTranslations } from "@/utils/i18n";
+
 import type { Language } from "@/lib/i18n-routing";
 import { languages } from "@/lib/i18n-routing";
-import { getTranslations } from "@/utils/i18n";
+
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+
+import { cn } from "@/utils/cn";
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
+
   return languages.flatMap((lang) =>
     projects.map((project) => ({
       lang,
@@ -25,10 +31,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang, slug } = await params;
   const project = getProjectBySlug(slug);
+
   if (!project) return { title: "Proyecto" };
+
   const L = lang as Language;
   const title = project.title[L];
   const description = project.fullDescription[L];
+
   return {
     title: `${title} — Fravelz`,
     description,
@@ -39,6 +48,7 @@ export async function generateMetadata({
 export default async function ProjectSlugPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
   const { lang, slug } = await params;
   const project = getProjectBySlug(slug);
+
   if (!project) notFound();
 
   const L = lang as Language;
@@ -62,7 +72,6 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
           </svg>
           <span>{t.projects_back || "Volver a Proyectos"}</span>
         </Link>
-
         <header className="mb-8">
           <div className="mb-4 flex flex-wrap items-center gap-3">
             {project.inDevelopment ? (
@@ -156,83 +165,16 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
             )}
           </div>
         </header>
-
         <div className="mb-12 overflow-hidden rounded-xl shadow-2xl">
-          <Image src={project.featuredImage} alt={`${title} - Vista previa`} className="h-auto w-full object-cover" />
+          <Image
+            src={project.featuredImage}
+            alt={`${title} - Vista previa`}
+            className="h-auto w-full object-cover select-none"
+            draggable={false}
+          />
         </div>
 
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          {project.whatILearned?.[L]?.length ? (
-            <section className="mb-12" id="project-what-i-learned-section">
-              <h2
-                className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100"
-                data-i18n="projects_what_i_learned"
-              >
-                {t.projects_what_i_learned || "Qué aprendí"}
-              </h2>
-              <ul className="space-y-3" id="project-what-i-learned-list">
-                {project.whatILearned[L]!.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-                    <svg
-                      className="mt-0.5 h-6 w-6 flex-shrink-0 text-cyan-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          {project.technicalDetails?.[L]?.length ? (
-            <section className="mb-12" id="project-technical-details-section">
-              <h2
-                className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100"
-                data-i18n="projects_technical_details"
-              >
-                {t.projects_technical_details || "Detalles Técnicos"}
-              </h2>
-              <div className="rounded-lg bg-gray-100 p-6 dark:bg-gray-800">
-                <ul className="space-y-2" id="project-technical-details-list">
-                  {project.technicalDetails[L]!.map((detail) => (
-                    <li key={detail} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                      <span className="text-cyan-500">•</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-          ) : null}
-
-          {project.screenshots && project.screenshots.length > 0 && (
-            <section className="mb-12">
-              <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
-                {t.projects_screenshots || "Capturas del Proyecto"}
-              </h2>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                {project.screenshots.map((screenshot) => (
-                  // eslint-disable-next-line @next/next/no-img-element -- external or public paths
-                  <img
-                    key={screenshot}
-                    src={screenshot}
-                    alt={`${title} - Captura`}
-                    className="w-full rounded-lg shadow-lg"
-                  />
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
+        <SectionsDetails L={L} project={project} title={title} />
       </div>
     </article>
   );

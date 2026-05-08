@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { cookies, headers } from "next/headers";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
 import { getServerHtmlThemeFromCookieAndHint, THEME_COOKIE_NAME } from "@/lib/theme-cookie";
