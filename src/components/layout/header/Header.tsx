@@ -24,7 +24,10 @@ export function Header({ t }: { t: Record<string, string> }) {
         <button
           type="button"
           id="logo"
-          className="text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600 dark:text-gray-100 dark:hover:text-cyan-300"
+          className={cn(
+            "text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600",
+            "dark:text-gray-100 dark:hover:text-cyan-300",
+          )}
           onClick={() => window.location.reload()}
         >
           Fravelz
@@ -38,7 +41,10 @@ export function Header({ t }: { t: Record<string, string> }) {
           type="button"
           data-drawer-open
           id="header-mobile-button"
-          className="text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden dark:text-gray-300 dark:hover:text-cyan-300"
+          className={cn(
+            "text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
+            "dark:text-gray-300 dark:hover:text-cyan-300",
+          )}
           aria-label="Abrir menú"
           aria-expanded="false"
           aria-controls="drawer-menu"

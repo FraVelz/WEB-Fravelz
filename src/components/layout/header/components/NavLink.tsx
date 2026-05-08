@@ -3,6 +3,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
+import { cn } from "@/utils/cn";
+
 export default function NavLink({
   href,
   target = "_self",
@@ -21,7 +23,10 @@ export default function NavLink({
       href={href}
       target={target}
       draggable={false}
-      className={`link-animation font-medium text-slate-700 transition-colors select-none dark:text-slate-400 ${className}`}
+      className={cn(
+        "link-animation font-medium text-slate-700 transition-colors select-none dark:text-slate-400",
+        className,
+      )}
       data-smooth-scroll={isAnchor ? "true" : undefined}
       onClick={(e) => {
         if (!isAnchor) return;

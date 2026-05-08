@@ -54,7 +54,10 @@ export default function CertificatesWithViewer({
                 openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
-                borderClass="border-cyan-200/70 dark:border-cyan-700/60 bg-white/90 dark:bg-slate-900/80 hover:border-cyan-400/80"
+                borderClass={cn(
+                  "border-cyan-200/70 bg-white/90 dark:border-cyan-700/60 dark:bg-slate-900/80",
+                  "hover:border-cyan-400/80",
+                )}
               />
             ))}
           </div>
@@ -81,7 +84,11 @@ export default function CertificatesWithViewer({
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  d={
+                    "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 " +
+                    "5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-" +
+                    "3.196 0-6.1-1.248-8.25-3.285z"
+                  }
                 />
               </svg>
             </span>
@@ -94,7 +101,10 @@ export default function CertificatesWithViewer({
                 openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
-                borderClass="border-amber-200/70 dark:border-amber-700/60 bg-white/90 dark:bg-slate-900/80 hover:border-amber-400/80"
+                borderClass={cn(
+                  "border-amber-200/70 bg-white/90 dark:border-amber-700/60 dark:bg-slate-900/80",
+                  "hover:border-amber-400/80",
+                )}
               />
             ))}
           </div>
@@ -134,7 +144,10 @@ export default function CertificatesWithViewer({
                 openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
-                borderClass="border-emerald-200/80 dark:border-emerald-800/60 bg-white/90 dark:bg-slate-900/80 hover:border-emerald-400/80"
+                borderClass={cn(
+                  "border-emerald-200/80 bg-white/90 dark:border-emerald-800/60 dark:bg-slate-900/80",
+                  "hover:border-emerald-400/80",
+                )}
               />
             ))}
           </div>
@@ -170,7 +183,10 @@ export default function CertificatesWithViewer({
                 openViewer={openViewer}
                 key={cert.id}
                 cert={cert}
-                borderClass="border-slate-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 hover:border-cyan-400/80"
+                borderClass={cn(
+                  "border-slate-200/80 bg-white/90 dark:border-slate-700 dark:bg-slate-900/80",
+                  "hover:border-cyan-400/80",
+                )}
               />
             ))}
           </div>

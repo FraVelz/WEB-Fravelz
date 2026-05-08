@@ -13,6 +13,7 @@ import HomeScroll from "./HomeScroll";
 
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
+import { cn } from "@/utils/cn";
 
 export default async function HomeMain({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
@@ -39,7 +40,10 @@ export default async function HomeMain({ lang }: { lang: Language }) {
             />
             <HobbiesSection
               lang={lang}
-              classname="panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
+              classname={cn(
+                "panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center",
+                "px-4 sm:px-6 lg:px-8",
+              )}
             />
           </div>
         </div>

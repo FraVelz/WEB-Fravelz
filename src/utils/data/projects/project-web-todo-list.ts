@@ -24,9 +24,19 @@ export const projectWebTodoList: Project = {
   year: 2026,
   inDevelopment: true,
   fullDescription: {
-    es: "Gestor de tareas desarrollado con Next.js 16 y React 19. Incluye vistas Inbox, Hoy, Próximos, Completadas, búsqueda y filtros. Organiza tu día a día con una interfaz intuitiva y diseño responsive.",
-    en: "Task manager built with Next.js 16 and React 19. Includes Inbox, Today, Upcoming, Completed views, search and filters. Organize your day with an intuitive interface and responsive design.",
-    ru: "Менеджер задач на Next.js 16 и React 19. Включает представления Входящие, Сегодня, Предстоящие, Выполненные, поиск и фильтры.",
-    zh: "使用 Next.js 16 和 React 19 构建的任务管理器。包含收件箱、今天、即将到来、已完成视图、搜索和筛选。",
+    es:
+      "Gestor de tareas desarrollado con Next.js 16 y React 19. " +
+      "Incluye vistas Inbox, Hoy, Próximos, Completadas, búsqueda y filtros. " +
+      "Organiza tu día a día con una interfaz intuitiva y diseño responsive.",
+    en:
+      "Task manager built with Next.js 16 and React 19. Includes Inbox, Today, Upcoming, " +
+      "Completed views, search and filters. Organize your day with an intuitive interface " +
+      "and responsive design.",
+    ru:
+      "Менеджер задач на Next.js 16 и React 19. Включает представления Входящие, Сегодня, " +
+      "Предстоящие, Выполненные, поиск и фильтры.",
+    zh:
+      "使用 Next.js 16 和 React 19 构建的任务管理器。" +
+      "包含收件箱、今天、即将到来、已完成视图、搜索和筛选。",
   },
 };
