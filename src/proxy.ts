@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 import { isValidLanguage, localePathFromAcceptHeader } from "@/lib/i18n-routing";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname !== "/" && pathname !== "") {
