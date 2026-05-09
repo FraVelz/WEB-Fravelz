@@ -6,10 +6,7 @@
 
   const languages = ["es", "en", "ru", "zh"];
   const defaultLang = "es";
-  const base =
-    typeof window !== "undefined" && window.__BASE_URL__
-      ? window.__BASE_URL__
-      : "";
+  const base = typeof window !== "undefined" && window.__BASE_URL__ ? window.__BASE_URL__ : "";
 
   // Cache de traducciones
   let translationsCache = {};
@@ -85,23 +82,11 @@
     }
 
     try {
-      const [
-        common,
-        hero,
-        music,
-        certifications,
-        info,
-        technologies,
-        about,
-        hobbies,
-        footer,
-      ] = await Promise.all([
+      const [common, hero, music, certifications, info, technologies, about, hobbies, footer] = await Promise.all([
         fetch(`${base}locals/${lang}/common.json`).then((r) => r.json()),
         fetch(`${base}locals/${lang}/hero.json`).then((r) => r.json()),
         fetch(`${base}locals/${lang}/music.json`).then((r) => r.json()),
-        fetch(`${base}locals/${lang}/certifications.json`).then((r) =>
-          r.json(),
-        ),
+        fetch(`${base}locals/${lang}/certifications.json`).then((r) => r.json()),
         fetch(`${base}locals/${lang}/info.json`).then((r) => r.json()),
         fetch(`${base}locals/${lang}/technologies.json`).then((r) => r.json()),
         fetch(`${base}locals/${lang}/about.json`).then((r) => r.json()),
@@ -249,8 +234,7 @@
     getCurrentLanguage: () => currentLang,
     getTranslations: (lang) => translationsCache[lang] || {},
     t: (key, lang = currentLang) => {
-      const translations =
-        translationsCache[lang] || translationsCache[currentLang] || {};
+      const translations = translationsCache[lang] || translationsCache[currentLang] || {};
       return translations[key] || key;
     },
   };

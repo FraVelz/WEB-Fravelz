@@ -3,9 +3,7 @@ import type { Project } from "@/utils/data/projects";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
 
-import Image from "next/image";
-
-export function SectionsDetails({ L, project, title }: { L: Language; project: Project; title: string }) {
+export function SectionsDetails({ L, project }: { L: Language; project: Project }) {
   const t = getTranslations(L);
 
   return (
@@ -58,25 +56,6 @@ export function SectionsDetails({ L, project, title }: { L: Language; project: P
           </div>
         </section>
       ) : null}
-
-      {project.screenshots && project.screenshots.length > 0 && (
-        <section className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
-            {t.projects_screenshots || "Capturas del Proyecto"}
-          </h2>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {project.screenshots.map((screenshot) => (
-              <Image
-                key={screenshot}
-                src={screenshot}
-                alt={`${title} - Captura`}
-                className="w-full rounded-lg shadow-lg"
-              />
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   );
 }

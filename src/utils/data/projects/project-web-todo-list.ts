@@ -1,5 +1,5 @@
 import type { Project } from "../project-types";
-import webTodoListImg from "@/assets/images-projects/web-todo-list.png";
+import webTodoListImg from "@/assets/images-projects/todo-list/index.webp";
 
 export const projectWebTodoList: Project = {
   slug: "web-todo-list",
@@ -35,8 +35,6 @@ export const projectWebTodoList: Project = {
     ru:
       "Менеджер задач на Next.js 16 и React 19. Включает представления Входящие, Сегодня, " +
       "Предстоящие, Выполненные, поиск и фильтры.",
-    zh:
-      "使用 Next.js 16 和 React 19 构建的任务管理器。" +
-      "包含收件箱、今天、即将到来、已完成视图、搜索和筛选。",
+    zh: "使用 Next.js 16 和 React 19 构建的任务管理器。" + "包含收件箱、今天、即将到来、已完成视图、搜索和筛选。",
   },
 };
