@@ -49,28 +49,24 @@ export const projectNotasHacking: Project = {
   },
   whatILearned: {
     es: [
-      "Migración completa de React a Astro",
-      "Uso de Content Collections para gestión de contenido",
-      "Optimización de rendimiento con Astro",
-      "Sistema de routing dinámico con Astro",
+      "crear documentación con Starlight en Astro",
+      "usar Content Collections para gestionar el contenido",
+      "estilizar y componentizar el código en Starlight",
     ],
     en: [
-      "Complete migration from React to Astro",
-      "Using Content Collections for content management",
-      "Performance optimization with Astro",
-      "Dynamic routing system with Astro",
+      "Building documentation sites with Starlight on Astro",
+      "Using Content Collections to manage content",
+      "Styling and turning UI into components in Starlight",
     ],
     ru: [
-      "Полная миграция с React на Astro",
+      "Создание документации с Starlight на Astro",
       "Использование Content Collections для управления контентом",
-      "Оптимизация производительности с Astro",
-      "Система динамической маршрутизации с Astro",
+      "Стилизация и выделение переиспользуемых компонентов в Starlight",
     ],
     zh: [
-      "从 React 完全迁移到 Astro",
-      "使用 Content Collections 进行内容管理",
-      "使用 Astro 进行性能优化",
-      "使用 Astro 的动态路由系统",
+      "在 Astro 上使用 Starlight 搭建文档站点",
+      "使用 Content Collections 管理内容",
+      "在 Starlight 中进行样式设计与组件拆分",
     ],
   },
   technicalDetails: {
@@ -79,7 +75,7 @@ export const projectNotasHacking: Project = {
       "React para componentes interactivos",
       "Tailwind CSS para estilos",
       "Markdown para contenido",
-      "TypeScript para type safety",
+      "TypeScript para tipado estático",
     ],
     en: [
       "Astro for static site generation",
