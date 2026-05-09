@@ -42,10 +42,7 @@ export default function PdfViewerModal({
 
   return (
     <div
-      className={cn(
-        "fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4",
-        "backdrop-blur-sm",
-      )}
+      className={cn("fixed inset-0 z-100 flex items-center justify-center bg-black/70 p-4", "backdrop-blur-sm")}
       role="dialog"
       aria-modal="true"
       aria-labelledby="pdf-modal-title"
@@ -106,7 +103,7 @@ export default function PdfViewerModal({
               onClick={onClose}
               className={cn(
                 "inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
-                "hover:bg-slate-200 hover:text-slate-900",
+                "cursor-pointer hover:bg-slate-200 hover:text-slate-900",
                 "dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100",
               )}
               aria-label={closeText}
