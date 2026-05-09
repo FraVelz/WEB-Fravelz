@@ -63,7 +63,7 @@ export interface Project {
   };
 
   /** Paths to screenshots */
-  screenshots?: string[];
+  screenshots?: StaticImageData[];
 
   /** What I learned (per language) */
   whatILearned?: {

@@ -1,4 +1,5 @@
 import { SectionsDetails } from "./_components/SectionsDetails";
+import { ListImagesViewer } from "./_components/ListImageViewer";
 
 import { getAllProjects, getProjectBySlug } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
@@ -8,11 +9,9 @@ import { languages } from "@/lib/i18n-routing";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 import { cn } from "@/utils/cn";
-import { GITHUB_MARK_PATH } from "@/utils/icons/github-mark";
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -182,16 +181,17 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
           </div>
         </header>
 
-        <div className="mb-12 overflow-hidden rounded-xl shadow-2xl">
-          <Image
-            src={project.featuredImage}
-            alt={`${title} - Vista previa`}
-            className="h-auto w-full object-cover select-none"
-            draggable={false}
-          />
-        </div>
+        <ListImagesViewer
+          key={project.slug}
+          project={project}
+          title={title}
+          galleryHeading={(project.screenshots?.length ?? 0) > 0 ? t.projects_screenshots : undefined}
+          carouselRegionAriaLabel={t.projects_carousel_aria}
+          carouselPrevLabel={t.projects_carousel_prev}
+          carouselNextLabel={t.projects_carousel_next}
+        />
 
-        <SectionsDetails L={L} project={project} title={title} />
+        <SectionsDetails L={L} project={project} />
       </div>
     </article>
   );

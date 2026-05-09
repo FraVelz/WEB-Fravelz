@@ -1,5 +1,5 @@
 import type { Project } from "../project-types";
-import WebMarcadoresImg from "@/assets/images-projects/web-marcadores.png";
+import WebMarcadoresImg from "@/assets/images-projects/marcadores/index.webp";
 
 export const projectWebMarcadores: Project = {
   slug: "web-marcadores",

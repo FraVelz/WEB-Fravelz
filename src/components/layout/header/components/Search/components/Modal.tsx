@@ -239,11 +239,7 @@ export function Modal({
                   }
                   return (
                     <li key={`pg-${idx}-${r.url}`} role="option">
-                      <a
-                        href={r.url}
-                        className={searchResultColumnLinkClass}
-                        onClick={() => setIsActive(false)}
-                      >
+                      <a href={r.url} className={searchResultColumnLinkClass} onClick={() => setIsActive(false)}>
                         <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
                         <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
                           <HighlightMatch text={r.snippet} query={query} />

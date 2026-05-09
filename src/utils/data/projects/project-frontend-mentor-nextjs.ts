@@ -1,5 +1,10 @@
 import type { Project } from "../project-types";
-import frontendMentorNextImg from "@/assets/images-projects/web-frontend-mentor-nextjs.png";
+
+import frontendMentorNextImg from "@/assets/images-projects/frontend-mentor/index.webp";
+import image1 from "@/assets/images-projects/frontend-mentor/image1.webp";
+import image2 from "@/assets/images-projects/frontend-mentor/image2.webp";
+import image3 from "@/assets/images-projects/frontend-mentor/image3.webp";
+import image4 from "@/assets/images-projects/frontend-mentor/image4.webp";
 
 export const projectFrontendMentorNextjs: Project = {
   slug: "frontend-mentor-nextjs",
@@ -25,6 +30,7 @@ export const projectFrontendMentorNextjs: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  screenshots: [image1, image2, image3, image4],
   fullDescription: {
     es:
       "Aplicación Next.js 16 con React 19 para practicar retos de Frontend Mentor: " +

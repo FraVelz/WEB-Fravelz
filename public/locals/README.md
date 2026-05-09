@@ -4,12 +4,12 @@ Translation files for the Fravelz portfolio. The folder name is **`locals`** (no
 
 ## Supported languages
 
-| Code | Language |
-| ---- | -------- |
+| Code | Language          |
+| ---- | ----------------- |
 | `es` | Spanish (Español) |
-| `en` | English |
+| `en` | English           |
 | `ru` | Russian (Русский) |
-| `zh` | Chinese (中文) |
+| `zh` | Chinese (中文)    |
 
 ## File layout
 
@@ -19,17 +19,17 @@ Each language directory (`es/`, `en/`, `ru/`, `zh/`) should expose the same logi
 
 Typical files include:
 
-| File | Contents |
-| ---- | -------- |
-| `common.json` | Navigation, shared UI |
-| `hero.json` | Hero / presentation |
-| `music.json` | Music player strings |
-| `certifications.json` | Certifications page |
-| `info.json` | Section titles |
-| `technologies.json` | Tech section |
-| `about.json` | About / biography |
-| `hobbies.json` | Hobbies |
-| `footer.json` | Footer |
+| File                  | Contents              |
+| --------------------- | --------------------- |
+| `common.json`         | Navigation, shared UI |
+| `hero.json`           | Hero / presentation   |
+| `music.json`          | Music player strings  |
+| `certifications.json` | Certifications page   |
+| `info.json`           | Section titles        |
+| `technologies.json`   | Tech section          |
+| `about.json`          | About / biography     |
+| `hobbies.json`        | Hobbies               |
+| `footer.json`         | Footer                |
 
 If the same key appears in more than one file for a language, **the last merged file wins**.
 

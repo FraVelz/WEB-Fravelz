@@ -1,5 +1,5 @@
 import type { Project } from "../project-types";
-import icfesMasterImg from "@/assets/images-projects/web-icfes-master.png";
+import icfesMasterImg from "@/assets/images-projects/icfes-master/index.webp";
 
 export const projectIcfesMaster: Project = {
   slug: "icfes-master",
