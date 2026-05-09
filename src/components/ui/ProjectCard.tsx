@@ -31,9 +31,10 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
     >
       <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
         <Image
+          draggable={false}
           src={project.featuredImage}
           alt={`${title} - ${t.project_preview_alt || "Preview"}`}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-300 select-none group-hover:scale-105"
           loading="lazy"
         />
 
