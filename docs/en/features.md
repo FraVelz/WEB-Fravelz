@@ -16,13 +16,13 @@
 - **Middleware** on `/`: `lang` cookie or `Accept-Language`
 - **Translations**: JSON under `public/locals/{lang}/`, merged on the server (`src/utils/i18n.ts`)
 - **Client**: `public/i18n.js` for `data-i18n` and the `language-changed` event
-- **Language selector**: navigates to the same path in another locale (full navigation)
+- **Language selector**: navigates to the same path in another locale (full page reload)
 
 ## Interactive features
 
 - **Header search** (portfolio + translations via `public/locals/`)
 - **Certificates** with PDF viewer (client components)
-- **Music player** (existing components)
+- **Music player** (optional / existing components)
 - **Theme** toggle
 - **Contact form**: `mailto:` body built on the client
 - **About timeline** with “Read more” modal (client logic)
@@ -42,7 +42,7 @@
 - **Technologies**: skill cards (`src/components/features/technologies/data.ts`)
 - **About me**: timeline + modal
 - **Hobbies**: card grid with pointer effect
-- **Contact**: email copy + mailto form
+- **Contact**: email and mailto form
 
 ## Tech stack
 
@@ -65,4 +65,4 @@
 
 [Return to readme...](../../README.md)
 
-> Author: Fravelz · Documentation updated: 2026
+> AI-generated · Last updated: 2026-05-09

@@ -65,4 +65,4 @@
 
 [Regresar al readme...](../../README.md)
 
-> Autor: Fravelz · Documentación actualizada: 2026
+> Generado por IA · Última actualización: 2026-05-09

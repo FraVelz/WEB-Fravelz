@@ -89,11 +89,10 @@ WEB-Fravelz/
 
 ## Configuración y despliegue
 
-- **Producción típica**: [Vercel](https://vercel.app/) con proyecto Next (build: `pnpm build`, start: `pnpm start`).
+- **Producción típica**: [Vercel](https://vercel.com/) con proyecto Next (build: `pnpm build`, start: `pnpm start`).
 - **Sitio de referencia**: `https://fravelz.vercel.app/` (metadatos y enlaces canónicos).
 - La versión **Astro** anterior está en la rama `archive/astro` y el tag `astro-v1`.
 
 [Regresar al readme...](../../README.md)
 
-> Autor: Fravelz  
-> Documentación actualizada: 2026
+> Generado por IA · Última actualización: 2026-05-09

@@ -5,7 +5,7 @@
 ```text
 WEB-Fravelz/
 ├── public/                         # Static assets (public URL)
-│   ├── locals/                     # i18n JSON files (es, en, ru, zh)
+│   ├── locals/                     # i18n translations (es, en, ru, zh) — JSON per section
 │   ├── music/                      # MP3 audio
 │   ├── images/                     # Site images
 │   ├── i18n.js                     # Client script: data-i18n + language-changed event
@@ -31,7 +31,7 @@ WEB-Fravelz/
 │   ├── lib/
 │   │   └── i18n-routing.ts         # Supported locales + helpers (no fs; used in middleware)
 │   ├── styles/
-│   │   └── global.css              # Tailwind v4 + design tokens
+│   │   └── global.css              # Tailwind v4 + design tokens and utilities
 │   ├── utils/
 │   │   ├── i18n.ts                 # Server translations (fs + server-only)
 │   │   ├── cn.ts                   # Class name helper
@@ -43,10 +43,10 @@ WEB-Fravelz/
 │   ├── es/                         # Spanish docs
 │   └── en/                         # English docs
 │
-├── next.config.ts
-├── eslint.config.mjs
-├── postcss.config.mjs
-├── prettier.config.mjs
+├── next.config.ts                  # Next.js configuration
+├── eslint.config.mjs               # ESLint (Next + Prettier)
+├── postcss.config.mjs              # PostCSS + Tailwind v4
+├── prettier.config.mjs             # Prettier + prettier-plugin-tailwindcss
 ├── tsconfig.json
 └── package.json
 ```
@@ -56,7 +56,7 @@ WEB-Fravelz/
 ### App Router (`src/app/`)
 
 - Routes under **`/[lang]`** use `generateStaticParams` for es, en, ru, zh.
-- **`src/middleware.ts`**: only `/` redirects to the preferred locale.
+- **`middleware.ts`** at the root of **`src/`**: only `/` redirects to the preferred locale.
 - SEO: `generateMetadata` on relevant pages.
 
 ### Components
@@ -72,9 +72,9 @@ WEB-Fravelz/
 
 ## Translation system
 
-- **`public/locals/{lang}/*.json`**: keys merged according to `LOCALE_FILES` in `src/utils/i18n.ts`.
-- **Server**: `getTranslations(lang)` in Server Components / server-only code.
-- **Client**: `public/i18n.js` updates `data-i18n` nodes and fires `language-changed`.
+- **`public/locals/{lang}/*.json`**: keys merged on the server according to `LOCALE_FILES` in `src/utils/i18n.ts` (`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
+- **Server**: `getTranslations(lang)` only in server Components / pages (or data serialized to the client).
+- **Client**: `public/i18n.js` updates nodes with `data-i18n` and fires `language-changed` for components that listen.
 
 ## Routes
 
@@ -95,5 +95,4 @@ WEB-Fravelz/
 
 [Return to readme...](../../README.md)
 
-> Author: Fravelz  
-> Documentation updated: 2026
+> AI-generated · Last updated: 2026-05-09
