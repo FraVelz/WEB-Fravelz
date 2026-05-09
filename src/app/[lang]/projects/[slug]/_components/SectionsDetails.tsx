@@ -66,7 +66,7 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
             <ul className="space-y-2" id="project-technical-details-list">
               {project.technicalDetails[L]!.map((detail) => (
                 <li key={detail} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                  <span className="text-cyan-500">•</span>
+                  <span draggable={false} className="select-none text-cyan-500">•</span>
                   <span>{detail}</span>
                 </li>
               ))}
