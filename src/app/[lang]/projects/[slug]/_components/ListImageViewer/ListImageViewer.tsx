@@ -98,11 +98,7 @@ export function ListImagesViewer({
             style={{ transform: count > 1 ? `translateX(-${displayIndex * 100}%)` : undefined }}
           >
             {slides.map((slide, i) => (
-              <div
-                key={slide.key}
-                className="relative min-w-full shrink-0 px-5 sm:px-8"
-                aria-hidden={i !== displayIndex}
-              >
+              <div key={slide.key} className="relative w-full shrink-0 px-0 sm:px-8" aria-hidden={i !== displayIndex}>
                 <div
                   className={cn(
                     "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center md:py-4",
@@ -142,7 +138,7 @@ export function ListImagesViewer({
           <button type="button" className={navBtnClass} onClick={() => go(-1)} aria-label={carouselPrevLabel}>
             <ChevronLeftIcon className="h-6 w-6" />
           </button>
-          <p className="min-w-[4.5rem] text-center text-sm text-gray-600 tabular-nums dark:text-gray-400">
+          <p className="min-w-18 text-center text-sm text-gray-600 tabular-nums dark:text-gray-400">
             {displayIndex + 1} / {count}
           </p>
           <button type="button" className={navBtnClass} onClick={() => go(1)} aria-label={carouselNextLabel}>

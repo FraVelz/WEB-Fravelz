@@ -1,15 +1,19 @@
 import ProjectCard from "@/components/ui/ProjectCard";
 import Footer from "@/components/layout/Footer";
-import { getAllProjects } from "@/utils/data/projects";
+
 import type { Language } from "@/lib/i18n-routing";
+
+import { getAllProjects } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const t = getTranslations(lang as Language);
+
   return {
     title: `${t.hacking_projects_title || "Proyectos"} — Fravelz`,
     description: t.projects_all_projects_description || t.projects_section_description,
