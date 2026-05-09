@@ -73,6 +73,14 @@ export interface Project {
     zh: string[];
   };
 
+  /** Notas breves u observaciones adicionales del proyecto (por idioma) */
+  extraInfo?: {
+    es: string[];
+    en: string[];
+    ru: string[];
+    zh: string[];
+  };
+
   /** Technical details (per language) */
   technicalDetails?: {
     es: string[];

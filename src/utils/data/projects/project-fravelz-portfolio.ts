@@ -83,6 +83,24 @@ export const projectFravelzPortfolio: Project = {
       "PDF 弹层与搜索的无障碍要点（语义、Escape、焦点）",
     ],
   },
+  extraInfo: {
+    es: [
+      "Este portafolio es el lugar donde pruebo mejoras de UX, i18n y rendimiento antes de documentarlas.",
+      "Las capturas se renuevan cuando cambia el diseño o flujos principales del sitio.",
+    ],
+    en: [
+      "This portfolio is where I try UX, i18n, and performance tweaks before writing them up.",
+      "Screenshots are refreshed when the layout or core flows change.",
+    ],
+    ru: [
+      "Это портфолио — площадка для экспериментов с UX, i18n и производительностью.",
+      "Скриншоты обновляются, когда меняется каркас или ключевые сценарии.",
+    ],
+    zh: [
+      "这个作品集也是我在正式记录之前尝试 UX、国际化与性能的试验场。",
+      "当布局或核心流程有变时，会更新截图。",
+    ],
+  },
   technicalDetails: {
     es: [
       "Next.js 16 (App Router), React 19, TypeScript",
