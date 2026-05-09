@@ -77,10 +77,17 @@ export default function CopyEmailButton({ email, successText, variant = "outline
         variant === "solid" &&
           cn(
             "min-h-[2.625rem] items-center justify-center rounded-lg px-3.5 py-2.5 font-medium sm:px-4",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/90",
-            "focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:z-[1] focus-visible:outline-none",
+            "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
+            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
           ),
-        variant === "outlined" && "rounded-full border p-1 px-2 pr-3",
+        variant === "outlined" &&
+          cn(
+            "rounded-full border p-1 px-2 pr-3",
+            "focus-visible:z-[1] focus-visible:outline-none",
+            "focus-visible:ring-2 focus-visible:ring-purple-500/95 focus-visible:ring-offset-2",
+            "focus-visible:ring-offset-purple-50 dark:focus-visible:ring-purple-400/90 dark:focus-visible:ring-offset-gray-950",
+          ),
         copied &&
           (variant === "solid"
             ? cn(

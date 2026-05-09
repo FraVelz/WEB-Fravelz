@@ -243,10 +243,7 @@ export default function AboutMeClient({
           return (
             <div
               key={`${entry.i18nKey}-${entry.year}`}
-              className={cn(
-                "relative z-20 w-full min-w-45 text-center",
-                "max-lg:mb-12 max-lg:pl-12",
-              )}
+              className={cn("relative z-20 w-full min-w-45 text-center", "max-lg:mb-12 max-lg:pl-12")}
             >
               <div
                 className={cn(

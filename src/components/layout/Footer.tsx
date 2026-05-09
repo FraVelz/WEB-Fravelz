@@ -27,22 +27,13 @@ export default async function Footer({ lang }: { lang: Language }) {
               {t.footer_links_title}
             </h3>
             <nav className="flex flex-col gap-2 pl-4 sm:gap-3" aria-label="Site links">
-              <a
-                href={`/${lang}`}
-                className={footerNavLinkClass}
-              >
+              <a href={`/${lang}`} className={footerNavLinkClass}>
                 <span data-i18n="footer_nav_home">{t.footer_nav_home}</span>
               </a>
-              <a
-                href={`/${lang}/certifications`}
-                className={footerNavLinkClass}
-              >
+              <a href={`/${lang}/certifications`} className={footerNavLinkClass}>
                 <span data-i18n="nav_certifications">{t.nav_certifications}</span>
               </a>
-              <a
-                href={`/${lang}/projects`}
-                className={footerNavLinkClass}
-              >
+              <a href={`/${lang}/projects`} className={footerNavLinkClass}>
                 <span data-i18n="nav_projects">{t.nav_projects}</span>
               </a>
             </nav>

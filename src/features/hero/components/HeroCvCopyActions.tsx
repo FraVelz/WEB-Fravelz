@@ -42,7 +42,7 @@ export default function HeroCvCopyActions({
           className={cn(
             "group inline-flex min-h-[2.625rem] cursor-pointer items-center justify-center gap-2",
             "rounded-lg px-3.5 text-sm font-semibold sm:px-4",
-            "border-2 border-slate-200/90 bg-white/95 text-slate-800 shadow-sm backdrop-blur-sm ring-1",
+            "border-2 border-slate-200/90 bg-white/95 text-slate-800 shadow-sm ring-1 backdrop-blur-sm",
             "ring-slate-900/[0.05] transition-all",
             "hover:border-cyan-400/70 hover:bg-white hover:text-cyan-900 hover:shadow-md hover:ring-cyan-500/20",
             "active:scale-[0.99]",
@@ -50,9 +50,9 @@ export default function HeroCvCopyActions({
             "dark:shadow-black/20 dark:ring-white/[0.08]",
             "dark:hover:border-cyan-400/55 dark:hover:bg-slate-800 dark:hover:text-cyan-100",
             "dark:hover:shadow-cyan-950/20",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/80",
-            "focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:z-[1] focus-visible:outline-none",
+            "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
+            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
           )}
           data-i18n="hero_cv_button"
         >
