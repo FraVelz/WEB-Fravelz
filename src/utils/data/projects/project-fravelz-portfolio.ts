@@ -59,7 +59,7 @@ export const projectFravelzPortfolio: Project = {
   },
   whatILearned: {
     es: [
-      "App Router con `[slug]` e implementación para manejo de diferentes idiomas",
+      "App Router con `[lang]` e implementación para manejo de diferentes idiomas",
       "Separar datos de proyectos en módulos reutilizables y utilidades (`getProjectBySlug`)",
       "Tema antes del primer paint: script inline + cookies alineadas con `ToggleTheme`",
       "Visualizador de PDF y buscador accesibles (roles, Escape, foco)",
@@ -85,8 +85,10 @@ export const projectFravelzPortfolio: Project = {
   },
   extraInfo: {
     es: [
-      "Este portafolio es el lugar donde pruebo mejoras de UX, i18n y rendimiento antes de documentarlas.",
-      "Las capturas se renuevan cuando cambia el diseño o flujos principales del sitio.",
+      "El portafolio fue creado inicialmente en Astro esa version esta guardada en una rama de github como `archive/astro`.",
+      "Es el portafolio con mayor documentación extensa he implementado actualmente (implementando con ayuda de diversas herramientas como Markdownlint, Markdown All in One, Code Spell Checker, y herramientas de ia).",
+      "maximo 120 caracteres por linea de codigo, maximo 200 lineas de codigo por archivo, ademas utilizando prettier+eslint",
+      "Estructura del codigo inspirada en feature-based architecture"
     ],
     en: [
       "This portfolio is where I try UX, i18n, and performance tweaks before writing them up.",
@@ -105,8 +107,8 @@ export const projectFravelzPortfolio: Project = {
     es: [
       "Next.js 16 (App Router), React 19, TypeScript",
       "Tailwind CSS 4 — tokens `rgb(var(--color-*))` en `globals.css`",
-      "GSAP para animaciones puntuales (p. ej. 404)",
-      "i18n: JSON en `public/locals/` + hidratación cliente (`public/i18n.js`)",
+      "GSAP para animaciones puntuales (p. ej. en la página 404)",
+      "i18n: JSON en `public/locals/` + hidratación servidor + actualización y rellenado del cliente (`public/i18n.js`, y relleno de datos con el atributo `data-i18n` para el cliente)",
     ],
     en: [
       "Next.js 16 (App Router), React 19, TypeScript",
