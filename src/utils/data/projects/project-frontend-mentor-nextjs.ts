@@ -33,7 +33,7 @@ export const projectFrontendMentorNextjs: Project = {
   screenshots: [image1, image2, image3, image4],
   fullDescription: {
     es:
-      "Aplicación Next.js 16 con React 19 para practicar retos de Frontend Mentor: " +
+      "Aplicación Next.js 16 con React 19 para retos de Frontend Mentor: " +
       "estructura por challenge (assets, rutas y estilos aislados), índice de dificultades " +
       "y estados, y convenciones documentadas en el repositorio. Reglas de lint/formato.",
     en:
@@ -74,8 +74,8 @@ export const projectFrontendMentorNextjs: Project = {
   technicalDetails: {
     es: [
       "Next.js 16 (App Router), React 19, TypeScript 5",
-      "Tailwind CSS 4, ESLint, Prettier, Vitest",
-      "Estructura `public/challenges/{slug}/` y features por reto bajo `src/`",
+      "Tailwind CSS 4",
+      "ESLint, Prettier, Vitest",
     ],
     en: [
       "Next.js 16 (App Router), React 19, TypeScript 5",
