@@ -36,6 +36,24 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
         </section>
       ) : null}
 
+      {project.extraInfo?.[L]?.length ? (
+        <section className="mb-12" id="project-extra-info-section">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100" data-i18n="projects_extra_info">
+            {t.projects_extra_info || "Información extra"}
+          </h2>
+          <ul
+            className="list-disc space-y-3 pl-6 text-gray-700 marker:text-cyan-500 dark:text-gray-300 dark:marker:text-cyan-400"
+            id="project-extra-info-list"
+          >
+            {project.extraInfo[L]!.map((item, i) => (
+              <li key={`${i}-${item}`} className="pl-1">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {project.technicalDetails?.[L]?.length ? (
         <section className="mb-12" id="project-technical-details-section">
           <h2
