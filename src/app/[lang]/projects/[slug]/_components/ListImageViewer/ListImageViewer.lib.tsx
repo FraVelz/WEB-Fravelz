@@ -36,7 +36,7 @@ export function ProjectSlideImage({
   priority?: boolean;
   className?: string;
 }) {
-  const baseClass = cn("h-auto max-h-full w-full max-w-full object-contain", className);
+  const baseClass = cn("select-none h-auto max-h-full w-full max-w-full object-contain", className);
 
   if (typeof slide.src === "object") {
     return (

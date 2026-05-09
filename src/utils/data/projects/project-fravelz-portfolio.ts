@@ -59,10 +59,10 @@ export const projectFravelzPortfolio: Project = {
   },
   whatILearned: {
     es: [
-      "App Router con `[lang]` y metadata por página",
+      "App Router con `[slug]` e implementación para manejo de diferentes idiomas",
       "Separar datos de proyectos en módulos reutilizables y utilidades (`getProjectBySlug`)",
       "Tema antes del primer paint: script inline + cookies alineadas con `ToggleTheme`",
-      "PDF y buscador accesibles (roles, Escape, foco)",
+      "Visualizador de PDF y buscador accesibles (roles, Escape, foco)",
     ],
     en: [
       "App Router with `[lang]` and per-page metadata",
