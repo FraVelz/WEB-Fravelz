@@ -28,7 +28,7 @@ export const projectFravelzPortfolio: Project = {
     zh: "基于 Next.js 应用路由的个人多语言站点：项目、认证、持久化主题与全站搜索。",
   },
   featuredImage: portfolioImg,
-  technologies: ["Astro", "Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
+  technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
   category: "frontend",
   demoUrl: "https://fravelz.vercel.app/",
   githubUrl: "https://github.com/FraVelz/WEB-Fravelz",
