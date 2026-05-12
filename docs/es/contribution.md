@@ -21,7 +21,7 @@ Este repositorio es un **proyecto personal** (portafolio Next.js). Aun así, si 
 Puedes participar de varias maneras; no todas implican programar:
 
 1. **Feedback, bugs e ideas (sin código)**  
-   Abre un issue en GitHub o escribe por correo, con el detalle que ayude a reproducir o entender el problema. Los pasos concretos están en [Feedback y roadmap](./feedback.md).
+   Abre un issue en GitHub o escribe por correo, con el detalle que ayude a reproducir o entender el problema.
 
 2. **Código (pull requests)**  
    Fork, rama descriptiva, commits con mensajes en inglés siguiendo [Conventional Commits](https://www.conventionalcommits.org/), y PR hacia `main`. Para cambios grandes o que discuten el diseño del sitio, conviene **abrir antes un issue** para alinear expectativas.

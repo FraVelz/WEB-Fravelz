@@ -4,7 +4,7 @@ Visión **conceptual** del portafolio: decisiones técnicas, piezas reutilizable
 
 ---
 
-## Temario
+## Índice
 
 - [Arquitectura del proyecto](#arquitectura-del-proyecto)
   - [Stack tecnológico](#stack-tecnológico)
@@ -17,6 +17,7 @@ Visión **conceptual** del portafolio: decisiones técnicas, piezas reutilizable
   - [SEO y metadatos](#seo-y-metadatos)
   - [Configuración de red](#configuración-de-red)
   - [Build y despliegue](#build-y-despliegue)
+  - [Ampliar el proyecto](#ampliar-el-proyecto)
 
 ---
 
@@ -47,7 +48,7 @@ Visión **conceptual** del portafolio: decisiones técnicas, piezas reutilizable
 
 **En servidor (fuente de verdad para copy y SEO)**
 
-- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): lee y fusiona los JSON de `public/locals/{es,en,ru,zh}/` según la lista **`LOCALE_FILES`**, con **`server-only`** y **`fs`** en build/tiempo de servidor.
+- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): lee y fusiona los JSON de `public/locals/{es,en,ru,zh}/` según la lista **`LOCALE_FILES`**, con **`server-only`** y **`fs`** en tiempo de servidor (compilación y runtime).
 - **`getTranslations`**: envuelto en **`cache` de React** para deduplicar la carga del diccionario dentro de la misma petición.
 - **`t(key, lang)`**: acceso directo a una clave con fallback a la propia clave.
 
@@ -99,7 +100,7 @@ Visión **conceptual** del portafolio: decisiones técnicas, piezas reutilizable
 | Pieza | Ubicación | Función |
 |-------|-----------|---------|
 | **`cn(...)`** | [`src/utils/cn.ts`](../../src/utils/cn.ts) | Combina clases con **clsx** y resuelve conflictos de Tailwind con **tailwind-merge**. |
-| **Traducciones** | [`src/utils/i18n.ts`](../../src/utils/i18n.ts) | **`getTranslations`**, **`t`**, reexporta helpers de routing de idioma. |
+| **Traducciones** | [`src/utils/i18n.ts`](../../src/utils/i18n.ts) | **`getTranslations`**, **`t`**, re-exporta helpers de routing de idioma. |
 | **Idioma en URL** | [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts) | Lista de locales y validación sin lectura de disco. |
 | **Tema SSR / cookie** | [`src/lib/theme-cookie.ts`](../../src/lib/theme-cookie.ts) | Parsing de preferencia, HTML inicial, serialización de cookie en cliente. |
 
@@ -152,8 +153,8 @@ Salida en **`.next/`** (no es un export estático completo tipo `out/` salvo que
 
 ## Ampliar el proyecto
 
-Para añadir secciones en la home, claves de traducción o un idioma nuevo, los pasos prácticos siguen siendo los de [Estructura](./structure.md) y [Características](./features.md); el flujo de **feedback y roadmap** está en [Feedback](./feedback.md).
+Para añadir secciones en la home, claves de traducción o un idioma nuevo, los pasos prácticos siguen siendo los de [Estructura](./structure.md) y [Características](./features.md); el **feedback** y cómo contribuir se describen en [Contribución](./contribution.md#formas-de-contribuir).
 
 [Regresar al readme...](../../README.md)
 
-> Autor: Fravelz
+> Generado por IA · Última actualización: 2026-05-11

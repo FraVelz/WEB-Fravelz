@@ -17,6 +17,7 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
   - [SEO and metadata](#seo-and-metadata)
   - [Network configuration](#network-configuration)
   - [Build and deployment](#build-and-deployment)
+  - [Extending the project](#extending-the-project)
 
 ---
 
@@ -47,7 +48,7 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 **On the server (source of truth for copy and SEO)**
 
-- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): reads and merges JSON from `public/locals/{es,en,ru,zh}/` according to **`LOCALE_FILES`**, with **`server-only`** and **`fs`** at build / server time.
+- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): reads and merges JSON from `public/locals/{es,en,ru,zh}/` according to **`LOCALE_FILES`**, with **`server-only`** and **`fs`** during server compilation and runtime.
 - **`getTranslations`**: wrapped in React **`cache`** to deduplicate dictionary loading within the same request.
 - **`t(key, lang)`**: direct key lookup, falling back to the key itself.
 
@@ -152,8 +153,8 @@ Output in **`.next/`** (not a full static export like `out/` unless another mode
 
 ## Extending the project
 
-For adding home sections, translation keys, or a new language, follow the practical steps in [Structure](./structure.md) and [Features](./features.md); feedback and roadmap flow is in [Feedback](./feedback.md).
+For adding home sections, translation keys, or a new language, follow the practical steps in [Structure](./structure.md) and [Features](./features.md); feedback and how to contribute are described in [Contribution](./contribution.md#ways-to-contribute).
 
 [Return to readme...](../../README.md)
 
-> Author: Fravelz
+> AI-generated · Last updated: 2026-05-11

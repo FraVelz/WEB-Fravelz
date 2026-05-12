@@ -55,6 +55,7 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 - Vscode extension: Markdown All in One
 - Vscode extension: Markdownlint
 - Vscode extension: Code Spell checker
+- Cursor (workspace = esta carpeta): instrucciones para asistentes en [`.cursor/commands/`](.cursor/commands/) (comandos slash: `/update-docs`, `/update-json`, `/update-projects`, etc.)
 
 ---
 

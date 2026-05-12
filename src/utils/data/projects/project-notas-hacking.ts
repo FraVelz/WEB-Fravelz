@@ -6,7 +6,7 @@ import image2 from "@/assets/images-projects/notas-de-hacking/image2.webp";
 import image3 from "@/assets/images-projects/notas-de-hacking/image3.webp";
 import image4 from "@/assets/images-projects/notas-de-hacking/image4.webp";
 import image5 from "@/assets/images-projects/notas-de-hacking/image5.webp";
-import image6 from "@/assets/images-projects/notas-de-hacking/image5.webp";
+import image6 from "@/assets/images-projects/notas-de-hacking/image6.webp";
 
 export const projectNotasHacking: Project = {
   slug: "notas-hacking",
