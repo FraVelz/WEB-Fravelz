@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "style": "pnpm run format && pnpm run lint:fix",
-    "react:doctor": "react-doctor ."
+    "react:doctor": "react-doctor . --verbose --full"
   },
   "dependencies": {
     "clsx": "^2.1.1",
