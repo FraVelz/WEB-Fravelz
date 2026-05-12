@@ -21,7 +21,7 @@ This repository is a **personal project** (Next.js portfolio). Still, if you wan
 You can take part in several ways; not all of them involve coding:
 
 1. **Feedback, bugs, and ideas (no code)**  
-   Open a GitHub issue or send an email with enough detail to reproduce or understand the problem. The concrete steps are in [Feedback and roadmap](./feedback.md).
+   Open a GitHub issue or send an email with enough detail to reproduce or understand the problem.
 
 2. **Code (pull requests)**  
    Fork, use a descriptive branch, and commit with English messages following [Conventional Commits](https://www.conventionalcommits.org/), then open a PR against `main`. For large changes or anything that questions the site’s design, it helps to **open an issue first** to align expectations.

@@ -55,6 +55,7 @@ All web projects modified, created, or last modified in 2026 will have documenta
 - VS Code extension: Markdown All in One
 - VS Code extension: Markdownlint
 - VS Code extension: Code Spell Checker
+- Cursor (workspace = this folder): assistant instructions in [`.cursor/commands/`](.cursor/commands/) (slash commands: `/update-docs`, `/update-json`, `/update-projects`, etc.)
 
 ---
 

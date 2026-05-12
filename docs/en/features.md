@@ -13,7 +13,7 @@
 
 - **4 languages**: Spanish, English, Russian, Chinese (`es`, `en`, `ru`, `zh`)
 - **Prefixed routes**: `/{lang}/…`
-- **Middleware** on `/`: `lang` cookie or `Accept-Language`
+- **Redirect at `/`**: `lang` cookie or `Accept-Language` header ([`src/proxy.ts`](../../src/proxy.ts))
 - **Translations**: JSON under `public/locals/{lang}/`, merged on the server (`src/utils/i18n.ts`)
 - **Client**: `public/i18n.js` for `data-i18n` and the `language-changed` event
 - **Language selector**: navigates to the same path in another locale (full page reload)
@@ -24,7 +24,7 @@
 - **Certificates** with PDF viewer (client components)
 - **Music player** (optional / existing components)
 - **Theme** toggle
-- **Contact form**: `mailto:` body built on the client
+- **Contact form**: `mailto:` body built on the client (form **`FormData`**)
 - **About timeline** with “Read more” modal (client logic)
 
 ## Performance
@@ -39,7 +39,7 @@
 
 - **Presentation**: hero with logo and location
 - **Projects**: grid + per-`slug` detail page
-- **Technologies**: skill cards (`src/components/features/technologies/data.ts`)
+- **Technologies**: skill cards ([`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
 - **About me**: timeline + modal
 - **Hobbies**: card grid with pointer effect
 - **Contact**: email and mailto form
@@ -65,4 +65,4 @@
 
 [Return to readme...](../../README.md)
 
-> AI-generated · Last updated: 2026-05-09
+> AI-generated · Last updated: 2026-05-10

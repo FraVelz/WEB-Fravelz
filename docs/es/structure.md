@@ -1,4 +1,4 @@
-# Estructura del Proyecto
+# Estructura del proyecto
 
 ## Directorios principales
 
@@ -14,8 +14,8 @@ WEB-Fravelz/
 │
 ├── src/
 │   ├── app/                        # Next.js App Router
-│   │   ├── layout.tsx              # Layout raíz (scripts tema, i18n.js, estilos globales)
-│   │   ├── globals.css             # Importa estilos globales del proyecto
+│   │   ├── layout.tsx              # Layout raíz (scripts tema, i18n.js, globals.css)
+│   │   ├── globals.css             # Tailwind v4 + tokens y estilos globales
 │   │   ├── not-found.tsx           # Página 404
 │   │   ├── sitemap.ts              # Sitemap generado en build (/sitemap.xml)
 │   │   └── [lang]/                 # Rutas con prefijo de idioma
@@ -23,30 +23,37 @@ WEB-Fravelz/
 │   │       ├── page.tsx            # Inicio (home)
 │   │       ├── certifications/     # Certificaciones
 │   │       └── projects/           # Lista y detalle [slug]
+│   ├── features/                   # Secciones por dominio (home scroll, hero, proyectos…)
+│   │   ├── PageFeature/            # Orquestación home (p. ej. HomeMain, GSAP horizontal)
+│   │   ├── hero/
+│   │   ├── projects/
+│   │   ├── technologies/
+│   │   ├── about-me/
+│   │   ├── hobbies/
+│   │   └── contact/
 │   ├── components/
-│   │   ├── features/               # Secciones (hero, proyectos, about, etc.)
-│   │   ├── header/                 # Header, drawer, navegación
-│   │   ├── ui/                     # UI reutilizable (Footer, NavLink, Particles…)
-│   │   └── ui-react/               # Componentes cliente (búsqueda, PDF, música…)
+│   │   ├── layout/
+│   │   │   ├── header/             # Cabecera, drawer, navegación, búsqueda, tema, idioma
+│   │   │   └── Footer.tsx
+│   │   └── ui/                     # UI reutilizable (tarjetas, visor PDF, modales…)
 │   ├── lib/
-│   │   └── i18n-routing.ts         # Idiomas válidos y helpers sin fs (middleware)
-│   ├── styles/
-│   │   └── global.css              # Tailwind v4 + tokens y utilidades del diseño
+│   │   ├── i18n-routing.ts         # Idiomas válidos y helpers sin fs
+│   │   └── theme-cookie.ts          # Preferencia de tema SSR / cookie
 │   ├── utils/
 │   │   ├── i18n.ts                 # Traducciones en servidor (fs + server-only)
 │   │   ├── cn.ts                   # Utilidad classnames
 │   │   └── data/                   # Proyectos, certificados, tipos
 │   ├── assets/                     # Imágenes importadas en datos de proyectos
-│   └── middleware.ts               # Redirección de / → /{lang}/ (cookie + Accept-Language)
+│   └── proxy.ts                    # Redirección de / → /{lang}/ (cookie + Accept-Language)
 │
 ├── docs/
 │   ├── es/                         # Documentación en español
 │   └── en/                         # Documentación en inglés
 │
 ├── next.config.ts                  # Configuración de Next.js
-├── eslint.config.mjs               # ESLint (Next + Prettier)
-├── postcss.config.mjs              # PostCSS + Tailwind v4
-├── prettier.config.mjs             # Prettier + prettier-plugin-tailwindcss
+├── eslint.config.mjs             # ESLint (Next + Prettier)
+├── postcss.config.mjs            # PostCSS + Tailwind v4
+├── prettier.config.mjs           # Prettier + prettier-plugin-tailwindcss
 ├── tsconfig.json
 └── package.json
 ```
@@ -56,15 +63,15 @@ WEB-Fravelz/
 ### App Router (`src/app/`)
 
 - Rutas bajo **`/[lang]`** generadas con `generateStaticParams` (es, en, ru, zh).
-- **`middleware.ts`** en la raíz de `src/`: solo la ruta `/` redirige al idioma preferido.
+- **`src/proxy.ts`**: solo la ruta **`/`** redirige al idioma preferido (equivalente a un middleware limitado por `matcher`).
 - Metadatos SEO: `generateMetadata` en páginas donde aplica.
 
-### Componentes
+### Componentes y features
 
-- **`src/components/features/`**: secciones de la home y lógica por feature (p. ej. `PageFeature/HomeMain.tsx`, scroll horizontal GSAP).
-- **`src/components/header/`**: cabecera, drawer móvil, selector de idioma.
-- **`src/components/ui/`**: piezas presentacionales (muchas como Server Components).
-- **`src/components/ui-react/`**: piezas que requieren **`"use client"`** (estado, DOM, GSAP en cliente).
+- **`src/features/`**: secciones de página y lógica por dominio (p. ej. `PageFeature/HomeMain.tsx`, scroll horizontal GSAP).
+- **`src/components/layout/header/`**: cabecera, drawer móvil, búsqueda, selector de idioma, tema.
+- **`src/components/ui/`**: piezas reutilizables (muchas como Server Components).
+- Piezas que requieren **`"use client"`** viven donde haga falta (header, UI, bloques dentro de `features/`).
 
 ### Datos
 
@@ -80,7 +87,7 @@ WEB-Fravelz/
 
 | Ruta | Descripción |
 |------|-------------|
-| `/` | Redirección (middleware) a `/{lang}/` |
+| `/` | Redirección (`proxy.ts`) a `/{lang}/` |
 | `/{lang}/` | Home |
 | `/{lang}/projects` | Listado de proyectos |
 | `/{lang}/projects/[slug]` | Detalle de proyecto |
@@ -95,4 +102,4 @@ WEB-Fravelz/
 
 [Regresar al readme...](../../README.md)
 
-> Generado por IA · Última actualización: 2026-05-09
+> Generado por IA · Última actualización: 2026-05-10

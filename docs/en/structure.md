@@ -1,4 +1,4 @@
-# Project Structure
+# Project structure
 
 ## Main directories
 
@@ -14,8 +14,8 @@ WEB-Fravelz/
 │
 ├── src/
 │   ├── app/                        # Next.js App Router
-│   │   ├── layout.tsx              # Root layout (theme scripts, i18n.js, global CSS)
-│   │   ├── globals.css             # Imports project global styles
+│   │   ├── layout.tsx              # Root layout (theme scripts, i18n.js, globals.css)
+│   │   ├── globals.css             # Tailwind v4 + tokens and global styles
 │   │   ├── not-found.tsx           # 404 page
 │   │   ├── sitemap.ts              # Generated sitemap (/sitemap.xml)
 │   │   └── [lang]/                 # Locale-prefixed routes
@@ -23,30 +23,37 @@ WEB-Fravelz/
 │   │       ├── page.tsx            # Home
 │   │       ├── certifications/
 │   │       └── projects/           # List + [slug] detail
+│   ├── features/                   # Page sections by domain (home scroll, hero, projects…)
+│   │   ├── PageFeature/            # Home wiring (e.g. HomeMain, GSAP horizontal)
+│   │   ├── hero/
+│   │   ├── projects/
+│   │   ├── technologies/
+│   │   ├── about-me/
+│   │   ├── hobbies/
+│   │   └── contact/
 │   ├── components/
-│   │   ├── features/               # Page sections (hero, projects, about, …)
-│   │   ├── header/                 # Header, mobile drawer, nav
-│   │   ├── ui/                     # Reusable UI (Footer, NavLink, Particles, …)
-│   │   └── ui-react/               # Client components (search, PDF, music, …)
+│   │   ├── layout/
+│   │   │   ├── header/             # Header, drawer, nav, search, theme, locale
+│   │   │   └── Footer.tsx
+│   │   └── ui/                     # Reusable UI (cards, PDF viewer, modals…)
 │   ├── lib/
-│   │   └── i18n-routing.ts         # Supported locales + helpers (no fs; used in middleware)
-│   ├── styles/
-│   │   └── global.css              # Tailwind v4 + design tokens and utilities
+│   │   ├── i18n-routing.ts         # Supported locales + helpers (no fs)
+│   │   └── theme-cookie.ts          # SSR theme preference / cookie
 │   ├── utils/
 │   │   ├── i18n.ts                 # Server translations (fs + server-only)
 │   │   ├── cn.ts                   # Class name helper
 │   │   └── data/                   # Projects, certificates, types
 │   ├── assets/                     # Images imported from project data
-│   └── middleware.ts               # Redirect / → /{lang}/ (cookie + Accept-Language)
+│   └── proxy.ts                    # Redirect / → /{lang}/ (cookie + Accept-Language)
 │
 ├── docs/
 │   ├── es/                         # Spanish docs
 │   └── en/                         # English docs
 │
 ├── next.config.ts                  # Next.js configuration
-├── eslint.config.mjs               # ESLint (Next + Prettier)
-├── postcss.config.mjs              # PostCSS + Tailwind v4
-├── prettier.config.mjs             # Prettier + prettier-plugin-tailwindcss
+├── eslint.config.mjs             # ESLint (Next + Prettier)
+├── postcss.config.mjs            # PostCSS + Tailwind v4
+├── prettier.config.mjs           # Prettier + prettier-plugin-tailwindcss
 ├── tsconfig.json
 └── package.json
 ```
@@ -56,15 +63,15 @@ WEB-Fravelz/
 ### App Router (`src/app/`)
 
 - Routes under **`/[lang]`** use `generateStaticParams` for es, en, ru, zh.
-- **`middleware.ts`** at the root of **`src/`**: only `/` redirects to the preferred locale.
+- **`src/proxy.ts`**: only **`/`** redirects to the preferred locale (same idea as middleware with a narrow `matcher`).
 - SEO: `generateMetadata` on relevant pages.
 
-### Components
+### Components and features
 
-- **`src/components/features/`**: home sections and feature-specific logic (e.g. `PageFeature/HomeMain.tsx`, GSAP horizontal scroll).
-- **`src/components/header/`**: header, mobile drawer, language select.
-- **`src/components/ui/`**: mostly Server Components.
-- **`src/components/ui-react/`**: interactive pieces with **`"use client"`**.
+- **`src/features/`**: page sections and domain logic (e.g. `PageFeature/HomeMain.tsx`, GSAP horizontal scroll).
+- **`src/components/layout/header/`**: header, mobile drawer, search, locale and theme controls.
+- **`src/components/ui/`**: reusable pieces (many as Server Components).
+- **`"use client"`** is added where needed (header, UI, blocks under `features/`).
 
 ### Data
 
@@ -80,7 +87,7 @@ WEB-Fravelz/
 
 | Path | Description |
 |------|-------------|
-| `/` | Middleware redirect to `/{lang}/` |
+| `/` | Redirect (`proxy.ts`) to `/{lang}/` |
 | `/{lang}/` | Home |
 | `/{lang}/projects` | Project list |
 | `/{lang}/projects/[slug]` | Project detail |
@@ -95,4 +102,4 @@ WEB-Fravelz/
 
 [Return to readme...](../../README.md)
 
-> AI-generated · Last updated: 2026-05-09
+> AI-generated · Last updated: 2026-05-10
