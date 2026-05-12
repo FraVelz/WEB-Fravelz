@@ -15,10 +15,11 @@ const fieldClassName = cn(
 export default function ContactForm({ email, t }: { email: string; t: Record<string, string> }) {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const name = (document.getElementById("contact-name") as HTMLInputElement)?.value.trim();
-    const from = (document.getElementById("contact-email") as HTMLInputElement)?.value.trim();
-    const subject = (document.getElementById("contact-subject") as HTMLInputElement)?.value.trim();
-    const message = (document.getElementById("contact-message") as HTMLTextAreaElement)?.value.trim();
+    const fd = new FormData(e.currentTarget);
+    const name = String(fd.get("name") ?? "").trim();
+    const from = String(fd.get("email") ?? "").trim();
+    const subject = String(fd.get("subject") ?? "").trim();
+    const message = String(fd.get("message") ?? "").trim();
     const body = `${message}\n\n---\nEnviado por: ${name} (${from})`;
     const mailto = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;

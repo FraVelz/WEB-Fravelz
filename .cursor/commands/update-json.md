@@ -15,7 +15,7 @@ El **mismo nombre de archivo** debe existir en las cuatro carpetas para un mismo
 
 ## Qué debe adjuntar el usuario
 
-1. Este archivo (`docs/ia/update-json.md`) **o** indicación explícita de que aplica esta instrucción.
+1. El comando **/update-json** (o el archivo `.cursor/commands/update-json.md`) **o** indicación explícita de que aplica esta instrucción.
 2. El JSON que ha modificado (normalmente bajo `public/locals/es/`).
 
 ## Qué debe hacer el asistente

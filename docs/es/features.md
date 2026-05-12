@@ -5,26 +5,26 @@
 - **Dark mode** con tema automático / claro / oscuro (script en layout + `localStorage`)
 - **Gradientes cyan/púrpura** en títulos y CTAs
 - **Responsive**: móvil, tablet y escritorio
-- **Animaciones**: GSAP (scroll horizontal en paneles, header, 404) y transiciones CSS
+- **Animaciones**: GSAP (scroll horizontal en paneles, cabecera, 404) y transiciones CSS
 - **Backdrop blur** en cabecera y overlays
-- **Scroll horizontal** (desktop) en el bloque de proyectos / tecnologías / sobre mí / hobbies
+- **Scroll horizontal** (desktop) en el bloque de proyectos / tecnologías / sobre mí / pasatiempos
 
 ## Internacionalización (i18n)
 
 - **4 idiomas**: español, inglés, ruso, chino (`es`, `en`, `ru`, `zh`)
 - **Rutas** con prefijo: `/{lang}/…`
-- **Middleware** en `/`: cookie `lang` o cabecera `Accept-Language`
+- **Redirección en `/`**: cookie `lang` o cabecera `Accept-Language` ([`src/proxy.ts`](../../src/proxy.ts))
 - **Traducciones**: JSON en `public/locals/{lang}/` fusionados en servidor (`src/utils/i18n.ts`)
 - **Cliente**: `public/i18n.js` para `data-i18n` y evento `language-changed`
 - **Selector de idioma**: navega a la misma ruta en otro locale (recarga de página)
 
 ## Funcionalidades interactivas
 
-- **Búsqueda** en el header (portfolio y traducciones vía fetch a `public/locals/`)
+- **Búsqueda** en el header (portfolio y traducciones vía `public/locals/`)
 - **Certificados** con visor PDF (componentes cliente)
 - **Reproductor de música** (opcional / componentes existentes)
 - **Tema**: toggle accesible
-- **Formulario de contacto**: `mailto:` con cuerpo generado en cliente
+- **Formulario de contacto**: `mailto:` con cuerpo construido en cliente (`FormData` del formulario)
 - **Timeline “Sobre mí”** con modal “Leer más” (lógica en cliente)
 
 ## Rendimiento
@@ -39,7 +39,7 @@
 
 - **Presentación**: hero con logo y ubicación
 - **Proyectos**: grid y página de detalle por `slug`
-- **Tecnologías**: tarjetas con niveles (datos en `src/components/features/technologies/data.ts`)
+- **Tecnologías**: tarjetas con niveles (datos en [`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
 - **Sobre mí**: línea de tiempo + modal
 - **Pasatiempos**: grid de tarjetas con efecto de cursor
 - **Contacto**: email y formulario mailto
@@ -65,4 +65,4 @@
 
 [Regresar al readme...](../../README.md)
 
-> Generado por IA · Última actualización: 2026-05-09
+> Generado por IA · Última actualización: 2026-05-10

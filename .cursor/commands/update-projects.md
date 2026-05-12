@@ -6,7 +6,7 @@ Cuando el usuario **crea o edita** un archivo de proyecto (`project-*.ts`) y ha 
 
 ## Qué debe adjuntar el usuario
 
-1. Este archivo (`docs/ia/update-projects.md`) **o** un mensaje que indique explícitamente que aplica esta instrucción.
+1. El comando **/update-projects** (o el archivo `.cursor/commands/update-projects.md`) **o** un mensaje que indique explícitamente que aplica esta instrucción.
 2. El archivo TypeScript del proyecto correspondiente, por ejemplo `src/utils/data/projects/project-ejemplo.ts`.
 
 ## Qué debe hacer el asistente

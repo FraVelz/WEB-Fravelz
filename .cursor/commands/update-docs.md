@@ -30,7 +30,7 @@ Cuando el usuario quiere **actualizar documentación** en este repo y adjunta un
 
 ## Qué debe adjuntar el usuario
 
-1. Este archivo (`docs/ia/update-docs.md`) **o** indicación de que aplica esta instrucción.
+1. El comando **/update-docs** (o el archivo `.cursor/commands/update-docs.md`) **o** indicación de que aplica esta instrucción.
 2. El o los `.md` a tratar (ruta en el repo o contenido pegado).
 
 ## Resultado esperado
