@@ -27,10 +27,10 @@ export default function CertificatesWithViewer({
     <div className="flex flex-col gap-10">
       {webCerts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
             <span
               className={cn(
-                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-700",
+                "inline-flex size-7 items-center justify-center rounded-full bg-cyan-100 text-cyan-700",
                 "dark:bg-cyan-900/50 dark:text-cyan-200",
               )}
             >
@@ -40,7 +40,7 @@ export default function CertificatesWithViewer({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="h-4 w-4"
+                className="size-4"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25H12" />
               </svg>
@@ -55,7 +55,7 @@ export default function CertificatesWithViewer({
                 key={cert.id}
                 cert={cert}
                 borderClass={cn(
-                  "border-cyan-200/70 bg-white/90 dark:border-cyan-700/60 dark:bg-slate-900/80",
+                  "border-cyan-200/70 bg-white/90 dark:border-cyan-700/60 dark:bg-zinc-900/80",
                   "hover:border-cyan-400/80",
                 )}
               />
@@ -66,10 +66,10 @@ export default function CertificatesWithViewer({
 
       {hixecCerts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
             <span
               className={cn(
-                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-100 text-amber-700",
+                "inline-flex size-7 items-center justify-center rounded-full bg-amber-100 text-amber-700",
                 "dark:bg-amber-900/50 dark:text-amber-200",
               )}
             >
@@ -79,7 +79,7 @@ export default function CertificatesWithViewer({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="h-4 w-4"
+                className="size-4"
               >
                 <path
                   strokeLinecap="round"
@@ -102,7 +102,7 @@ export default function CertificatesWithViewer({
                 key={cert.id}
                 cert={cert}
                 borderClass={cn(
-                  "border-amber-200/70 bg-white/90 dark:border-amber-700/60 dark:bg-slate-900/80",
+                  "border-amber-200/70 bg-white/90 dark:border-amber-700/60 dark:bg-zinc-900/80",
                   "hover:border-amber-400/80",
                 )}
               />
@@ -113,10 +113,10 @@ export default function CertificatesWithViewer({
 
       {hack4uCerts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
             <span
               className={cn(
-                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-800",
+                "inline-flex size-7 items-center justify-center rounded-full bg-emerald-100 text-emerald-800",
                 "dark:bg-emerald-900/50 dark:text-emerald-200",
               )}
             >
@@ -126,7 +126,7 @@ export default function CertificatesWithViewer({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="h-4 w-4"
+                className="size-4"
               >
                 <path
                   strokeLinecap="round"
@@ -145,7 +145,7 @@ export default function CertificatesWithViewer({
                 key={cert.id}
                 cert={cert}
                 borderClass={cn(
-                  "border-emerald-200/80 bg-white/90 dark:border-emerald-800/60 dark:bg-slate-900/80",
+                  "border-emerald-200/80 bg-white/90 dark:border-emerald-800/60 dark:bg-zinc-900/80",
                   "hover:border-emerald-400/80",
                 )}
               />
@@ -156,11 +156,11 @@ export default function CertificatesWithViewer({
 
       {otherCerts.length > 0 && (
         <section className="space-y-4">
-          <h2 className="flex items-center gap-2 text-xl font-semibold text-slate-900 dark:text-slate-50">
+          <h2 className="flex items-center gap-2 text-xl font-semibold text-zinc-900 dark:text-zinc-50">
             <span
               className={cn(
-                "inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-700",
-                "dark:bg-slate-800 dark:text-slate-200",
+                "inline-flex size-7 items-center justify-center rounded-full bg-zinc-100 text-zinc-700",
+                "dark:bg-zinc-800 dark:text-zinc-200",
               )}
             >
               <svg
@@ -169,7 +169,7 @@ export default function CertificatesWithViewer({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="h-4 w-4"
+                className="size-4"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
@@ -184,7 +184,7 @@ export default function CertificatesWithViewer({
                 key={cert.id}
                 cert={cert}
                 borderClass={cn(
-                  "border-slate-200/80 bg-white/90 dark:border-slate-700 dark:bg-slate-900/80",
+                  "border-zinc-200/80 bg-white/90 dark:border-zinc-700 dark:bg-zinc-900/80",
                   "hover:border-cyan-400/80",
                 )}
               />

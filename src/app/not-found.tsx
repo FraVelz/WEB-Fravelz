@@ -26,8 +26,8 @@ export default function NotFound() {
   return (
     <main
       className={cn(
-        "flex min-h-screen items-center justify-center bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50",
-        "dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
+        "flex min-h-screen items-center justify-center bg-linear-to-b from-zinc-100 via-blue-50 to-cyan-50",
+        "dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950",
       )}
     >
       <div className="absolute inset-0 my-8 flex items-center justify-center">
@@ -70,7 +70,7 @@ export default function NotFound() {
         <div className="space-y-4">
           <h2
             id="element-404-2"
-            className="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-gray-100"
+            className="text-3xl font-bold text-zinc-800 sm:text-4xl dark:text-zinc-100"
             style={{ transform: "translate(200px)", opacity: 0 }}
             data-i18n="error_404_title"
           >
@@ -78,7 +78,7 @@ export default function NotFound() {
           </h2>
           <p
             id="element-404-3"
-            className="mx-auto max-w-md text-base text-gray-600 sm:text-lg dark:text-gray-400"
+            className="mx-auto max-w-md text-base text-zinc-600 sm:text-lg dark:text-zinc-400"
             style={{ transform: "translate(-200px)", opacity: 0 }}
             data-i18n="error_404_description"
           >

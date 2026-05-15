@@ -38,9 +38,9 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
                   }
                 >
                   <div className="mb-4 flex items-center gap-4">
-                    <div className="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
+                    <div className="tech-icon flex size-12 items-center justify-center rounded-xl">
                       <div
-                        className="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
+                        className="size-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
                         dangerouslySetInnerHTML={{ __html: tech.svg }}
                       />
                     </div>

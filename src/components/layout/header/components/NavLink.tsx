@@ -24,7 +24,7 @@ export default function NavLink({
       target={target}
       draggable={false}
       className={cn(
-        "link-animation font-medium text-slate-700 transition-colors select-none dark:text-slate-400",
+        "link-animation font-medium text-zinc-700 transition-colors select-none dark:text-zinc-400",
         className,
       )}
       data-smooth-scroll={isAnchor ? "true" : undefined}

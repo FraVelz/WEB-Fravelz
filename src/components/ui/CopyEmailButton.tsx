@@ -79,14 +79,14 @@ export default function CopyEmailButton({ email, successText, variant = "outline
             "min-h-[2.625rem] items-center justify-center rounded-lg px-3.5 py-2.5 font-medium sm:px-4",
             "focus-visible:z-[1] focus-visible:outline-none",
             "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-zinc-950",
           ),
         variant === "outlined" &&
           cn(
             "rounded-full border p-1 px-2 pr-3",
             "focus-visible:z-[1] focus-visible:outline-none",
             "focus-visible:ring-2 focus-visible:ring-purple-500/95 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-purple-50 dark:focus-visible:ring-purple-400/90 dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:ring-offset-purple-50 dark:focus-visible:ring-purple-400/90 dark:focus-visible:ring-offset-zinc-950",
           ),
         copied &&
           (variant === "solid"
@@ -96,7 +96,7 @@ export default function CopyEmailButton({ email, successText, variant = "outline
               )
             : cn(
                 "scale-105 border-2 border-green-500/70 bg-green-100 text-green-700 shadow-lg shadow-green-500/30",
-                "dark:border-green-500/40 dark:bg-gray-900 dark:text-green-400 dark:shadow-none",
+                "dark:border-green-500/40 dark:bg-zinc-900 dark:text-green-400 dark:shadow-none",
               )),
         !copied &&
           (variant === "solid"
@@ -110,7 +110,7 @@ export default function CopyEmailButton({ email, successText, variant = "outline
             : cn(
                 "border-2 border-purple-400/70 bg-purple-50 font-medium text-purple-700 shadow-md shadow-purple-500/20",
                 "hover:border-purple-600 hover:text-purple-800 hover:shadow-lg hover:shadow-purple-500/30",
-                "dark:border-purple-500/40 dark:bg-gray-900 dark:text-purple-300 dark:shadow-none",
+                "dark:border-purple-500/40 dark:bg-zinc-900 dark:text-purple-300 dark:shadow-none",
                 "dark:hover:border-purple-400/60 dark:hover:text-purple-200 dark:hover:shadow-purple-500/10",
               )),
       )}
