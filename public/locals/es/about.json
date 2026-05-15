@@ -2,14 +2,14 @@
   "about_read_more": "Leer más",
   "about_read_less": "Leer menos",
 
-  "about_intro_text": "¡Hola! Soy Fravelz. Desde que era niño me han gustado e interesado el mundo de la informática y el desarrollo de software, especialmente el desarrollo web.",
+  "about_intro_text": "¡Hola! Soy Fravelz. Desde niño me interesan la informática y el desarrollo de software, en especial el desarrollo web.",
   "about_current_text": "Soy desarrollador frontend especializado en maquetación web, creando interfaces fluidas, animadas, funcionales y minimalistas. Trabajo con el buen uso de la semántica y el SEO, integro datos y servicios del backend en el frontend, y también me enfoco en la correcta estructuración y mantenimiento del código frontend.",
 
   "about_history_text": "A los 9 años recibí mi primera computadora. Al principio la usaba para ver series en YouTube, pero todo cambió cuando descubrí La Geekipedia de Ernesto. Comencé con cursos de Raptor, Java y Python, y pronto desarrollé mis primeras interfaces gráficas en Java.",
 
   "about_modal_paragraph1": "Con el tiempo empecé a explorar otros canales y áreas de la informática: ciencia de datos (Pandas, NumPy), inteligencia artificial (TensorFlow, Keras) y fundamentos de ciberseguridad (Bash, Python y Linux). También aprendí y practiqué lenguajes como Python, Java, Go, Ruby, Batch, HTML y CSS, entre otros.",
   "about_modal_paragraph2": "Creé mi primera cuenta de GitHub, aunque tres años después perdí el acceso a ella.",
-  "about_modal_paragraph3": "Posteriormente profundicé en Git y GitHub, desarrollando scripts en Python con diversas bibliotecas. También trabajé en desarrollo de escritorio (PyQt5, PySide, Tkinter y Qt) y desarrollo web (HTML, CSS y JavaScript). Varios de estos proyectos los publiqué en GitHub, (2024 creo mi segunda cuenta de github mi cuenta principal actualmente).",
+  "about_modal_paragraph3": "Posteriormente profundicé en Git y GitHub, desarrollando scripts en Python con diversas bibliotecas. También trabajé en desarrollo de escritorio (PyQt5, PySide, Tkinter y Qt) y en desarrollo web (HTML, CSS y JavaScript). Varios de estos proyectos los publiqué en GitHub (en 2024 creé mi segunda cuenta, que es la principal que uso actualmente).",
   "about_modal_paragraph4": "En septiembre de ese año dejé el colegio mientras cursaba décimo grado. Durante los siguientes meses me enfoqué de manera autodidacta en desarrollo web, especializándome en frontend.",
   "about_modal_paragraph5": "Actualmente continúo aprendiendo desarrollo web y creando proyectos. Mi objetivo es ser uno de los mejores desarrolladores frontend para 2031 y llegar a trabajar en Google. Además, planeo completar el bachillerato mediante la validación del ICFES 11, estudiando de forma independiente."
 }
