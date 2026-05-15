@@ -5,16 +5,16 @@
      SUPERFICIES
   ========================== */
 
-  --color-bg: 248 250 252; /* zinc-50 */
+  --color-bg: 248 250 252; /* slate-50 */
   --color-surface: 255 255 255; /* white */
-  --color-card: 241 245 249; /* zinc-100 */
+  --color-card: 241 245 249; /* slate-100 */
 
   /* =========================
      TEXTO
   ========================== */
 
-  --color-text: 15 23 42; /* zinc-900 */
-  --color-text-muted: 100 116 139; /* zinc-500 */
+  --color-text: 15 23 42; /* slate-900 */
+  --color-text-muted: 100 116 139; /* slate-500 */
   --color-text-inverse: 255 255 255;
 
   /* =========================
@@ -51,7 +51,7 @@
   --color-link-underline: 34 211 238; /* #22d3ee */
   --color-link-underline-dark: 34 211 238; /* cyan-400, visible sobre fondo oscuro */
   --color-link-hover: 34 211 238; /* #22d3ee — cyan-400 */
-  --color-link-hover-dark: 103 232 249; /* cyan-300, hover legible sobre zinc-950 */
+  --color-link-hover-dark: 103 232 249; /* cyan-300, hover legible sobre slate-950 */
 
   /* Botón custom (valores existentes en el proyecto) */
   --color-btn-base: 0 0 0; /* #000 */
@@ -67,7 +67,7 @@
   --color-theme-toggle-shadow: 6 182 212; /* tinte sombra modo claro */
 
   /* Drawer / panel lateral — bordes sutiles (rgb(var(--color-drawer-border))) */
-  --color-drawer-border: 226 232 240; /* zinc-200 */
+  --color-drawer-border: 226 232 240; /* slate-200 */
 
   /* Base constants */
   --color-black: 0 0 0;
@@ -75,9 +75,9 @@
 }
 
 .dark {
-  --color-bg: 3 7 18; /* zinc-950 */
-  --color-surface: 17 24 39; /* zinc-900 */
-  --color-card: 31 41 55; /* zinc-800 */
+  --color-bg: 3 7 18; /* slate-950 */
+  --color-surface: 17 24 39; /* gray-900 */
+  --color-card: 31 41 55; /* gray-800 */
 
   --color-text: 243 244 246;
   --color-text-muted: 156 163 175;
@@ -89,12 +89,12 @@
   --color-accent: 192 132 252;
   --color-accent-hover: 168 85 247;
 
-  --color-theme-toggle-track: 55 65 81; /* zinc-700 */
-  --color-theme-toggle-thumb: 17 24 39; /* zinc-900, coherente con --color-surface */
+  --color-theme-toggle-track: 55 65 81; /* gray-700 */
+  --color-theme-toggle-thumb: 17 24 39; /* gray-900, coherente con --color-surface */
   --color-theme-toggle-moon: 34 211 238; /* cyan-400, alineado con --color-primary en dark */
   --color-theme-toggle-hover: 34 211 238; /* borde hover sobre carril oscuro */
 
-  --color-drawer-border: 55 65 81; /* zinc-700 */
+  --color-drawer-border: 55 65 81; /* gray-700 */
 }
 
 /* Class-based dark mode (html.dark or .dark) */

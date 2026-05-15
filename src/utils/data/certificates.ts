@@ -1,4 +1,4 @@
-type CertificateCategory = "web" | "backend" | "security" | "other";
+export type CertificateCategory = "web" | "backend" | "security" | "other";
 
 export interface Certificate {
   id: string;
