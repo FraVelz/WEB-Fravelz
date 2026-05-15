@@ -42,17 +42,17 @@ export default function HeroCvCopyActions({
           className={cn(
             "group inline-flex min-h-[2.625rem] cursor-pointer items-center justify-center gap-2",
             "rounded-lg px-3.5 text-sm font-semibold sm:px-4",
-            "border-2 border-slate-200/90 bg-white/95 text-slate-800 shadow-sm ring-1 backdrop-blur-sm",
-            "ring-slate-900/[0.05] transition-all",
+            "border-2 border-zinc-200/90 bg-white/95 text-zinc-800 shadow-sm ring-1 backdrop-blur-sm",
+            "ring-zinc-900/[0.05] transition-all",
             "hover:border-cyan-400/70 hover:bg-white hover:text-cyan-900 hover:shadow-md hover:ring-cyan-500/20",
             "active:scale-[0.99]",
-            "dark:border-slate-500/80 dark:bg-slate-800/90 dark:text-slate-100 dark:shadow-lg",
+            "dark:border-zinc-500/80 dark:bg-zinc-800/90 dark:text-zinc-100 dark:shadow-lg",
             "dark:shadow-black/20 dark:ring-white/[0.08]",
-            "dark:hover:border-cyan-400/55 dark:hover:bg-slate-800 dark:hover:text-cyan-100",
+            "dark:hover:border-cyan-400/55 dark:hover:bg-zinc-800 dark:hover:text-cyan-100",
             "dark:hover:shadow-cyan-950/20",
             "focus-visible:z-[1] focus-visible:outline-none",
             "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-zinc-950",
           )}
           data-i18n="hero_cv_button"
         >

@@ -22,7 +22,7 @@ export function Photo() {
       <div
         className={cn(
           "absolute inset-1 z-10 overflow-hidden rounded-full border-2 border-cyan-200/50 bg-cyan-50 shadow-inner",
-          "sm:inset-2 dark:border-transparent dark:bg-gray-900",
+          "sm:inset-2 dark:border-transparent dark:bg-zinc-900",
         )}
       >
         <Image

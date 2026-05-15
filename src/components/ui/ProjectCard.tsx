@@ -15,9 +15,9 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
   return (
     <article
       className={cn(
-        "group relative h-full overflow-hidden rounded-xl border-2 border-gray-200 bg-white shadow-md",
+        "group relative h-full overflow-hidden rounded-xl border-2 border-zinc-200 bg-white shadow-md",
         "transition-all duration-300 hover:border-cyan-500 hover:shadow-xl",
-        "dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400",
+        "dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-cyan-400",
       )}
       data-project-card-content
       data-title-es={project.title.es}
@@ -29,7 +29,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
       data-desc-ru={project.shortDescription.ru}
       data-desc-zh={project.shortDescription.zh}
     >
-      <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
+      <div className="relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-900">
         <Image
           draggable={false}
           src={project.featuredImage}
@@ -74,14 +74,14 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
       <div className="p-6">
         <h3
           className={cn(
-            "mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-cyan-600",
-            "dark:text-gray-100 dark:group-hover:text-cyan-400",
+            "mb-2 text-xl font-bold text-zinc-900 transition-colors group-hover:text-cyan-600",
+            "dark:text-zinc-100 dark:group-hover:text-cyan-400",
           )}
           data-project-title
         >
           {title}
         </h3>
-        <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-300" data-project-description>
+        <p className="mb-4 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-300" data-project-description>
           {description}
         </p>
         <div className="mb-4 flex flex-wrap gap-2">
@@ -99,8 +99,8 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           {project.technologies.length > 4 && (
             <span
               className={cn(
-                "rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600",
-                "dark:bg-gray-700 dark:text-gray-400",
+                "rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-600",
+                "dark:bg-zinc-700 dark:text-zinc-400",
               )}
             >
               +{project.technologies.length - 4}
@@ -116,7 +116,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           data-i18n="projects_view_project"
         >
           {t.projects_view_project || "Ver Proyecto"}
-          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
           </svg>
         </Link>

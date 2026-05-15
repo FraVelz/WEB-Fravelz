@@ -59,8 +59,8 @@ export default async function CertificationsPage({ params }: { params: Promise<{
 
       <div
         className={cn(
-          "min-h-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
-          "dark:bg-linear-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
+          "min-h-screen bg-linear-to-b from-zinc-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
+          "dark:bg-linear-to-b dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950",
         )}
       >
         <div className="mx-auto max-w-5xl space-y-10">
@@ -71,7 +71,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
                 "text-xs font-medium text-cyan-800 dark:border-cyan-700/70 dark:bg-cyan-900/40 dark:text-cyan-200",
               )}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
                 <path d={certFormationStackPath} />
                 <path d="M3.26 10.226 11 13.722v7.028a.75.75 0 0 1-1.053.69l-6.75-3a.75.75 0 0 1-.447-.69v-7.524Z" />
                 <path d="M12.5 20.75v-7.028l7.74-3.496v7.524a.75.75 0 0 1-.447.69l-6.75 3a.75.75 0 0 1-1.043-.69Z" />
@@ -79,11 +79,11 @@ export default async function CertificationsPage({ params }: { params: Promise<{
               <span data-i18n="cert_formacion_badge">{t.cert_formacion_badge || "Formación y certificados"}</span>
             </div>
 
-            <h1 className="text-center text-3xl font-bold text-slate-900 md:text-4xl dark:text-slate-50">
+            <h1 className="text-center text-3xl font-bold text-zinc-900 md:text-4xl dark:text-zinc-50">
               {t.cert_section_title || "Certificaciones en Progreso"}
             </h1>
-            <p className="mx-auto max-w-3xl text-sm text-slate-700 dark:text-slate-300">{t.cert_intro_paragraph1}</p>
-            <p className="mx-auto max-w-3xl text-sm text-slate-700 dark:text-slate-300">{t.cert_intro_paragraph2}</p>
+            <p className="mx-auto max-w-3xl text-sm text-zinc-700 dark:text-zinc-300">{t.cert_intro_paragraph1}</p>
+            <p className="mx-auto max-w-3xl text-sm text-zinc-700 dark:text-zinc-300">{t.cert_intro_paragraph2}</p>
           </section>
 
           <section className="space-y-4">
@@ -99,7 +99,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
             </div>
 
             {webCerts.length === 0 && hixecCerts.length === 0 && hack4uCerts.length === 0 && otherCerts.length === 0 ? (
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 <span data-i18n="cert_web_empty">{t.cert_web_empty || "Aún no he subido certificados web aquí."}</span>
               </p>
             ) : (

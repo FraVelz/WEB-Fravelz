@@ -24,5 +24,7 @@ export function getProjectsByCategory(category: Project["category"]): Project[] 
 /** Get all unique technologies (sorted) */
 export function getAllTechnologies(): string[] {
   const allTechs = projects.flatMap((p) => p.technologies);
-  return [...new Set(allTechs)].sort();
+  return Array.from(new Set(allTechs)).toSorted((a, b) =>
+    a.localeCompare(b),
+  );
 }
