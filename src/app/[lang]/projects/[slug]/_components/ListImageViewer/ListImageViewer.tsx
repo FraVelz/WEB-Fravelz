@@ -66,9 +66,9 @@ export function ListImagesViewer({
 
   const navBtnClass = cn(
     "cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full",
-    "border border-gray-200/90 bg-white/95 text-gray-800 shadow-lg backdrop-blur-sm",
+    "border border-zinc-200/90 bg-white/95 text-zinc-800 shadow-lg backdrop-blur-sm",
     "transition-colors hover:border-cyan-500/60 hover:text-cyan-700",
-    "dark:border-gray-600 dark:bg-gray-900/95 dark:text-gray-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300",
+    "dark:border-zinc-600 dark:bg-zinc-900/95 dark:text-zinc-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300",
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500",
     "disabled:pointer-events-none disabled:opacity-40",
   );
@@ -78,18 +78,18 @@ export function ListImagesViewer({
   return (
     <section className="mb-12" aria-label={carouselRegionAriaLabel}>
       {showHeading ? (
-        <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">{galleryHeading}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-zinc-100">{galleryHeading}</h2>
       ) : null}
 
       <div
-        className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-gray-200/80 dark:ring-gray-700/80"
+        className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-zinc-200/80 dark:ring-zinc-700/80"
         onTouchStart={(ev) => {
           if (!ev.touches[0]) return;
           touchStartRef.current = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
         }}
         onTouchEnd={onCarouselTouchEnd}
       >
-        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-gray-100 sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none dark:bg-gray-950">
+        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-zinc-100 sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none dark:bg-zinc-950">
           <div
             className={cn(
               "flex h-full transition-transform duration-300 ease-out will-change-transform",
@@ -119,7 +119,7 @@ export function ListImagesViewer({
               onClick={() => go(-1)}
               aria-label={carouselPrevLabel}
             >
-              <ChevronLeftIcon className="h-6 w-6" />
+              <ChevronLeftIcon className="size-6" />
             </button>
             <button
               type="button"
@@ -127,7 +127,7 @@ export function ListImagesViewer({
               onClick={() => go(1)}
               aria-label={carouselNextLabel}
             >
-              <ChevronRightIcon className="h-6 w-6" />
+              <ChevronRightIcon className="size-6" />
             </button>
           </>
         ) : null}
@@ -136,13 +136,13 @@ export function ListImagesViewer({
       {count > 1 ? (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:hidden">
           <button type="button" className={navBtnClass} onClick={() => go(-1)} aria-label={carouselPrevLabel}>
-            <ChevronLeftIcon className="h-6 w-6" />
+            <ChevronLeftIcon className="size-6" />
           </button>
-          <p className="min-w-18 text-center text-sm text-gray-600 tabular-nums dark:text-gray-400">
+          <p className="min-w-18 text-center text-sm text-zinc-600 tabular-nums dark:text-zinc-400">
             {displayIndex + 1} / {count}
           </p>
           <button type="button" className={navBtnClass} onClick={() => go(1)} aria-label={carouselNextLabel}>
-            <ChevronRightIcon className="h-6 w-6" />
+            <ChevronRightIcon className="size-6" />
           </button>
         </div>
       ) : null}
@@ -157,7 +157,7 @@ export function ListImagesViewer({
               aria-pressed={i === displayIndex}
               className={cn(
                 "h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500",
-                i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-gray-300 dark:bg-gray-600",
+                i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-zinc-300 dark:bg-zinc-600",
               )}
               onClick={() => setIndex(i)}
             />

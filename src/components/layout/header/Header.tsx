@@ -17,7 +17,7 @@ export function Header({ t }: { t: Record<string, string> }) {
       id="header-main"
       className={cn(
         "fixed top-0 z-30 w-full border-b-2 bg-white/95 shadow-md shadow-cyan-500/10 backdrop-blur-xl",
-        "dark:border-gray-700/50 dark:bg-gray-900/50 dark:shadow-none",
+        "dark:border-zinc-700/50 dark:bg-zinc-900/50 dark:shadow-none",
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:justify-normal lg:gap-20">
@@ -25,8 +25,8 @@ export function Header({ t }: { t: Record<string, string> }) {
           type="button"
           id="logo"
           className={cn(
-            "text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600",
-            "dark:text-gray-100 dark:hover:text-cyan-300",
+            "text-3xl font-bold text-zinc-900 transition-colors hover:text-cyan-600",
+            "dark:text-zinc-100 dark:hover:text-cyan-300",
           )}
           onClick={() => window.location.reload()}
         >
@@ -42,8 +42,8 @@ export function Header({ t }: { t: Record<string, string> }) {
           data-drawer-open
           id="header-mobile-button"
           className={cn(
-            "text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
-            "dark:text-gray-300 dark:hover:text-cyan-300",
+            "text-2xl text-zinc-800 transition-colors hover:text-cyan-600 lg:hidden",
+            "dark:text-zinc-300 dark:hover:text-cyan-300",
           )}
           aria-label="Abrir menú"
           aria-expanded="false"

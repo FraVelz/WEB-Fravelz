@@ -32,7 +32,7 @@ export default function ElementsHeader({ id, t }: { id: string; t: Record<string
       <div
         className={cn(
           "my-2 h-px w-full bg-linear-to-r from-transparent via-cyan-400/60 to-transparent lg:hidden",
-          "dark:via-gray-600",
+          "dark:via-zinc-600",
         )}
       />
 
@@ -65,7 +65,7 @@ export default function ElementsHeader({ id, t }: { id: string; t: Record<string
       <div
         className={cn(
           "my-2 h-px w-full bg-linear-to-r from-transparent via-cyan-400/60 to-transparent lg:hidden",
-          "dark:via-gray-600",
+          "dark:via-zinc-600",
         )}
       />
 
@@ -75,8 +75,8 @@ export default function ElementsHeader({ id, t }: { id: string; t: Record<string
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className={cn(
-              "size-6 text-slate-800 transition-colors hover:text-cyan-600",
-              "dark:text-gray-300 dark:hover:text-cyan-400",
+              "size-6 text-zinc-800 transition-colors hover:text-cyan-600",
+              "dark:text-zinc-300 dark:hover:text-cyan-400",
             )}
             fill="currentColor"
           >

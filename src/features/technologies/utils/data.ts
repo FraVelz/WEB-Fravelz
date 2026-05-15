@@ -118,7 +118,7 @@ export const technologies: Technology[] = [
 </svg>
 `,
     color: "from-cyan-50 to-blue-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-900",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-900",
   },
   {
     id: "css",
@@ -160,7 +160,7 @@ export const technologies: Technology[] = [
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-850",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-850",
   },
   {
     id: "js",
@@ -177,7 +177,7 @@ export const technologies: Technology[] = [
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-850",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-850",
   },
   {
     id: "astro",
@@ -193,7 +193,7 @@ ${OPEN_SVG_ASTRO}
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-850",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-850",
   },
   {
     id: "tailwind",
@@ -214,7 +214,7 @@ ${OPEN_SVG_ASTRO}
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-850",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-850",
   },
   {
     id: "typescript",
@@ -235,8 +235,8 @@ ${OPEN_SVG_ASTRO}
 </g>
 </svg>
 `,
-    color: "from-blue-50 to-indigo-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-900",
+    color: "from-blue-50 to-violet-50",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-900",
   },
   {
     id: "react",
@@ -255,7 +255,7 @@ ${OPEN_SVG_ASTRO}
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-850",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-850",
   },
   {
     id: "next",
@@ -269,8 +269,8 @@ ${OPEN_SVG_ASTRO}
 <path fill="currentColor" d="${PATH_NEXT}"/>
 </svg>
 `,
-    color: "from-gray-50 to-gray-200",
-    darkColor: "dark:from-gray-800 dark:to-gray-900",
+    color: "from-zinc-50 to-zinc-200",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-900",
   },
   {
     id: "supabase",
@@ -285,6 +285,6 @@ ${OPEN_SVG_ASTRO}
 </svg>
 `,
     color: "from-blue-50 to-cyan-50",
-    darkColor: "dark:from-gray-800 dark:to-gray-900",
+    darkColor: "dark:from-zinc-800 dark:to-zinc-900",
   },
 ];

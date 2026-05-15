@@ -13,7 +13,7 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
 
   return (
     <section id="hobbies" className={classname}>
-      <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100" data-i18n="info_hobbies_title">
+      <h2 className="mb-4 text-4xl font-bold text-zinc-900 dark:text-zinc-100" data-i18n="info_hobbies_title">
         {t.info_hobbies_title}
       </h2>
 

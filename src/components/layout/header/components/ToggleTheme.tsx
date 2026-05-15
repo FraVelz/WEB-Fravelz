@@ -99,14 +99,14 @@ export default function ToggleTheme({ className }: { className?: string }) {
       >
         <span
           className={cn(
-            "theme-toggle-slider absolute top-1 left-0.5 flex h-6 w-6 translate-x-0 transform",
+            "theme-toggle-slider absolute top-1 left-0.5 flex size-6 translate-x-0 transform",
             "items-center justify-center rounded-full shadow-md transition-all duration-300",
             "ease-in-out dark:translate-x-6",
           )}
         >
           <svg
             className={cn(
-              "theme-toggle-sun-icon h-4 w-4 opacity-100",
+              "theme-toggle-sun-icon size-4 opacity-100",
               "transition-opacity duration-300 dark:opacity-0",
             )}
             xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ export default function ToggleTheme({ className }: { className?: string }) {
           </svg>
           <svg
             className={cn(
-              "theme-toggle-moon-icon absolute h-4 w-4 opacity-0",
+              "theme-toggle-moon-icon absolute size-4 opacity-0",
               "transition-opacity duration-300 dark:opacity-100",
             )}
             xmlns="http://www.w3.org/2000/svg"

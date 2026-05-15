@@ -1,0 +1,28 @@
+{
+  "ignore": {
+    "files": ["public/i18n.js"],
+    "rules": [
+      "react-doctor/no-giant-component",
+      "react-doctor/design-no-bold-heading",
+      "react-doctor/js-set-map-lookups",
+      "knip/exports",
+      "react-doctor/no-array-index-as-key",
+      "jsx-a11y/click-events-have-key-events",
+      "jsx-a11y/no-static-element-interactions",
+      "react-doctor/no-cascading-set-state",
+      "jsx-a11y/heading-has-content",
+      "react-doctor/js-cache-storage",
+      "react-doctor/advanced-event-handler-refs",
+      "react-doctor/prefer-use-effect-event",
+      "react-doctor/no-derived-useState",
+      "react-doctor/design-no-redundant-size-axes",
+      "react-doctor/no-long-transition-duration"
+    ],
+    "overrides": [
+      {
+        "files": ["src/features/technologies/TechnologiesSection.tsx", "src/app/layout.tsx"],
+        "rules": ["react/no-danger"]
+      }
+    ]
+  }
+}

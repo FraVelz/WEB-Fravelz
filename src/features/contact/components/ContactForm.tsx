@@ -4,11 +4,11 @@ import { cn } from "@/utils/cn";
 import type { FormEvent } from "react";
 
 const fieldClassName = cn(
-  "w-full rounded-lg border-2 border-slate-200 bg-white px-4 py-2.5 text-slate-900 shadow-sm",
-  "placeholder:text-slate-400",
+  "w-full rounded-lg border-2 border-zinc-200 bg-white px-4 py-2.5 text-zinc-900 shadow-sm",
+  "placeholder:text-zinc-400",
   "transition-[color,box-shadow,border-color] focus:border-cyan-500 focus:outline-none",
   "focus:ring-2 focus:ring-cyan-500/25",
-  "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500 dark:shadow-none",
+  "dark:border-cyan-500/30 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:shadow-none",
   "dark:focus:border-cyan-400 dark:focus:ring-cyan-400/30",
 );
 
@@ -30,7 +30,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
       <div>
         <label
           htmlFor="contact-name"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
+          className="mb-1 block text-sm font-medium text-zinc-800 dark:text-zinc-300"
           data-i18n="contact_name_label"
         >
           {t.contact_name_label}
@@ -48,7 +48,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
       <div>
         <label
           htmlFor="contact-email"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
+          className="mb-1 block text-sm font-medium text-zinc-800 dark:text-zinc-300"
           data-i18n="contact_email_label"
         >
           {t.contact_email_label}
@@ -66,7 +66,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
       <div>
         <label
           htmlFor="contact-subject"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
+          className="mb-1 block text-sm font-medium text-zinc-800 dark:text-zinc-300"
           data-i18n="contact_subject_label"
         >
           {t.contact_subject_label}
@@ -84,7 +84,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
       <div>
         <label
           htmlFor="contact-message"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
+          className="mb-1 block text-sm font-medium text-zinc-800 dark:text-zinc-300"
           data-i18n="contact_message_label"
         >
           {t.contact_message_label}
@@ -103,16 +103,16 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
         type="submit"
         className={cn(
           "w-full cursor-pointer rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3",
-          "font-semibold text-white shadow-lg ring-1 shadow-cyan-500/35 ring-slate-900/10 transition-all",
+          "font-semibold text-white shadow-lg ring-1 shadow-cyan-500/35 ring-zinc-900/10 transition-all",
           "hover:from-cyan-600 hover:to-purple-600 hover:shadow-xl hover:shadow-cyan-500/25",
           "focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white focus:outline-none",
-          "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg dark:focus:ring-offset-gray-900",
+          "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg dark:focus:ring-offset-zinc-900",
         )}
         data-i18n="contact_send_btn"
       >
         {t.contact_send_btn}
       </button>
-      <p className="text-center text-xs text-slate-600 dark:text-gray-500" data-i18n="contact_mailto_hint">
+      <p className="text-center text-xs text-zinc-600 dark:text-zinc-500" data-i18n="contact_mailto_hint">
         {t.contact_mailto_hint}
       </p>
     </form>
