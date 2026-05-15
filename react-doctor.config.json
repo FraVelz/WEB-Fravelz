@@ -4,6 +4,7 @@
     "rules": [
       "react-doctor/no-giant-component",
       "react-doctor/design-no-bold-heading",
+      "react-doctor/design-no-default-tailwind-palette",
       "react-doctor/js-set-map-lookups",
       "knip/exports",
       "react-doctor/no-array-index-as-key",

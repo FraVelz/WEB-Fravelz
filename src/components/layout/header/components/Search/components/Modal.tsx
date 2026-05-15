@@ -40,23 +40,23 @@ function searchLabel(translations: Record<string, string>, key: keyof typeof SEA
 }
 
 const searchBackdropClass = cn(
-  "absolute inset-0 z-0 bg-zinc-900/55 backdrop-blur-md transition-opacity",
+  "absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity",
   "dark:bg-black/60 dark:backdrop-blur-sm",
 );
 
 const searchPanelClass = cn(
-  "w-full max-w-xl overflow-hidden rounded-xl border border-zinc-200 bg-[rgb(var(--color-surface))]",
-  "shadow-2xl shadow-zinc-900/15 dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-black/40",
+  "w-full max-w-xl overflow-hidden rounded-xl border border-slate-200 bg-[rgb(var(--color-surface))]",
+  "shadow-2xl shadow-slate-900/15 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/40",
 );
 
 const searchResultColumnLinkClass = cn(
   "flex flex-col gap-0.5 px-4 py-3 transition-colors",
-  "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+  "hover:bg-gray-100 dark:hover:bg-gray-800",
 );
 
 const searchResultInlineLinkClass = cn(
   "flex items-center gap-2 px-4 py-3 transition-colors",
-  "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+  "hover:bg-gray-100 dark:hover:bg-gray-800",
 );
 
 export function Modal({
@@ -125,9 +125,9 @@ export function Modal({
 
       <div className="relative z-10 flex items-start justify-center px-4 pt-[15vh] pb-8 sm:px-6">
         <div className={searchPanelClass} onClick={(e) => e.stopPropagation()}>
-          <div className="flex items-center gap-3 border-b border-zinc-200 px-4 py-3 dark:border-zinc-700">
+          <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
             <svg
-              className="size-5 shrink-0 text-zinc-400 dark:text-zinc-500"
+              className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -149,16 +149,16 @@ export function Modal({
               onChange={(e) => setQuery(e.target.value)}
               placeholder={searchLabel(translations, "search_placeholder")}
               className={cn(
-                "min-w-0 flex-1 bg-transparent py-2 text-base text-zinc-900 placeholder-zinc-400 focus:outline-none",
-                "dark:text-zinc-100 dark:placeholder-zinc-500",
+                "min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none",
+                "dark:text-gray-100 dark:placeholder-gray-500",
               )}
             />
             <button
               type="button"
               onClick={() => setIsActive(false)}
               className={cn(
-                "shrink-0 cursor-pointer rounded-lg p-1.5 text-zinc-400 transition-colors",
-                "hover:bg-zinc-100 hover:text-zinc-600 dark:hover:bg-zinc-800 dark:hover:text-zinc-300",
+                "shrink-0 cursor-pointer rounded-lg p-1.5 text-gray-400 transition-colors",
+                "hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-800 dark:hover:text-gray-300",
               )}
               aria-label={searchLabel(translations, "search_close_aria")}
             >
@@ -170,11 +170,11 @@ export function Modal({
 
           <div className="max-h-[50vh] overflow-y-auto">
             {query.trim().length < 2 ? (
-              <p className="p-4 text-sm text-zinc-500 dark:text-zinc-400">
+              <p className="p-4 text-sm text-gray-500 dark:text-gray-400">
                 {searchLabel(translations, "search_min_chars")}
               </p>
             ) : results.length === 0 ? (
-              <p className="p-4 text-sm text-zinc-500 dark:text-zinc-400">{noResultsText}</p>
+              <p className="p-4 text-sm text-gray-500 dark:text-gray-400">{noResultsText}</p>
             ) : (
               <ul className="py-2" role="listbox">
                 {results.map((r, idx) => {
@@ -186,10 +186,10 @@ export function Modal({
                           className={searchResultColumnLinkClass}
                           onClick={() => setIsActive(false)}
                         >
-                          <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
                             <HighlightMatch text={r.title} query={query} />
                           </span>
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             {r.technologies.slice(0, 5).map((tech, i) => (
                               <span key={`${tech}-${i}`}>
                                 {i > 0 && " · "}
@@ -209,10 +209,10 @@ export function Modal({
                           className={searchResultInlineLinkClass}
                           onClick={() => setIsActive(false)}
                         >
-                          <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
                             <HighlightMatch text={r.name} query={query} />
                           </span>
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             {searchLabel(translations, "search_result_technology")}
                           </span>
                         </a>
@@ -227,10 +227,10 @@ export function Modal({
                           className={searchResultColumnLinkClass}
                           onClick={() => setIsActive(false)}
                         >
-                          <span className="font-medium text-zinc-900 dark:text-zinc-100">
+                          <span className="font-medium text-gray-900 dark:text-gray-100">
                             <HighlightMatch text={r.title} query={query} />
                           </span>
-                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             <HighlightMatch text={r.issuer} query={query} />
                           </span>
                         </a>
@@ -240,8 +240,8 @@ export function Modal({
                   return (
                     <li key={`pg-${idx}-${r.url}`} role="option">
                       <a href={r.url} className={searchResultColumnLinkClass} onClick={() => setIsActive(false)}>
-                        <span className="font-medium text-zinc-900 dark:text-zinc-100">{r.label}</span>
-                        <span className="line-clamp-2 text-xs text-zinc-500 dark:text-zinc-400">
+                        <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
+                        <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
                           <HighlightMatch text={r.snippet} query={query} />
                         </span>
                       </a>

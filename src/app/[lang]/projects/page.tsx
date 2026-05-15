@@ -27,7 +27,7 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <div className="min-h-screen bg-zinc-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-zinc-900">
+      <div className="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <Link
@@ -38,25 +38,25 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
               )}
               data-i18n="projects_back"
             >
-              <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
               <span>{t.projects_back || "Volver"}</span>
             </Link>
 
             <h1
-              className="mb-4 text-4xl font-bold text-zinc-900 md:text-5xl dark:text-zinc-100"
+              className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-gray-100"
               data-i18n="hacking_projects_title"
             >
               {t.hacking_projects_title || "Proyectos Principales"}
             </h1>
             <p
-              className="mx-auto max-w-2xl text-lg text-zinc-600 dark:text-zinc-400"
+              className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
               data-i18n="projects_all_projects_description"
             >
               {t.projects_all_projects_description || "Todos mis proyectos como desarrollador frontend."}
             </p>
-            <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-500">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-500">
               <span data-i18n="projects_total">{t.projects_total || "Total"}</span>:{" "}
               <span className="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span>{" "}
               <span data-i18n="projects_projects">{t.projects_projects || "proyectos"}</span>

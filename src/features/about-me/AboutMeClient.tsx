@@ -289,7 +289,7 @@ export default function AboutMeClient({
 
               <div
                 className={cn(
-                  "about-timeline-dot mx-auto size-5 rounded-full",
+                  "about-timeline-dot mx-auto h-5 w-5 rounded-full",
                   "max-lg:absolute max-lg:top-5 max-lg:left-[11px]",
                 )}
               />
