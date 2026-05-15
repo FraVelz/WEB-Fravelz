@@ -17,8 +17,8 @@ export function Search() {
       <button className="cursor-pointer" onClick={() => setIsActive((isActive) => !isActive)}>
         <svg
           className={cn(
-            "size-6 text-zinc-800 transition-colors hover:text-cyan-600",
-            "dark:text-zinc-300 dark:hover:text-cyan-400",
+            "size-6 text-slate-800 transition-colors hover:text-cyan-600",
+            "dark:text-gray-300 dark:hover:text-cyan-400",
           )}
           fill="currentColor"
           enableBackground="new 0 0 32 32"

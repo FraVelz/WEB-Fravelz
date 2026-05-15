@@ -82,8 +82,8 @@ export default async function RootLayout({
     <html lang="es" className={cn(htmlClassName)} data-theme={dataTheme} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-linear-to-b from-zinc-100 via-zinc-100 to-zinc-100 antialiased",
-          "dark:bg-linear-to-b dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950",
+          "min-h-screen bg-linear-to-b from-slate-100 via-slate-100 to-slate-100 antialiased",
+          "dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
         )}
       >
         <Script id="base-url" strategy="beforeInteractive">

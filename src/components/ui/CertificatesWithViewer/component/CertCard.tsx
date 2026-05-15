@@ -16,12 +16,12 @@ export const CertCard = ({ cert, borderClass, openViewer, clickToViewText }: Cer
       borderClass,
     )}
   >
-    <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">{cert.title}</h3>
-    <p className="text-xs text-zinc-600 dark:text-zinc-400">
+    <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-50">{cert.title}</h3>
+    <p className="text-xs text-slate-600 dark:text-slate-400">
       {cert.issuer}
       {cert.year && <> · {cert.year}</>}
     </p>
-    {cert.shortDescription && <p className="text-xs text-zinc-600 dark:text-zinc-300">{cert.shortDescription}</p>}
+    {cert.shortDescription && <p className="text-xs text-slate-600 dark:text-slate-300">{cert.shortDescription}</p>}
     {cert.pdfPath && (
       <button
         type="button"
@@ -37,7 +37,7 @@ export const CertCard = ({ cert, borderClass, openViewer, clickToViewText }: Cer
           fill="none"
           stroke="currentColor"
           strokeWidth="1.5"
-          className="size-3.5"
+          className="h-3.5 w-3.5"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m0 0-6.75-6.75M12 19.5 18.75 12.75" />
         </svg>

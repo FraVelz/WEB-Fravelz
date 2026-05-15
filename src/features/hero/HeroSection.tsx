@@ -26,7 +26,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
       >
         {/* Texto */}
         <div className="flex min-w-0 flex-1 flex-col">
-          <p className="text-start text-base text-zinc-800 sm:text-lg dark:text-zinc-200" data-i18n="hola">
+          <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200" data-i18n="hola">
             {t.hola}
           </p>
 
@@ -57,8 +57,8 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
             <p
               className={cn(
-                "max-w-2xl text-start text-base leading-[1.65] text-zinc-800",
-                "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7] dark:text-zinc-300",
+                "max-w-2xl text-start text-base leading-[1.65] text-slate-800",
+                "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7] dark:text-gray-300",
               )}
               data-i18n="about_current_text"
             >

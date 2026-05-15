@@ -51,20 +51,20 @@ export default function PdfViewerModal({
       <div
         className={cn(
           "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl",
-          "bg-white shadow-2xl dark:bg-zinc-900",
+          "bg-white shadow-2xl dark:bg-slate-900",
         )}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div
           className={cn(
-            "flex items-center justify-between gap-4 border-b border-zinc-200 bg-zinc-50 px-4 py-3",
-            "dark:border-zinc-700 dark:bg-zinc-800/50",
+            "flex items-center justify-between gap-4 border-b border-slate-200 bg-slate-50 px-4 py-3",
+            "dark:border-slate-700 dark:bg-slate-800/50",
           )}
         >
           <h2
             id="pdf-modal-title"
-            className={cn("flex-1 truncate text-sm font-semibold text-zinc-900", "dark:text-zinc-100")}
+            className={cn("flex-1 truncate text-sm font-semibold text-slate-900", "dark:text-slate-100")}
           >
             {title}
           </h2>
@@ -86,7 +86,7 @@ export default function PdfViewerModal({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="size-4"
+                className="h-4 w-4"
               >
                 <path
                   strokeLinecap="round"
@@ -102,9 +102,9 @@ export default function PdfViewerModal({
             <button
               onClick={onClose}
               className={cn(
-                "inline-flex size-9 items-center justify-center rounded-lg text-zinc-600 transition-colors",
-                "cursor-pointer hover:bg-zinc-200 hover:text-zinc-900",
-                "dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-zinc-100",
+                "inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
+                "cursor-pointer hover:bg-slate-200 hover:text-slate-900",
+                "dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100",
               )}
               aria-label={closeText}
             >
@@ -114,7 +114,7 @@ export default function PdfViewerModal({
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="size-5"
+                className="h-5 w-5"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>
