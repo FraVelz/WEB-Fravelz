@@ -10,7 +10,7 @@ import { projectWebTodoList } from "./projects/project-web-todo-list";
 export const projects: Project[] = [
   projectIcfesMaster,
   projectWebTodoList,
-  projectFravelzPortfolio,
   projectFrontendMentorNextjs,
+  projectFravelzPortfolio,
   projectNotasHacking,
 ];
