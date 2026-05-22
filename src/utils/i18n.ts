@@ -4,10 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { cache } from "react";
 
-import { type Language, isValidLanguage, languages, localePathFromAcceptHeader } from "@/lib/i18n-routing";
-
-export type { Language };
-export { isValidLanguage, languages, localePathFromAcceptHeader };
+import type { Language } from "@/lib/i18n-routing";
 
 const LOCALE_FILES = [
   "common",
@@ -45,8 +42,3 @@ const translations: Record<Language, Record<string, string>> = {
 export const getTranslations = cache((lang: Language = "es") => {
   return translations[lang] || translations.es;
 });
-
-export function t(key: string, lang: Language = "es"): string {
-  const dict = getTranslations(lang);
-  return dict[key] || key;
-}

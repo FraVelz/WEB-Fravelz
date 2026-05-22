@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "@/utils/cn";
 
 interface PdfViewerModalProps {
@@ -20,23 +20,26 @@ export default function PdfViewerModal({
   closeText = "Cerrar",
   downloadText = "Descargar PDF",
 }: PdfViewerModalProps) {
-  const handleEscape = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    },
-    [onClose],
-  );
+  const onCloseRef = useRef(onClose);
 
   useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
-    }
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onCloseRef.current();
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
-  }, [isOpen, handleEscape]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -46,14 +49,18 @@ export default function PdfViewerModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="pdf-modal-title"
-      onClick={onClose}
     >
+      <button
+        type="button"
+        className="absolute inset-0 cursor-default"
+        aria-label={closeText}
+        onClick={onClose}
+      />
       <div
         className={cn(
           "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl",
           "bg-white shadow-2xl dark:bg-slate-900",
         )}
-        onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div

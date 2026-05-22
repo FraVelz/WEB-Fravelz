@@ -39,10 +39,16 @@ export default async function AboutMeSection({ lang, classname = "" }: { lang: L
       lang={lang}
       classname={classname}
       historyEntries={historyEntries}
-      readMoreLabel={t.about_read_more || "Leer más"}
-      closeModalAria={t.cert_viewer_close || "Cerrar"}
       navCertifications={t.nav_certifications || "Certificaciones"}
       infoAboutTitle={t.info_about_title || "Sobre Mí"}
+      sliderLabels={{
+        stageLabel: t.info_about_subtitle || "Mi Historia",
+        regionAria: t.about_history_region_aria || "Historia personal",
+        tabsAria: t.about_history_tabs_aria || "Etapas de la historia",
+        prev: t.about_history_prev || "Etapa anterior",
+        next: t.about_history_next || "Etapa siguiente",
+        goToYear: t.about_history_go_to_year || "Ir a {year}",
+      }}
     />
   );
 }

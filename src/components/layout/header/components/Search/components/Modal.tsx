@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n */
-/* eslint-disable react-hooks/set-state-in-effect -- modal open sync */
 /* eslint-disable jsx-a11y/role-has-required-aria-props -- combobox options */
 "use client";
 
 import { createPortal } from "react-dom";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo, useReducer } from "react";
 
 import { cn } from "@/utils/cn";
 
@@ -39,6 +38,27 @@ function searchLabel(translations: Record<string, string>, key: keyof typeof SEA
   return translations[key] ?? SEARCH_TEXT_FALLBACK[key] ?? key;
 }
 
+type SearchSessionState = {
+  query: string;
+  lang: Lang;
+  translations: Record<string, string>;
+};
+
+type SearchSessionAction =
+  | { type: "open"; lang: Lang; translations: Record<string, string> }
+  | { type: "set-query"; query: string };
+
+function searchSessionReducer(state: SearchSessionState, action: SearchSessionAction): SearchSessionState {
+  switch (action.type) {
+    case "open":
+      return { query: "", lang: action.lang, translations: action.translations };
+    case "set-query":
+      return { ...state, query: action.query };
+    default:
+      return state;
+  }
+}
+
 const searchBackdropClass = cn(
   "absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity",
   "dark:bg-black/60 dark:backdrop-blur-sm",
@@ -50,12 +70,12 @@ const searchPanelClass = cn(
 );
 
 const searchResultColumnLinkClass = cn(
-  "flex flex-col gap-0.5 px-4 py-3 transition-colors",
+  "search-result-link flex flex-col gap-0.5 px-4 py-3 transition-colors",
   "hover:bg-gray-100 dark:hover:bg-gray-800",
 );
 
 const searchResultInlineLinkClass = cn(
-  "flex items-center gap-2 px-4 py-3 transition-colors",
+  "search-result-link flex items-center gap-2 px-4 py-3 transition-colors",
   "hover:bg-gray-100 dark:hover:bg-gray-800",
 );
 
@@ -67,9 +87,12 @@ export function Modal({
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [query, setQuery] = useState("");
-  const [lang, setLang] = useState<Lang>("es");
-  const [translations, setTranslations] = useState<Record<string, string>>({});
+  const [session, dispatchSession] = useReducer(searchSessionReducer, {
+    query: "",
+    lang: "es" as Lang,
+    translations: {},
+  });
+  const { query, lang, translations } = session;
 
   const baseUrl = getBaseUrl();
 
@@ -81,19 +104,20 @@ export function Modal({
   useEffect(() => {
     if (!isActive) return;
 
-    setQuery("");
-
     const l = (typeof window !== "undefined" && (window as any).i18n?.getCurrentLanguage?.()) || getLangFromPath();
     const langKey = LANGUAGES.includes(l as Lang) ? (l as Lang) : "es";
-    setLang(langKey);
+
+    const applySession = (loaded: Record<string, string>) => {
+      dispatchSession({ type: "open", lang: langKey, translations: loaded });
+    };
 
     const win = window as any;
     if (win.i18n?.getTranslations) {
       const t = win.i18n.getTranslations(langKey);
-      if (t && typeof t === "object") setTranslations(t);
-      else fetchTranslations(langKey, baseUrl).then(setTranslations);
+      if (t && typeof t === "object") applySession(t);
+      else void fetchTranslations(langKey, baseUrl).then(applySession);
     } else {
-      fetchTranslations(langKey, baseUrl).then(setTranslations);
+      void fetchTranslations(langKey, baseUrl).then(applySession);
     }
 
     const handleEscape = (e: KeyboardEvent) => {
@@ -121,10 +145,15 @@ export function Modal({
       aria-label={searchLabel(translations, "search_dialog_aria")}
     >
       {/* Capa de atenuación: más opaca en claro para separar el panel del fondo */}
-      <div className={searchBackdropClass} aria-hidden="true" onClick={() => setIsActive(false)} />
+      <button
+        type="button"
+        className={cn(searchBackdropClass, "cursor-default border-0 p-0")}
+        aria-label={searchLabel(translations, "search_close_aria")}
+        onClick={() => setIsActive(false)}
+      />
 
       <div className="relative z-10 flex items-start justify-center px-4 pt-[15vh] pb-8 sm:px-6">
-        <div className={searchPanelClass} onClick={(e) => e.stopPropagation()}>
+        <div className={searchPanelClass}>
           <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
             <svg
               className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
@@ -146,10 +175,10 @@ export function Modal({
               id="search"
               autoComplete="off"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => dispatchSession({ type: "set-query", query: e.target.value })}
               placeholder={searchLabel(translations, "search_placeholder")}
               className={cn(
-                "min-w-0 flex-1 bg-transparent py-2 text-base text-gray-900 placeholder-gray-400 focus:outline-none",
+                "min-w-0 flex-1 rounded-md bg-transparent py-2 text-base text-gray-900 placeholder-gray-400",
                 "dark:text-gray-100 dark:placeholder-gray-500",
               )}
             />
@@ -177,7 +206,7 @@ export function Modal({
               <p className="p-4 text-sm text-gray-500 dark:text-gray-400">{noResultsText}</p>
             ) : (
               <ul className="py-2" role="listbox">
-                {results.map((r, idx) => {
+                {results.map((r) => {
                   if (r.type === "project") {
                     return (
                       <li key={`p-${r.slug}`} role="option">
@@ -191,7 +220,7 @@ export function Modal({
                           </span>
                           <span className="text-xs text-gray-500 dark:text-gray-400">
                             {r.technologies.slice(0, 5).map((tech, i) => (
-                              <span key={`${tech}-${i}`}>
+                              <span key={tech}>
                                 {i > 0 && " · "}
                                 <HighlightMatch text={tech} query={query} />
                               </span>
@@ -238,7 +267,7 @@ export function Modal({
                     );
                   }
                   return (
-                    <li key={`pg-${idx}-${r.url}`} role="option">
+                    <li key={`pg-${r.url}`} role="option">
                       <a href={r.url} className={searchResultColumnLinkClass} onClick={() => setIsActive(false)}>
                         <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
                         <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">

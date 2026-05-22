@@ -6,10 +6,8 @@ import type { FormEvent } from "react";
 const fieldClassName = cn(
   "w-full rounded-lg border-2 border-slate-200 bg-white px-4 py-2.5 text-slate-900 shadow-sm",
   "placeholder:text-slate-400",
-  "transition-[color,box-shadow,border-color] focus:border-cyan-500 focus:outline-none",
-  "focus:ring-2 focus:ring-cyan-500/25",
+  "transition-[color,box-shadow,border-color]",
   "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500 dark:shadow-none",
-  "dark:focus:border-cyan-400 dark:focus:ring-cyan-400/30",
 );
 
 export default function ContactForm({ email, t }: { email: string; t: Record<string, string> }) {
@@ -105,8 +103,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           "w-full cursor-pointer rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3",
           "font-semibold text-white shadow-lg ring-1 shadow-cyan-500/35 ring-slate-900/10 transition-all",
           "hover:from-cyan-600 hover:to-purple-600 hover:shadow-xl hover:shadow-cyan-500/25",
-          "focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-white focus:outline-none",
-          "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg dark:focus:ring-offset-gray-900",
+          "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg",
         )}
         data-i18n="contact_send_btn"
       >

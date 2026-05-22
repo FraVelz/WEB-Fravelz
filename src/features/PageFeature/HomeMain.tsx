@@ -9,21 +9,38 @@ import { Header } from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
 
 import Particles from "./components/Particles";
+import { HomeAmbientGlow } from "./components/HomeAmbientGlow";
 import HomeScroll from "./HomeScroll";
+
+import homeStyles from "./HomeMain.module.css";
 
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
-import { cn } from "@/utils/cn";
 
 export default async function HomeMain({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
 
   return (
     <>
+      <a
+        href="#presentation"
+        className="skip-link"
+        data-i18n="nav_skip_to_content"
+      >
+        {t.nav_skip_to_content ?? "Saltar al contenido principal"}
+      </a>
+
       <Header t={t} />
       <Particles />
-      <main className="relative z-10 overflow-x-hidden">
-        <HeroSection lang={lang} />
+      <HomeAmbientGlow />
+
+      <main className="home-scroll-layer relative z-10 overflow-x-hidden">
+        <section className="relative overflow-hidden">
+          <div data-home-reveal className={homeStyles.revealScroll}>
+            <HeroSection lang={lang} />
+          </div>
+        </section>
+
         <div className="horizontal relative w-full overflow-x-hidden">
           <div className="containera flex min-h-full max-lg:flex-col max-lg:gap-14">
             <ProjectsSection
@@ -36,21 +53,28 @@ export default async function HomeMain({ lang }: { lang: Language }) {
             />
             <AboutMeSection
               lang={lang}
-              classname="panel min-w-screen h-screen flex justify-center items-center space-y-8 p-10"
+              classname="panel min-w-screen flex h-auto min-h-screen justify-center items-center p-6 sm:p-8 lg:p-10"
             />
             <HobbiesSection
               lang={lang}
-              classname={cn(
-                "panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center",
-                "px-4 sm:px-6 lg:px-8",
-              )}
+              classname="panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8"
             />
           </div>
         </div>
 
-        <ContactSection lang={lang} />
+        <section className="relative overflow-hidden">
+          <div
+            className="via-primary/40 absolute top-0 right-0 left-0 h-px bg-linear-to-r from-transparent to-transparent"
+            aria-hidden="true"
+          />
+          <div data-home-reveal className={homeStyles.revealScroll}>
+            <ContactSection lang={lang} />
+          </div>
+        </section>
+
         <HomeScroll />
       </main>
+
       <Footer lang={lang} />
     </>
   );

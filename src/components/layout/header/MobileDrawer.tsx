@@ -72,7 +72,7 @@ export default function MobileDrawer({ children }: { children: ReactNode }) {
             aria-label="Cerrar menú"
             data-i18n-attr="aria-label:nav_close_menu"
             className={cn(
-              "text-2xl text-[rgb(var(--color-text))] transition-colors",
+              "rounded-lg p-1 text-2xl text-[rgb(var(--color-text))] transition-colors",
               "hover:text-[rgb(var(--color-primary))] dark:hover:text-[rgb(var(--color-white))]",
             )}
             type="button"

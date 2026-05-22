@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n bridge */
-/* eslint-disable react-hooks/set-state-in-effect -- sync with client i18n */
 "use client";
 
 import { cn } from "@/utils/cn";
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 const COPY_CLIPBOARD_OUTLINE_PATH =
   "M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 " +
@@ -17,6 +16,36 @@ const COPY_DOCUMENT_OUTLINE_PATH =
   "0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 " +
   "2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184";
 
+const DEFAULT_ARIA_LABEL = "Copiar dirección de correo electrónico";
+
+type CopyEmailState = {
+  copied: boolean;
+  successText: string;
+  ariaLabel: string;
+};
+
+type CopyEmailAction =
+  | { type: "copied" }
+  | { type: "reset-copied" }
+  | { type: "set-i18n"; successText?: string; ariaLabel?: string };
+
+function copyEmailReducer(state: CopyEmailState, action: CopyEmailAction): CopyEmailState {
+  switch (action.type) {
+    case "copied":
+      return { ...state, copied: true };
+    case "reset-copied":
+      return { ...state, copied: false };
+    case "set-i18n":
+      return {
+        ...state,
+        ...(action.successText !== undefined ? { successText: action.successText } : {}),
+        ...(action.ariaLabel !== undefined ? { ariaLabel: action.ariaLabel } : {}),
+      };
+    default:
+      return state;
+  }
+}
+
 interface CopyEmailButtonProps {
   email: string;
   successText: string;
@@ -25,28 +54,31 @@ interface CopyEmailButtonProps {
 }
 
 export default function CopyEmailButton({ email, successText, variant = "outlined" }: CopyEmailButtonProps) {
-  const [copied, setCopied] = useState(false);
-  const [currentSuccessText, setCurrentSuccessText] = useState(successText);
-  const [ariaLabel, setAriaLabel] = useState("Copiar dirección de correo electrónico");
+  const [state, dispatch] = useReducer(copyEmailReducer, {
+    copied: false,
+    successText,
+    ariaLabel: DEFAULT_ARIA_LABEL,
+  });
 
   useEffect(() => {
+    const applyTranslations = (translations?: Record<string, string>) => {
+      if (!translations) return;
+      dispatch({
+        type: "set-i18n",
+        successText: translations.hero_copy_success,
+        ariaLabel: translations.copy_email_aria,
+      });
+    };
+
     const handleLanguageChange = (event: CustomEvent) => {
-      const translations = event.detail.translations;
-      if (translations) {
-        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
-      }
+      applyTranslations(event.detail.translations);
     };
 
     window.addEventListener("language-changed", handleLanguageChange as EventListener);
 
     if (typeof window !== "undefined" && (window as any).i18n) {
       const currentLang = (window as any).i18n.getCurrentLanguage();
-      const translations = (window as any).i18n.getTranslations(currentLang);
-      if (translations) {
-        if (translations.hero_copy_success) setCurrentSuccessText(translations.hero_copy_success);
-        if (translations.copy_email_aria) setAriaLabel(translations.copy_email_aria);
-      }
+      applyTranslations((window as any).i18n.getTranslations(currentLang));
     }
 
     return () => {
@@ -54,20 +86,25 @@ export default function CopyEmailButton({ email, successText, variant = "outline
     };
   }, []);
 
+  useEffect(() => {
+    dispatch({ type: "set-i18n", successText });
+  }, [successText]);
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(email);
-      setCopied(true);
+      dispatch({ type: "copied" });
 
-      // Restore original text after 2 seconds
       setTimeout(() => {
-        setCopied(false);
+        dispatch({ type: "reset-copied" });
       }, 3000);
     } catch (err) {
       console.error("Error copying email:", err);
       window.prompt("Copia el correo (Ctrl+C y cierra):", email);
     }
   };
+
+  const { copied, successText: currentSuccessText, ariaLabel } = state;
 
   return (
     <button
@@ -77,17 +114,9 @@ export default function CopyEmailButton({ email, successText, variant = "outline
         variant === "solid" &&
           cn(
             "min-h-[2.625rem] items-center justify-center rounded-lg px-3.5 py-2.5 font-medium sm:px-4",
-            "focus-visible:z-[1] focus-visible:outline-none",
-            "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:z-[1]",
           ),
-        variant === "outlined" &&
-          cn(
-            "rounded-full border p-1 px-2 pr-3",
-            "focus-visible:z-[1] focus-visible:outline-none",
-            "focus-visible:ring-2 focus-visible:ring-purple-500/95 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-purple-50 dark:focus-visible:ring-purple-400/90 dark:focus-visible:ring-offset-gray-950",
-          ),
+        variant === "outlined" && cn("rounded-full border p-1 px-2 pr-3", "focus-visible:z-[1]"),
         copied &&
           (variant === "solid"
             ? cn(
