@@ -10,11 +10,4 @@
  */
 
 export type { Project } from "./project-types";
-export { projects } from "./projects-list";
-export {
-  getAllProjects,
-  getProjectBySlug,
-  getFeaturedProjects,
-  getProjectsByCategory,
-  getAllTechnologies,
-} from "./project-utils";
+export { getAllProjects, getProjectBySlug } from "./project-utils";

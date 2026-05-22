@@ -45,8 +45,8 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
             className="list-disc space-y-3 pl-6 text-gray-700 marker:text-cyan-500 dark:text-gray-300 dark:marker:text-cyan-400"
             id="project-extra-info-list"
           >
-            {project.extraInfo[L]!.map((item, i) => (
-              <li key={`${i}-${item}`} className="pl-1">
+            {project.extraInfo[L]!.map((item) => (
+              <li key={item} className="pl-1">
                 {item}
               </li>
             ))}

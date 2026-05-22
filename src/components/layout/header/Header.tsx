@@ -25,7 +25,7 @@ export function Header({ t }: { t: Record<string, string> }) {
           type="button"
           id="logo"
           className={cn(
-            "text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600",
+            "rounded-lg text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600",
             "dark:text-gray-100 dark:hover:text-cyan-300",
           )}
           onClick={() => window.location.reload()}
@@ -42,7 +42,7 @@ export function Header({ t }: { t: Record<string, string> }) {
           data-drawer-open
           id="header-mobile-button"
           className={cn(
-            "text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
+            "rounded-lg p-1 text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
             "dark:text-gray-300 dark:hover:text-cyan-300",
           )}
           aria-label="Abrir menú"

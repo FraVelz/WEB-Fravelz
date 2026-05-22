@@ -1,6 +1,11 @@
 {
   "about_read_more": "Leer más",
   "about_read_less": "Leer menos",
+  "about_history_region_aria": "Historia personal",
+  "about_history_tabs_aria": "Etapas de la historia",
+  "about_history_prev": "Etapa anterior",
+  "about_history_next": "Etapa siguiente",
+  "about_history_go_to_year": "Ir a {year}",
 
   "about_intro_text": "¡Hola! Soy Fravelz. Desde niño me interesan la informática y el desarrollo de software, en especial el desarrollo web.",
   "about_current_text": "Soy desarrollador frontend especializado en maquetación web, creando interfaces fluidas, animadas, funcionales y minimalistas. Trabajo con el buen uso de la semántica y el SEO, integro datos y servicios del backend en el frontend, y también me enfoco en la correcta estructuración y mantenimiento del código frontend.",

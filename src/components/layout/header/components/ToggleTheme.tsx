@@ -14,7 +14,13 @@ const MOON_ICON_PATH =
 
 type PersistMode = "explicit" | "auto";
 
-export default function ToggleTheme({ className }: { className?: string }) {
+export default function ToggleTheme({
+  className,
+  tabIndex,
+}: {
+  className?: string;
+  tabIndex?: number;
+}) {
   const applyTheme = useCallback((isDark: boolean, persist: PersistMode = "explicit") => {
     const root = document.documentElement;
     if (isDark) {
@@ -55,8 +61,16 @@ export default function ToggleTheme({ className }: { className?: string }) {
   );
 
   useEffect(() => {
+    const readSavedTheme = () => {
+      try {
+        return localStorage.getItem("theme");
+      } catch {
+        return null;
+      }
+    };
+
     const init = () => {
-      const saved = localStorage.getItem("theme");
+      const saved = readSavedTheme();
       if (saved === "dark") {
         applyTheme(true, "explicit");
       } else if (saved === "light") {
@@ -68,8 +82,8 @@ export default function ToggleTheme({ className }: { className?: string }) {
     init();
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
-      const s = localStorage.getItem("theme");
-      if (s !== "dark" && s !== "light") {
+      const savedTheme = readSavedTheme();
+      if (savedTheme !== "dark" && savedTheme !== "light") {
         applyTheme(mq.matches, "auto");
       }
     };
@@ -83,16 +97,22 @@ export default function ToggleTheme({ className }: { className?: string }) {
   }, [applyTheme]);
 
   return (
-    <div className={cn("place-self-left flex items-center", className)}>
+    <div
+      className={cn(
+        "theme-toggle-control place-self-left flex items-center rounded-full p-0.5",
+        className,
+      )}
+    >
       <span className="sr-only" data-i18n="theme_toggle_label">
         Cambiar tema
       </span>
       <button
         className={cn(
-          "theme-toggle-btn relative h-8 w-14 cursor-pointer rounded-full border border-transparent",
-          "transition-all duration-300 ease-in-out outline-none",
+          "theme-toggle-btn relative h-8 w-14 shrink-0 cursor-pointer rounded-full border border-transparent",
+          "transition-[border-color,box-shadow,background-color,transform] duration-300 ease-in-out",
         )}
         type="button"
+        tabIndex={tabIndex}
         aria-label="Cambiar entre tema claro y oscuro"
         data-i18n-attr="aria-label:theme_toggle_aria"
         onClick={handleToggle}

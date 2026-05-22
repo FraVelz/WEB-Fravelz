@@ -1,11 +1,11 @@
 export const THEME_COOKIE_NAME = "theme";
 
 /** 365 días */
-export const THEME_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+const THEME_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
 export type ThemePreference = "dark" | "light" | "auto";
 
-export function parseThemePreference(raw: string | undefined): ThemePreference {
+function parseThemePreference(raw: string | undefined): ThemePreference {
   if (raw === "dark" || raw === "light" || raw === "auto") return raw;
   return "auto";
 }
@@ -38,7 +38,7 @@ export function getServerHtmlThemeFromCookieAndHint(
   return { htmlClassName: "", dataTheme: "auto" };
 }
 
-export function serializeThemeCookieClient(value: ThemePreference): string {
+function serializeThemeCookieClient(value: ThemePreference): string {
   const v = encodeURIComponent(value);
   const max = String(THEME_COOKIE_MAX_AGE);
   return `${THEME_COOKIE_NAME}=${v};path=/;max-age=${max};SameSite=Lax`;

@@ -14,7 +14,13 @@ export function Search() {
 
   return (
     <>
-      <button className="cursor-pointer" onClick={() => setIsActive((isActive) => !isActive)}>
+      <button
+        type="button"
+        className="cursor-pointer rounded-lg p-1"
+        aria-label="Abrir búsqueda"
+        data-i18n-attr="aria-label:search_open_aria"
+        onClick={() => setIsActive((isActive) => !isActive)}
+      >
         <svg
           className={cn(
             "size-6 text-slate-800 transition-colors hover:text-cyan-600",

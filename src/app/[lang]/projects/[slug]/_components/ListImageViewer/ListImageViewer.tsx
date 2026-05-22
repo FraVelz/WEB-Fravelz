@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 
 import {
   buildSlides,
@@ -33,21 +33,25 @@ export function ListImagesViewer({
     [count],
   );
 
+  const navigateCarousel = useEffectEvent((delta: number) => {
+    go(delta);
+  });
+
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (count <= 1) return;
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        go(-1);
+        navigateCarousel(-1);
       }
       if (e.key === "ArrowRight") {
         e.preventDefault();
-        go(1);
+        navigateCarousel(1);
       }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [count, go]);
+  }, [count]);
 
   function onCarouselTouchEnd(e: React.TouchEvent) {
     const start = touchStartRef.current;
@@ -69,7 +73,6 @@ export function ListImagesViewer({
     "border border-gray-200/90 bg-white/95 text-gray-800 shadow-lg backdrop-blur-sm",
     "transition-colors hover:border-cyan-500/60 hover:text-cyan-700",
     "dark:border-gray-600 dark:bg-gray-900/95 dark:text-gray-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500",
     "disabled:pointer-events-none disabled:opacity-40",
   );
 
@@ -156,7 +159,7 @@ export function ListImagesViewer({
               aria-label={`${carouselRegionAriaLabel}: ${i + 1} / ${count}`}
               aria-pressed={i === displayIndex}
               className={cn(
-                "h-2 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500",
+                "h-2 rounded-full transition-all duration-300",
                 i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-gray-300 dark:bg-gray-600",
               )}
               onClick={() => setIndex(i)}

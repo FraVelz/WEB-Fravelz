@@ -63,8 +63,14 @@
   --color-theme-toggle-thumb: 255 255 255; /* --color-white */
   --color-theme-toggle-sun: 234 179 8; /* yellow-500 */
   --color-theme-toggle-moon: 103 232 249; /* cyan-300 */
-  --color-theme-toggle-hover: 6 182 212; /* borde hover — primary */
+  --color-theme-toggle-track-hover: 8 145 178; /* cyan-600 — carril más oscuro al hover */
   --color-theme-toggle-shadow: 6 182 212; /* tinte sombra modo claro */
+  --theme-toggle-hover-shadow:
+    0 0 0 1px rgb(var(--color-text) / 0.45),
+    0 4px 10px -2px rgb(var(--color-theme-toggle-shadow) / 0.35);
+  --theme-toggle-focus-shadow:
+    0 0 0 2px rgb(var(--color-text)),
+    0 0 0 4px rgb(var(--color-surface));
 
   /* Drawer / panel lateral — bordes sutiles (rgb(var(--color-drawer-border))) */
   --color-drawer-border: 226 232 240; /* slate-200 */
@@ -72,6 +78,9 @@
   /* Base constants */
   --color-black: 0 0 0;
   --color-white: 255 255 255;
+
+  /* Header fijo (logo + py-4 + botón móvil) — skip-link y anclas */
+  --header-height: 5.25rem;
 }
 
 .dark {
@@ -92,7 +101,11 @@
   --color-theme-toggle-track: 55 65 81; /* gray-700 */
   --color-theme-toggle-thumb: 17 24 39; /* gray-900, coherente con --color-surface */
   --color-theme-toggle-moon: 34 211 238; /* cyan-400, alineado con --color-primary en dark */
-  --color-theme-toggle-hover: 34 211 238; /* borde hover sobre carril oscuro */
+  --color-theme-toggle-track-hover: 75 85 99; /* gray-600 — carril más claro al hover */
+  --theme-toggle-hover-shadow: 0 0 0 1px rgb(var(--color-primary) / 0.85);
+  --theme-toggle-focus-shadow:
+    0 0 0 2px rgb(var(--color-primary)),
+    0 0 0 4px rgb(var(--color-bg));
 
   --color-drawer-border: 55 65 81; /* gray-700 */
 }
@@ -136,7 +149,11 @@
       --color-theme-toggle-track: 55 65 81;
       --color-theme-toggle-thumb: 17 24 39;
       --color-theme-toggle-moon: 34 211 238;
-      --color-theme-toggle-hover: 34 211 238;
+      --color-theme-toggle-track-hover: 75 85 99;
+      --theme-toggle-hover-shadow: 0 0 0 1px rgb(var(--color-primary) / 0.85);
+      --theme-toggle-focus-shadow:
+        0 0 0 2px rgb(var(--color-primary)),
+        0 0 0 4px rgb(var(--color-bg));
       --color-drawer-border: 55 65 81;
       color: rgb(var(--color-text));
       background-color: rgb(var(--color-bg));
@@ -160,6 +177,62 @@
 
   body {
     color: inherit;
+  }
+
+  /*
+   * Navegación por teclado (Tab / Shift+Tab): anillo solo con :focus-visible.
+   * Los estilos con nombre (.link-animation, .btn-3, etc.) siguen pudiendo personalizar.
+   */
+  :root {
+    --focus-ring-shadow:
+      0 0 0 2px rgb(var(--color-primary)),
+      0 0 0 4px rgb(var(--color-surface));
+    --focus-field-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.28);
+  }
+
+  .dark {
+    --focus-ring-shadow:
+      0 0 0 2px rgb(var(--color-primary)),
+      0 0 0 4px rgb(var(--color-bg));
+    --focus-field-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.35);
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  :where(
+    a:any-link:not(.skip-link):not(.link-animation):not(.btn-3):not(.about-link):not(.search-result-link),
+    area[href],
+    button:not(:disabled):not(.theme-toggle-btn),
+    summary,
+    [role="button"],
+    [role="link"],
+    [role="tab"],
+    [role="menuitem"],
+    [role="menuitemradio"],
+    [role="menuitemcheckbox"],
+    [role="option"],
+    [tabindex]:not([tabindex="-1"]):not(.skip-link)
+  ):focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
+  }
+
+  :where(
+    input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not(:disabled),
+    textarea:not(:disabled),
+    select:not(:disabled):not(.language-selector)
+  ):focus-visible {
+    outline: none;
+    border-color: rgb(var(--color-primary));
+    box-shadow: var(--focus-field-shadow);
+  }
+
+  :where(input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled)):focus-visible {
+    outline: 2px solid rgb(var(--color-primary));
+    outline-offset: 2px;
+    box-shadow: none;
   }
 
   a:not([class]) {
@@ -344,6 +417,20 @@
 .dark .link-animation:hover {
   color: rgb(var(--color-link-hover-dark));
 }
+.link-animation:focus-visible {
+  outline: none;
+  color: rgb(var(--color-link-hover));
+  border-radius: 0.25rem;
+  box-shadow: var(--focus-ring-shadow);
+}
+.link-animation:focus-visible::before {
+  width: 35px;
+  opacity: 1;
+  visibility: visible;
+}
+.dark .link-animation:focus-visible {
+  color: rgb(var(--color-link-hover-dark));
+}
 
 /* Header intro animation (former Header.astro) */
 @media (min-width: 1024px) {
@@ -377,11 +464,43 @@
     0 4px 6px -1px rgb(var(--color-theme-toggle-shadow) / 0.18),
     0 2px 4px -2px rgb(var(--color-theme-toggle-shadow) / 0.12);
 }
-.theme-toggle-btn:hover {
-  border-color: rgb(var(--color-theme-toggle-hover));
+.theme-toggle-btn:hover:not(:focus-visible) {
+  background-color: rgb(var(--color-theme-toggle-track-hover));
+  border-color: rgb(var(--color-text) / 0.4);
+  box-shadow: var(--theme-toggle-hover-shadow);
 }
-html.dark .theme-toggle-btn,
-.dark .theme-toggle-btn {
+.dark .theme-toggle-btn:hover:not(:focus-visible) {
+  border-color: rgb(var(--color-primary) / 0.85);
+}
+.theme-toggle-btn:focus-visible {
+  outline: none;
+  background-color: rgb(var(--color-theme-toggle-track-hover));
+  border-color: rgb(var(--color-text) / 0.45);
+  box-shadow: var(--theme-toggle-focus-shadow);
+}
+.dark .theme-toggle-btn:focus-visible {
+  border-color: rgb(var(--color-primary));
+}
+.language-select-control:has(.language-selector:focus-visible) {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+.language-selector {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230891b2' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 0.875rem;
+}
+.dark .language-selector {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2367e8f9' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+}
+.language-selector:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
+.dark .theme-toggle-btn:not(:hover):not(:focus-visible) {
   box-shadow: none;
 }
 .theme-toggle-slider {
@@ -416,14 +535,22 @@ html.dark .theme-toggle-btn,
 }
 .about-link:focus-visible {
   outline: none;
-  box-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-surface));
+  box-shadow: var(--focus-ring-shadow);
 }
-.dark .about-link:focus-visible {
-  box-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-bg));
+.about-history-tab:focus-visible,
+.about-history-nav:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+.about-history-panel {
+  background-color: rgb(var(--color-surface));
+}
+.about-history-slider {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+#about-me {
+  overscroll-behavior: contain;
 }
 
 /* Technologies section */
@@ -520,7 +647,105 @@ html.dark .theme-toggle-btn,
   transition: transform 0.3s ease-in-out 0.1s;
   transform: translate(0);
 }
+.btn-3:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-btn-on-base)),
+    0 0 0 4px rgb(var(--color-primary));
+}
 
 .drawer-panel {
   background-color: rgb(var(--color-surface));
+}
+
+/* Utilidades de foco (opcionales; la base ya cubre la mayoría de controles) */
+@layer utilities {
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring-shadow);
+  }
+
+  .focus-ring-inset:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgb(var(--color-primary) / 0.85);
+  }
+
+  .focus-none:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .skip-link:focus-visible {
+    position: fixed;
+    inset-block-start: calc(var(--header-height) + 0.625rem);
+    inset-inline: 50%;
+    z-index: 100;
+    width: auto;
+    max-inline-size: min(18rem, calc(100vw - 1.5rem));
+    height: auto;
+    margin: 0;
+    padding: 0.625rem 1.125rem;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    text-align: center;
+    text-decoration: none;
+    translate: -50% 0;
+    border-radius: 0.625rem;
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    color: rgb(var(--color-text));
+    background-color: rgb(var(--color-surface));
+    box-shadow:
+      0 0 0 2px rgb(var(--color-primary)),
+      0 6px 20px rgb(var(--color-black) / 0.12);
+    transition:
+      background-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .skip-link:focus-visible:hover {
+    background-color: rgb(var(--color-card));
+    box-shadow:
+      0 0 0 2px rgb(var(--color-primary-hover)),
+      0 8px 24px rgb(var(--color-black) / 0.14);
+  }
+
+  @media (min-width: 1024px) {
+    .skip-link:focus-visible {
+      inset-inline: auto auto;
+      inset-inline-start: 1.25rem;
+      translate: 0 0;
+      text-align: start;
+    }
+  }
+
+  #presentation {
+    scroll-margin-top: var(--header-height);
+  }
+}
+
+.search-result-link:focus-visible {
+  outline: none;
+  background-color: rgb(var(--color-card) / 0.65);
+  box-shadow: inset 0 0 0 2px rgb(var(--color-primary) / 0.75);
+}
+.dark .search-result-link:focus-visible {
+  background-color: rgb(var(--color-card) / 0.45);
 }

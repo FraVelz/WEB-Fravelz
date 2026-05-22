@@ -50,9 +50,7 @@ export default function HeroCvCopyActions({
             "dark:shadow-black/20 dark:ring-white/[0.08]",
             "dark:hover:border-cyan-400/55 dark:hover:bg-slate-800 dark:hover:text-cyan-100",
             "dark:hover:shadow-cyan-950/20",
-            "focus-visible:z-[1] focus-visible:outline-none",
-            "focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2",
-            "focus-visible:ring-offset-white dark:focus-visible:ring-cyan-400 dark:focus-visible:ring-offset-gray-950",
+            "focus-visible:z-[1]",
           )}
           data-i18n="hero_cv_button"
         >

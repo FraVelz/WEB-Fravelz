@@ -1,6 +1,11 @@
 {
   "about_read_more": "Read more",
   "about_read_less": "Read less",
+  "about_history_region_aria": "Personal history",
+  "about_history_tabs_aria": "History stages",
+  "about_history_prev": "Previous stage",
+  "about_history_next": "Next stage",
+  "about_history_go_to_year": "Go to {year}",
 
   "about_intro_text": "Hi! I'm Fravelz. Computing and software development have interested me since I was a kid, especially web development.",
   "about_current_text": "I'm a frontend developer specialized in web layout, creating fluid, animated, functional, minimalist interfaces. I work with proper semantics and SEO, integrate backend data and services into the frontend, and I also focus on structuring and maintaining frontend code correctly.",

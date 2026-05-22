@@ -1,0 +1,3 @@
+.revealScroll {
+  will-change: transform, opacity;
+}

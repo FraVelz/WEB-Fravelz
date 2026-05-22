@@ -1,14 +1,12 @@
-import gsap from "gsap";
-
-import ScrollTrigger from "gsap/ScrollTrigger";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 // Store references so we can destroy them later
 let horizontalAnim: gsap.core.Tween | null = null;
 let navClickHandler: ((e: MouseEvent) => void) | null = null;
+
+export function getHorizontalAnim() {
+  return horizontalAnim;
+}
 
 export function horizontalScroll() {
   // Get all panels that will move horizontally
@@ -118,13 +116,10 @@ export function desactiveHorizontalScroll() {
     navClickHandler = null;
   }
 
-  // Kill the horizontal animation
+  // Kill only the horizontal animation (preserve section reveal triggers)
   if (horizontalAnim) {
     horizontalAnim.scrollTrigger?.kill();
     horizontalAnim.kill();
     horizontalAnim = null;
   }
-
-  // Kill any remaining ScrollTriggers
-  ScrollTrigger.getAll().forEach((st) => st.kill());
 }
