@@ -30,7 +30,7 @@ export default async function ProjectsSection({ lang, classname = "" }: { lang: 
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <div key={project.slug} data-project-card>
+              <div key={project.slug} className="h-full" data-project-card>
                 <ProjectCard project={project} lang={lang} />
               </div>
             ))}

@@ -96,38 +96,41 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
       {/* Solo desktop: fuera del flujo flex del contenido; anclado abajo del hero */}
       <div className="pointer-events-none absolute inset-x-0 bottom-8 z-10 hidden justify-center lg:flex">
-        <div className="pointer-events-auto flex">
-          <div
-            className={cn(
-              "flex animate-bounce gap-1 rounded-xl border-2 border-cyan-700/80 p-2 text-cyan-700",
-              "transition-all select-none",
-              "hover:border-cyan-400/60 hover:shadow-lg",
-              "hover:shadow-cyan-500/20 dark:border-cyan-400/40 dark:text-cyan-400",
-            )}
+        <a
+          href="#projects"
+          className={cn(
+            "hero-scroll-hint pointer-events-auto flex animate-bounce items-center gap-1 rounded-xl",
+            "border-2 border-cyan-700/80 p-2 text-cyan-700 no-underline",
+            "transition-all select-none",
+            "hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20",
+            "dark:border-cyan-400/40 dark:text-cyan-400",
+          )}
+          data-i18n="ir_abajo"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="size-6"
+            aria-hidden
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-            </svg>
-            <span data-i18n="ir_abajo">{t.ir_abajo}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-            </svg>
-          </div>
-        </div>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+          </svg>
+          <span>{t.ir_abajo}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="size-6"
+            aria-hidden
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+          </svg>
+        </a>
       </div>
     </section>
   );

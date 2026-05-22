@@ -8,6 +8,35 @@ export function getHorizontalAnim() {
   return horizontalAnim;
 }
 
+function getPanels() {
+  return gsap.utils.toArray<HTMLElement>(".panel");
+}
+
+/** Paneles fuera de vista no reciben Tab (inert). El contenedor `.horizontal` no es enfocable. */
+export function syncPanelsForHorizontalProgress(progress: number) {
+  const panels = getPanels();
+  if (panels.length === 0) return;
+
+  const index = Math.min(panels.length - 1, Math.max(0, Math.round(progress * (panels.length - 1))));
+
+  panels.forEach((panel, i) => {
+    if (i === index) panel.removeAttribute("inert");
+    else panel.setAttribute("inert", "");
+  });
+}
+
+export function clearHorizontalPanelInert() {
+  getPanels().forEach((panel) => panel.removeAttribute("inert"));
+}
+
+function focusPanel(panel: HTMLElement) {
+  const heading = panel.querySelector<HTMLElement>("h2, h3");
+  const focusable = panel.querySelector<HTMLElement>(
+    "a[href], button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled)",
+  );
+  (focusable ?? heading)?.focus({ preventScroll: true });
+}
+
 export function horizontalScroll() {
   // Get all panels that will move horizontally
   const sections = gsap.utils.toArray<HTMLElement>(".panel");
@@ -38,8 +67,12 @@ export function horizontalScroll() {
 
       // Define how long the scroll should last
       end: () => "+=" + (container.scrollWidth - window.innerWidth),
+
+      onUpdate: (self) => syncPanelsForHorizontalProgress(self.progress),
     },
   });
+
+  syncPanelsForHorizontalProgress(horizontalAnim.scrollTrigger?.progress ?? 0);
 
   // Handler for header navigation links
   // (Link.astro does not handle #header-nav-desktop correctly on desktop)
@@ -95,6 +128,10 @@ export function horizontalScroll() {
       scrollTo: { y: scrollPosition, autoKill: false },
       duration: 1,
       ease: "power2.inOut",
+      onComplete: () => {
+        syncPanelsForHorizontalProgress(progress);
+        focusPanel(panel as HTMLElement);
+      },
     });
 
     history.replaceState(null, "", id);
@@ -122,4 +159,6 @@ export function desactiveHorizontalScroll() {
     horizontalAnim.kill();
     horizontalAnim = null;
   }
+
+  clearHorizontalPanelInert();
 }

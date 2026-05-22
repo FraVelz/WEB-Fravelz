@@ -33,8 +33,8 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
             <Link
               href={`/${lang}#projects`}
               className={cn(
-                "mb-6 inline-flex items-center gap-2 text-cyan-600 transition-colors hover:text-cyan-700",
-                "dark:text-cyan-400 dark:hover:text-cyan-300",
+                "focus-ring mb-6 inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-cyan-600 transition-colors",
+                "hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300",
               )}
               data-i18n="projects_back"
             >
@@ -65,7 +65,9 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
-              <ProjectCard key={p.slug} project={p} lang={lang as Language} />
+              <div key={p.slug} className="h-full">
+                <ProjectCard project={p} lang={lang as Language} />
+              </div>
             ))}
           </div>
         </div>

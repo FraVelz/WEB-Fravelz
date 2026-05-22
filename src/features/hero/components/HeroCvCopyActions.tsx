@@ -40,7 +40,7 @@ export default function HeroCvCopyActions({
           type="button"
           onClick={() => openViewer(CV_PDF_PATH, cvModalTitle)}
           className={cn(
-            "group inline-flex min-h-[2.625rem] cursor-pointer items-center justify-center gap-2",
+            "hero-btn-outline group inline-flex min-h-[2.625rem] cursor-pointer items-center justify-center gap-2",
             "rounded-lg px-3.5 text-sm font-semibold sm:px-4",
             "border-2 border-slate-200/90 bg-white/95 text-slate-800 shadow-sm ring-1 backdrop-blur-sm",
             "ring-slate-900/[0.05] transition-all",

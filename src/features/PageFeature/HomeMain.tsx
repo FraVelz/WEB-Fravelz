@@ -42,6 +42,9 @@ export default async function HomeMain({ lang }: { lang: Language }) {
         </section>
 
         <div className="horizontal relative w-full overflow-x-hidden">
+          <h2 className="sr-only" data-i18n="home_horizontal_region_aria">
+            {t.home_horizontal_region_aria ?? "Portfolio sections with horizontal scroll"}
+          </h2>
           <div className="containera flex min-h-full max-lg:flex-col max-lg:gap-14">
             <ProjectsSection
               lang={lang}

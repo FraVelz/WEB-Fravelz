@@ -62,7 +62,8 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
         <Link
           href={`/${lang}/projects`}
           className={cn(
-            "mb-8 inline-flex cursor-pointer items-center gap-2 text-cyan-600 transition-colors hover:text-cyan-700",
+            "project-page-back-link -ml-1 mb-8 inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-0.5",
+            "text-cyan-600 transition-colors hover:text-cyan-700",
             "dark:text-cyan-400 dark:hover:text-cyan-300",
           )}
           data-i18n="projects_back"
@@ -132,7 +133,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold",
+                  "project-page-cta-primary inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold",
                   "bg-gradient-to-r from-[rgb(var(--color-primary))] to-[rgb(var(--color-info))]",
                   "text-[rgb(var(--color-text-inverse))]",
                   "shadow-[0_4px_18px_rgb(var(--color-primary)/0.38)]",
@@ -156,9 +157,9 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-lg border border-[rgb(var(--color-drawer-border))]",
+                  "project-page-cta-secondary inline-flex items-center gap-2 rounded-lg",
                   "bg-[rgb(var(--color-text))] px-6 py-3 font-semibold text-[rgb(var(--color-text-inverse))]",
-                  "hover:opacity-80",
+                  "transition-[border-color,box-shadow,opacity] hover:opacity-80",
                 )}
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
