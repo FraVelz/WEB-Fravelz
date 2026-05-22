@@ -72,6 +72,16 @@
     0 0 0 2px rgb(var(--color-text)),
     0 0 0 4px rgb(var(--color-surface));
 
+  --hero-btn-solid-focus-shadow:
+    0 0 0 2px rgb(255 255 255),
+    0 0 0 4px rgb(var(--color-text) / 0.85);
+  --hero-btn-outline-focus-shadow:
+    0 0 0 2px rgb(var(--color-text) / 0.55),
+    0 0 0 4px rgb(var(--color-surface));
+  --hero-scroll-hint-focus-shadow:
+    0 0 0 2px rgb(var(--color-primary)),
+    0 0 0 4px rgb(var(--color-surface));
+
   /* Drawer / panel lateral — bordes sutiles (rgb(var(--color-drawer-border))) */
   --color-drawer-border: 226 232 240; /* slate-200 */
 
@@ -104,6 +114,16 @@
   --color-theme-toggle-track-hover: 75 85 99; /* gray-600 — carril más claro al hover */
   --theme-toggle-hover-shadow: 0 0 0 1px rgb(var(--color-primary) / 0.85);
   --theme-toggle-focus-shadow:
+    0 0 0 2px rgb(var(--color-primary)),
+    0 0 0 4px rgb(var(--color-bg));
+
+  --hero-btn-solid-focus-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary));
+  --hero-btn-outline-focus-shadow:
+    0 0 0 2px rgb(var(--color-primary)),
+    0 0 0 4px rgb(var(--color-bg));
+  --hero-scroll-hint-focus-shadow:
     0 0 0 2px rgb(var(--color-primary)),
     0 0 0 4px rgb(var(--color-bg));
 
@@ -154,6 +174,15 @@
       --theme-toggle-focus-shadow:
         0 0 0 2px rgb(var(--color-primary)),
         0 0 0 4px rgb(var(--color-bg));
+      --hero-btn-solid-focus-shadow:
+        0 0 0 2px rgb(var(--color-bg)),
+        0 0 0 4px rgb(var(--color-primary));
+      --hero-btn-outline-focus-shadow:
+        0 0 0 2px rgb(var(--color-primary)),
+        0 0 0 4px rgb(var(--color-bg));
+      --hero-scroll-hint-focus-shadow:
+        0 0 0 2px rgb(var(--color-primary)),
+        0 0 0 4px rgb(var(--color-bg));
       --color-drawer-border: 55 65 81;
       color: rgb(var(--color-text));
       background-color: rgb(var(--color-bg));
@@ -202,9 +231,9 @@
   }
 
   :where(
-    a:any-link:not(.skip-link):not(.link-animation):not(.btn-3):not(.about-link):not(.search-result-link),
+    a:any-link:not(.skip-link):not(.link-animation):not(.btn-3):not(.project-card):not(.projects-view-all-btn):not(.project-page-back-link):not(.project-page-cta-primary):not(.project-page-cta-secondary):not(.about-link):not(.search-result-link):not(.hero-scroll-hint),
     area[href],
-    button:not(:disabled):not(.theme-toggle-btn),
+    button:not(:disabled):not(.theme-toggle-btn):not(.hero-btn-solid):not(.hero-btn-outline):not(.project-page-carousel-btn):not(.project-page-carousel-dot),
     summary,
     [role="button"],
     [role="link"],
@@ -513,6 +542,22 @@ html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
   color: rgb(var(--color-theme-toggle-moon));
 }
 
+/* Hero CTAs — sombras Tailwind no deben tapar el anillo de foco */
+.hero-btn-solid:focus-visible,
+.hero-btn-outline:focus-visible,
+.hero-scroll-hint:focus-visible {
+  outline: none;
+}
+.hero-btn-solid:focus-visible {
+  box-shadow: var(--hero-btn-solid-focus-shadow);
+}
+.hero-btn-outline:focus-visible {
+  box-shadow: var(--hero-btn-outline-focus-shadow);
+}
+.hero-scroll-hint:focus-visible {
+  box-shadow: var(--hero-scroll-hint-focus-shadow);
+}
+
 /* About section timeline (former AboutMeSection.astro) */
 .about-timeline-line,
 .about-timeline-dot {
@@ -604,6 +649,26 @@ html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
   color: rgb(var(--color-warning));
 }
 
+/* Project cards (home + /projects) */
+.project-card:focus-visible {
+  outline: none;
+  border-color: rgb(var(--color-primary));
+  box-shadow:
+    var(--focus-ring-shadow),
+    0 16px 40px rgb(var(--color-black) / 0.12);
+}
+.dark .project-card:focus-visible {
+  box-shadow:
+    var(--focus-ring-shadow),
+    0 16px 40px rgb(var(--color-black) / 0.35);
+}
+.project-card:focus-visible .project-card__title {
+  color: rgb(var(--color-primary));
+}
+.dark .project-card:focus-visible .project-card__title {
+  color: rgb(var(--color-primary));
+}
+
 /* Button ver todos proyectos */
 .btn-3 {
   align-items: center;
@@ -652,6 +717,58 @@ html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
   box-shadow:
     0 0 0 2px rgb(var(--color-btn-on-base)),
     0 0 0 4px rgb(var(--color-primary));
+}
+.projects-view-all-btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-surface)),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 10px 28px rgb(var(--color-primary) / 0.28);
+}
+.dark .projects-view-all-btn:focus-visible {
+  box-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 10px 28px rgb(var(--color-primary) / 0.22);
+}
+
+/* Project detail page (/[lang]/projects/[slug]) */
+.project-page-back-link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+.project-page-cta-primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(255 255 255),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 4px 18px rgb(var(--color-primary) / 0.38);
+}
+.dark .project-page-cta-primary:focus-visible {
+  box-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 4px 18px rgb(var(--color-primary) / 0.45);
+}
+.project-page-cta-secondary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-surface)),
+    0 0 0 4px rgb(var(--color-primary));
+}
+.dark .project-page-cta-secondary:focus-visible {
+  box-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary));
+}
+.project-page-carousel-btn:focus-visible {
+  outline: none;
+  border-color: rgb(var(--color-primary));
+  box-shadow: var(--focus-ring-shadow);
+}
+.project-page-carousel-dot:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
 }
 
 .drawer-panel {

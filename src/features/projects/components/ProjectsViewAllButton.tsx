@@ -13,7 +13,7 @@ export default async function ProjectsViewAllButton({ lang }: { lang: Language }
     <Link
       style={{ "--clr": "rgb(var(--color-btn-base))" } as React.CSSProperties}
       className={cn(
-        "btn-3 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500",
+        "btn-3 projects-view-all-btn inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500",
         "px-6 py-3 font-semibold text-white shadow-lg transition-all",
         "hover:from-cyan-600 hover:to-blue-600 hover:shadow-xl",
       )}

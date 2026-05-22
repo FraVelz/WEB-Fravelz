@@ -69,9 +69,9 @@ export function ListImagesViewer({
   if (slides.length === 0) return null;
 
   const navBtnClass = cn(
-    "cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full",
+    "project-page-carousel-btn cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full",
     "border border-gray-200/90 bg-white/95 text-gray-800 shadow-lg backdrop-blur-sm",
-    "transition-colors hover:border-cyan-500/60 hover:text-cyan-700",
+    "transition-[border-color,box-shadow,color] hover:border-cyan-500/60 hover:text-cyan-700",
     "dark:border-gray-600 dark:bg-gray-900/95 dark:text-gray-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300",
     "disabled:pointer-events-none disabled:opacity-40",
   );
@@ -158,12 +158,17 @@ export function ListImagesViewer({
               type="button"
               aria-label={`${carouselRegionAriaLabel}: ${i + 1} / ${count}`}
               aria-pressed={i === displayIndex}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300",
-                i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-gray-300 dark:bg-gray-600",
-              )}
+              className="project-page-carousel-dot flex h-8 w-8 items-center justify-center rounded-full"
               onClick={() => setIndex(i)}
-            />
+            >
+              <span
+                className={cn(
+                  "block h-2 rounded-full transition-all duration-300",
+                  i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-gray-300 dark:bg-gray-600",
+                )}
+                aria-hidden
+              />
+            </button>
           ))}
         </div>
       ) : null}
