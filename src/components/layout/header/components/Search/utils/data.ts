@@ -6,15 +6,3 @@ export type SearchResult =
   | { type: "technology"; id: string; name: string }
   | { type: "certificate"; id: string; title: string; issuer: string }
   | { type: "page"; url: string; label: string; snippet: string };
-
-export const LOCALE_FILES = [
-  "common",
-  "hero",
-  "music",
-  "certifications",
-  "info",
-  "technologies",
-  "about",
-  "hobbies",
-  "footer",
-];

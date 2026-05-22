@@ -17,9 +17,13 @@ type PersistMode = "explicit" | "auto";
 export default function ToggleTheme({
   className,
   tabIndex,
+  themeToggleLabel = "Cambiar tema",
+  themeToggleAria = "Cambiar entre tema claro y oscuro",
 }: {
   className?: string;
   tabIndex?: number;
+  themeToggleLabel?: string;
+  themeToggleAria?: string;
 }) {
   const applyTheme = useCallback((isDark: boolean, persist: PersistMode = "explicit") => {
     const root = document.documentElement;
@@ -103,9 +107,7 @@ export default function ToggleTheme({
         className,
       )}
     >
-      <span className="sr-only" data-i18n="theme_toggle_label">
-        Cambiar tema
-      </span>
+      <span className="sr-only">{themeToggleLabel}</span>
       <button
         className={cn(
           "theme-toggle-btn relative h-8 w-14 shrink-0 cursor-pointer rounded-full border border-transparent",
@@ -113,8 +115,7 @@ export default function ToggleTheme({
         )}
         type="button"
         tabIndex={tabIndex}
-        aria-label="Cambiar entre tema claro y oscuro"
-        data-i18n-attr="aria-label:theme_toggle_aria"
+        aria-label={themeToggleAria}
         onClick={handleToggle}
       >
         <span

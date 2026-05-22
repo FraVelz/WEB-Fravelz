@@ -10,7 +10,7 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
     <div className="prose prose-lg dark:prose-invert max-w-none">
       {project.whatILearned?.[L]?.length ? (
         <section className="mb-12" id="project-what-i-learned-section">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100" data-i18n="projects_what_i_learned">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
             {t.projects_what_i_learned || "Qué aprendí"}
           </h2>
           <ul className="space-y-3" id="project-what-i-learned-list">
@@ -38,7 +38,7 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
 
       {project.extraInfo?.[L]?.length ? (
         <section className="mb-12" id="project-extra-info-section">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100" data-i18n="projects_extra_info">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
             {t.projects_extra_info || "Información extra"}
           </h2>
           <ul
@@ -58,7 +58,7 @@ export function SectionsDetails({ L, project }: { L: Language; project: Project 
         <section className="mb-12" id="project-technical-details-section">
           <h2
             className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100"
-            data-i18n="projects_technical_details"
+
           >
             {t.projects_technical_details || "Detalles Técnicos"}
           </h2>

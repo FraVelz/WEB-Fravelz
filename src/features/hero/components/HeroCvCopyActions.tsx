@@ -16,6 +16,7 @@ const CV_PDF_PATH = `/pdfs/${encodeURIComponent("CV - ATS Harvard.pdf")}`;
 type HeroCvCopyActionsProps = {
   email: string;
   copySuccessText: string;
+  copyEmailAriaLabel?: string;
   cvButtonText: string;
   cvModalTitle: string;
   closeText: string;
@@ -25,6 +26,7 @@ type HeroCvCopyActionsProps = {
 export default function HeroCvCopyActions({
   email,
   copySuccessText,
+  copyEmailAriaLabel,
   cvButtonText,
   cvModalTitle,
   closeText,
@@ -35,7 +37,7 @@ export default function HeroCvCopyActions({
   return (
     <>
       <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-        <CopyEmailButton email={email} successText={copySuccessText} variant="solid" />
+        <CopyEmailButton email={email} successText={copySuccessText} ariaLabel={copyEmailAriaLabel} variant="solid" />
         <button
           type="button"
           onClick={() => openViewer(CV_PDF_PATH, cvModalTitle)}
@@ -52,7 +54,7 @@ export default function HeroCvCopyActions({
             "dark:hover:shadow-cyan-950/20",
             "focus-visible:z-[1]",
           )}
-          data-i18n="hero_cv_button"
+
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

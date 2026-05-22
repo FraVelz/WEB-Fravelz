@@ -1,8 +1,9 @@
-import { LANGUAGES, type Lang } from "./data";
+import { getLangFromPath as getLangFromPathShared } from "@/lib/lang-from-path";
+
+import type { Lang } from "./data";
 
 export function getLangFromPath(): Lang {
-  const segment = window.location.pathname.split("/").filter(Boolean)[0];
-  return LANGUAGES.includes(segment as Lang) ? (segment as Lang) : "es";
+  return getLangFromPathShared();
 }
 
 export function getBaseUrl(): string {

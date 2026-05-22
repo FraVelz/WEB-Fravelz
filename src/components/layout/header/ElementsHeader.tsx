@@ -5,22 +5,23 @@ import ToggleTheme from "./components/ToggleTheme";
 import LanguageSelect from "./LanguageSelect";
 import { GITHUB_MARK_PATH } from "@/utils/icons/github-mark";
 import { cn } from "@/utils/cn";
+import type { Language } from "@/lib/i18n-routing";
 
-export default function ElementsHeader({ id, t }: { id: string; t: Record<string, string> }) {
+export default function ElementsHeader({ id, t, lang }: { id: string; t: Record<string, string>; lang: Language }) {
   return (
     <>
       <div id={id} className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8">
         <NavLink href="#presentation">
-          <span data-i18n="nav_presentation">{t.nav_presentation}</span>
+          <span>{t.nav_presentation}</span>
         </NavLink>
         <NavLink href="#projects">
-          <span data-i18n="nav_projects">{t.nav_projects}</span>
+          <span>{t.nav_projects}</span>
         </NavLink>
         <NavLink href="#technologies">
-          <span data-i18n="nav_technologies">{t.nav_technologies}</span>
+          <span>{t.nav_technologies}</span>
         </NavLink>
         <NavLink href="#about-me">
-          <span data-i18n="nav_about">{t.nav_about}</span>
+          <span>{t.nav_about}</span>
         </NavLink>
       </div>
 
@@ -31,13 +32,13 @@ export default function ElementsHeader({ id, t }: { id: string; t: Record<string
         )}
       />
 
-      <div
-        id="header-opc1"
-        className="flex items-center justify-between gap-3 sm:items-center lg:gap-5"
-      >
-        <LanguageSelect />
+      <div id="header-opc1" className="flex items-center justify-between gap-3 sm:items-center lg:gap-5">
+        <LanguageSelect
+          selectLanguageLabel={t.nav_select_language}
+          selectLanguageAria={t.nav_select_language_aria}
+        />
 
-        <ToggleTheme />
+        <ToggleTheme themeToggleLabel={t.theme_toggle_label} themeToggleAria={t.theme_toggle_aria} />
       </div>
 
       <div
@@ -68,7 +69,7 @@ export default function ElementsHeader({ id, t }: { id: string; t: Record<string
           </svg>
         </a>
 
-        <Search />
+        <Search t={t} lang={lang} />
       </div>
     </>
   );

@@ -13,18 +13,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
   const projectUrl = `/${currentLang}/projects/${project.slug}`;
 
   return (
-    <article
-      className="h-full"
-      data-project-card-content
-      data-title-es={project.title.es}
-      data-title-en={project.title.en}
-      data-title-ru={project.title.ru}
-      data-title-zh={project.title.zh}
-      data-desc-es={project.shortDescription.es}
-      data-desc-en={project.shortDescription.en}
-      data-desc-ru={project.shortDescription.ru}
-      data-desc-zh={project.shortDescription.zh}
-    >
+    <article className="h-full" data-project-card-content>
       <Link
         href={projectUrl}
         className={cn(
@@ -46,7 +35,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           {project.isComingSoon && (
             <div
               className="absolute top-3 right-3 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white"
-              data-i18n="projects_coming_soon"
+
             >
               {t.projects_coming_soon || "Próximamente"}
             </div>
@@ -54,7 +43,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           {project.featured && (
             <div
               className="absolute top-3 left-3 rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white"
-              data-i18n="projects_featured"
+
             >
               {t.projects_featured || "Destacado"}
             </div>
@@ -62,14 +51,14 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           {project.inDevelopment ? (
             <div
               className="absolute bottom-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white"
-              data-i18n="project_status_development"
+
             >
               {t.project_status_development ?? "En desarrollo"}
             </div>
           ) : (
             <div
               className="absolute bottom-3 left-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white"
-              data-i18n="project_status_finished"
+
             >
               {t.project_status_finished ?? "Finalizado"}
             </div>
@@ -119,7 +108,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
               "group-hover:underline group-focus-visible:underline",
               "dark:text-cyan-400",
             )}
-            data-i18n="projects_view_project"
+
           >
             {t.projects_view_project || "Ver Proyecto"}
             <svg

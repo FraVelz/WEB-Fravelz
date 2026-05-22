@@ -48,7 +48,7 @@ export default function AvailabilityBadge({ status, text, className }: Availabil
           <span className={cn("inline-flex size-2.5 rounded-full", dotClass[status])} />
         )}
       </span>
-      <span data-i18n={i18nKey}>{text}</span>
+      <span>{text}</span>
     </div>
   );
 }

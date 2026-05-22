@@ -12,10 +12,10 @@ export default async function ContactSection({ lang }: { lang: Language }) {
   return (
     <section id="contacto" className="px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-2xl">
-        <h2 className="mb-4 text-center text-4xl font-bold text-gray-900 dark:text-gray-100" data-i18n="contact_title">
+        <h2 className="mb-4 text-center text-4xl font-bold text-gray-900 dark:text-gray-100">
           {t.contact_title}
         </h2>
-        <p className="mb-8 text-center text-slate-600 dark:text-gray-400" data-i18n="contact_subtitle">
+        <p className="mb-8 text-center text-slate-600 dark:text-gray-400">
           {t.contact_subtitle}
         </p>
 
@@ -31,10 +31,10 @@ export default async function ContactSection({ lang }: { lang: Language }) {
               "dark:border-gray-600",
             )}
           >
-            <span className="text-sm font-medium text-slate-700 dark:text-gray-300" data-i18n="contact_copy_label">
+            <span className="text-sm font-medium text-slate-700 dark:text-gray-300">
               {t.contact_copy_label}
             </span>
-            <CopyEmailButton email={email} successText={t.hero_copy_success} />
+            <CopyEmailButton email={email} successText={t.hero_copy_success} ariaLabel={t.copy_email_aria} />
           </div>
 
           <ContactForm email={email} t={t} />

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { languages } from "@/lib/i18n-routing";
+import { getLangFromPath } from "@/lib/lang-from-path";
 import { useEffect, useRef } from "react";
 
 const LANGUAGE_ICON_PATH =
@@ -9,19 +9,21 @@ const LANGUAGE_ICON_PATH =
   "2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 " +
   "1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802";
 
-function langFromPath(): string {
-  const seg = window.location.pathname.split("/").filter(Boolean);
-  const found = seg.find((s) => languages.includes(s as (typeof languages)[number]));
-  return found ?? "es";
-}
-
-export default function LanguageSelect({ tabIndex }: { tabIndex?: number }) {
+export default function LanguageSelect({
+  tabIndex,
+  selectLanguageLabel = "Seleccionar idioma",
+  selectLanguageAria = "Seleccionar idioma de la página",
+}: {
+  tabIndex?: number;
+  selectLanguageLabel?: string;
+  selectLanguageAria?: string;
+}) {
   const ref = useRef<HTMLSelectElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    el.value = langFromPath();
+    el.value = getLangFromPath();
     const onChange = () => {
       const lang = el.value;
       document.cookie = `lang=${lang}; path=/; max-age=31536000`;
@@ -38,8 +40,8 @@ export default function LanguageSelect({ tabIndex }: { tabIndex?: number }) {
 
   return (
     <div className="language-select-control group/language inline-flex items-center gap-1 rounded-lg p-1">
-      <label htmlFor="select-language" className="sr-only" data-i18n="nav_select_language">
-        Seleccionar idioma
+      <label htmlFor="select-language" className="sr-only">
+        {selectLanguageLabel}
       </label>
 
       <svg
@@ -73,8 +75,7 @@ export default function LanguageSelect({ tabIndex }: { tabIndex?: number }) {
           "group-has-[select:focus-visible]/language:text-cyan-800",
           "dark:group-has-[select:focus-visible]/language:text-cyan-300",
         )}
-        aria-label="Seleccionar idioma de la página"
-        data-i18n-attr="aria-label:nav_select_language_aria"
+        aria-label={selectLanguageAria}
       >
         <option value="es">Español</option>
         <option value="en">English</option>

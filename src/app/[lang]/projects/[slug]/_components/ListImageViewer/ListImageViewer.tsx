@@ -1,15 +1,11 @@
 "use client";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/ChevronIcons";
+import { useCarouselIndex } from "@/hooks/useCarouselIndex";
 import { cn } from "@/utils/cn";
-import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo } from "react";
 
-import {
-  buildSlides,
-  ProjectSlideImage,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ListImagesViewerProps,
-} from "./ListImageViewer.lib";
+import { buildSlides, ProjectSlideImage, ListImagesViewerProps } from "./ListImageViewer.lib";
 
 export function ListImagesViewer({
   project,
@@ -21,17 +17,11 @@ export function ListImagesViewer({
 }: ListImagesViewerProps) {
   const slides = useMemo(() => buildSlides(project, title), [project, title]);
   const count = slides.length;
-  const [index, setIndex] = useState(0);
-  const displayIndex = count > 0 ? ((index % count) + count) % count : 0;
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  const go = useCallback(
-    (delta: number) => {
-      if (count <= 1) return;
-      setIndex((i) => (i + delta + count) % count);
-    },
-    [count],
-  );
+  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd } = useCarouselIndex({
+    count,
+    swipeThreshold: 56,
+  });
 
   const navigateCarousel = useEffectEvent((delta: number) => {
     go(delta);
@@ -53,19 +43,6 @@ export function ListImagesViewer({
     return () => window.removeEventListener("keydown", onKey);
   }, [count]);
 
-  function onCarouselTouchEnd(e: React.TouchEvent) {
-    const start = touchStartRef.current;
-    touchStartRef.current = null;
-    if (!start || count <= 1) return;
-    const t = e.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-    if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy)) {
-      go(dx > 0 ? -1 : 1);
-    }
-  }
-
   if (slides.length === 0) return null;
 
   const navBtnClass = cn(
@@ -86,11 +63,8 @@ export function ListImagesViewer({
 
       <div
         className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-gray-200/80 dark:ring-gray-700/80"
-        onTouchStart={(ev) => {
-          if (!ev.touches[0]) return;
-          touchStartRef.current = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
-        }}
-        onTouchEnd={onCarouselTouchEnd}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-gray-100 sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none dark:bg-gray-950">
           <div

@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/ChevronIcons";
+import { useCarouselIndex } from "@/hooks/useCarouselIndex";
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
 
@@ -26,22 +28,6 @@ type AboutHistorySliderProps = {
   labels: AboutHistorySliderLabels;
 };
 
-function ChevronLeftIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-    </svg>
-  );
-}
-
-function ChevronRightIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  );
-}
-
 function buildLinks(entry: HistoryEntry, lang: Language, navCertifications: string) {
   const links: { href: string; label: string; external?: boolean }[] = [];
 
@@ -61,23 +47,18 @@ function formatGoToLabel(template: string, year: string) {
 
 export function AboutHistorySlider({ lang, entries, navCertifications, labels }: AboutHistorySliderProps) {
   const count = entries.length;
-  const [index, setIndex] = useState(0);
-  const displayIndex = count > 0 ? ((index % count) + count) % count : 0;
   const rootRef = useRef<HTMLDivElement>(null);
   const tabsListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd, onKeyDown } = useCarouselIndex({
+    count,
+    swipeThreshold: 48,
+    stopPropagationOnSwipe: true,
+  });
 
   const entry = entries[displayIndex];
   const links = entry ? buildLinks(entry, lang, navCertifications) : [];
-
-  const go = useCallback(
-    (delta: number) => {
-      if (count <= 1) return;
-      setIndex((i) => (i + delta + count) % count);
-    },
-    [count],
-  );
 
   useEffect(() => {
     const list = tabsListRef.current;
@@ -87,40 +68,6 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
     const targetLeft = tab.offsetLeft - list.clientWidth / 2 + tab.offsetWidth / 2;
     list.scrollTo({ left: Math.max(0, targetLeft), behavior: "smooth" });
   }, [displayIndex]);
-
-  function onKeyDown(e: React.KeyboardEvent) {
-    if (count <= 1) return;
-    if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      e.stopPropagation();
-      go(-1);
-    }
-    if (e.key === "ArrowRight") {
-      e.preventDefault();
-      e.stopPropagation();
-      go(1);
-    }
-  }
-
-  function onTouchStart(ev: React.TouchEvent) {
-    if (!ev.touches[0]) return;
-    touchStartRef.current = { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
-  }
-
-  function onTouchEnd(e: React.TouchEvent) {
-    const start = touchStartRef.current;
-    touchStartRef.current = null;
-    if (!start || count <= 1) return;
-    const t = e.changedTouches[0];
-    if (!t) return;
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
-      e.preventDefault();
-      e.stopPropagation();
-      go(dx > 0 ? -1 : 1);
-    }
-  }
 
   useEffect(() => {
     const el = rootRef.current;
@@ -252,7 +199,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
             <div className="min-w-0 flex-1">
               <p
                 className="text-xs font-medium tracking-widest text-[rgb(var(--color-text-muted))] uppercase"
-                data-i18n="info_about_subtitle"
+
               >
                 {labels.stageLabel}
               </p>
@@ -262,7 +209,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
 
           <p
             className="text-left text-sm leading-relaxed whitespace-pre-wrap text-[rgb(var(--color-text))] sm:text-base sm:leading-7 lg:text-[1.0625rem]"
-            data-i18n={entry.i18nKey}
+
           >
             {entry.text}
           </p>
@@ -288,7 +235,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                     key={link.href}
                     href={link.href}
                     className="about-link text-sm font-semibold underline underline-offset-4 sm:text-base"
-                    data-i18n="nav_certifications"
+
                   >
                     {link.label}
                   </Link>
@@ -305,7 +252,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
             <button type="button" className={navBtnClass} onClick={() => go(-1)} aria-label={labels.prev}>
               <ChevronLeftIcon className="h-5 w-5" />
             </button>
-            <p className="min-w-16 text-center text-sm tabular-nums text-[rgb(var(--color-text-muted))]">
+            <p className="min-w-16 text-center text-sm text-[rgb(var(--color-text-muted))] tabular-nums">
               {displayIndex + 1} / {count}
             </p>
             <button type="button" className={navBtnClass} onClick={() => go(1)} aria-label={labels.next}>
@@ -322,7 +269,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                 aria-pressed={i === displayIndex}
                 className={cn(
                   "about-history-dot h-2.5 rounded-full transition-all duration-300",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary)/0.45)]",
+                  "focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary)/0.45)] focus-visible:outline-none",
                   i === displayIndex
                     ? "w-9 bg-[rgb(var(--color-primary))]"
                     : "w-2.5 bg-[rgb(var(--color-card))] hover:bg-[rgb(var(--color-primary)/0.35)]",

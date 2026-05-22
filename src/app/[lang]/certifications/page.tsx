@@ -53,7 +53,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
           >
             <path fillRule="evenodd" d={certBackArrowPath} clipRule="evenodd" />
           </svg>
-          <span data-i18n="cert_back_to_about">{t.cert_back_to_about || "Volver a Sobre Mí"}</span>
+          <span>{t.cert_back_to_about || "Volver a Sobre Mí"}</span>
         </Link>
       </div>
 
@@ -76,7 +76,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
                 <path d="M3.26 10.226 11 13.722v7.028a.75.75 0 0 1-1.053.69l-6.75-3a.75.75 0 0 1-.447-.69v-7.524Z" />
                 <path d="M12.5 20.75v-7.028l7.74-3.496v7.524a.75.75 0 0 1-.447.69l-6.75 3a.75.75 0 0 1-1.043-.69Z" />
               </svg>
-              <span data-i18n="cert_formacion_badge">{t.cert_formacion_badge || "Formación y certificados"}</span>
+              <span>{t.cert_formacion_badge || "Formación y certificados"}</span>
             </div>
 
             <h1 className="text-center text-3xl font-bold text-slate-900 md:text-4xl dark:text-slate-50">
@@ -94,13 +94,13 @@ export default async function CertificationsPage({ params }: { params: Promise<{
                   "dark:border-cyan-700/60 dark:bg-cyan-900/40 dark:text-cyan-200",
                 )}
               >
-                <span data-i18n="cert_web_focus">{t.cert_web_focus || "Enfocado en frontend / web"}</span>
+                <span>{t.cert_web_focus || "Enfocado en frontend / web"}</span>
               </span>
             </div>
 
             {webCerts.length === 0 && hixecCerts.length === 0 && hack4uCerts.length === 0 && otherCerts.length === 0 ? (
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                <span data-i18n="cert_web_empty">{t.cert_web_empty || "Aún no he subido certificados web aquí."}</span>
+                <span>{t.cert_web_empty || "Aún no he subido certificados web aquí."}</span>
               </p>
             ) : (
               <CertificatesWithViewer

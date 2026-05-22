@@ -44,7 +44,7 @@ export default function AboutMeClient({
         >
           <h2
             className="about-timeline-title mb-3 w-full shrink-0 text-center text-3xl font-bold text-[rgb(var(--color-text))] sm:mb-4 sm:text-4xl lg:text-[2.5rem]"
-            data-i18n="info_about_title"
+
           >
             {infoAboutTitle}
           </h2>

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion";
 import { cn } from "@/utils/cn";
 
 type GSAPGlowBlobProps = {
@@ -17,8 +18,7 @@ export function GSAPGlowBlob({ className, delay = 0 }: GSAPGlowBlobProps) {
     const el = ref.current;
     if (!el) return;
 
-    const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
+    if (prefersReducedMotion()) return;
 
     const anim = gsap.to(el, {
       scale: 1.12,

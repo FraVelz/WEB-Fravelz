@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n bridge */
 "use client";
 
 import { cn } from "@/utils/cn";
-import { useReducer, useEffect } from "react";
+import { useState } from "react";
 
 const COPY_CLIPBOARD_OUTLINE_PATH =
   "M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 " +
@@ -16,95 +15,35 @@ const COPY_DOCUMENT_OUTLINE_PATH =
   "0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 " +
   "2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184";
 
-const DEFAULT_ARIA_LABEL = "Copiar dirección de correo electrónico";
-
-type CopyEmailState = {
-  copied: boolean;
-  successText: string;
-  ariaLabel: string;
-};
-
-type CopyEmailAction =
-  | { type: "copied" }
-  | { type: "reset-copied" }
-  | { type: "set-i18n"; successText?: string; ariaLabel?: string };
-
-function copyEmailReducer(state: CopyEmailState, action: CopyEmailAction): CopyEmailState {
-  switch (action.type) {
-    case "copied":
-      return { ...state, copied: true };
-    case "reset-copied":
-      return { ...state, copied: false };
-    case "set-i18n":
-      return {
-        ...state,
-        ...(action.successText !== undefined ? { successText: action.successText } : {}),
-        ...(action.ariaLabel !== undefined ? { ariaLabel: action.ariaLabel } : {}),
-      };
-    default:
-      return state;
-  }
-}
-
 interface CopyEmailButtonProps {
   email: string;
   successText: string;
+  ariaLabel?: string;
   /** `solid`: fondo plano tipo botón (p. ej. hero). `outlined`: borde y fondo suave (p. ej. contacto). */
   variant?: "outlined" | "solid";
 }
 
-export default function CopyEmailButton({ email, successText, variant = "outlined" }: CopyEmailButtonProps) {
-  const [state, dispatch] = useReducer(copyEmailReducer, {
-    copied: false,
-    successText,
-    ariaLabel: DEFAULT_ARIA_LABEL,
-  });
-
-  useEffect(() => {
-    const applyTranslations = (translations?: Record<string, string>) => {
-      if (!translations) return;
-      dispatch({
-        type: "set-i18n",
-        successText: translations.hero_copy_success,
-        ariaLabel: translations.copy_email_aria,
-      });
-    };
-
-    const handleLanguageChange = (event: CustomEvent) => {
-      applyTranslations(event.detail.translations);
-    };
-
-    window.addEventListener("language-changed", handleLanguageChange as EventListener);
-
-    if (typeof window !== "undefined" && (window as any).i18n) {
-      const currentLang = (window as any).i18n.getCurrentLanguage();
-      applyTranslations((window as any).i18n.getTranslations(currentLang));
-    }
-
-    return () => {
-      window.removeEventListener("language-changed", handleLanguageChange as EventListener);
-    };
-  }, []);
-
-  useEffect(() => {
-    dispatch({ type: "set-i18n", successText });
-  }, [successText]);
+export default function CopyEmailButton({
+  email,
+  successText,
+  ariaLabel = "Copiar dirección de correo electrónico",
+  variant = "outlined",
+}: CopyEmailButtonProps) {
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(email);
-      dispatch({ type: "copied" });
+      setCopied(true);
 
       setTimeout(() => {
-        dispatch({ type: "reset-copied" });
+        setCopied(false);
       }, 3000);
     } catch (err) {
       console.error("Error copying email:", err);
       window.prompt("Copia el correo (Ctrl+C y cierra):", email);
     }
   };
-
-  const { copied, successText: currentSuccessText, ariaLabel } = state;
 
   return (
     <button
@@ -164,7 +103,7 @@ export default function CopyEmailButton({ email, successText, variant = "outline
           !copied && variant === "outlined" && "whitespace-nowrap",
         )}
       >
-        {copied ? currentSuccessText : email}
+        {copied ? successText : email}
       </span>
 
       {copied ? (
