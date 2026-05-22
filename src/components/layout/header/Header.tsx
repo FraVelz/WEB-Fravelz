@@ -3,11 +3,12 @@
 import { runAnimation } from "./utils/header";
 import { cn } from "@/utils/cn";
 import { useEffect } from "react";
+import type { Language } from "@/lib/i18n-routing";
 
 import ElementsHeader from "./ElementsHeader";
 import MobileDrawer from "./MobileDrawer";
 
-export function Header({ t }: { t: Record<string, string> }) {
+export function Header({ t, lang }: { t: Record<string, string>; lang: Language }) {
   useEffect(() => {
     runAnimation();
   }, []);
@@ -34,7 +35,7 @@ export function Header({ t }: { t: Record<string, string> }) {
         </button>
 
         <div className="hidden flex-1 justify-between lg:flex">
-          <ElementsHeader id="header-nav-desktop" t={t} />
+          <ElementsHeader id="header-nav-desktop" t={t} lang={lang} />
         </div>
 
         <button
@@ -45,10 +46,9 @@ export function Header({ t }: { t: Record<string, string> }) {
             "rounded-lg p-1 text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
             "dark:text-gray-300 dark:hover:text-cyan-300",
           )}
-          aria-label="Abrir menú"
+          aria-label={t.nav_open_menu ?? "Abrir menú"}
           aria-expanded="false"
           aria-controls="drawer-menu"
-          data-i18n-attr="aria-label:nav_open_menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,8 +63,8 @@ export function Header({ t }: { t: Record<string, string> }) {
         </button>
       </div>
 
-      <MobileDrawer>
-        <ElementsHeader id="header-nav-mobile" t={t} />
+      <MobileDrawer menuLabel={t.nav_menu} closeMenuAria={t.nav_close_menu}>
+        <ElementsHeader id="header-nav-mobile" t={t} lang={lang} />
       </MobileDrawer>
     </header>
   );

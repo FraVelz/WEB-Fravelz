@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
+import type { Language } from "@/lib/i18n-routing";
 import { useState } from "react";
 import { Modal } from "./components/Modal";
 
@@ -9,7 +10,7 @@ const SEARCH_ICON_PATH =
   "  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0" +
   "  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z";
 
-export function Search() {
+export function Search({ t, lang }: { t: Record<string, string>; lang: Language }) {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -17,9 +18,8 @@ export function Search() {
       <button
         type="button"
         className="cursor-pointer rounded-lg p-1"
-        aria-label="Abrir búsqueda"
-        data-i18n-attr="aria-label:search_open_aria"
-        onClick={() => setIsActive((isActive) => !isActive)}
+        aria-label={t.search_open_aria ?? "Abrir búsqueda"}
+        onClick={() => setIsActive((active) => !active)}
       >
         <svg
           className={cn(
@@ -39,7 +39,7 @@ export function Search() {
         </svg>
       </button>
 
-      <Modal isActive={isActive} setIsActive={setIsActive} />
+      <Modal isActive={isActive} setIsActive={setIsActive} lang={lang} translations={t} />
     </>
   );
 }

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any -- window.i18n */
 /* eslint-disable jsx-a11y/role-has-required-aria-props -- combobox options */
 "use client";
 
@@ -6,25 +5,13 @@ import { createPortal } from "react-dom";
 import { useEffect, useRef, useMemo, useReducer } from "react";
 
 import { cn } from "@/utils/cn";
-
-import { LANGUAGES, LOCALE_FILES, type Lang } from "../utils/data";
-import { getLangFromPath, getBaseUrl } from "../utils/functions";
+import type { Lang } from "../utils/data";
+import { getBaseUrl } from "../utils/functions";
 import { searchPortfolio } from "../utils/searchPortfolio";
 
 import { HighlightMatch } from "../components/HighlightMatch";
 
-async function fetchTranslations(lang: Lang, baseUrl: string): Promise<Record<string, string>> {
-  try {
-    const files = await Promise.all(
-      LOCALE_FILES.map((name) => fetch(`${baseUrl}locals/${lang}/${name}.json`).then((r) => (r.ok ? r.json() : {}))),
-    );
-    return Object.assign({}, ...files);
-  } catch {
-    return {};
-  }
-}
-
-/** Valores por defecto (es) si aún no hay traducciones cargadas o falta la clave */
+/** Valores por defecto (es) si falta alguna clave en las traducciones SSR */
 const SEARCH_TEXT_FALLBACK: Record<string, string> = {
   search_dialog_aria: "Buscar",
   search_placeholder: "Buscar en toda la página…",
@@ -40,23 +27,15 @@ function searchLabel(translations: Record<string, string>, key: keyof typeof SEA
 
 type SearchSessionState = {
   query: string;
-  lang: Lang;
-  translations: Record<string, string>;
 };
 
-type SearchSessionAction =
-  | { type: "open"; lang: Lang; translations: Record<string, string> }
-  | { type: "set-query"; query: string };
+type SearchSessionAction = { type: "set-query"; query: string };
 
 function searchSessionReducer(state: SearchSessionState, action: SearchSessionAction): SearchSessionState {
-  switch (action.type) {
-    case "open":
-      return { query: "", lang: action.lang, translations: action.translations };
-    case "set-query":
-      return { ...state, query: action.query };
-    default:
-      return state;
+  if (action.type === "set-query") {
+    return { ...state, query: action.query };
   }
+  return state;
 }
 
 const searchBackdropClass = cn(
@@ -82,17 +61,17 @@ const searchResultInlineLinkClass = cn(
 export function Modal({
   isActive,
   setIsActive,
+  lang,
+  translations,
 }: {
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+  lang: Lang;
+  translations: Record<string, string>;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [session, dispatchSession] = useReducer(searchSessionReducer, {
-    query: "",
-    lang: "es" as Lang,
-    translations: {},
-  });
-  const { query, lang, translations } = session;
+  const [session, dispatchSession] = useReducer(searchSessionReducer, { query: "" });
+  const { query } = session;
 
   const baseUrl = getBaseUrl();
 
@@ -103,22 +82,6 @@ export function Modal({
 
   useEffect(() => {
     if (!isActive) return;
-
-    const l = (typeof window !== "undefined" && (window as any).i18n?.getCurrentLanguage?.()) || getLangFromPath();
-    const langKey = LANGUAGES.includes(l as Lang) ? (l as Lang) : "es";
-
-    const applySession = (loaded: Record<string, string>) => {
-      dispatchSession({ type: "open", lang: langKey, translations: loaded });
-    };
-
-    const win = window as any;
-    if (win.i18n?.getTranslations) {
-      const t = win.i18n.getTranslations(langKey);
-      if (t && typeof t === "object") applySession(t);
-      else void fetchTranslations(langKey, baseUrl).then(applySession);
-    } else {
-      void fetchTranslations(langKey, baseUrl).then(applySession);
-    }
 
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsActive(false);
@@ -131,7 +94,7 @@ export function Modal({
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
-  }, [isActive, setIsActive, baseUrl]);
+  }, [isActive, setIsActive]);
 
   if (!isActive) return null;
 
@@ -144,7 +107,6 @@ export function Modal({
       aria-modal="true"
       aria-label={searchLabel(translations, "search_dialog_aria")}
     >
-      {/* Capa de atenuación: más opaca en claro para separar el panel del fondo */}
       <button
         type="button"
         className={cn(searchBackdropClass, "cursor-default border-0 p-0")}

@@ -8,18 +8,17 @@ WEB-Fravelz/
 │   ├── locals/                     # Traducciones i18n (es, en, ru, zh) — JSON por sección
 │   ├── music/                      # Audio MP3
 │   ├── images/                     # Imágenes del sitio
-│   ├── i18n.js                     # Script cliente: data-i18n y evento language-changed
 │   ├── robots.txt                  # SEO (robots)
 │   └── pdfs/                       # PDFs de certificados (referenciados en datos)
 │
 ├── src/
 │   ├── app/                        # Next.js App Router
-│   │   ├── layout.tsx              # Layout raíz (scripts tema, i18n.js, globals.css)
+│   │   ├── layout.tsx              # Layout raíz (scripts tema, globals.css, lang en <html>)
 │   │   ├── globals.css             # Tailwind v4 + tokens y estilos globales
 │   │   ├── not-found.tsx           # Página 404
 │   │   ├── sitemap.ts              # Sitemap generado en build (/sitemap.xml)
 │   │   └── [lang]/                 # Rutas con prefijo de idioma
-│   │       ├── layout.tsx          # HtmlLang + children
+│   │       ├── layout.tsx          # Validación de [lang] + children
 │   │       ├── page.tsx            # Inicio (home)
 │   │       ├── certifications/     # Certificaciones
 │   │       └── projects/           # Lista y detalle [slug]
@@ -81,7 +80,7 @@ WEB-Fravelz/
 
 - **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
 - **Servidor**: `getTranslations(lang)` solo en componentes/páginas de servidor (o datos serializados a cliente).
-- **Cliente**: `public/i18n.js` actualiza nodos con `data-i18n` y dispara `language-changed` para componentes que lo escuchan.
+- **Proxy** (`src/proxy.ts`): redirige `/` y fija cabecera `x-lang` para `<html lang>` en servidor.
 
 ## Rutas
 

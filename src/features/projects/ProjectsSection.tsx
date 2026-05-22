@@ -16,12 +16,12 @@ export default async function ProjectsSection({ lang, classname = "" }: { lang: 
       <PanelReveal>
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100" data-i18n="hacking_projects_title">
+            <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100">
               {t.hacking_projects_title || "Proyectos Principales"}
             </h2>
             <p
               className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
-              data-i18n="projects_section_description"
+
             >
               {t.projects_section_description ||
                 "Una selección de mis proyectos más destacados como desarrollador frontend."}

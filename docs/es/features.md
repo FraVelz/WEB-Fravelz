@@ -14,9 +14,9 @@
 - **4 idiomas**: español, inglés, ruso, chino (`es`, `en`, `ru`, `zh`)
 - **Rutas** con prefijo: `/{lang}/…`
 - **Redirección en `/`**: cookie `lang` o cabecera `Accept-Language` ([`src/proxy.ts`](../../src/proxy.ts))
-- **Traducciones**: JSON en `public/locals/{lang}/` fusionados en servidor (`src/utils/i18n.ts`)
-- **Cliente**: `public/i18n.js` para `data-i18n` y evento `language-changed`
-- **Selector de idioma**: navega a la misma ruta en otro locale (recarga de página)
+- **Traducciones**: JSON en `public/locals/{lang}/` fusionados en servidor (`getTranslations` en `src/utils/i18n.ts`)
+- **`<html lang>`**: fijado en servidor vía cabecera `x-lang` (`src/proxy.ts`, `src/lib/request-lang.ts`)
+- **Selector de idioma**: recarga a `/{lang}/` (sin script cliente de traducción)
 
 ## Funcionalidades interactivas
 

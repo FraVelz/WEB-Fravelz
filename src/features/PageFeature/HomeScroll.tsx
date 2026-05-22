@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 
 import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion";
 import {
   clearHorizontalPanelInert,
   desactiveHorizontalScroll,
@@ -33,10 +34,6 @@ const PANEL_REVEAL_TO = {
 /** Paneles en móvil (apilados): deslizamiento lateral más suave */
 const PANEL_REVEAL_FROM_MOBILE = { opacity: 0, x: 72, scale: 0.96 };
 
-function prefersReducedMotion() {
-  return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
 function killRevealAnimations(animations: gsap.core.Tween[]) {
   animations.forEach((anim) => {
     anim.scrollTrigger?.kill();
@@ -54,8 +51,8 @@ function setupSectionReveals(animations: gsap.core.Tween[]) {
   const verticalNodes = gsap.utils.toArray<HTMLElement>(root.querySelectorAll("[data-home-reveal]"));
   const panelNodes = gsap.utils.toArray<HTMLElement>(root.querySelectorAll("[data-home-panel-reveal]"));
   const allNodes = [...verticalNodes, ...panelNodes];
-  const panels = gsap.utils.toArray<HTMLElement>(".panel");
-  const horizontalSection = document.querySelector<HTMLElement>(".horizontal");
+  const panels = gsap.utils.toArray<HTMLElement>(root.querySelectorAll(".panel"));
+  const horizontalSection = root.querySelector<HTMLElement>(".horizontal");
 
   if (prefersReducedMotion()) {
     gsap.set(allNodes, { clearProps: "opacity,transform,willChange" });
@@ -82,6 +79,7 @@ function setupSectionReveals(animations: gsap.core.Tween[]) {
 
   panelNodes.forEach((el) => {
     const panel = el.closest<HTMLElement>(".panel");
+    if (panel && !root.contains(panel)) return;
     const trigger = panel ?? el;
     const panelIndex = panel ? panels.indexOf(panel) : -1;
     const isFirstPanel = panelIndex === 0;

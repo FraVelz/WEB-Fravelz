@@ -56,9 +56,9 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 - [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts): **`Language`** type, **`languages`** array, **`isValidLanguage`**, **`localePathFromAcceptHeader`** to pick a locale from `Accept-Language`.
 
-**On the client (legacy bridge / `data-i18n` nodes)**
+**Language header**
 
-- [`public/i18n.js`](../../public/i18n.js): updates text in the DOM and can emit events (e.g. language change) for components that listen.
+- [`src/proxy.ts`](../../src/proxy.ts) reads the `/[lang]/` segment and forwards `x-lang` to the root layout for `<html lang>`.
 
 ---
 

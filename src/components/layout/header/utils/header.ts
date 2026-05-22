@@ -1,7 +1,4 @@
-import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-gsap.registerPlugin(ScrollToPlugin);
+import { gsap } from "@/lib/gsap";
 
 const DESKTOP_MQ = "(min-width: 1024px)";
 

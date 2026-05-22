@@ -56,9 +56,9 @@ Visión **conceptual** del portafolio: decisiones técnicas, piezas reutilizable
 
 - [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts): tipo **`Language`**, array **`languages`**, **`isValidLanguage`**, **`localePathFromAcceptHeader`** para elegir locale desde `Accept-Language`.
 
-**En cliente (puente legacy / nodos `data-i18n`)**
+**Cabecera de idioma**
 
-- [`public/i18n.js`](../../public/i18n.js): actualiza textos en el DOM y puede notificar con eventos (p. ej. cambio de idioma) para componentes que lo escuchen.
+- [`src/proxy.ts`](../../src/proxy.ts) detecta el segmento `/[lang]/` y pasa `x-lang` al layout raíz para `lang` en `<html>`.
 
 ---
 

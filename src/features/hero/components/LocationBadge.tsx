@@ -32,7 +32,7 @@ export default function LocationBadge({ text, className }: LocationBadgeProps) {
           }
         />
       </svg>
-      <span data-i18n="hero_location">{text}</span>
+      <span>{text}</span>
     </div>
   );
 }

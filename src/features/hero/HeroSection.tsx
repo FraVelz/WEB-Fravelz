@@ -26,7 +26,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
       >
         {/* Texto */}
         <div className="flex min-w-0 flex-1 flex-col">
-          <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200" data-i18n="hola">
+          <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">
             {t.hola}
           </p>
 
@@ -50,7 +50,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
             <p
               className={cn("text-start text-lg font-bold text-cyan-700 sm:text-xl lg:text-xl", "dark:text-cyan-100")}
-              data-i18n="hero_role"
+
             >
               {t.hero_role || "Desarrollador Web - Frontend :)"}
             </p>
@@ -60,7 +60,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
                 "max-w-2xl text-start text-base leading-[1.65] text-slate-800",
                 "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7] dark:text-gray-300",
               )}
-              data-i18n="about_current_text"
+
             >
               {t.about_current_text}
             </p>
@@ -69,6 +69,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
               <HeroCvCopyActions
                 email="fravelz@proton.me"
                 copySuccessText={t.hero_copy_success}
+                copyEmailAriaLabel={t.copy_email_aria}
                 cvButtonText={t.hero_cv_button}
                 cvModalTitle={t.hero_cv_title}
                 closeText={t.cert_viewer_close}
@@ -85,7 +86,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
             "items-center max-sm:justify-center lg:items-center lg:justify-center",
           )}
         >
-          <Photo />
+          <Photo lang={lang} />
 
           <div className="flex flex-col items-center gap-2 sm:gap-2.5">
             <AvailabilityBadge status={HERO_AVAILABILITY_STATUS} text={availabilityLabel} />
@@ -105,7 +106,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
             "hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20",
             "dark:border-cyan-400/40 dark:text-cyan-400",
           )}
-          data-i18n="ir_abajo"
+
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

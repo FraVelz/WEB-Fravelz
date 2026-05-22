@@ -22,19 +22,19 @@ export default async function Footer({ lang }: { lang: Language }) {
           <div>
             <h3
               className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500"
-              data-i18n="footer_links_title"
+
             >
               {t.footer_links_title}
             </h3>
             <nav className="flex flex-col gap-2 pl-4 sm:gap-3" aria-label="Site links">
               <a href={`/${lang}`} className={footerNavLinkClass}>
-                <span data-i18n="footer_nav_home">{t.footer_nav_home}</span>
+                <span>{t.footer_nav_home}</span>
               </a>
               <a href={`/${lang}/certifications`} className={footerNavLinkClass}>
-                <span data-i18n="nav_certifications">{t.nav_certifications}</span>
+                <span>{t.nav_certifications}</span>
               </a>
               <a href={`/${lang}/projects`} className={footerNavLinkClass}>
-                <span data-i18n="nav_projects">{t.nav_projects}</span>
+                <span>{t.nav_projects}</span>
               </a>
             </nav>
           </div>
@@ -42,15 +42,15 @@ export default async function Footer({ lang }: { lang: Language }) {
           <div>
             <h3
               className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500"
-              data-i18n="footer_author"
+
             >
               {t.footer_author}
             </h3>
             <div className="flex flex-col gap-2 pl-4 text-sm">
-              <p className="text-slate-600 dark:text-slate-400" data-i18n="footer_copyright">
+              <p className="text-slate-600 dark:text-slate-400">
                 {t.footer_copyright}
               </p>
-              <p data-i18n="footer_license">{t.footer_license}</p>
+              <p>{t.footer_license}</p>
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default async function Footer({ lang }: { lang: Language }) {
             "text-xs text-slate-500 sm:flex-row dark:border-slate-700/60 dark:text-slate-500",
           )}
         >
-          <span data-i18n="footer_built_with">{t.footer_built_with}</span>
+          <span>{t.footer_built_with}</span>
           <span className="font-medium text-slate-600 dark:text-slate-400">Fravelz</span>
         </div>
       </div>

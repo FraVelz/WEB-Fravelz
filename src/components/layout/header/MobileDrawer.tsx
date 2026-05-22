@@ -4,7 +4,15 @@ import { cn } from "@/utils/cn";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 
-export default function MobileDrawer({ children }: { children: ReactNode }) {
+export default function MobileDrawer({
+  children,
+  menuLabel = "Menú",
+  closeMenuAria = "Cerrar menú",
+}: {
+  children: ReactNode;
+  menuLabel?: string;
+  closeMenuAria?: string;
+}) {
   useEffect(() => {
     const openBtn = document.querySelector("[data-drawer-open]");
     const closeBtn = document.querySelector("[data-drawer-close]");
@@ -51,7 +59,7 @@ export default function MobileDrawer({ children }: { children: ReactNode }) {
         data-drawer
         role="dialog"
         aria-modal="true"
-        aria-label="Menú de navegación"
+        aria-label={menuLabel}
         className={cn(
           "drawer-panel fixed top-0 right-0 z-[60] h-dvh w-[85%] max-w-sm translate-x-full transform overflow-y-auto",
           "bg-[rgb(var(--color-surface))] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden",
@@ -63,14 +71,11 @@ export default function MobileDrawer({ children }: { children: ReactNode }) {
             "bg-[rgb(var(--color-surface))] p-5",
           )}
         >
-          <span className="text-lg font-semibold text-[rgb(var(--color-text))]" data-i18n="nav_menu">
-            Menú
-          </span>
+          <span className="text-lg font-semibold text-[rgb(var(--color-text))]">{menuLabel}</span>
 
           <button
             data-drawer-close
-            aria-label="Cerrar menú"
-            data-i18n-attr="aria-label:nav_close_menu"
+            aria-label={closeMenuAria}
             className={cn(
               "rounded-lg p-1 text-2xl text-[rgb(var(--color-text))] transition-colors",
               "hover:text-[rgb(var(--color-primary))] dark:hover:text-[rgb(var(--color-white))]",

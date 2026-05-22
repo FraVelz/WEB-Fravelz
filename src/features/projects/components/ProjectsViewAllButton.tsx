@@ -33,7 +33,7 @@ export default async function ProjectsViewAllButton({ lang }: { lang: Language }
           <path fill="currentColor" d={PROJECTS_VIEW_ARROW_PATH} />
         </svg>
       </span>
-      <span data-i18n="projects_view_all">{t.projects_view_all || "Ver Todos los Proyectos"}</span>
+      <span>{t.projects_view_all || "Ver Todos los Proyectos"}</span>
     </Link>
   );
 }

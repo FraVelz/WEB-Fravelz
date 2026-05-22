@@ -1,5 +1,7 @@
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
+const HOME_SCROLL_LAYER = ".home-scroll-layer";
+
 // Store references so we can destroy them later
 let horizontalAnim: gsap.core.Tween | null = null;
 let navClickHandler: ((e: MouseEvent) => void) | null = null;
@@ -9,7 +11,7 @@ export function getHorizontalAnim() {
 }
 
 function getPanels() {
-  return gsap.utils.toArray<HTMLElement>(".panel");
+  return gsap.utils.toArray<HTMLElement>(`${HOME_SCROLL_LAYER} .panel`);
 }
 
 /** Paneles fuera de vista no reciben Tab (inert). El contenedor `.horizontal` no es enfocable. */
@@ -39,10 +41,9 @@ function focusPanel(panel: HTMLElement) {
 
 export function horizontalScroll() {
   // Get all panels that will move horizontally
-  const sections = gsap.utils.toArray<HTMLElement>(".panel");
+  const sections = getPanels();
 
-  // Container that defines the total scrollable width
-  const container = document.querySelector<HTMLElement>(".containera");
+  const container = document.querySelector<HTMLElement>(`${HOME_SCROLL_LAYER} .containera`);
 
   // If container or panels do not exist, stop execution
   if (!container || sections.length === 0) return;
@@ -57,7 +58,7 @@ export function horizontalScroll() {
 
     scrollTrigger: {
       // Element that triggers the horizontal scroll behavior
-      trigger: ".horizontal",
+      trigger: `${HOME_SCROLL_LAYER} .horizontal`,
 
       // Pin the section so it stays fixed while scrolling
       pin: true,
@@ -113,7 +114,7 @@ export function horizontalScroll() {
     if (!st) return;
 
     // Find panel index
-    const panels = gsap.utils.toArray<HTMLElement>(".panel");
+    const panels = getPanels();
     const index = panels.indexOf(panel as HTMLElement);
     if (index === -1) return;
 

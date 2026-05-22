@@ -3,6 +3,7 @@ import Script from "next/script";
 import type { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
+import { getRequestLang } from "@/lib/request-lang";
 import { getServerHtmlThemeFromCookieAndHint, THEME_COOKIE_NAME } from "@/lib/theme-cookie";
 
 import "./globals.css";
@@ -24,13 +25,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [cookieStore, headerList] = await Promise.all([cookies(), headers()]);
+  const [cookieStore, headerList, lang] = await Promise.all([cookies(), headers(), getRequestLang()]);
   const themeCookie = cookieStore.get(THEME_COOKIE_NAME)?.value;
   const clientHintScheme = headerList.get("sec-ch-prefers-color-scheme");
   const { htmlClassName, dataTheme } = getServerHtmlThemeFromCookieAndHint(themeCookie, clientHintScheme);
 
   return (
-    <html lang="es" className={cn(htmlClassName)} data-theme={dataTheme} suppressHydrationWarning>
+    <html lang={lang} className={cn(htmlClassName)} data-theme={dataTheme} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-linear-to-b from-slate-100 via-slate-100 to-slate-100 antialiased",
@@ -41,7 +42,6 @@ export default async function RootLayout({
           {`window.__BASE_URL__ = "/";`}
         </Script>
         <Script id="theme-init" src="/theme-init.js" strategy="beforeInteractive" />
-        <Script src="/i18n.js" strategy="lazyOnload" />
 
         {children}
       </body>

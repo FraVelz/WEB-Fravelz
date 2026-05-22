@@ -1,4 +1,3 @@
-import { HtmlLang } from "./_components/HtmlLang";
 import { type Language, languages } from "@/lib/i18n-routing";
 import { notFound } from "next/navigation";
 
@@ -18,10 +17,5 @@ export default async function LangLayout({
     notFound();
   }
 
-  return (
-    <>
-      <HtmlLang lang={lang} />
-      {children}
-    </>
-  );
+  return children;
 }

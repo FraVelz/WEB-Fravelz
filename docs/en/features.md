@@ -15,7 +15,7 @@
 - **Prefixed routes**: `/{lang}/…`
 - **Redirect at `/`**: `lang` cookie or `Accept-Language` header ([`src/proxy.ts`](../../src/proxy.ts))
 - **Translations**: JSON under `public/locals/{lang}/`, merged on the server (`src/utils/i18n.ts`)
-- **Client**: `public/i18n.js` for `data-i18n` and the `language-changed` event
+- **`<html lang>`**: set on the server via the `x-lang` header (`src/proxy.ts`, `src/lib/request-lang.ts`)
 - **Language selector**: navigates to the same path in another locale (full page reload)
 
 ## Interactive features

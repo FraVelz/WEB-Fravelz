@@ -13,14 +13,14 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
       <PanelReveal>
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
           <div>
-            <h2 className="tech-title mb-4 text-4xl font-bold" data-i18n="tech_title">
+            <h2 className="tech-title mb-4 text-4xl font-bold">
               {t.tech_title || "Tecnologías"}
             </h2>
             <p className="tech-muted mt-4 max-w-3xl text-sm">
-              <span className="tech-accent font-semibold" data-i18n="tech_note">
+              <span className="tech-accent font-semibold">
                 {t.tech_note || "Nota:"}
               </span>{" "}
-              <span data-i18n="tech_disclaimer">{t.tech_disclaimer || ""}</span>
+              <span>{t.tech_disclaimer || ""}</span>
             </p>
           </div>
 
@@ -49,17 +49,17 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
                       <h4 className="tech-text text-lg font-semibold">{tech.name}</h4>
                     </div>
                     <p className="tech-muted mb-4 text-sm">
-                      <span className="font-semibold" data-i18n="tech_info_level">
+                      <span className="font-semibold">
                         {t.tech_info_level || "Nivel"}:
                       </span>{" "}
-                      <span className={getLevelClass(tech.level)} data-i18n={tech.levelKey}>
+                      <span className={getLevelClass(tech.level)}>
                         {t[tech.levelKey] || tech.level}
                       </span>
                       <span className="tech-dot">·</span>
-                      <span className="font-semibold" data-i18n="tech_info_category">
+                      <span className="font-semibold">
                         {t.tech_info_category || "Categoría"}:
                       </span>{" "}
-                      <span className={getCategoryClass(tech.category)} data-i18n={tech.categoryKey}>
+                      <span className={getCategoryClass(tech.category)}>
                         {t[tech.categoryKey] || tech.category}
                       </span>
                     </p>

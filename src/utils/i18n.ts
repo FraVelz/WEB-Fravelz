@@ -5,18 +5,7 @@ import { join } from "path";
 import { cache } from "react";
 
 import type { Language } from "@/lib/i18n-routing";
-
-const LOCALE_FILES = [
-  "common",
-  "hero",
-  "music",
-  "certifications",
-  "info",
-  "technologies",
-  "about",
-  "hobbies",
-  "footer",
-] as const;
+import { LOCALE_FILES } from "@/lib/locale-files";
 
 function loadLocale(lang: Language): Record<string, string> {
   const base = join(process.cwd(), "public", "locals", lang);

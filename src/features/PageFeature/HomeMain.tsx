@@ -25,12 +25,12 @@ export default async function HomeMain({ lang }: { lang: Language }) {
       <a
         href="#presentation"
         className="skip-link"
-        data-i18n="nav_skip_to_content"
+
       >
         {t.nav_skip_to_content ?? "Saltar al contenido principal"}
       </a>
 
-      <Header t={t} />
+      <Header t={t} lang={lang} />
       <Particles />
       <HomeAmbientGlow />
 
@@ -42,7 +42,7 @@ export default async function HomeMain({ lang }: { lang: Language }) {
         </section>
 
         <div className="horizontal relative w-full overflow-x-hidden">
-          <h2 className="sr-only" data-i18n="home_horizontal_region_aria">
+          <h2 className="sr-only">
             {t.home_horizontal_region_aria ?? "Portfolio sections with horizontal scroll"}
           </h2>
           <div className="containera flex min-h-full max-lg:flex-col max-lg:gap-14">

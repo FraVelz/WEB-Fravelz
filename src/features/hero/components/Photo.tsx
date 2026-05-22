@@ -1,9 +1,10 @@
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
+import type { Language } from "@/lib/i18n-routing";
 import Image from "next/image";
 
-export function Photo() {
-  const t = getTranslations("es");
+export function Photo({ lang }: { lang: Language }) {
+  const t = getTranslations(lang);
 
   return (
     <div
