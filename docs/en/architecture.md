@@ -1,6 +1,7 @@
 # Project architecture
 
-A **conceptual** view of the portfolio: technical choices, reusable building blocks, data flow, and deployment. The **directory tree** and concrete routes are in [Project structure](./structure.md).
+A **conceptual** view of the portfolio: technical choices, reusable building blocks, data flow, and deployment. The
+**directory tree** and concrete routes are in [Project structure](./structure.md).
 
 ---
 
@@ -38,59 +39,77 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 ## Application model (App Router)
 
-- Content pages live under the dynamic segment **`[lang]`**; each supported language is precomputed with **`generateStaticParams`** in [`src/app/[lang]/layout.tsx`](../../src/app/[lang]/layout.tsx), aligned with the typed language list in code.
+- Content pages live under the dynamic segment **`[lang]`**; each supported language is precomputed with
+  **`generateStaticParams`** in [`src/app/[lang]/layout.tsx`](../../src/app/[lang]/layout.tsx), aligned with the typed
+  language list in code.
 - **Server Components by default**: initial HTML carries translations and data resolved on the server whenever possible.
-- The **site root** must send users to a language: redirect logic for **`/`** based on the `lang` cookie and the **`Accept-Language`** header lives in [`src/proxy.ts`](../../src/proxy.ts) (same shape as a Next.js edge middleware: `matcher` only for `/`).
+- The **site root** must send users to a language: redirect logic for **`/`** based on the `lang` cookie and the
+  **`Accept-Language`** header lives in [`src/proxy.ts`](../../src/proxy.ts) (same shape as a Next.js edge middleware:
+  `matcher` only for `/`).
 
 ---
 
 ## Internationalization
 
-**On the server (source of truth for copy and SEO)**
+### On the server (source of truth for copy and SEO)
 
-- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): reads and merges JSON from `public/locals/{es,en,ru,zh}/` according to **`LOCALE_FILES`**, with **`server-only`** and **`fs`** during server compilation and runtime.
+- [`src/utils/i18n.ts`](../../src/utils/i18n.ts): reads and merges JSON from `public/locals/{es,en,ru,zh}/` according to
+  **`LOCALE_FILES`**, with **`server-only`** and **`fs`** during server compilation and runtime.
 - **`getTranslations`**: wrapped in React **`cache`** to deduplicate dictionary loading within the same request.
 - **`t(key, lang)`**: direct key lookup, falling back to the key itself.
 
 **Routing / language contract (no `fs`, safe for the edge)**
 
-- [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts): **`Language`** type, **`languages`** array, **`isValidLanguage`**, **`localePathFromAcceptHeader`** to pick a locale from `Accept-Language`.
+- [`src/lib/i18n-routing.ts`](../../src/lib/i18n-routing.ts): **`Language`** type, **`languages`** array,
+  **`isValidLanguage`**, **`localePathFromAcceptHeader`** to pick a locale from `Accept-Language`.
 
-**Language header**
+### Language header
 
-- [`src/proxy.ts`](../../src/proxy.ts) reads the `/[lang]/` segment and forwards `x-lang` to the root layout for `<html lang>`.
+- [`src/proxy.ts`](../../src/proxy.ts) reads the `/[lang]/` segment and forwards `x-lang` to the root layout for `<html
+  lang>`.
 
 ---
 
 ## Light / dark theme
 
-- **Preference** `dark` | `light` | `auto` (`theme` cookie, aligned with **`localStorage`** via script in [`src/app/layout.tsx`](../../src/app/layout.tsx)).
-- **First paint on the server**: [`src/lib/theme-cookie.ts`](../../src/lib/theme-cookie.ts) exposes **`getServerHtmlThemeFromCookieAndHint`**, combining the cookie value with the **`Sec-CH-Prefers-Color-Scheme`** Client Hint when preference is `auto`.
-- **Next**: [`next.config.ts`](../../next.config.ts) sets **`Accept-CH`** / **`Critical-CH`**, and **`Vary`** for that hint so initial HTML can reflect color scheme without unnecessary flash when the browser cooperates.
-- **Hydration**: a **`beforeInteractive`** script in the root layout applies classes on `<html>`, `data-theme`, and `colorScheme` consistently with the saved preference.
+- **Preference** `dark` | `light` | `auto` (`theme` cookie, aligned with **`localStorage`** via script in
+  [`src/app/layout.tsx`](../../src/app/layout.tsx)).
+- **First paint on the server**: [`src/lib/theme-cookie.ts`](../../src/lib/theme-cookie.ts) exposes
+  **`getServerHtmlThemeFromCookieAndHint`**, combining the cookie value with the **`Sec-CH-Prefers-Color-Scheme`**
+  Client Hint when preference is `auto`.
+- **Next**: [`next.config.ts`](../../next.config.ts) sets **`Accept-CH`** / **`Critical-CH`**, and **`Vary`** for that
+  hint so initial HTML can reflect color scheme without unnecessary flash when the browser cooperates.
+- **Hydration**: a **`beforeInteractive`** script in the root layout applies classes on `<html>`, `data-theme`, and
+  `colorScheme` consistently with the saved preference.
 
 ---
 
 ## Data layer
 
-**Projects**
+### Projects
 
-- Types: [`src/utils/data/project-types.ts`](../../src/utils/data/project-types.ts) (**`Project`**, multi-language fields, `StaticImageData` for `next/image`).
+- Types: [`src/utils/data/project-types.ts`](../../src/utils/data/project-types.ts) (**`Project`**, multi-language
+  fields, `StaticImageData` for `next/image`).
 - **`project-*.ts` files**: one module per project; aggregated list in **`projects-list.ts`**.
-- Stable API via [`src/utils/data/projects.ts`](../../src/utils/data/projects.ts) and [`src/utils/data/project-utils.ts`](../../src/utils/data/project-utils.ts):
-  - **`getAllProjects`**, **`getProjectBySlug`**, **`getFeaturedProjects`**, **`getProjectsByCategory`**, **`getAllTechnologies`**.
+- Stable API via [`src/utils/data/projects.ts`](../../src/utils/data/projects.ts) and
+  [`src/utils/data/project-utils.ts`](../../src/utils/data/project-utils.ts):
+  - **`getAllProjects`**, **`getProjectBySlug`**, **`getFeaturedProjects`**, **`getProjectsByCategory`**,
+    **`getAllTechnologies`**.
 - Typical consumers: project pages, sitemap, home blocks, and **header search** (in-memory indexing from the same list).
 
-**Certificates**
+### Certificates
 
-- Types and grouping in [`src/utils/data/certificates.ts`](../../src/utils/data/certificates.ts) (**`Certificate`**, **`groupCertificates`** with issuer/category rules and validation that each item lands in a single bucket).
+- Types and grouping in [`src/utils/data/certificates.ts`](../../src/utils/data/certificates.ts) (**`Certificate`**,
+  **`groupCertificates`** with issuer/category rules and validation that each item lands in a single bucket).
 
 ---
 
 ## Components and client / server split
 
-- **`"use client"`** only where needed: local state, DOM listeners, GSAP animations, PDF viewers / modals, interactive forms, etc.
-- **Home sections** and layout are composed from **`src/features/`** and **`src/components/`** (header, footer, cards); **horizontal scroll** and GSAP logic live in dedicated client modules (e.g. `HomeScroll` and related scripts).
+- **`"use client"`** only where needed: local state, DOM listeners, GSAP animations, PDF viewers / modals, interactive
+  forms, etc.
+- **Home sections** and layout are composed from **`src/features/`** and **`src/components/`** (header, footer, cards);
+  **horizontal scroll** and GSAP logic live in dedicated client modules (e.g. `HomeScroll` and related scripts).
 - Goal: **small client JS islands** and **data and strings resolved on the server** when possible.
 
 ---
@@ -108,8 +127,10 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 ## SEO and metadata
 
-- **`metadata` and `metadataBase`** on the root layout pointing at the production domain (e.g. `https://fravelz.vercel.app`).
-- **`src/app/sitemap.ts`**: emits entries per language, project listing routes, and each **`Project`** slug, reusing **`getAllProjects`** and **`languages`** so routes are not hand-duplicated.
+- **`metadata` and `metadataBase`** on the root layout pointing at the production domain (e.g.
+  `https://fravelz.vercel.app`).
+- **`src/app/sitemap.ts`**: emits entries per language, project listing routes, and each **`Project`** slug, reusing
+  **`getAllProjects`** and **`languages`** so routes are not hand-duplicated.
 
 ---
 
@@ -122,16 +143,16 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 ## Build and deployment
 
-**Development**
+### Development
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Default URL: **http://localhost:3000** (Turbopack).
+Default URL: **<http://localhost:3000>** (Turbopack).
 
-**Production locally**
+### Production locally
 
 ```bash
 pnpm build
@@ -140,20 +161,23 @@ pnpm start
 
 Output in **`.next/`** (not a full static export like `out/` unless another mode is configured).
 
-**Recommended deployment: Vercel**
+### Recommended deployment: Vercel
 
 - **Next.js** preset, **`pnpm build`**, connect the repo for deploys from **`main`**.
-- Reference URL: **https://fravelz.vercel.app/**
+- Reference URL: **<https://fravelz.vercel.app/>**
 
-**Previous version (Astro)**
+### Previous version (Astro)
 
-- Branch [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+- Branch [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag
+  [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
 
 ---
 
 ## Extending the project
 
-For adding home sections, translation keys, or a new language, follow the practical steps in [Structure](./structure.md) and [Features](./features.md); feedback and how to contribute are described in [Contribution](./contribution.md#ways-to-contribute).
+For adding home sections, translation keys, or a new language, follow the practical steps in [Structure](./structure.md)
+and [Features](./features.md); feedback and how to contribute are described in
+[Contribution](./contribution.md#ways-to-contribute).
 
 [Return to readme...](../../README.md)
 

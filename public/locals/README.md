@@ -1,6 +1,7 @@
 # Locales / Internationalization (i18n)
 
-Translation files for the Fravelz portfolio. The folder name is **`locals`** (not `locales`) and matches the path used in [`src/utils/i18n.ts`](../../src/utils/i18n.ts).
+Translation files for the Fravelz portfolio. The folder name is **`locals`** (not `locales`) and matches the path used
+in [`src/utils/i18n.ts`](../../src/utils/i18n.ts).
 
 ## Supported languages
 
@@ -13,7 +14,8 @@ Translation files for the Fravelz portfolio. The folder name is **`locals`** (no
 
 ## File layout
 
-Each language directory (`es/`, `en/`, `ru/`, `zh/`) should expose the same logical set of JSON files. The app merges these files **in order** defined by `LOCALE_FILES` in `src/lib/locale-files.ts`:
+Each language directory (`es/`, `en/`, `ru/`, `zh/`) should expose the same logical set of JSON files. The app merges
+these files **in order** defined by `LOCALE_FILES` in `src/lib/locale-files.ts`:
 
 `common`, `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`.
 
@@ -34,7 +36,8 @@ If the same key appears in more than one file for a language, **the last merged 
 
 ## How it works
 
-- **Server (Next.js):** `getTranslations(lang)` reads and merges JSON from `public/locals/<lang>/` at build/request time.
+- **Server (Next.js):** `getTranslations(lang)` reads and merges JSON from `public/locals/<lang>/` at build/request
+  time.
 - **Routes:** All pages live under `/[lang]/`. Changing language reloads to `/{lang}/` via `LanguageSelect`.
 - **`<html lang>`:** Set on the server from the `x-lang` header (`src/proxy.ts` + `src/lib/request-lang.ts`).
 

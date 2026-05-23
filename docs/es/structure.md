@@ -62,23 +62,27 @@ WEB-Fravelz/
 ### App Router (`src/app/`)
 
 - Rutas bajo **`/[lang]`** generadas con `generateStaticParams` (es, en, ru, zh).
-- **`src/proxy.ts`**: solo la ruta **`/`** redirige al idioma preferido (equivalente a un middleware limitado por `matcher`).
+- **`src/proxy.ts`**: solo la ruta **`/`** redirige al idioma preferido (equivalente a un middleware limitado por
+  `matcher`).
 - Metadatos SEO: `generateMetadata` en páginas donde aplica.
 
 ### Componentes y features
 
-- **`src/features/`**: secciones de página y lógica por dominio (p. ej. `PageFeature/HomeMain.tsx`, scroll horizontal GSAP).
+- **`src/features/`**: secciones de página y lógica por dominio (p. ej. `PageFeature/HomeMain.tsx`, scroll horizontal
+  GSAP).
 - **`src/components/layout/header/`**: cabecera, drawer móvil, búsqueda, selector de idioma, tema.
 - **`src/components/ui/`**: piezas reutilizables (muchas como Server Components).
 - Piezas que requieren **`"use client"`** viven donde haga falta (header, UI, bloques dentro de `features/`).
 
 ### Datos
 
-- **`src/utils/data/`**: lista de proyectos, certificados, tipos (`project-types.ts` usa `StaticImageData` de `next/image`).
+- **`src/utils/data/`**: lista de proyectos, certificados, tipos (`project-types.ts` usa `StaticImageData` de
+  `next/image`).
 
 ## Sistema de traducciones
 
-- **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`, `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
+- **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`,
+  `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
 - **Servidor**: `getTranslations(lang)` solo en componentes/páginas de servidor (o datos serializados a cliente).
 - **Proxy** (`src/proxy.ts`): redirige `/` y fija cabecera `x-lang` para `<html lang>` en servidor.
 

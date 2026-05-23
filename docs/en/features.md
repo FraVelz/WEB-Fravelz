@@ -39,7 +39,8 @@
 
 - **Presentation**: hero with logo and location
 - **Projects**: grid + per-`slug` detail page
-- **Technologies**: skill cards ([`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
+- **Technologies**: skill cards
+  ([`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
 - **About me**: timeline + modal
 - **Hobbies**: card grid with pointer effect
 - **Contact**: email and mailto form
@@ -61,7 +62,7 @@
 ## Deployment
 
 - **Recommended**: [Vercel](https://vercel.com/) with the Next.js preset
-- **URL**: https://fravelz.vercel.app/
+- **URL**: <https://fravelz.vercel.app/>
 
 [Return to readme...](../../README.md)
 
