@@ -197,20 +197,14 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
           <header className="mb-4 flex items-start gap-3 sm:mb-5 sm:gap-4">
             {getAboutTimelineIcon(entry.year, true)}
             <div className="min-w-0 flex-1">
-              <p
-                className="text-xs font-medium tracking-widest text-[rgb(var(--color-text-muted))] uppercase"
-
-              >
+              <p className="text-xs font-medium tracking-widest text-[rgb(var(--color-text-muted))] uppercase">
                 {labels.stageLabel}
               </p>
               <h3 className="text-2xl font-bold text-[rgb(var(--color-text))] sm:text-3xl">{entry.year}</h3>
             </div>
           </header>
 
-          <p
-            className="text-left text-sm leading-relaxed whitespace-pre-wrap text-[rgb(var(--color-text))] sm:text-base sm:leading-7 lg:text-[1.0625rem]"
-
-          >
+          <p className="text-left text-sm leading-relaxed whitespace-pre-wrap text-[rgb(var(--color-text))] sm:text-base sm:leading-7 lg:text-[1.0625rem]">
             {entry.text}
           </p>
 
@@ -235,7 +229,6 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                     key={link.href}
                     href={link.href}
                     className="about-link text-sm font-semibold underline underline-offset-4 sm:text-base"
-
                   >
                     {link.label}
                   </Link>

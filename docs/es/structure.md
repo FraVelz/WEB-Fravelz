@@ -78,7 +78,7 @@ WEB-Fravelz/
 
 ## Sistema de traducciones
 
-- **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
+- **`public/locals/{lang}/*.json`**: claves fusionadas en build según `LOCALE_FILES` en `src/utils/i18n.ts` (`common`, `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
 - **Servidor**: `getTranslations(lang)` solo en componentes/páginas de servidor (o datos serializados a cliente).
 - **Proxy** (`src/proxy.ts`): redirige `/` y fija cabecera `x-lang` para `<html lang>` en servidor.
 

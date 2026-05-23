@@ -101,12 +101,7 @@ export default function ToggleTheme({
   }, [applyTheme]);
 
   return (
-    <div
-      className={cn(
-        "theme-toggle-control place-self-left flex items-center rounded-full p-0.5",
-        className,
-      )}
-    >
+    <div className={cn("theme-toggle-control place-self-left flex items-center rounded-full p-0.5", className)}>
       <span className="sr-only">{themeToggleLabel}</span>
       <button
         className={cn(

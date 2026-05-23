@@ -68,10 +68,10 @@ export default function LanguageSelect({
         tabIndex={tabIndex}
         className={cn(
           "language-selector focus-none min-h-8 min-w-[5.5rem] cursor-pointer appearance-none",
-          "rounded-md bg-transparent py-1 pl-0.5 pr-6 text-sm font-medium text-cyan-600",
+          "rounded-md bg-transparent py-1 pr-6 pl-0.5 text-sm font-medium text-cyan-600",
           "transition-colors hover:text-cyan-800",
           "group-hover/language:text-cyan-800 dark:text-cyan-200",
-          "dark:hover:text-cyan-300 dark:group-hover/language:text-cyan-300",
+          "dark:group-hover/language:text-cyan-300 dark:hover:text-cyan-300",
           "group-has-[select:focus-visible]/language:text-cyan-800",
           "dark:group-has-[select:focus-visible]/language:text-cyan-300",
         )}

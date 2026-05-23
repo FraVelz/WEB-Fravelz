@@ -4,11 +4,12 @@ import { runAnimation } from "./utils/header";
 import { cn } from "@/utils/cn";
 import { useEffect } from "react";
 import type { Language } from "@/lib/i18n-routing";
+import type { Translations } from "@/types/translations";
 
 import ElementsHeader from "./ElementsHeader";
 import MobileDrawer from "./MobileDrawer";
 
-export function Header({ t, lang }: { t: Record<string, string>; lang: Language }) {
+export function Header({ t, lang }: { t: Translations; lang: Language }) {
   useEffect(() => {
     runAnimation();
   }, []);

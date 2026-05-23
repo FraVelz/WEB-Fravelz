@@ -2,7 +2,7 @@ import CertificatesWithViewer from "@/components/ui/CertificatesWithViewer/Certi
 import Footer from "@/components/layout/Footer";
 
 import { certificates, groupCertificates } from "@/utils/data/certificates";
-import type { Language } from "@/lib/i18n-routing";
+import { resolveLangParams } from "@/lib/page-lang";
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -19,8 +19,8 @@ const certFormationStackPath =
   "8.25-3.75a.75.75 0 0 1 0-1.372l8.25-3.75Z";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
-  const { lang } = await params;
-  const t = getTranslations(lang as Language);
+  const lang = await resolveLangParams(params);
+  const t = getTranslations(lang);
   return {
     title: `${t.cert_section_title || "Certificaciones"} — Fravelz`,
     description: t.cert_intro_paragraph1 || "Certificaciones y formación.",
@@ -28,12 +28,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function CertificationsPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  const t = getTranslations(lang as Language);
+  const lang = await resolveLangParams(params);
+  const t = getTranslations(lang);
   const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts } = groupCertificates(certificates);
 
   return (
-    <section className="flex min-h-screen flex-col pt-8">
+    <section className="page-below-header flex min-h-screen flex-col">
       <div className="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
         <Link
           href={`/${lang}/#about-me`}
@@ -121,7 +121,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
         </div>
       </div>
 
-      <Footer lang={lang as Language} />
+      <Footer lang={lang} />
     </section>
   );
 }

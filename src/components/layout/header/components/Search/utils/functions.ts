@@ -1,8 +1,8 @@
 import { getLangFromPath as getLangFromPathShared } from "@/lib/lang-from-path";
 
-import type { Lang } from "./data";
+import type { Language } from "./data";
 
-export function getLangFromPath(): Lang {
+export function getLangFromPath(): Language {
   return getLangFromPathShared();
 }
 
@@ -17,7 +17,7 @@ export function escapeRegExp(s: string): string {
 }
 
 /** Mapea prefijos de claves i18n a URL y etiqueta de sección */
-export function getUrlForI18nKey(key: string, baseUrl: string, lang: Lang): { url: string; label: string } | null {
+export function getUrlForI18nKey(key: string, baseUrl: string, lang: Language): { url: string; label: string } | null {
   const k = key.toLowerCase();
   if (k.startsWith("nav_presentation") || k.startsWith("hero_") || k === "ir_abajo" || k === "autor")
     return { url: `${baseUrl}${lang}/#presentation`, label: "Presentación" };
@@ -47,7 +47,5 @@ export function getUrlForI18nKey(key: string, baseUrl: string, lang: Lang): { ur
     return { url: `${baseUrl}${lang}/#hobbies`, label: "Pasatiempos" };
   if (k.startsWith("footer_") || k.startsWith("error_") || k.startsWith("dev_"))
     return { url: `${baseUrl}${lang}/`, label: "Inicio" };
-  if (k.startsWith("music_") || k.startsWith("cancion_"))
-    return { url: `${baseUrl}${lang}/#presentation`, label: "Música" };
   return { url: `${baseUrl}${lang}/`, label: "Página" };
 }

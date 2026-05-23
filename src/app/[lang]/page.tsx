@@ -1,15 +1,17 @@
 import HomeMain from "@/features/PageFeature/HomeMain";
-import type { Language } from "@/lib/i18n-routing";
+import { getSiteUrl } from "@/lib/site-url";
+import { resolveLangParams } from "@/lib/page-lang";
 import { getTranslations } from "@/utils/i18n";
+import { translationOr } from "@/types/translations";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
-  const { lang } = await params;
-  const t = getTranslations(lang as Language);
+  const lang = await resolveLangParams(params);
+  const t = getTranslations(lang);
 
-  const title = (t as Record<string, string>).home_title || `Fravelz | ${t.proyectos_personales || "Portfolio"}`;
-  const description = (t as Record<string, string>).home_description || t.projects_section_description || "";
-  const siteUrl = "https://fravelz.vercel.app";
+  const title = translationOr(t, "home_title", `Fravelz | ${translationOr(t, "proyectos_personales", "Portfolio")}`);
+  const description = translationOr(t, "home_description", translationOr(t, "projects_section_description", ""));
+  const siteUrl = getSiteUrl();
 
   return {
     title,
@@ -31,6 +33,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  return <HomeMain lang={lang as Language} />;
+  const lang = await resolveLangParams(params);
+  return <HomeMain lang={lang} />;
 }

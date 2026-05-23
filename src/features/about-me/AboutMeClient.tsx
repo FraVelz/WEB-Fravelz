@@ -39,13 +39,10 @@ export default function AboutMeClient({
         <div
           className={cn(
             "relative mx-auto flex w-full min-w-0 flex-col items-center justify-start",
-            "w-full max-w-4xl px-4 pb-10 pt-20 sm:px-6 sm:pb-12 sm:pt-24 lg:max-w-5xl lg:px-10 lg:pt-24",
+            "w-full max-w-4xl px-4 pt-20 pb-10 sm:px-6 sm:pt-24 sm:pb-12 lg:max-w-5xl lg:px-10 lg:pt-24",
           )}
         >
-          <h2
-            className="about-timeline-title mb-3 w-full shrink-0 text-center text-3xl font-bold text-[rgb(var(--color-text))] sm:mb-4 sm:text-4xl lg:text-[2.5rem]"
-
-          >
+          <h2 className="about-timeline-title mb-3 w-full shrink-0 text-center text-3xl font-bold text-[rgb(var(--color-text))] sm:mb-4 sm:text-4xl lg:text-[2.5rem]">
             {infoAboutTitle}
           </h2>
 

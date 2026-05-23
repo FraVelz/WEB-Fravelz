@@ -1,10 +1,9 @@
 import { SectionsDetails } from "./_components/SectionsDetails";
 import { ListImagesViewer } from "./_components/ListImageViewer";
 
+import { resolveLangParam } from "@/lib/page-lang";
 import { getAllProjects, getProjectBySlug } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
-
-import type { Language } from "@/lib/i18n-routing";
 import { languages } from "@/lib/i18n-routing";
 
 import { notFound } from "next/navigation";
@@ -34,7 +33,7 @@ export async function generateMetadata({
 
   if (!project) return { title: "Proyecto" };
 
-  const L = lang as Language;
+  const L = resolveLangParam(lang);
   const title = project.title[L];
   const description = project.fullDescription[L];
 
@@ -46,27 +45,29 @@ export async function generateMetadata({
 }
 
 export default async function ProjectSlugPage({ params }: { params: Promise<{ lang: string; slug: string }> }) {
-  const { lang, slug } = await params;
+  const { lang: langParam, slug } = await params;
+  const lang = resolveLangParam(langParam);
   const project = getProjectBySlug(slug);
 
   if (!project) notFound();
 
-  const L = lang as Language;
-  const t = getTranslations(L);
-  const title = project.title[L];
-  const description = project.fullDescription[L];
+  const t = getTranslations(lang);
+  const title = project.title[lang];
+  const description = project.fullDescription[lang];
 
   return (
-    <article className="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900" data-project-page>
-      <div className="mx-auto max-w-5xl">
+    <article
+      className={cn("page-below-header min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}
+      data-project-page
+    >
+      <div className="mx-auto max-w-5xl pt-8">
         <Link
           href={`/${lang}/projects`}
           className={cn(
-            "project-page-back-link -ml-1 mb-8 inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-0.5",
+            "project-page-back-link mb-8 -ml-1 inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-0.5",
             "text-cyan-600 transition-colors hover:text-cyan-700",
             "dark:text-cyan-400 dark:hover:text-cyan-300",
           )}
-
         >
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -81,7 +82,6 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                   "rounded-full bg-amber-100 px-3 py-1 text-sm font-medium text-amber-800",
                   "dark:bg-amber-900/40 dark:text-amber-200",
                 )}
-
               >
                 {t.project_status_development ?? "En desarrollo"}
               </span>
@@ -91,7 +91,6 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                   "rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-800",
                   "dark:bg-emerald-900/40 dark:text-emerald-200",
                 )}
-
               >
                 {t.project_status_finished ?? "Finalizado"}
               </span>
@@ -174,7 +173,6 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                   "inline-flex items-center gap-2 rounded-lg bg-yellow-100 px-6 py-3 font-semibold text-yellow-800",
                   "dark:bg-yellow-900/30 dark:text-yellow-300",
                 )}
-
               >
                 {t.projects_coming_soon || "Próximamente"}
               </span>
@@ -192,7 +190,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
           carouselNextLabel={t.projects_carousel_next}
         />
 
-        <SectionsDetails L={L} project={project} />
+        <SectionsDetails lang={lang} project={project} />
       </div>
     </article>
   );

@@ -26,9 +26,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
       >
         {/* Texto */}
         <div className="flex min-w-0 flex-1 flex-col">
-          <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">
-            {t.hola}
-          </p>
+          <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">{t.hola}</p>
 
           <div
             className={cn(
@@ -48,10 +46,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
               @Fravelz
             </p>
 
-            <p
-              className={cn("text-start text-lg font-bold text-cyan-700 sm:text-xl lg:text-xl", "dark:text-cyan-100")}
-
-            >
+            <p className={cn("text-start text-lg font-bold text-cyan-700 sm:text-xl lg:text-xl", "dark:text-cyan-100")}>
               {t.hero_role || "Desarrollador Web - Frontend :)"}
             </p>
 
@@ -60,7 +55,6 @@ export default async function HeroSection({ lang }: { lang: Language }) {
                 "max-w-2xl text-start text-base leading-[1.65] text-slate-800",
                 "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7] dark:text-gray-300",
               )}
-
             >
               {t.about_current_text}
             </p>
@@ -106,7 +100,6 @@ export default async function HeroSection({ lang }: { lang: Language }) {
             "hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20",
             "dark:border-cyan-400/40 dark:text-cyan-400",
           )}
-
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

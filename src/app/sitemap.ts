@@ -1,10 +1,10 @@
+import { getSiteUrl } from "@/lib/site-url";
 import { getAllProjects } from "@/utils/data/projects";
 import { languages } from "@/lib/i18n-routing";
 import type { MetadataRoute } from "next";
 
-const site = "https://fravelz.vercel.app";
-
 export default function sitemap(): MetadataRoute.Sitemap {
+  const site = getSiteUrl();
   const projects = getAllProjects();
   const entries: MetadataRoute.Sitemap = [];
 

@@ -78,7 +78,7 @@ WEB-Fravelz/
 
 ## Translation system
 
-- **`public/locals/{lang}/*.json`**: keys merged on the server according to `LOCALE_FILES` in `src/utils/i18n.ts` (`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
+- **`public/locals/{lang}/*.json`**: keys merged on the server according to `LOCALE_FILES` in `src/utils/i18n.ts` (`common`, `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`).
 - **Server**: `getTranslations(lang)` only in server Components / pages (or data serialized to the client).
 - **Proxy** (`src/proxy.ts`): redirects `/` and sets the `x-lang` header for server-side `<html lang>`.
 

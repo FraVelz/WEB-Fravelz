@@ -4,13 +4,7 @@ import { cn } from "@/utils/cn";
 
 function IconBase({ className, children, ...props }: SVGProps<SVGSVGElement> & { children: ReactNode }) {
   return (
-    <svg
-      className={cn("size-6 shrink-0 sm:size-7", className)}
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden
-      {...props}
-    >
+    <svg className={cn("size-6 shrink-0 sm:size-7", className)} viewBox="0 0 24 24" fill="none" aria-hidden {...props}>
       {children}
     </svg>
   );

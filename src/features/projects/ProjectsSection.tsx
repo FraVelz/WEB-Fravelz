@@ -19,10 +19,7 @@ export default async function ProjectsSection({ lang, classname = "" }: { lang: 
             <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100">
               {t.hacking_projects_title || "Proyectos Principales"}
             </h2>
-            <p
-              className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
-
-            >
+            <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
               {t.projects_section_description ||
                 "Una selección de mis proyectos más destacados como desarrollador frontend."}
             </p>

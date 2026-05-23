@@ -16,9 +16,7 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
   return (
     <section id="hobbies" className={classname}>
       <PanelReveal className="flex flex-col items-center justify-center">
-        <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100">
-          {t.info_hobbies_title}
-        </h2>
+        <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-100">{t.info_hobbies_title}</h2>
 
         <HobbiesInteractiveGrid
           className={cn(
@@ -32,8 +30,6 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
             icon={<WebdevIcon />}
             title={t.hobbies_webdev}
             description={t.hobbies_webdev_desc}
-            titleKey="hobbies_webdev"
-            descriptionKey="hobbies_webdev_desc"
             wrapperClassName="row-span-2 min-h-[150px]"
             contentClassName="flex flex-row items-center justify-center gap-5 lg:flex-col lg:text-center"
             bodyClassName="flex max-w-[320px] flex-col gap-4"
@@ -44,8 +40,6 @@ export default async function HobbiesSection({ lang, classname = "" }: { lang: L
             icon={<LinuxIcon />}
             title={t.hobbies_linux}
             description={t.hobbies_linux_desc}
-            titleKey="hobbies_linux"
-            descriptionKey="hobbies_linux_desc"
             wrapperClassName="col-span-2 min-h-[150px]"
             contentClassName="flex items-center justify-center gap-5"
           />
