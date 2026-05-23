@@ -1,142 +1,82 @@
-# Autocommit (Conventional Commits alineado al repo)
+# Autocommit — WEB-Fravelz (portafolio Next.js)
 
-Usar cuando el usuario pida **hacer commit** del trabajo actual y quiera mensajes **coherentes con el historial del proyecto**, priorizando **Conventional Commits** y evitando el estilo antiguo de varios prefijos encadenados en una sola línea.
+Usar cuando el usuario pida **hacer commit** del trabajo actual. Mensajes **Conventional Commits**, coherentes con `git log` de este repo. **No** hacer `git push` salvo petición explícita.
 
 ## Cuándo ejecutar
 
-- El usuario invoca este comando o pide explícitamente **commit** / **autocommit**.
-- **No** crear commits si el usuario no lo pidió (regla general del proyecto).
+- Invocación de **`/auto-commit`** o petición explícita de **commit** / **autocommit**.
+- **No** commitear si el usuario no lo pidió.
 
-## Antes de commitear (siempre)
+## Antes de commitear
 
-En paralelo cuando tenga sentido:
+1. `git status` — staged y unstaged.
+2. `git diff` — qué entra en el commit.
+3. `git log -15 --oneline` — tono reciente.
 
-1. `git status` — archivos modificados y sin seguimiento.
-2. `git diff` — qué cambió (staged y unstaged).
-3. `git log -15 --oneline` — tono y tipos usados recientemente.
+**No** incluir `.env`, credenciales ni artefactos de build (`.next/`, etc.) salvo que el usuario lo pida.
 
-**No** incluir en el commit archivos que parezcan secretos (`.env`, credenciales, etc.).
+## Ámbitos (`scope`) habituales en este repo
 
-## Formas de mensaje (elegir una)
+`readme`, `i18n`, `home`, `projects`, `certifications`, `contact`, `about-me`, `hero`, `seo`, `proxy`, `locales`, `a11y`, `ci`, `cursor`, `data`, `layout`, `deps`.
 
-### A) Formato lista — **preferido** si el commit toca **varias áreas** del repo
+Rutas de referencia: `src/app/[lang]/`, `src/features/`, `src/components/`, `public/locals/`, `src/utils/data/`, `docs/es|en/`, `.cursor/`.
 
-Cada línea del mensaje (asunto + cuerpo) sigue **exactamente**:
+## Formas de mensaje
 
-`<type>(<scope>): <acción en imperativo, inglés, sin punto final>`
-
-- **`type`:** `feat`, `fix`, `docs`, `refactor`, `chore`, `build`, etc.
-- **`scope`:** zona afectada en una sola palabra o con guiones: `readme`, `overview`, `setup`, `frontend`, `backend`, `data`, `integrations`, `cursor`, `scripts`, `auth`, `learning`, …
-- **Primera línea:** la que resume mejor el conjunto; es la que muestra `git log --oneline`.
-- **Líneas siguientes:** una por **bloque lógico** del diff (misma plantilla). Línea en blanco opcional entre la primera y el resto (Git separa asunto y cuerpo).
-- **Sin** párrafos narrativos largos entre líneas; cada línea debe ser autónoma.
-
-Ejemplo:
+### A) Formato lista — varias áreas en un commit
 
 ```text
-docs(readme): simplify bilingual README and document Tailwind CSS 4
-
-docs(setup): align installation and scripts documentation ES/EN
-docs(backend): describe persistence layer instead of removed adapter
-chore(cursor): add agent command specs for docs and commits
+<type>(<scope>): <acción en imperativo, inglés, sin punto final>
 ```
 
-**Scope con `type` `docs`:** aquí **sí** se usa `docs(overview): …`, `docs(setup): …`: el scope indica **qué parte** de la documentación cambió, no duplica el tipo.
-
-### B) Formato clásico — un commit **pequeño** o un solo tema
-
-Una línea de asunto; cuerpo opcional en **frases completas** (inglés) si hace falta contexto; pies `BREAKING CHANGE:` si aplica.
+Primera línea = resumen; líneas siguientes = un bloque lógico del diff cada una. Línea en blanco opcional tras la primera.
 
 ```text
-<type>(<scope opcional>): <descripción breve en imperativo>
+feat(home): add GSAP reveals and horizontal scroll polish
 
-Optional body explaining why this change was needed, in full sentences.
-
-BREAKING CHANGE: only if consumers must migrate.
+refactor(i18n): centralize lang params and typed translation fallbacks
+chore(cursor): align agent commands for docs and commits
 ```
 
-Si el `type` ya es `docs` y todo el cambio es genérico, puede usarse **sin** scope: `docs: fix broken links in overview`.
-
----
-
-## Tipos (`type`) — priorizar
-
-| Tipo        | Uso en este repo |
-| ----------- | ---------------- |
-| `feat`      | Nueva capacidad o comportamiento visible para el usuario. |
-| `fix`       | Corrección de bug o regresión. |
-| `docs`      | Documentación (`README`, `docs/`, comandos bajo `.cursor/commands/`, etc.). |
-| `style`     | Formato, Prettier; sin cambiar lógica. |
-| `refactor`  | Reestructuración sin cambiar comportamiento observable. |
-| `perf`      | Rendimiento. |
-| `test`      | Tests. |
-| `build`     | Build, dependencias. |
-| `ci`        | CI. |
-| `chore`     | Mantenimiento (scripts auxiliares, `.gitignore`, etc.). |
-
-**Evitar** tipos no estándar (`delete:`, `update:` como tipo único). Preferir `refactor:` / `chore:` con descripción clara.
-
-## Descripción y estilo
-
-- **Inglés** en asunto y cuerpo del commit.
-- Imperativo: *add*, *fix*, *update*, *remove*, no *added* / *fixes*.
-- **~72 caracteres** en la primera línea cuando sea razonable.
-- No encadenar `feat: ... feat: ...` en una sola línea (patrón antiguo del repo).
-
-## Ejemplos rápidos (formato clásico)
+### B) Formato clásico — un solo tema
 
 ```text
-feat(learning): add lesson preview modal on roadmap
-fix(logros): restore streak modal state after navigation
-refactor(services): remove unused re-exports from barrel
-chore: bump typescript dev dependency
+feat(a11y): improve keyboard focus across portfolio surfaces
 ```
 
-## Cómo crear el commit
+## Tipos
 
-1. Añadir solo lo necesario: `git add -p` o rutas concretas.
-2. Mensaje con **heredoc**:
+| Tipo | Uso aquí |
+| --- | --- |
+| `feat` | UI, rutas, animaciones, contenido visible |
+| `fix` | Bugs, regresiones, CI |
+| `docs` | `README`, `docs/`, `.cursor/commands/` |
+| `refactor` | Reorganización sin cambio de comportamiento |
+| `style` / `chore` | Prettier, tokens, deps, scripts |
+| `perf` | LCP, bundles, animaciones |
+| `ci` | `.github/workflows/` |
 
-**Formato lista (varios cambios):**
+**Evitar** encadenar `feat: … feat: …` en una sola línea.
+
+## Commit
 
 ```bash
 git commit -m "$(cat <<'EOF'
-docs(readme): tighten main README sections ES/EN
+docs(readme): tighten bilingual README sections
 
-docs(overview): fix index links to setup guides
-chore(cursor): document list-style commit messages in auto-commit
+chore(cursor): add update-global-ia-docs command
 EOF
 )"
 ```
 
-**Formato clásico (un tema + cuerpo):**
+## Reglas
 
-```bash
-git commit -m "$(cat <<'EOF'
-feat(auth): clarify signup validation messages
+- Mensaje en **inglés**; respuesta al chat en **español**.
+- Cumplir `.cursor/rules/git-commits.mdc` (sin `Co-authored-by` / Cursor).
+- Hook rechazado → corregir y **nuevo** commit; sin `--no-verify` salvo petición explícita.
+- Si aparece `Co-authored-by: Cursor` y el commit **no está en remoto**: `git commit --amend -F msg.txt` con el mismo texto limpio.
 
-Align client errors with API responses and improve screen reader labels.
-EOF
-)"
-```
+## Comandos relacionados
 
-3. `git status` para verificar.
-4. Si un **hook** rechaza el commit: corregir y **nuevo** commit; no usar `--no-verify` salvo petición explícita del usuario.
-5. Cumplir la regla del proyecto **git-commits** (`.cursor/rules/git-commits.mdc`): sin `Co-authored-by` ni firmas de Cursor/IA.
-6. Tras commitear, comprobar `git log -1 --format=%B`. Si aparece `Co-authored-by: Cursor` y el commit **no está en remoto**, enmendar con el mismo texto en un fichero (`git commit --amend -F msg.txt`) y volver a comprobar hasta que el mensaje quede limpio.
-
-## Romper compatibilidad (`BREAKING CHANGE`)
-
-```text
-feat(api)!: rename query param from areaId to subjectId
-
-BREAKING CHANGE: clients must send `subjectId` instead of `areaId`.
-```
-
-## Resumen para el agente
-
-- Diff + log antes de redactar.
-- Commits que tocan **muchas carpetas** → **formato lista** (`type(scope): acción` por línea).
-- Commits **atómicos** → formato clásico o una sola línea lista.
-- Mensaje del commit en **inglés**; respuesta al usuario en **español** salvo que pida otro idioma.
-- Regla **git-commits**: sin trailers de coautoría IA; verificar y enmendar si el entorno los inyecta (commit no publicado).
+- Documentación: **`/update-docs`**, barrido masivo **`/update-global-ia-docs`**.
+- Auditoría: **`/problems-search`** (no implica commit).
