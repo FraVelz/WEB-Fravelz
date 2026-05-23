@@ -3,8 +3,34 @@ name: Continuous Integration - CI
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "next.config.*"
+      - "tsconfig.json"
+      - "postcss.config.*"
+      - "eslint.config.*"
+      - "prettier.config.*"
+      - "react-doctor.config.json"
+      - ".github/workflows/**"
   pull_request:
     branches: [main]
+    paths:
+      - "src/**"
+      - "public/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "next.config.*"
+      - "tsconfig.json"
+      - "postcss.config.*"
+      - "eslint.config.*"
+      - "prettier.config.*"
+      - "react-doctor.config.json"
+      - ".github/workflows/**"
 
 concurrency:
   group: ci-${{ github.ref }}
