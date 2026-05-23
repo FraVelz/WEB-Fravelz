@@ -38,7 +38,8 @@
 
 - **Presentación**: hero con logo y ubicación
 - **Proyectos**: grid y página de detalle por `slug`
-- **Tecnologías**: tarjetas con niveles (datos en [`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
+- **Tecnologías**: tarjetas con niveles (datos en
+  [`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
 - **Sobre mí**: línea de tiempo + modal
 - **Pasatiempos**: grid de tarjetas con efecto de cursor
 - **Contacto**: email y formulario mailto
@@ -60,7 +61,7 @@
 ## Despliegue
 
 - **Recomendado**: [Vercel](https://vercel.com/) con preset Next.js
-- **URL**: https://fravelz.vercel.app/
+- **URL**: <https://fravelz.vercel.app/>
 
 [Regresar al readme...](../../README.md)
 

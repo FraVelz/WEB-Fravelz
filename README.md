@@ -4,15 +4,24 @@
 
 ![Image Portfolio](./public/images/portfolio.png)
 
-Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web como la estructuración código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al código.
+Este es el código y documentación de mi portafolio, es mi carta de perfil para las empresas tanto visualmente de la web
+como la estructuración código limpio y organizado, con la documentation correspondiente y actualizada, de cada cambio al
+código.
 
-La versión anterior del sitio construida con **Astro** queda archivada en la rama [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) y en el tag [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+La versión anterior del sitio construida con **Astro** queda archivada en la rama
+[`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) y en el tag
+[`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
 
-Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a nivel mundial en frontend, y llegar trabajar en google.
+Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a
+nivel mundial en frontend, y llegar trabajar en google.
 
-Este portfolio y demás proyectos que estarán en construcción, mejora, y finalización, sera el camino que muestre mi progreso y mis detalles que tengo en cuenta para mi objetivo.
+Este portfolio y demás proyectos que estarán en construcción, mejora, y finalización, sera el camino que muestre mi
+progreso y mis detalles que tengo en cuenta para mi objetivo.
 
-todos los proyectos web modificados, creados, o con ultima modificación en el año 2026, tendrán su documentación en español e ingles, y comentarios y commits del código en ingles, esto haciendo un proyectos multi-lenguaje con el lenguaje principal ingles porque es el estándar internacional en la programación. (esto en cuanto a proyectos personales).
+todos los proyectos web modificados, creados, o con ultima modificación en el año 2026, tendrán su documentación en
+español e ingles, y comentarios y commits del código en ingles, esto haciendo un proyectos multi-lenguaje con el
+lenguaje principal ingles porque es el estándar internacional en la programación. (esto en cuanto a proyectos
+personales).
 
 ---
 
@@ -48,14 +57,15 @@ todos los proyectos web modificados, creados, o con ultima modificación en el a
 ### Herramientas de Desarrollo
 
 - **pnpm** — Gestor de paquetes rápido
-- **Next.js / Turbopack** — `pnpm dev` (por defecto **http://localhost:3000**) y `pnpm build` para producción
+- **Next.js / Turbopack** — `pnpm dev` (por defecto **<http://localhost:3000>**) y `pnpm build` para producción
 
 ### Herramientas de Documentación
 
 - Vscode extension: Markdown All in One
 - Vscode extension: Markdownlint
 - Vscode extension: Code Spell checker
-- Cursor (workspace = esta carpeta): instrucciones para asistentes en [`.cursor/commands/`](.cursor/commands/) (comandos slash: `/update-docs`, `/update-json`, `/update-projects`, etc.)
+- Cursor (workspace = esta carpeta): instrucciones para asistentes en [`.cursor/commands/`](.cursor/commands/) (comandos
+  slash: `/update-docs`, `/update-json`, `/update-projects`, etc.)
 
 ---
 
@@ -120,4 +130,4 @@ MIT - Licencia permisiva de código abierto
 
 ## 👤 Autor
 
-**Fravelz** - [GitHub](https://github.com/FraVelz) - fravelz@proton.me
+**Fravelz** - [GitHub](https://github.com/FraVelz) - <fravelz@proton.me>

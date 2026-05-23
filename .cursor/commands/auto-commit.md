@@ -1,6 +1,7 @@
 # Autocommit — WEB-Fravelz (portafolio Next.js)
 
-Usar cuando el usuario pida **hacer commit** del trabajo actual. Mensajes **Conventional Commits**, coherentes con `git log` de este repo. **No** hacer `git push` salvo petición explícita.
+Usar cuando el usuario pida **hacer commit** del trabajo actual. Mensajes **Conventional Commits**, coherentes con
+`git log` de este repo. **No** hacer `git push` salvo petición explícita.
 
 ## Cuándo ejecutar
 
@@ -17,9 +18,11 @@ Usar cuando el usuario pida **hacer commit** del trabajo actual. Mensajes **Conv
 
 ## Ámbitos (`scope`) habituales en este repo
 
-`readme`, `i18n`, `home`, `projects`, `certifications`, `contact`, `about-me`, `hero`, `seo`, `proxy`, `locales`, `a11y`, `ci`, `cursor`, `data`, `layout`, `deps`.
+`readme`, `i18n`, `home`, `projects`, `certifications`, `contact`, `about-me`, `hero`, `seo`, `proxy`, `locales`,
+`a11y`, `ci`, `cursor`, `data`, `layout`, `deps`.
 
-Rutas de referencia: `src/app/[lang]/`, `src/features/`, `src/components/`, `public/locals/`, `src/utils/data/`, `docs/es|en/`, `.cursor/`.
+Rutas de referencia: `src/app/[lang]/`, `src/features/`, `src/components/`, `public/locals/`, `src/utils/data/`,
+`docs/es|en/`, `.cursor/`.
 
 ## Formas de mensaje
 
@@ -29,7 +32,8 @@ Rutas de referencia: `src/app/[lang]/`, `src/features/`, `src/components/`, `pub
 <type>(<scope>): <acción en imperativo, inglés, sin punto final>
 ```
 
-Primera línea = resumen; líneas siguientes = un bloque lógico del diff cada una. Línea en blanco opcional tras la primera.
+Primera línea = resumen; líneas siguientes = un bloque lógico del diff cada una. Línea en blanco opcional tras la
+primera.
 
 ```text
 feat(home): add GSAP reveals and horizontal scroll polish
@@ -46,15 +50,15 @@ feat(a11y): improve keyboard focus across portfolio surfaces
 
 ## Tipos
 
-| Tipo | Uso aquí |
-| --- | --- |
-| `feat` | UI, rutas, animaciones, contenido visible |
-| `fix` | Bugs, regresiones, CI |
-| `docs` | `README`, `docs/`, `.cursor/commands/` |
-| `refactor` | Reorganización sin cambio de comportamiento |
-| `style` / `chore` | Prettier, tokens, deps, scripts |
-| `perf` | LCP, bundles, animaciones |
-| `ci` | `.github/workflows/` |
+| Tipo              | Uso aquí                                    |
+| ----------------- | ------------------------------------------- |
+| `feat`            | UI, rutas, animaciones, contenido visible   |
+| `fix`             | Bugs, regresiones, CI                       |
+| `docs`            | `README`, `docs/`, `.cursor/commands/`      |
+| `refactor`        | Reorganización sin cambio de comportamiento |
+| `style` / `chore` | Prettier, tokens, deps, scripts             |
+| `perf`            | LCP, bundles, animaciones                   |
+| `ci`              | `.github/workflows/`                        |
 
 **Evitar** encadenar `feat: … feat: …` en una sola línea.
 
@@ -74,7 +78,8 @@ EOF
 - Mensaje en **inglés**; respuesta al chat en **español**.
 - Cumplir `.cursor/rules/git-commits.mdc` (sin `Co-authored-by` / Cursor).
 - Hook rechazado → corregir y **nuevo** commit; sin `--no-verify` salvo petición explícita.
-- Si aparece `Co-authored-by: Cursor` y el commit **no está en remoto**: `git commit --amend -F msg.txt` con el mismo texto limpio.
+- Si aparece `Co-authored-by: Cursor` y el commit **no está en remoto**: `git commit --amend -F msg.txt` con el mismo
+  texto limpio.
 
 ## Comandos relacionados
 

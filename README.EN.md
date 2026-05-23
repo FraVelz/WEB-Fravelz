@@ -4,15 +4,22 @@
 
 ![Image Portfolio](./public/images/portfolio.png)
 
-This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
+This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual
+appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
 
-The previous **Astro** version of the site is preserved on branch [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+The previous **Astro** version of the site is preserved on branch
+[`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag
+[`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
 
-I'm Fravelz (Francisco Velez), a Front-End Developer. My goal is simple: to be one of the best front-end programmers in the world and eventually work at Google.
+I'm Fravelz (Francisco Velez), a Front-End Developer. My goal is simple: to be one of the best front-end programmers in
+the world and eventually work at Google.
 
-This portfolio, along with other projects that will be under construction, being improved, and completed, will demonstrate my progress and the details I consider to achieve my goal.
+This portfolio, along with other projects that will be under construction, being improved, and completed, will
+demonstrate my progress and the details I consider to achieve my goal.
 
-All web projects modified, created, or last modified in 2026 will have documentation in both Spanish and English, with code comments and commits in English. This makes for multilingual projects, with English as the primary language because it's the international standard in programming. (This applies to personal projects.)
+All web projects modified, created, or last modified in 2026 will have documentation in both Spanish and English, with
+code comments and commits in English. This makes for multilingual projects, with English as the primary language because
+it's the international standard in programming. (This applies to personal projects.)
 
 ---
 
@@ -48,14 +55,15 @@ All web projects modified, created, or last modified in 2026 will have documenta
 ### Development Tools
 
 - **pnpm** — Fast package manager
-- **Next.js / Turbopack** — `pnpm dev` (default **http://localhost:3000**) and `pnpm build` for production
+- **Next.js / Turbopack** — `pnpm dev` (default **<http://localhost:3000>**) and `pnpm build` for production
 
 ### Documentation Tools
 
 - VS Code extension: Markdown All in One
 - VS Code extension: Markdownlint
 - VS Code extension: Code Spell Checker
-- Cursor (workspace = this folder): assistant instructions in [`.cursor/commands/`](.cursor/commands/) (slash commands: `/update-docs`, `/update-json`, `/update-projects`, etc.)
+- Cursor (workspace = this folder): assistant instructions in [`.cursor/commands/`](.cursor/commands/) (slash commands:
+  `/update-docs`, `/update-json`, `/update-projects`, etc.)
 
 ---
 
@@ -120,4 +128,4 @@ MIT - Permissive Open Source License
 
 ## 👤 Author
 
-**Fravelz** - [GitHub](https://github.com/FraVelz) - fravelz@proton.me
+**Fravelz** - [GitHub](https://github.com/FraVelz) - <fravelz@proton.me>
