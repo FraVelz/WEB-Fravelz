@@ -22,7 +22,6 @@
 
 - **Búsqueda** en el header (portfolio y traducciones vía `public/locals/`)
 - **Certificados** con visor PDF (componentes cliente)
-- **Reproductor de música** (opcional / componentes existentes)
 - **Tema**: toggle accesible
 - **Formulario de contacto**: `mailto:` con cuerpo construido en cliente (`FormData` del formulario)
 - **Timeline “Sobre mí”** con modal “Leer más” (lógica en cliente)

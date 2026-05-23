@@ -3,12 +3,12 @@ import { certificates } from "@/utils/data/certificates";
 
 import { technologies } from "@/features/technologies/utils/data";
 
-import { type Lang, type SearchResult } from "../utils/data";
+import { type Language, type SearchResult } from "../utils/data";
 import { getUrlForI18nKey } from "../utils/functions";
 
 export function searchPortfolio(
   query: string,
-  lang: Lang,
+  lang: Language,
   translations: Record<string, string>,
   baseUrl: string,
 ): SearchResult[] {

@@ -50,12 +50,7 @@ export default function PdfViewerModal({
       aria-modal="true"
       aria-labelledby="pdf-modal-title"
     >
-      <button
-        type="button"
-        className="absolute inset-0 cursor-default"
-        aria-label={closeText}
-        onClick={onClose}
-      />
+      <button type="button" className="absolute inset-0 cursor-default" aria-label={closeText} onClick={onClose} />
       <div
         className={cn(
           "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl",

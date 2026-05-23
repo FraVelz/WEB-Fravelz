@@ -20,10 +20,7 @@ export default async function Footer({ lang }: { lang: Language }) {
       <div className="mx-auto max-w-6xl px-0 py-12 sm:px-0">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
           <div>
-            <h3
-              className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500"
-
-            >
+            <h3 className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500">
               {t.footer_links_title}
             </h3>
             <nav className="flex flex-col gap-2 pl-4 sm:gap-3" aria-label="Site links">
@@ -40,16 +37,11 @@ export default async function Footer({ lang }: { lang: Language }) {
           </div>
 
           <div>
-            <h3
-              className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500"
-
-            >
+            <h3 className="mb-4 pl-4 text-xs font-semibold tracking-widest text-slate-500 uppercase dark:text-slate-500">
               {t.footer_author}
             </h3>
             <div className="flex flex-col gap-2 pl-4 text-sm">
-              <p className="text-slate-600 dark:text-slate-400">
-                {t.footer_copyright}
-              </p>
+              <p className="text-slate-600 dark:text-slate-400">{t.footer_copyright}</p>
               <p>{t.footer_license}</p>
             </div>
           </div>

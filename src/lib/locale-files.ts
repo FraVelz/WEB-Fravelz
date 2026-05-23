@@ -2,7 +2,6 @@
 export const LOCALE_FILES = [
   "common",
   "hero",
-  "music",
   "certifications",
   "info",
   "technologies",

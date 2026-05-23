@@ -43,7 +43,7 @@ export function horizontalScroll() {
   // Get all panels that will move horizontally
   const sections = getPanels();
 
-  const container = document.querySelector<HTMLElement>(`${HOME_SCROLL_LAYER} .containera`);
+  const container = document.querySelector<HTMLElement>(`${HOME_SCROLL_LAYER} .home-panels-track`);
 
   // If container or panels do not exist, stop execution
   if (!container || sections.length === 0) return;

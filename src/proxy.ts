@@ -4,7 +4,10 @@ import { NextResponse } from "next/server";
 import { isValidLanguage, languages, localePathFromAcceptHeader, type Language } from "@/lib/i18n-routing";
 
 function langFromPathname(pathname: string): Language | null {
-  const segment = pathname.split("/").filter(Boolean).find((s) => languages.includes(s as Language));
+  const segment = pathname
+    .split("/")
+    .filter(Boolean)
+    .find((s) => languages.includes(s as Language));
   return segment && isValidLanguage(segment) ? segment : null;
 }
 

@@ -15,7 +15,7 @@ Translation files for the Fravelz portfolio. The folder name is **`locals`** (no
 
 Each language directory (`es/`, `en/`, `ru/`, `zh/`) should expose the same logical set of JSON files. The app merges these files **in order** defined by `LOCALE_FILES` in `src/lib/locale-files.ts`:
 
-`common`, `hero`, `music`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`.
+`common`, `hero`, `certifications`, `info`, `technologies`, `about`, `hobbies`, `footer`.
 
 Typical files include:
 
@@ -23,7 +23,6 @@ Typical files include:
 | --------------------- | --------------------- |
 | `common.json`         | Navigation, shared UI |
 | `hero.json`           | Hero / presentation   |
-| `music.json`          | Music player strings  |
 | `certifications.json` | Certifications page   |
 | `info.json`           | Section titles        |
 | `technologies.json`   | Tech section          |

@@ -26,11 +26,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
   return (
     <form id="contact-form" className="space-y-5" onSubmit={onSubmit}>
       <div>
-        <label
-          htmlFor="contact-name"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
-
-        >
+        <label htmlFor="contact-name" className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300">
           {t.contact_name_label}
         </label>
         <input
@@ -39,16 +35,11 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           name="name"
           required
           className={fieldClassName}
-
           placeholder={t.contact_name_placeholder}
         />
       </div>
       <div>
-        <label
-          htmlFor="contact-email"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
-
-        >
+        <label htmlFor="contact-email" className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300">
           {t.contact_email_label}
         </label>
         <input
@@ -57,16 +48,11 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           name="email"
           required
           className={fieldClassName}
-
           placeholder={t.contact_email_placeholder}
         />
       </div>
       <div>
-        <label
-          htmlFor="contact-subject"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
-
-        >
+        <label htmlFor="contact-subject" className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300">
           {t.contact_subject_label}
         </label>
         <input
@@ -75,16 +61,11 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           name="subject"
           required
           className={fieldClassName}
-
           placeholder={t.contact_subject_placeholder}
         />
       </div>
       <div>
-        <label
-          htmlFor="contact-message"
-          className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300"
-
-        >
+        <label htmlFor="contact-message" className="mb-1 block text-sm font-medium text-slate-800 dark:text-gray-300">
           {t.contact_message_label}
         </label>
         <textarea
@@ -93,7 +74,6 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           rows={4}
           required
           className={cn("min-h-[100px] resize-y", fieldClassName)}
-
           placeholder={t.contact_message_placeholder}
         />
       </div>
@@ -105,13 +85,10 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           "hover:from-cyan-600 hover:to-purple-600 hover:shadow-xl hover:shadow-cyan-500/25",
           "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg",
         )}
-
       >
         {t.contact_send_btn}
       </button>
-      <p className="text-center text-xs text-slate-600 dark:text-gray-500">
-        {t.contact_mailto_hint}
-      </p>
+      <p className="text-center text-xs text-slate-600 dark:text-gray-500">{t.contact_mailto_hint}</p>
     </form>
   );
 }

@@ -33,33 +33,21 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           />
 
           {project.isComingSoon && (
-            <div
-              className="absolute top-3 right-3 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white"
-
-            >
+            <div className="absolute top-3 right-3 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white">
               {t.projects_coming_soon || "Próximamente"}
             </div>
           )}
           {project.featured && (
-            <div
-              className="absolute top-3 left-3 rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white"
-
-            >
+            <div className="absolute top-3 left-3 rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white">
               {t.projects_featured || "Destacado"}
             </div>
           )}
           {project.inDevelopment ? (
-            <div
-              className="absolute bottom-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white"
-
-            >
+            <div className="absolute bottom-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white">
               {t.project_status_development ?? "En desarrollo"}
             </div>
           ) : (
-            <div
-              className="absolute bottom-3 left-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white"
-
-            >
+            <div className="absolute bottom-3 left-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white">
               {t.project_status_finished ?? "Finalizado"}
             </div>
           )}
@@ -108,7 +96,6 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
               "group-hover:underline group-focus-visible:underline",
               "dark:text-cyan-400",
             )}
-
           >
             {t.projects_view_project || "Ver Proyecto"}
             <svg

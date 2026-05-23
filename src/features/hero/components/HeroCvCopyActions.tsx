@@ -54,7 +54,6 @@ export default function HeroCvCopyActions({
             "dark:hover:shadow-cyan-950/20",
             "focus-visible:z-[1]",
           )}
-
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

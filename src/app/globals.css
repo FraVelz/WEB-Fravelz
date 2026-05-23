@@ -777,6 +777,10 @@ html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
 
 /* Utilidades de foco (opcionales; la base ya cubre la mayoría de controles) */
 @layer utilities {
+  .page-below-header {
+    padding-top: var(--header-height);
+  }
+
   .focus-ring:focus-visible {
     outline: none;
     box-shadow: var(--focus-ring-shadow);

@@ -1,5 +1,8 @@
-export type Lang = "es" | "en" | "ru" | "zh";
-export const LANGUAGES: Lang[] = ["es", "en", "ru", "zh"];
+import type { Language } from "@/lib/i18n-routing";
+
+export type { Language };
+
+export const LANGUAGES: Language[] = ["es", "en", "ru", "zh"];
 
 export type SearchResult =
   | { type: "project"; slug: string; title: string; technologies: string[] }

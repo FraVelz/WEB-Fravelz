@@ -10,8 +10,6 @@ export function InteractiveBox2({ t }: { t: Record<string, string> }) {
         icon={<PoliticsIcon />}
         title={t.hobbies_politics}
         description={t.hobbies_politics_desc}
-        titleKey="hobbies_politics"
-        descriptionKey="hobbies_politics_desc"
         wrapperClassName="min-h-37.5"
         contentClassName="flex items-center justify-center gap-5"
       />
@@ -21,8 +19,6 @@ export function InteractiveBox2({ t }: { t: Record<string, string> }) {
         icon={<ExerciseIcon />}
         title={t.hobbies_exercise}
         description={t.hobbies_exercise_desc}
-        titleKey="hobbies_exercise"
-        descriptionKey="hobbies_exercise_desc"
         wrapperClassName="row-span-2 min-h-37.5"
         contentClassName="flex items-center justify-center gap-5 lg:flex-col lg:text-center"
         bodyClassName="flex max-w-[320px] flex-col gap-4"
@@ -33,8 +29,6 @@ export function InteractiveBox2({ t }: { t: Record<string, string> }) {
         icon={<TypingIcon />}
         title={t.hobbies_typing_label}
         description={t.hobbies_typing_desc}
-        titleKey="hobbies_typing_label"
-        descriptionKey="hobbies_typing_desc"
         wrapperClassName="col-span-2 min-h-37.5"
         contentClassName="flex items-center justify-center gap-5"
         footer={

@@ -12,13 +12,10 @@ export function HighlightMatch({ text, query }: HighlightMatchProps) {
   const regex = new RegExp(`(${escaped})`, "gi");
   const parts = text.split(regex);
 
-  let offset = 0;
-
   return (
     <>
       {parts.map((part, partIndex) => {
-        const key = `${offset}-${part}`;
-        offset += part.length;
+        const key = `${partIndex}-${part}`;
 
         return partIndex % 2 === 1 ? (
           <mark

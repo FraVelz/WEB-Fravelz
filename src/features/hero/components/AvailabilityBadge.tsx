@@ -1,6 +1,6 @@
 import { cn } from "@/utils/cn";
 
-import { HERO_AVAILABILITY_I18N_KEY, type HeroAvailabilityStatus } from "../heroAvailabilityConfig";
+import type { HeroAvailabilityStatus } from "../heroAvailabilityConfig";
 
 type AvailabilityBadgeProps = {
   status: HeroAvailabilityStatus;
@@ -21,8 +21,6 @@ const dotClass: Record<HeroAvailabilityStatus, string> = {
 };
 
 export default function AvailabilityBadge({ status, text, className }: AvailabilityBadgeProps) {
-  const i18nKey = HERO_AVAILABILITY_I18N_KEY[status];
-
   return (
     <div
       className={cn(

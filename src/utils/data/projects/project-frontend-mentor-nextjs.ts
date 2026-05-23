@@ -97,25 +97,9 @@ export const projectFrontendMentorNextjs: Project = {
     ],
   },
   technicalDetails: {
-    es: [
-      "Next.js 16 (App Router), React 19, TypeScript 5",
-      "Tailwind CSS 4",
-      "ESLint, Prettier, Vitest",
-    ],
-    en: [
-      "Next.js 16 (App Router), React 19, TypeScript 5",
-      "Tailwind CSS 4",
-      "ESLint, Prettier, Vitest",
-    ],
-    ru: [
-      "Next.js 16 (App Router), React 19, TypeScript 5",
-      "Tailwind CSS 4",
-      "ESLint, Prettier, Vitest",
-    ],
-    zh: [
-      "Next.js 16（应用路由）、React 19、TypeScript 5",
-      "Tailwind CSS 4",
-      "ESLint、Prettier、Vitest",
-    ],
+    es: ["Next.js 16 (App Router), React 19, TypeScript 5", "Tailwind CSS 4", "ESLint, Prettier, Vitest"],
+    en: ["Next.js 16 (App Router), React 19, TypeScript 5", "Tailwind CSS 4", "ESLint, Prettier, Vitest"],
+    ru: ["Next.js 16 (App Router), React 19, TypeScript 5", "Tailwind CSS 4", "ESLint, Prettier, Vitest"],
+    zh: ["Next.js 16（应用路由）、React 19、TypeScript 5", "Tailwind CSS 4", "ESLint、Prettier、Vitest"],
   },
 };

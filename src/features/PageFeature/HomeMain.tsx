@@ -5,7 +5,6 @@ import HeroSection from "@/features/hero/HeroSection";
 import ProjectsSection from "@/features/projects/ProjectsSection";
 import TechnologiesSection from "@/features/technologies/TechnologiesSection";
 
-import { Header } from "@/components/layout/header";
 import Footer from "@/components/layout/Footer";
 
 import Particles from "./components/Particles";
@@ -22,15 +21,6 @@ export default async function HomeMain({ lang }: { lang: Language }) {
 
   return (
     <>
-      <a
-        href="#presentation"
-        className="skip-link"
-
-      >
-        {t.nav_skip_to_content ?? "Saltar al contenido principal"}
-      </a>
-
-      <Header t={t} lang={lang} />
       <Particles />
       <HomeAmbientGlow />
 
@@ -42,10 +32,8 @@ export default async function HomeMain({ lang }: { lang: Language }) {
         </section>
 
         <div className="horizontal relative w-full overflow-x-hidden">
-          <h2 className="sr-only">
-            {t.home_horizontal_region_aria ?? "Portfolio sections with horizontal scroll"}
-          </h2>
-          <div className="containera flex min-h-full max-lg:flex-col max-lg:gap-14">
+          <h2 className="sr-only">{t.home_horizontal_region_aria ?? "Portfolio sections with horizontal scroll"}</h2>
+          <div className="home-panels-track flex min-h-full max-lg:flex-col max-lg:gap-14">
             <ProjectsSection
               lang={lang}
               classname="panel min-w-screen h-fit lg:h-screen flex justify-center items-center px-4 sm:px-6 lg:px-8"

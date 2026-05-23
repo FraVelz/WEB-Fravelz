@@ -5,7 +5,8 @@ import { createPortal } from "react-dom";
 import { useEffect, useRef, useMemo, useReducer } from "react";
 
 import { cn } from "@/utils/cn";
-import type { Lang } from "../utils/data";
+import type { Language } from "../utils/data";
+import type { Translations } from "@/types/translations";
 import { getBaseUrl } from "../utils/functions";
 import { searchPortfolio } from "../utils/searchPortfolio";
 
@@ -66,8 +67,8 @@ export function Modal({
 }: {
   isActive: boolean;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
-  lang: Lang;
-  translations: Record<string, string>;
+  lang: Language;
+  translations: Translations;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [session, dispatchSession] = useReducer(searchSessionReducer, { query: "" });

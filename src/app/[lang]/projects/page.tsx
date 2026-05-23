@@ -1,8 +1,7 @@
 import ProjectCard from "@/components/ui/ProjectCard";
 import Footer from "@/components/layout/Footer";
 
-import type { Language } from "@/lib/i18n-routing";
-
+import { resolveLangParams } from "@/lib/page-lang";
 import { getAllProjects } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
@@ -11,8 +10,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
-  const { lang } = await params;
-  const t = getTranslations(lang as Language);
+  const lang = await resolveLangParams(params);
+  const t = getTranslations(lang);
 
   return {
     title: `${t.hacking_projects_title || "Proyectos"} — Fravelz`,
@@ -21,22 +20,21 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function ProjectsIndexPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  const t = getTranslations(lang as Language);
+  const lang = await resolveLangParams(params);
+  const t = getTranslations(lang);
   const projects = getAllProjects();
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 px-4 py-12 sm:px-6 lg:px-8 dark:bg-gray-900">
-        <div className="mx-auto max-w-7xl">
+      <div className={cn("page-below-header min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}>
+        <div className="mx-auto max-w-7xl pt-8">
           <div className="mb-12 text-center">
             <Link
-              href={`/${lang}#projects`}
+              href={`/${lang}/#projects`}
               className={cn(
                 "focus-ring mb-6 inline-flex items-center gap-2 rounded-md px-1 py-0.5 text-cyan-600 transition-colors",
                 "hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300",
               )}
-
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -44,16 +42,10 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
               <span>{t.projects_back || "Volver"}</span>
             </Link>
 
-            <h1
-              className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-gray-100"
-
-            >
+            <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-gray-100">
               {t.hacking_projects_title || "Proyectos Principales"}
             </h1>
-            <p
-              className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400"
-
-            >
+            <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
               {t.projects_all_projects_description || "Todos mis proyectos como desarrollador frontend."}
             </p>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-500">
@@ -66,13 +58,13 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
               <div key={p.slug} className="h-full">
-                <ProjectCard project={p} lang={lang as Language} />
+                <ProjectCard project={p} lang={lang} />
               </div>
             ))}
           </div>
         </div>
       </div>
-      <Footer lang={lang as Language} />
+      <Footer lang={lang} />
     </>
   );
 }

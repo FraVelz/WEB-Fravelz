@@ -6,8 +6,9 @@ import LanguageSelect from "./LanguageSelect";
 import { GITHUB_MARK_PATH } from "@/utils/icons/github-mark";
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
+import type { Translations } from "@/types/translations";
 
-export default function ElementsHeader({ id, t, lang }: { id: string; t: Record<string, string>; lang: Language }) {
+export default function ElementsHeader({ id, t, lang }: { id: string; t: Translations; lang: Language }) {
   return (
     <>
       <div id={id} className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8">
@@ -33,10 +34,7 @@ export default function ElementsHeader({ id, t, lang }: { id: string; t: Record<
       />
 
       <div id="header-opc1" className="flex items-center justify-between gap-3 sm:items-center lg:gap-5">
-        <LanguageSelect
-          selectLanguageLabel={t.nav_select_language}
-          selectLanguageAria={t.nav_select_language_aria}
-        />
+        <LanguageSelect selectLanguageLabel={t.nav_select_language} selectLanguageAria={t.nav_select_language_aria} />
 
         <ToggleTheme themeToggleLabel={t.theme_toggle_label} themeToggleAria={t.theme_toggle_aria} />
       </div>

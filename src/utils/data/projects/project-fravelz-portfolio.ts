@@ -88,7 +88,7 @@ export const projectFravelzPortfolio: Project = {
       "El portafolio fue creado inicialmente en Astro esa version esta guardada en una rama de github como `archive/astro`.",
       "Es el portafolio con mayor documentación extensa he implementado actualmente (implementando con ayuda de diversas herramientas como Markdownlint, Markdown All in One, Code Spell Checker, y herramientas de ia).",
       "maximo 120 caracteres por linea de codigo, maximo 200 lineas de codigo por archivo, ademas utilizando prettier+eslint",
-      "Estructura del codigo inspirada en feature-based architecture"
+      "Estructura del codigo inspirada en feature-based architecture",
     ],
     en: [
       "This portfolio is where I try UX, i18n, and performance tweaks before writing them up.",
@@ -98,10 +98,7 @@ export const projectFravelzPortfolio: Project = {
       "Это портфолио — площадка для экспериментов с UX, i18n и производительностью.",
       "Скриншоты обновляются, когда меняется каркас или ключевые сценарии.",
     ],
-    zh: [
-      "这个作品集也是我在正式记录之前尝试 UX、国际化与性能的试验场。",
-      "当布局或核心流程有变时，会更新截图。",
-    ],
+    zh: ["这个作品集也是我在正式记录之前尝试 UX、国际化与性能的试验场。", "当布局或核心流程有变时，会更新截图。"],
   },
   technicalDetails: {
     es: [
