@@ -63,24 +63,28 @@ export const projectFravelzPortfolio: Project = {
       "Separar datos de proyectos en módulos reutilizables y utilidades (`getProjectBySlug`)",
       "Tema antes del primer paint: script inline + cookies alineadas con `ToggleTheme`",
       "Visualizador de PDF y buscador accesibles (roles, Escape, foco)",
+      "Navegación por teclado en todos los apartados (Tab/Shift+Tab, Escape para modales, etc.)",
     ],
     en: [
       "App Router with `[lang]` and per-page metadata",
       "Splitting project data into modules and helpers (`getProjectBySlug`)",
       "Theme before first paint: inline script plus cookies synced with `ToggleTheme`",
       "Accessible PDF modal and search (roles, Escape, focus basics)",
+      "Keyboard navigation across all sections (Tab/Shift+Tab, Escape for modals, etc.)",
     ],
     ru: [
       "App Router с `[lang]` и метаданными на страницу",
       "Данные проектов — отдельные модули и `getProjectBySlug`",
       "Тема до первого кадра: inline-скрипт и cookie синхронно с переключателем темы",
       "Доступность модального PDF и поиска (роли, Escape, фокус)",
+      "Клавиатурная навигация по всем разделам (Tab/Shift+Tab, Escape для модалок и т.д.)",
     ],
     zh: [
       "使用 `[lang]` 的应用路由与各页 metadata",
       "将项目数据拆成模块与 `getProjectBySlug` 等工具函数",
       "首帧前主题：内联脚本与 ToggleTheme、cookie 一致",
       "PDF 弹层与搜索的无障碍要点（语义、Escape、焦点）",
+      "全站键盘导航（Tab/Shift+Tab、Escape 关闭弹层等）",
     ],
   },
   extraInfo: {
