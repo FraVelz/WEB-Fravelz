@@ -3,7 +3,8 @@ export {
   AboutFutureIcon,
   AboutGithubIcon,
   AboutOriginIcon,
-  AboutStudyIcon,
   AboutWorkIcon,
+  PCIcon,
+  PythonIcon,
   getAboutTimelineIcon,
 } from "./AboutTimelineIcons";
