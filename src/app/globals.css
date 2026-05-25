@@ -66,21 +66,12 @@
   --color-theme-toggle-track-hover: 8 145 178; /* cyan-600 — carril más oscuro al hover */
   --color-theme-toggle-shadow: 6 182 212; /* tinte sombra modo claro */
   --theme-toggle-hover-shadow:
-    0 0 0 1px rgb(var(--color-text) / 0.45),
-    0 4px 10px -2px rgb(var(--color-theme-toggle-shadow) / 0.35);
-  --theme-toggle-focus-shadow:
-    0 0 0 2px rgb(var(--color-text)),
-    0 0 0 4px rgb(var(--color-surface));
+    0 0 0 1px rgb(var(--color-text) / 0.45), 0 4px 10px -2px rgb(var(--color-theme-toggle-shadow) / 0.35);
+  --theme-toggle-focus-shadow: 0 0 0 2px rgb(var(--color-text)), 0 0 0 4px rgb(var(--color-surface));
 
-  --hero-btn-solid-focus-shadow:
-    0 0 0 2px rgb(255 255 255),
-    0 0 0 4px rgb(var(--color-text) / 0.85);
-  --hero-btn-outline-focus-shadow:
-    0 0 0 2px rgb(var(--color-text) / 0.55),
-    0 0 0 4px rgb(var(--color-surface));
-  --hero-scroll-hint-focus-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-surface));
+  --hero-btn-solid-focus-shadow: 0 0 0 2px rgb(255 255 255), 0 0 0 4px rgb(var(--color-text) / 0.85);
+  --hero-btn-outline-focus-shadow: 0 0 0 2px rgb(var(--color-text) / 0.55), 0 0 0 4px rgb(var(--color-surface));
+  --hero-scroll-hint-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-surface));
 
   /* Drawer / panel lateral — bordes sutiles (rgb(var(--color-drawer-border))) */
   --color-drawer-border: 226 232 240; /* slate-200 */
@@ -113,19 +104,11 @@
   --color-theme-toggle-moon: 34 211 238; /* cyan-400, alineado con --color-primary en dark */
   --color-theme-toggle-track-hover: 75 85 99; /* gray-600 — carril más claro al hover */
   --theme-toggle-hover-shadow: 0 0 0 1px rgb(var(--color-primary) / 0.85);
-  --theme-toggle-focus-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-bg));
+  --theme-toggle-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
 
-  --hero-btn-solid-focus-shadow:
-    0 0 0 2px rgb(var(--color-bg)),
-    0 0 0 4px rgb(var(--color-primary));
-  --hero-btn-outline-focus-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-bg));
-  --hero-scroll-hint-focus-shadow:
-    0 0 0 2px rgb(var(--color-primary)),
-    0 0 0 4px rgb(var(--color-bg));
+  --hero-btn-solid-focus-shadow: 0 0 0 2px rgb(var(--color-bg)), 0 0 0 4px rgb(var(--color-primary));
+  --hero-btn-outline-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
+  --hero-scroll-hint-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
 
   --color-drawer-border: 55 65 81; /* gray-700 */
 }
@@ -171,18 +154,10 @@
       --color-theme-toggle-moon: 34 211 238;
       --color-theme-toggle-track-hover: 75 85 99;
       --theme-toggle-hover-shadow: 0 0 0 1px rgb(var(--color-primary) / 0.85);
-      --theme-toggle-focus-shadow:
-        0 0 0 2px rgb(var(--color-primary)),
-        0 0 0 4px rgb(var(--color-bg));
-      --hero-btn-solid-focus-shadow:
-        0 0 0 2px rgb(var(--color-bg)),
-        0 0 0 4px rgb(var(--color-primary));
-      --hero-btn-outline-focus-shadow:
-        0 0 0 2px rgb(var(--color-primary)),
-        0 0 0 4px rgb(var(--color-bg));
-      --hero-scroll-hint-focus-shadow:
-        0 0 0 2px rgb(var(--color-primary)),
-        0 0 0 4px rgb(var(--color-bg));
+      --theme-toggle-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
+      --hero-btn-solid-focus-shadow: 0 0 0 2px rgb(var(--color-bg)), 0 0 0 4px rgb(var(--color-primary));
+      --hero-btn-outline-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
+      --hero-scroll-hint-focus-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
       --color-drawer-border: 55 65 81;
       color: rgb(var(--color-text));
       background-color: rgb(var(--color-bg));
@@ -213,16 +188,12 @@
    * Los componentes importan su CSS de foco/hover en su carpeta; aquí solo el anillo por defecto.
    */
   :root {
-    --focus-ring-shadow:
-      0 0 0 2px rgb(var(--color-primary)),
-      0 0 0 4px rgb(var(--color-surface));
+    --focus-ring-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-surface));
     --focus-field-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.28);
   }
 
   .dark {
-    --focus-ring-shadow:
-      0 0 0 2px rgb(var(--color-primary)),
-      0 0 0 4px rgb(var(--color-bg));
+    --focus-ring-shadow: 0 0 0 2px rgb(var(--color-primary)), 0 0 0 4px rgb(var(--color-bg));
     --focus-field-shadow: 0 0 0 2px rgb(var(--color-primary) / 0.35);
   }
 
@@ -231,9 +202,15 @@
   }
 
   :where(
-    a:any-link:not(.skip-link):not(.link-animation):not(.footer-nav-link):not(.btn-3):not(.project-card):not(.projects-view-all-btn):not(.project-page-back-link):not(.project-page-cta-primary):not(.project-page-cta-secondary):not(.about-link):not(.search-result-link):not(.hero-scroll-hint):not(.pdf-modal-download),
+    a:any-link:not(.skip-link):not(.link-animation):not(.footer-nav-link):not(.btn-3):not(.project-card):not(
+        .projects-view-all-btn
+      ):not(.project-page-back-link):not(.project-page-cta-primary):not(.project-page-cta-secondary):not(
+        .about-link
+      ):not(.search-result-link):not(.hero-scroll-hint):not(.pdf-modal-download),
     area[href],
-    button:not(:disabled):not(.theme-toggle-btn):not(.hero-btn-solid):not(.hero-btn-outline):not(.project-page-carousel-btn):not(.project-page-carousel-dot):not(.cert-card-action):not(.pdf-modal-close),
+    button:not(:disabled):not(.theme-toggle-btn):not(.hero-btn-solid):not(.hero-btn-outline):not(
+        .project-page-carousel-btn
+      ):not(.project-page-carousel-dot):not(.cert-card-action):not(.pdf-modal-close),
     summary,
     [role="button"],
     [role="link"],
@@ -285,7 +262,6 @@
     background-color: rgb(var(--color-selection) / 0.94);
     color: rgb(var(--color-btn-on-base));
   }
-
 }
 
 /* Utilidades globales (foco, skip-link, layout con header) */

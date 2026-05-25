@@ -59,10 +59,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
   const description = project.fullDescription[lang];
 
   return (
-    <article
-      className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}
-      data-project-page
-    >
+    <article className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")} data-project-page>
       <div className="mx-auto max-w-5xl pt-8">
         <Link
           href={`/${lang}/projects`}

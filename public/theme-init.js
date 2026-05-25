@@ -16,13 +16,7 @@
   }
 
   function setCookiePref(value) {
-    document.cookie =
-      COOKIE_NAME +
-      "=" +
-      encodeURIComponent(value) +
-      ";path=/;max-age=" +
-      MAX_AGE +
-      ";SameSite=Lax";
+    document.cookie = COOKIE_NAME + "=" + encodeURIComponent(value) + ";path=/;max-age=" + MAX_AGE + ";SameSite=Lax";
   }
 
   function getSystemTheme() {
@@ -42,7 +36,6 @@
       if (parsed) return parsed;
       if (fromStorage !== null && fromStorage !== "") return "auto";
       return parsePreference(getCookie(COOKIE_NAME)) ?? "auto";
-
     } catch {
       return "auto";
     }
@@ -54,7 +47,6 @@
     if (finalTheme === "dark") {
       root.classList.add("dark");
       root.setAttribute("data-theme", "dark");
-
     } else {
       root.classList.remove("dark");
       root.setAttribute("data-theme", "light");
@@ -78,7 +70,6 @@
 
     applyResolvedTheme(finalTheme);
     setCookiePref(storedPreference);
-
   } catch {
     applyLightFallback();
   }
