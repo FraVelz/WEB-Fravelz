@@ -99,7 +99,7 @@ function getNextTabFocusable(backward: boolean) {
   const currentIndex = active instanceof HTMLElement ? focusables.indexOf(active) : -1;
 
   if (currentIndex === -1) {
-    return backward ? focusables.at(-1) ?? null : focusables[0] ?? null;
+    return backward ? (focusables.at(-1) ?? null) : (focusables[0] ?? null);
   }
 
   const nextIndex = backward ? currentIndex - 1 : currentIndex + 1;

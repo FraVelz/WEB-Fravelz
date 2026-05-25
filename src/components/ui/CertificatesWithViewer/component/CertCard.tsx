@@ -37,7 +37,7 @@ export const CertCard = ({ cert, borderClass, accent, openViewer, clickToViewTex
         onClick={(e) => openViewer(cert.pdfPath!, cert.title, e.currentTarget)}
         className={cn(
           "cert-card-action mt-auto inline-flex w-fit cursor-pointer items-center gap-1 rounded-sm border-0 bg-transparent px-1 py-0.5 text-left",
-          "text-xs font-medium outline-none transition-colors hover:underline hover:underline-offset-2",
+          "text-xs font-medium transition-colors outline-none hover:underline hover:underline-offset-2",
           actionTextClass[accent],
         )}
       >

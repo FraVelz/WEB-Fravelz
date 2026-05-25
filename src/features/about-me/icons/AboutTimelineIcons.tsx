@@ -122,18 +122,8 @@ export function PCIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
       <rect x="5" y="6" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
-      <path
-        d="M8.5 19h7M4 19h16"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-      <path
-        d="M9 10.5h6M9 13h4"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
+      <path d="M8.5 19h7M4 19h16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M9 10.5h6M9 13h4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
     </IconBase>
   );
 }
@@ -180,12 +170,7 @@ export function AboutFutureIcon(props: SVGProps<SVGSVGElement>) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M12 4v2.5"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
+      <path d="M12 4v2.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
     </IconBase>
   );
 }
@@ -194,7 +179,7 @@ const ICON_BY_YEAR: Record<string, typeof PythonIcon> = {
   "2017": AboutOriginIcon,
   "2018-2021": PythonIcon,
   "2021": AboutGithubIcon,
-  "2021-2024": PCIcon, 
+  "2021-2024": PCIcon,
   "2025": AboutCertIcon,
   "+2026": AboutWorkIcon,
 };
