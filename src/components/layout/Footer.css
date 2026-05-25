@@ -1,0 +1,40 @@
+/* Enlaces del pie de página */
+
+.footer-nav-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background-color: rgb(var(--color-primary));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-nav-link:hover:not(:focus-visible) {
+    color: rgb(var(--color-link-hover));
+  }
+
+  .dark .footer-nav-link:hover:not(:focus-visible) {
+    color: rgb(var(--color-link-hover-dark));
+  }
+
+  .footer-nav-link:hover:not(:focus-visible)::after {
+    transform: scaleX(1);
+  }
+}
+
+.footer-nav-link:focus-visible {
+  outline: none;
+  border-radius: 0.25rem;
+  box-shadow: var(--focus-ring-shadow);
+}

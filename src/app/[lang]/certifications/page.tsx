@@ -1,3 +1,5 @@
+import "@/features/projects/projects-nav.css";
+
 import CertificatesWithViewer from "@/components/ui/CertificatesWithViewer/CertificatesWithViewer";
 import Footer from "@/components/layout/Footer";
 
@@ -9,10 +11,6 @@ import Link from "next/link";
 
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
-
-const certBackArrowPath =
-  "M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 " +
-  "12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z";
 
 const certFormationStackPath =
   "M11.7 2.294a.75.75 0 0 1 .6 0l8.25 3.75a.75.75 0 0 1 0 1.372l-8.25 3.75a.75.75 0 0 1-.6 0l-" +
@@ -33,38 +31,31 @@ export default async function CertificationsPage({ params }: { params: Promise<{
   const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts } = groupCertificates(certificates);
 
   return (
-    <section className="page-below-header flex min-h-screen flex-col">
-      <div className="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
-        <Link
-          href={`/${lang}/#about-me`}
-          className={cn(
-            "inline-flex items-center gap-2 text-sm font-medium text-cyan-700 underline underline-offset-4",
-            "transition-colors hover:text-cyan-800 dark:text-cyan-300 dark:hover:text-cyan-200",
-          )}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="16"
-            height="16"
-            className="inline-block shrink-0"
-            aria-hidden="true"
-          >
-            <path fillRule="evenodd" d={certBackArrowPath} clipRule="evenodd" />
-          </svg>
-          <span>{t.cert_back_to_about || "Volver a Sobre Mí"}</span>
-        </Link>
-      </div>
-
+    <section className="flex min-h-screen flex-col">
       <div
         className={cn(
-          "min-h-screen bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 py-14 sm:px-6 lg:px-8",
+          "flex-1 bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 pt-6 pb-14 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10",
           "dark:bg-linear-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
         )}
       >
         <div className="mx-auto max-w-5xl space-y-10">
-          <section className="space-y-4 text-center">
+          <header className="pb-6 sm:pb-8">
+            <Link
+              href={`/${lang}/#about-me`}
+              className={cn(
+                "project-page-back-link -ml-1 inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-0.5",
+                "text-cyan-600 transition-colors hover:text-cyan-700",
+                "dark:text-cyan-400 dark:hover:text-cyan-300",
+              )}
+            >
+              <svg className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>{t.cert_back_to_about || "Volver a Sobre Mí"}</span>
+            </Link>
+          </header>
+
+          <section className="space-y-4 text-center" aria-labelledby="cert-page-title">
             <div
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border border-cyan-300/70 bg-cyan-100/70 px-3 py-1",
@@ -79,14 +70,20 @@ export default async function CertificationsPage({ params }: { params: Promise<{
               <span>{t.cert_formacion_badge || "Formación y certificados"}</span>
             </div>
 
-            <h1 className="text-center text-3xl font-bold text-slate-900 md:text-4xl dark:text-slate-50">
+            <h1
+              id="cert-page-title"
+              className="text-center text-3xl font-bold text-slate-900 md:text-4xl dark:text-slate-50"
+            >
               {t.cert_section_title || "Certificaciones en Progreso"}
             </h1>
             <p className="mx-auto max-w-3xl text-sm text-slate-700 dark:text-slate-300">{t.cert_intro_paragraph1}</p>
             <p className="mx-auto max-w-3xl text-sm text-slate-700 dark:text-slate-300">{t.cert_intro_paragraph2}</p>
           </section>
 
-          <section className="space-y-4">
+          <section className="space-y-4" aria-labelledby="cert-list-heading">
+            <h2 id="cert-list-heading" className="sr-only">
+              {t.cert_section_title || "Certificaciones"}
+            </h2>
             <div className="flex items-center justify-between gap-4">
               <span
                 className={cn(

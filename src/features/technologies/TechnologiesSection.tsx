@@ -1,3 +1,5 @@
+import "./technologies.css";
+
 import PanelReveal from "@/components/ui/PanelReveal";
 import { getAccentVar, getBarVar, getCategoryClass, getLevelClass, getProgressPercent } from "./utils/functions";
 import { technologies } from "./utils/data";

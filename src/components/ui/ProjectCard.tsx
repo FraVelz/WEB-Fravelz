@@ -1,3 +1,5 @@
+import "@/features/projects/projects.css";
+
 import { cn } from "@/utils/cn";
 import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";

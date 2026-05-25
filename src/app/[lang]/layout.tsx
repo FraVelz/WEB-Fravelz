@@ -1,4 +1,5 @@
-import { Header } from "@/components/layout/header";
+import { ConditionalSkipLink } from "@/components/layout/ConditionalSkipLink";
+import { ConditionalHeader } from "@/components/layout/header";
 import { resolveLangParams } from "@/lib/page-lang";
 import { languages, type Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
@@ -20,11 +21,9 @@ export default async function LangLayout({
 
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        {t.nav_skip_to_content ?? "Saltar al contenido principal"}
-      </a>
+      <ConditionalSkipLink label={t.nav_skip_to_content ?? "Saltar al contenido principal"} />
 
-      <Header t={t} lang={lang} />
+      <ConditionalHeader t={t} lang={lang} />
 
       <div id="main-content" className={cn("min-h-dvh", "scroll-mt-24")}>
         {children}

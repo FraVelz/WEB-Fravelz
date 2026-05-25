@@ -1,12 +1,14 @@
 "use client";
 
+import "./certificates.css";
+
 import { cn } from "@/utils/cn";
 import type { ReactNode } from "react";
 
 import PdfViewerModal from "@/components/ui/PdfViewerModal";
 import { CertCard } from "./component/CertCard";
 
-import type { Certificate, CertificatesWithViewerProps } from "./types";
+import type { CertAccent, Certificate, CertificatesWithViewerProps } from "./types";
 import { usePdfViewer } from "./hook/usePdfViewer";
 
 type CertGroupConfig = {
@@ -15,6 +17,7 @@ type CertGroupConfig = {
   iconBg: string;
   icon: ReactNode;
   borderClass: string;
+  accent: CertAccent;
 };
 
 function CertGroupSection({
@@ -23,6 +26,7 @@ function CertGroupSection({
   icon,
   certs,
   borderClass,
+  accent,
   clickToViewText,
   openViewer,
 }: CertGroupConfig & {
@@ -45,6 +49,7 @@ function CertGroupSection({
             key={cert.id}
             cert={cert}
             borderClass={borderClass}
+            accent={accent}
           />
         ))}
       </div>
@@ -141,6 +146,7 @@ export default function CertificatesWithViewer({
         "border-cyan-200/70 bg-white/90 dark:border-cyan-700/60 dark:bg-slate-900/80",
         "hover:border-cyan-400/80",
       ),
+      accent: "cyan",
     },
     {
       certs: hixecCerts,
@@ -151,6 +157,7 @@ export default function CertificatesWithViewer({
         "border-amber-200/70 bg-white/90 dark:border-amber-700/60 dark:bg-slate-900/80",
         "hover:border-amber-400/80",
       ),
+      accent: "amber",
     },
     {
       certs: hack4uCerts,
@@ -161,6 +168,7 @@ export default function CertificatesWithViewer({
         "border-emerald-200/80 bg-white/90 dark:border-emerald-800/60 dark:bg-slate-900/80",
         "hover:border-emerald-400/80",
       ),
+      accent: "emerald",
     },
     {
       certs: otherCerts,
@@ -171,6 +179,7 @@ export default function CertificatesWithViewer({
         "border-slate-200/80 bg-white/90 dark:border-slate-700 dark:bg-slate-900/80",
         "hover:border-cyan-400/80",
       ),
+      accent: "slate",
     },
   ];
 

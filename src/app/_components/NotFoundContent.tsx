@@ -1,5 +1,7 @@
 "use client";
 
+import "./not-found.css";
+
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { useEffect } from "react";

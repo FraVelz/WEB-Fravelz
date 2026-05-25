@@ -1,0 +1,7 @@
+/* Modal visor PDF (certificaciones, hero CV) */
+
+.pdf-modal-close:focus-visible,
+.pdf-modal-download:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}

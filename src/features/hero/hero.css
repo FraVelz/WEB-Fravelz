@@ -1,0 +1,19 @@
+/* Hero: CTAs y hint de scroll */
+
+.hero-btn-solid:focus-visible,
+.hero-btn-outline:focus-visible,
+.hero-scroll-hint:focus-visible {
+  outline: none;
+}
+
+.hero-btn-solid:focus-visible {
+  box-shadow: var(--hero-btn-solid-focus-shadow);
+}
+
+.hero-btn-outline:focus-visible {
+  box-shadow: var(--hero-btn-outline-focus-shadow);
+}
+
+.hero-scroll-hint:focus-visible {
+  box-shadow: var(--hero-scroll-hint-focus-shadow);
+}

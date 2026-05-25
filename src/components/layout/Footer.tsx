@@ -1,10 +1,12 @@
+import "./Footer.css";
+
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
 
 const footerNavLinkClass = cn(
-  "link-animation -mx-1 rounded-sm px-1 text-sm text-slate-600 transition-colors",
-  "hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400",
+  "footer-nav-link -mx-1 rounded-sm px-1 text-sm text-slate-600 w-fit",
+  "dark:text-slate-400",
 );
 export default async function Footer({ lang }: { lang: Language }) {
   const t = getTranslations(lang);

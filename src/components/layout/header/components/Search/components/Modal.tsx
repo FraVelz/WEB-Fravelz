@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/role-has-required-aria-props -- combobox options */
 "use client";
 
+import "../search.css";
+
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useMemo, useReducer } from "react";
 
@@ -13,6 +15,8 @@ import { searchPortfolio } from "../utils/searchPortfolio";
 import { HighlightMatch } from "../components/HighlightMatch";
 
 /** Valores por defecto (es) si falta alguna clave en las traducciones SSR */
+const SEARCH_INPUT_ID = "search-modal-input";
+
 const SEARCH_TEXT_FALLBACK: Record<string, string> = {
   search_dialog_aria: "Buscar",
   search_placeholder: "Buscar en toda la página…",
@@ -118,33 +122,38 @@ export function Modal({
       <div className="relative z-10 flex items-start justify-center px-4 pt-[15vh] pb-8 sm:px-6">
         <div className={searchPanelClass}>
           <div className="flex items-center gap-3 border-b border-gray-200 px-4 py-3 dark:border-gray-700">
-            <svg
-              className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            <label htmlFor={SEARCH_INPUT_ID} className="flex min-w-0 flex-1 items-center gap-3">
+              <svg
+                className="size-5 shrink-0 text-gray-400 dark:text-gray-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <span className="sr-only">{searchLabel(translations, "search_placeholder")}</span>
+              <input
+                ref={inputRef}
+                type="search"
+                name="search"
+                id={SEARCH_INPUT_ID}
+                autoComplete="off"
+                value={query}
+                onChange={(e) => dispatchSession({ type: "set-query", query: e.target.value })}
+                placeholder={searchLabel(translations, "search_placeholder")}
+                className={cn(
+                  "min-w-0 flex-1 rounded-md bg-transparent px-1 py-2 text-base text-gray-900 placeholder-gray-400",
+                  "outline-none focus-visible:shadow-[var(--focus-field-shadow)]",
+                  "dark:text-gray-100 dark:placeholder-gray-500",
+                )}
               />
-            </svg>
-            <input
-              ref={inputRef}
-              type="search"
-              name="search"
-              id="search"
-              autoComplete="off"
-              value={query}
-              onChange={(e) => dispatchSession({ type: "set-query", query: e.target.value })}
-              placeholder={searchLabel(translations, "search_placeholder")}
-              className={cn(
-                "min-w-0 flex-1 rounded-md bg-transparent py-2 text-base text-gray-900 placeholder-gray-400",
-                "dark:text-gray-100 dark:placeholder-gray-500",
-              )}
-            />
+            </label>
             <button
               type="button"
               onClick={() => setIsActive(false)}

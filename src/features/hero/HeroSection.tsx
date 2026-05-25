@@ -1,3 +1,5 @@
+import "./hero.css";
+
 import HeroCvCopyActions from "./components/HeroCvCopyActions";
 import AvailabilityBadge from "./components/AvailabilityBadge";
 import LocationBadge from "./components/LocationBadge";

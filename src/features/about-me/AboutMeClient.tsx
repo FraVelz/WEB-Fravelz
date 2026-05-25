@@ -1,5 +1,7 @@
 "use client";
 
+import "./about-me.css";
+
 import PanelReveal from "@/components/ui/PanelReveal";
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";

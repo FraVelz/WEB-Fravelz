@@ -1,0 +1,12 @@
+/* Página 404 */
+
+@keyframes not-found-circle-entry {
+  to {
+    opacity: 1;
+  }
+}
+
+#animation-404-circle {
+  opacity: 0;
+  animation: not-found-circle-entry 1s linear 2.4s forwards;
+}

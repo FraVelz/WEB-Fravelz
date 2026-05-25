@@ -1,3 +1,6 @@
+import "@/features/projects/projects-nav.css";
+import "./project-detail.css";
+
 import { SectionsDetails } from "./_components/SectionsDetails";
 import { ListImagesViewer } from "./_components/ListImageViewer";
 
@@ -57,7 +60,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
 
   return (
     <article
-      className={cn("page-below-header min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}
+      className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}
       data-project-page
     >
       <div className="mx-auto max-w-5xl pt-8">

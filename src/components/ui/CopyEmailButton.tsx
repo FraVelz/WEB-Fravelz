@@ -55,7 +55,11 @@ export default function CopyEmailButton({
             "hero-btn-solid min-h-[2.625rem] items-center justify-center rounded-lg px-3.5 py-2.5 font-medium sm:px-4",
             "focus-visible:z-[1]",
           ),
-        variant === "outlined" && cn("rounded-full border p-1 px-2 pr-3", "focus-visible:z-[1]"),
+        variant === "outlined" &&
+          cn(
+            "rounded-full border p-1 px-2 pr-3",
+            "z-[1] outline-none focus-visible:border-[rgb(var(--color-primary))] focus-visible:shadow-[var(--focus-ring-shadow)]",
+          ),
         copied &&
           (variant === "solid"
             ? cn(

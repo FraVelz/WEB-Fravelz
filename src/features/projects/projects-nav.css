@@ -1,0 +1,6 @@
+/* Enlace «volver» en listado/detalle de proyectos y certificaciones */
+
+.project-page-back-link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
