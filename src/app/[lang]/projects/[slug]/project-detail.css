@@ -1,0 +1,40 @@
+/* Detalle de proyecto (/[lang]/projects/[slug]) */
+
+.project-page-cta-primary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(255 255 255),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 4px 18px rgb(var(--color-primary) / 0.38);
+}
+
+.dark .project-page-cta-primary:focus-visible {
+  box-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary)),
+    0 4px 18px rgb(var(--color-primary) / 0.45);
+}
+
+.project-page-cta-secondary:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--color-surface)),
+    0 0 0 4px rgb(var(--color-primary));
+}
+
+.dark .project-page-cta-secondary:focus-visible {
+  box-shadow:
+    0 0 0 2px rgb(var(--color-bg)),
+    0 0 0 4px rgb(var(--color-primary));
+}
+
+.project-page-carousel-btn:focus-visible {
+  outline: none;
+  border-color: rgb(var(--color-primary));
+  box-shadow: var(--focus-ring-shadow);
+}
+
+.project-page-carousel-dot:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}

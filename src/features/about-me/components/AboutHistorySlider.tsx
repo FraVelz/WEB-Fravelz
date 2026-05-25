@@ -51,11 +51,33 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
   const tabsListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd, onKeyDown } = useCarouselIndex({
+  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd } = useCarouselIndex({
     count,
     swipeThreshold: 48,
     stopPropagationOnSwipe: true,
   });
+
+  const focusTab = (i: number) => {
+    tabRefs.current[i]?.focus();
+  };
+
+  const onTabKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, i: number) => {
+    if (count <= 1) return;
+
+    const last = count - 1;
+    let next: number | null = null;
+
+    if (e.key === "ArrowLeft") next = i > 0 ? i - 1 : last;
+    else if (e.key === "ArrowRight") next = i < last ? i + 1 : 0;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = last;
+
+    if (next === null) return;
+
+    e.preventDefault();
+    setIndex(next);
+    focusTab(next);
+  };
 
   const entry = entries[displayIndex];
   const links = entry ? buildLinks(entry, lang, navCertifications) : [];
@@ -101,8 +123,6 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
       ref={rootRef}
       className="about-history-slider flex w-full min-w-0 touch-pan-y flex-col gap-4 overscroll-contain sm:gap-5"
       aria-label={labels.regionAria}
-      tabIndex={showNav ? 0 : undefined}
-      onKeyDown={onKeyDown}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -123,11 +143,13 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                 }}
                 type="button"
                 role="tab"
+                tabIndex={selected ? 0 : -1}
                 aria-selected={selected}
                 aria-controls="about-history-panel"
                 id={`about-history-tab-${item.i18nKey}`}
+                onKeyDown={(e) => onTabKeyDown(e, i)}
                 className={cn(
-                  "about-history-tab flex min-w-[5.25rem] shrink-0 snap-center flex-col items-center gap-2 rounded-xl border px-3 py-2.5 transition-all sm:min-w-[5.75rem]",
+                  "about-history-tab flex min-w-[5.25rem] shrink-0 cursor-pointer snap-center flex-col items-center gap-2 rounded-xl border px-3 py-2.5 transition-all sm:min-w-[5.75rem]",
                   selected
                     ? "border-[rgb(var(--color-primary)/0.65)] bg-[rgb(var(--color-primary)/0.08)] shadow-sm"
                     : "border-[rgb(var(--color-drawer-border))] bg-[rgb(var(--color-surface))] hover:border-[rgb(var(--color-primary)/0.35)]",

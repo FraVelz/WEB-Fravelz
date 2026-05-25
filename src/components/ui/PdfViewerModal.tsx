@@ -1,5 +1,7 @@
 "use client";
 
+import "./pdf-viewer-modal.css";
+
 import { useEffect, useRef } from "react";
 import { cn } from "@/utils/cn";
 
@@ -21,6 +23,9 @@ export default function PdfViewerModal({
   downloadText = "Descargar PDF",
 }: PdfViewerModalProps) {
   const onCloseRef = useRef(onClose);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -35,11 +40,21 @@ export default function PdfViewerModal({
 
     document.addEventListener("keydown", handleEscape);
     document.body.style.overflow = "hidden";
+
+    const focusTimer = window.setTimeout(() => {
+      closeButtonRef.current?.focus({ preventScroll: true });
+    }, 0);
+
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  const focusPdfViewer = () => {
+    iframeRef.current?.focus({ preventScroll: true });
+  };
 
   if (!isOpen) return null;
 
@@ -52,12 +67,13 @@ export default function PdfViewerModal({
     >
       <button type="button" className="absolute inset-0 cursor-default" aria-label={closeText} onClick={onClose} />
       <div
+        ref={panelRef}
+        tabIndex={-1}
         className={cn(
-          "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl",
+          "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl outline-none",
           "bg-white shadow-2xl dark:bg-slate-900",
         )}
       >
-        {/* Header */}
         <div
           className={cn(
             "flex items-center justify-between gap-4 border-b border-slate-200 bg-slate-50 px-4 py-3",
@@ -77,7 +93,7 @@ export default function PdfViewerModal({
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium",
+                "pdf-modal-download inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium",
                 "text-cyan-700 transition-colors hover:bg-cyan-200/80",
                 "dark:bg-cyan-900/40 dark:text-cyan-300 dark:hover:bg-cyan-800/50",
               )}
@@ -89,6 +105,7 @@ export default function PdfViewerModal({
                 stroke="currentColor"
                 strokeWidth="1.5"
                 className="h-4 w-4"
+                aria-hidden
               >
                 <path
                   strokeLinecap="round"
@@ -102,9 +119,11 @@ export default function PdfViewerModal({
               {downloadText}
             </a>
             <button
+              ref={closeButtonRef}
+              type="button"
               onClick={onClose}
               className={cn(
-                "inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
+                "pdf-modal-close inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-600 transition-colors",
                 "cursor-pointer hover:bg-slate-200 hover:text-slate-900",
                 "dark:text-slate-400 dark:hover:bg-slate-700 dark:hover:text-slate-100",
               )}
@@ -117,6 +136,7 @@ export default function PdfViewerModal({
                 stroke="currentColor"
                 strokeWidth="2"
                 className="h-5 w-5"
+                aria-hidden
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>
@@ -124,12 +144,18 @@ export default function PdfViewerModal({
           </div>
         </div>
 
-        {/* PDF viewer */}
         <div className="min-h-0 flex-1 overflow-hidden">
           <iframe
+            ref={iframeRef}
             src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
             title={title}
-            className="h-[75vh] min-h-[400px] w-full border-0"
+            tabIndex={0}
+            onLoad={focusPdfViewer}
+            className={cn(
+              "h-[75vh] min-h-[400px] w-full border-0 outline-none",
+              "focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-inset",
+              "dark:focus-visible:ring-cyan-400",
+            )}
           />
         </div>
       </div>

@@ -7,7 +7,16 @@ const fieldClassName = cn(
   "w-full rounded-lg border-2 border-slate-200 bg-white px-4 py-2.5 text-slate-900 shadow-sm",
   "placeholder:text-slate-400",
   "transition-[color,box-shadow,border-color]",
+  "outline-none focus-visible:border-[rgb(var(--color-primary))] focus-visible:shadow-[var(--focus-field-shadow)]",
   "dark:border-cyan-500/30 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500 dark:shadow-none",
+);
+
+const submitClassName = cn(
+  "w-full cursor-pointer rounded-xl bg-gradient-to-r from-cyan-600 to-purple-600 px-6 py-3",
+  "font-semibold text-white shadow-xl ring-1 shadow-cyan-500/25 ring-slate-900/10 transition-[box-shadow,background,transform]",
+  "outline-none focus-visible:ring-0 focus-visible:shadow-[var(--hero-btn-solid-focus-shadow)]",
+  "hover:from-cyan-500 hover:to-purple-500 hover:shadow-lg hover:shadow-cyan-500/35",
+  "dark:ring-0 dark:shadow-lg dark:hover:shadow-cyan-500/25",
 );
 
 export default function ContactForm({ email, t }: { email: string; t: Record<string, string> }) {
@@ -77,15 +86,7 @@ export default function ContactForm({ email, t }: { email: string; t: Record<str
           placeholder={t.contact_message_placeholder}
         />
       </div>
-      <button
-        type="submit"
-        className={cn(
-          "w-full cursor-pointer rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 px-6 py-3",
-          "font-semibold text-white shadow-lg ring-1 shadow-cyan-500/35 ring-slate-900/10 transition-all",
-          "hover:from-cyan-600 hover:to-purple-600 hover:shadow-xl hover:shadow-cyan-500/25",
-          "dark:ring-0 dark:shadow-cyan-500/25 dark:hover:shadow-lg",
-        )}
-      >
+      <button type="submit" className={submitClassName}>
         {t.contact_send_btn}
       </button>
       <p className="text-center text-xs text-slate-600 dark:text-gray-500">{t.contact_mailto_hint}</p>

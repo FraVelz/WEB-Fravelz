@@ -1,0 +1,11 @@
+/* Modal de búsqueda del header */
+
+.search-result-link:focus-visible {
+  outline: none;
+  background-color: rgb(var(--color-card) / 0.65);
+  box-shadow: inset 0 0 0 2px rgb(var(--color-primary) / 0.75);
+}
+
+.dark .search-result-link:focus-visible {
+  background-color: rgb(var(--color-card) / 0.45);
+}

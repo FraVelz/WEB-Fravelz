@@ -1,12 +1,7 @@
-export type Certificate = {
-  id: string;
-  title: string;
-  issuer: string;
-  year?: number;
-  category: string;
-  pdfPath?: string;
-  shortDescription?: string;
-};
+import type { Certificate } from "@/utils/data/certificates";
+
+export type { Certificate };
+export type CertAccent = "cyan" | "amber" | "emerald" | "slate";
 
 export type CertificatesWithViewerProps = {
   webCerts: Certificate[];

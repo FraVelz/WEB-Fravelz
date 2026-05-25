@@ -1,0 +1,37 @@
+/* Sección Sobre mí */
+
+.about-link {
+  color: rgb(var(--color-primary));
+}
+
+.dark .about-link {
+  color: rgb(var(--color-primary));
+}
+
+.about-link:hover {
+  color: rgb(var(--color-primary-hover));
+}
+
+.dark .about-link:hover {
+  color: rgb(var(--color-primary-hover));
+}
+
+.about-link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+
+.about-history-tab:focus-visible,
+.about-history-nav:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}
+
+.about-history-slider {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+#about-me {
+  overscroll-behavior: contain;
+}

@@ -1,5 +1,7 @@
 "use client";
 
+import "./header.css";
+
 import { runAnimation } from "./utils/header";
 import { cn } from "@/utils/cn";
 import { useEffect } from "react";

@@ -22,9 +22,18 @@ export function HobbyCard({
   bodyClassName = "max-w-[320px] space-y-3",
   footer,
 }: HobbyCardProps) {
+  const isFocusable = !footer;
+
   return (
     <div
-      className={cn("card relative rounded-[10px] bg-[rgb(var(--color-white)/0.1)]", wrapperClassName)}
+      tabIndex={isFocusable ? 0 : undefined}
+      role={isFocusable ? "group" : undefined}
+      aria-label={isFocusable ? `${title}. ${description}` : undefined}
+      className={cn(
+        "card relative rounded-[10px] bg-[rgb(var(--color-white)/0.1)]",
+        isFocusable && "outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary)/0.5)]",
+        wrapperClassName,
+      )}
       data-card={cardId}
     >
       <div

@@ -10,7 +10,6 @@ import {
   getHorizontalAnim,
   horizontalScroll,
   refreshHorizontalScroll,
-  syncPanelsForHorizontalProgress,
 } from "./script/horizontalScroll";
 
 /** Hero y contacto: entrada vertical al hacer scroll */
@@ -149,14 +148,9 @@ export default function HomeScroll() {
       } else if (isActiveHorizontalScroll) {
         desactiveHorizontalScroll();
         isActiveHorizontalScroll = false;
-      } else if (!wide) {
-        clearHorizontalPanelInert();
       }
 
-      if (wide) {
-        const anim = getHorizontalAnim();
-        syncPanelsForHorizontalProgress(anim?.scrollTrigger?.progress ?? 0);
-      }
+      clearHorizontalPanelInert();
 
       setupSectionReveals(revealAnimations);
       refreshHorizontalScroll();

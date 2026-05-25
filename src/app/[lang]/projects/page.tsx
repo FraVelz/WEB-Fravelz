@@ -1,3 +1,5 @@
+import "@/features/projects/projects-nav.css";
+
 import ProjectCard from "@/components/ui/ProjectCard";
 import Footer from "@/components/layout/Footer";
 
@@ -26,7 +28,7 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
 
   return (
     <>
-      <div className={cn("page-below-header min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}>
+      <div className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}>
         <div className="mx-auto max-w-7xl pt-8">
           <div className="mb-12 text-center">
             <Link

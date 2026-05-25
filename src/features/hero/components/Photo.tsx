@@ -33,6 +33,7 @@ export function Photo({ lang }: { lang: Language }) {
           alt={t.hero_logo_alt || "Fravelz"}
           width={256}
           height={256}
+          priority
         />
       </div>
     </div>
