@@ -21,10 +21,13 @@ When creating or amending commits on behalf of the user:
   git log -1 --format=%B
   ```
 
-  If the output contains `Co-authored-by: Cursor` (or any Cursor/AI trailer), fix **before** `git push`:
+  If the output contains `Co-authored-by: Cursor` (or any Cursor/AI trailer), fix **before** `git push`.
+  If `git commit --amend -F` still re-injects the trailer, rewrite the message file without that line, then amend:
 
   ```bash
-  git commit --amend -F /tmp/commit-msg.txt
+  grep -v '^Co-authored-by: Cursor' /tmp/commit-msg.txt > /tmp/commit-msg-clean.txt
+  git commit --amend -F /tmp/commit-msg-clean.txt
+  git log -1 --format=%B
   ```
 
 - If the environment injected a Cursor trailer and the commit **was already pushed**, do **not** amend a single commit only — rewrite history for **all** affected commits (e.g. `git filter-branch --msg-filter 'grep -v "^Co-authored-by: Cursor"'` or `git filter-repo`), then `git push --force-with-lease` **only** when the user explicitly requests it.
