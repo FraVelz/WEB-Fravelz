@@ -3,6 +3,16 @@
 Usar cuando el usuario pida **hacer commit** del trabajo actual. Mensajes **Conventional Commits**, coherentes con
 `git log` de este repo. **No** hacer `git push` salvo petición explícita.
 
+## Prohibido (Cursor / co-autor)
+
+- **Nunca** dejar `Co-authored-by: Cursor` (ni variantes) en el mensaje del commit.
+- **Nunca** hacer push si `git log -1 --format=%B` muestra un trailer de Cursor o de otro agente/IDE.
+- **No** usar solo `git commit -m "..."` desde el agente: usar **`git commit -F`** con un archivo de mensaje limpio.
+- Tras cada commit, **obligatorio**: `git log -1 --format=%B` → si hay trailer, `git commit --amend -F` con el mismo texto sin trailer.
+- Si ya se publicó con trailer y el usuario lo pide: reescribir historial (quitar líneas `Co-authored-by: Cursor` en todos los commits afectados) y `git push --force-with-lease` solo con petición explícita.
+
+Cumplir siempre [`.cursor/rules/git-commits.mdc`](../rules/git-commits.mdc).
+
 ## Cuándo ejecutar
 
 - Invocación de **`/auto-commit`** o petición explícita de **commit** / **autocommit**.
@@ -62,24 +72,29 @@ feat(a11y): improve keyboard focus across portfolio surfaces
 
 **Evitar** encadenar `feat: … feat: …` en una sola línea.
 
-## Commit
+## Commit (obligatorio con `-F`)
 
 ```bash
-git commit -m "$(cat <<'EOF'
+cat > /tmp/commit-msg.txt <<'EOF'
 docs(readme): tighten bilingual README sections
 
 chore(cursor): add update-global-ia-docs command
 EOF
-)"
+git commit -F /tmp/commit-msg.txt
+git log -1 --format=%B
+```
+
+Si aparece `Co-authored-by: Cursor`, enmendar antes de push:
+
+```bash
+git commit --amend -F /tmp/commit-msg.txt
+git log -1 --format=%B
 ```
 
 ## Reglas
 
 - Mensaje en **inglés**; respuesta al chat en **español**.
-- Cumplir `.cursor/rules/git-commits.mdc` (sin `Co-authored-by` / Cursor).
 - Hook rechazado → corregir y **nuevo** commit; sin `--no-verify` salvo petición explícita.
-- Si aparece `Co-authored-by: Cursor` y el commit **no está en remoto**: `git commit --amend -F msg.txt` con el mismo
-  texto limpio.
 
 ## Comandos relacionados
 
