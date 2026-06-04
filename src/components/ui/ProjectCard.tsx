@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
+import { PROJECT_PREVIEW_IMAGE } from "@/lib/og-image";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,11 +26,17 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           "dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400",
         )}
       >
-        <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-900">
+        <div
+          className="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-900"
+          style={{ aspectRatio: PROJECT_PREVIEW_IMAGE.aspectRatio }}
+        >
           <Image
             draggable={false}
             src={project.featuredImage}
             alt={`${title} - ${t.project_preview_alt || "Preview"}`}
+            width={PROJECT_PREVIEW_IMAGE.width}
+            height={PROJECT_PREVIEW_IMAGE.height}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="h-full w-full object-cover transition-transform duration-300 select-none group-hover:scale-105 group-focus-visible:scale-[1.02]"
             loading="lazy"
           />
