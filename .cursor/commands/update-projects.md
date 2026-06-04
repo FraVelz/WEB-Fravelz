@@ -23,6 +23,8 @@ fuente de verdad.
    archivo y el resto del repositorio.
 5. **Proyecto nuevo:** comprobar si hace falta **importar y registrar** el proyecto en `src/utils/data/projects-list.ts`
    (además de crear el `.ts` del proyecto e imágenes si aplica).
+6. **Imagen de preview:** `featuredImage` (`index.webp`) debe ser **1200×630** (ratio Open Graph). Tras exportar, puedes
+   normalizar con `node scripts/resize-project-previews.mjs` (añade la carpeta del proyecto al script si es nueva).
 
 ## Idiomas del modelo de datos
 

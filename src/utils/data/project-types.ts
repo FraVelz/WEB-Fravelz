@@ -31,7 +31,7 @@ export interface Project {
     zh: string;
   };
 
-  /** Path to the main image */
+  /** Preview principal (`index.webp`), 1200×630 — ver `PROJECT_PREVIEW_IMAGE` en `@/lib/og-image` */
   featuredImage: StaticImageData;
 
   /** Technologies used */
