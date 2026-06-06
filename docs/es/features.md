@@ -38,7 +38,7 @@
 
 - **Presentación**: hero con logo y ubicación
 - **Proyectos**: grid y página de detalle por `slug`
-- **Tecnologías**: tarjetas con niveles (datos en
+- **Tecnologías**: tarjetas por categoría (datos en
   [`src/features/technologies/utils/data.ts`](../../src/features/technologies/utils/data.ts))
 - **Sobre mí**: línea de tiempo + modal
 - **Pasatiempos**: grid de tarjetas con efecto de cursor

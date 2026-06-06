@@ -1,8 +1,6 @@
 interface Technology {
   id: string;
   name: string;
-  level: string;
-  levelKey: string;
   category: "frontend" | "backend" | "both";
   categoryKey: string;
   svg: string;
@@ -86,8 +84,6 @@ export const technologies: Technology[] = [
   {
     id: "html",
     name: "HTML",
-    level: "intermedio",
-    levelKey: "tech_level_intermediate",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -123,8 +119,6 @@ export const technologies: Technology[] = [
   {
     id: "css",
     name: "CSS",
-    level: "intermedio",
-    levelKey: "tech_level_intermediate",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -165,8 +159,6 @@ export const technologies: Technology[] = [
   {
     id: "js",
     name: "JavaScript",
-    level: "básico",
-    levelKey: "tech_level_basic",
     category: "frontend",
     categoryKey: "tech_category_both",
     svg: `
@@ -182,8 +174,6 @@ export const technologies: Technology[] = [
   {
     id: "astro",
     name: "Astro",
-    level: "básico",
-    levelKey: "tech_level_basic",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -198,8 +188,6 @@ ${OPEN_SVG_ASTRO}
   {
     id: "tailwind",
     name: "Tailwind CSS",
-    level: "intermedio",
-    levelKey: "tech_level_intermediate",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -219,8 +207,6 @@ ${OPEN_SVG_ASTRO}
   {
     id: "typescript",
     name: "TypeScript",
-    level: "intermedio",
-    levelKey: "tech_level_intermediate",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -241,8 +227,6 @@ ${OPEN_SVG_ASTRO}
   {
     id: "react",
     name: "React",
-    level: "básico",
-    levelKey: "tech_level_basic",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -260,8 +244,6 @@ ${OPEN_SVG_ASTRO}
   {
     id: "next",
     name: "Next.js",
-    level: "básico",
-    levelKey: "tech_level_basic",
     category: "frontend",
     categoryKey: "tech_category_frontend",
     svg: `
@@ -275,8 +257,6 @@ ${OPEN_SVG_ASTRO}
   {
     id: "supabase",
     name: "Supabase",
-    level: "aprendiendo",
-    levelKey: "tech_level_learning",
     category: "backend",
     categoryKey: "tech_category_backend",
     svg: `

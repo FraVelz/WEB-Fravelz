@@ -26,12 +26,3 @@
   outline: none;
   box-shadow: var(--focus-ring-shadow);
 }
-
-.about-history-slider {
-  touch-action: pan-y;
-  overscroll-behavior: contain;
-}
-
-#about-me {
-  overscroll-behavior: contain;
-}

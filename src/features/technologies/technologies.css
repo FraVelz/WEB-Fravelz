@@ -23,35 +23,6 @@
   box-shadow: 0 10px 30px rgb(var(--accent) / 0.1);
 }
 
-.tech-meter {
-  background: rgb(var(--color-card));
-}
-
-.tech-meter-bar {
-  background: rgb(var(--bar));
-}
-
-.tech-dot {
-  margin: 0 0.35rem;
-  opacity: 0.8;
-}
-
-.tech-accent {
-  color: rgb(var(--color-primary));
-}
-
-.tech-level--intermediate {
-  color: rgb(var(--color-success));
-}
-
-.tech-level--basic {
-  color: rgb(var(--color-info));
-}
-
-.tech-level--learning {
-  color: rgb(var(--color-warning));
-}
-
 .tech-cat--frontend {
   color: rgb(var(--color-primary));
 }
