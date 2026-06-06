@@ -47,7 +47,6 @@ function formatGoToLabel(template: string, year: string) {
 
 export function AboutHistorySlider({ lang, entries, navCertifications, labels }: AboutHistorySliderProps) {
   const count = entries.length;
-  const rootRef = useRef<HTMLDivElement>(null);
   const tabsListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -91,20 +90,6 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
     list.scrollTo({ left: Math.max(0, targetLeft), behavior: "smooth" });
   }, [displayIndex]);
 
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-
-    const blockHorizontalWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
-    el.addEventListener("wheel", blockHorizontalWheel, { passive: false, capture: true });
-    return () => el.removeEventListener("wheel", blockHorizontalWheel, { capture: true });
-  }, []);
-
   if (count === 0 || !entry) return null;
 
   const navBtnClass = cn(
@@ -120,8 +105,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
 
   return (
     <div
-      ref={rootRef}
-      className="about-history-slider flex w-full min-w-0 touch-pan-y flex-col gap-4 overscroll-contain sm:gap-5"
+      className="about-history-slider flex w-full min-w-0 flex-col gap-4 sm:gap-5"
       aria-label={labels.regionAria}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
@@ -129,7 +113,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
       {showNav ? (
         <div
           ref={tabsListRef}
-          className="about-history-tabs flex gap-2 overflow-x-auto overscroll-x-contain scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:thin] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:h-1.5"
+          className="about-history-tabs flex gap-2 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:thin] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:h-1.5"
           role="tablist"
           aria-label={labels.tabsAria}
         >
