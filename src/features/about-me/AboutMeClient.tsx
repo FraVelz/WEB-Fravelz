@@ -30,18 +30,13 @@ export default function AboutMeClient({
   return (
     <section
       id="about-me"
-      className={cn(
-        "relative min-h-0 w-full min-w-0 shrink-0 overflow-x-hidden",
-        "h-auto min-h-screen lg:min-h-screen lg:overflow-y-visible",
-        "max-lg:overflow-visible",
-        classname,
-      )}
+      className={cn("relative w-full min-w-0 shrink-0 overflow-x-hidden", classname)}
     >
-      <PanelReveal className="h-full min-h-0">
+      <PanelReveal className="flex w-full flex-col items-center justify-center">
         <div
           className={cn(
-            "relative mx-auto flex w-full min-w-0 flex-col items-center justify-start",
-            "w-full max-w-4xl px-4 pt-20 pb-10 sm:px-6 sm:pt-24 sm:pb-12 lg:max-w-5xl lg:px-10 lg:pt-24",
+            "relative mx-auto flex w-full min-w-0 max-w-4xl flex-col items-center",
+            "px-4 py-6 sm:px-6 lg:max-w-5xl lg:px-10",
           )}
         >
           <h2 className="about-timeline-title mb-3 w-full shrink-0 text-center text-3xl font-bold text-[rgb(var(--color-text))] sm:mb-4 sm:text-4xl lg:text-[2.5rem]">
