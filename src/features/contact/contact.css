@@ -1,0 +1,28 @@
+/* Contacto: campos tipo línea, sin caja de formulario */
+
+.contact-field {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(var(--color-text) / 0.12);
+  transition: border-color 0.2s ease;
+}
+
+.contact-field:hover:not(:focus-visible) {
+  border-bottom-color: rgb(var(--color-text) / 0.22);
+}
+
+.contact-field:focus-visible {
+  border-bottom-color: rgb(var(--color-primary) / 0.75);
+}
+
+.dark .contact-field {
+  border-bottom-color: rgb(var(--color-text) / 0.18);
+}
+
+.dark .contact-field:hover:not(:focus-visible) {
+  border-bottom-color: rgb(var(--color-text) / 0.3);
+}
+
+.dark .contact-field:focus-visible {
+  border-bottom-color: rgb(var(--color-primary) / 0.65);
+}

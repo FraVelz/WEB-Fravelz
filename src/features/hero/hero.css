@@ -1,5 +1,13 @@
 /* Hero: CTAs y hint de scroll */
 
+.hero-btn-solid {
+  color: #fff;
+}
+
+.hero-btn-solid svg {
+  color: currentColor;
+}
+
 .hero-btn-solid:focus-visible,
 .hero-btn-outline:focus-visible,
 .hero-scroll-hint:focus-visible {

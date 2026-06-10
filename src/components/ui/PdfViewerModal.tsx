@@ -93,9 +93,11 @@ export default function PdfViewerModal({
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "pdf-modal-download inline-flex items-center gap-1.5 rounded-lg bg-cyan-100/80 px-3 py-1.5 text-xs font-medium",
-                "text-cyan-700 transition-colors hover:bg-cyan-200/80",
-                "dark:bg-cyan-900/40 dark:text-cyan-300 dark:hover:bg-cyan-800/50",
+                "pdf-modal-download inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium",
+                "border-cyan-300/90 bg-cyan-100 text-cyan-900 shadow-sm transition-colors",
+                "hover:border-cyan-400 hover:bg-cyan-200",
+                "dark:border-cyan-700/50 dark:bg-cyan-900/40 dark:text-cyan-300",
+                "dark:shadow-none dark:hover:border-cyan-600/60 dark:hover:bg-cyan-800/50",
               )}
             >
               <svg

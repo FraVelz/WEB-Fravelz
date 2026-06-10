@@ -2,6 +2,7 @@ import "./hero.css";
 
 import HeroCvCopyActions from "./components/HeroCvCopyActions";
 import AvailabilityBadge from "./components/AvailabilityBadge";
+import HeroFrameCorners from "./components/HeroFrameCorners";
 import LocationBadge from "./components/LocationBadge";
 import { Photo } from "./components/Photo";
 
@@ -18,16 +19,24 @@ export default async function HeroSection({ lang }: { lang: Language }) {
   const availabilityLabel = t[availabilityKey] ?? availabilityKey;
 
   return (
-    <section id="presentation" className="relative flex min-h-dvh w-full flex-col bg-transparent">
+    <section id="presentation" className="relative flex min-h-dvh w-full flex-col overflow-visible bg-transparent">
       <div
         className={cn(
-          "mx-auto flex w-full max-w-6xl flex-1 flex-col-reverse gap-10 px-5",
-          "sm:flex-row sm:gap-12 sm:px-6 lg:items-center lg:gap-14 lg:px-8",
+          "mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5",
+          "sm:px-6 lg:px-8",
           "pt-[7.25rem] pb-14 sm:pt-32 lg:pt-36 lg:pb-20",
         )}
       >
-        {/* Texto */}
-        <div className="flex min-w-0 flex-1 flex-col">
+        <div
+          className={cn(
+            "relative flex w-full flex-col-reverse gap-10",
+            "sm:flex-row sm:gap-12 lg:items-center lg:gap-14 lg:px-8 lg:py-6",
+          )}
+        >
+          <HeroFrameCorners />
+
+          {/* Texto */}
+          <div className="flex min-w-0 flex-1 flex-col">
           <p className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">{t.hola}</p>
 
           <div
@@ -88,6 +97,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
             <AvailabilityBadge status={HERO_AVAILABILITY_STATUS} text={availabilityLabel} />
             <LocationBadge text={t.hero_location} />
           </div>
+        </div>
         </div>
       </div>
 
