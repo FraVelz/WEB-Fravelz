@@ -3,9 +3,12 @@
 import "./not-found.css";
 
 import { cn } from "@/utils/cn";
+import { prefersReducedMotion } from "@/lib/motion";
 import Link from "next/link";
 import { useEffect } from "react";
 import gsap from "gsap";
+
+const NOT_FOUND_ELEMENTS = ["#element-404-1", "#element-404-2", "#element-404-3", "#element-404-4"] as const;
 
 export function NotFoundContent({
   lang,
@@ -19,6 +22,11 @@ export function NotFoundContent({
   backHome: string;
 }) {
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      gsap.set(NOT_FOUND_ELEMENTS, { clearProps: "all", opacity: 1, x: 0, y: 0 });
+      return;
+    }
+
     const tl = gsap.timeline();
 
     tl.to("#element-404-1", { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" })
@@ -30,8 +38,7 @@ export function NotFoundContent({
   return (
     <main
       className={cn(
-        "flex min-h-screen items-center justify-center bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50",
-        "dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
+        "flex min-h-screen items-center justify-center bg-linear-to-b from-[rgb(var(--color-bg))] via-[rgb(var(--color-bg))] to-[rgb(var(--color-card))]",
       )}
     >
       <div className="absolute inset-0 my-8 flex items-center justify-center">
@@ -62,10 +69,7 @@ export function NotFoundContent({
         <div className="relative">
           <h1
             id="element-404-1"
-            className={cn(
-              "animate-pulse bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-9xl font-bold",
-              "text-transparent sm:text-[12rem]",
-            )}
+            className={cn("not-found-code text-9xl font-bold sm:text-[12rem]")}
             style={{ transform: "translate(-200px)", opacity: 0 }}
           >
             404
@@ -74,14 +78,14 @@ export function NotFoundContent({
         <div className="space-y-4">
           <h2
             id="element-404-2"
-            className="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-gray-100"
+            className="text-3xl font-bold text-[rgb(var(--color-text))] sm:text-4xl"
             style={{ transform: "translate(200px)", opacity: 0 }}
           >
             {title}
           </h2>
           <p
             id="element-404-3"
-            className="mx-auto max-w-md text-base text-gray-600 sm:text-lg dark:text-gray-400"
+            className="mx-auto max-w-md text-base text-[rgb(var(--color-text-muted))] sm:text-lg"
             style={{ transform: "translate(-200px)", opacity: 0 }}
           >
             {description}

@@ -55,7 +55,7 @@ export default function ElementsHeader({ id, t, lang }: { id: string; t: Transla
           href="https://github.com/FraVelz"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub"
+          aria-label={t.project_view_github ?? "View on GitHub"}
           className="inline-flex rounded-lg p-1"
         >
           <svg

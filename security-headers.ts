@@ -1,12 +1,11 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 function buildContentSecurityPolicy(): string {
-  const scriptSrc = ["'self'", "'unsafe-inline'"];
-  const connectSrc = ["'self'"];
+  const scriptSrc = ["'self'"];
+  const connectSrc = ["'self'", "https://vitals.vercel-insights.com"];
 
   if (isDev) {
     scriptSrc.push("'unsafe-eval'", "https://va.vercel-scripts.com");
-    connectSrc.push("https://vitals.vercel-insights.com");
   }
 
   const directives = [

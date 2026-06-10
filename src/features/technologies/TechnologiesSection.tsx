@@ -33,7 +33,7 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
                         dangerouslySetInnerHTML={{ __html: tech.svg }}
                       />
                     </div>
-                    <h4 className="tech-text text-lg font-semibold">{tech.name}</h4>
+                    <h3 className="tech-text text-lg font-semibold">{tech.name}</h3>
                   </div>
                   <p className="tech-muted text-sm">
                     <span className="font-semibold">{t.tech_info_category || "Categoría"}:</span>{" "}

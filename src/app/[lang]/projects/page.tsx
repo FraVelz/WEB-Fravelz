@@ -32,7 +32,7 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
   return (
     <>
       <JsonLd data={projectsIndexJsonLd(lang, title, description, projects, t.nav_presentation || "Home")} />
-      <div className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}>
+      <div className={cn("min-h-screen bg-[rgb(var(--color-bg))] px-4 pb-12 sm:px-6 lg:px-8")}>
         <div className="mx-auto max-w-7xl pt-8">
           <div className="mb-12 text-center">
             <Link
@@ -48,13 +48,13 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
               <span>{t.projects_back || "Volver"}</span>
             </Link>
 
-            <h1 className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-gray-100">
+            <h1 className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl">
               {t.hacking_projects_title || "Proyectos Principales"}
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+            <p className="mx-auto max-w-2xl text-lg text-[rgb(var(--color-text-muted))]">
               {t.projects_all_projects_description || "Todos mis proyectos como desarrollador frontend."}
             </p>
-            <p className="mt-2 text-sm text-gray-500 dark:text-gray-500">
+            <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
               <span>{t.projects_total || "Total"}</span>:{" "}
               <span className="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span>{" "}
               <span>{t.projects_projects || "proyectos"}</span>
