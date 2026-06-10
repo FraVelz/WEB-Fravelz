@@ -45,7 +45,7 @@ export default async function HomeMain({ lang }: { lang: Language }) {
             />
             <AboutMeSection
               lang={lang}
-              classname="panel min-w-screen flex h-auto min-h-screen justify-center items-center p-6 sm:p-8 lg:p-10"
+              classname="panel min-w-screen h-fit lg:h-screen flex flex-col justify-center items-center p-6 sm:p-8 lg:p-10"
             />
             <HobbiesSection
               lang={lang}
