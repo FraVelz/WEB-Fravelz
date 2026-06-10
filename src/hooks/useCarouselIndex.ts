@@ -15,14 +15,22 @@ export function useCarouselIndex({
   swipeThreshold = 48,
   stopPropagationOnSwipe = false,
 }: UseCarouselIndexOptions) {
-  const [index, setIndex] = useState(0);
+  const [index, setIndexState] = useState(0);
   const displayIndex = count > 0 ? ((index % count) + count) % count : 0;
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  const go = useCallback(
+  const setIndex = useCallback(
+    (target: number) => {
+      if (count <= 0) return;
+      setIndexState(((target % count) + count) % count);
+    },
+    [count],
+  );
+
+  const navigateByDelta = useCallback(
     (delta: number) => {
       if (count <= 1) return;
-      setIndex((i) => (i + delta + count) % count);
+      setIndexState((i) => (i + delta + count) % count);
     },
     [count],
   );
@@ -46,10 +54,10 @@ export function useCarouselIndex({
           e.preventDefault();
           e.stopPropagation();
         }
-        go(dx > 0 ? -1 : 1);
+        navigateByDelta(dx > 0 ? -1 : 1);
       }
     },
-    [count, go, stopPropagationOnSwipe, swipeThreshold],
+    [count, navigateByDelta, stopPropagationOnSwipe, swipeThreshold],
   );
 
   const onKeyDown = useCallback(
@@ -58,21 +66,21 @@ export function useCarouselIndex({
       if (e.key === "ArrowLeft") {
         e.preventDefault();
         e.stopPropagation();
-        go(-1);
+        navigateByDelta(-1);
       }
       if (e.key === "ArrowRight") {
         e.preventDefault();
         e.stopPropagation();
-        go(1);
+        navigateByDelta(1);
       }
     },
-    [count, go],
+    [count, navigateByDelta],
   );
 
   return {
     displayIndex,
     setIndex,
-    go,
+    navigateByDelta,
     onTouchStart,
     onTouchEnd,
     onKeyDown,

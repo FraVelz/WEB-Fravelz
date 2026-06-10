@@ -1,10 +1,4 @@
-import { getLangFromPath as getLangFromPathShared } from "@/lib/lang-from-path";
-
-import type { Language } from "./data";
-
-export function getLangFromPath(): Language {
-  return getLangFromPathShared();
-}
+import type { Language } from "@/lib/i18n-routing";
 
 export function getBaseUrl(): string {
   if (typeof window === "undefined") return "/";

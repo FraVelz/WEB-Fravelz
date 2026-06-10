@@ -1,10 +1,1 @@
-export {
-  AboutCertIcon,
-  AboutFutureIcon,
-  AboutGithubIcon,
-  AboutOriginIcon,
-  AboutWorkIcon,
-  PCIcon,
-  PythonIcon,
-  getAboutTimelineIcon,
-} from "./AboutTimelineIcons";
+export { getAboutTimelineIcon } from "./AboutTimelineIcons";

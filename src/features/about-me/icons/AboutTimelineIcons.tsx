@@ -88,7 +88,7 @@ const GITHUB_LOGO_PATH =
   "c44.163-14.653,80.185-41.062,108.068-79.226c27.88-38.161,41.825-81.126,41.825-128.906" +
   "C438.536,184.851,428.728,148.168,409.132,114.573z";
 
-export function PythonIcon(props: SVGProps<SVGSVGElement>) {
+function PythonIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <FilledIconBase viewBox="0 0 14 14" {...props}>
       <path d={PYTHON_LOGO_PATH} />
@@ -96,7 +96,7 @@ export function PythonIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function AboutOriginIcon(props: SVGProps<SVGSVGElement>) {
+function AboutOriginIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
       <path
@@ -110,7 +110,7 @@ export function AboutOriginIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function AboutGithubIcon(props: SVGProps<SVGSVGElement>) {
+function AboutGithubIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <FilledIconBase viewBox="0 0 438.549 438.549" {...props}>
       <path d={GITHUB_LOGO_PATH} />
@@ -118,7 +118,7 @@ export function AboutGithubIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function PCIcon(props: SVGProps<SVGSVGElement>) {
+function PCIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
       <rect x="5" y="6" width="14" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.75" />
@@ -128,7 +128,7 @@ export function PCIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function AboutWorkIcon(props: SVGProps<SVGSVGElement>) {
+function AboutWorkIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
       <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.75" />
@@ -138,7 +138,7 @@ export function AboutWorkIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function AboutCertIcon(props: SVGProps<SVGSVGElement>) {
+function AboutCertIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <IconBase {...props}>
       <circle cx="12" cy="9" r="4" stroke="currentColor" strokeWidth="1.75" />
@@ -149,28 +149,6 @@ export function AboutCertIcon(props: SVGProps<SVGSVGElement>) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </IconBase>
-  );
-}
-
-export function AboutFutureIcon(props: SVGProps<SVGSVGElement>) {
-  return (
-    <IconBase {...props}>
-      <path
-        d="M12 4c-3.5 3.5-5.5 7.2-5.5 11a5.5 5.5 0 1 0 11 0C17.5 11.2 15.5 7.5 12 4z"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="13.5" r="1.75" stroke="currentColor" strokeWidth="1.75" />
-      <path
-        d="M7.5 15.5 5.5 19.5l4-.75M16.5 15.5 18.5 19.5l-4-.75"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path d="M12 4v2.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
     </IconBase>
   );
 }

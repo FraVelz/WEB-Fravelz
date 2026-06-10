@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 import { useEffect, useRef, useMemo, useReducer } from "react";
 
 import { cn } from "@/utils/cn";
-import type { Language } from "../utils/data";
+import type { Language } from "@/lib/i18n-routing";
 import type { Translations } from "@/types/translations";
 import { getBaseUrl } from "../utils/functions";
 import { searchPortfolio } from "../utils/searchPortfolio";

@@ -2,9 +2,15 @@ import { getAllProjects } from "@/utils/data/projects";
 import { certificates } from "@/utils/data/certificates";
 
 import { technologies } from "@/features/technologies/utils/data";
+import type { Language } from "@/lib/i18n-routing";
 
-import { type Language, type SearchResult } from "../utils/data";
 import { getUrlForI18nKey } from "../utils/functions";
+
+type SearchResult =
+  | { type: "project"; slug: string; title: string; technologies: string[] }
+  | { type: "technology"; id: string; name: string }
+  | { type: "certificate"; id: string; title: string; issuer: string }
+  | { type: "page"; url: string; label: string; snippet: string };
 
 export function searchPortfolio(
   query: string,
