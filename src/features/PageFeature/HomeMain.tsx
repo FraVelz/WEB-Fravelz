@@ -25,7 +25,7 @@ export default async function HomeMain({ lang }: { lang: Language }) {
       <HomeAmbientGlow />
 
       <main className="home-scroll-layer relative z-10 overflow-x-hidden">
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-x-hidden overflow-y-visible">
           <div data-home-reveal className={homeStyles.revealScroll}>
             <HeroSection lang={lang} />
           </div>

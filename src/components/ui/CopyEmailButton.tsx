@@ -57,7 +57,7 @@ export default function CopyEmailButton({
           ),
         variant === "outlined" &&
           cn(
-            "rounded-full border p-1 px-2 pr-3",
+            "rounded-full border px-3.5 py-1.5",
             "z-[1] outline-none focus-visible:border-[rgb(var(--color-primary))] focus-visible:shadow-[var(--focus-ring-shadow)]",
           ),
         copied &&
@@ -67,23 +67,23 @@ export default function CopyEmailButton({
                 "shadow-md shadow-emerald-600/30 dark:from-emerald-500 dark:to-teal-500 dark:shadow-emerald-900/40",
               )
             : cn(
-                "scale-105 border-2 border-green-500/70 bg-green-100 text-green-700 shadow-lg shadow-green-500/30",
-                "dark:border-green-500/40 dark:bg-gray-900 dark:text-green-400 dark:shadow-none",
+                "scale-[1.02] border border-emerald-500/60 bg-emerald-50/80 text-emerald-700 shadow-none",
+                "dark:border-emerald-500/40 dark:bg-emerald-950/30 dark:text-emerald-400",
               )),
         !copied &&
           (variant === "solid"
             ? cn(
-                "border-0 bg-gradient-to-r from-cyan-600 to-purple-600 text-white",
-                "shadow-md ring-1 shadow-purple-500/25 ring-white/15",
-                "hover:from-cyan-500 hover:to-purple-500 hover:shadow-lg hover:shadow-cyan-500/20",
+                "border-0 bg-gradient-to-r from-cyan-500 to-purple-500 text-white",
+                "shadow-md ring-1 shadow-cyan-500/25 ring-white/25",
+                "hover:from-cyan-400 hover:to-purple-400 hover:shadow-lg hover:shadow-cyan-500/30",
                 "dark:from-cyan-500 dark:to-purple-600 dark:shadow-purple-950/50 dark:ring-white/10",
                 "dark:hover:from-cyan-400 dark:hover:to-purple-500",
               )
             : cn(
-                "border-2 border-purple-400/70 bg-purple-50 font-medium text-purple-700 shadow-md shadow-purple-500/20",
-                "hover:border-purple-600 hover:text-purple-800 hover:shadow-lg hover:shadow-purple-500/30",
-                "dark:border-purple-500/40 dark:bg-gray-900 dark:text-purple-300 dark:shadow-none",
-                "dark:hover:border-purple-400/60 dark:hover:text-purple-200 dark:hover:shadow-purple-500/10",
+                "border border-slate-300/80 bg-transparent font-medium text-slate-700 shadow-none",
+                "hover:border-cyan-500/55 hover:text-cyan-800",
+                "dark:border-slate-600/80 dark:text-slate-300",
+                "dark:hover:border-cyan-400/45 dark:hover:text-cyan-200",
               )),
       )}
       aria-label={ariaLabel}
