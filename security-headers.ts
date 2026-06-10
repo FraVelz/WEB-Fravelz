@@ -1,11 +1,12 @@
 const isDev = process.env.NODE_ENV !== "production";
 
 function buildContentSecurityPolicy(): string {
-  const scriptSrc = ["'self'"];
-  const connectSrc = ["'self'", "https://vitals.vercel-insights.com"];
+  // Next.js bootstraps hydration with inline scripts; Vercel Analytics loads from va.vercel-scripts.com.
+  const scriptSrc = ["'self'", "'unsafe-inline'", "https://va.vercel-scripts.com"];
+  const connectSrc = ["'self'", "https://vitals.vercel-insights.com", "https://va.vercel-scripts.com"];
 
   if (isDev) {
-    scriptSrc.push("'unsafe-eval'", "https://va.vercel-scripts.com");
+    scriptSrc.push("'unsafe-eval'");
   }
 
   const directives = [
