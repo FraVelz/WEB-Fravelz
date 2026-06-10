@@ -8,8 +8,14 @@ const cornerClass = cn(
 export default function HeroFrameCorners() {
   return (
     <>
-      <div aria-hidden className={cn(cornerClass, "top-0 left-0 rounded-tl-xl border-t-2 border-l-2")} />
-      <div aria-hidden className={cn(cornerClass, "right-0 bottom-0 rounded-br-xl border-b-2 border-r-2")} />
+      <div
+        aria-hidden
+        className={cn(cornerClass, "top-0 left-0 rounded-tl-xl border-t-2 border-l-2 lg:-top-8 lg:-left-8")}
+      />
+      <div
+        aria-hidden
+        className={cn(cornerClass, "right-0 bottom-0 rounded-br-xl border-b-2 border-r-2 lg:-bottom-8 lg:-right-8")}
+      />
     </>
   );
 }

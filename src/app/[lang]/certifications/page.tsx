@@ -34,7 +34,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
     <section className="flex min-h-screen flex-col">
       <div
         className={cn(
-          "flex-1 bg-linear-to-b from-slate-100 via-blue-50 to-cyan-50 px-4 pt-6 pb-14 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10",
+          "flex-1 bg-slate-100 px-4 pt-6 pb-14 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10",
           "dark:bg-linear-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950",
         )}
       >
