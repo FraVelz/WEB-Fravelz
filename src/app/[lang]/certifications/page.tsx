@@ -3,6 +3,8 @@ import "@/features/projects/projects-nav.css";
 import CertificatesWithViewer from "@/components/ui/CertificatesWithViewer/CertificatesWithViewer";
 import Footer from "@/components/layout/Footer";
 
+import { certificationsJsonLd, JsonLd } from "@/lib/json-ld";
+import { buildPageMetadata } from "@/lib/metadata";
 import { certificates, groupCertificates } from "@/utils/data/certificates";
 import { resolveLangParams } from "@/lib/page-lang";
 
@@ -19,19 +21,22 @@ const certFormationStackPath =
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const lang = await resolveLangParams(params);
   const t = getTranslations(lang);
-  return {
-    title: `${t.cert_section_title || "Certificaciones"} — Fravelz`,
-    description: t.cert_intro_paragraph1 || "Certificaciones y formación.",
-  };
+  const title = `${t.cert_section_title || "Certificaciones"} — Fravelz`;
+  const description = t.cert_intro_paragraph1 || "Certificaciones y formación.";
+
+  return buildPageMetadata({ lang, title, description, pathname: "certifications" });
 }
 
 export default async function CertificationsPage({ params }: { params: Promise<{ lang: string }> }) {
   const lang = await resolveLangParams(params);
   const t = getTranslations(lang);
+  const title = `${t.cert_section_title || "Certificaciones"} — Fravelz`;
+  const description = t.cert_intro_paragraph1 || "Certificaciones y formación.";
   const { web: webCerts, hixec: hixecCerts, hack4u: hack4uCerts, other: otherCerts } = groupCertificates(certificates);
 
   return (
     <section className="flex min-h-screen flex-col">
+      <JsonLd data={certificationsJsonLd(lang, title, description, t.nav_presentation || "Home")} />
       <div
         className={cn(
           "flex-1 bg-slate-100 px-4 pt-6 pb-14 sm:px-6 sm:pt-8 lg:px-8 lg:pt-10",
