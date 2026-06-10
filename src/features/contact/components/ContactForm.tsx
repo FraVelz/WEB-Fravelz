@@ -13,11 +13,10 @@ const fieldClassName = cn(
 const labelClassName = "mb-1 block text-xs font-medium tracking-wide text-slate-500 dark:text-gray-500";
 
 const submitClassName = cn(
-  "inline-flex cursor-pointer items-center justify-center rounded-full",
+  "contact-submit-btn inline-flex cursor-pointer items-center justify-center rounded-full",
   "bg-gradient-to-r from-cyan-500 to-purple-500 px-7 py-2.5",
   "text-sm font-semibold text-white",
   "shadow-sm shadow-cyan-500/20 ring-1 ring-white/20 transition-[box-shadow,background,transform]",
-  "outline-none focus-visible:ring-0 focus-visible:shadow-[var(--hero-btn-solid-focus-shadow)]",
   "hover:from-cyan-400 hover:to-purple-400 hover:shadow-md hover:shadow-cyan-500/25",
   "dark:from-cyan-500 dark:to-purple-600 dark:shadow-purple-950/40 dark:ring-white/10",
   "dark:hover:from-cyan-400 dark:hover:to-purple-500",

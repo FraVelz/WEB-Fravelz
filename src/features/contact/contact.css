@@ -26,3 +26,8 @@
 .dark .contact-field:focus-visible {
   border-bottom-color: rgb(var(--color-primary) / 0.65);
 }
+
+.contact-submit-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--hero-btn-solid-focus-shadow);
+}
