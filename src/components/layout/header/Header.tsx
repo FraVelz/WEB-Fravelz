@@ -5,16 +5,26 @@ import "./header.css";
 import { runAnimation } from "./utils/header";
 import { cn } from "@/utils/cn";
 import { useEffect } from "react";
-import type { Language } from "@/lib/i18n-routing";
+import { usePathname } from "next/navigation";
+import { languages, type Language } from "@/lib/i18n-routing";
 import type { Translations } from "@/types/translations";
 
 import ElementsHeader from "./ElementsHeader";
 import MobileDrawer from "./MobileDrawer";
 
+function isHomePath(pathname: string | null) {
+  if (!pathname) return false;
+  const segment = pathname.split("/").filter(Boolean)[0];
+  return segment != null && languages.includes(segment as Language) && pathname.split("/").filter(Boolean).length === 1;
+}
+
 export function Header({ t, lang }: { t: Translations; lang: Language }) {
+  const pathname = usePathname();
+
   useEffect(() => {
+    if (isHomePath(pathname)) return;
     runAnimation();
-  }, []);
+  }, [pathname]);
 
   return (
     <header

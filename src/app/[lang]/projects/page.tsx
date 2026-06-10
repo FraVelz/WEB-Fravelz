@@ -57,7 +57,7 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-9">
             {projects.map((p) => (
               <div key={p.slug} className="h-full">
                 <ProjectCard project={p} lang={lang} />

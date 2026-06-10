@@ -17,17 +17,18 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
 
   return (
     <article className="h-full" data-project-card-content>
-      <Link
-        href={projectUrl}
-        className={cn(
-          "project-card group relative flex h-full flex-col overflow-hidden rounded-xl border-2",
-          "border-gray-200 bg-white shadow-md transition-all duration-300",
-          "hover:border-cyan-500 hover:shadow-xl",
-          "dark:border-gray-700 dark:bg-gray-800 dark:hover:border-cyan-400",
-        )}
-      >
+      <div className="project-card-shell group h-full rounded-xl">
+        <div className="project-card__wheel" aria-hidden />
+        <Link
+          href={projectUrl}
+          className={cn(
+            "project-card relative flex h-full flex-col rounded-[10px] bg-white shadow-md",
+            "transition-shadow duration-300 group-hover:shadow-xl group-focus-visible:shadow-xl",
+            "dark:bg-gray-800",
+          )}
+        >
         <div
-          className="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-900"
+          className="relative w-full overflow-hidden rounded-t-[9px] bg-gray-100 dark:bg-gray-900"
           style={{ aspectRatio: PROJECT_PREVIEW_IMAGE.aspectRatio }}
         >
           <Image
@@ -62,7 +63,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           )}
         </div>
 
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col rounded-b-[9px] p-6">
           <h3
             className={cn(
               "project-card__title mb-2 text-xl font-bold text-gray-900 transition-colors",
@@ -118,7 +119,8 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
             </svg>
           </span>
         </div>
-      </Link>
+        </Link>
+      </div>
     </article>
   );
 }
