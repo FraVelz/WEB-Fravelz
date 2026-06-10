@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: "/pdfs/:path*",
+        headers: getSecurityHeaders({ embeddable: true }),
+      },
+      {
+        source: "/((?!pdfs/).*)",
         headers: getSecurityHeaders(),
       },
     ];

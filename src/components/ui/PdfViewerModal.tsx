@@ -2,7 +2,8 @@
 
 import "./pdf-viewer-modal.css";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/utils/cn";
 
 interface PdfViewerModalProps {
@@ -26,6 +27,11 @@ export default function PdfViewerModal({
   const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     onCloseRef.current = onClose;
@@ -56,9 +62,9 @@ export default function PdfViewerModal({
     iframeRef.current?.focus({ preventScroll: true });
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !isMounted) return null;
 
-  return (
+  return createPortal(
     <div
       className={cn("fixed inset-0 z-100 flex items-center justify-center bg-black/70 p-4", "backdrop-blur-sm")}
       role="dialog"
@@ -70,7 +76,7 @@ export default function PdfViewerModal({
         ref={panelRef}
         tabIndex={-1}
         className={cn(
-          "relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl outline-none",
+          "relative flex h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl outline-none",
           "bg-white shadow-2xl dark:bg-slate-900",
         )}
       >
@@ -154,13 +160,14 @@ export default function PdfViewerModal({
             tabIndex={0}
             onLoad={focusPdfViewer}
             className={cn(
-              "h-[75vh] min-h-[400px] w-full border-0 outline-none",
+              "h-full w-full border-0 outline-none",
               "focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-inset",
               "dark:focus-visible:ring-cyan-400",
             )}
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
