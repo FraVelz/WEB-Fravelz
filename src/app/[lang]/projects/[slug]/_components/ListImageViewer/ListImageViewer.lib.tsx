@@ -66,8 +66,6 @@ export function ProjectSlideImage({
   );
 }
 
-export type { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/ChevronIcons";
-
 export type ListImagesViewerProps = {
   project: Project;
   title: string;

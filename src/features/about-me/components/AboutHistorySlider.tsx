@@ -50,7 +50,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
   const tabsListRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd } = useCarouselIndex({
+  const { displayIndex, setIndex, navigateByDelta, onTouchStart, onTouchEnd } = useCarouselIndex({
     count,
     swipeThreshold: 48,
     stopPropagationOnSwipe: true,
@@ -175,7 +175,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
             <button
               type="button"
               className={cn(navBtnClass, "absolute top-1/2 left-2 z-10 -translate-y-1/2 max-sm:hidden")}
-              onClick={() => go(-1)}
+              onClick={() => navigateByDelta(-1)}
               aria-label={labels.prev}
             >
               <ChevronLeftIcon className="h-5 w-5" />
@@ -183,7 +183,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
             <button
               type="button"
               className={cn(navBtnClass, "absolute top-1/2 right-2 z-10 -translate-y-1/2 max-sm:hidden")}
-              onClick={() => go(1)}
+              onClick={() => navigateByDelta(1)}
               aria-label={labels.next}
             >
               <ChevronRightIcon className="h-5 w-5" />
@@ -248,13 +248,13 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
       {showNav ? (
         <>
           <div className="flex items-center justify-center gap-3 sm:hidden">
-            <button type="button" className={navBtnClass} onClick={() => go(-1)} aria-label={labels.prev}>
+            <button type="button" className={navBtnClass} onClick={() => navigateByDelta(-1)} aria-label={labels.prev}>
               <ChevronLeftIcon className="h-5 w-5" />
             </button>
             <p className="min-w-16 text-center text-sm text-[rgb(var(--color-text-muted))] tabular-nums">
               {displayIndex + 1} / {count}
             </p>
-            <button type="button" className={navBtnClass} onClick={() => go(1)} aria-label={labels.next}>
+            <button type="button" className={navBtnClass} onClick={() => navigateByDelta(1)} aria-label={labels.next}>
               <ChevronRightIcon className="h-5 w-5" />
             </button>
           </div>

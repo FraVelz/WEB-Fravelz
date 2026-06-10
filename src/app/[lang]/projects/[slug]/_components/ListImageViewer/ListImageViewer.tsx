@@ -1,11 +1,11 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/ChevronIcons";
-import { useCarouselIndex } from "@/hooks/useCarouselIndex";
 import { cn } from "@/utils/cn";
 import { useEffect, useEffectEvent, useMemo } from "react";
 
 import { buildSlides, ProjectSlideImage, ListImagesViewerProps } from "./ListImageViewer.lib";
+import { useInfiniteCarousel } from "./useInfiniteCarousel";
 
 export function ListImagesViewer({
   project,
@@ -18,13 +18,22 @@ export function ListImagesViewer({
   const slides = useMemo(() => buildSlides(project, title), [project, title]);
   const count = slides.length;
 
-  const { displayIndex, setIndex, go, onTouchStart, onTouchEnd } = useCarouselIndex({
-    count,
-    swipeThreshold: 56,
-  });
+  const {
+    position,
+    displayIndex,
+    skipTransition,
+    setDisplayIndex,
+    navigateByDelta,
+    onTouchStart,
+    onTouchEnd,
+    onTransitionEnd,
+  } = useInfiniteCarousel(count, 56);
+
+  const handlePrevious = () => navigateByDelta(-1);
+  const handleNext = () => navigateByDelta(1);
 
   const navigateCarousel = useEffectEvent((delta: number) => {
-    go(delta);
+    navigateByDelta(delta);
   });
 
   useEffect(() => {
@@ -43,6 +52,17 @@ export function ListImagesViewer({
     return () => window.removeEventListener("keydown", onKey);
   }, [count]);
 
+  const extendedSlides = useMemo(() => {
+    if (count <= 1) return slides;
+    const last = slides[count - 1];
+    const first = slides[0];
+    return [
+      { ...last, key: `${last.key}-clone-start` },
+      ...slides,
+      { ...first, key: `${first.key}-clone-end` },
+    ];
+  }, [slides, count]);
+
   if (slides.length === 0) return null;
 
   const navBtnClass = cn(
@@ -54,6 +74,7 @@ export function ListImagesViewer({
   );
 
   const showHeading = Boolean(galleryHeading && count > 1);
+  const translateIndex = count > 1 ? position : 0;
 
   return (
     <section className="mb-12" aria-label={carouselRegionAriaLabel}>
@@ -69,19 +90,29 @@ export function ListImagesViewer({
         <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-gray-100 sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none dark:bg-gray-950">
           <div
             className={cn(
-              "flex h-full transition-transform duration-300 ease-out will-change-transform",
+              "flex h-full will-change-transform",
+              !skipTransition && "transition-transform duration-300 ease-out",
               "motion-reduce:transform-none motion-reduce:transition-none",
             )}
-            style={{ transform: count > 1 ? `translateX(-${displayIndex * 100}%)` : undefined }}
+            style={{ transform: count > 1 ? `translateX(-${translateIndex * 100}%)` : undefined }}
+            onTransitionEnd={onTransitionEnd}
           >
-            {slides.map((slide, i) => (
-              <div key={slide.key} className="relative w-full shrink-0 px-0 sm:px-8" aria-hidden={i !== displayIndex}>
+            {extendedSlides.map((slide, i) => (
+              <div
+                key={slide.key}
+                className="relative w-full shrink-0 px-0 sm:px-8"
+                aria-hidden={count > 1 ? i !== position : i !== 0}
+              >
                 <div
                   className={cn(
                     "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center md:py-4",
                   )}
                 >
-                  <ProjectSlideImage slide={slide} sizes="(max-width: 768px) 100vw, 896px" priority={i === 0} />
+                  <ProjectSlideImage
+                    slide={slide}
+                    sizes="(max-width: 768px) 100vw, 896px"
+                    priority={i === 1 || (count <= 1 && i === 0)}
+                  />
                 </div>
               </div>
             ))}
@@ -93,7 +124,7 @@ export function ListImagesViewer({
             <button
               type="button"
               className={cn(navBtnClass, "absolute top-1/2 left-2 -translate-y-1/2 max-sm:hidden")}
-              onClick={() => go(-1)}
+              onClick={handlePrevious}
               aria-label={carouselPrevLabel}
             >
               <ChevronLeftIcon className="h-6 w-6" />
@@ -101,7 +132,7 @@ export function ListImagesViewer({
             <button
               type="button"
               className={cn(navBtnClass, "absolute top-1/2 right-2 -translate-y-1/2 max-sm:hidden")}
-              onClick={() => go(1)}
+              onClick={handleNext}
               aria-label={carouselNextLabel}
             >
               <ChevronRightIcon className="h-6 w-6" />
@@ -112,13 +143,13 @@ export function ListImagesViewer({
 
       {count > 1 ? (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:hidden">
-          <button type="button" className={navBtnClass} onClick={() => go(-1)} aria-label={carouselPrevLabel}>
+          <button type="button" className={navBtnClass} onClick={handlePrevious} aria-label={carouselPrevLabel}>
             <ChevronLeftIcon className="h-6 w-6" />
           </button>
           <p className="min-w-18 text-center text-sm text-gray-600 tabular-nums dark:text-gray-400">
             {displayIndex + 1} / {count}
           </p>
-          <button type="button" className={navBtnClass} onClick={() => go(1)} aria-label={carouselNextLabel}>
+          <button type="button" className={navBtnClass} onClick={handleNext} aria-label={carouselNextLabel}>
             <ChevronRightIcon className="h-6 w-6" />
           </button>
         </div>
@@ -133,7 +164,7 @@ export function ListImagesViewer({
               aria-label={`${carouselRegionAriaLabel}: ${i + 1} / ${count}`}
               aria-pressed={i === displayIndex}
               className="project-page-carousel-dot flex h-8 w-8 items-center justify-center rounded-full"
-              onClick={() => setIndex(i)}
+              onClick={() => setDisplayIndex(i)}
             >
               <span
                 className={cn(

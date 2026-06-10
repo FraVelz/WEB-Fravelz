@@ -10,4 +10,3 @@ export const LOCALE_FILES = [
   "footer",
 ] as const;
 
-export type LocaleFileName = (typeof LOCALE_FILES)[number];
