@@ -16,7 +16,7 @@ export default function HeroFrameCorners() {
       <div
         aria-hidden
         data-hero-enter="frame"
-        className={cn(cornerClass, "right-0 bottom-0 rounded-br-xl border-b-2 border-r-2 lg:-bottom-8 lg:-right-8")}
+        className={cn(cornerClass, "right-0 bottom-0 rounded-br-xl border-r-2 border-b-2 lg:-right-8 lg:-bottom-8")}
       />
     </>
   );

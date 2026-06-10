@@ -42,10 +42,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
           {/* Texto */}
           <div className="flex min-w-0 flex-1 flex-col">
-            <p
-              data-hero-enter="item"
-              className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200"
-            >
+            <p data-hero-enter="item" className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">
               {t.hola}
             </p>
 
