@@ -27,7 +27,7 @@
     from 0deg,
     rgb(var(--color-primary)) 0deg 62deg,
     transparent 62deg 168deg,
-    rgb(var(--color-accent)) 168deg 230deg,
+    rgb(var(--color-primary)) 168deg 230deg,
     transparent 230deg 360deg
   );
   transition: opacity 0.25s ease;
