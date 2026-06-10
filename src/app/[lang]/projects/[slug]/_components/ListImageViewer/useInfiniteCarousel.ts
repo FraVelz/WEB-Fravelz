@@ -9,6 +9,18 @@ function scheduleSkipTransition(setSkipTransition: (value: boolean) => void) {
   });
 }
 
+function snapCloneToReal(pos: number, count: number, setSkipTransition: (value: boolean) => void) {
+  if (pos === 0) {
+    scheduleSkipTransition(setSkipTransition);
+    return count;
+  }
+  if (pos === count + 1) {
+    scheduleSkipTransition(setSkipTransition);
+    return 1;
+  }
+  return pos;
+}
+
 export function useInfiniteCarousel(count: number, swipeThreshold = 56) {
   const [position, setPosition] = useState(1);
   const [skipTransition, setSkipTransition] = useState(false);
@@ -39,7 +51,7 @@ export function useInfiniteCarousel(count: number, swipeThreshold = 56) {
 
   const onTransitionEnd = useCallback(
     (e: React.TransitionEvent<HTMLDivElement>) => {
-      if (e.propertyName !== "transform") return;
+      if (e.propertyName !== "transform" || e.target !== e.currentTarget) return;
       resetClonePosition();
     },
     [resetClonePosition],
@@ -49,13 +61,16 @@ export function useInfiniteCarousel(count: number, swipeThreshold = 56) {
     (target: number) => {
       if (count <= 0) return;
       const next = ((target % count) + count) % count;
-      const pos = positionRef.current;
-      const current = pos === 0 ? count - 1 : pos === count + 1 ? 0 : pos - 1;
-      if (next === current) return;
-      if (Math.abs(next - current) > 1) {
-        scheduleSkipTransition(setSkipTransition);
-      }
-      setPosition(next + 1);
+
+      setPosition((current) => {
+        const pos = snapCloneToReal(current, count, setSkipTransition);
+        const currentDisplay = pos - 1;
+        if (next === currentDisplay) return pos;
+        if (Math.abs(next - currentDisplay) > 1) {
+          scheduleSkipTransition(setSkipTransition);
+        }
+        return next + 1;
+      });
     },
     [count],
   );
@@ -71,7 +86,11 @@ export function useInfiniteCarousel(count: number, swipeThreshold = 56) {
   const navigateByDelta = useCallback(
     (delta: number) => {
       if (count <= 1) return;
-      setPosition((p) => p + delta);
+
+      setPosition((current) => {
+        const pos = snapCloneToReal(current, count, setSkipTransition);
+        return pos + delta;
+      });
     },
     [count],
   );
