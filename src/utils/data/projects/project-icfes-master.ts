@@ -1,5 +1,12 @@
 import type { Project } from "../project-types";
 import icfesMasterImg from "@/assets/images-projects/icfes-master/index.webp";
+import image1 from "@/assets/images-projects/icfes-master/image1.webp";
+import image2 from "@/assets/images-projects/icfes-master/image2.webp";
+import image3 from "@/assets/images-projects/icfes-master/image3.webp";
+import image4 from "@/assets/images-projects/icfes-master/image4.webp";
+import image5 from "@/assets/images-projects/icfes-master/image5.webp";
+import image6 from "@/assets/images-projects/icfes-master/image6.webp";
+import image7 from "@/assets/images-projects/icfes-master/image7.webp";
 
 export const projectIcfesMaster: Project = {
   slug: "icfes-master",
@@ -24,6 +31,7 @@ export const projectIcfesMaster: Project = {
       "Next.js 15、React 19、Supabase、功能模块化架构。",
   },
   featuredImage: icfesMasterImg,
+  screenshots: [image1, image2, image3, image4, image5, image6, image7],
   technologies: [
     "Next.js",
     "React",

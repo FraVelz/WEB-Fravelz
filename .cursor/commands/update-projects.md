@@ -23,8 +23,9 @@ fuente de verdad.
    archivo y el resto del repositorio.
 5. **Proyecto nuevo:** comprobar si hace falta **importar y registrar** el proyecto en `src/utils/data/projects-list.ts`
    (además de crear el `.ts` del proyecto e imágenes si aplica).
-6. **Imagen de preview:** `featuredImage` (`index.webp`) debe ser **1200×630** (ratio Open Graph). Tras exportar, puedes
-   normalizar con `node scripts/resize-project-previews.mjs` (añade la carpeta del proyecto al script si es nueva).
+6. **Imagen de preview:** `featuredImage` (`index.webp`) debe ser **1200×630** (ratio Open Graph) y coincidir con el
+   **Open Graph** del repo del proyecto. Sincronizar con `node scripts/sync-project-og-previews.mjs` (ICFES Master,
+   WEB To-do List tras `pnpm run build`, Frontend Mentor). Para recortes manuales: `node scripts/resize-project-previews.mjs`.
 
 ## Idiomas del modelo de datos
 
