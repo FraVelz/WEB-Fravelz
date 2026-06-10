@@ -1,6 +1,11 @@
 const isDev = process.env.NODE_ENV !== "production";
 
-function buildContentSecurityPolicy(): string {
+type SecurityHeaderOptions = {
+  /** Permite que el recurso se muestre en iframes del mismo origen (p. ej. visor PDF). */
+  embeddable?: boolean;
+};
+
+function buildContentSecurityPolicy({ embeddable = false }: SecurityHeaderOptions = {}): string {
   // Next.js bootstraps hydration with inline scripts; Vercel Analytics loads from va.vercel-scripts.com.
   const scriptSrc = ["'self'", "'unsafe-inline'", "https://va.vercel-scripts.com"];
   const connectSrc = ["'self'", "https://vitals.vercel-insights.com", "https://va.vercel-scripts.com"];
@@ -20,7 +25,7 @@ function buildContentSecurityPolicy(): string {
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self' mailto:",
-    "frame-ancestors 'none'",
+    embeddable ? "frame-ancestors 'self'" : "frame-ancestors 'none'",
   ];
 
   if (!isDev) {
@@ -30,16 +35,16 @@ function buildContentSecurityPolicy(): string {
   return directives.join("; ");
 }
 
-export function getSecurityHeaders(): { key: string; value: string }[] {
+export function getSecurityHeaders(options: SecurityHeaderOptions = {}): { key: string; value: string }[] {
   const headers: { key: string; value: string }[] = [
     { key: "X-Content-Type-Options", value: "nosniff" },
-    { key: "X-Frame-Options", value: "DENY" },
+    { key: "X-Frame-Options", value: options.embeddable ? "SAMEORIGIN" : "DENY" },
     { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
     {
       key: "Permissions-Policy",
       value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
     },
-    { key: "Content-Security-Policy", value: buildContentSecurityPolicy() },
+    { key: "Content-Security-Policy", value: buildContentSecurityPolicy(options) },
     { key: "Accept-CH", value: "Sec-CH-Prefers-Color-Scheme" },
     { key: "Critical-CH", value: "Sec-CH-Prefers-Color-Scheme" },
     { key: "Vary", value: "Sec-CH-Prefers-Color-Scheme" },
