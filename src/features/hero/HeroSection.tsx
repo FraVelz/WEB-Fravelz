@@ -23,14 +23,15 @@ export default async function HeroSection({ lang }: { lang: Language }) {
       <div
         className={cn(
           "mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-5",
-          "sm:px-6 lg:px-8",
+          "sm:px-6 lg:max-w-7xl lg:px-4 xl:px-6",
           "pt-[7.25rem] pb-14 sm:pt-32 lg:pt-36 lg:pb-20",
         )}
       >
         <div
           className={cn(
             "relative flex w-full flex-col-reverse gap-10",
-            "sm:flex-row sm:gap-12 lg:items-center lg:gap-14 lg:px-8 lg:py-6",
+            "sm:flex-row sm:gap-12 lg:items-center lg:justify-between lg:gap-20",
+            "lg:px-10 lg:py-16 xl:gap-24",
           )}
         >
           <HeroFrameCorners />
