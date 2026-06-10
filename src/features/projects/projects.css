@@ -1,8 +1,78 @@
 /* Proyectos: tarjetas y botón ver todos */
 
+.project-card-shell {
+  position: relative;
+  isolation: isolate;
+  padding: 2px;
+  overflow: hidden;
+  background: rgb(var(--color-text) / 0.1);
+  transition: background-color 0.25s ease;
+}
+
+.dark .project-card-shell {
+  background: rgb(var(--color-text) / 0.14);
+}
+
+.project-card__wheel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: 250%;
+  height: 250%;
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: center;
+  background: conic-gradient(
+    from 0deg,
+    rgb(var(--color-primary)) 0deg 62deg,
+    transparent 62deg 168deg,
+    rgb(var(--color-accent)) 168deg 230deg,
+    transparent 230deg 360deg
+  );
+  transition: opacity 0.25s ease;
+}
+
+.project-card-shell:hover .project-card__wheel,
+.project-card-shell:focus-within .project-card__wheel {
+  opacity: 1;
+  animation: project-card-border-spin 2.8s linear infinite;
+}
+
+@keyframes project-card-border-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.project-card-shell:hover,
+.project-card-shell:focus-within {
+  background: transparent;
+}
+
+.project-card {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card__wheel {
+    transition: none;
+  }
+
+  .project-card-shell:hover .project-card__wheel,
+  .project-card-shell:focus-within .project-card__wheel {
+    animation: none;
+    opacity: 0;
+  }
+
+  .project-card-shell:hover,
+  .project-card-shell:focus-within {
+    background: rgb(var(--color-primary) / 0.55);
+  }
+}
+
 .project-card:focus-visible {
   outline: none;
-  border-color: rgb(var(--color-primary));
   box-shadow:
     var(--focus-ring-shadow),
     0 16px 40px rgb(var(--color-black) / 0.12);

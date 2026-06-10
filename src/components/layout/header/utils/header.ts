@@ -9,8 +9,8 @@ function resetHeaderTweenState() {
   gsap.set(HEADER_TARGETS, { clearProps: "transform,opacity" });
 }
 
-function animateDesktop() {
-  const tl = gsap.timeline();
+function animateDesktop(delay = 0) {
+  const tl = gsap.timeline({ delay });
   tl.to("#header-main", {
     y: 0,
     opacity: 1,
@@ -24,8 +24,8 @@ function animateDesktop() {
   });
 }
 
-function animateMobile() {
-  const tl = gsap.timeline();
+function animateMobile(delay = 0) {
+  const tl = gsap.timeline({ delay });
   tl.to("#header-main", {
     y: 0,
     opacity: 1,
@@ -46,16 +46,16 @@ function animateMobile() {
     });
 }
 
-export function runAnimation() {
+export function runAnimation(delay = 0) {
   const mq = window.matchMedia(DESKTOP_MQ);
 
   const playForViewport = () => {
     resetHeaderTweenState();
     requestAnimationFrame(() => {
       if (mq.matches) {
-        animateDesktop();
+        animateDesktop(delay);
       } else {
-        animateMobile();
+        animateMobile(delay);
       }
     });
   };

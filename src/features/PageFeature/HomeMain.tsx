@@ -1,6 +1,7 @@
 import AboutMeSection from "@/features/about-me/AboutMeSection";
 import ContactSection from "@/features/contact/ContactSection";
 import HobbiesSection from "@/features/hobbies/HobbiesSection";
+import HeroEntrance from "@/features/hero/components/HeroEntrance";
 import HeroSection from "@/features/hero/HeroSection";
 import ProjectsSection from "@/features/projects/ProjectsSection";
 import TechnologiesSection from "@/features/technologies/TechnologiesSection";
@@ -26,9 +27,9 @@ export default async function HomeMain({ lang }: { lang: Language }) {
 
       <main className="home-scroll-layer relative z-10 overflow-x-hidden">
         <section className="relative overflow-x-hidden overflow-y-visible">
-          <div data-home-reveal className={homeStyles.revealScroll}>
+          <HeroEntrance>
             <HeroSection lang={lang} />
-          </div>
+          </HeroEntrance>
         </section>
 
         <div className="horizontal relative w-full overflow-x-hidden">

@@ -1,4 +1,51 @@
-/* Hero: CTAs y hint de scroll */
+/* Hero: CTAs, hint de scroll y entrada GSAP */
+
+#presentation[data-hero-pending] [data-hero-enter="frame"] {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+#presentation[data-hero-pending] [data-hero-enter="item"] {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+}
+
+#presentation[data-hero-pending] [data-hero-enter="badge"],
+#presentation[data-hero-pending] [data-hero-enter="scroll-hint"] {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+}
+
+#presentation[data-hero-pending] [data-hero-enter="scroll-hint"] {
+  transform: translate3d(0, 12px, 0);
+}
+
+#presentation[data-hero-pending] [data-hero-enter="visual"] {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+}
+
+@media (min-width: 1024px) {
+  #presentation[data-hero-pending] [data-hero-enter="visual"] {
+    transform: translate3d(44px, 0, 0);
+  }
+}
+
+#presentation [data-hero-enter] {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #presentation[data-hero-pending] [data-hero-enter] {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+
+  #presentation [data-hero-enter] {
+    will-change: auto;
+  }
+}
 
 .hero-btn-solid {
   color: #fff;
