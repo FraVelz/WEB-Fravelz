@@ -56,11 +56,7 @@ export function ListImagesViewer({
     if (count <= 1) return slides;
     const last = slides[count - 1];
     const first = slides[0];
-    return [
-      { ...last, key: `${last.key}-clone-start` },
-      ...slides,
-      { ...first, key: `${first.key}-clone-end` },
-    ];
+    return [{ ...last, key: `${last.key}-clone-start` }, ...slides, { ...first, key: `${first.key}-clone-end` }];
   }, [slides, count]);
 
   if (slides.length === 0) return null;
@@ -78,9 +74,7 @@ export function ListImagesViewer({
 
   return (
     <section className="mb-12" aria-label={carouselRegionAriaLabel}>
-      {showHeading ? (
-        <h2 className="mb-4 text-2xl font-bold text-[rgb(var(--color-text))]">{galleryHeading}</h2>
-      ) : null}
+      {showHeading ? <h2 className="mb-4 text-2xl font-bold text-[rgb(var(--color-text))]">{galleryHeading}</h2> : null}
 
       <div
         className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-[rgb(var(--color-drawer-border)/0.8)]"

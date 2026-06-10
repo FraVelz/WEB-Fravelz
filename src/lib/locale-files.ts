@@ -9,4 +9,3 @@ export const LOCALE_FILES = [
   "hobbies",
   "footer",
 ] as const;
-
