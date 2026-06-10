@@ -67,9 +67,9 @@ export function ListImagesViewer({
 
   const navBtnClass = cn(
     "project-page-carousel-btn cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full",
-    "border border-gray-200/90 bg-white/95 text-gray-800 shadow-lg backdrop-blur-sm",
-    "transition-[border-color,box-shadow,color] hover:border-cyan-500/60 hover:text-cyan-700",
-    "dark:border-gray-600 dark:bg-gray-900/95 dark:text-gray-100 dark:hover:border-cyan-400 dark:hover:text-cyan-300",
+    "border border-[rgb(var(--color-drawer-border)/0.9)] bg-[rgb(var(--color-surface)/0.95)] text-[rgb(var(--color-text))]",
+    "shadow-lg backdrop-blur-sm transition-[border-color,box-shadow,color] hover:border-cyan-500/60 hover:text-cyan-700",
+    "dark:hover:border-cyan-400 dark:hover:text-cyan-300",
     "disabled:pointer-events-none disabled:opacity-40",
   );
 
@@ -79,15 +79,15 @@ export function ListImagesViewer({
   return (
     <section className="mb-12" aria-label={carouselRegionAriaLabel}>
       {showHeading ? (
-        <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">{galleryHeading}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-[rgb(var(--color-text))]">{galleryHeading}</h2>
       ) : null}
 
       <div
-        className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-gray-200/80 dark:ring-gray-700/80"
+        className="relative overflow-hidden rounded-xl shadow-2xl ring-1 ring-[rgb(var(--color-drawer-border)/0.8)]"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-gray-100 sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none dark:bg-gray-950">
+        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
           <div
             className={cn(
               "flex h-full will-change-transform",
@@ -146,7 +146,7 @@ export function ListImagesViewer({
           <button type="button" className={navBtnClass} onClick={handlePrevious} aria-label={carouselPrevLabel}>
             <ChevronLeftIcon className="h-6 w-6" />
           </button>
-          <p className="min-w-18 text-center text-sm text-gray-600 tabular-nums dark:text-gray-400">
+          <p className="min-w-18 text-center text-sm text-[rgb(var(--color-text-muted))] tabular-nums">
             {displayIndex + 1} / {count}
           </p>
           <button type="button" className={navBtnClass} onClick={handleNext} aria-label={carouselNextLabel}>
@@ -169,7 +169,7 @@ export function ListImagesViewer({
               <span
                 className={cn(
                   "block h-2 rounded-full transition-all duration-300",
-                  i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-gray-300 dark:bg-gray-600",
+                  i === displayIndex ? "w-8 bg-cyan-500" : "w-2 bg-[rgb(var(--color-drawer-border))]",
                 )}
                 aria-hidden
               />

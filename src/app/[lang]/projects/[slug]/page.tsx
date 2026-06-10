@@ -36,7 +36,7 @@ export async function generateMetadata({
   const { lang, slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) return { title: "Proyecto" };
+  if (!project) notFound();
 
   const L = resolveLangParam(lang);
   const title = project.title[L];
@@ -77,7 +77,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
           projects: t.nav_projects || "Projects",
         })}
       />
-      <article className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")} data-project-page>
+      <article className={cn("min-h-screen bg-[rgb(var(--color-bg))] px-4 pb-12 sm:px-6 lg:px-8")} data-project-page>
         <div className="mx-auto max-w-5xl pt-8">
           <Link
             href={`/${lang}/projects`}
@@ -127,8 +127,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
               {project.year && (
                 <span
                   className={cn(
-                    "rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700",
-                    "dark:bg-gray-700 dark:text-gray-300",
+                    "rounded-full bg-[rgb(var(--color-card))] px-3 py-1 text-sm text-[rgb(var(--color-text))]",
                   )}
                 >
                   {project.year}
@@ -137,12 +136,12 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
             </div>
 
             <h1
-              className="mb-4 text-4xl font-bold text-gray-900 md:text-5xl dark:text-gray-100"
+              className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl"
               data-project-page-title
             >
               {title}
             </h1>
-            <p className="mb-6 text-xl text-gray-600 dark:text-gray-400" data-project-page-description>
+            <p className="mb-6 text-xl text-[rgb(var(--color-text-muted))]" data-project-page-description>
               {description}
             </p>
 

@@ -1,12 +1,56 @@
 /* Página 404 */
 
+.not-found-code {
+  color: rgb(8 145 178); /* cyan-600 — fallback sólido si no hay background-clip */
+  animation: not-found-code-pulse 2.5s ease-in-out infinite;
+}
+
+.dark .not-found-code {
+  color: rgb(34 211 238); /* cyan-400 */
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .not-found-code {
+    background-image: linear-gradient(to right, rgb(34 211 238), rgb(192 132 252), rgb(34 211 238));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .not-found-code {
+    background-image: linear-gradient(to right, rgb(103 232 249), rgb(216 180 254), rgb(103 232 249));
+  }
+}
+
 @keyframes not-found-circle-entry {
   to {
     opacity: 1;
   }
 }
 
+@keyframes not-found-code-pulse {
+  50% {
+    opacity: 0.85;
+  }
+}
+
 #animation-404-circle {
   opacity: 0;
   animation: not-found-circle-entry 1s linear 2.4s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-code {
+    animation: none;
+  }
+
+  #animation-404-circle {
+    opacity: 1;
+    animation: none;
+  }
+
+  #animation-404-circle .animate-spin,
+  #animation-404-circle .animate-pulse {
+    animation: none;
+  }
 }

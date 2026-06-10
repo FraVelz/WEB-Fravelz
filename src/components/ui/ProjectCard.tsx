@@ -22,13 +22,12 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
         <Link
           href={projectUrl}
           className={cn(
-            "project-card relative flex h-full flex-col rounded-[10px] bg-white shadow-md",
+            "project-card relative flex h-full flex-col rounded-[10px] bg-[rgb(var(--color-surface))] shadow-md",
             "transition-shadow duration-300 group-hover:shadow-xl group-focus-visible:shadow-xl",
-            "dark:bg-gray-800",
           )}
         >
           <div
-            className="relative w-full overflow-hidden rounded-t-[9px] bg-gray-100 dark:bg-gray-900"
+            className="relative w-full overflow-hidden rounded-t-[9px] bg-[rgb(var(--color-card))]"
             style={{ aspectRatio: PROJECT_PREVIEW_IMAGE.aspectRatio }}
           >
             <Image
@@ -66,15 +65,15 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
           <div className="flex flex-1 flex-col rounded-b-[9px] p-6">
             <h3
               className={cn(
-                "project-card__title mb-2 text-xl font-bold text-gray-900 transition-colors",
+                "project-card__title mb-2 text-xl font-bold text-[rgb(var(--color-text))] transition-colors",
                 "group-hover:text-cyan-600 group-focus-visible:text-cyan-600",
-                "dark:text-gray-100 dark:group-hover:text-cyan-400 dark:group-focus-visible:text-cyan-400",
+                "dark:group-hover:text-cyan-400 dark:group-focus-visible:text-cyan-400",
               )}
               data-project-title
             >
               {title}
             </h3>
-            <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-300" data-project-description>
+            <p className="mb-4 line-clamp-2 text-sm text-[rgb(var(--color-text-muted))]" data-project-description>
               {description}
             </p>
             <div className="mb-4 flex flex-wrap gap-2">
@@ -92,8 +91,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
               {project.technologies.length > 4 && (
                 <span
                   className={cn(
-                    "rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600",
-                    "dark:bg-gray-700 dark:text-gray-400",
+                    "rounded-md bg-[rgb(var(--color-card))] px-2 py-1 text-xs text-[rgb(var(--color-text-muted))]",
                   )}
                 >
                   +{project.technologies.length - 4}

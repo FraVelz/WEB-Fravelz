@@ -6,13 +6,13 @@ import type { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
 import { getRequestLang } from "@/lib/request-lang";
-import { getSiteUrl } from "@/lib/site-url";
+import { getMetadataBase } from "@/lib/site-url";
 import { getServerHtmlThemeFromCookieAndHint, THEME_COOKIE_NAME } from "@/lib/theme-cookie";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: getMetadataBase(),
 
   title: {
     default: "Fravelz | Portfolio",
@@ -43,9 +43,7 @@ export default async function RootLayout({
           "dark:bg-linear-to-b dark:from-[rgb(var(--color-bg))] dark:via-[rgb(var(--color-surface))] dark:to-[rgb(var(--color-bg))]",
         )}
       >
-        <Script id="base-url" strategy="beforeInteractive">
-          {`window.__BASE_URL__ = "/";`}
-        </Script>
+        <Script id="base-url" src="/base-url.js" strategy="beforeInteractive" />
         <Script id="theme-init" src="/theme-init.js" strategy="beforeInteractive" />
 
         {children}

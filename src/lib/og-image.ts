@@ -7,7 +7,7 @@ export const PROJECT_PREVIEW_IMAGE = {
   aspectRatio: "1200 / 630" as const,
 } as const;
 
-/** Resuelve rutas relativas (`/images/...`, `/_next/static/...`) a URL absoluta para OG/Twitter/JSON-LD. */
+/** Resuelve rutas relativas (`/images/...`, `/_next/static/...`) a URL absoluta (JSON-LD, crawlers externos). */
 export function resolveOgImageUrl(src: string): string {
   if (src.startsWith("http://") || src.startsWith("https://")) {
     return src;

@@ -1,7 +1,9 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import { getLangFromPath } from "@/lib/lang-from-path";
+import { getLangFromPath, switchLangInPath } from "@/lib/lang-from-path";
+import type { Language } from "@/lib/i18n-routing";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 const LANGUAGE_ICON_PATH =
@@ -19,24 +21,35 @@ export default function LanguageSelect({
   selectLanguageAria?: string;
 }) {
   const ref = useRef<HTMLSelectElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     el.value = getLangFromPath();
+  }, [pathname]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const onChange = () => {
-      const lang = el.value;
+      const lang = el.value as Language;
       document.cookie = `lang=${lang}; path=/; max-age=31536000`;
       try {
         localStorage.setItem("preferred-language", lang);
       } catch {
         /* ignore */
       }
-      window.location.href = `/${lang}/`;
+      const nextPath = switchLangInPath(pathname, lang);
+      const hash = typeof window !== "undefined" ? window.location.hash : "";
+      router.push(`${nextPath}${hash}`);
     };
+
     el.addEventListener("change", onChange);
     return () => el.removeEventListener("change", onChange);
-  }, []);
+  }, [pathname, router]);
 
   return (
     <div className="language-select-control group/language inline-flex items-center gap-1 rounded-lg p-1">
