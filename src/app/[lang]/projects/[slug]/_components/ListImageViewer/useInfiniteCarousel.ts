@@ -24,30 +24,20 @@ function snapCloneToReal(pos: number, count: number, setSkipTransition: (value: 
 export function useInfiniteCarousel(count: number, swipeThreshold = 56) {
   const [position, setPosition] = useState(1);
   const [skipTransition, setSkipTransition] = useState(false);
-  const positionRef = useRef(position);
-  positionRef.current = position;
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
 
-  const displayIndex =
-    count <= 1
-      ? 0
-      : position === 0
-        ? count - 1
-        : position === count + 1
-          ? 0
-          : position - 1;
+  const displayIndex = count <= 1 ? 0 : position === 0 ? count - 1 : position === count + 1 ? 0 : position - 1;
 
   const resetClonePosition = useCallback(() => {
-    const pos = positionRef.current;
     if (count <= 1) return;
-    if (pos === 0) {
+    if (position === 0) {
       scheduleSkipTransition(setSkipTransition);
       setPosition(count);
-    } else if (pos === count + 1) {
+    } else if (position === count + 1) {
       scheduleSkipTransition(setSkipTransition);
       setPosition(1);
     }
-  }, [count]);
+  }, [count, position]);
 
   const onTransitionEnd = useCallback(
     (e: React.TransitionEvent<HTMLDivElement>) => {

@@ -135,10 +135,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
               )}
             </div>
 
-            <h1
-              className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl"
-              data-project-page-title
-            >
+            <h1 className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl" data-project-page-title>
               {title}
             </h1>
             <p className="mb-6 text-xl text-[rgb(var(--color-text-muted))]" data-project-page-description>

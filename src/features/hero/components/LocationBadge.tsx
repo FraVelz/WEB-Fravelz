@@ -18,11 +18,7 @@ export default function LocationBadge({ text, className }: LocationBadgeProps) {
         className,
       )}
     >
-      <svg
-        className="h-4 w-4 shrink-0 rounded-sm"
-        viewBox="0 0 36 36"
-        aria-hidden="true"
-      >
+      <svg className="h-4 w-4 shrink-0 rounded-sm" viewBox="0 0 36 36" aria-hidden="true">
         <path fill="#fbd116" d="M32 5H4a4 4 0 0 0-4 4v9h36V9a4 4 0 0 0-4-4" />
         <path fill="#22408c" d="M0 18h36v7H0z" />
         <path fill="#ce2028" d="M0 27a4 4 0 0 0 4 4h28a4 4 0 0 0 4-4v-2H0z" />

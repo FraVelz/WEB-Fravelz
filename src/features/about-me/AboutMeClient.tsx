@@ -28,14 +28,11 @@ export default function AboutMeClient({
   sliderLabels,
 }: AboutMeClientProps) {
   return (
-    <section
-      id="about-me"
-      className={cn("relative w-full min-w-0 shrink-0 overflow-x-hidden", classname)}
-    >
+    <section id="about-me" className={cn("relative w-full min-w-0 shrink-0 overflow-x-hidden", classname)}>
       <PanelReveal className="flex w-full flex-col items-center justify-center">
         <div
           className={cn(
-            "relative mx-auto flex w-full min-w-0 max-w-4xl flex-col items-center",
+            "relative mx-auto flex w-full max-w-4xl min-w-0 flex-col items-center",
             "px-4 py-6 sm:px-6 lg:max-w-5xl lg:px-10",
           )}
         >
