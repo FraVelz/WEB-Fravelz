@@ -2,6 +2,8 @@
 
 import "./header.css";
 
+import Link from "next/link";
+
 import { runAnimation } from "./utils/header";
 import { cn } from "@/utils/cn";
 import { useEffect } from "react";
@@ -30,22 +32,21 @@ export function Header({ t, lang }: { t: Translations; lang: Language }) {
     <header
       id="header-main"
       className={cn(
-        "fixed top-0 z-30 w-full border-b-2 bg-white/95 shadow-md shadow-cyan-500/10 backdrop-blur-xl",
-        "dark:border-gray-700/50 dark:bg-gray-900/50 dark:shadow-none",
+        "fixed top-0 z-30 w-full border-b-2 bg-[rgb(var(--color-surface)/0.95)] shadow-md shadow-cyan-500/10 backdrop-blur-xl",
+        "dark:border-[rgb(var(--color-drawer-border)/0.5)] dark:bg-[rgb(var(--color-surface)/0.5)] dark:shadow-none",
       )}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 lg:justify-normal lg:gap-20">
-        <button
-          type="button"
+        <Link
           id="logo"
+          href={`/${lang}`}
           className={cn(
-            "rounded-lg text-3xl font-bold text-slate-900 transition-colors hover:text-cyan-600",
-            "dark:text-gray-100 dark:hover:text-cyan-300",
+            "rounded-lg text-3xl font-bold text-[rgb(var(--color-text))] no-underline transition-colors",
+            "hover:text-[rgb(var(--color-primary-hover))] dark:hover:text-[rgb(var(--color-primary))]",
           )}
-          onClick={() => window.location.reload()}
         >
           Fravelz
-        </button>
+        </Link>
 
         <div className="hidden flex-1 justify-between lg:flex">
           <ElementsHeader id="header-nav-desktop" t={t} lang={lang} />
@@ -56,8 +57,8 @@ export function Header({ t, lang }: { t: Translations; lang: Language }) {
           data-drawer-open
           id="header-mobile-button"
           className={cn(
-            "rounded-lg p-1 text-2xl text-slate-800 transition-colors hover:text-cyan-600 lg:hidden",
-            "dark:text-gray-300 dark:hover:text-cyan-300",
+            "rounded-lg p-1 text-2xl text-[rgb(var(--color-text))] transition-colors lg:hidden",
+            "hover:text-[rgb(var(--color-primary-hover))] dark:hover:text-[rgb(var(--color-primary))]",
           )}
           aria-label={t.nav_open_menu ?? "Abrir menú"}
           aria-expanded="false"

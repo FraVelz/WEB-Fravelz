@@ -11,7 +11,11 @@ import type { Translations } from "@/types/translations";
 export default function ElementsHeader({ id, t, lang }: { id: string; t: Translations; lang: Language }) {
   return (
     <>
-      <div id={id} className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8">
+      <nav
+        id={id}
+        aria-label={t.nav_main_aria ?? "Main navigation"}
+        className="flex flex-col items-center gap-5 lg:flex-row lg:gap-8"
+      >
         <NavLink href="#presentation">
           <span>{t.nav_presentation}</span>
         </NavLink>
@@ -24,12 +28,12 @@ export default function ElementsHeader({ id, t, lang }: { id: string; t: Transla
         <NavLink href="#about-me">
           <span>{t.nav_about}</span>
         </NavLink>
-      </div>
+      </nav>
 
       <div
         className={cn(
           "my-2 h-px w-full bg-linear-to-r from-transparent via-cyan-400/60 to-transparent lg:hidden",
-          "dark:via-gray-600",
+          "dark:via-[rgb(var(--color-text-muted)/0.45)]",
         )}
       />
 
@@ -42,7 +46,7 @@ export default function ElementsHeader({ id, t, lang }: { id: string; t: Transla
       <div
         className={cn(
           "my-2 h-px w-full bg-linear-to-r from-transparent via-cyan-400/60 to-transparent lg:hidden",
-          "dark:via-gray-600",
+          "dark:via-[rgb(var(--color-text-muted)/0.45)]",
         )}
       />
 
@@ -58,8 +62,8 @@ export default function ElementsHeader({ id, t, lang }: { id: string; t: Transla
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className={cn(
-              "size-5 text-slate-800 transition-colors hover:text-cyan-600",
-              "dark:text-gray-300 dark:hover:text-cyan-400",
+              "size-5 text-[rgb(var(--color-text))] transition-colors hover:text-[rgb(var(--color-primary-hover))]",
+              "dark:hover:text-[rgb(var(--color-primary))]",
             )}
             fill="currentColor"
           >

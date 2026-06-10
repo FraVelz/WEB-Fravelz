@@ -1,5 +1,6 @@
 import type { Language } from "@/lib/i18n-routing";
 import { languages } from "@/lib/i18n-routing";
+import { resolveOgImageUrl } from "@/lib/og-image";
 import { pageUrl } from "@/lib/metadata";
 import { getSiteUrl } from "@/lib/site-url";
 import type { Project } from "@/utils/data/project-types";
@@ -123,9 +124,7 @@ export function projectDetailJsonLd(lang: Language, project: Project, labels: { 
   const title = project.title[lang];
   const description = project.fullDescription[lang];
   const url = pageUrl(lang, `projects/${project.slug}`);
-  const imageUrl = project.featuredImage.src.startsWith("http")
-    ? project.featuredImage.src
-    : `${getSiteUrl()}${project.featuredImage.src}`;
+  const imageUrl = resolveOgImageUrl(project.featuredImage.src);
 
   const creativeWork: Record<string, unknown> = {
     "@type": "SoftwareSourceCode",

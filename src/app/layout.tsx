@@ -6,14 +6,13 @@ import type { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
 import { getRequestLang } from "@/lib/request-lang";
+import { getSiteUrl } from "@/lib/site-url";
 import { getServerHtmlThemeFromCookieAndHint, THEME_COOKIE_NAME } from "@/lib/theme-cookie";
 
 import "./globals.css";
 
-const siteUrl = "https://fravelz.vercel.app";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(getSiteUrl()),
 
   title: {
     default: "Fravelz | Portfolio",
@@ -40,8 +39,8 @@ export default async function RootLayout({
     <html lang={lang} className={cn(htmlClassName)} data-theme={dataTheme} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-linear-to-b from-slate-100 via-slate-100 to-slate-100 antialiased",
-          "dark:bg-linear-to-b dark:from-gray-950 dark:via-gray-900 dark:to-gray-950",
+          "min-h-screen bg-linear-to-b from-[rgb(var(--color-bg))] via-[rgb(var(--color-bg))] to-[rgb(var(--color-bg))] antialiased",
+          "dark:bg-linear-to-b dark:from-[rgb(var(--color-bg))] dark:via-[rgb(var(--color-surface))] dark:to-[rgb(var(--color-bg))]",
         )}
       >
         <Script id="base-url" strategy="beforeInteractive">

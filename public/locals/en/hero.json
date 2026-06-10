@@ -8,5 +8,6 @@
   "hero_cv_title": "CV — ATS Harvard",
   "hero_availability_available": "Available",
   "hero_availability_freelance": "Open to freelance work",
-  "hero_availability_busy": "Busy"
+  "hero_availability_busy": "Busy",
+  "hero_bio_short": "I build fluid, minimalist web interfaces with solid semantics, SEO, and backend integration."
 }

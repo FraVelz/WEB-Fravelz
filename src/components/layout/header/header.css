@@ -171,3 +171,18 @@ html.dark .theme-toggle-btn:not(:hover):not(:focus-visible),
 .theme-toggle-moon-icon {
   color: rgb(var(--color-theme-toggle-moon));
 }
+
+@media (prefers-reduced-motion: reduce) {
+  #header-main,
+  #header-main div,
+  #logo,
+  #header-mobile-button {
+    transform: none;
+    opacity: 1;
+  }
+
+  #header-main::after {
+    animation: none;
+    opacity: 1;
+  }
+}

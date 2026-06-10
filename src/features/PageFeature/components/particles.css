@@ -89,3 +89,9 @@
   --delay: -5.5s;
   bottom: -20px;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .particles {
+    display: none;
+  }
+}
