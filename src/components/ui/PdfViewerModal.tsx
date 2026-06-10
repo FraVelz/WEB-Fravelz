@@ -2,9 +2,13 @@
 
 import "./pdf-viewer-modal.css";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/utils/cn";
+
+const noopSubscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 interface PdfViewerModalProps {
   isOpen: boolean;
@@ -27,11 +31,7 @@ export default function PdfViewerModal({
   const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(noopSubscribe, getClientSnapshot, getServerSnapshot);
 
   useEffect(() => {
     onCloseRef.current = onClose;
