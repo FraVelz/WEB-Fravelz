@@ -42,7 +42,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
           {/* Texto */}
           <div className="flex min-w-0 flex-1 flex-col">
-            <p data-hero-enter="item" className="text-start text-base text-slate-800 sm:text-lg dark:text-gray-200">
+            <p data-hero-enter="item" className="text-start text-base text-[rgb(var(--color-text))] sm:text-lg">
               {t.hola}
             </p>
 
@@ -77,9 +77,15 @@ export default async function HeroSection({ lang }: { lang: Language }) {
 
               <p
                 data-hero-enter="item"
+                className="max-w-2xl text-start text-base leading-[1.65] text-[rgb(var(--color-text))] sm:hidden"
+              >
+                {t.hero_bio_short}
+              </p>
+              <p
+                data-hero-enter="item"
                 className={cn(
-                  "max-w-2xl text-start text-base leading-[1.65] text-slate-800",
-                  "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7] dark:text-gray-300",
+                  "hidden max-w-2xl text-start text-base leading-[1.65] text-[rgb(var(--color-text))] sm:block",
+                  "sm:text-[17px] sm:leading-relaxed lg:max-w-[46rem] lg:text-lg lg:leading-[1.7]",
                 )}
               >
                 {t.about_current_text}

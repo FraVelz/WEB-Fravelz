@@ -7,17 +7,17 @@ export function SectionsDetails({ lang, project }: { lang: Language; project: Pr
   const t = getTranslations(lang);
 
   return (
-    <div className="prose prose-lg dark:prose-invert max-w-none">
+    <div className="max-w-none">
       {project.whatILearned?.[lang]?.length ? (
         <section className="mb-12" id="project-what-i-learned-section">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="mb-6 text-3xl font-bold text-[rgb(var(--color-text))]">
             {t.projects_what_i_learned || "Qué aprendí"}
           </h2>
           <ul className="space-y-3" id="project-what-i-learned-list">
             {project.whatILearned[lang]!.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
+              <li key={item} className="flex items-start gap-3 text-[rgb(var(--color-text))]">
                 <svg
-                  className="mt-0.5 h-6 w-6 flex-shrink-0 text-cyan-500"
+                  className="mt-0.5 h-6 w-6 flex-shrink-0 text-[rgb(var(--color-primary))]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -38,11 +38,11 @@ export function SectionsDetails({ lang, project }: { lang: Language; project: Pr
 
       {project.extraInfo?.[lang]?.length ? (
         <section className="mb-12" id="project-extra-info-section">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="mb-6 text-3xl font-bold text-[rgb(var(--color-text))]">
             {t.projects_extra_info || "Información extra"}
           </h2>
           <ul
-            className="list-disc space-y-3 pl-6 text-gray-700 marker:text-cyan-500 dark:text-gray-300 dark:marker:text-cyan-400"
+            className="list-disc space-y-3 pl-6 text-[rgb(var(--color-text))] marker:text-[rgb(var(--color-primary))]"
             id="project-extra-info-list"
           >
             {project.extraInfo[lang]!.map((item) => (
@@ -56,14 +56,14 @@ export function SectionsDetails({ lang, project }: { lang: Language; project: Pr
 
       {project.technicalDetails?.[lang]?.length ? (
         <section className="mb-12" id="project-technical-details-section">
-          <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="mb-6 text-3xl font-bold text-[rgb(var(--color-text))]">
             {t.projects_technical_details || "Detalles Técnicos"}
           </h2>
-          <div className="rounded-lg bg-gray-100 p-6 dark:bg-gray-800">
+          <div className="rounded-lg bg-[rgb(var(--color-card))] p-6">
             <ul className="space-y-2" id="project-technical-details-list">
               {project.technicalDetails[lang]!.map((detail) => (
-                <li key={detail} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                  <span draggable={false} className="text-cyan-500 select-none">
+                <li key={detail} className="flex items-start gap-2 text-[rgb(var(--color-text))]">
+                  <span draggable={false} className="text-[rgb(var(--color-primary))] select-none">
                     •
                   </span>
                   <span>{detail}</span>

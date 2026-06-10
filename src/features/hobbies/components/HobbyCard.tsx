@@ -60,7 +60,7 @@ export function HobbyCard({
           <h3 className="text-[0.95rem] leading-[1.1] font-extrabold tracking-tight text-[rgb(var(--color-text))]">
             {title}
           </h3>
-          <h4 className="text-[0.82rem] leading-[1.35] text-[rgb(var(--color-text-muted))]">{description}</h4>
+          <p className="text-[0.82rem] leading-[1.35] text-[rgb(var(--color-text-muted))]">{description}</p>
           {footer}
         </div>
       </div>

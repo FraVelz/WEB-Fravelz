@@ -2,7 +2,16 @@
 
 import { cn } from "@/utils/cn";
 import type { ReactNode } from "react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function getFocusableElements(container: Element) {
+  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+    (el) => !el.hasAttribute("disabled"),
+  );
+}
 
 export default function MobileDrawer({
   children,
@@ -13,34 +22,93 @@ export default function MobileDrawer({
   menuLabel?: string;
   closeMenuAria?: string;
 }) {
-  useEffect(() => {
-    const openBtn = document.querySelector("[data-drawer-open]");
-    const closeBtn = document.querySelector("[data-drawer-close]");
-    const drawer = document.querySelector("[data-drawer]");
-    const overlay = document.querySelector("[data-drawer-overlay]");
+  const drawerRef = useRef<HTMLElement>(null);
+  const previouslyFocusedRef = useRef<Element | null>(null);
 
-    const openDrawer = () => {
-      drawer?.classList.remove("translate-x-full");
-      overlay?.classList.remove("opacity-0", "pointer-events-none");
-      openBtn?.setAttribute("aria-expanded", "true");
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("drawer-opened"));
-      }, 100);
+  useEffect(() => {
+    const openBtn = document.querySelector<HTMLElement>("[data-drawer-open]");
+    const closeBtn = document.querySelector<HTMLElement>("[data-drawer-close]");
+    const drawer = drawerRef.current;
+    const overlay = document.querySelector<HTMLElement>("[data-drawer-overlay]");
+
+    if (!drawer) return;
+
+    const isOpen = () => !drawer.classList.contains("translate-x-full");
+
+    const focusFirst = () => {
+      const focusables = getFocusableElements(drawer);
+      const target = closeBtn && focusables.includes(closeBtn) ? closeBtn : focusables[0];
+      target?.focus();
     };
 
     const closeDrawer = () => {
-      drawer?.classList.add("translate-x-full");
+      drawer.classList.add("translate-x-full");
       overlay?.classList.add("opacity-0", "pointer-events-none");
       openBtn?.setAttribute("aria-expanded", "false");
+
+      const toFocus = previouslyFocusedRef.current;
+      previouslyFocusedRef.current = null;
+
+      if (toFocus instanceof HTMLElement) {
+        toFocus.focus();
+      } else {
+        openBtn?.focus();
+      }
+    };
+
+    const openDrawer = () => {
+      previouslyFocusedRef.current = document.activeElement;
+      drawer.classList.remove("translate-x-full");
+      overlay?.classList.remove("opacity-0", "pointer-events-none");
+      openBtn?.setAttribute("aria-expanded", "true");
+
+      requestAnimationFrame(() => {
+        focusFirst();
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent("drawer-opened"));
+        }, 100);
+      });
+    };
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (!isOpen()) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDrawer();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusables = getFocusableElements(drawer);
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey) {
+        if (active === first || !drawer.contains(active)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     openBtn?.addEventListener("click", openDrawer);
     closeBtn?.addEventListener("click", closeDrawer);
     overlay?.addEventListener("click", closeDrawer);
+    document.addEventListener("keydown", onKeyDown);
+
     return () => {
       openBtn?.removeEventListener("click", openDrawer);
       closeBtn?.removeEventListener("click", closeDrawer);
       overlay?.removeEventListener("click", closeDrawer);
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, []);
 
@@ -55,6 +123,7 @@ export default function MobileDrawer({
       />
 
       <aside
+        ref={drawerRef}
         id="drawer-menu"
         data-drawer
         role="dialog"
@@ -88,7 +157,7 @@ export default function MobileDrawer({
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="size-6"
+              className="size-10"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>

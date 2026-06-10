@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
+
 import { getRequestLang } from "@/lib/request-lang";
 import { getTranslations } from "@/utils/i18n";
 
 import { NotFoundContent } from "./_components/NotFoundContent";
+
+export const metadata: Metadata = {
+  title: "404 - Page Not Found | Fravelz",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default async function NotFound() {
   const lang = await getRequestLang();

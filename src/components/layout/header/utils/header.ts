@@ -1,4 +1,5 @@
 import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion";
 
 const DESKTOP_MQ = "(min-width: 1024px)";
 
@@ -47,6 +48,12 @@ function animateMobile(delay = 0) {
 }
 
 export function runAnimation(delay = 0) {
+  if (prefersReducedMotion()) {
+    resetHeaderTweenState();
+    gsap.set(HEADER_TARGETS, { opacity: 1, y: 0, x: 0 });
+    return;
+  }
+
   const mq = window.matchMedia(DESKTOP_MQ);
 
   const playForViewport = () => {

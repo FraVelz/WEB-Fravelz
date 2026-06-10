@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { languages, type Language } from "@/lib/i18n-routing";
-import { PROJECT_PREVIEW_IMAGE } from "@/lib/og-image";
+import { PROJECT_PREVIEW_IMAGE, resolveOgImageUrl } from "@/lib/og-image";
 import { getSiteUrl } from "@/lib/site-url";
 
 export const SITE_NAME = "Fravelz";
@@ -67,7 +67,7 @@ export function buildOpenGraph(options: {
     siteName: SITE_NAME,
     locale: OG_LOCALE[lang],
     alternateLocale: languages.filter((l) => l !== lang).map((l) => OG_LOCALE[l]),
-    images: [ogImage],
+    images: [{ ...ogImage, url: resolveOgImageUrl(ogImage.url) }],
   };
 }
 
@@ -92,7 +92,7 @@ export function buildPageMetadata(options: {
   type?: "website" | "article";
   image?: OgImage;
 }): Pick<Metadata, "title" | "description" | "alternates" | "openGraph" | "twitter"> {
-  const ogImageUrl = options.image?.url ?? DEFAULT_OG_IMAGE;
+  const ogImageUrl = resolveOgImageUrl(options.image?.url ?? DEFAULT_OG_IMAGE);
 
   return {
     title: options.title,

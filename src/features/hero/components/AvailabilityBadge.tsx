@@ -36,7 +36,7 @@ export default function AvailabilityBadge({ status, text, className }: Availabil
           <>
             <span
               className={cn(
-                "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75",
+                "absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none",
                 "dark:bg-emerald-300",
               )}
             />
