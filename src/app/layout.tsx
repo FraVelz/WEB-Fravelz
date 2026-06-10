@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     template: "%s | Fravelz",
   },
   description: "Portfolio — Francisco Velez",
+  openGraph: {
+    siteName: "Fravelz",
+    type: "website",
+  },
 };
 
 export default async function RootLayout({

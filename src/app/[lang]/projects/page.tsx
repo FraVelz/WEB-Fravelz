@@ -3,6 +3,8 @@ import "@/features/projects/projects-nav.css";
 import ProjectCard from "@/components/ui/ProjectCard";
 import Footer from "@/components/layout/Footer";
 
+import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
+import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
 import { getAllProjects } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
@@ -14,20 +16,22 @@ import Link from "next/link";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const lang = await resolveLangParams(params);
   const t = getTranslations(lang);
+  const title = `${t.hacking_projects_title || "Proyectos"} — Fravelz`;
+  const description = t.projects_all_projects_description || t.projects_section_description || "";
 
-  return {
-    title: `${t.hacking_projects_title || "Proyectos"} — Fravelz`,
-    description: t.projects_all_projects_description || t.projects_section_description,
-  };
+  return buildPageMetadata({ lang, title, description, pathname: "projects" });
 }
 
 export default async function ProjectsIndexPage({ params }: { params: Promise<{ lang: string }> }) {
   const lang = await resolveLangParams(params);
   const t = getTranslations(lang);
   const projects = getAllProjects();
+  const title = `${t.hacking_projects_title || "Proyectos"} — Fravelz`;
+  const description = t.projects_all_projects_description || t.projects_section_description || "";
 
   return (
     <>
+      <JsonLd data={projectsIndexJsonLd(lang, title, description, projects, t.nav_presentation || "Home")} />
       <div className={cn("min-h-screen bg-gray-50 px-4 pb-12 sm:px-6 lg:px-8 dark:bg-gray-900")}>
         <div className="mx-auto max-w-7xl pt-8">
           <div className="mb-12 text-center">
