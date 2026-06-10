@@ -208,7 +208,7 @@
         .about-link
       ):not(.search-result-link):not(.hero-scroll-hint):not(.pdf-modal-download),
     area[href],
-    button:not(:disabled):not(.theme-toggle-btn):not(.hero-btn-solid):not(.hero-btn-outline):not(
+    button:not(:disabled):not(.theme-toggle-btn):not(.hero-btn-solid):not(.hero-btn-outline):not(.contact-submit-btn):not(
         .project-page-carousel-btn
       ):not(.project-page-carousel-dot):not(.cert-card-action):not(.pdf-modal-close),
     summary,
