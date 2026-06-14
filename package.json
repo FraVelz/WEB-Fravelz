@@ -14,11 +14,11 @@
     "lint:md": "markdownlint-cli2",
     "lint:md:fix": "markdownlint-cli2 --fix",
     "style": "pnpm run format && pnpm run lint:fix",
-    "react:doctor": "react-doctor . --verbose --full"
+    "react:doctor": "react-doctor . --verbose --full",
+    "lighthouse:local": "unlighthouse --site http://localhost:3000"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "next": "16.2.7",
@@ -41,7 +41,8 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "react-doctor": "^0.1.6",
     "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "unlighthouse": "^0.17.10"
   },
   "optionalDependencies": {
     "sharp": "^0.34.5"
