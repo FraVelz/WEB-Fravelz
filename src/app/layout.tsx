@@ -1,5 +1,4 @@
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cookies, headers } from "next/headers";
 import Script from "next/script";
 import type { Metadata } from "next";
@@ -48,7 +47,6 @@ export default async function RootLayout({
 
         {children}
         <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
