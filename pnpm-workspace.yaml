@@ -1,6 +1,9 @@
 packages:
   - "."
 
+overrides:
+  postcss: ">=8.5.10"
+
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
