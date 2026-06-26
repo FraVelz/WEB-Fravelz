@@ -46,14 +46,5 @@
   },
   "optionalDependencies": {
     "sharp": "^0.34.5"
-  },
-  "pnpm": {
-    "overrides": {
-      "postcss": ">=8.5.10"
-    },
-    "onlyBuiltDependencies": [
-      "sharp",
-      "unrs-resolver"
-    ]
   }
 }
