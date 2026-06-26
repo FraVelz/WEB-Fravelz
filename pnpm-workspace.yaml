@@ -5,7 +5,7 @@ overrides:
   postcss: ">=8.5.10"
 
 allowBuilds:
-  '@parcel/watcher': true
+  "@parcel/watcher": true
   esbuild: true
   puppeteer: false
   sharp: true
