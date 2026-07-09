@@ -6,7 +6,6 @@ import { projectStarcrypt } from "./projects/project-starcrypt";
 import { projectWebMarcadores } from "./projects/project-web-marcadores";
 import { projectWebProsperity } from "./projects/project-web-prosperity";
 import { projectWebTodoList } from "./projects/project-web-todo-list";
-import { projectAyudandoAndo } from "./projects/project-ayudando-ando";
 import { projectFvStore } from "./projects/project-fv-store";
 import { projectFrontendMentorNextjs } from "./projects/project-frontend-mentor-nextjs";
 import { projectFravelzPortfolio } from "./projects/project-fravelz-portfolio";
@@ -20,7 +19,6 @@ export const projects: Project[] = [
   projectWebMarcadores,
   projectWebProsperity,
   projectWebTodoList,
-  projectAyudandoAndo,
   projectFvStore,
   projectFrontendMentorNextjs,
   projectFravelzPortfolio,
