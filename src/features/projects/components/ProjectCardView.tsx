@@ -1,21 +1,35 @@
+"use client";
+
 import "@/features/projects/projects.css";
 
 import { cn } from "@/utils/cn";
 import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";
-import { getTranslations } from "@/utils/i18n";
 import { PROJECT_PREVIEW_IMAGE } from "@/lib/og-image";
 import { projectHeroTransitionName, projectTitleTransitionName } from "@/lib/project-view-transition";
 import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
 
-export default async function ProjectCard({ project, lang = "es" }: { project: Project; lang?: Language }) {
-  const t = getTranslations(lang);
-  const currentLang = lang;
-  const title = project.title[currentLang];
-  const description = project.shortDescription[currentLang];
-  const projectUrl = `/${currentLang}/projects/${project.slug}`;
+export type ProjectCardLabels = {
+  project_preview_alt?: string;
+  projects_coming_soon?: string;
+  projects_featured?: string;
+  project_status_development?: string;
+  project_status_finished?: string;
+  projects_view_project?: string;
+};
+
+type ProjectCardViewProps = {
+  project: Project;
+  lang: Language;
+  labels: ProjectCardLabels;
+};
+
+export default function ProjectCardView({ project, lang, labels }: ProjectCardViewProps) {
+  const title = project.title[lang];
+  const description = project.shortDescription[lang];
+  const projectUrl = `/${lang}/projects/${project.slug}`;
 
   return (
     <article className="h-full" data-project-card-content>
@@ -37,7 +51,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
               <Image
                 draggable={false}
                 src={project.featuredImage}
-                alt={`${title} - ${t.project_preview_alt || "Preview"}`}
+                alt={`${title} - ${labels.project_preview_alt || "Preview"}`}
                 width={PROJECT_PREVIEW_IMAGE.width}
                 height={PROJECT_PREVIEW_IMAGE.height}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -47,21 +61,21 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
 
               {project.isComingSoon && (
                 <div className="project-card__badge absolute top-3 right-3 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-white">
-                  {t.projects_coming_soon || "Próximamente"}
+                  {labels.projects_coming_soon || "Próximamente"}
                 </div>
               )}
               {project.featured && (
                 <div className="project-card__badge absolute top-3 left-3 rounded-full bg-cyan-500 px-3 py-1 text-xs font-semibold text-white">
-                  {t.projects_featured || "Destacado"}
+                  {labels.projects_featured || "Destacado"}
                 </div>
               )}
               {project.inDevelopment ? (
                 <div className="project-card__badge absolute bottom-3 left-3 rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white">
-                  {t.project_status_development ?? "En desarrollo"}
+                  {labels.project_status_development ?? "En desarrollo"}
                 </div>
               ) : (
                 <div className="project-card__badge absolute bottom-3 left-3 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white">
-                  {t.project_status_finished ?? "Finalizado"}
+                  {labels.project_status_finished ?? "Finalizado"}
                 </div>
               )}
             </div>
@@ -112,7 +126,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
                 "dark:text-cyan-400",
               )}
             >
-              {t.projects_view_project || "Ver Proyecto"}
+              {labels.projects_view_project || "Ver Proyecto"}
               <svg
                 className="h-4 w-4 transition-transform group-focus-visible:translate-x-0.5"
                 fill="none"

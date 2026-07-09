@@ -3,19 +3,19 @@ import "@/features/projects/project-view-transition.css";
 
 import ProjectsFilteredGrid from "@/features/projects/components/ProjectsFilteredGrid";
 import ProjectsFilterBar from "@/features/projects/components/ProjectsFilterBar";
+import ProjectsFilterCount from "@/features/projects/components/ProjectsFilterCount";
 import Footer from "@/components/layout/Footer";
 
 import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
-import { PROJECT_FILTER_TRANSITION } from "@/lib/project-view-transition";
-import { filterProjects, getAllProjects, parseProjectFilter, type ProjectFilter } from "@/utils/data/projects";
+import { getAllProjects, parseProjectFilter, type ProjectFilter } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ViewTransition } from "react";
+import { Suspense } from "react";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const lang = await resolveLangParams(params);
@@ -38,7 +38,6 @@ export default async function ProjectsIndexPage({
   const activeFilter = parseProjectFilter(filterParam);
   const t = getTranslations(lang);
   const allProjects = getAllProjects();
-  const projects = filterProjects(allProjects, activeFilter);
   const title = `${t.hacking_projects_title || "Proyectos"} — Fravelz`;
   const description = t.projects_all_projects_description || t.projects_section_description || "";
 
@@ -50,6 +49,15 @@ export default async function ProjectsIndexPage({
     { id: "development", label: t.project_status_development || "En desarrollo" },
     { id: "finished", label: t.project_status_finished || "Finalizado" },
   ];
+
+  const cardLabels = {
+    project_preview_alt: t.project_preview_alt,
+    projects_coming_soon: t.projects_coming_soon,
+    projects_featured: t.projects_featured,
+    project_status_development: t.project_status_development,
+    project_status_finished: t.project_status_finished,
+    projects_view_project: t.projects_view_project,
+  };
 
   return (
     <>
@@ -78,15 +86,9 @@ export default async function ProjectsIndexPage({
             </p>
             <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
               <span>{t.projects_total || "Total"}</span>:{" "}
-              <ViewTransition
-                key={`${activeFilter}-${projects.length}`}
-                name="projects-count"
-                enter={{ [PROJECT_FILTER_TRANSITION]: "filter-count-in", default: "none" }}
-                exit={{ [PROJECT_FILTER_TRANSITION]: "filter-count-out", default: "none" }}
-                default="none"
-              >
-                <span className="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span>
-              </ViewTransition>{" "}
+              <Suspense fallback={<span className="font-semibold text-cyan-600 dark:text-cyan-400">…</span>}>
+                <ProjectsFilterCount allProjects={allProjects} />
+              </Suspense>{" "}
               <span>{t.projects_projects || "proyectos"}</span>
             </p>
           </div>
@@ -100,12 +102,14 @@ export default async function ProjectsIndexPage({
             />
           </div>
 
-          <ProjectsFilteredGrid
-            projects={projects}
-            lang={lang}
-            activeFilter={activeFilter}
-            emptyMessage={t.projects_no_projects || "No hay proyectos con este filtro."}
-          />
+          <Suspense fallback={null}>
+            <ProjectsFilteredGrid
+              allProjects={allProjects}
+              lang={lang}
+              labels={cardLabels}
+              emptyMessage={t.projects_no_projects || "No hay proyectos con este filtro."}
+            />
+          </Suspense>
         </div>
       </div>
       <Footer lang={lang} />
