@@ -20,6 +20,7 @@ export const projects: Project[] = [
   projectAyudandoAndo,
   projectFvStore,
   projectStarcrypt,
+  projectEcoBogota,
   projectWebTodoList,
   projectFrontendMentorNextjs,
   projectFravelzPortfolio,
