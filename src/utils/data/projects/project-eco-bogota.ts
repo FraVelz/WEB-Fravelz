@@ -26,6 +26,7 @@ export const projectEcoBogota: Project = {
   category: "fullstack",
   demoUrl: "https://ecobogota.vercel.app/",
   githubUrl: "https://github.com/FraVelz/eco-bogota-meta",
+  privateRepo: true,
   featured: false,
   year: 2026,
   inDevelopment: true,

@@ -1,0 +1,107 @@
+/* Morph imagen/título entre galería y detalle (clase share="morph" de React ViewTransition) */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.22s;
+  }
+
+  ::view-transition-group(.morph) {
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  ::view-transition-image-pair(.morph) {
+    object-fit: cover;
+  }
+
+  /* Filtro de proyectos: entrar, salir y reposicionar en la grilla */
+  ::view-transition-group(.project-move) {
+    animation-duration: 0.42s;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+
+  ::view-transition-old(.project-out) {
+    animation: project-filter-out 0.24s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+
+  ::view-transition-new(.project-in) {
+    animation: project-filter-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.03s both;
+  }
+
+  ::view-transition-old(.filter-empty-out) {
+    animation: project-filter-out 0.2s ease-in both;
+  }
+
+  ::view-transition-new(.filter-empty-in) {
+    animation: project-filter-in 0.3s ease-out both;
+  }
+
+  ::view-transition-old(.filter-count-out) {
+    animation: filter-count-out 0.18s ease-in both;
+  }
+
+  ::view-transition-new(.filter-count-in) {
+    animation: filter-count-in 0.26s ease-out 0.06s both;
+  }
+}
+
+@keyframes project-filter-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes project-filter-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.9);
+    filter: blur(3px);
+  }
+}
+
+@keyframes filter-count-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes filter-count-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

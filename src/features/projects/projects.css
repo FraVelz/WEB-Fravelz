@@ -1,5 +1,7 @@
 /* Proyectos: tarjetas y botón ver todos */
 
+@import "./project-view-transition.css";
+
 .project-card-shell {
   position: relative;
   isolation: isolate;

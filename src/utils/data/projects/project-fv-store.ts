@@ -28,6 +28,7 @@ export const projectFvStore: Project = {
   category: "fullstack",
   demoUrl: "https://fv-store.vercel.app/",
   githubUrl: "https://github.com/FraVelz/fv-store",
+  privateRepo: true,
   featured: false,
   year: 2026,
   inDevelopment: true,

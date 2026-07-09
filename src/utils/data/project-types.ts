@@ -46,6 +46,9 @@ export interface Project {
   /** Repository URL */
   githubUrl?: string;
 
+  /** Private GitHub repo — hide "View code" CTA and omit codeRepository in JSON-LD */
+  privateRepo?: boolean;
+
   /** Whether it is in development */
   isComingSoon?: boolean;
 

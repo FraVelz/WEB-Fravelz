@@ -28,6 +28,7 @@ export const projectStarcrypt: Project = {
   category: "fullstack",
   demoUrl: "https://starcrypt-uvz1.vercel.app/",
   githubUrl: "https://github.com/FraVelz/starcrypt",
+  privateRepo: true,
   featured: true,
   year: 2026,
   inDevelopment: true,

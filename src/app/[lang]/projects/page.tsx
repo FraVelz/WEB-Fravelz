@@ -1,18 +1,21 @@
 import "@/features/projects/projects-nav.css";
+import "@/features/projects/project-view-transition.css";
 
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectsFilteredGrid from "@/features/projects/components/ProjectsFilteredGrid";
 import ProjectsFilterBar from "@/features/projects/components/ProjectsFilterBar";
 import Footer from "@/components/layout/Footer";
 
 import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
+import { PROJECT_FILTER_TRANSITION } from "@/lib/project-view-transition";
 import { filterProjects, getAllProjects, parseProjectFilter, type ProjectFilter } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ViewTransition } from "react";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const lang = await resolveLangParams(params);
@@ -75,7 +78,15 @@ export default async function ProjectsIndexPage({
             </p>
             <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
               <span>{t.projects_total || "Total"}</span>:{" "}
-              <span className="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span>{" "}
+              <ViewTransition
+                key={`${activeFilter}-${projects.length}`}
+                name="projects-count"
+                enter={{ [PROJECT_FILTER_TRANSITION]: "filter-count-in", default: "none" }}
+                exit={{ [PROJECT_FILTER_TRANSITION]: "filter-count-out", default: "none" }}
+                default="none"
+              >
+                <span className="font-semibold text-cyan-600 dark:text-cyan-400">{projects.length}</span>
+              </ViewTransition>{" "}
               <span>{t.projects_projects || "proyectos"}</span>
             </p>
           </div>
@@ -89,19 +100,12 @@ export default async function ProjectsIndexPage({
             />
           </div>
 
-          {projects.length === 0 ? (
-            <p className="text-center text-sm text-[rgb(var(--color-text-muted))]">
-              {t.projects_no_projects || "No hay proyectos con este filtro."}
-            </p>
-          ) : (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-9">
-              {projects.map((p) => (
-                <div key={p.slug} className="h-full">
-                  <ProjectCard project={p} lang={lang} />
-                </div>
-              ))}
-            </div>
-          )}
+          <ProjectsFilteredGrid
+            projects={projects}
+            lang={lang}
+            activeFilter={activeFilter}
+            emptyMessage={t.projects_no_projects || "No hay proyectos con este filtro."}
+          />
         </div>
       </div>
       <Footer lang={lang} />

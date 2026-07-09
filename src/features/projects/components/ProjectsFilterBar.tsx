@@ -2,6 +2,7 @@
 
 import type { ProjectFilter } from "@/utils/data/projects";
 import type { Language } from "@/lib/i18n-routing";
+import { PROJECT_FILTER_TRANSITION } from "@/lib/project-view-transition";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
 
@@ -30,6 +31,7 @@ export default function ProjectsFilterBar({ lang, activeFilter, options, ariaLab
               <Link
                 href={href}
                 scroll={false}
+                transitionTypes={[PROJECT_FILTER_TRANSITION]}
                 aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "projects-filter-chip focus-ring inline-flex rounded-full border px-4 py-2 text-sm font-medium transition-colors",
