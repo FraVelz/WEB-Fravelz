@@ -10,11 +10,5 @@
  */
 
 export type { Project } from "./project-types";
-export {
-  filterProjects,
-  getAllProjects,
-  getHomeProjects,
-  getProjectBySlug,
-  parseProjectFilter,
-} from "./project-utils";
+export { filterProjects, getAllProjects, getHomeProjects, getProjectBySlug, parseProjectFilter } from "./project-utils";
 export type { ProjectFilter } from "./project-utils";
