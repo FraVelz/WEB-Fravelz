@@ -9,16 +9,16 @@ const ACCENT_VAR_BY_TECH: Record<string, string> = {
   supabase: "var(--color-success)",
 };
 
-const CATEGORY_CLASS: Record<string, string> = {
-  frontend: "tech-cat tech-cat--frontend",
-  backend: "tech-cat tech-cat--backend",
-  both: "text-amber-700 dark:text-yellow-400",
+const BADGE_CLASS: Record<string, string> = {
+  frontend: "tech-badge tech-badge--frontend",
+  backend: "tech-badge tech-badge--backend",
+  both: "tech-badge tech-badge--both",
 };
 
 export function getAccentVar(techId: string): string {
   return ACCENT_VAR_BY_TECH[techId] ?? "var(--color-accent)";
 }
 
-export function getCategoryClass(category: string): string {
-  return CATEGORY_CLASS[category] ?? "tech-cat";
+export function getBadgeClass(category: string): string {
+  return BADGE_CLASS[category] ?? "tech-badge";
 }

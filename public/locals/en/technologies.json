@@ -1,5 +1,7 @@
 {
   "tech_title": "Technologies",
+  "tech_subtitle": "Tools and technologies I use to build modern, scalable web experiences.",
+  "tech_footer": "1% better than yesterday...",
   "tech_basic_title": "Frontend",
   "tech_basic_desc": "HTML5, CSS3, JavaScript (ES6+), Astro, React, Tailwind CSS, Responsive Design",
   "tech_category_frontend": "Frontend",
@@ -8,5 +10,15 @@
   "tech_info_category": "Category",
   "tech_info_technology": "Technology",
   "tech_show_info": "Show information",
-  "tech_hide_info": "Hide information"
+  "tech_hide_info": "Hide information",
+  "tech_desc_html": "Semantic, accessible structure for the web",
+  "tech_desc_css": "Modern styles, layouts, and animations",
+  "tech_desc_js": "Client-side interactivity and logic",
+  "tech_desc_astro": "Ultra-fast static sites with islands",
+  "tech_desc_tailwind": "Utility-first for fast, consistent UI",
+  "tech_desc_typescript": "Typed JavaScript for more robust code",
+  "tech_desc_react": "Declarative, component-based UI",
+  "tech_desc_next": "Full-stack React with SSR and App Router",
+  "tech_desc_supabase": "Backend as a service (Auth, DB, APIs)",
+  "tech_desc_firebase": "Auth, Firestore, and managed Google backend"
 }

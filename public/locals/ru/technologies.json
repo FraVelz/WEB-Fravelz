@@ -1,5 +1,7 @@
 {
   "tech_title": "Технологии",
+  "tech_subtitle": "Инструменты и технологии, с которыми я создаю современные и масштабируемые веб-решения.",
+  "tech_footer": "На 1% лучше, чем вчера...",
   "tech_basic_title": "Frontend",
   "tech_basic_desc": "HTML5, CSS3, JavaScript (ES6+), Astro, React, Tailwind CSS, Адаптивный дизайн",
   "tech_category_frontend": "Frontend",
@@ -8,5 +10,15 @@
   "tech_info_category": "Категория",
   "tech_info_technology": "Технология",
   "tech_show_info": "Показать информацию",
-  "tech_hide_info": "Скрыть информацию"
+  "tech_hide_info": "Скрыть информацию",
+  "tech_desc_html": "Семантичная и доступная структура для веба",
+  "tech_desc_css": "Современные стили, вёрстка и анимации",
+  "tech_desc_js": "Интерактивность и логика на стороне клиента",
+  "tech_desc_astro": "Сверхбыстрые статические сайты с островами",
+  "tech_desc_tailwind": "Utility-first для быстрых и единых UI",
+  "tech_desc_typescript": "Типизированный JavaScript для надёжного кода",
+  "tech_desc_react": "Декларативный UI на компонентах",
+  "tech_desc_next": "Full-stack React с SSR и App Router",
+  "tech_desc_supabase": "Backend как сервис (Auth, БД, API)",
+  "tech_desc_firebase": "Auth, Firestore и управляемый backend Google"
 }

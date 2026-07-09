@@ -1,5 +1,7 @@
 {
   "tech_title": "技术",
+  "tech_subtitle": "我用来构建现代、可扩展 Web 体验的工具与技术。",
+  "tech_footer": "比昨天好 1%...",
   "tech_basic_title": "前端",
   "tech_basic_desc": "HTML5、CSS3、JavaScript (ES6+)、Astro、React、Tailwind CSS、响应式设计",
   "tech_category_frontend": "前端",
@@ -8,5 +10,15 @@
   "tech_info_category": "类别",
   "tech_info_technology": "技术",
   "tech_show_info": "显示信息",
-  "tech_hide_info": "隐藏信息"
+  "tech_hide_info": "隐藏信息",
+  "tech_desc_html": "语义化且可访问的网页结构",
+  "tech_desc_css": "现代样式、布局与动画",
+  "tech_desc_js": "客户端交互与逻辑",
+  "tech_desc_astro": "带岛屿架构的超快静态站点",
+  "tech_desc_tailwind": "Utility-first，快速一致的 UI",
+  "tech_desc_typescript": "带类型的 JavaScript，代码更稳健",
+  "tech_desc_react": "声明式、基于组件的 UI",
+  "tech_desc_next": "带 SSR 与 App Router 的全栈 React",
+  "tech_desc_supabase": "后端即服务（Auth、数据库、API）",
+  "tech_desc_firebase": "Auth、Firestore 与 Google 托管后端"
 }
