@@ -1,6 +1,9 @@
 import type { Project } from "../project-types";
 import prosperityImg from "@/assets/images-projects/prosperity/index.webp";
 import image1 from "@/assets/images-projects/prosperity/image1.webp";
+import image2 from "@/assets/images-projects/prosperity/image2.webp";
+import image3 from "@/assets/images-projects/prosperity/image3.webp";
+import image4 from "@/assets/images-projects/prosperity/image4.webp";
 
 export const projectWebProsperity: Project = {
   slug: "web-prosperity",
@@ -12,20 +15,20 @@ export const projectWebProsperity: Project = {
   },
   shortDescription: {
     es:
-      "Sitio estático sobre prosperidad en sentido amplio: política, filosofía, economía y geopolítica. " +
+      "Espacio para la búsqueda de la prosperidad de una nación, explorada en sentido amplio: política, filosofía, economía y geopolítica. " +
       "25 apartados temáticos, mapas MapLibre, búsqueda y export estático con Next.js 15.",
     en:
-      "Static site on prosperity in a broad sense: politics, philosophy, economics, and geopolitics. " +
+      "A space for the pursuit of a nation’s prosperity, explored in a broad sense: politics, philosophy, economics, and geopolitics. " +
       "25 thematic sections, MapLibre maps, search, and static export with Next.js 15.",
     ru:
-      "Статический сайт о процветании в широком смысле: политика, философия, экономика и геополитика. " +
+      "Пространство для поиска процветания нации, исследуемого в широком смысле: политика, философия, экономика и геополитика. " +
       "25 тематических разделов, карты MapLibre, поиск и статический экспорт на Next.js 15.",
     zh:
-      "关于广义「繁荣」的静态站点：政治、哲学、经济与地缘政治。" +
+      "探索国家繁荣之路的空间，从广义上涵盖政治、哲学、经济与地缘政治。" +
       "25 个主题版块、MapLibre 地图、站内搜索，以及 Next.js 15 静态导出。",
   },
   featuredImage: prosperityImg,
-  screenshots: [image1],
+  screenshots: [image1, image2, image3, image4],
   technologies: [
     "Next.js",
     "React",
@@ -44,25 +47,25 @@ export const projectWebProsperity: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Web Prosperity explora la prosperidad en sentido amplio — política, filosofía, economía, geopolítica y datos. " +
+      "Web Prosperity es un espacio para la búsqueda de la prosperidad de una nación, explorada en sentido amplio — política, filosofía, economía, geopolítica y datos. " +
       "Incluye 25 apartados agrupados en siete bloques con estados Con contenido, En preparación y Próximamente. " +
       "Arquitectura por features: cada tema tiene hub TSX, sidebar propio y notas en Markdown. Rutas dinámicas " +
       "/[tema] resuelven entre páginas TSX y notas .md. Tema claro/oscuro persistente, búsqueda por tema, " +
       "mapa interactivo en Estadísticas mundiales (MapLibre GL) y export estático listo para Vercel o GitHub Pages.",
     en:
-      "Web Prosperity explores prosperity in a broad sense — politics, philosophy, economics, geopolitics, and data. " +
+      "Web Prosperity is a space for the pursuit of a nation’s prosperity, explored in a broad sense — politics, philosophy, economics, geopolitics, and data. " +
       "It includes 25 sections grouped in seven blocks with Published, In progress, and Coming soon states. " +
       "Feature-based architecture: each topic has its own hub TSX, sidebar, and Markdown notes. Dynamic /[topic] routes " +
       "resolve between TSX pages and .md notes. Persistent light/dark theme, per-topic search, " +
       "an interactive map on World statistics (MapLibre GL), and static export ready for Vercel or GitHub Pages.",
     ru:
-      "Web Prosperity исследует процветание в широком смысле — политику, философию, экономику, геополитику и данные. " +
+      "Web Prosperity — пространство для поиска процветания нации, исследуемого в широком смысле: политика, философия, экономика, геополитика и данные. " +
       "25 разделов в семи блоках со статусами «С контентом», «В подготовке» и «Скоро». " +
       "Архитектура по фичам: у каждой темы свой hub TSX, sidebar и заметки Markdown. Динамические маршруты /[topic] " +
       "выбирают между TSX и .md. Постоянная светлая/тёмная тема, поиск по теме, " +
       "интерактивная карта в «Мировой статистике» (MapLibre GL) и статический экспорт для Vercel или GitHub Pages.",
     zh:
-      "Web Prosperity 从广义上探讨繁荣——政治、哲学、经济、地缘政治与数据。" +
+      "Web Prosperity 是探索国家繁荣之路的空间，从广义上涵盖政治、哲学、经济、地缘政治与数据。" +
       "包含 25 个主题，分属七个区块，状态为「已有内容」「准备中」「即将推出」。" +
       "按功能模块化：每个主题有独立 hub TSX、侧栏与 Markdown 笔记。动态 /[topic] 路由在 TSX 与 .md 间解析。" +
       "持久明暗主题、分主题搜索、世界统计中的 MapLibre 交互地图，以及面向 Vercel/GitHub Pages 的静态导出。",
