@@ -4,6 +4,9 @@ import image2 from "@/assets/images-projects/todo-list/image2.webp";
 import image3 from "@/assets/images-projects/todo-list/image3.webp";
 import image4 from "@/assets/images-projects/todo-list/image4.webp";
 import image5 from "@/assets/images-projects/todo-list/image5.webp";
+import image6 from "@/assets/images-projects/todo-list/image6.webp";
+import image7 from "@/assets/images-projects/todo-list/image7.webp";
+import image8 from "@/assets/images-projects/todo-list/image8.webp";
 
 export const projectWebTodoList: Project = {
   slug: "web-todo-list",
@@ -28,7 +31,7 @@ export const projectWebTodoList: Project = {
       "Tailwind CSS 4、深色模式，以及 Vitest 测试。",
   },
   featuredImage: webTodoListImg,
-  screenshots: [image2, image3, image4, image5],
+  screenshots: [image2, image3, image4, image5, image6, image7, image8],
   technologies: [
     "Next.js",
     "React",

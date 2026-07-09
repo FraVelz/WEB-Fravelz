@@ -1,5 +1,12 @@
 import type { Project } from "../project-types";
 import fvStoreImg from "@/assets/images-projects/fv-store/index.webp";
+import image2 from "@/assets/images-projects/fv-store/image2.webp";
+import image3 from "@/assets/images-projects/fv-store/image3.webp";
+import image4 from "@/assets/images-projects/fv-store/image4.webp";
+import image5 from "@/assets/images-projects/fv-store/image5.webp";
+import image6 from "@/assets/images-projects/fv-store/image6.webp";
+import image7 from "@/assets/images-projects/fv-store/image7.webp";
+import image8 from "@/assets/images-projects/fv-store/image8.webp";
 
 export const projectFvStore: Project = {
   slug: "fv-store",
@@ -24,6 +31,7 @@ export const projectFvStore: Project = {
       "shadcn/ui 风格组件。可接入 Firebase 或真实商品数据。",
   },
   featuredImage: fvStoreImg,
+  screenshots: [image2, image3, image4, image5, image6, image7, image8],
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Radix UI", "Firebase"],
   category: "fullstack",
   demoUrl: "https://fv-store.vercel.app/",

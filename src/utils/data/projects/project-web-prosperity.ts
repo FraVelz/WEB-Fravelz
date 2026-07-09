@@ -4,6 +4,8 @@ import image1 from "@/assets/images-projects/prosperity/image1.webp";
 import image2 from "@/assets/images-projects/prosperity/image2.webp";
 import image3 from "@/assets/images-projects/prosperity/image3.webp";
 import image4 from "@/assets/images-projects/prosperity/image4.webp";
+import image5 from "@/assets/images-projects/prosperity/image5.webp";
+import image6 from "@/assets/images-projects/prosperity/image6.webp";
 
 export const projectWebProsperity: Project = {
   slug: "web-prosperity",
@@ -28,7 +30,7 @@ export const projectWebProsperity: Project = {
       "25 个主题版块、MapLibre 地图、站内搜索，以及 Next.js 15 静态导出。",
   },
   featuredImage: prosperityImg,
-  screenshots: [image1, image2, image3, image4],
+  screenshots: [image1, image2, image3, image4, image5, image6],
   technologies: [
     "Next.js",
     "React",
