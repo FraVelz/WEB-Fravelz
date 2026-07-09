@@ -14,10 +14,7 @@ type ProjectsFilterCountProps = {
 export default function ProjectsFilterCount({ allProjects }: ProjectsFilterCountProps) {
   const searchParams = useSearchParams();
   const activeFilter = parseProjectFilter(searchParams.get("filter") ?? undefined);
-  const count = useMemo(
-    () => filterProjects(allProjects, activeFilter).length,
-    [allProjects, activeFilter],
-  );
+  const count = useMemo(() => filterProjects(allProjects, activeFilter).length, [allProjects, activeFilter]);
 
   return (
     <ViewTransition

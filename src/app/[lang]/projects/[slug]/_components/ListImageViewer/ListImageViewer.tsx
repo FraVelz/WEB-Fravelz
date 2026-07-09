@@ -85,36 +85,36 @@ export function ListImagesViewer({
       >
         <ViewTransition name={projectHeroTransitionName(project.slug)} share="morph" default="none">
           <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
-          <div
-            className={cn(
-              "flex h-full will-change-transform",
-              !skipTransition && "transition-transform duration-300 ease-out",
-              "motion-reduce:transform-none motion-reduce:transition-none",
-            )}
-            style={{ transform: count > 1 ? `translateX(-${translateIndex * 100}%)` : undefined }}
-            onTransitionEnd={onTransitionEnd}
-          >
-            {extendedSlides.map((slide, i) => (
-              <div
-                key={slide.key}
-                className="relative w-full shrink-0 px-0 sm:px-8"
-                aria-hidden={count > 1 ? i !== position : i !== 0}
-              >
+            <div
+              className={cn(
+                "flex h-full will-change-transform",
+                !skipTransition && "transition-transform duration-300 ease-out",
+                "motion-reduce:transform-none motion-reduce:transition-none",
+              )}
+              style={{ transform: count > 1 ? `translateX(-${translateIndex * 100}%)` : undefined }}
+              onTransitionEnd={onTransitionEnd}
+            >
+              {extendedSlides.map((slide, i) => (
                 <div
-                  className={cn(
-                    "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center md:py-4",
-                  )}
+                  key={slide.key}
+                  className="relative w-full shrink-0 px-0 sm:px-8"
+                  aria-hidden={count > 1 ? i !== position : i !== 0}
                 >
-                  <ProjectSlideImage
-                    slide={slide}
-                    sizes="(max-width: 768px) 100vw, 896px"
-                    priority={i === 1 || (count <= 1 && i === 0)}
-                  />
+                  <div
+                    className={cn(
+                      "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center md:py-4",
+                    )}
+                  >
+                    <ProjectSlideImage
+                      slide={slide}
+                      sizes="(max-width: 768px) 100vw, 896px"
+                      priority={i === 1 || (count <= 1 && i === 0)}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </ViewTransition>
 
         {count > 1 ? (
