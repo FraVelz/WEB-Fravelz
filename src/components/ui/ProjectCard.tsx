@@ -22,12 +22,12 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
         <Link
           href={projectUrl}
           className={cn(
-            "project-card relative flex h-full flex-col rounded-[10px] bg-[rgb(var(--color-surface))] shadow-md",
-            "transition-shadow duration-300 group-hover:shadow-xl group-focus-visible:shadow-xl",
+            "project-card relative flex h-full flex-col rounded-[8px] bg-[rgb(var(--color-surface))] shadow-md",
+            "transition-shadow duration-300 group-hover:shadow-xl",
           )}
         >
           <div
-            className="relative w-full overflow-hidden rounded-t-[9px] bg-[rgb(var(--color-card))]"
+            className="relative w-full overflow-hidden rounded-t-[7px] bg-[rgb(var(--color-card))]"
             style={{ aspectRatio: PROJECT_PREVIEW_IMAGE.aspectRatio }}
           >
             <Image
@@ -37,7 +37,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
               width={PROJECT_PREVIEW_IMAGE.width}
               height={PROJECT_PREVIEW_IMAGE.height}
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="h-full w-full object-cover transition-transform duration-300 select-none group-hover:scale-105 group-focus-visible:scale-[1.02]"
+              className="h-full w-full object-cover transition-transform duration-300 select-none group-hover:scale-105"
               loading="lazy"
             />
 
@@ -62,7 +62,7 @@ export default async function ProjectCard({ project, lang = "es" }: { project: P
             )}
           </div>
 
-          <div className="flex flex-1 flex-col rounded-b-[9px] p-6">
+          <div className="flex flex-1 flex-col rounded-b-[7px] p-6">
             <h3
               className={cn(
                 "project-card__title mb-2 text-xl font-bold text-[rgb(var(--color-text))] transition-colors",
