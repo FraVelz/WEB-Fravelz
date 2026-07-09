@@ -34,22 +34,22 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
                 return (
                   <div
                     key={tech.id}
-                    className="tech-card rounded-2xl border p-5 transition"
+                    className="tech-card rounded-2xl border p-4 transition"
                     style={{ "--accent": getAccentVar(tech.id) } as React.CSSProperties}
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="tech-icon flex h-12 w-12 items-center justify-center rounded-xl">
+                    <div className="flex items-center gap-3.5">
+                      <div className="tech-icon flex h-14 w-14 shrink-0 items-center justify-center sm:h-16 sm:w-16">
                         <div
-                          className="h-7 w-7 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
+                          className="tech-icon-svg h-10 w-10 sm:h-11 sm:w-11 [&>svg]:h-full [&>svg]:max-h-full [&>svg]:w-full [&>svg]:max-w-full"
                           dangerouslySetInnerHTML={{ __html: tech.svg }}
                         />
                       </div>
-                      <div className="min-w-0 flex-1">
+                      <div className="tech-card-body min-w-0 flex-1">
                         <h3 className="tech-text text-lg leading-tight font-semibold">{tech.name}</h3>
                         <p className="tech-muted mt-1 text-sm leading-snug">{description}</p>
+                        <span className={getBadgeClass(tech.category)}>{t[tech.categoryKey] || tech.category}</span>
                       </div>
                     </div>
-                    <span className={getBadgeClass(tech.category)}>{t[tech.categoryKey] || tech.category}</span>
                   </div>
                 );
               })}
