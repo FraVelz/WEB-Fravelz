@@ -73,6 +73,9 @@ export function ListImagesViewer({
 
   const showHeading = Boolean(galleryHeading && count > 1);
   const translateIndex = count > 1 ? position : 0;
+  const slideCount = extendedSlides.length;
+  const slideWidthPercent = slideCount > 0 ? 100 / slideCount : 100;
+  const trackTranslatePercent = translateIndex * slideWidthPercent;
 
   return (
     <section className="mb-12" aria-label={carouselRegionAriaLabel}>
@@ -83,39 +86,55 @@ export function ListImagesViewer({
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <ViewTransition name={projectHeroTransitionName(project.slug)} share="morph" default="none">
-          <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
-            <div
-              className={cn(
-                "flex h-full will-change-transform",
-                !skipTransition && "transition-transform duration-300 ease-out",
-                "motion-reduce:transform-none motion-reduce:transition-none",
-              )}
-              style={{ transform: count > 1 ? `translateX(-${translateIndex * 100}%)` : undefined }}
-              onTransitionEnd={onTransitionEnd}
-            >
-              {extendedSlides.map((slide, i) => (
+        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full overflow-hidden bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
+          <div
+            className={cn(
+              "flex h-full will-change-transform",
+              !skipTransition && "transition-transform duration-300 ease-out",
+              "motion-reduce:transform-none motion-reduce:transition-none",
+            )}
+            style={{
+              width: count > 1 ? `${slideCount * 100}%` : undefined,
+              transform: count > 1 ? `translateX(-${trackTranslatePercent}%)` : undefined,
+            }}
+            onTransitionEnd={onTransitionEnd}
+          >
+            {extendedSlides.map((slide, i) => {
+              const isActive = count > 1 ? i === position : i === 0;
+              const shouldMorph = isActive && slide.key === "featured";
+              const slideContent = (
+                <div
+                  className={cn(
+                    "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center px-0 sm:px-8 md:py-4",
+                  )}
+                >
+                  <ProjectSlideImage
+                    slide={slide}
+                    sizes="(max-width: 768px) 100vw, 896px"
+                    priority={i === 1 || (count <= 1 && i === 0)}
+                  />
+                </div>
+              );
+
+              return (
                 <div
                   key={slide.key}
-                  className="relative w-full shrink-0 px-0 sm:px-8"
-                  aria-hidden={count > 1 ? i !== position : i !== 0}
+                  className="relative shrink-0"
+                  style={{ width: count > 1 ? `${slideWidthPercent}%` : "100%" }}
+                  aria-hidden={!isActive}
                 >
-                  <div
-                    className={cn(
-                      "relative mx-auto flex h-full max-h-[min(70vh,640px)] w-full items-center justify-center md:py-4",
-                    )}
-                  >
-                    <ProjectSlideImage
-                      slide={slide}
-                      sizes="(max-width: 768px) 100vw, 896px"
-                      priority={i === 1 || (count <= 1 && i === 0)}
-                    />
-                  </div>
+                  {shouldMorph ? (
+                    <ViewTransition name={projectHeroTransitionName(project.slug)} share="morph" default="none">
+                      {slideContent}
+                    </ViewTransition>
+                  ) : (
+                    slideContent
+                  )}
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        </ViewTransition>
+        </div>
 
         {count > 1 ? (
           <>
