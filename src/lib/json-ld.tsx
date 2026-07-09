@@ -144,7 +144,7 @@ export function projectDetailJsonLd(lang: Language, project: Project, labels: { 
   if (project.demoUrl) {
     creativeWork.workExample = { "@type": "WebApplication", url: project.demoUrl };
   }
-  if (project.githubUrl) {
+  if (project.githubUrl && !project.privateRepo) {
     creativeWork.codeRepository = project.githubUrl;
   }
 

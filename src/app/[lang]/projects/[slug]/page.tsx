@@ -1,4 +1,5 @@
 import "@/features/projects/projects-nav.css";
+import "@/features/projects/project-view-transition.css";
 import "./project-detail.css";
 
 import { SectionsDetails } from "./_components/SectionsDetails";
@@ -13,9 +14,11 @@ import { buildPageMetadata } from "@/lib/metadata";
 
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import { cn } from "@/utils/cn";
+import { projectTitleTransitionName } from "@/lib/project-view-transition";
+import Link from "next/link";
+import { ViewTransition } from "react";
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -81,6 +84,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
         <div className="mx-auto max-w-5xl pt-8">
           <Link
             href={`/${lang}/projects`}
+            transitionTypes={["nav-back"]}
             className={cn(
               "project-page-back-link mb-8 -ml-1 inline-flex cursor-pointer items-center gap-2 rounded-lg px-1 py-0.5",
               "text-cyan-600 transition-colors hover:text-cyan-700",
@@ -135,9 +139,11 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
               )}
             </div>
 
-            <h1 className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl" data-project-page-title>
-              {title}
-            </h1>
+            <ViewTransition name={projectTitleTransitionName(project.slug)} share="morph" default="none">
+              <h1 className="mb-4 text-4xl font-bold text-[rgb(var(--color-text))] md:text-5xl" data-project-page-title>
+                {title}
+              </h1>
+            </ViewTransition>
             <p className="mb-6 text-xl text-[rgb(var(--color-text-muted))]" data-project-page-description>
               {description}
             </p>
@@ -167,7 +173,7 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                   <span>{t.projects_view_demo || "Ver Demo"}</span>
                 </a>
               )}
-              {project.githubUrl && (
+              {project.githubUrl && !project.privateRepo && (
                 <a
                   href={project.githubUrl}
                   target="_blank"

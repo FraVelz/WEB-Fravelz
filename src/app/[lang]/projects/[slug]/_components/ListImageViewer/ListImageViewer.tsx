@@ -1,8 +1,10 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/ChevronIcons";
+import { projectHeroTransitionName } from "@/lib/project-view-transition";
 import { cn } from "@/utils/cn";
 import { useEffect, useEffectEvent, useMemo } from "react";
+import { ViewTransition } from "react";
 
 import { buildSlides, ProjectSlideImage, ListImagesViewerProps } from "./ListImageViewer.lib";
 import { useInfiniteCarousel } from "./useInfiniteCarousel";
@@ -81,7 +83,8 @@ export function ListImagesViewer({
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
+        <ViewTransition name={projectHeroTransitionName(project.slug)} share="morph" default="none">
+          <div className="relative aspect-[16/10] max-h-[min(70vh,640px)] w-full bg-[rgb(var(--color-card))] sm:aspect-[16/9] md:aspect-[21/11] md:max-h-none">
           <div
             className={cn(
               "flex h-full will-change-transform",
@@ -112,6 +115,7 @@ export function ListImagesViewer({
             ))}
           </div>
         </div>
+        </ViewTransition>
 
         {count > 1 ? (
           <>
