@@ -1,6 +1,5 @@
 import type { Project } from "../project-types";
 import fvStoreImg from "@/assets/images-projects/fv-store/index.webp";
-import image1 from "@/assets/images-projects/fv-store/image1.webp";
 
 export const projectFvStore: Project = {
   slug: "fv-store",
@@ -25,7 +24,6 @@ export const projectFvStore: Project = {
       "shadcn/ui 风格组件。可接入 Firebase 或真实商品数据。",
   },
   featuredImage: fvStoreImg,
-  screenshots: [image1],
   technologies: [
     "Next.js",
     "React",

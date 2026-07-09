@@ -1,6 +1,5 @@
 import type { Project } from "../project-types";
 import ecoBogotaImg from "@/assets/images-projects/eco-bogota/index.webp";
-import image1 from "@/assets/images-projects/eco-bogota/image1.webp";
 
 export const projectEcoBogota: Project = {
   slug: "eco-bogota",
@@ -25,7 +24,6 @@ export const projectEcoBogota: Project = {
       "单体仓库：Next.js  Web、NestJS API 与 Flutter 应用。",
   },
   featuredImage: ecoBogotaImg,
-  screenshots: [image1],
   technologies: [
     "Next.js",
     "NestJS",

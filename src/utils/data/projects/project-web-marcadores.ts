@@ -1,6 +1,5 @@
 import type { Project } from "../project-types";
 import marcadoresImg from "@/assets/images-projects/marcadores/index.webp";
-import image1 from "@/assets/images-projects/marcadores/image1.webp";
 import image2 from "@/assets/images-projects/marcadores/image2.webp";
 import image3 from "@/assets/images-projects/marcadores/image3.webp";
 import image4 from "@/assets/images-projects/marcadores/image4.webp";
@@ -28,7 +27,7 @@ export const projectWebMarcadores: Project = {
       "个人资料与统计视图，以及无需后端的演示模式。",
   },
   featuredImage: marcadoresImg,
-  screenshots: [image1, image2, image3, image4],
+  screenshots: [image2, image3, image4],
   technologies: [
     "Next.js",
     "React",
@@ -41,9 +40,9 @@ export const projectWebMarcadores: Project = {
   category: "fullstack",
   demoUrl: "https://web-marcadores.vercel.app/",
   githubUrl: "https://github.com/FraVelz/WEB-Marcadores",
-  featured: false,
+  featured: true,
   year: 2026,
-  inDevelopment: false,
+  inDevelopment: true,
   fullDescription: {
     es:
       "Aplicación web para organizar enlaces favoritos en carpetas anidadas, con cuadrícula de marcadores, " +

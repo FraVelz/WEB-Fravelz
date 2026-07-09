@@ -1,6 +1,5 @@
 import type { Project } from "../project-types";
 import starcryptImg from "@/assets/images-projects/starcrypt/index.webp";
-import image1 from "@/assets/images-projects/starcrypt/image1.webp";
 
 export const projectStarcrypt: Project = {
   slug: "starcrypt",
@@ -25,7 +24,6 @@ export const projectStarcrypt: Project = {
       "Firebase、Vercel Blob、卖家面板与管理端。Next.js 16。",
   },
   featuredImage: starcryptImg,
-  screenshots: [image1],
   technologies: [
     "Next.js",
     "React",
@@ -39,7 +37,7 @@ export const projectStarcrypt: Project = {
   category: "fullstack",
   demoUrl: "https://starcrypt-uvz1.vercel.app/",
   githubUrl: "https://github.com/FraVelz/starcrypt",
-  featured: false,
+  featured: true,
   year: 2026,
   inDevelopment: true,
   fullDescription: {

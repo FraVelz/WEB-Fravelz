@@ -1,6 +1,5 @@
 import type { Project } from "../project-types";
 import webTodoListImg from "@/assets/images-projects/todo-list/index.webp";
-import image1 from "@/assets/images-projects/todo-list/image1.webp";
 import image2 from "@/assets/images-projects/todo-list/image2.webp";
 import image3 from "@/assets/images-projects/todo-list/image3.webp";
 import image4 from "@/assets/images-projects/todo-list/image4.webp";
@@ -29,7 +28,7 @@ export const projectWebTodoList: Project = {
       "Tailwind CSS 4、深色模式，以及 Vitest 测试。",
   },
   featuredImage: webTodoListImg,
-  screenshots: [image1, image2, image3, image4, image5],
+  screenshots: [image2, image3, image4, image5],
   technologies: [
     "Next.js",
     "React",
