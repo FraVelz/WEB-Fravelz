@@ -45,13 +45,11 @@ export default async function TechnologiesSection({ lang, classname = "" }: { la
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h3 className="tech-text text-lg font-semibold leading-tight">{tech.name}</h3>
+                        <h3 className="tech-text text-lg leading-tight font-semibold">{tech.name}</h3>
                         <p className="tech-muted mt-1 text-sm leading-snug">{description}</p>
                       </div>
                     </div>
-                    <span className={getBadgeClass(tech.category)}>
-                      {t[tech.categoryKey] || tech.category}
-                    </span>
+                    <span className={getBadgeClass(tech.category)}>{t[tech.categoryKey] || tech.category}</span>
                   </div>
                 );
               })}
