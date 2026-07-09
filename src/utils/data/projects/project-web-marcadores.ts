@@ -3,6 +3,14 @@ import marcadoresImg from "@/assets/images-projects/marcadores/index.webp";
 import image2 from "@/assets/images-projects/marcadores/image2.webp";
 import image3 from "@/assets/images-projects/marcadores/image3.webp";
 import image4 from "@/assets/images-projects/marcadores/image4.webp";
+import image5 from "@/assets/images-projects/marcadores/image5.webp";
+import image6 from "@/assets/images-projects/marcadores/image6.webp";
+import image7 from "@/assets/images-projects/marcadores/image7.webp";
+import image8 from "@/assets/images-projects/marcadores/image8.webp";
+import image9 from "@/assets/images-projects/marcadores/image9.webp";
+import image10 from "@/assets/images-projects/marcadores/image10.webp";
+import image11 from "@/assets/images-projects/marcadores/image11.webp";
+import image12 from "@/assets/images-projects/marcadores/image12.webp";
 
 export const projectWebMarcadores: Project = {
   slug: "web-marcadores",
@@ -27,7 +35,7 @@ export const projectWebMarcadores: Project = {
       "个人资料与统计视图，以及无需后端的演示模式。",
   },
   featuredImage: marcadoresImg,
-  screenshots: [image2, image3, image4],
+  screenshots: [image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12],
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "Motion", "Recharts"],
   category: "fullstack",
   demoUrl: "https://web-marcadores.vercel.app/",

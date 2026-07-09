@@ -1,5 +1,14 @@
 import type { Project } from "../project-types";
 import ecoBogotaImg from "@/assets/images-projects/eco-bogota/index.webp";
+import image2 from "@/assets/images-projects/eco-bogota/image2.webp";
+import image3 from "@/assets/images-projects/eco-bogota/image3.webp";
+import image4 from "@/assets/images-projects/eco-bogota/image4.webp";
+import image5 from "@/assets/images-projects/eco-bogota/image5.webp";
+import image6 from "@/assets/images-projects/eco-bogota/image6.webp";
+import image7 from "@/assets/images-projects/eco-bogota/image7.webp";
+import image8 from "@/assets/images-projects/eco-bogota/image8.webp";
+import image9 from "@/assets/images-projects/eco-bogota/image9.webp";
+import image10 from "@/assets/images-projects/eco-bogota/image10.webp";
 
 export const projectEcoBogota: Project = {
   slug: "eco-bogota",
@@ -22,6 +31,7 @@ export const projectEcoBogota: Project = {
     zh: "波哥大环保平台：生态点位地图、带图举报与回收。" + "单体仓库：Next.js  Web、NestJS API 与 Flutter 应用。",
   },
   featuredImage: ecoBogotaImg,
+  screenshots: [image2, image3, image4, image5, image6, image7, image8, image9, image10],
   technologies: ["Next.js", "NestJS", "Flutter", "TypeScript", "Prisma", "PostgreSQL", "Leaflet"],
   category: "fullstack",
   demoUrl: "https://ecobogota.vercel.app/",
