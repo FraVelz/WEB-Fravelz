@@ -9,6 +9,8 @@ import { projectWebMarcadores } from "./projects/project-web-marcadores";
 import { projectWebProsperity } from "./projects/project-web-prosperity";
 import { projectAyudandoAndo } from "./projects/project-ayudando-ando";
 import { projectFvStore } from "./projects/project-fv-store";
+import { projectStarcrypt } from "./projects/project-starcrypt";
+import { projectEcoBogota } from "./projects/project-eco-bogota";
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
@@ -17,6 +19,7 @@ export const projects: Project[] = [
   projectWebProsperity,
   projectAyudandoAndo,
   projectFvStore,
+  projectStarcrypt,
   projectWebTodoList,
   projectFrontendMentorNextjs,
   projectFravelzPortfolio,
