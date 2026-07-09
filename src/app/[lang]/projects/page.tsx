@@ -1,12 +1,18 @@
 import "@/features/projects/projects-nav.css";
 
 import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectsFilterBar from "@/features/projects/components/ProjectsFilterBar";
 import Footer from "@/components/layout/Footer";
 
 import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
-import { getAllProjects } from "@/utils/data/projects";
+import {
+  filterProjects,
+  getAllProjects,
+  parseProjectFilter,
+  type ProjectFilter,
+} from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
 
@@ -22,16 +28,34 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return buildPageMetadata({ lang, title, description, pathname: "projects" });
 }
 
-export default async function ProjectsIndexPage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function ProjectsIndexPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ lang: string }>;
+  searchParams: Promise<{ filter?: string }>;
+}) {
   const lang = await resolveLangParams(params);
+  const { filter: filterParam } = await searchParams;
+  const activeFilter = parseProjectFilter(filterParam);
   const t = getTranslations(lang);
-  const projects = getAllProjects();
+  const allProjects = getAllProjects();
+  const projects = filterProjects(allProjects, activeFilter);
   const title = `${t.hacking_projects_title || "Proyectos"} — Fravelz`;
   const description = t.projects_all_projects_description || t.projects_section_description || "";
 
+  const filterOptions: { id: ProjectFilter; label: string }[] = [
+    { id: "all", label: t.projects_all || "Todos" },
+    { id: "featured", label: t.projects_featured || "Destacado" },
+    { id: "frontend", label: t.projects_filter_frontend || "Frontend" },
+    { id: "fullstack", label: t.projects_filter_fullstack || "Fullstack" },
+    { id: "development", label: t.project_status_development || "En desarrollo" },
+    { id: "finished", label: t.project_status_finished || "Finalizado" },
+  ];
+
   return (
     <>
-      <JsonLd data={projectsIndexJsonLd(lang, title, description, projects, t.nav_presentation || "Home")} />
+      <JsonLd data={projectsIndexJsonLd(lang, title, description, allProjects, t.nav_presentation || "Home")} />
       <div className={cn("min-h-screen bg-[rgb(var(--color-bg))] px-4 pb-12 sm:px-6 lg:px-8")}>
         <div className="mx-auto max-w-7xl pt-8">
           <div className="mb-12 text-center">
@@ -61,13 +85,28 @@ export default async function ProjectsIndexPage({ params }: { params: Promise<{ 
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-9">
-            {projects.map((p) => (
-              <div key={p.slug} className="h-full">
-                <ProjectCard project={p} lang={lang} />
-              </div>
-            ))}
+          <div className="mb-10">
+            <ProjectsFilterBar
+              lang={lang}
+              activeFilter={activeFilter}
+              options={filterOptions}
+              ariaLabel={t.projects_filter_aria || "Filtrar proyectos"}
+            />
           </div>
+
+          {projects.length === 0 ? (
+            <p className="text-center text-sm text-[rgb(var(--color-text-muted))]">
+              {t.projects_no_projects || "No hay proyectos con este filtro."}
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-9">
+              {projects.map((p) => (
+                <div key={p.slug} className="h-full">
+                  <ProjectCard project={p} lang={lang} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Footer lang={lang} />

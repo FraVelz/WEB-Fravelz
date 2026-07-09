@@ -13,14 +13,14 @@ import { projectNotasHacking } from "./projects/project-notas-hacking";
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
-  projectIcfesMaster,
-  projectEcoBogota,
   projectStarcrypt,
   projectWebMarcadores,
-  projectWebProsperity,
-  projectWebTodoList,
-  projectFvStore,
-  projectFrontendMentorNextjs,
   projectFravelzPortfolio,
+  projectIcfesMaster,
+  projectEcoBogota,
   projectNotasHacking,
+  projectWebTodoList,
+  projectWebProsperity,
+  projectFrontendMentorNextjs,
+  projectFvStore,
 ];

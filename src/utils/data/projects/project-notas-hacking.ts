@@ -1,7 +1,6 @@
 import type { Project } from "../project-types";
 
 import NotasHackingImg from "@/assets/images-projects/notas-de-hacking/index.webp";
-import image1 from "@/assets/images-projects/notas-de-hacking/image1.webp";
 import image2 from "@/assets/images-projects/notas-de-hacking/image2.webp";
 import image3 from "@/assets/images-projects/notas-de-hacking/image3.webp";
 import image4 from "@/assets/images-projects/notas-de-hacking/image4.webp";
@@ -37,7 +36,7 @@ export const projectNotasHacking: Project = {
   githubUrl: "https://github.com/FraVelz/WEB-Notas-de-Hacking",
   year: 2025,
   inDevelopment: true,
-  screenshots: [image1, image2, image3, image4, image5, image6],
+  screenshots: [image2, image3, image4, image5, image6],
   fullDescription: {
     es:
       "Sitio estático generado con Astro 5 y el tema Starlight: las notas viven en la colección `docs` " +

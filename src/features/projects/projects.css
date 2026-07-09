@@ -54,6 +54,15 @@
   z-index: 1;
 }
 
+.project-card__badge {
+  transition: opacity 0.2s ease;
+}
+
+.project-card-shell:hover .project-card__badge,
+.project-card-shell:focus-within .project-card__badge {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-card__wheel {
     transition: none;
