@@ -28,8 +28,7 @@
   color: rgb(var(--color-primary) / 0.12);
   pointer-events: none;
   user-select: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 @media (max-width: 640px) {
@@ -114,8 +113,7 @@
 .tech-footer-mark {
   flex-shrink: 0;
   color: rgb(var(--color-primary) / 0.7);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    "Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .tech-footer-text {
