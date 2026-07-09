@@ -4,3 +4,8 @@
   outline: none;
   box-shadow: var(--focus-ring-shadow);
 }
+
+.projects-filter-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-shadow);
+}

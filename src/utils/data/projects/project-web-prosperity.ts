@@ -41,7 +41,7 @@ export const projectWebProsperity: Project = {
   githubUrl: "https://github.com/FraVelz/WEB-Prosperity",
   featured: false,
   year: 2026,
-  inDevelopment: false,
+  inDevelopment: true,
   fullDescription: {
     es:
       "Web Prosperity explora la prosperidad en sentido amplio — política, filosofía, economía, geopolítica y datos. " +

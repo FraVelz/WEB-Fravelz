@@ -2,14 +2,14 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import ProjectsViewAllButton from "./components/ProjectsViewAllButton";
 import PanelReveal from "@/components/ui/PanelReveal";
 
-import { getAllProjects } from "@/utils/data/projects";
+import { getAllProjects, getHomeProjects } from "@/utils/data/projects";
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
 
 export default async function ProjectsSection({ lang, classname = "" }: { lang: Language; classname?: string }) {
   const t = getTranslations(lang);
   const allProjects = getAllProjects();
-  const projects = allProjects.slice(0, 3);
+  const projects = getHomeProjects();
 
   return (
     <section id="projects" className={classname}>
