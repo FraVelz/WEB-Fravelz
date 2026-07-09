@@ -7,12 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
-import {
-  filterProjects,
-  getAllProjects,
-  parseProjectFilter,
-  type ProjectFilter,
-} from "@/utils/data/projects";
+import { filterProjects, getAllProjects, parseProjectFilter, type ProjectFilter } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { cn } from "@/utils/cn";
 

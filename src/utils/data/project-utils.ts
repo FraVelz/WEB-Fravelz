@@ -3,14 +3,7 @@ import { projects } from "./projects-list";
 
 export type ProjectFilter = "all" | "featured" | "frontend" | "fullstack" | "development" | "finished";
 
-const PROJECT_FILTERS = new Set<ProjectFilter>([
-  "all",
-  "featured",
-  "frontend",
-  "fullstack",
-  "development",
-  "finished",
-]);
+const PROJECT_FILTERS = new Set<ProjectFilter>(["all", "featured", "frontend", "fullstack", "development", "finished"]);
 
 /** Get all projects */
 export function getAllProjects(): Project[] {

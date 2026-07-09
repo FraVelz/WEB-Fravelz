@@ -19,20 +19,10 @@ export const projectEcoBogota: Project = {
     ru:
       "Экологическая платформа Боготы: карта эко-точек, отчёты с фото и переработка. " +
       "Монорепозиторий: веб Next.js, API NestJS и приложение Flutter.",
-    zh:
-      "波哥大环保平台：生态点位地图、带图举报与回收。" +
-      "单体仓库：Next.js  Web、NestJS API 与 Flutter 应用。",
+    zh: "波哥大环保平台：生态点位地图、带图举报与回收。" + "单体仓库：Next.js  Web、NestJS API 与 Flutter 应用。",
   },
   featuredImage: ecoBogotaImg,
-  technologies: [
-    "Next.js",
-    "NestJS",
-    "Flutter",
-    "TypeScript",
-    "Prisma",
-    "PostgreSQL",
-    "Leaflet",
-  ],
+  technologies: ["Next.js", "NestJS", "Flutter", "TypeScript", "Prisma", "PostgreSQL", "Leaflet"],
   category: "fullstack",
   demoUrl: "https://ecobogota.vercel.app/",
   githubUrl: "https://github.com/FraVelz/eco-bogota-meta",
