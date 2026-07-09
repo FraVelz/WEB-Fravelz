@@ -1,4 +1,4 @@
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectCard from "@/features/projects/components/ProjectCard";
 import ProjectsViewAllButton from "./components/ProjectsViewAllButton";
 import PanelReveal from "@/components/ui/PanelReveal";
 
