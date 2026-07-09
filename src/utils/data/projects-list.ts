@@ -6,11 +6,13 @@ import { projectIcfesMaster } from "./projects/project-icfes-master";
 import { projectFrontendMentorNextjs } from "./projects/project-frontend-mentor-nextjs";
 import { projectWebTodoList } from "./projects/project-web-todo-list";
 import { projectWebMarcadores } from "./projects/project-web-marcadores";
+import { projectWebProsperity } from "./projects/project-web-prosperity";
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
   projectIcfesMaster,
   projectWebMarcadores,
+  projectWebProsperity,
   projectWebTodoList,
   projectFrontendMentorNextjs,
   projectFravelzPortfolio,
