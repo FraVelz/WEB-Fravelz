@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  PROJECT_FILTER_TRANSITION,
-  projectCardTransitionName,
-} from "@/lib/project-view-transition";
+import { PROJECT_FILTER_TRANSITION, projectCardTransitionName } from "@/lib/project-view-transition";
 import { filterProjects, parseProjectFilter } from "@/utils/data/projects";
 import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";
@@ -27,18 +24,10 @@ type ProjectsFilteredGridProps = {
   emptyMessage: string;
 };
 
-export default function ProjectsFilteredGrid({
-  allProjects,
-  lang,
-  labels,
-  emptyMessage,
-}: ProjectsFilteredGridProps) {
+export default function ProjectsFilteredGrid({ allProjects, lang, labels, emptyMessage }: ProjectsFilteredGridProps) {
   const searchParams = useSearchParams();
   const activeFilter = parseProjectFilter(searchParams.get("filter") ?? undefined);
-  const projects = useMemo(
-    () => filterProjects(allProjects, activeFilter),
-    [allProjects, activeFilter],
-  );
+  const projects = useMemo(() => filterProjects(allProjects, activeFilter), [allProjects, activeFilter]);
 
   if (projects.length === 0) {
     return (
