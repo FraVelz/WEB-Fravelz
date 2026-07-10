@@ -16,11 +16,13 @@ export const projectFrontendMentorNextjs: Project = {
   },
   shortDescription: {
     es:
-      "Monorepo de retos de Frontend Mentor con App Router. Hub de challenges " +
-      "aislados por ruta, datos tipados y tests.",
-    en: "Frontend Mentor challenges monorepo with App Router. Isolated challenge hub, typed data, and tests.",
-    ru: "Монорепо заданий Frontend Mentor с App Router. Хаб изолированных челленджей, типизированные данные, тесты.",
-    zh: "基于 App Router 的 Frontend Mentor 挑战单仓库。独立挑战中心、类型化数据与测试。",
+      "Hub de retos Frontend Mentor: cada challenge en su ruta, con preview, badges " + "de dificultad/estado y tests.",
+    en:
+      "Frontend Mentor challenge hub: each challenge on its own route, with preview, " +
+      "difficulty/status badges, and tests.",
+    ru:
+      "Хаб челленджей Frontend Mentor: каждый на своём маршруте, с превью, " + "бейджами сложности/статуса и тестами.",
+    zh: "Frontend Mentor 挑战中心：每个挑战独立路由，含预览、难度/状态徽章与测试。",
   },
   featuredImage: frontendMentorNextImg,
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vitest"],
@@ -33,41 +35,41 @@ export const projectFrontendMentorNextjs: Project = {
   screenshots: [image1, image2, image3, image4],
   fullDescription: {
     es:
-      "Aplicación Next.js 16 con React 19 para retos de Frontend Mentor: " +
-      "estructura por challenge (assets, rutas y estilos aislados), índice de dificultades " +
-      "y estados, y convenciones documentadas en el repositorio. Reglas de lint/formato.",
+      "Colección de retos Frontend Mentor en Next.js: cada challenge vive en su carpeta " +
+      "(assets, rutas y estilos propios), el índice muestra dificultad y estado, y /start " +
+      "explica las dos webs vinculadas. Incluye enlace a preview, solución en FM y repo.",
     en:
-      "Next.js 16 app with React 19 for Frontend Mentor challenges: per-challenge structure " +
-      "(isolated assets, routes, and styles), difficulty and status index, and " +
-      "repo-documented conventions. Lint/format rules.",
+      "A Frontend Mentor challenge collection in Next.js: each challenge lives in its own " +
+      "folder (assets, routes, styles), the index shows difficulty and status, and /start " +
+      "explains the two related sites. Links to preview, FM solution, and repo.",
     ru:
-      "Приложение Next.js 16 с React 19 для заданий Frontend Mentor: структура по челленджу " +
-      "(изолированные ассеты, маршруты и стили), индекс сложностей и статусов, соглашения " +
-      "в репозитории. Правила линта и форматирования.",
+      "Сборник челленджей Frontend Mentor на Next.js: каждый в своей папке (ассеты, маршруты, " +
+      "стили), индекс показывает сложность и статус, /start объясняет два связанных сайта. " +
+      "Ссылки на превью, решение FM и репозиторий.",
     zh:
-      "基于 Next.js 16 与 React 19 的 Frontend Mentor 挑战应用：按挑战划分结构（独立资源、" +
-      "路由与样式）、难度与状态索引，以及仓库内约定；含 lint / 格式化规则。",
+      "Next.js 上的 Frontend Mentor 挑战合集：每个挑战独立文件夹（资源、路由、样式），" +
+      "索引显示难度与状态，/start 说明两个关联站点。含预览、FM 方案与仓库链接。",
   },
   whatILearned: {
     es: [
-      "App Router y layouts anidados por grupo de rutas",
-      "Aislar retos en carpetas para no mezclar estilos ni recursos",
-      "Datos del índice tipados (tipos union y constantes compartidas)",
+      "Layouts anidados por grupo de rutas para no mezclar shells entre retos",
+      "Aislar CSS y assets por challenge para que un reto no rompa otro",
+      "Tipar el índice con unions y constantes compartidas",
     ],
     en: [
-      "App Router and nested layouts per route group",
-      "Isolating challenges in folders to avoid style/resource collisions",
-      "Typed index data (union types and shared constants)",
+      "Nested layouts per route group so challenge shells do not mix",
+      "Isolate CSS and assets per challenge so one does not break another",
+      "Type the index with unions and shared constants",
     ],
     ru: [
-      "App Router и вложенные layout по группам маршрутов",
-      "Изоляция челленджей в папках, чтобы не смешивать стили и ресурсы",
-      "Типизированные данные индекса (объединения типов и общие константы)",
+      "Вложенные layout по группам маршрутов, чтобы оболочки челленджей не смешивались",
+      "Изолировать CSS и ассеты по челленджу, чтобы один не ломал другой",
+      "Типизировать индекс через unions и общие константы",
     ],
     zh: [
-      "应用路由与按路由组嵌套的布局",
-      "在文件夹中隔离挑战，避免样式与资源混淆",
-      "类型化索引数据（联合类型与共享常量）",
+      "按路由组嵌套 layout，避免挑战壳层互相污染",
+      "按挑战隔离 CSS 与资源，避免一个弄坏另一个",
+      "用联合类型与共享常量给索引做类型",
     ],
   },
   extraInfo: {

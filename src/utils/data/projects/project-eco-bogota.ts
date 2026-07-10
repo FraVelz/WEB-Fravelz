@@ -20,15 +20,15 @@ export const projectEcoBogota: Project = {
   },
   shortDescription: {
     es:
-      "Plataforma ambiental de Bogotá: mapa de puntos ecológicos, reportes con foto y reciclaje. " +
-      "Monorepo con web Next.js, API NestJS y app Flutter.",
+      "Mapa de puntos de reciclaje en Bogotá, reportes con foto y piloto cerrado — " +
+      "web Next.js, API NestJS y app Flutter.",
     en:
-      "Bogotá environmental platform: eco point map, photo reports, and recycling. " +
-      "Monorepo with Next.js web, NestJS API, and Flutter app.",
+      "Recycling-point map for Bogotá, photo reports, and a closed pilot — " +
+      "Next.js web, NestJS API, and Flutter app.",
     ru:
-      "Экологическая платформа Боготы: карта эко-точек, отчёты с фото и переработка. " +
-      "Монорепозиторий: веб Next.js, API NestJS и приложение Flutter.",
-    zh: "波哥大环保平台：生态点位地图、带图举报与回收。" + "单体仓库：Next.js  Web、NestJS API 与 Flutter 应用。",
+      "Карта пунктов переработки в Боготе, отчёты с фото и закрытый пилот — " +
+      "веб Next.js, API NestJS и приложение Flutter.",
+    zh: "波哥大回收点地图、带图举报与封闭试点——Next.js Web、NestJS API 与 Flutter 应用。",
   },
   featuredImage: ecoBogotaImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8, image9, image10],
@@ -66,28 +66,28 @@ export const projectEcoBogota: Project = {
   },
   whatILearned: {
     es: [
-      "Orquestar un producto multi-plataforma con repos independientes y workspace meta",
-      "API REST con NestJS, Prisma y despliegue en Railway junto a web en Vercel",
-      "Mapas con Leaflet en Next.js para puntos georreferenciados",
-      "Coordinar piloto real: infraestructura, datos y documentación operativa",
+      "Mantener web, API y Flutter en repos distintos unidos por eco-bogota-meta",
+      "Desplegar NestJS + Prisma + Postgres en Railway y la web en Vercel",
+      "Pintar puntos de reciclaje con Leaflet sin ahogar el panel de reportes",
+      "Documentar el piloto (datos, arranque, roles) para que otros puedan operar",
     ],
     en: [
-      "Orchestrating a multi-platform product with independent repos and a meta workspace",
-      "REST API with NestJS, Prisma, and Railway deployment alongside Vercel web",
-      "Leaflet maps in Next.js for georeferenced points",
-      "Coordinating a real pilot: infrastructure, data, and operational docs",
+      "Keep web, API, and Flutter in separate repos tied by eco-bogota-meta",
+      "Deploy NestJS + Prisma + Postgres on Railway and the web on Vercel",
+      "Plot recycling points with Leaflet without drowning the reports panel",
+      "Document the pilot (data, startup, roles) so others can operate it",
     ],
     ru: [
-      "Оркестрация мультиплатформенного продукта: отдельные репозитории и meta-workspace",
-      "REST API на NestJS и Prisma, деплой на Railway вместе с вебом на Vercel",
-      "Карты Leaflet в Next.js для геоточек",
-      "Координация реального пилота: инфраструктура, данные, операционная документация",
+      "Держать web, API и Flutter в разных репо, связанных eco-bogota-meta",
+      "Деплой NestJS + Prisma + Postgres на Railway и веб на Vercel",
+      "Точки переработки на Leaflet без перегруза панели отчётов",
+      "Документировать пилот (данные, запуск, роли), чтобы им могли пользоваться другие",
     ],
     zh: [
-      "用独立仓库与元工作区协调多平台产品",
-      "NestJS + Prisma REST API，Web 在 Vercel、API 在 Railway",
-      "Next.js 中用 Leaflet 展示地理点位",
-      "协调真实试点：基础设施、数据与运维文档",
+      "Web、API、Flutter 分仓，用 eco-bogota-meta 串起来",
+      "NestJS + Prisma + Postgres 部署到 Railway，Web 到 Vercel",
+      "用 Leaflet 画回收点，不挤占举报面板",
+      "写清试点文档（数据、启动、角色），方便别人运维",
     ],
   },
   technicalDetails: {
