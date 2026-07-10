@@ -1,6 +1,6 @@
 # Fravelz's Portfolio
 
-[Spanish version](./README.md)
+This document is in English. [Versión en español](./README.md)
 
 ![Image Portfolio](./public/images/portfolio.png)
 
