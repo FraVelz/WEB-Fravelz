@@ -18,14 +18,15 @@ export const projectFravelzPortfolio: Project = {
   },
   shortDescription: {
     es:
-      "Sitio personal multilenguaje con Next.js App Router: proyectos, certificaciones, " +
-      "tema persistente y búsqueda global.",
+      "Sitio personal en es/en/ru/zh con scroll horizontal en home, proyectos filtrables, " +
+      "certificados en PDF y búsqueda global.",
     en:
-      "Multilingual personal site with Next.js App Router: projects, certifications, persisted theme " +
-      "and global search.",
+      "Personal site in es/en/ru/zh with a horizontal-scroll home, filterable projects, " +
+      "PDF certificates, and global search.",
     ru:
-      "Мультиязычный личный сайт на Next.js App Router: проекты, сертификаты, сохранение темы и " + "глобальный поиск.",
-    zh: "基于 Next.js 应用路由的个人多语言站点：项目、认证、持久化主题与全站搜索。",
+      "Личный сайт на es/en/ru/zh: горизонтальный скролл на главной, фильтруемые проекты, " +
+      "PDF-сертификаты и глобальный поиск.",
+    zh: "个人站点（es/en/ru/zh）：首页横向滚动、可筛选项目、PDF 证书与全站搜索。",
   },
   featuredImage: portfolioImg,
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
@@ -38,71 +39,80 @@ export const projectFravelzPortfolio: Project = {
   screenshots: [image1, image2, image3, image4, image5, image6],
   fullDescription: {
     es:
-      "Portafolio público desarrollado con Next.js 16 y React 19 para presentar proyectos, " +
-      "tecnologías, trayectoria y certificados. Rutas por idioma (es/en/ru/zh), componentes servidor " +
-      "por defecto, PDFs de certificación en modal, tema claro/oscuro/auto sincronizado con cookie y " +
-      "localStorage, y modal de búsqueda enlazando proyectos y páginas estáticas.",
+      "Portafolio donde presento proyectos, stack, trayectoria y certificados. Rutas por idioma, " +
+      "home con scroll horizontal, detalle de proyecto con carrusel, PDFs en modal, tema " +
+      "claro/oscuro/auto (cookie + localStorage) y buscador que enlaza proyectos y páginas. " +
+      "Empezó en Astro (rama archive/astro) y hoy corre en Next.js 16 + React 19.",
     en:
-      "Public portfolio built with Next.js 16 and React 19 to showcase projects, technologies, timeline " +
-      "and certifications. Locale-prefixed routes (es/en/ru/zh), server components by default, " +
-      "certificate PDFs in a modal viewer, light/dark/auto theme via cookie plus localStorage, and a " +
-      "global search modal for projects and static pages.",
+      "Portfolio where I show projects, stack, timeline, and certificates. Locale routes, a " +
+      "horizontal-scroll home, project detail with a carousel, PDFs in a modal, light/dark/auto " +
+      "theme (cookie + localStorage), and search that links projects and pages. Started in Astro " +
+      "(archive/astro branch) and now runs on Next.js 16 + React 19.",
     ru:
-      "Публичное портфолио на Next.js 16 и React 19: проекты, технологии, опыт и сертификаты. Маршруты " +
-      "с префиксом языка (es/en/ru/zh), по умолчанию Server Components, просмотр PDF сертификатов в " +
-      "модальном окне, тема светлая/тёмная/авто через cookie и localStorage, глобальный поиск по " +
-      "проектам и статическим страницам.",
+      "Портфолио: проекты, стек, опыт и сертификаты. Маршруты по языку, главная с горизонтальным " +
+      "скроллом, деталь проекта с каруселью, PDF в модалке, тема светлая/тёмная/авто (cookie + " +
+      "localStorage) и поиск по проектам и страницам. Начиналось на Astro (ветка archive/astro), " +
+      "сейчас Next.js 16 + React 19.",
     zh:
-      "使用 Next.js 16 与 React 19 构建的公开作品集，展示项目、技术栈、经历与认证。语言前缀路由 es/en/ru/zh；" +
-      "默认服务端组件，证书 PDF 弹层预览，亮色/深色/跟随系统主题（cookie + localStorage），" +
-      "以及覆盖项目与静态页的全站搜索浮层。",
+      "作品集：项目、技术栈、经历与证书。按语言路由、首页横向滚动、项目详情轮播、PDF 弹层、" +
+      "亮/暗/跟随系统主题（cookie + localStorage），以及连接项目与页面的搜索。" +
+      "最初用 Astro（archive/astro 分支），现为 Next.js 16 + React 19。",
   },
   whatILearned: {
     es: [
-      "App Router con `[lang]` e implementación para manejo de diferentes idiomas",
-      "Separar datos de proyectos en módulos reutilizables y utilidades (`getProjectBySlug`)",
-      "Tema antes del primer paint: script inline + cookies alineadas con `ToggleTheme`",
-      "Visualizador de PDF y buscador accesibles (roles, Escape, foco)",
-      "Navegación por teclado en todos los apartados (Tab/Shift+Tab, Escape para modales, etc.)",
+      "App Router con `[lang]` y metadata distinta por página e idioma",
+      "Datos de proyectos en módulos + `getProjectBySlug` sin un CMS",
+      "Tema antes del primer paint: script inline alineado con `ToggleTheme`",
+      "Modal de PDF y buscador usables con teclado (foco, Escape, roles)",
+      "Navegación por Tab en home horizontal, grids y modales",
     ],
     en: [
-      "App Router with `[lang]` and per-page metadata",
-      "Splitting project data into modules and helpers (`getProjectBySlug`)",
-      "Theme before first paint: inline script plus cookies synced with `ToggleTheme`",
-      "Accessible PDF modal and search (roles, Escape, focus basics)",
-      "Keyboard navigation across all sections (Tab/Shift+Tab, Escape for modals, etc.)",
+      "App Router with `[lang]` and per-page, per-locale metadata",
+      "Project data in modules + `getProjectBySlug` without a CMS",
+      "Theme before first paint: inline script aligned with `ToggleTheme`",
+      "Keyboard-usable PDF modal and search (focus, Escape, roles)",
+      "Tab navigation across the horizontal home, grids, and modals",
     ],
     ru: [
-      "App Router с `[lang]` и метаданными на страницу",
-      "Данные проектов — отдельные модули и `getProjectBySlug`",
-      "Тема до первого кадра: inline-скрипт и cookie синхронно с переключателем темы",
-      "Доступность модального PDF и поиска (роли, Escape, фокус)",
-      "Клавиатурная навигация по всем разделам (Tab/Shift+Tab, Escape для модалок и т.д.)",
+      "App Router с `[lang]` и метаданными по странице и языку",
+      "Данные проектов в модулях + `getProjectBySlug` без CMS",
+      "Тема до первого кадра: inline-скрипт в синхроне с `ToggleTheme`",
+      "PDF-модалка и поиск с клавиатуры (фокус, Escape, роли)",
+      "Tab-навигация по горизонтальной главной, сеткам и модалкам",
     ],
     zh: [
-      "使用 `[lang]` 的应用路由与各页 metadata",
-      "将项目数据拆成模块与 `getProjectBySlug` 等工具函数",
-      "首帧前主题：内联脚本与 ToggleTheme、cookie 一致",
-      "PDF 弹层与搜索的无障碍要点（语义、Escape、焦点）",
-      "全站键盘导航（Tab/Shift+Tab、Escape 关闭弹层等）",
+      "带 `[lang]` 的 App Router，以及按页、按语言的 metadata",
+      "项目数据分模块 + `getProjectBySlug`，不用 CMS",
+      "首帧前主题：内联脚本与 `ToggleTheme` 对齐",
+      "可用键盘的 PDF 弹层与搜索（焦点、Escape、语义角色）",
+      "横向首页、网格与弹层上的 Tab 导航",
     ],
   },
   extraInfo: {
     es: [
-      "El portafolio fue creado inicialmente en Astro esa version esta guardada en una rama de github como `archive/astro`.",
-      "Es el portafolio con mayor documentación extensa he implementado actualmente (implementando con ayuda de diversas herramientas como Markdownlint, Markdown All in One, Code Spell Checker, y herramientas de ia).",
-      "maximo 120 caracteres por linea de codigo, maximo 200 lineas de codigo por archivo, ademas utilizando prettier+eslint",
-      "Estructura del codigo inspirada en feature-based architecture",
+      "La versión Astro inicial está en la rama `archive/astro`.",
+      "Documentación densa con Markdownlint, Markdown All in One y Code Spell Checker.",
+      "Límites de estilo: ~120 caracteres por línea, ~200 líneas por archivo, Prettier + ESLint.",
+      "Estructura del código agrupada por features (home, projects, about-me, …).",
     ],
     en: [
-      "This portfolio is where I try UX, i18n, and performance tweaks before writing them up.",
-      "Screenshots are refreshed when the layout or core flows change.",
+      "The initial Astro version lives on the `archive/astro` branch.",
+      "Dense docs with Markdownlint, Markdown All in One, and Code Spell Checker.",
+      "Style limits: ~120 chars per line, ~200 lines per file, Prettier + ESLint.",
+      "Code grouped by features (home, projects, about-me, …).",
     ],
     ru: [
-      "Это портфолио — площадка для экспериментов с UX, i18n и производительностью.",
-      "Скриншоты обновляются, когда меняется каркас или ключевые сценарии.",
+      "Первая версия на Astro — в ветке `archive/astro`.",
+      "Плотная документация: Markdownlint, Markdown All in One, Code Spell Checker.",
+      "Лимиты стиля: ~120 символов в строке, ~200 строк в файле, Prettier + ESLint.",
+      "Код сгруппирован по фичам (home, projects, about-me, …).",
     ],
-    zh: ["这个作品集也是我在正式记录之前尝试 UX、国际化与性能的试验场。", "当布局或核心流程有变时，会更新截图。"],
+    zh: [
+      "最初的 Astro 版本在 `archive/astro` 分支。",
+      "文档较密：Markdownlint、Markdown All in One、Code Spell Checker。",
+      "风格限制：约 120 字符/行、约 200 行/文件，Prettier + ESLint。",
+      "代码按功能分组（home、projects、about-me 等）。",
+    ],
   },
   technicalDetails: {
     es: [

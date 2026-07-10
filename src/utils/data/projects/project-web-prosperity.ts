@@ -17,17 +17,15 @@ export const projectWebProsperity: Project = {
   },
   shortDescription: {
     es:
-      "Espacio para la búsqueda de la prosperidad de una nación, explorada en sentido amplio: política, filosofía, economía y geopolítica. " +
-      "25 apartados temáticos, mapas MapLibre, búsqueda y export estático con Next.js 15.",
+      "Archivo editorial para explorar temas de una nación: política, economía, geopolítica y datos, " +
+      "con mapa MapLibre y comparador de países.",
     en:
-      "A space for the pursuit of a nation’s prosperity, explored in a broad sense: politics, philosophy, economics, and geopolitics. " +
-      "25 thematic sections, MapLibre maps, search, and static export with Next.js 15.",
+      "An editorial archive to explore how a nation works — politics, economics, geopolitics, and data — " +
+      "with a MapLibre map and a country comparator.",
     ru:
-      "Пространство для поиска процветания нации, исследуемого в широком смысле: политика, философия, экономика и геополитика. " +
-      "25 тематических разделов, карты MapLibre, поиск и статический экспорт на Next.js 15.",
-    zh:
-      "探索国家繁荣之路的空间，从广义上涵盖政治、哲学、经济与地缘政治。" +
-      "25 个主题版块、MapLibre 地图、站内搜索，以及 Next.js 15 静态导出。",
+      "Редакционный архив о том, как устроена нация: политика, экономика, геополитика и данные — " +
+      "с картой MapLibre и сравнением стран.",
+    zh: "探索国家如何运转的专题档案：政治、经济、地缘政治与数据，含 MapLibre 地图与国家比较器。",
   },
   featuredImage: prosperityImg,
   screenshots: [image1, image2, image3, image4, image5, image6],
@@ -49,53 +47,49 @@ export const projectWebProsperity: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Web Prosperity es un espacio para la búsqueda de la prosperidad de una nación, explorada en sentido amplio — política, filosofía, economía, geopolítica y datos. " +
-      "Incluye 25 apartados agrupados en siete bloques con estados Con contenido, En preparación y Próximamente. " +
-      "Arquitectura por features: cada tema tiene hub TSX, sidebar propio y notas en Markdown. Rutas dinámicas " +
-      "/[tema] resuelven entre páginas TSX y notas .md. Tema claro/oscuro persistente, búsqueda por tema, " +
-      "mapa interactivo en Estadísticas mundiales (MapLibre GL) y export estático listo para Vercel o GitHub Pages.",
+      "Sitio de lectura e interacción con 25 apartados en siete bloques (publicado / en preparación / " +
+      "próximamente). Cada tema tiene hub TSX, sidebar y notas Markdown; las rutas /[tema] eligen entre " +
+      "página TSX y .md. Incluye búsqueda por tema, mapa en Estadísticas mundiales (MapLibre GL), " +
+      "tema claro/oscuro persistente y export estático para Vercel o GitHub Pages.",
     en:
-      "Web Prosperity is a space for the pursuit of a nation’s prosperity, explored in a broad sense — politics, philosophy, economics, geopolitics, and data. " +
-      "It includes 25 sections grouped in seven blocks with Published, In progress, and Coming soon states. " +
-      "Feature-based architecture: each topic has its own hub TSX, sidebar, and Markdown notes. Dynamic /[topic] routes " +
-      "resolve between TSX pages and .md notes. Persistent light/dark theme, per-topic search, " +
-      "an interactive map on World statistics (MapLibre GL), and static export ready for Vercel or GitHub Pages.",
+      "A reading-and-tools site with 25 sections in seven blocks (published / in progress / coming soon). " +
+      "Each topic has a TSX hub, its own sidebar, and Markdown notes; /[topic] routes resolve TSX vs .md. " +
+      "Includes per-topic search, a World statistics MapLibre map, persistent light/dark theme, and " +
+      "static export for Vercel or GitHub Pages.",
     ru:
-      "Web Prosperity — пространство для поиска процветания нации, исследуемого в широком смысле: политика, философия, экономика, геополитика и данные. " +
-      "25 разделов в семи блоках со статусами «С контентом», «В подготовке» и «Скоро». " +
-      "Архитектура по фичам: у каждой темы свой hub TSX, sidebar и заметки Markdown. Динамические маршруты /[topic] " +
-      "выбирают между TSX и .md. Постоянная светлая/тёмная тема, поиск по теме, " +
-      "интерактивная карта в «Мировой статистике» (MapLibre GL) и статический экспорт для Vercel или GitHub Pages.",
+      "Сайт для чтения и инструментов: 25 разделов в семи блоках (опубликовано / в работе / скоро). " +
+      "У каждой темы hub TSX, свой sidebar и заметки Markdown; маршруты /[topic] выбирают TSX или .md. " +
+      "Поиск по теме, карта в «Мировой статистике» (MapLibre GL), постоянная светлая/тёмная тема и " +
+      "статический экспорт для Vercel или GitHub Pages.",
     zh:
-      "Web Prosperity 是探索国家繁荣之路的空间，从广义上涵盖政治、哲学、经济、地缘政治与数据。" +
-      "包含 25 个主题，分属七个区块，状态为「已有内容」「准备中」「即将推出」。" +
-      "按功能模块化：每个主题有独立 hub TSX、侧栏与 Markdown 笔记。动态 /[topic] 路由在 TSX 与 .md 间解析。" +
-      "持久明暗主题、分主题搜索、世界统计中的 MapLibre 交互地图，以及面向 Vercel/GitHub Pages 的静态导出。",
+      "阅读与工具站点：25 个主题分属七个区块（已发布 / 进行中 / 即将推出）。" +
+      "每主题有 TSX hub、独立侧栏与 Markdown 笔记；/[topic] 在 TSX 与 .md 间解析。" +
+      "含分主题搜索、世界统计 MapLibre 地图、持久明暗主题，以及面向 Vercel/GitHub Pages 的静态导出。",
   },
   whatILearned: {
     es: [
-      "Organizar contenido editorial extenso con arquitectura por features y rutas dinámicas TSX + Markdown",
-      "Export estático con Next.js (output: export) desplegable en Vercel sin servidor Node",
-      "Mapas interactivos con MapLibre GL integrados en un sitio de documentación",
-      "Tokens CSS y paletas por apartado para mantener coherencia visual en 25 temas",
+      "Montar un archivo largo con hubs TSX + notas Markdown en la misma ruta dinámica",
+      "Publicar con output: export sin depender de un servidor Node en producción",
+      "Meter MapLibre en un sitio de documentación sin romper el layout editorial",
+      "Dar a cada apartado su propia paleta CSS sin que los 25 temas se vean iguales",
     ],
     en: [
-      "Structuring extensive editorial content with feature folders and dynamic TSX + Markdown routes",
-      "Static export with Next.js (output: export) deployable on Vercel without a Node server",
-      "Interactive MapLibre GL maps inside a documentation-style site",
-      "Per-topic CSS tokens and palettes to keep visual coherence across 25 sections",
+      "Ship a long archive with TSX hubs + Markdown notes on the same dynamic route",
+      "Deploy with output: export without needing a Node server in production",
+      "Embed MapLibre in a documentation-style layout without breaking the editorial grid",
+      "Give each section its own CSS palette so 25 topics do not look identical",
     ],
     ru: [
-      "Организация большого редакционного контента: фичи и динамические маршруты TSX + Markdown",
-      "Статический экспорт Next.js (output: export) для Vercel без Node-сервера",
-      "Интерактивные карты MapLibre GL внутри сайта-документации",
-      "CSS-токены и палитры по разделам для единообразия 25 тем",
+      "Длинный архив: hub TSX + заметки Markdown на одном динамическом маршруте",
+      "Деплой с output: export без Node-сервера в проде",
+      "Встроить MapLibre в документальный layout без поломки сетки",
+      "Своя CSS-палитра у каждого раздела, чтобы 25 тем не сливались",
     ],
     zh: [
-      "用功能目录与 TSX + Markdown 动态路由组织大量专题内容",
-      "Next.js 静态导出（output: export）可无 Node 服务器部署到 Vercel",
-      "在文档型站点中集成 MapLibre GL 交互地图",
-      "按主题 CSS 令牌与色板保持 25 个版块视觉一致",
+      "用同一动态路由承载 TSX hub 与 Markdown 笔记的长档案",
+      "用 output: export 部署，生产环境不依赖 Node 服务器",
+      "在文档型布局中嵌入 MapLibre 而不破坏编辑网格",
+      "为每个版块单独配色，避免 25 个主题长得一样",
     ],
   },
   technicalDetails: {
