@@ -15,17 +15,15 @@ export const projectStarcrypt: Project = {
   },
   shortDescription: {
     es:
-      "Marketplace C2C con pagos fiat LATAM (Mercado Pago) y cripto (wagmi/viem + escrow). " +
-      "Firebase, Vercel Blob, panel vendedor y admin. Next.js 16.",
+      "Marketplace entre personas en LATAM: paga en fiat con Mercado Pago o en cripto con " +
+      "wallet + escrow, con paneles de comprador, vendedor y admin.",
     en:
-      "C2C marketplace with LATAM fiat (Mercado Pago) and crypto (wagmi/viem + escrow) payments. " +
-      "Firebase, Vercel Blob, seller panel and admin. Next.js 16.",
+      "Peer-to-peer marketplace for LATAM: pay in fiat with Mercado Pago or in crypto with " +
+      "wallet + escrow, with buyer, seller, and admin panels.",
     ru:
-      "C2C-маркетплейс с оплатой fiat LATAM (Mercado Pago) и крипто (wagmi/viem + escrow). " +
-      "Firebase, Vercel Blob, панель продавца и админ. Next.js 16.",
-    zh:
-      "C2C 市场：拉美法币（Mercado Pago）与加密货币（wagmi/viem + 托管）支付。" +
-      "Firebase、Vercel Blob、卖家面板与管理端。Next.js 16。",
+      "P2P-маркетплейс для LATAM: оплата fiat через Mercado Pago или крипто с wallet + escrow, " +
+      "с панелями покупателя, продавца и админа.",
+    zh: "面向拉美的个人对个人市场：可用 Mercado Pago 法币或钱包 + 托管加密支付，含买家、卖家与管理面板。",
   },
   featuredImage: starcryptImg,
   screenshots: [image2, image3, image4, image5],
@@ -39,55 +37,52 @@ export const projectStarcrypt: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Starcrypt es un marketplace de compra y venta entre usuarios con dos vías de pago: fiat en LATAM " +
-      "vía Mercado Pago y criptomonedas con wallet connect y escrow. Catálogo server-side con caché por tags, " +
-      "sitemap dinámico, Firebase Auth y Firestore (reglas en firestore.rules), imágenes en Vercel Blob, " +
-      "panel de vendedor (/panel), cuenta comprador (/cuenta) y administración (/admin). Categorías en Firestore " +
-      "con semilla local visible sin Firebase. Tema estilo exchange (oscuro por defecto), TanStack Query y aviso " +
-      "si Firebase no está configurado.",
+      "Compra y venta entre usuarios con dos caminos de pago: fiat LATAM (Mercado Pago) y cripto " +
+      "(wagmi/viem + escrow). Catálogo en servidor con caché por tags, sitemap dinámico, Auth y " +
+      "Firestore (reglas en firestore.rules), media en Vercel Blob. Rutas claras: /panel (vendedor), " +
+      "/cuenta (comprador), /admin. Categorías en Firestore con semilla local si Firebase no está " +
+      "configurado; tema oscuro tipo exchange y aviso cuando faltan credenciales.",
     en:
-      "Starcrypt is a peer-to-peer marketplace with two payment paths: LATAM fiat via Mercado Pago " +
-      "and crypto with wallet connect and escrow. Server-side catalog with tag-based cache, " +
-      "dynamic sitemap, Firebase Auth and Firestore (rules in firestore.rules), images on Vercel Blob, " +
-      "seller panel (/panel), buyer account (/cuenta), and admin (/admin). Categories in Firestore " +
-      "with a local seed when Firebase is unavailable. Exchange-style theme (dark default), TanStack Query, and a banner " +
-      "when Firebase is not configured.",
+      "Buy and sell between users with two payment paths: LATAM fiat (Mercado Pago) and crypto " +
+      "(wagmi/viem + escrow). Server catalog with tag cache, dynamic sitemap, Auth and Firestore " +
+      "(rules in firestore.rules), media on Vercel Blob. Clear routes: /panel (seller), /cuenta " +
+      "(buyer), /admin. Categories in Firestore with a local seed when Firebase is missing; " +
+      "exchange-style dark theme and a banner when credentials are not set.",
     ru:
-      "Starcrypt — P2P-маркетплейс с двумя способами оплаты: fiat LATAM через Mercado Pago " +
-      "и крипто через wallet connect и escrow. Серверный каталог с кэшем по тегам, " +
-      "динамический sitemap, Firebase Auth и Firestore (правила в firestore.rules), изображения в Vercel Blob, " +
-      "панель продавца (/panel), кабинет покупателя (/cuenta), админ (/admin). Категории в Firestore " +
-      "с локальной заготовкой без Firebase. Тема в стиле биржи (тёмная по умолчанию), TanStack Query.",
+      "Покупка и продажа между пользователями: fiat LATAM (Mercado Pago) и крипто (wagmi/viem + escrow). " +
+      "Серверный каталог с кэшем по тегам, динамический sitemap, Auth и Firestore (firestore.rules), " +
+      "медиа в Vercel Blob. Маршруты: /panel (продавец), /cuenta (покупатель), /admin. Категории в " +
+      "Firestore с локальной заготовкой без Firebase; тёмная тема в стиле биржи и баннер без credentials.",
     zh:
-      "Starcrypt 是用户对用户的交易市场，支持拉美法币（Mercado Pago）与加密货币（钱包连接 + 托管）。" +
-      "服务端目录、按标签缓存、动态 sitemap、Firebase Auth/Firestore（firestore.rules）、" +
-      "Vercel Blob 图片、卖家面板（/panel）、买家账户（/cuenta）与管理（/admin）。" +
-      "Firestore 分类与无 Firebase 时的本地种子数据。交易所风格深色主题与 TanStack Query。",
+      "用户间买卖，两条支付路径：拉美法币（Mercado Pago）与加密（wagmi/viem + 托管）。" +
+      "服务端目录与标签缓存、动态 sitemap、Auth 与 Firestore（firestore.rules）、Vercel Blob 媒体。" +
+      "路由清晰：/panel（卖家）、/cuenta（买家）、/admin。Firestore 分类，无 Firebase 时用本地种子；" +
+      "交易所风格深色主题，缺凭证时显示提示条。",
   },
   whatILearned: {
     es: [
-      "Integrar Mercado Pago y flujos crypto (wagmi/viem) en una misma experiencia de checkout",
-      "Modelar listados C2C con Firestore, Blob para media y reglas de seguridad explícitas",
-      "Catálogo server-side en Next.js 16 con invalidación por tags y sitemap dinámico",
-      "Paneles role-based (comprador, vendedor, admin) sobre un mismo design system",
+      "Unir Mercado Pago y wagmi/viem en un solo checkout sin mezclar estados de pago",
+      "Listados C2C en Firestore con Blob para fotos y reglas de seguridad explícitas",
+      "Invalidar caché del catálogo por tags y regenerar el sitemap cuando cambian productos",
+      "Separar /panel, /cuenta y /admin sin duplicar el layout base de la tienda",
     ],
     en: [
-      "Integrating Mercado Pago and crypto flows (wagmi/viem) in one checkout experience",
-      "Modeling C2C listings with Firestore, Blob for media, and explicit security rules",
-      "Server-side catalog in Next.js 16 with tag invalidation and dynamic sitemap",
-      "Role-based panels (buyer, seller, admin) on a shared design system",
+      "Combine Mercado Pago and wagmi/viem in one checkout without mixing payment states",
+      "C2C listings in Firestore with Blob for photos and explicit security rules",
+      "Invalidate catalog cache by tags and regenerate the sitemap when products change",
+      "Split /panel, /cuenta, and /admin without duplicating the store shell",
     ],
     ru: [
-      "Интеграция Mercado Pago и крипто (wagmi/viem) в одном checkout",
-      "C2C-листинги: Firestore, Blob для медиа, явные правила безопасности",
-      "Серверный каталог Next.js 16 с инвалидацией по тегам и динамическим sitemap",
-      "Панели по ролям (покупатель, продавец, админ) на общем design system",
+      "Совместить Mercado Pago и wagmi/viem в одном checkout без смешения состояний оплаты",
+      "C2C-листинги в Firestore, Blob для фото и явные правила безопасности",
+      "Инвалидировать кэш каталога по тегам и обновлять sitemap при смене товаров",
+      "Разделить /panel, /cuenta и /admin без дублирования оболочки магазина",
     ],
     zh: [
-      "在同一结账流程中集成 Mercado Pago 与加密（wagmi/viem）",
-      "用 Firestore、Blob 与显式安全规则建模 C2C  listing",
-      "Next.js 16 服务端目录、标签失效与动态 sitemap",
-      "基于同一设计系统的买家/卖家/管理员角色面板",
+      "在同一结账中合并 Mercado Pago 与 wagmi/viem，不混用支付状态",
+      "Firestore 上的 C2C listing，Blob 存图，安全规则写清楚",
+      "按标签失效目录缓存，商品变更时重建 sitemap",
+      "拆分 /panel、/cuenta、/admin，不复制整套商店壳层",
     ],
   },
   technicalDetails: {
