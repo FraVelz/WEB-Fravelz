@@ -18,17 +18,15 @@ export const projectWebTodoList: Project = {
   },
   shortDescription: {
     es:
-      "Gestor de tareas con Next.js 16 y React 19. Prisma y PostgreSQL, Zustand, Radix UI, " +
-      "Tailwind CSS 4, modo oscuro y tests con Vitest.",
+      "Tareas con vistas Inbox, Hoy y Próximo, etiquetas y búsqueda — persistidas en PostgreSQL " +
+      "y usables en modo claro u oscuro.",
     en:
-      "Task app with Next.js 16 and React 19. Prisma and PostgreSQL, Zustand, Radix UI, " +
-      "Tailwind CSS 4, dark mode, and Vitest tests.",
+      "Tasks with Inbox, Today, and Next views, tags, and search — stored in PostgreSQL " +
+      "and usable in light or dark mode.",
     ru:
-      "Список задач на Next.js 16 и React 19. Prisma и PostgreSQL, Zustand, Radix UI, " +
-      "Tailwind CSS 4, тёмная тема и тесты на Vitest.",
-    zh:
-      "基于 Next.js 16 与 React 19 的待办应用。Prisma 与 PostgreSQL、Zustand、Radix UI、" +
-      "Tailwind CSS 4、深色模式，以及 Vitest 测试。",
+      "Задачи с видами «Входящие», «Сегодня» и «Далее», метками и поиском — в PostgreSQL, " +
+      "со светлой и тёмной темой.",
+    zh: "待办含收件箱、今天与下一步视图、标签与搜索——数据存 PostgreSQL，支持明暗主题。",
   },
   featuredImage: webTodoListImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8],
@@ -51,59 +49,52 @@ export const projectWebTodoList: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Aplicación de gestión de tareas con Next.js 16, React 19 y TypeScript. " +
-      "Persistencia con Prisma y PostgreSQL; estado global con Zustand; componentes accesibles con Radix UI; " +
-      "estilos con Tailwind CSS 4 (tema claro y oscuro). " +
-      "Incluye bandeja de entrada, vistas Hoy y Próximo, completadas, buscador, filtros y etiquetas, " +
-      "modales para crear y editar, y barra lateral. Calidad asegurada con Vitest y Testing Library. " +
-      "Proyecto de uso educativo.",
+      "Gestor de tareas orientado a flujo diario: bandeja, Hoy, Próximo y completadas, con filtros, " +
+      "etiquetas, buscador y barra lateral. Los datos viven en Prisma + PostgreSQL; el estado de UI " +
+      "en Zustand; modales y controles sobre Radix. Tema claro/oscuro con tokens de Tailwind 4. " +
+      "Hay modo demo sin credenciales y tests con Vitest + Testing Library sobre componentes y vistas.",
     en:
-      "Task management app built with Next.js 16, React 19, and TypeScript. " +
-      "Persistence via Prisma and PostgreSQL; Zustand for state; Radix UI for accessible components; " +
-      "Tailwind CSS 4 with light and dark themes. " +
-      "Features inbox, Today and Next views, completed tasks, search, filters and tags, " +
-      "create/edit modals, and a sidebar. Quality checks with Vitest and Testing Library. " +
-      "Educational project.",
+      "A daily-flow task app: inbox, Today, Next, and completed, with filters, tags, search, and a " +
+      "sidebar. Data lives in Prisma + PostgreSQL; UI state in Zustand; modals and controls on Radix. " +
+      "Light/dark themes use Tailwind 4 tokens. Includes a no-credentials demo mode and Vitest + " +
+      "Testing Library coverage for components and views.",
     ru:
-      "Приложение для задач на Next.js 16, React 19 и TypeScript. " +
-      "Данные через Prisma и PostgreSQL; состояние — Zustand; доступные компоненты — Radix UI; " +
-      "стили Tailwind CSS 4 со светлой и тёмной темой. " +
-      "Входящие, «Сегодня» и «Далее», выполненные задачи, поиск, фильтры и метки, модальные окна, боковая панель. " +
-      "Тесты на Vitest и Testing Library. Образовательный проект.",
+      "Список задач под дневной поток: входящие, «Сегодня», «Далее» и выполненные; фильтры, метки, " +
+      "поиск и боковая панель. Данные — Prisma + PostgreSQL; UI-состояние — Zustand; модалки на Radix. " +
+      "Светлая/тёмная тема на токенах Tailwind 4. Есть демо без логина и тесты Vitest + Testing Library.",
     zh:
-      "使用 Next.js 16、React 19 与 TypeScript 开发的任务管理应用。" +
-      "通过 Prisma 与 PostgreSQL 持久化；Zustand 管理状态；Radix UI 提供可访问组件；Tailwind CSS 4 支持明暗主题。" +
-      "包含收件箱、今天、下一步、已完成、搜索、筛选与标签、创建/编辑弹窗与侧边栏。" +
-      "使用 Vitest 与 Testing Library 保障质量。教育用途项目。",
+      "面向日常流程的待办：收件箱、今天、下一步与已完成，含筛选、标签、搜索与侧边栏。" +
+      "数据用 Prisma + PostgreSQL；UI 状态用 Zustand；弹层基于 Radix。明暗主题用 Tailwind 4 令牌。" +
+      "含免登录演示模式，以及 Vitest + Testing Library 的组件与页面测试。",
   },
   whatILearned: {
     es: [
-      "Persistencia real con Prisma y PostgreSQL dentro del ecosistema Next.js (migraciones, seed, scripts npm)",
-      "Cuándo preferir Zustand frente a Redux para estado de UI y datos cacheados en cliente",
-      "Construir modales, diálogos y controles accesibles sobre primitivas de Radix UI",
-      "Flujo de tests con Vitest, Testing Library y jsdom para componentes y rutas",
-      "Temas claro/oscuro y tokens de Tailwind 4 coherentes en toda la app",
+      "Montar migraciones, seed y scripts de Prisma dentro de un App Router real",
+      "Dejar el estado de listas y filtros en Zustand y no arrastrar un store global pesado",
+      "Modales accesibles (foco, Escape, overlay) con primitivas Radix",
+      "Cubrir rutas y componentes con Vitest + Testing Library en jsdom",
+      "Unificar tokens de color para que claro/oscuro no se sienta como dos apps distintas",
     ],
     en: [
-      "End-to-end persistence with Prisma and PostgreSQL in Next.js (migrations, seed, npm scripts)",
-      "When Zustand beats Redux for UI state and lightly cached client data",
-      "Accessible modals, dialogs, and controls built on Radix primitives",
-      "Vitest + Testing Library + jsdom workflows for components and views",
-      "Light/dark theming with consistent Tailwind 4 tokens across the UI",
+      "Wire Prisma migrations, seed, and scripts inside a real App Router app",
+      "Keep list and filter state in Zustand instead of a heavy global store",
+      "Accessible modals (focus, Escape, overlay) on Radix primitives",
+      "Cover routes and components with Vitest + Testing Library in jsdom",
+      "Unify color tokens so light/dark do not feel like two different apps",
     ],
     ru: [
-      "Сквозная персистентность: Prisma + PostgreSQL в Next.js (миграции, seed, npm-скрипты)",
-      "Zustand vs Redux: лёгкое клиентское состояние и кэш UI",
-      "Доступные модалки и контролы на примитивах Radix UI",
-      "Vitest, Testing Library и jsdom для компонентов и экранов",
-      "Светлая/тёмная тема и согласованные токены Tailwind 4",
+      "Миграции, seed и скрипты Prisma внутри реального App Router",
+      "Состояние списков и фильтров в Zustand, без тяжёлого глобального store",
+      "Доступные модалки (фокус, Escape, overlay) на примитивах Radix",
+      "Тесты маршрутов и компонентов: Vitest + Testing Library в jsdom",
+      "Единые цветовые токены, чтобы светлая и тёмная тема не расходились",
     ],
     zh: [
-      "在 Next.js 中用 Prisma + PostgreSQL 打通持久化（迁移、种子、npm 脚本）",
-      "相较 Redux，更宜用 Zustand 管理轻量 UI 状态与客户端缓存的场景",
-      "基于 Radix 原语实现可访问的弹层与控件",
-      "Vitest + Testing Library + jsdom 的组件与页面测试流程",
-      "Tailwind 4 设计令牌贯穿明暗主题，保证视觉一致",
+      "在真实 App Router 应用中接入 Prisma 迁移、种子与脚本",
+      "用 Zustand 管列表与筛选状态，避免沉重的全局 store",
+      "基于 Radix 原语做可访问弹层（焦点、Escape、遮罩）",
+      "用 Vitest + Testing Library（jsdom）覆盖路由与组件",
+      "统一颜色令牌，让明暗主题不像两套产品",
     ],
   },
   technicalDetails: {
