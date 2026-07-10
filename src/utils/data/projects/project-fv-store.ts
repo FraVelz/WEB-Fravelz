@@ -18,17 +18,15 @@ export const projectFvStore: Project = {
   },
   shortDescription: {
     es:
-      "Plantilla de tienda online con Next.js 16: catálogo, carrito en localStorage, checkout demo " +
-      "y UI estilo shadcn/ui. Base para conectar Firebase o catálogo real.",
+      "Tienda de camisetas (edición Colombia Italia 90): catálogo, ficha, carrito local y " +
+      "checkout demo — extraída del stack de Starcrypt.",
     en:
-      "Online store template with Next.js 16: catalog, localStorage cart, demo checkout, " +
-      "and shadcn/ui-style components. Ready to wire Firebase or a real catalog.",
+      "Jersey shop (Colombia Italia 90 edition): catalog, product page, local cart, and " +
+      "demo checkout — extracted from the Starcrypt stack.",
     ru:
-      "Шаблон интернет-магазина на Next.js 16: каталог, корзина в localStorage, демо-оформление " +
-      "и UI в стиле shadcn/ui. Готов к подключению Firebase или реального каталога.",
-    zh:
-      "Next.js 16 在线商店模板：目录、localStorage 购物车、演示结账、" +
-      "shadcn/ui 风格组件。可接入 Firebase 或真实商品数据。",
+      "Магазин футболок (Colombia Italia 90): каталог, карточка, локальная корзина и " +
+      "демо-оформление — выделено из стека Starcrypt.",
+    zh: "球衣商店（哥伦比亚 Italia 90 款）：目录、商品页、本地购物车与演示结账——从 Starcrypt 技术栈拆出。",
   },
   featuredImage: fvStoreImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8],
@@ -42,48 +40,47 @@ export const projectFvStore: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Tienda FV es una plantilla de e-commerce basada en el stack de Starcrypt: Next.js 16, TypeScript, " +
-      "Tailwind CSS v4 y componentes estilo shadcn/ui (Radix Slot, CVA). Incluye inicio con categorías y destacados, " +
-      "catálogo con búsqueda y filtros, ficha de producto, carrito persistente en localStorage y checkout de demostración " +
-      "sin pago real. Los productos demo viven en src/data/products.ts. Tema oscuro por defecto con next-themes y " +
-      "Vercel Analytics. Pensado como punto de partida para sustituir datos estáticos o conectar Firebase y Vercel Blob.",
+      "Vitrina de e-commerce centrada en un producto real (camiseta retro Colombia Italia 90): " +
+      "inicio, catálogo con búsqueda/filtros, ficha, carrito en localStorage y checkout sin cobro. " +
+      "Reutiliza el stack de Starcrypt (Next.js 16, Tailwind 4, Radix/CVA) con tema oscuro y " +
+      "Analytics. El catálogo demo está en src/data/products.ts; Firebase queda listo para cuando " +
+      "el inventario deje de ser estático.",
     en:
-      "FV Store is an e-commerce template based on the Starcrypt stack: Next.js 16, TypeScript, " +
-      "Tailwind CSS v4, and shadcn/ui-style components (Radix Slot, CVA). It includes a home with categories and highlights, " +
-      "a searchable catalog with filters, product detail pages, a localStorage cart, and a demo checkout " +
-      "without real payments. Demo products live in src/data/products.ts. Dark-first theme with next-themes and " +
-      "Vercel Analytics. Intended as a starting point to replace static data or connect Firebase and Vercel Blob.",
+      "An e-commerce storefront built around a real product (Colombia Italia 90 retro jersey): " +
+      "home, searchable/filterable catalog, product page, localStorage cart, and checkout without " +
+      "charging. Reuses the Starcrypt stack (Next.js 16, Tailwind 4, Radix/CVA) with a dark theme " +
+      "and Analytics. Demo catalog lives in src/data/products.ts; Firebase is ready when inventory " +
+      "stops being static.",
     ru:
-      "FV Store — шаблон e-commerce на стеке Starcrypt: Next.js 16, TypeScript, Tailwind CSS v4, " +
-      "компоненты в стиле shadcn/ui (Radix Slot, CVA). Главная с категориями, каталог с поиском и фильтрами, " +
-      "карточка товара, корзина в localStorage, демо-оформление без реальной оплаты. Демо-товары в src/data/products.ts. " +
-      "Тёмная тема по умолчанию (next-themes), Vercel Analytics. Стартовая точка для Firebase и Vercel Blob.",
+      "Витрина вокруг реального товара (ретро-футболка Colombia Italia 90): главная, каталог с " +
+      "поиском/фильтрами, карточка, корзина в localStorage и оформление без оплаты. Тот же стек, " +
+      "что у Starcrypt (Next.js 16, Tailwind 4, Radix/CVA), тёмная тема и Analytics. Демо-каталог " +
+      "в src/data/products.ts; Firebase — когда инвентарь перестанет быть статическим.",
     zh:
-      "FV Store 是基于 Starcrypt 技术栈的电商模板：Next.js 16、TypeScript、Tailwind CSS v4、" +
-      "shadcn/ui 风格组件（Radix Slot、CVA）。含首页分类与精选、可搜索筛选的目录、商品详情、" +
-      "localStorage 购物车与无真实支付的演示结账。演示商品在 src/data/products.ts。" +
-      "默认深色主题（next-themes）与 Vercel Analytics。便于后续接入 Firebase 与 Vercel Blob。",
+      "围绕真实商品（哥伦比亚 Italia 90 复古球衣）的电商橱窗：首页、可搜索筛选目录、商品页、" +
+      "localStorage 购物车与无扣款结账。复用 Starcrypt 技术栈（Next.js 16、Tailwind 4、Radix/CVA），" +
+      "深色主题与 Analytics。演示目录在 src/data/products.ts；库存不再静态时可接 Firebase。",
   },
   whatILearned: {
     es: [
-      "Extraer un template de tienda reutilizable desde un marketplace más complejo (Starcrypt)",
-      "Carrito cliente con localStorage y rutas de catálogo/ficha sin backend inicial",
-      "Componentes accesibles con Radix y CVA para un catálogo escalable",
+      "Separar una tienda simple del marketplace Starcrypt sin copiar el dominio de pagos",
+      "Carrito solo en cliente (localStorage) mientras el catálogo sigue siendo estático",
+      "Armar ficha y catálogo con Radix + CVA sin inventar otro design system",
     ],
     en: [
-      "Extracting a reusable store template from a more complex marketplace (Starcrypt)",
-      "Client-side cart with localStorage and catalog/product routes without an initial backend",
-      "Accessible Radix + CVA components for a scalable catalog UI",
+      "Split a simple storefront from the Starcrypt marketplace without copying the payments domain",
+      "Keep the cart client-only (localStorage) while the catalog stays static",
+      "Build catalog and product pages with Radix + CVA instead of a second design system",
     ],
     ru: [
-      "Выделение переиспользуемого шаблона магазина из более сложного маркетплейса (Starcrypt)",
-      "Клиентская корзина в localStorage и маршруты каталога без бэкенда на старте",
-      "Доступные компоненты Radix + CVA для масштабируемого каталога",
+      "Отделить простую витрину от маркетплейса Starcrypt без домена платежей",
+      "Корзина только на клиенте (localStorage), пока каталог статический",
+      "Каталог и карточка на Radix + CVA без второго design system",
     ],
     zh: [
-      "从更复杂的 marketplace（Starcrypt）提炼可复用商店模板",
-      "无初始后端的 localStorage 购物车与目录/商品路由",
-      "用 Radix + CVA 构建可扩展的无障碍目录 UI",
+      "从 Starcrypt 市场拆出简单橱窗，不复制支付域",
+      "目录仍静态时，购物车只放在客户端（localStorage）",
+      "用 Radix + CVA 做目录与商品页，不另起一套设计系统",
     ],
   },
   technicalDetails: {

@@ -18,17 +18,15 @@ export const projectIcfesMaster: Project = {
   },
   shortDescription: {
     es:
-      "Plataforma interactiva para el ICFES (Saber 11): práctica por áreas, simulacros, " +
-      "gamificación y progreso. Next.js 15, React 19, Supabase y arquitectura por features.",
+      "Prepárate para Saber 11° con práctica por áreas, simulacros cronometrados y seguimiento " +
+      "de progreso pensado para estudiantes en Colombia.",
     en:
-      "Interactive ICFES (Saber 11) prep: practice by area, mock exams, gamification, " +
-      "and progress. Next.js 15, React 19, Supabase, feature-based architecture.",
+      "Saber 11° prep with practice by subject, timed mock exams, and progress tracking " +
+      "built for students in Colombia.",
     ru:
-      "Интерактивная подготовка к ICFES (Saber 11): практика по предметам, пробные экзамены, " +
-      "геймификация и прогресс. Next.js 15, React 19, Supabase, feature-based архитектура.",
-    zh:
-      "ICFES（Saber 11）互动备考：分科练习、模拟考、游戏化与进度跟踪。" +
-      "Next.js 15、React 19、Supabase、功能模块化架构。",
+      "Подготовка к Saber 11°: практика по предметам, пробные экзамены на время и отслеживание " +
+      "прогресса для школьников в Колумбии.",
+    zh: "面向哥伦比亚 Saber 11° 的备考：分科练习、限时模拟考与进度跟踪，专为学生设计。",
   },
   featuredImage: icfesMasterImg,
   screenshots: [image1, image2, image3, image4, image5, image6, image7],
@@ -51,70 +49,62 @@ export const projectIcfesMaster: Project = {
   inDevelopment: true,
   fullDescription: {
     es:
-      "Plataforma interactiva para practicar preguntas y estudiar temas del examen de estado " +
-      "ICFES (Saber 11) en Colombia. Arquitectura Feature-Based y Atomic Design con Next.js 15, " +
-      "React 19, Tailwind CSS y Supabase. Tres niveles de aprendizaje (bases, exámenes por materia, " +
-      "simulacro global de 200 preguntas en 3 horas), práctica por áreas (Matemáticas, Lenguaje, " +
-      "Ciencias Naturales, Ciencias Sociales, Inglés), material de estudio, temporizador configurable, " +
-      "seguimiento de estadísticas, desafíos diarios y clasificación, autenticación con email y Google, " +
-      "gamificación con más de 40 logros, planes de suscripción (Gratis, Pro, Premium, Anual), " +
-      "retroalimentación con explicaciones, contenido multimedia (imágenes, tablas, fórmulas con KaTeX) " +
-      "e integración con la API de OpenAI. Parte del contenido y la lógica de logros siguen en evolución.",
+      "App para practicar el ICFES (Saber 11) con tres capas: bases por competencia, exámenes por " +
+      "materia y un simulacro global de 200 preguntas en 3 horas. Cubre Matemáticas, Lectura Crítica, " +
+      "Ciencias Naturales, Sociales e Inglés, con temporizador, estadísticas, desafíos diarios y " +
+      "clasificación. Login con email o Google (Supabase), más de 40 logros, planes Gratis/Pro/Premium, " +
+      "explicaciones por pregunta, fórmulas con KaTeX y apoyo puntual con OpenAI. Parte del banco de " +
+      "preguntas y de los logros sigue creciendo.",
     en:
-      "Interactive platform to practice questions and learn topics for Colombia’s ICFES state exam " +
-      "(Saber 11). Feature-Based and Atomic Design architecture with Next.js 15, React 19, " +
-      "Tailwind CSS, and Supabase. Three learning levels (foundations, per-subject exams, full 200-question " +
-      "3-hour mock), practice by area (Math, Language, Natural Sciences, Social Sciences, English), " +
-      "study materials, configurable timer, statistics, daily challenges and leaderboard, " +
-      "email and Google auth, 40+ achievement gamification, subscription tiers (Free, Pro, Premium, Annual), " +
-      "feedback with explanations, multimedia (images, tables, KaTeX formulas), and OpenAI API integration. " +
-      "Some content and achievement logic are still evolving.",
+      "An ICFES (Saber 11) practice app with three layers: foundations by competency, per-subject " +
+      "exams, and a full 200-question mock in 3 hours. Covers Math, Critical Reading, Natural Sciences, " +
+      "Social Studies, and English, with a timer, stats, daily challenges, and a leaderboard. Email or " +
+      "Google login via Supabase, 40+ achievements, Free/Pro/Premium plans, per-question explanations, " +
+      "KaTeX formulas, and scoped OpenAI help. The question bank and achievements are still growing.",
     ru:
-      "Интерактивная платформа для подготовки к государственному экзамену ICFES (Saber 11) в Колумбии. " +
-      "Архитектура Feature-Based и Atomic Design на Next.js 15, React 19, Tailwind CSS и Supabase. " +
-      "Три уровня обучения, практика по предметам, полный пробный экзамен на 200 вопросов за 3 часа, " +
-      "учебные материалы, таймер, статистика, ежедневные задания и таблица лидеров, вход по email и Google, " +
-      "геймификация с 40+ достижениями, тарифы подписки, обратная связь с пояснениями, " +
-      "мультимедиа (KaTeX) и интеграция OpenAI API. Часть контента и логики достижений ещё дорабатывается.",
+      "Приложение для подготовки к ICFES (Saber 11) с тремя уровнями: основы по компетенциям, " +
+      "экзамены по предметам и полный пробный на 200 вопросов за 3 часа. Математика, критическое " +
+      "чтение, естественные и социальные науки, английский; таймер, статистика, ежедневные задания " +
+      "и рейтинг. Вход по email или Google (Supabase), 40+ достижений, тарифы Free/Pro/Premium, " +
+      "пояснения к ответам, формулы KaTeX и точечная помощь OpenAI. Банк вопросов и достижения ещё растут.",
     zh:
-      "面向哥伦比亚 ICFES 国家考试（Saber 11）的互动刷题与学习平台。" +
-      "采用 Feature-Based 与 Atomic Design，技术栈为 Next.js 15、React 19、Tailwind CSS 与 Supabase。" +
-      "包含三个学习层级、分科练习、三小时 200 题全真模拟、学习资料、可配置计时、进度统计、每日挑战与排行榜、" +
-      "邮箱与 Google 登录、40+ 成就体系、订阅方案（免费/Pro/Premium/年付）、详尽解析反馈、" +
-      "多媒体与 KaTeX 公式，以及 OpenAI API 集成。部分内容与成就逻辑仍在完善中。",
+      "ICFES（Saber 11）练习应用，分三层：按能力打基础、分科测验，以及三小时 200 题全真模拟。" +
+      "覆盖数学、批判性阅读、自然科学、社会科学与英语；含计时、统计、每日挑战与排行榜。" +
+      "邮箱或 Google 登录（Supabase）、40+ 成就、免费/Pro/Premium 方案、逐题解析、KaTeX 公式，" +
+      "以及有边界的 OpenAI 辅助。题库与成就仍在扩充。",
   },
   whatILearned: {
     es: [
-      "Organizar un producto grande con arquitectura por features y Atomic Design para escalar UI y dominio",
-      "Autenticación y datos con Supabase (Auth email/Google y capa de servicios sobre la base)",
-      "Estado global con Redux Toolkit en una app Next.js sin perder límites claros por módulo",
-      "Contenido educativo rico: Markdown, fórmulas con KaTeX y assets multimedia en el mismo flujo",
-      "Animaciones de interfaz con GSAP y acoplamiento controlado con React",
-      "Integrar la API de OpenAI manteniendo límites de alcance (producto educativo vs. “para todo el mundo”)",
+      "Partir el producto por áreas de estudio (no por páginas sueltas) para que cada materia escale sola",
+      "Auth y datos con Supabase sin mezclar reglas de negocio en el cliente",
+      "Redux Toolkit solo donde el progreso y la sesión cruzan varias pantallas",
+      "Renderizar Markdown + KaTeX + imágenes en el mismo flujo de pregunta",
+      "GSAP para feedback de aciertos/fallos sin saturar la UI de estudio",
+      "Limitar OpenAI al ICFES colombiano en vez de un “examen genérico mundial”",
     ],
     en: [
-      "Structuring a large product with feature-based folders plus Atomic Design to scale UI and domain",
-      "Supabase for auth (email/password, Google) and a service layer on top of the database",
-      "Redux Toolkit for global state in Next.js while keeping boundaries per feature",
-      "Rich learning content: Markdown, KaTeX math, and multimedia in one rendering pipeline",
-      "UI motion with GSAP and controlled coupling with React",
-      "OpenAI API integration while scoping the product (ICFES vs. a generic “every country” exam tool)",
+      "Split the product by study areas (not loose pages) so each subject can grow on its own",
+      "Supabase auth and data without burying business rules in the client",
+      "Redux Toolkit only where progress and session cross multiple screens",
+      "Render Markdown + KaTeX + images in one question pipeline",
+      "GSAP for correct/incorrect feedback without cluttering the study UI",
+      "Scope OpenAI to Colombian ICFES instead of a generic “every country” exam tool",
     ],
     ru: [
-      "Крупный продукт: feature-based структура и Atomic Design для масштабирования UI и домена",
-      "Supabase: аутентификация (email и Google) и слой сервисов над БД",
-      "Redux Toolkit для глобального состояния в Next.js с чёткими границами фич",
-      "Образовательный контент: Markdown, математика KaTeX и медиа в одном конвейере рендера",
-      "Анимации интерфейса через GSAP и сдерживаемая связка с React",
-      "Интеграция OpenAI API с осознанным ограничением scope (ICFES, не «все страны сразу»)",
+      "Делить продукт по учебным областям, а не по разрозненным страницам",
+      "Auth и данные в Supabase без бизнес-логики в клиенте",
+      "Redux Toolkit только там, где прогресс и сессия пересекают экраны",
+      "Один пайплайн вопроса: Markdown + KaTeX + изображения",
+      "GSAP для обратной связи без перегруза учебного UI",
+      "Ограничить OpenAI колумбийским ICFES, а не «экзаменом для всех стран»",
     ],
     zh: [
-      "用功能模块化目录 + Atomic Design 扩展大型教育产品与界面",
-      "使用 Supabase 做邮箱/Google 认证并在数据库之上抽象服务层",
-      "在 Next.js 中用 Redux Toolkit 管理全局状态，同时保持按功能划界",
-      "富文本学习流：Markdown、KaTeX 公式与多媒体统一渲染",
-      "用 GSAP 做动效并与 React 保持可控耦合",
-      "接入 OpenAI API 时明确产品边界（聚焦 ICFES，而非泛化的多国考试工具）",
+      "按学科域拆分产品（而非零散页面），让每科可独立扩展",
+      "用 Supabase 做认证与数据，避免把业务规则堆在客户端",
+      "仅在进度与会话跨多屏时使用 Redux Toolkit",
+      "在同一题目流水线中渲染 Markdown、KaTeX 与图片",
+      "用 GSAP 做对错反馈，避免学习界面过载",
+      "把 OpenAI 限定在哥伦比亚 ICFES，而不是泛化的多国考试工具",
     ],
   },
   technicalDetails: {
