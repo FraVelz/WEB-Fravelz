@@ -2,7 +2,8 @@ import PanelReveal from "@/components/ui/PanelReveal";
 import { HobbyCard } from "./components/HobbyCard";
 import { InteractiveBox2 } from "./components/InteractiveBox2";
 import { HobbiesInteractiveGrid } from "./components/HobbiesInteractiveGrid";
-import { LinuxIcon, WebdevIcon } from "./icons";
+import { LinuxIcon } from "./icons/LinuxIcon";
+import { WebdevIcon } from "./icons/WebdevIcon";
 
 import "./style.css";
 

@@ -162,7 +162,7 @@ const ICON_BY_YEAR: Record<string, typeof PythonIcon> = {
   "+2026": AboutWorkIcon,
 };
 
-export function getAboutTimelineIcon(year: string, isActive: boolean) {
+export function AboutTimelineIcon({ year, isActive }: { year: string; isActive: boolean }) {
   const Icon = ICON_BY_YEAR[year] ?? PythonIcon;
   return (
     <span

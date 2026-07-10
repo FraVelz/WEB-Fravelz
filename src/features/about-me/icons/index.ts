@@ -1,1 +1,0 @@
-export { getAboutTimelineIcon } from "./AboutTimelineIcons";

@@ -28,7 +28,6 @@ export default function PdfViewerModal({
   downloadText = "Descargar PDF",
 }: PdfViewerModalProps) {
   const onCloseRef = useRef(onClose);
-  const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const isMounted = useSyncExternalStore(noopSubscribe, getClientSnapshot, getServerSnapshot);
@@ -65,16 +64,16 @@ export default function PdfViewerModal({
   if (!isOpen || !isMounted) return null;
 
   return createPortal(
-    <div
-      className={cn("fixed inset-0 z-100 flex items-center justify-center bg-black/70 p-4", "backdrop-blur-sm")}
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      open
+      className={cn(
+        "fixed inset-0 z-100 m-0 flex h-auto max-h-none w-auto max-w-none items-center justify-center border-0",
+        "bg-black/70 p-4 text-inherit backdrop-blur-sm",
+      )}
       aria-labelledby="pdf-modal-title"
     >
       <button type="button" className="absolute inset-0 cursor-default" aria-label={closeText} onClick={onClose} />
       <div
-        ref={panelRef}
-        tabIndex={-1}
         className={cn(
           "relative flex h-[calc(100dvh-2rem)] w-full max-w-4xl flex-col overflow-hidden rounded-2xl outline-none",
           "bg-white shadow-2xl dark:bg-slate-900",
@@ -157,7 +156,7 @@ export default function PdfViewerModal({
             ref={iframeRef}
             src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
             title={title}
-            tabIndex={0}
+            sandbox="allow-downloads"
             onLoad={focusPdfViewer}
             className={cn(
               "h-full w-full border-0 outline-none",
@@ -167,7 +166,7 @@ export default function PdfViewerModal({
           />
         </div>
       </div>
-    </div>,
+    </dialog>,
     document.body,
   );
 }

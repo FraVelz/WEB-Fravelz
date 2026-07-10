@@ -8,7 +8,7 @@ import { useCarouselIndex } from "@/hooks/useCarouselIndex";
 import { cn } from "@/utils/cn";
 import type { Language } from "@/lib/i18n-routing";
 
-import { getAboutTimelineIcon } from "../icons";
+import { AboutTimelineIcon } from "../icons/AboutTimelineIcons";
 
 type HistoryEntry = { i18nKey: string; year: string; text: string };
 
@@ -140,7 +140,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                 )}
                 onClick={() => setIndex(i)}
               >
-                {getAboutTimelineIcon(item.year, selected)}
+                <AboutTimelineIcon year={item.year} isActive={selected} />
                 <span
                   className={cn(
                     "text-xs font-semibold tracking-wide sm:text-sm",
@@ -201,7 +201,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
           <div className="mb-4 h-1 w-14 rounded-full bg-[rgb(var(--color-primary)/0.75)] sm:mb-5" aria-hidden />
 
           <header className="mb-4 flex items-start gap-3 sm:mb-5 sm:gap-4">
-            {getAboutTimelineIcon(entry.year, true)}
+            <AboutTimelineIcon year={entry.year} isActive />
             <div className="min-w-0 flex-1">
               <p className="text-xs font-medium tracking-widest text-[rgb(var(--color-text-muted))] uppercase">
                 {labels.stageLabel}
@@ -259,7 +259,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
             </button>
           </div>
 
-          <div className="flex justify-center gap-2" role="group" aria-label={labels.tabsAria}>
+          <nav className="flex justify-center gap-2" aria-label={labels.tabsAria}>
             {entries.map((item, i) => (
               <button
                 key={item.i18nKey}
@@ -276,7 +276,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
                 onClick={() => setIndex(i)}
               />
             ))}
-          </div>
+          </nav>
         </>
       ) : null}
     </div>
