@@ -22,17 +22,15 @@ export const projectWebMarcadores: Project = {
   },
   shortDescription: {
     es:
-      "Gestor de marcadores y favoritos con Next.js 16 y Supabase. Carpetas anidadas, atajos de teclado, " +
-      "vistas de perfil y estadísticas, y modo demo sin configurar backend.",
+      "Organiza enlaces en carpetas anidadas con UI tipo explorador, atajos de teclado y " +
+      "modo demo en /demo sin configurar backend.",
     en:
-      "Bookmark and favorites manager with Next.js 16 and Supabase. Nested folders, keyboard shortcuts, " +
-      "profile and stats views, plus a demo mode with no backend setup.",
+      "Organize links in nested folders with a file-explorer UI, keyboard shortcuts, and " +
+      "a /demo mode that needs no backend setup.",
     ru:
-      "Менеджер закладок на Next.js 16 и Supabase. Вложенные папки, горячие клавиши, " +
-      "профиль и статистика, а также демо-режим без настройки бэкенда.",
-    zh:
-      "基于 Next.js 16 与 Supabase 的书签与收藏管理器。支持嵌套文件夹、键盘快捷键、" +
-      "个人资料与统计视图，以及无需后端的演示模式。",
+      "Ссылки во вложенных папках с UI как у проводника, горячими клавишами и " +
+      "демо на /demo без настройки бэкенда.",
+    zh: "用文件管理器风格界面整理嵌套文件夹中的链接，含键盘快捷键与无需后端的 /demo 模式。",
   },
   featuredImage: marcadoresImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12],
@@ -67,28 +65,28 @@ export const projectWebMarcadores: Project = {
   },
   whatILearned: {
     es: [
-      "Autenticación y sesión SSR con Supabase en Next.js 16 (App Router)",
-      "Modo demo desacoplado del backend para probar la UI sin credenciales",
-      "Drag and drop con @atlaskit/pragmatic-drag-and-drop para reorganizar marcadores",
-      "Atajos de teclado globales sin romper la accesibilidad del foco",
+      "Sesión SSR con Supabase en App Router sin filtrar cookies a client components",
+      "Montar /demo con datos en memoria para enseñar la UI sin .env",
+      "Reordenar carpetas y marcadores con pragmatic-drag-and-drop",
+      "Atajos globales (hotkeys-js) que no roban el foco de inputs",
     ],
     en: [
-      "Supabase auth and SSR sessions in Next.js 16 (App Router)",
-      "Demo mode decoupled from the backend to try the UI without credentials",
-      "Drag and drop with @atlaskit/pragmatic-drag-and-drop to reorder bookmarks",
-      "Global keyboard shortcuts without breaking focus accessibility",
+      "SSR sessions with Supabase on App Router without leaking cookies into client components",
+      "Ship /demo with in-memory data so the UI works without a .env",
+      "Reorder folders and bookmarks with pragmatic-drag-and-drop",
+      "Global shortcuts (hotkeys-js) that do not steal focus from inputs",
     ],
     ru: [
-      "Аутентификация Supabase и SSR-сессии в Next.js 16 (App Router)",
-      "Демо-режим, независимый от бэкенда, для проверки UI без учётных данных",
-      "Drag and drop через @atlaskit/pragmatic-drag-and-drop для перестановки закладок",
-      "Глобальные горячие клавиши без ухудшения доступности фокуса",
+      "SSR-сессии Supabase в App Router без утечки cookie в client components",
+      "Маршрут /demo с данными в памяти, чтобы UI работал без .env",
+      "Перестановка папок и закладок через pragmatic-drag-and-drop",
+      "Глобальные хоткеи (hotkeys-js), которые не крадут фокус у инпутов",
     ],
     zh: [
-      "在 Next.js 16（App Router）中实现 Supabase 认证与 SSR 会话",
-      "与后端解耦的演示模式，无需凭据即可体验界面",
-      "使用 @atlaskit/pragmatic-drag-and-drop 拖拽重排书签",
-      "全局快捷键且不破坏焦点可访问性",
+      "在 App Router 用 Supabase 做 SSR 会话，不把 cookie 泄漏到 client components",
+      "用内存数据做 /demo，没有 .env 也能演示 UI",
+      "用 pragmatic-drag-and-drop 重排文件夹与书签",
+      "全局快捷键（hotkeys-js）不抢走输入框焦点",
     ],
   },
   technicalDetails: {

@@ -17,17 +17,15 @@ export const projectNotasHacking: Project = {
   },
   shortDescription: {
     es:
-      "Guía estática para aprender o repasar ciberseguridad desde cero: notas en Markdown/MDX " +
-      "con Astro y Starlight, secciones (Linux, Python, Windows, redes, pentesting, OSINT, anonimato) y búsqueda integrada.",
+      "Mis notas de ciberseguridad en Markdown/MDX (Linux, redes, pentesting, OSINT…) " +
+      "publicadas con Astro Starlight y búsqueda integrada.",
     en:
-      "Static guide to learn or review cybersecurity from scratch: Markdown/MDX notes with Astro and Starlight, " +
-      "sections (Linux, Python, Windows, networking, pentesting, OSINT, anonymity), and built-in search.",
+      "My cybersecurity notes in Markdown/MDX (Linux, networking, pentesting, OSINT…) " +
+      "published with Astro Starlight and built-in search.",
     ru:
-      "Статическое руководство для изучения или повторения кибербезопасности с нуля: заметки в Markdown/MDX " +
-      "на Astro и Starlight, разделы (Linux, Python, Windows, сети, пентестинг, OSINT, анонимность) и встроенный поиск.",
-    zh:
-      "从零学习或复习网络安全的静态指南：基于 Astro 与 Starlight 的 Markdown/MDX 笔记，" +
-      "涵盖 Linux、Python、Windows、网络、渗透测试、OSINT、匿名等版块，并内置搜索。",
+      "Мои заметки по кибербезу в Markdown/MDX (Linux, сети, пентест, OSINT…) " +
+      "на Astro Starlight со встроенным поиском.",
+    zh: "我的网络安全笔记（Markdown/MDX：Linux、网络、渗透、OSINT…），用 Astro Starlight 发布并带站内搜索。",
   },
   featuredImage: NotasHackingImg,
   technologies: ["Astro", "Starlight", "MDX", "Markdown"],
@@ -64,10 +62,10 @@ export const projectNotasHacking: Project = {
   },
   whatILearned: {
     es: [
-      "montar documentación con Astro 5 y Starlight (salida estática y SEO)",
-      "organizar contenido con Content Collections y `docsLoader` de Starlight",
-      "controlar el menú lateral explícitamente con `starlight-sidebar.mjs`",
-      "personalizar tema Starlight con CSS propio y MDX para páginas más ricas",
+      "Montar documentación con Astro 5 y Starlight (salida estática y SEO)",
+      "Organizar contenido con Content Collections y `docsLoader` de Starlight",
+      "Controlar el menú lateral explícitamente con `starlight-sidebar.mjs`",
+      "Personalizar tema Starlight con CSS propio y MDX para páginas más ricas",
     ],
     en: [
       "Building documentation with Astro 5 and Starlight (static output and SEO)",
