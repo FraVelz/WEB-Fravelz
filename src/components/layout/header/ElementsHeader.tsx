@@ -1,5 +1,5 @@
 import NavLink from "./components/NavLink";
-import { Search } from "./components/Search";
+import { Search } from "./components/Search/Search";
 import ToggleTheme from "./components/ToggleTheme";
 
 import LanguageSelect from "./LanguageSelect";

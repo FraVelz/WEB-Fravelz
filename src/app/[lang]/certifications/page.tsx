@@ -3,7 +3,8 @@ import "@/features/projects/projects-nav.css";
 import CertificatesWithViewer from "@/components/ui/CertificatesWithViewer/CertificatesWithViewer";
 import Footer from "@/components/layout/Footer";
 
-import { certificationsJsonLd, JsonLd } from "@/lib/json-ld";
+import { JsonLd } from "@/lib/json-ld";
+import { certificationsJsonLd } from "@/lib/json-ld-data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { certificates, groupCertificates } from "@/utils/data/certificates";
 import { resolveLangParams } from "@/lib/page-lang";

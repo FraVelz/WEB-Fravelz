@@ -47,6 +47,7 @@ export default function CopyEmailButton({
 
   return (
     <button
+      type="button"
       onClick={handleCopy}
       className={cn(
         "flex max-w-fit cursor-pointer items-center gap-2 text-sm transition-all duration-300",

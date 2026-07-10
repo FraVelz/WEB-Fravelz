@@ -6,7 +6,8 @@ import { cn } from "@/utils/cn";
 import { useEffect, useEffectEvent, useMemo } from "react";
 import { ViewTransition } from "react";
 
-import { buildSlides, ProjectSlideImage, ListImagesViewerProps } from "./ListImageViewer.lib";
+import { buildSlides, type ListImagesViewerProps } from "./ListImageViewer.data";
+import { ProjectSlideImage } from "./ListImageViewer.lib";
 import { useInfiniteCarousel } from "./useInfiniteCarousel";
 
 export function ListImagesViewer({

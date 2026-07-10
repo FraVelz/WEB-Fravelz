@@ -4,7 +4,7 @@ import { languages, type Language } from "@/lib/i18n-routing";
 import { PROJECT_PREVIEW_IMAGE } from "@/lib/og-image";
 import { getSiteUrl } from "@/lib/site-url";
 
-export const SITE_NAME = "Fravelz";
+const SITE_NAME = "Fravelz";
 
 const OG_LOCALE: Record<Language, string> = {
   es: "es_ES",
@@ -13,7 +13,7 @@ const OG_LOCALE: Record<Language, string> = {
   zh: "zh_CN",
 };
 
-export const DEFAULT_OG_IMAGE = "/images/portfolio.png";
+const DEFAULT_OG_IMAGE = "/images/portfolio.png";
 
 /** URL absoluta alineada con `sitemap.ts` (home con `/` final). */
 export function pageUrl(lang: Language, pathname = ""): string {
@@ -22,7 +22,7 @@ export function pageUrl(lang: Language, pathname = ""): string {
   return `${site}/${lang}/${pathname.replace(/^\//, "")}`;
 }
 
-export function buildAlternates(lang: Language, pathname = ""): Metadata["alternates"] {
+function buildAlternates(lang: Language, pathname = ""): Metadata["alternates"] {
   const languageAlternates: Record<string, string> = {};
 
   for (const l of languages) {
@@ -43,7 +43,7 @@ export type OgImage = {
   alt?: string;
 };
 
-export function buildOpenGraph(options: {
+function buildOpenGraph(options: {
   lang: Language;
   title: string;
   description: string;
@@ -71,7 +71,7 @@ export function buildOpenGraph(options: {
   };
 }
 
-export function buildTwitter(options: {
+function buildTwitter(options: {
   title: string;
   description: string;
   image?: string;

@@ -17,7 +17,6 @@ export default async function Footer({ lang }: { lang: Language }) {
         "z-30 mt-auto border-t border-slate-200/80 bg-slate-50/70 text-slate-600",
         "dark:border-slate-700/80 dark:bg-slate-900/50 dark:text-slate-400",
       )}
-      role="contentinfo"
     >
       <div className="mx-auto max-w-6xl px-0 py-12 sm:px-0">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">

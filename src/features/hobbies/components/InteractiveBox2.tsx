@@ -1,4 +1,6 @@
-import { ExerciseIcon, PoliticsIcon, TypingIcon } from "./../icons";
+import { ExerciseIcon } from "../icons/ExerciseIcon";
+import { PoliticsIcon } from "../icons/PoliticsIcon";
+import { TypingIcon } from "../icons/TypingIcon";
 import { cn } from "@/utils/cn";
 import { HobbyCard } from "./HobbyCard";
 

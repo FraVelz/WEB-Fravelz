@@ -1,5 +1,6 @@
 import HomeMain from "@/features/PageFeature/HomeMain";
-import { homeJsonLd, JsonLd } from "@/lib/json-ld";
+import { JsonLd } from "@/lib/json-ld";
+import { homeJsonLd } from "@/lib/json-ld-data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
 import { getTranslations } from "@/utils/i18n";

@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { getLangFromPath, switchLangInPath } from "@/lib/lang-from-path";
 import type { Language } from "@/lib/i18n-routing";
 import { usePathname, useRouter } from "next/navigation";
+import type { ChangeEvent } from "react";
 import { useEffect, useRef } from "react";
 
 const LANGUAGE_ICON_PATH =
@@ -30,26 +31,18 @@ export default function LanguageSelect({
     el.value = getLangFromPath();
   }, [pathname]);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const onChange = () => {
-      const lang = el.value as Language;
-      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
-      try {
-        localStorage.setItem("preferred-language", lang);
-      } catch {
-        /* ignore */
-      }
-      const nextPath = switchLangInPath(pathname, lang);
-      const hash = typeof window !== "undefined" ? window.location.hash : "";
-      router.push(`${nextPath}${hash}`);
-    };
-
-    el.addEventListener("change", onChange);
-    return () => el.removeEventListener("change", onChange);
-  }, [pathname, router]);
+  const onLanguageChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const lang = event.currentTarget.value as Language;
+    document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+    try {
+      localStorage.setItem("preferred-language", lang);
+    } catch {
+      /* ignore */
+    }
+    const nextPath = switchLangInPath(pathname, lang);
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    router.push(`${nextPath}${hash}`);
+  };
 
   return (
     <div className="language-select-control group/language inline-flex items-center gap-1 rounded-lg p-1">
@@ -89,6 +82,7 @@ export default function LanguageSelect({
           "dark:group-has-[select:focus-visible]/language:text-cyan-300",
         )}
         aria-label={selectLanguageAria}
+        onChange={onLanguageChange}
       >
         <option value="es">Español</option>
         <option value="en">English</option>

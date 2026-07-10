@@ -3,13 +3,14 @@ import "@/features/projects/project-view-transition.css";
 import "./project-detail.css";
 
 import { SectionsDetails } from "./_components/SectionsDetails";
-import { ListImagesViewer } from "./_components/ListImageViewer";
+import { ListImagesViewer } from "./_components/ListImageViewer/ListImageViewer";
 
 import { resolveLangParam } from "@/lib/page-lang";
 import { getAllProjects, getProjectBySlug } from "@/utils/data/projects";
 import { getTranslations } from "@/utils/i18n";
 import { languages } from "@/lib/i18n-routing";
-import { JsonLd, projectDetailJsonLd } from "@/lib/json-ld";
+import { JsonLd } from "@/lib/json-ld";
+import { projectDetailJsonLd } from "@/lib/json-ld-data";
 import { buildPageMetadata } from "@/lib/metadata";
 
 import { notFound } from "next/navigation";

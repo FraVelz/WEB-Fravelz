@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/role-has-required-aria-props -- combobox options */
 "use client";
 
 import "../search.css";
@@ -106,10 +105,9 @@ export function Modal({
   const noResultsText = searchLabel(translations, "search_no_results").replace(/\{query\}/g, query);
 
   return createPortal(
-    <div
-      className="fixed inset-0 z-50"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      open
+      className="fixed inset-0 z-50 m-0 h-auto max-h-none w-auto max-w-none border-0 bg-transparent p-0 text-inherit"
       aria-label={searchLabel(translations, "search_dialog_aria")}
     >
       <button
@@ -177,11 +175,11 @@ export function Modal({
             ) : results.length === 0 ? (
               <p className="p-4 text-sm text-gray-500 dark:text-gray-400">{noResultsText}</p>
             ) : (
-              <ul className="py-2" role="listbox">
+              <ul className="py-2">
                 {results.map((r) => {
                   if (r.type === "project") {
                     return (
-                      <li key={`p-${r.slug}`} role="option">
+                      <li key={`p-${r.slug}`}>
                         <a
                           href={`${baseUrl}${lang}/projects/${r.slug}`}
                           className={searchResultColumnLinkClass}
@@ -204,7 +202,7 @@ export function Modal({
                   }
                   if (r.type === "technology") {
                     return (
-                      <li key={`t-${r.id}`} role="option">
+                      <li key={`t-${r.id}`}>
                         <a
                           href={`${baseUrl}${lang}/#technologies`}
                           className={searchResultInlineLinkClass}
@@ -222,7 +220,7 @@ export function Modal({
                   }
                   if (r.type === "certificate") {
                     return (
-                      <li key={`c-${r.id}`} role="option">
+                      <li key={`c-${r.id}`}>
                         <a
                           href={`${baseUrl}${lang}/certifications`}
                           className={searchResultColumnLinkClass}
@@ -239,7 +237,7 @@ export function Modal({
                     );
                   }
                   return (
-                    <li key={`pg-${r.url}`} role="option">
+                    <li key={`pg-${r.url}`}>
                       <a href={r.url} className={searchResultColumnLinkClass} onClick={() => setIsActive(false)}>
                         <span className="font-medium text-gray-900 dark:text-gray-100">{r.label}</span>
                         <span className="line-clamp-2 text-xs text-gray-500 dark:text-gray-400">
@@ -254,7 +252,7 @@ export function Modal({
           </div>
         </div>
       </div>
-    </div>,
+    </dialog>,
     document.body,
   );
 }

@@ -22,7 +22,7 @@ export default function MobileDrawer({
   menuLabel?: string;
   closeMenuAria?: string;
 }) {
-  const drawerRef = useRef<HTMLElement>(null);
+  const drawerRef = useRef<HTMLDialogElement>(null);
   const previouslyFocusedRef = useRef<Element | null>(null);
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function MobileDrawer({
       drawer.classList.add("translate-x-full");
       overlay?.classList.add("opacity-0", "pointer-events-none");
       openBtn?.setAttribute("aria-expanded", "false");
+      if (drawer.open) {
+        drawer.close();
+      }
 
       const toFocus = previouslyFocusedRef.current;
       previouslyFocusedRef.current = null;
@@ -58,6 +61,9 @@ export default function MobileDrawer({
 
     const openDrawer = () => {
       previouslyFocusedRef.current = document.activeElement;
+      if (!drawer.open) {
+        drawer.showModal();
+      }
       drawer.classList.remove("translate-x-full");
       overlay?.classList.remove("opacity-0", "pointer-events-none");
       openBtn?.setAttribute("aria-expanded", "true");
@@ -99,16 +105,23 @@ export default function MobileDrawer({
       }
     };
 
+    const onCancel = (event: Event) => {
+      event.preventDefault();
+      closeDrawer();
+    };
+
     openBtn?.addEventListener("click", openDrawer);
     closeBtn?.addEventListener("click", closeDrawer);
     overlay?.addEventListener("click", closeDrawer);
     document.addEventListener("keydown", onKeyDown);
+    drawer.addEventListener("cancel", onCancel);
 
     return () => {
       openBtn?.removeEventListener("click", openDrawer);
       closeBtn?.removeEventListener("click", closeDrawer);
       overlay?.removeEventListener("click", closeDrawer);
       document.removeEventListener("keydown", onKeyDown);
+      drawer.removeEventListener("cancel", onCancel);
     };
   }, []);
 
@@ -122,16 +135,15 @@ export default function MobileDrawer({
         )}
       />
 
-      <aside
+      <dialog
         ref={drawerRef}
         id="drawer-menu"
         data-drawer
-        role="dialog"
-        aria-modal="true"
         aria-label={menuLabel}
         className={cn(
-          "drawer-panel fixed top-0 right-0 z-[60] h-dvh w-[85%] max-w-sm translate-x-full transform overflow-y-auto",
-          "bg-[rgb(var(--color-surface))] shadow-2xl transition-transform duration-300 ease-in-out lg:hidden",
+          "drawer-panel fixed top-0 right-0 z-[60] m-0 h-dvh max-h-none w-[85%] max-w-sm translate-x-full",
+          "transform overflow-y-auto border-0 bg-[rgb(var(--color-surface))] p-0 text-inherit shadow-2xl",
+          "transition-transform duration-300 ease-in-out backdrop:bg-transparent lg:hidden",
         )}
       >
         <div
@@ -165,7 +177,7 @@ export default function MobileDrawer({
         </div>
 
         <div className="flex flex-col gap-5 bg-[rgb(var(--color-surface))] p-5">{children}</div>
-      </aside>
+      </dialog>
     </>
   );
 }

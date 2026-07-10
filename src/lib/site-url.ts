@@ -1,5 +1,5 @@
 /** Dominio canónico de producción (fallback cuando no hay env de despliegue). */
-export const DEFAULT_SITE_URL = "https://fravelz.vercel.app";
+const DEFAULT_SITE_URL = "https://fravelz.vercel.app";
 
 /** URL pública del sitio (sitemap, canonical, JSON-LD). */
 export function getSiteUrl(): string {

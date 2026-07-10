@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const NOT_FOUND_ROBOTS: NonNullable<Metadata["robots"]> = {
+const NOT_FOUND_ROBOTS: NonNullable<Metadata["robots"]> = {
   index: false,
   follow: false,
   googleBot: {

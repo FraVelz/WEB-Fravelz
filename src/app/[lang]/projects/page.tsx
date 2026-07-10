@@ -6,7 +6,8 @@ import ProjectsFilterBar from "@/features/projects/components/ProjectsFilterBar"
 import ProjectsFilterCount from "@/features/projects/components/ProjectsFilterCount";
 import Footer from "@/components/layout/Footer";
 
-import { JsonLd, projectsIndexJsonLd } from "@/lib/json-ld";
+import { JsonLd } from "@/lib/json-ld";
+import { projectsIndexJsonLd } from "@/lib/json-ld-data";
 import { buildPageMetadata } from "@/lib/metadata";
 import { resolveLangParams } from "@/lib/page-lang";
 import { getAllProjects, parseProjectFilter, type ProjectFilter } from "@/utils/data/projects";
@@ -33,8 +34,7 @@ export default async function ProjectsIndexPage({
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ filter?: string }>;
 }) {
-  const lang = await resolveLangParams(params);
-  const { filter: filterParam } = await searchParams;
+  const [lang, { filter: filterParam }] = await Promise.all([resolveLangParams(params), searchParams]);
   const activeFilter = parseProjectFilter(filterParam);
   const t = getTranslations(lang);
   const allProjects = getAllProjects();
