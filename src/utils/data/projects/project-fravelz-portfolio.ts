@@ -35,7 +35,7 @@ export const projectFravelzPortfolio: Project = {
   githubUrl: "https://github.com/FraVelz/WEB-Fravelz",
   featured: true,
   year: 2026,
-  inDevelopment: true,
+  inDevelopment: false,
   screenshots: [image1, image2, image3, image4, image5, image6],
   fullDescription: {
     es:
