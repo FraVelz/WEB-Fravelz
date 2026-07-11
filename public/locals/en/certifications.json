@@ -2,7 +2,7 @@
   "cert_back_to_about": "Back to About Me",
   "cert_formacion_badge": "Training and certificates",
   "cert_web_title": "Web Development Certificates",
-  "cert_web_focus": "Focused on frontend / web",
+  "cert_web_focus": "Focused on fullstack web development",
   "cert_web_empty": "I haven't uploaded web certificates here yet. When I do, they will be listed with downloadable PDFs.",
   "cert_other_title": "Other Certificates",
   "cert_hixec_title": "Hacking - Hixec Certificates",
@@ -18,6 +18,6 @@
   "cert_viewer_close": "Close",
   "cert_viewer_download": "Download PDF",
   "cert_no_certificates": "No certificates for this filter",
-  "cert_intro_paragraph1": "My training is self-taught; I dedicate at least four hours every day to study, including practice, review, reading, and new learning. I focus on web development, especially frontend, building interfaces and mastering modern technologies.",
-  "cert_intro_paragraph2": "My goal is to become one of the best frontend developers by 2031 and work at Google."
+  "cert_intro_paragraph1": "My training is self-taught; I dedicate at least four hours every day to study, including practice, review, reading, and new learning. I focus on fullstack web development: interfaces, data, APIs, and shipping products.",
+  "cert_intro_paragraph2": "My goal is to become one of the best fullstack developers by 2031 and work at Google."
 }

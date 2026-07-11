@@ -72,7 +72,7 @@ export default async function HeroSection({ lang }: { lang: Language }) {
                 data-hero-enter="item"
                 className={cn("text-start text-lg font-bold text-cyan-700 sm:text-xl lg:text-xl", "dark:text-cyan-100")}
               >
-                {t.hero_role || "Desarrollador Web - Frontend :)"}
+                {t.hero_role || "Desarrollador Web - Fullstack :)"}
               </p>
 
               <p

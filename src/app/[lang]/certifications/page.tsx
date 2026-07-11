@@ -97,7 +97,7 @@ export default async function CertificationsPage({ params }: { params: Promise<{
                   "dark:border-cyan-700/60 dark:bg-cyan-900/40 dark:text-cyan-200",
                 )}
               >
-                <span>{t.cert_web_focus || "Enfocado en frontend / web"}</span>
+                <span>{t.cert_web_focus || "Enfocado en desarrollo web fullstack"}</span>
               </span>
             </div>
 

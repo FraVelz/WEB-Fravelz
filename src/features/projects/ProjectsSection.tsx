@@ -21,7 +21,7 @@ export default async function ProjectsSection({ lang, classname = "" }: { lang: 
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
               {t.projects_section_description ||
-                "Una selección de mis proyectos más destacados como desarrollador frontend."}
+                "Una selección de mis proyectos más destacados como desarrollador fullstack."}
             </p>
           </div>
 

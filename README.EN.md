@@ -11,7 +11,7 @@ The previous **Astro** version of the site is preserved on branch
 [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag
 [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
 
-I'm Fravelz (Francisco Velez), a Front-End Developer. My goal is simple: to be one of the best front-end programmers in
+I'm Fravelz (Francisco Velez), a Fullstack Developer. My goal is simple: to be one of the best fullstack programmers in
 the world and eventually work at Google.
 
 This portfolio, along with other projects that will be under construction, being improved, and completed, will

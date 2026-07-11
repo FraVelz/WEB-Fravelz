@@ -8,13 +8,13 @@
   "about_history_go_to_year": "Go to {year}",
 
   "about_intro_text": "Hi! I'm Fravelz. Computing and software development have interested me since I was a kid, especially web development.",
-  "about_current_text": "Specialized in web layout, I create fluid, animated, functional, minimalist interfaces. I work with proper semantics and SEO, integrate backend data and services into the frontend, and I also focus on structuring and maintaining code correctly.",
+  "about_current_text": "Fullstack developer: I build fluid, animated, minimalist interfaces and wire data and services on the server. I care about semantics, SEO, and maintainable end-to-end code structure.",
 
   "about_history_text": "At age 9 I received my first computer. At first I used it to watch TV shows on YouTube, but everything changed when I discovered La Geekipedia de Ernesto. I started with courses on Raptor, Java, and Python, and soon built my first graphical interfaces in Java.",
 
   "about_modal_paragraph1": "Over time I began exploring other channels and areas of computing: data science (Pandas, NumPy), artificial intelligence (TensorFlow, Keras), and cybersecurity fundamentals (Bash, Python, and Linux). I also learned and practiced languages such as Python, Java, Go, Ruby, Batch, HTML, and CSS, among others.",
   "about_modal_paragraph2": "I created my first GitHub account, although three years later I lost access to it.",
   "about_modal_paragraph3": "Later I went deeper into Git and GitHub, writing Python scripts with various libraries. I also worked on desktop development (PyQt5, PySide, Tkinter, and Qt) and web development (HTML, CSS, and JavaScript). I published several of these projects on GitHub (in 2024 I created my second account—my current main account).",
-  "about_modal_paragraph4": "In September of that year I left school while in 10th grade. Over the following months I focused self-taught on web development, specializing in frontend.",
-  "about_modal_paragraph5": "Currently I continue learning web development and building projects. My goal is to become one of the best frontend developers by 2031 and work at Google. I also plan to complete high school by taking the ICFES 11 validation, studying independently."
+  "about_modal_paragraph4": "In September of that year I left school while in 10th grade. Over the following months I focused self-taught on web development, moving from interfaces to fullstack products.",
+  "about_modal_paragraph5": "Currently I continue learning web development and building projects. My goal is to become one of the best fullstack developers by 2031 and work at Google. I also plan to complete high school by taking the ICFES 11 validation, studying independently."
 }
