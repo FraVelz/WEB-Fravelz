@@ -12,8 +12,8 @@ La versión anterior del sitio construida con **Astro** queda archivada en la ra
 [`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) y en el tag
 [`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
 
-Soy fravelz (Francisco Velez), Desarrollador Front-End, mi objetivo es sencillo, ser de los mejores programadores a
-nivel mundial en frontend, y llegar trabajar en google.
+Soy fravelz (Francisco Velez), Desarrollador Fullstack, mi objetivo es sencillo, ser de los mejores programadores a
+nivel mundial en desarrollo fullstack, y llegar trabajar en google.
 
 Este portfolio y demás proyectos que estarán en construcción, mejora, y finalización, sera el camino que muestre mi
 progreso y mis detalles que tengo en cuenta para mi objetivo.

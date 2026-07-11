@@ -14,7 +14,7 @@
 | **Ubicación** | Bogotá, Colombia |
 | **Correo** | <fravelz@proton.me> |
 | **GitHub** | <https://github.com/FraVelz> |
-| **Rol en el sitio** | Desarrollador web — frontend |
+| **Rol en el sitio** | Desarrollador web — fullstack |
 
 **Proyecto portafolio (código y documentación):** repositorio con documentación bilingüe (ES/EN), comentarios y commits
 de código en inglés en proyectos personales recientes, según criterio descrito en el README del repositorio.
@@ -23,9 +23,9 @@ de código en inglés en proyectos personales recientes, según criterio descrit
 
 ## Resumen profesional (elevator pitch)
 
-Desarrollador **frontend** especializado en **maquetación web**, con foco en interfaces **fluidas, animadas, funcionales
-y minimalistas**. Trabaja con **semántica HTML y SEO**, **integra datos y servicios de backend** en el cliente, y cuida
-la **estructura y el mantenimiento** del código frontend. Perfil con base **autodidacta** y aprendizaje continuo; el
+Desarrollador **fullstack** con foco en productos web de extremo a extremo: interfaces **fluidas, animadas, funcionales
+y minimalistas**, **semántica HTML y SEO**, **APIs, datos y servicios** en el servidor, y cuidado de la **estructura y
+el mantenimiento** del código. Perfil con base **autodidacta** y aprendizaje continuo; el
 sitio de certificaciones indica un **mínimo orientativo de 4 horas diarias** de estudio (práctica, repaso, lectura y
 aprendizaje nuevo).
 
@@ -40,17 +40,17 @@ Interés sostenido desde la infancia por la **informática** y el **desarrollo d
 
 ### Enfoque actual
 
-- Maquetación y experiencia de usuario en frontend.  
+- Productos web fullstack (UI + datos + APIs + despliegue).  
 - Buenas prácticas de **accesibilidad** y **SEO**.  
 - Integración de **APIs, datos y servicios** en aplicaciones web.  
 - Código **organizado, tipado donde aplica (TypeScript)** y mantenible.
 
 ### Objetivos declarados (según el portafolio)
 
-- Aspiración a ser **referente en frontend** y **llegar a trabajar en Google** (marco temporal mencionado: **hacia
+- Aspiración a ser **referente en desarrollo fullstack** y **llegar a trabajar en Google** (marco temporal mencionado: **hacia
   2031**).
 - Completar el **bachillerato** mediante la **validación ICFES 11** con estudio autónomo.  
-- Objetivo complementario: ser **“uno de los mejores desarrolladores frontend”** a escala internacional, según textos de
+- Objetivo complementario: ser **“uno de los mejores desarrolladores fullstack”** a escala internacional, según textos de
   presentación y certificaciones en el sitio.
 
 ---
@@ -69,7 +69,7 @@ Interés sostenido desde la infancia por la **informática** y el **desarrollo d
   (PyQt5, PySide, Tkinter, Qt) y **web** (HTML, CSS, JavaScript); publicación de proyectos en GitHub.
 - **2024:** creación de la **cuenta actual de GitHub** (cuenta principal).  
 - **Septiembre de 2024:** dejó el colegio en **grado 10 (décimo)**; en los meses siguientes se orientó de forma
-  autodidacta al **desarrollo web** con especialización en **frontend**.
+  autodidacta al **desarrollo web** hacia productos **fullstack**.
 - **Situación actual (según textos del sitio):** sigue aprendiendo desarrollo web, construyendo proyectos y planificando
   la validación de bachillerato.
 

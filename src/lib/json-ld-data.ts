@@ -13,7 +13,7 @@ const SITE_ID = "#website";
 const PERSON = {
   name: "Francisco J. Vélez O.",
   alternateName: "Fravelz",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Fullstack Developer",
   sameAs: ["https://github.com/FraVelz"],
 } as const;
 

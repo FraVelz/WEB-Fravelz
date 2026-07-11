@@ -2,7 +2,7 @@
   "cert_back_to_about": "返回关于我",
   "cert_formacion_badge": "培训和证书",
   "cert_web_title": "Web开发证书",
-  "cert_web_focus": "专注于前端/Web",
+  "cert_web_focus": "专注于全栈 Web 开发",
   "cert_web_empty": "我尚未在此上传Web证书。上传后，将列出可下载的PDF。",
   "cert_other_title": "其他证书",
   "cert_hixec_title": "黑客 - Hixec 证书",
@@ -18,6 +18,6 @@
   "cert_viewer_close": "关闭",
   "cert_viewer_download": "下载 PDF",
   "cert_no_certificates": "此过滤器没有证书",
-  "cert_intro_paragraph1": "我的学习是自学完成的，每天至少投入 4 小时学习，包括实践、复习、阅读和新的知识。我专注于 Web 开发，尤其是前端，构建界面并掌握现代技术。",
-  "cert_intro_paragraph2": "我的目标是到 2031 年成为最优秀的前端开发者之一，并在 Google 工作。"
+  "cert_intro_paragraph1": "我的学习是自学完成的，每天至少投入 4 小时学习，包括实践、复习、阅读和新的知识。我专注于全栈 Web 开发：界面、数据、API 与产品上线。",
+  "cert_intro_paragraph2": "我的目标是到 2031 年成为最优秀的全栈开发者之一，并在 Google 工作。"
 }

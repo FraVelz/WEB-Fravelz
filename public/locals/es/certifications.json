@@ -2,7 +2,7 @@
   "cert_back_to_about": "Volver a Sobre Mí",
   "cert_formacion_badge": "Formación y certificados",
   "cert_web_title": "Certificados de Desarrollo Web",
-  "cert_web_focus": "Enfocado en frontend / web",
+  "cert_web_focus": "Enfocado en desarrollo web fullstack",
   "cert_web_empty": "Aún no he subido certificados web aquí. Cuando los tenga, aparecerán listados con sus PDFs descargables.",
   "cert_other_title": "Otros Certificados",
   "cert_hixec_title": "Hacking - Certificados Hixec",
@@ -18,6 +18,6 @@
   "cert_viewer_close": "Cerrar",
   "cert_viewer_download": "Descargar PDF",
   "cert_no_certificates": "No hay certificados para este filtro",
-  "cert_intro_paragraph1": "Mi formación es autodidacta; dedico un mínimo de 4 horas diarias al estudio que incluye práctica, repaso, lectura y aprendizaje nuevo. Me enfoco en desarrollo web, especialmente en frontend, construyendo interfaces y dominando las tecnologías modernas.",
-  "cert_intro_paragraph2": "Mi objetivo es ser uno de los mejores desarrolladores frontend para 2031 y llegar a trabajar en Google."
+  "cert_intro_paragraph1": "Mi formación es autodidacta; dedico un mínimo de 4 horas diarias al estudio que incluye práctica, repaso, lectura y aprendizaje nuevo. Me enfoco en desarrollo web fullstack: interfaces, datos, APIs y despliegue de productos.",
+  "cert_intro_paragraph2": "Mi objetivo es ser uno de los mejores desarrolladores fullstack para 2031 y llegar a trabajar en Google."
 }

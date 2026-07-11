@@ -82,7 +82,7 @@ export default async function ProjectsIndexPage({
               {t.hacking_projects_title || "Proyectos Principales"}
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-[rgb(var(--color-text-muted))]">
-              {t.projects_all_projects_description || "Todos mis proyectos como desarrollador frontend."}
+              {t.projects_all_projects_description || "Todos mis proyectos como desarrollador fullstack."}
             </p>
             <p className="mt-2 text-sm text-[rgb(var(--color-text-muted))]">
               <span>{t.projects_total || "Total"}</span>:{" "}
