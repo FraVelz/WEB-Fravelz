@@ -33,7 +33,7 @@ export const projectNotasHacking: Project = {
   demoUrl: "https://fravelz.github.io/WEB-Notas-de-Hacking/",
   githubUrl: "https://github.com/FraVelz/WEB-Notas-de-Hacking",
   year: 2025,
-  inDevelopment: true,
+  inDevelopment: false,
   screenshots: [image2, image3, image4, image5, image6],
   fullDescription: {
     es:
