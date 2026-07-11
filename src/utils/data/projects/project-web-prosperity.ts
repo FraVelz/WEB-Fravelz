@@ -5,7 +5,6 @@ import image2 from "@/assets/images-projects/prosperity/image2.webp";
 import image3 from "@/assets/images-projects/prosperity/image3.webp";
 import image4 from "@/assets/images-projects/prosperity/image4.webp";
 import image5 from "@/assets/images-projects/prosperity/image5.webp";
-import image6 from "@/assets/images-projects/prosperity/image6.webp";
 
 export const projectWebProsperity: Project = {
   slug: "web-prosperity",
@@ -28,7 +27,7 @@ export const projectWebProsperity: Project = {
     zh: "探索国家如何运转的专题档案：政治、经济、地缘政治与数据，含 MapLibre 地图与国家比较器。",
   },
   featuredImage: prosperityImg,
-  screenshots: [image1, image2, image3, image4, image5, image6],
+  screenshots: [image1, image2, image3, image4, image5],
   technologies: [
     "Next.js",
     "React",
