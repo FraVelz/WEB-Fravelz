@@ -11,7 +11,7 @@ const HERO_CV_BUTTON_ICON_PATH =
   "M19.5 14.25v2.25A2.25 2.25 0 0 1 17.25 18.75h-10.5A2.25 2.25 0 0 1 4.5 " +
   "16.5v-2.25M12 13.5 12 4.5m0 9-3 3m3-3 3 3M3.375 18.75h17.25";
 
-const CV_PDF_PATH = `/pdfs/${encodeURIComponent("CV - ATS Harvard.pdf")}`;
+const CV_PDF_PATH = "/pdfs/CV-Fravelz.pdf";
 
 type HeroCvCopyActionsProps = {
   email: string;
