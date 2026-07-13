@@ -36,3 +36,6 @@ tsconfig.tsbuildinfo
 
 # Temporary OG artwork dropped in repo root
 /*.png
+
+# Local venv for CV PDF export (weasyprint)
+.venv-cv/
