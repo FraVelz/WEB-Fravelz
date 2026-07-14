@@ -156,7 +156,6 @@ export default function PdfViewerModal({
             ref={iframeRef}
             src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
             title={title}
-            sandbox="allow-downloads"
             onLoad={focusPdfViewer}
             className={cn(
               "h-full w-full border-0 outline-none",
