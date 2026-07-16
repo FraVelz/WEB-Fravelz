@@ -47,6 +47,7 @@ export const projectWebTodoList: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  honesty: ["lab"],
   fullDescription: {
     es:
       "Gestor de tareas orientado a flujo diario: bandeja, Hoy, Próximo y completadas, con filtros, " +

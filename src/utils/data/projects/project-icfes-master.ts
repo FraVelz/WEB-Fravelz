@@ -47,6 +47,7 @@ export const projectIcfesMaster: Project = {
   featured: true,
   year: 2026,
   inDevelopment: true,
+  honesty: ["piloto"],
   fullDescription: {
     es:
       "App para practicar el ICFES (Saber 11) con tres capas: bases por competencia, exámenes por " +

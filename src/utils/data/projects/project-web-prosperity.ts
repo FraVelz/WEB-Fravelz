@@ -44,6 +44,7 @@ export const projectWebProsperity: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  honesty: ["demo"],
   fullDescription: {
     es:
       "Sitio de lectura e interacción con 25 apartados en siete bloques (publicado / en preparación / " +

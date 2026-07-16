@@ -41,6 +41,7 @@ export const projectWebMarcadores: Project = {
   featured: true,
   year: 2026,
   inDevelopment: true,
+  honesty: ["demo"],
   fullDescription: {
     es:
       "Aplicación web para organizar enlaces favoritos en carpetas anidadas, con cuadrícula de marcadores, " +

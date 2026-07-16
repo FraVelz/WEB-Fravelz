@@ -40,6 +40,7 @@ export const projectEcoBogota: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  honesty: ["piloto", "privado"],
   fullDescription: {
     es:
       "EcoBogotá conecta ciudadanos con puntos de reciclaje verificados en Bogotá. El workspace meta (eco-bogota-meta) " +

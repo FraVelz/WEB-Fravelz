@@ -7,11 +7,12 @@ import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";
 import { PROJECT_PREVIEW_IMAGE } from "@/lib/og-image";
 import { projectHeroTransitionName, projectTitleTransitionName } from "@/lib/project-view-transition";
+import ProjectHonestyBadges, { type HonestyBadgeLabels } from "./ProjectHonestyBadges";
 import Image from "next/image";
 import Link from "next/link";
 import { ViewTransition } from "react";
 
-export type ProjectCardLabels = {
+export type ProjectCardLabels = HonestyBadgeLabels & {
   project_preview_alt?: string;
   projects_coming_soon?: string;
   projects_featured?: string;
@@ -78,6 +79,12 @@ export default function ProjectCardView({ project, lang, labels }: ProjectCardVi
                   {labels.project_status_finished ?? "Finalizado"}
                 </div>
               )}
+              <ProjectHonestyBadges
+                badges={project.honesty}
+                labels={labels}
+                variant="card"
+                className="absolute right-3 bottom-3 max-w-[55%] justify-end"
+              />
             </div>
           </ViewTransition>
 

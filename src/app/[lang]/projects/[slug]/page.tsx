@@ -18,6 +18,7 @@ import type { Metadata } from "next";
 
 import { cn } from "@/utils/cn";
 import { projectTitleTransitionName } from "@/lib/project-view-transition";
+import ProjectHonestyBadges from "@/features/projects/components/ProjectHonestyBadges";
 import Link from "next/link";
 import { ViewTransition } from "react";
 
@@ -118,6 +119,17 @@ export default async function ProjectSlugPage({ params }: { params: Promise<{ la
                   {t.project_status_finished ?? "Finalizado"}
                 </span>
               )}
+              <ProjectHonestyBadges
+                badges={project.honesty}
+                labels={{
+                  project_honesty_demo: t.project_honesty_demo,
+                  project_honesty_piloto: t.project_honesty_piloto,
+                  project_honesty_lab: t.project_honesty_lab,
+                  project_honesty_privado: t.project_honesty_privado,
+                  project_honesty_terminado: t.project_honesty_terminado,
+                }}
+                variant="detail"
+              />
               {project.technologies.map((tech) => (
                 <span
                   key={tech}

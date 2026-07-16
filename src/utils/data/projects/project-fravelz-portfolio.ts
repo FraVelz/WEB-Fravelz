@@ -36,6 +36,7 @@ export const projectFravelzPortfolio: Project = {
   featured: true,
   year: 2026,
   inDevelopment: false,
+  honesty: ["terminado"],
   screenshots: [image1, image2, image3, image4, image5, image6],
   fullDescription: {
     es:
