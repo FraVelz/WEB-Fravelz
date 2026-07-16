@@ -39,3 +39,9 @@ tsconfig.tsbuildinfo
 
 # Local venv for CV PDF export (weasyprint)
 .venv-cv/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

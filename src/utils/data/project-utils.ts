@@ -22,6 +22,12 @@ export function parseProjectFilter(value: string | undefined): ProjectFilter {
   return "all";
 }
 
+/** True when `value` is a known filter id (not a typo / unknown query). */
+export function isKnownProjectFilter(value: string | null | undefined): boolean {
+  if (value == null || value === "") return true;
+  return PROJECT_FILTERS.has(value as ProjectFilter);
+}
+
 export function filterProjects(items: Project[], filter: ProjectFilter): Project[] {
   switch (filter) {
     case "featured":
