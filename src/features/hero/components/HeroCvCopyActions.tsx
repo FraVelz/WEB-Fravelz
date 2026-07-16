@@ -40,7 +40,7 @@ export default function HeroCvCopyActions({
         <CopyEmailButton email={email} successText={copySuccessText} ariaLabel={copyEmailAriaLabel} variant="solid" />
         <button
           type="button"
-          onClick={() => openViewer(CV_PDF_PATH, cvModalTitle)}
+          onClick={(e) => openViewer(CV_PDF_PATH, cvModalTitle, e.currentTarget)}
           className={cn(
             "hero-btn-outline group inline-flex min-h-[2.625rem] cursor-pointer items-center justify-center gap-2",
             "rounded-lg px-3.5 text-sm font-semibold sm:px-4",
