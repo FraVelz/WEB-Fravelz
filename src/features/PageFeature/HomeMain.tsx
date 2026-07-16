@@ -18,9 +18,7 @@ import { getTranslations } from "@/utils/i18n";
 
 /** GSAP client islands — dynamic so ScrollTrigger/core stay off the critical RSC payload. */
 const HeroEntrance = dynamic(() => import("@/features/hero/components/HeroEntrance"));
-const HomeAmbientGlow = dynamic(() =>
-  import("./components/HomeAmbientGlow").then((m) => m.HomeAmbientGlow),
-);
+const HomeAmbientGlow = dynamic(() => import("./components/HomeAmbientGlow").then((m) => m.HomeAmbientGlow));
 const HomeScroll = dynamic(() => import("./HomeScroll"));
 
 export default async function HomeMain({ lang }: { lang: Language }) {
