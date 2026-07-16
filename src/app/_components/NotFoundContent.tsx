@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 import { prefersReducedMotion } from "@/lib/motion";
 import Link from "next/link";
 import { useEffect } from "react";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsap";
 
 const NOT_FOUND_ELEMENTS = ["#element-404-1", "#element-404-2", "#element-404-3", "#element-404-4"] as const;
 
