@@ -17,15 +17,15 @@ export const projectNotasHacking: Project = {
   },
   shortDescription: {
     es:
-      "Mis notas de ciberseguridad en Markdown/MDX (Linux, redes, pentesting, OSINT…) " +
-      "publicadas con Astro Starlight y búsqueda integrada.",
+      "Lab terminado: notas de ciberseguridad en Markdown/MDX (Linux, redes, pentesting, OSINT…) " +
+      "con Astro Starlight y búsqueda integrada.",
     en:
-      "My cybersecurity notes in Markdown/MDX (Linux, networking, pentesting, OSINT…) " +
-      "published with Astro Starlight and built-in search.",
+      "Finished lab: cybersecurity notes in Markdown/MDX (Linux, networking, pentesting, OSINT…) " +
+      "with Astro Starlight and built-in search.",
     ru:
-      "Мои заметки по кибербезу в Markdown/MDX (Linux, сети, пентест, OSINT…) " +
+      "Завершённый lab: заметки по кибербезу в Markdown/MDX (Linux, сети, пентест, OSINT…) " +
       "на Astro Starlight со встроенным поиском.",
-    zh: "我的网络安全笔记（Markdown/MDX：Linux、网络、渗透、OSINT…），用 Astro Starlight 发布并带站内搜索。",
+    zh: "已完成的 Lab：网络安全笔记（Markdown/MDX：Linux、网络、渗透、OSINT…），Astro Starlight + 站内搜索。",
   },
   featuredImage: NotasHackingImg,
   technologies: ["Astro", "Starlight", "MDX", "Markdown"],
