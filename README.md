@@ -112,9 +112,11 @@ personales).
 
 ## 🤝 Contribuir
 
+Guía rápida (pnpm, scopes, i18n ×4): [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
 [Ir a la estructura del proyecto...](./docs/es/structure.md)
 
-[Ir a manual de contribución...](./docs/es/contribution.md)
+[Ir a manual de contribución (ES)...](./docs/es/contribution.md)
 
 [Ir a arquitectura...](./docs/es/architecture.md)
 
