@@ -29,7 +29,7 @@ de carpetas** y las rutas concretas están en [Estructura del proyecto](./struct
 | Framework | **Next.js 16** (App Router, Turbopack en `pnpm dev`) |
 | UI | **React 19** |
 | Lenguaje | **TypeScript** |
-| Estilos | **Tailwind CSS v4** (`globals.css`, tokens y utilidades) |
+| Estilos | **Tailwind CSS v4** (`globals.css`, tokens y utilidades) — ver [Design tokens](./tokens.md) |
 | Imágenes | **`next/image`** (y `sharp` opcional en producción) |
 | Animación | **GSAP** en componentes cliente (p. ej. scroll / home) |
 | Paquetes de utilidad | **clsx**, **tailwind-merge**, **server-only** |
