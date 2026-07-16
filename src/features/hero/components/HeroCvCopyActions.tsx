@@ -39,6 +39,7 @@ export default function HeroCvCopyActions({
       <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
         <CopyEmailButton email={email} successText={copySuccessText} ariaLabel={copyEmailAriaLabel} variant="solid" />
         <button
+          id="hero-cv-pdf-trigger"
           type="button"
           onClick={(e) => openViewer(CV_PDF_PATH, cvModalTitle, e.currentTarget)}
           className={cn(

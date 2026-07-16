@@ -7,16 +7,15 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   reporter: "list",
-  timeout: 60_000,
   use: {
     baseURL: "http://127.0.0.1:3000",
     trace: "on-first-retry",
   },
   webServer: {
-    command: "pnpm exec next dev --turbopack --hostname 127.0.0.1 --port 3000",
+    command: "pnpm exec next build && pnpm exec next start --hostname 127.0.0.1 --port 3000",
     url: "http://127.0.0.1:3000/es",
     reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
+    timeout: 300_000,
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });

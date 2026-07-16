@@ -4,7 +4,10 @@ test.describe("a11y smoke", () => {
   test("CV PDF: open, Escape, restore focus to trigger", async ({ page }) => {
     await page.goto("/es");
 
-    const cvButton = page.getByRole("button", { name: "Ver CV" });
+    // Wait for GSAP hero entrance (autoAlpha/visibility) so focus can stick on the CV button.
+    await expect(page.locator("#presentation")).not.toHaveAttribute("data-hero-pending", { timeout: 15_000 });
+
+    const cvButton = page.locator("#hero-cv-pdf-trigger");
     await expect(cvButton).toBeVisible();
     await cvButton.click();
 
@@ -12,14 +15,11 @@ test.describe("a11y smoke", () => {
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole("heading", { name: /CV/i })).toBeVisible();
 
-    // Focus header close so Escape is handled on the document (PDF iframe can swallow keys).
     await dialog.locator("button.pdf-modal-close").focus();
     await page.keyboard.press("Escape");
 
     await expect(dialog).toHaveCount(0);
-    await expect
-      .poll(async () => page.evaluate(() => document.activeElement?.textContent?.trim() ?? ""), { timeout: 10_000 })
-      .toMatch(/CV/i);
+    await expect(cvButton).toBeFocused();
   });
 
   test("search: no results state", async ({ page }) => {
