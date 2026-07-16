@@ -23,8 +23,11 @@ export const usePdfViewer = () => {
     setModalState((s) => ({ ...s, isOpen: false }));
     const trigger = triggerRef.current;
     triggerRef.current = null;
-    if (trigger?.isConnected) {
-      trigger.focus({ preventScroll: true });
+    // Backup if native <dialog> focus restore does not run (e.g. unmount path).
+    if (trigger) {
+      window.setTimeout(() => {
+        if (trigger.isConnected) trigger.focus({ preventScroll: true });
+      }, 0);
     }
   }, []);
 

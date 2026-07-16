@@ -28,47 +28,53 @@ export default function PdfViewerModal({
   downloadText = "Descargar PDF",
 }: PdfViewerModalProps) {
   const onCloseRef = useRef(onClose);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   const isMounted = useSyncExternalStore(noopSubscribe, getClientSnapshot, getServerSnapshot);
 
   useEffect(() => {
     onCloseRef.current = onClose;
   }, [onClose]);
 
+  // Keep <dialog> mounted and use showModal()/close() so the browser restores focus to the opener.
   useEffect(() => {
-    if (!isOpen) return;
+    const dialog = dialogRef.current;
+    if (!dialog) return;
 
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onCloseRef.current();
+    const handleClose = () => {
+      onCloseRef.current();
     };
+    dialog.addEventListener("close", handleClose);
 
-    document.addEventListener("keydown", handleEscape);
-    document.body.style.overflow = "hidden";
-
-    const focusTimer = window.setTimeout(() => {
+    if (isOpen && !dialog.open) {
+      dialog.showModal();
       closeButtonRef.current?.focus({ preventScroll: true });
-    }, 0);
+    } else if (!isOpen && dialog.open) {
+      dialog.close();
+    }
 
     return () => {
-      window.clearTimeout(focusTimer);
-      document.removeEventListener("keydown", handleEscape);
+      dialog.removeEventListener("close", handleClose);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    document.body.style.overflow = "hidden";
+    return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
 
-  const focusPdfViewer = () => {
-    iframeRef.current?.focus({ preventScroll: true });
-  };
-
-  if (!isOpen || !isMounted) return null;
+  if (!isMounted) return null;
 
   return createPortal(
     <dialog
-      open
+      ref={dialogRef}
       className={cn(
-        "fixed inset-0 z-100 m-0 flex h-auto max-h-none w-auto max-w-none items-center justify-center border-0",
+        "fixed inset-0 z-100 m-0 h-auto max-h-none w-auto max-w-none border-0",
         "bg-black/70 p-4 text-inherit backdrop-blur-sm",
+        "open:flex open:items-center open:justify-center",
       )}
       aria-labelledby="pdf-modal-title"
     >
@@ -153,10 +159,8 @@ export default function PdfViewerModal({
 
         <div className="min-h-0 flex-1 overflow-hidden">
           <iframe
-            ref={iframeRef}
-            src={`${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1`}
+            src={isOpen ? `${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1` : undefined}
             title={title}
-            onLoad={focusPdfViewer}
             className={cn(
               "h-full w-full border-0 outline-none",
               "focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-inset",
