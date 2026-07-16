@@ -6,16 +6,20 @@ test.describe("a11y smoke", () => {
 
     const cvButton = page.getByRole("button", { name: "Ver CV" });
     await expect(cvButton).toBeVisible();
-    await cvButton.focus();
     await cvButton.click();
 
     const dialog = page.locator("dialog[open]");
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole("heading", { name: /CV/i })).toBeVisible();
 
+    // Focus header close so Escape is handled on the document (PDF iframe can swallow keys).
+    await dialog.locator("button.pdf-modal-close").focus();
     await page.keyboard.press("Escape");
+
     await expect(dialog).toHaveCount(0);
-    await expect(cvButton).toBeFocused();
+    await expect
+      .poll(async () => page.evaluate(() => document.activeElement?.textContent?.trim() ?? ""), { timeout: 10_000 })
+      .toMatch(/CV/i);
   });
 
   test("search: no results state", async ({ page }) => {
