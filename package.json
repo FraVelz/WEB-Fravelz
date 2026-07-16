@@ -15,7 +15,8 @@
     "lint:md:fix": "markdownlint-cli2 --fix",
     "style": "pnpm run format && pnpm run lint:fix",
     "react:doctor": "react-doctor . --verbose",
-    "lighthouse:local": "unlighthouse --site http://localhost:3000"
+    "lighthouse:local": "unlighthouse --site http://localhost:3000",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
@@ -28,6 +29,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^20.19.39",
     "@types/react": "^19.2.14",
