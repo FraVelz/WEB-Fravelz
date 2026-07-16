@@ -53,7 +53,9 @@ Incidents a hiring manager / yo-futuro puede resolver en &lt;15 min. Prod: <http
 
 ## Enlaces útiles
 
-- Sentry: [`docs/ops/sentry.md`](./sentry.md)
+- Sentry + alerta error spike: [`docs/ops/sentry.md`](./sentry.md)
 - Bundle/GSAP: [`docs/audits/bundle-gsap-2026-07-15.md`](../audits/bundle-gsap-2026-07-15.md)
+- Lighthouse budget: `pnpm lighthouse:budget` · [`docs/audits/lighthouse-budget.json`](../audits/lighthouse-budget.json)
 - ADRs: [`docs/adr/`](../adr/)
 - E2E: `pnpm test:e2e` (Playwright a11y smoke)
+- Último drill: [`docs/ops/incidents/2026-07-15-pdf-404-simulated.md`](./incidents/2026-07-15-pdf-404-simulated.md)
