@@ -20,15 +20,15 @@ export const projectEcoBogota: Project = {
   },
   shortDescription: {
     es:
-      "Mapa de puntos de reciclaje en Bogotá, reportes con foto y piloto cerrado — " +
-      "web Next.js, API NestJS y app Flutter.",
+      "Piloto cerrado web+API: mapa de puntos de reciclaje en Bogotá y reportes con foto. " +
+      "Flutter queda fuera del path crítico 2026.",
     en:
-      "Recycling-point map for Bogotá, photo reports, and a closed pilot — " +
-      "Next.js web, NestJS API, and Flutter app.",
+      "Closed web+API pilot: recycling-point map for Bogotá and photo reports. " +
+      "Flutter is outside the 2026 critical path.",
     ru:
-      "Карта пунктов переработки в Боготе, отчёты с фото и закрытый пилот — " +
-      "веб Next.js, API NestJS и приложение Flutter.",
-    zh: "波哥大回收点地图、带图举报与封闭试点——Next.js Web、NestJS API 与 Flutter 应用。",
+      "Закрытый пилот web+API: карта пунктов переработки в Боготе и отчёты с фото. " +
+      "Flutter вне критического пути 2026.",
+    zh: "封闭的 Web+API 试点：波哥大回收点地图与带图举报。Flutter 不在 2026 关键路径。",
   },
   featuredImage: ecoBogotaImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8, image9, image10],
@@ -43,49 +43,49 @@ export const projectEcoBogota: Project = {
   honesty: ["piloto", "privado"],
   fullDescription: {
     es:
-      "EcoBogotá conecta ciudadanos con puntos de reciclaje verificados en Bogotá. El workspace meta (eco-bogota-meta) " +
-      "orquesta tres repos: web (Next.js 16 con mapa Leaflet, reportes y panel), API (NestJS 11, Prisma, PostgreSQL, " +
-      "JWT, Redis, S3) y app móvil (Flutter). Incluye scripts de arranque, documentación de piloto y despliegue en " +
-      "Vercel (web) y Railway (API). El producto está orientado a un piloto cerrado con mapa de puntos, reportes con " +
-      "foto y talleres de separación en la fuente.",
+      "EcoBogotá conecta ciudadanos con puntos de reciclaje verificados en Bogotá. El path crítico " +
+      "2026 es web (Next.js + Leaflet, reportes y panel) + API (NestJS, Prisma, PostgreSQL, JWT). " +
+      "La app Flutter existe en el monorepo pero está congelada fuera del piloto. Redis/S3 son " +
+      "adapters opcionales, no parte del pitch. Despliegue: Vercel (web) y Railway (API). Orientado " +
+      "a piloto cerrado con mapa de puntos, reportes con foto y talleres de separación en la fuente.",
     en:
-      "EcoBogotá connects citizens with verified recycling points in Bogotá. The meta workspace (eco-bogota-meta) " +
-      "orchestrates three repos: web (Next.js 16 with Leaflet map, reports, and panel), API (NestJS 11, Prisma, PostgreSQL, " +
-      "JWT, Redis, S3), and mobile app (Flutter). It includes startup scripts, pilot documentation, and deployment on " +
-      "Vercel (web) and Railway (API). The product targets a closed pilot with a point map, photo reports, " +
-      "and source-separation workshops.",
+      "EcoBogotá connects citizens with verified recycling points in Bogotá. The 2026 critical path " +
+      "is web (Next.js + Leaflet, reports, and panel) + API (NestJS, Prisma, PostgreSQL, JWT). The " +
+      "Flutter app remains in the monorepo but is frozen outside the pilot. Redis/S3 are optional " +
+      "adapters, not part of the pitch. Deploy: Vercel (web) and Railway (API). Targets a closed " +
+      "pilot with a point map, photo reports, and source-separation workshops.",
     ru:
-      "EcoBogotá связывает жителей с проверенными точками переработки в Боготе. Мета-репозиторий (eco-bogota-meta) " +
-      "объединяет три репозитория: web (Next.js 16, карта Leaflet, отчёты, панель), API (NestJS 11, Prisma, PostgreSQL, " +
-      "JWT, Redis, S3) и мобильное приложение (Flutter). Скрипты запуска, документация пилота, деплой на " +
-      "Vercel (web) и Railway (API). Продукт для закрытого пилота: карта точек, отчёты с фото, мастер-классы по сортировке.",
+      "EcoBogotá связывает жителей с проверенными точками переработки в Боготе. Критический путь " +
+      "2026 — web (Next.js + Leaflet, отчёты, панель) + API (NestJS, Prisma, PostgreSQL, JWT). " +
+      "Flutter в монорепо заморожен вне пилота. Redis/S3 — опциональные адаптеры, не часть pitch. " +
+      "Деплой: Vercel (web) и Railway (API). Закрытый пилот: карта точек, отчёты с фото, мастер-классы.",
     zh:
-      "EcoBogotá 连接波哥大市民与经核实的回收点。元仓库（eco-bogota-meta）协调三个仓库：" +
-      "Web（Next.js 16、Leaflet 地图、举报与面板）、API（NestJS 11、Prisma、PostgreSQL、JWT、Redis、S3）与 Flutter 应用。" +
-      "含启动脚本、试点文档，部署于 Vercel（Web）与 Railway（API）。" +
-      "产品面向封闭试点：点位地图、带图举报与源头分类工作坊。",
+      "EcoBogotá 连接波哥大市民与经核实的回收点。2026 关键路径是 Web（Next.js + Leaflet、举报与面板）" +
+      "+ API（NestJS、Prisma、PostgreSQL、JWT）。Flutter 仍在单体仓中但已冻结，不在试点内。" +
+      "Redis/S3 为可选适配器，不纳入 pitch。部署：Vercel（Web）与 Railway（API）。" +
+      "面向封闭试点：点位地图、带图举报与源头分类工作坊。",
   },
   whatILearned: {
     es: [
-      "Mantener web, API y Flutter en repos distintos unidos por eco-bogota-meta",
+      "Centrar el piloto en web + API; dejar Flutter congelado fuera del path crítico",
       "Desplegar NestJS + Prisma + Postgres en Railway y la web en Vercel",
       "Pintar puntos de reciclaje con Leaflet sin ahogar el panel de reportes",
       "Documentar el piloto (datos, arranque, roles) para que otros puedan operar",
     ],
     en: [
-      "Keep web, API, and Flutter in separate repos tied by eco-bogota-meta",
+      "Keep the pilot on web + API; leave Flutter frozen outside the critical path",
       "Deploy NestJS + Prisma + Postgres on Railway and the web on Vercel",
       "Plot recycling points with Leaflet without drowning the reports panel",
       "Document the pilot (data, startup, roles) so others can operate it",
     ],
     ru: [
-      "Держать web, API и Flutter в разных репо, связанных eco-bogota-meta",
+      "Держать пилот на web + API; Flutter заморозить вне критического пути",
       "Деплой NestJS + Prisma + Postgres на Railway и веб на Vercel",
       "Точки переработки на Leaflet без перегруза панели отчётов",
       "Документировать пилот (данные, запуск, роли), чтобы им могли пользоваться другие",
     ],
     zh: [
-      "Web、API、Flutter 分仓，用 eco-bogota-meta 串起来",
+      "试点聚焦 Web + API；Flutter 冻结在关键路径之外",
       "NestJS + Prisma + Postgres 部署到 Railway，Web 到 Vercel",
       "用 Leaflet 画回收点，不挤占举报面板",
       "写清试点文档（数据、启动、角色），方便别人运维",
@@ -96,28 +96,28 @@ export const projectEcoBogota: Project = {
       "Meta: eco-bogota-meta; subrepos: eco-bogota-web, eco-bogota-api, eco-bogota-app",
       "Web: Next.js 16, Leaflet, Playwright, Vitest",
       "API: NestJS 11, Prisma, PostgreSQL, JWT, Redis, AWS S3",
-      "App: Flutter (Dart 3.12+)",
+      "App Flutter: congelada / fuera del piloto 2026",
       "Despliegue: Vercel (web), Railway (API + Postgres)",
     ],
     en: [
       "Meta: eco-bogota-meta; subrepos: eco-bogota-web, eco-bogota-api, eco-bogota-app",
       "Web: Next.js 16, Leaflet, Playwright, Vitest",
       "API: NestJS 11, Prisma, PostgreSQL, JWT, Redis, AWS S3",
-      "App: Flutter (Dart 3.12+)",
+      "Flutter app: frozen / outside 2026 pilot",
       "Deploy: Vercel (web), Railway (API + Postgres)",
     ],
     ru: [
       "Meta: eco-bogota-meta; подрепозитории: eco-bogota-web, eco-bogota-api, eco-bogota-app",
       "Web: Next.js 16, Leaflet, Playwright, Vitest",
       "API: NestJS 11, Prisma, PostgreSQL, JWT, Redis, AWS S3",
-      "App: Flutter (Dart 3.12+)",
+      "Flutter: заморожен / вне пилота 2026",
       "Деплой: Vercel (web), Railway (API + Postgres)",
     ],
     zh: [
       "元仓库：eco-bogota-meta；子仓库：eco-bogota-web、eco-bogota-api、eco-bogota-app",
       "Web：Next.js 16、Leaflet、Playwright、Vitest",
       "API：NestJS 11、Prisma、PostgreSQL、JWT、Redis、AWS S3",
-      "App：Flutter（Dart 3.12+）",
+      "Flutter：已冻结 / 不在 2026 试点内",
       "部署：Vercel（Web）、Railway（API + Postgres）",
     ],
   },
