@@ -16,6 +16,10 @@ export default defineConfig({
     url: "http://127.0.0.1:3000/es",
     reuseExistingServer: !process.env.CI,
     timeout: 300_000,
+    env: {
+      ...process.env,
+      NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? "https://fravelz.vercel.app",
+    },
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });
