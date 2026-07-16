@@ -1,7 +1,8 @@
+import dynamic from "next/dynamic";
+
 import AboutMeSection from "@/features/about-me/AboutMeSection";
 import ContactSection from "@/features/contact/ContactSection";
 import HobbiesSection from "@/features/hobbies/HobbiesSection";
-import HeroEntrance from "@/features/hero/components/HeroEntrance";
 import HeroSection from "@/features/hero/HeroSection";
 import ProjectsSection from "@/features/projects/ProjectsSection";
 import TechnologiesSection from "@/features/technologies/TechnologiesSection";
@@ -9,13 +10,18 @@ import TechnologiesSection from "@/features/technologies/TechnologiesSection";
 import Footer from "@/components/layout/Footer";
 
 import Particles from "./components/Particles";
-import { HomeAmbientGlow } from "./components/HomeAmbientGlow";
-import HomeScroll from "./HomeScroll";
 
 import homeStyles from "./HomeMain.module.css";
 
 import type { Language } from "@/lib/i18n-routing";
 import { getTranslations } from "@/utils/i18n";
+
+/** GSAP client islands — dynamic so ScrollTrigger/core stay off the critical RSC payload. */
+const HeroEntrance = dynamic(() => import("@/features/hero/components/HeroEntrance"));
+const HomeAmbientGlow = dynamic(() =>
+  import("./components/HomeAmbientGlow").then((m) => m.HomeAmbientGlow),
+);
+const HomeScroll = dynamic(() => import("./HomeScroll"));
 
 export default async function HomeMain({ lang }: { lang: Language }) {
   const t = getTranslations(lang);
