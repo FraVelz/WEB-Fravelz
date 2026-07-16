@@ -1,0 +1,15 @@
+[
+  {
+    "path": "/*",
+    "timings": [
+      { "metric": "largest-contentful-paint", "budget": 2500 },
+      { "metric": "cumulative-layout-shift", "budget": 0.1 },
+      { "metric": "interactive", "budget": 3500 }
+    ],
+    "resourceSizes": [
+      { "resourceType": "script", "budget": 450 },
+      { "resourceType": "total", "budget": 1600 }
+    ],
+    "resourceCounts": []
+  }
+]
