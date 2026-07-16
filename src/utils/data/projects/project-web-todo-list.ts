@@ -18,15 +18,15 @@ export const projectWebTodoList: Project = {
   },
   shortDescription: {
     es:
-      "Tareas con vistas Inbox, Hoy y Próximo, etiquetas y búsqueda — persistidas en PostgreSQL " +
-      "y usables en modo claro u oscuro.",
+      "Lab de aprendizaje: tareas con Inbox, Hoy y Próximo, etiquetas y búsqueda — " +
+      "PostgreSQL + modo claro/oscuro (no es producto flagship).",
     en:
-      "Tasks with Inbox, Today, and Next views, tags, and search — stored in PostgreSQL " +
-      "and usable in light or dark mode.",
+      "Learning lab: tasks with Inbox, Today, and Next views, tags, and search — " +
+      "PostgreSQL + light/dark mode (not a flagship product).",
     ru:
-      "Задачи с видами «Входящие», «Сегодня» и «Далее», метками и поиском — в PostgreSQL, " +
-      "со светлой и тёмной темой.",
-    zh: "待办含收件箱、今天与下一步视图、标签与搜索——数据存 PostgreSQL，支持明暗主题。",
+      "Учебный lab: задачи с видами «Входящие», «Сегодня» и «Далее», метками и поиском — " +
+      "PostgreSQL и светлая/тёмная тема (не flagship).",
+    zh: "学习 lab：收件箱 / 今天 / 下一步、标签与搜索——PostgreSQL + 明暗主题（非旗舰产品）。",
   },
   featuredImage: webTodoListImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8],

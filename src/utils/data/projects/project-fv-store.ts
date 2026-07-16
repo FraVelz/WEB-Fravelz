@@ -18,15 +18,15 @@ export const projectFvStore: Project = {
   },
   shortDescription: {
     es:
-      "Tienda de camisetas (edición Colombia Italia 90): catálogo, ficha, carrito local y " +
-      "checkout demo — extraída del stack de Starcrypt.",
+      "Demo privada: tienda de camisetas (Colombia Italia 90) con catálogo, carrito local y " +
+      "checkout sin cobro — extraída del stack de Starcrypt.",
     en:
-      "Jersey shop (Colombia Italia 90 edition): catalog, product page, local cart, and " +
-      "demo checkout — extracted from the Starcrypt stack.",
+      "Private demo: jersey shop (Colombia Italia 90) with catalog, local cart, and " +
+      "checkout without charging — extracted from the Starcrypt stack.",
     ru:
-      "Магазин футболок (Colombia Italia 90): каталог, карточка, локальная корзина и " +
-      "демо-оформление — выделено из стека Starcrypt.",
-    zh: "球衣商店（哥伦比亚 Italia 90 款）：目录、商品页、本地购物车与演示结账——从 Starcrypt 技术栈拆出。",
+      "Приватное демо: магазин футболок (Colombia Italia 90), каталог, локальная корзина и " +
+      "оформление без оплаты — из стека Starcrypt.",
+    zh: "私有 Demo：球衣商店（哥伦比亚 Italia 90），目录、本地购物车与无收款结账——从 Starcrypt 拆出。",
   },
   featuredImage: fvStoreImg,
   screenshots: [image2, image3, image4, image5, image6, image7, image8],

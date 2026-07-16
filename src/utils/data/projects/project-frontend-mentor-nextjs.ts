@@ -16,13 +16,15 @@ export const projectFrontendMentorNextjs: Project = {
   },
   shortDescription: {
     es:
-      "Hub de retos Frontend Mentor: cada challenge en su ruta, con preview, badges " + "de dificultad/estado y tests.",
+      "Lab / practice hub: retos Frontend Mentor — cada challenge en su ruta, con preview, " +
+      "badges de dificultad/estado y tests (diseños de terceros).",
     en:
-      "Frontend Mentor challenge hub: each challenge on its own route, with preview, " +
-      "difficulty/status badges, and tests.",
+      "Lab / practice hub: Frontend Mentor challenges — each on its own route, with preview, " +
+      "difficulty/status badges, and tests (third-party designs).",
     ru:
-      "Хаб челленджей Frontend Mentor: каждый на своём маршруте, с превью, " + "бейджами сложности/статуса и тестами.",
-    zh: "Frontend Mentor 挑战中心：每个挑战独立路由，含预览、难度/状态徽章与测试。",
+      "Lab / practice hub: челленджи Frontend Mentor — каждый на своём маршруте, превью, " +
+      "бейджи сложности/статуса и тесты (чужие дизайны).",
+    zh: "Lab / practice hub：Frontend Mentor 挑战——独立路由、预览、难度/状态徽章与测试（第三方设计）。",
   },
   featuredImage: frontendMentorNextImg,
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vitest"],

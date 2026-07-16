@@ -16,15 +16,15 @@ export const projectWebProsperity: Project = {
   },
   shortDescription: {
     es:
-      "Archivo editorial para explorar temas de una nación: política, economía, geopolítica y datos, " +
+      "Demo — archivo editorial en construcción: política, economía, geopolítica y datos, " +
       "con mapa MapLibre y comparador de países.",
     en:
-      "An editorial archive to explore how a nation works — politics, economics, geopolitics, and data — " +
+      "Demo — editorial archive in progress: politics, economics, geopolitics, and data, " +
       "with a MapLibre map and a country comparator.",
     ru:
-      "Редакционный архив о том, как устроена нация: политика, экономика, геополитика и данные — " +
+      "Demo — редакционный архив в разработке: политика, экономика, геополитика и данные — " +
       "с картой MapLibre и сравнением стран.",
-    zh: "探索国家如何运转的专题档案：政治、经济、地缘政治与数据，含 MapLibre 地图与国家比较器。",
+    zh: "Demo——建设中的专题档案：政治、经济、地缘政治与数据，含 MapLibre 地图与国家比较器。",
   },
   featuredImage: prosperityImg,
   screenshots: [image1, image2, image3, image4, image5],
