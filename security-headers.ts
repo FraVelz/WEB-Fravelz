@@ -7,8 +7,15 @@ type SecurityHeaderOptions = {
 
 function buildContentSecurityPolicy({ embeddable = false }: SecurityHeaderOptions = {}): string {
   // Next.js bootstraps hydration with inline scripts; Vercel Analytics loads from va.vercel-scripts.com.
-  const scriptSrc = ["'self'", "'unsafe-inline'", "https://va.vercel-scripts.com"];
-  const connectSrc = ["'self'", "https://vitals.vercel-insights.com", "https://va.vercel-scripts.com"];
+  const scriptSrc = ["'self'", "'unsafe-inline'", "https://va.vercel-scripts.com", "https://*.sentry-cdn.com"];
+  const connectSrc = [
+    "'self'",
+    "https://vitals.vercel-insights.com",
+    "https://va.vercel-scripts.com",
+    "https://*.ingest.sentry.io",
+    "https://*.ingest.us.sentry.io",
+    "https://*.ingest.de.sentry.io",
+  ];
 
   if (isDev) {
     scriptSrc.push("'unsafe-eval'");

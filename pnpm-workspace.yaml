@@ -10,6 +10,7 @@ overrides:
 
 allowBuilds:
   "@parcel/watcher": true
+  "@sentry/cli": false
   esbuild: true
   puppeteer: false
   sharp: true
