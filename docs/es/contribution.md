@@ -1,5 +1,7 @@
 # Contribuir
 
+> **Entrada canónica:** [`CONTRIBUTING.md`](../../CONTRIBUTING.md) (pnpm, scopes, checklist i18n ×4). Este archivo amplía el mismo flujo en español.
+
 Este repositorio es un **proyecto personal** (portafolio Next.js). Aun así, si quieres aportar ideas, reportar problemas
 o proponer cambios de código, aquí tienes cómo hacerlo y qué se espera.
 
@@ -86,9 +88,13 @@ El sitio en desarrollo suele estar en **<http://localhost:3000>** (redirección 
 | `pnpm build`  | Build de producción (salida en `.next/`)       |
 | `pnpm start`  | Sirve el build de producción en local          |
 | `pnpm lint`   | ESLint sobre `src/`                            |
+| `pnpm typecheck` | TypeScript `tsc --noEmit`                   |
 | `pnpm lint:fix` | ESLint con corrección automática             |
 | `pnpm format` | Prettier sobre el repositorio                  |
 | `pnpm style`  | `format` + `lint:fix`                          |
+| `pnpm test:e2e` | Playwright a11y smoke                         |
+
+Checklist i18n y scopes: ver [`CONTRIBUTING.md`](../../CONTRIBUTING.md).
 
 ---
 

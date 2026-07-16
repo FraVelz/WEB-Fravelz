@@ -110,9 +110,11 @@ it's the international standard in programming. (This applies to personal projec
 
 ## 🤝 Contribute
 
+Quick guide (pnpm, scopes, i18n ×4): [`CONTRIBUTING.md`](./CONTRIBUTING.md)
+
 [Go to project structure...](./docs/en/structure.md)
 
-[Go to contribution manual...](./docs/en/contribution.md)
+[Go to contribution manual (EN)...](./docs/en/contribution.md)
 
 [Go to architecture...](./docs/en/architecture.md)
 
