@@ -35,6 +35,7 @@ export const projectStarcrypt: Project = {
   featured: true,
   year: 2026,
   inDevelopment: true,
+  honesty: ["piloto", "privado"],
   fullDescription: {
     es:
       "Compra y venta entre usuarios con dos caminos de pago: fiat LATAM (Mercado Pago) y cripto " +

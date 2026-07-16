@@ -38,6 +38,7 @@ export const projectFvStore: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  honesty: ["demo", "privado"],
   fullDescription: {
     es:
       "Vitrina de e-commerce centrada en un producto real (camiseta retro Colombia Italia 90): " +

@@ -32,6 +32,7 @@ export const projectFrontendMentorNextjs: Project = {
   featured: false,
   year: 2026,
   inDevelopment: true,
+  honesty: ["lab"],
   screenshots: [image1, image2, image3, image4],
   fullDescription: {
     es:
