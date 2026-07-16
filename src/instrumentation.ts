@@ -1,8 +1,7 @@
 import * as Sentry from "@sentry/nextjs";
 
 export async function register() {
-  // Client errors are handled via instrumentation-client.ts.
-  // Server/edge hooks stay minimal until oleada 2 alerts.
+  // Client errors: instrumentation-client.ts. Alerts: docs/ops/sentry.md (Oleada 2).
   if (process.env.NEXT_RUNTIME === "nodejs") {
     const dsn = process.env.SENTRY_DSN ?? process.env.NEXT_PUBLIC_SENTRY_DSN;
     if (!dsn) return;
