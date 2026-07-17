@@ -2,6 +2,7 @@ import type { Project } from "./project-types";
 
 import { projectIcfesMaster } from "./projects/project-icfes-master";
 import { projectEcoBogota } from "./projects/project-eco-bogota";
+import { projectSpidermanBnd } from "./projects/project-spiderman-bnd";
 import { projectStarcrypt } from "./projects/project-starcrypt";
 import { projectWebMarcadores } from "./projects/project-web-marcadores";
 import { projectWebProsperity } from "./projects/project-web-prosperity";
@@ -13,6 +14,7 @@ import { projectNotasHacking } from "./projects/project-notas-hacking";
 
 /** Lista de todos los proyectos del portafolio */
 export const projects: Project[] = [
+  projectSpidermanBnd,
   projectStarcrypt,
   projectIcfesMaster,
   projectWebMarcadores,
