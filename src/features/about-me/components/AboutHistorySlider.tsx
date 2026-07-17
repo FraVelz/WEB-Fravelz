@@ -92,14 +92,8 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
 
   if (count === 0 || !entry) return null;
 
-  const navBtnClass = cn(
-    "about-history-nav flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full",
-    "border border-[rgb(var(--color-drawer-border))] bg-[rgb(var(--color-surface))]",
-    "text-[rgb(var(--color-text))] shadow-md transition-colors",
-    "hover:border-[rgb(var(--color-primary)/0.55)] hover:text-[rgb(var(--color-primary))]",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary)/0.5)]",
-    "disabled:pointer-events-none disabled:opacity-40",
-  );
+  const navBtnClass =
+    "about-history-nav flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[rgb(var(--color-drawer-border))] bg-[rgb(var(--color-surface))] text-[rgb(var(--color-text))] shadow-md transition-colors hover:border-[rgb(var(--color-primary)/0.55)] hover:text-[rgb(var(--color-primary))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-primary)/0.5)] disabled:pointer-events-none disabled:opacity-40";
 
   const showNav = count > 1;
 

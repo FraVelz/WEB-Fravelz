@@ -3,24 +3,13 @@
 import { cn } from "@/utils/cn";
 import type { FormEvent } from "react";
 
-const fieldClassName = cn(
-  "contact-field w-full border-0 border-b bg-transparent px-0 py-2.5",
-  "text-base text-slate-900 placeholder:text-slate-400/70",
-  "outline-none focus-visible:shadow-none",
-  "dark:text-gray-100 dark:placeholder:text-gray-500",
-);
+const fieldClassName =
+  "contact-field w-full border-0 border-b bg-transparent px-0 py-2.5 text-base text-slate-900 placeholder:text-slate-400/70 outline-none focus-visible:shadow-none dark:text-gray-100 dark:placeholder:text-gray-500";
 
 const labelClassName = "mb-1 block text-xs font-medium tracking-wide text-slate-500 dark:text-gray-500";
 
-const submitClassName = cn(
-  "contact-submit-btn inline-flex cursor-pointer items-center justify-center rounded-full",
-  "bg-gradient-to-r from-cyan-500 to-purple-500 px-7 py-2.5",
-  "text-sm font-semibold text-white",
-  "shadow-sm shadow-cyan-500/20 ring-1 ring-white/20 transition-[box-shadow,background,transform]",
-  "hover:from-cyan-400 hover:to-purple-400 hover:shadow-md hover:shadow-cyan-500/25",
-  "dark:from-cyan-500 dark:to-purple-600 dark:shadow-purple-950/40 dark:ring-white/10",
-  "dark:hover:from-cyan-400 dark:hover:to-purple-500",
-);
+const submitClassName =
+  "contact-submit-btn inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 px-7 py-2.5 text-sm font-semibold text-white shadow-sm shadow-cyan-500/20 ring-1 ring-white/20 transition-[box-shadow,background,transform] hover:from-cyan-400 hover:to-purple-400 hover:shadow-md hover:shadow-cyan-500/25 dark:from-cyan-500 dark:to-purple-600 dark:shadow-purple-950/40 dark:ring-white/10 dark:hover:from-cyan-400 dark:hover:to-purple-500";
 
 export default function ContactForm({ email, t }: { email: string; t: Record<string, string> }) {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
