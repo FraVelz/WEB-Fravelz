@@ -1,9 +1,7 @@
 import { cn } from "@/utils/cn";
 
-const cornerClass = cn(
-  "pointer-events-none absolute z-20 hidden size-14 lg:block",
-  "border-cyan-500/70 dark:border-cyan-400/55",
-);
+const cornerClass =
+  "pointer-events-none absolute z-20 hidden size-14 lg:block border-cyan-500/70 dark:border-cyan-400/55";
 
 export default function HeroFrameCorners() {
   return (

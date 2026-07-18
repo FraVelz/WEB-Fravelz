@@ -88,8 +88,10 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 ### Projects
 
-- Types: [`src/utils/data/project-types.ts`](../../src/utils/data/project-types.ts) (**`Project`**, multi-language
-  fields, `StaticImageData` for `next/image`).
+- Types: [`src/utils/data/project-types.ts`](../../src/utils/data/project-types.ts) (**`Project`**,
+  **`ProductHonestyBadge`**, multi-language fields, `StaticImageData` for `next/image`).
+- **`honesty` field**: typed badges (`demo` | `piloto` | `lab` | `privado` | `terminado`) on card and detail —
+  anti-polish contract (plan 11 / mid wave).
 - **`project-*.ts` files**: one module per project; aggregated list in **`projects-list.ts`**.
 - Stable API via [`src/utils/data/projects.ts`](../../src/utils/data/projects.ts) and
   [`src/utils/data/project-utils.ts`](../../src/utils/data/project-utils.ts):
@@ -101,6 +103,7 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 - Types and grouping in [`src/utils/data/certificates.ts`](../../src/utils/data/certificates.ts) (**`Certificate`**,
   **`groupCertificates`** with issuer/category rules and validation that each item lands in a single bucket).
+- PDF viewer: same-origin + embeddable CSP; **no** restrictive iframe `sandbox` ([ADR 0003](../adr/0003-no-pdf-iframe-sandbox.md)).
 
 ---
 
@@ -136,8 +139,10 @@ A **conceptual** view of the portfolio: technical choices, reusable building blo
 
 ## Network configuration
 
-- Headers in **`next.config.ts`** for color-scheme **Client Hints** (aligned with theming).
-- **`robots.txt`** and static assets under **`public/`** (images, PDFs, audio) served as static files.
+- Security headers in **`next.config.ts`** via [`security-headers.ts`](../../security-headers.ts): CSP, HSTS (prod),
+  color Client Hints. **`/pdfs/*`** uses `embeddable: true` ([ADR 0002](../adr/0002-pdfs-csp-embed.md)).
+- Sentry allowlist (`*.ingest.sentry.io`, CDN) when a DSN is set.
+- **`robots.txt`** and static assets under **`public/`** (images, PDFs) served as static files.
 
 ---
 
@@ -159,7 +164,25 @@ pnpm build
 pnpm start
 ```
 
-Output in **`.next/`** (not a full static export like `out/` unless another mode is configured).
+Output in **`.next/`**.
+
+### Bundle analysis
+
+```bash
+pnpm analyze
+```
+
+GSAP cut notes: [`docs/audits/bundle-gsap-2026-07-15.md`](../audits/bundle-gsap-2026-07-15.md).
+
+### Quality / CI
+
+| Check | Command / job |
+|-------|----------------|
+| Lint + Prettier + audit + build | `.github/workflows/ci.yml` → `quality` |
+| Playwright a11y smoke | `e2e-a11y` · `pnpm test:e2e` |
+| Sentry client | [`docs/ops/sentry.md`](../ops/sentry.md) (no-op without DSN) |
+| Runbook | [`docs/ops/runbook.md`](../ops/runbook.md) |
+| ADRs | [`docs/adr/`](../adr/) |
 
 ### Recommended deployment: Vercel
 
@@ -177,8 +200,8 @@ Output in **`.next/`** (not a full static export like `out/` unless another mode
 
 For adding home sections, translation keys, or a new language, follow the practical steps in [Structure](./structure.md)
 and [Features](./features.md); feedback and how to contribute are described in
-[Contribution](./contribution.md#ways-to-contribute).
+[Contribution](./contribution.md#ways-to-contribute). Hard decisions: [ADRs](../adr/).
 
 [Return to readme...](../../README.md)
 
-> AI-generated · Last updated: 2026-05-11
+> Last updated: 2026-07-15 (mid wave — analyzer, Sentry, ADRs, e2e CI)

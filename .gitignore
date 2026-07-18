@@ -39,3 +39,12 @@ tsconfig.tsbuildinfo
 
 # Local venv for CV PDF export (weasyprint)
 .venv-cv/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Lighthouse raw JSON dumps (summaries stay in docs/audits/*.md)
+/docs/audits/lighthouse-runs/

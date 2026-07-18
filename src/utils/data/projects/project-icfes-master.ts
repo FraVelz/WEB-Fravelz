@@ -47,31 +47,33 @@ export const projectIcfesMaster: Project = {
   featured: true,
   year: 2026,
   inDevelopment: true,
+  honesty: ["piloto"],
   fullDescription: {
     es:
       "App para practicar el ICFES (Saber 11) con tres capas: bases por competencia, exámenes por " +
-      "materia y un simulacro global de 200 preguntas en 3 horas. Cubre Matemáticas, Lectura Crítica, " +
-      "Ciencias Naturales, Sociales e Inglés, con temporizador, estadísticas, desafíos diarios y " +
-      "clasificación. Login con email o Google (Supabase), más de 40 logros, planes Gratis/Pro/Premium, " +
-      "explicaciones por pregunta, fórmulas con KaTeX y apoyo puntual con OpenAI. Parte del banco de " +
-      "preguntas y de los logros sigue creciendo.",
+      "materia y un simulacro global (beta; el núcleo 2026 es práctica por área). Cubre Matemáticas, " +
+      "Lectura Crítica, Ciencias Naturales, Sociales e Inglés, con temporizador, estadísticas y " +
+      "desafíos. Login con email o Google (Supabase), sistema de logros en crecimiento, sin planes " +
+      "de cobro activos en 2026, explicaciones por pregunta, fórmulas con KaTeX y apoyo OpenAI " +
+      "solo si está habilitado. El banco de preguntas sigue creciendo.",
     en:
       "An ICFES (Saber 11) practice app with three layers: foundations by competency, per-subject " +
-      "exams, and a full 200-question mock in 3 hours. Covers Math, Critical Reading, Natural Sciences, " +
-      "Social Studies, and English, with a timer, stats, daily challenges, and a leaderboard. Email or " +
-      "Google login via Supabase, 40+ achievements, Free/Pro/Premium plans, per-question explanations, " +
-      "KaTeX formulas, and scoped OpenAI help. The question bank and achievements are still growing.",
+      "exams, and a full mock (beta; the 2026 core is practice by subject). Covers Math, Critical " +
+      "Reading, Natural Sciences, Social Studies, and English, with a timer, stats, and challenges. " +
+      "Email or Google login via Supabase, a growing achievements system, no active billing plans " +
+      "in 2026, per-question explanations, KaTeX formulas, and OpenAI help only when gated on. " +
+      "The question bank is still growing.",
     ru:
       "Приложение для подготовки к ICFES (Saber 11) с тремя уровнями: основы по компетенциям, " +
-      "экзамены по предметам и полный пробный на 200 вопросов за 3 часа. Математика, критическое " +
-      "чтение, естественные и социальные науки, английский; таймер, статистика, ежедневные задания " +
-      "и рейтинг. Вход по email или Google (Supabase), 40+ достижений, тарифы Free/Pro/Premium, " +
-      "пояснения к ответам, формулы KaTeX и точечная помощь OpenAI. Банк вопросов и достижения ещё растут.",
+      "экзамены по предметам и полный пробный (бета; ядро 2026 — практика по предметам). Математика, " +
+      "критическое чтение, естественные и социальные науки, английский; таймер, статистика, задания. " +
+      "Вход по email или Google (Supabase), растущая система достижений, без активных тарифов в 2026, " +
+      "пояснения к ответам, формулы KaTeX и OpenAI только при включённом флаге. Банк вопросов ещё растёт.",
     zh:
-      "ICFES（Saber 11）练习应用，分三层：按能力打基础、分科测验，以及三小时 200 题全真模拟。" +
-      "覆盖数学、批判性阅读、自然科学、社会科学与英语；含计时、统计、每日挑战与排行榜。" +
-      "邮箱或 Google 登录（Supabase）、40+ 成就、免费/Pro/Premium 方案、逐题解析、KaTeX 公式，" +
-      "以及有边界的 OpenAI 辅助。题库与成就仍在扩充。",
+      "ICFES（Saber 11）练习应用，分三层：按能力打基础、分科测验，以及全真模拟（beta；2026 核心是分科练习）。" +
+      "覆盖数学、批判性阅读、自然科学、社会科学与英语；含计时、统计与挑战。" +
+      "邮箱或 Google 登录（Supabase）、成长中的成就系统、2026 无付费套餐、逐题解析、KaTeX 公式，" +
+      "以及仅在开启开关时的 OpenAI 辅助。题库仍在扩充。",
   },
   whatILearned: {
     es: [

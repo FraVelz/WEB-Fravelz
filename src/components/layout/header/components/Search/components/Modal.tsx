@@ -42,25 +42,17 @@ function searchSessionReducer(state: SearchSessionState, action: SearchSessionAc
   return state;
 }
 
-const searchBackdropClass = cn(
-  "absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity",
-  "dark:bg-black/60 dark:backdrop-blur-sm",
-);
+const searchBackdropClass =
+  "absolute inset-0 z-0 bg-slate-900/55 backdrop-blur-md transition-opacity dark:bg-black/60 dark:backdrop-blur-sm";
 
-const searchPanelClass = cn(
-  "w-full max-w-xl overflow-hidden rounded-xl border border-slate-200 bg-[rgb(var(--color-surface))]",
-  "shadow-2xl shadow-slate-900/15 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/40",
-);
+const searchPanelClass =
+  "w-full max-w-xl overflow-hidden rounded-xl border border-slate-200 bg-[rgb(var(--color-surface))] shadow-2xl shadow-slate-900/15 dark:border-gray-700 dark:bg-gray-900 dark:shadow-black/40";
 
-const searchResultColumnLinkClass = cn(
-  "search-result-link flex flex-col gap-0.5 px-4 py-3 transition-colors",
-  "hover:bg-gray-100 dark:hover:bg-gray-800",
-);
+const searchResultColumnLinkClass =
+  "search-result-link flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
 
-const searchResultInlineLinkClass = cn(
-  "search-result-link flex items-center gap-2 px-4 py-3 transition-colors",
-  "hover:bg-gray-100 dark:hover:bg-gray-800",
-);
+const searchResultInlineLinkClass =
+  "search-result-link flex items-center gap-2 px-4 py-3 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800";
 
 export function Modal({
   isActive,

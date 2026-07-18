@@ -56,6 +56,11 @@ export default async function ProjectsIndexPage({
     projects_featured: t.projects_featured,
     project_status_development: t.project_status_development,
     project_status_finished: t.project_status_finished,
+    project_honesty_demo: t.project_honesty_demo,
+    project_honesty_piloto: t.project_honesty_piloto,
+    project_honesty_lab: t.project_honesty_lab,
+    project_honesty_privado: t.project_honesty_privado,
+    project_honesty_terminado: t.project_honesty_terminado,
     projects_view_project: t.projects_view_project,
   };
 
