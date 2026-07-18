@@ -24,9 +24,7 @@ export const projectSpidermanBnd: Project = {
     ru:
       "Фан-made лендинг премьеры с кинематографическим скроллом: последовательность кадров " +
       "на canvas через GSAP, countdown, галерея и CTA. Статический и лёгкий.",
-    zh:
-      "粉丝自制上映落地页，电影感滚动：GSAP 驱动的 canvas 帧序列、倒计时、画廊与 CTA。" +
-      "纯静态、轻量。",
+    zh: "粉丝自制上映落地页，电影感滚动：GSAP 驱动的 canvas 帧序列、倒计时、画廊与 CTA。" + "纯静态、轻量。",
   },
   featuredImage: spidermanBndImg,
   screenshots: [image2, image3, image4, image5, image6],
