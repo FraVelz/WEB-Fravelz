@@ -161,6 +161,7 @@ export default function PdfViewerModal({
           <iframe
             src={isOpen ? `${pdfUrl}#toolbar=1&navpanes=1&scrollbar=1` : undefined}
             title={title}
+            sandbox="allow-scripts allow-popups allow-downloads"
             className={cn(
               "h-full w-full border-0 outline-none",
               "focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-inset",
