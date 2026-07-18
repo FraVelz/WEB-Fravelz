@@ -1,6 +1,12 @@
 import type { StaticImageData } from "next/image";
 
 /**
+ * Honesty signal for hiring managers: product maturity / access level.
+ * Shown as badges on cards and detail pages (alongside Destacado / En desarrollo).
+ */
+export type ProductHonestyBadge = "demo" | "piloto" | "lab" | "privado" | "terminado";
+
+/**
  * Data structure for portfolio projects.
  *
  * Each project must have:
@@ -56,6 +62,12 @@ export interface Project {
    * Project status: true = in development, false = completed.
    */
   inDevelopment: boolean;
+
+  /**
+   * Honesty badges (Demo / Piloto / Lab / Privado / Terminado).
+   * Independent of `inDevelopment` and `featured`.
+   */
+  honesty: ProductHonestyBadge[];
 
   /** Long description per language (individual view) */
   fullDescription: {

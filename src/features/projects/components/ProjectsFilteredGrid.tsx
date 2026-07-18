@@ -1,7 +1,7 @@
 "use client";
 
 import { PROJECT_FILTER_TRANSITION, projectCardTransitionName } from "@/lib/project-view-transition";
-import { filterProjects, parseProjectFilter } from "@/utils/data/projects";
+import { filterProjects, isKnownProjectFilter, parseProjectFilter } from "@/utils/data/projects";
 import type { Project } from "@/utils/data/project-types";
 import type { Language } from "@/lib/i18n-routing";
 import { useSearchParams } from "next/navigation";
@@ -26,13 +26,19 @@ type ProjectsFilteredGridProps = {
 
 export default function ProjectsFilteredGrid({ allProjects, lang, labels, emptyMessage }: ProjectsFilteredGridProps) {
   const searchParams = useSearchParams();
-  const activeFilter = parseProjectFilter(searchParams.get("filter") ?? undefined);
-  const projects = useMemo(() => filterProjects(allProjects, activeFilter), [allProjects, activeFilter]);
+  const rawFilter = searchParams.get("filter");
+  const activeFilter = parseProjectFilter(rawFilter ?? undefined);
+  const projects = useMemo(() => {
+    if (!isKnownProjectFilter(rawFilter)) return [];
+    return filterProjects(allProjects, activeFilter);
+  }, [allProjects, activeFilter, rawFilter]);
 
   if (projects.length === 0) {
     return (
-      <ViewTransition key={`empty-${activeFilter}`} enter={emptyEnter} exit={emptyExit} default="none">
-        <p className="text-center text-sm text-[rgb(var(--color-text-muted))]">{emptyMessage}</p>
+      <ViewTransition key={`empty-${rawFilter ?? activeFilter}`} enter={emptyEnter} exit={emptyExit} default="none">
+        <p data-testid="projects-filter-empty" className="text-center text-sm text-[rgb(var(--color-text-muted))]">
+          {emptyMessage}
+        </p>
       </ViewTransition>
     );
   }

@@ -64,13 +64,8 @@ export function ListImagesViewer({
 
   if (slides.length === 0) return null;
 
-  const navBtnClass = cn(
-    "project-page-carousel-btn cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full",
-    "border border-[rgb(var(--color-drawer-border)/0.9)] bg-[rgb(var(--color-surface)/0.95)] text-[rgb(var(--color-text))]",
-    "shadow-lg backdrop-blur-sm transition-[border-color,box-shadow,color] hover:border-cyan-500/60 hover:text-cyan-700",
-    "dark:hover:border-cyan-400 dark:hover:text-cyan-300",
-    "disabled:pointer-events-none disabled:opacity-40",
-  );
+  const navBtnClass =
+    "project-page-carousel-btn cursor-pointer z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[rgb(var(--color-drawer-border)/0.9)] bg-[rgb(var(--color-surface)/0.95)] text-[rgb(var(--color-text))] shadow-lg backdrop-blur-sm transition-[border-color,box-shadow,color] hover:border-cyan-500/60 hover:text-cyan-700 dark:hover:border-cyan-400 dark:hover:text-cyan-300 disabled:pointer-events-none disabled:opacity-40";
 
   const showHeading = Boolean(galleryHeading && count > 1);
   const translateIndex = count > 1 ? position : 0;

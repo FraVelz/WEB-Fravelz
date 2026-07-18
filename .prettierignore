@@ -31,3 +31,6 @@ public/pdfs
 
 # Docs (pueden tener bloques de código que Prettier parsea incorrectamente)
 docs/
+
+# Agent local scratch (gitignored under sdd/)
+.superpowers/

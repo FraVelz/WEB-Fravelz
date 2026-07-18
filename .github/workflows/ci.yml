@@ -6,30 +6,36 @@ on:
     paths:
       - "src/**"
       - "public/**"
+      - "e2e/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
       - "next.config.*"
+      - "playwright.config.*"
       - "tsconfig.json"
       - "postcss.config.*"
       - "eslint.config.*"
       - "prettier.config.*"
       - "react-doctor.config.json"
+      - "security-headers.ts"
       - ".github/workflows/**"
   pull_request:
     branches: [main]
     paths:
       - "src/**"
       - "public/**"
+      - "e2e/**"
       - "package.json"
       - "pnpm-lock.yaml"
       - "pnpm-workspace.yaml"
       - "next.config.*"
+      - "playwright.config.*"
       - "tsconfig.json"
       - "postcss.config.*"
       - "eslint.config.*"
       - "prettier.config.*"
       - "react-doctor.config.json"
+      - "security-headers.ts"
       - ".github/workflows/**"
 
 concurrency:
@@ -62,6 +68,9 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
+      - name: Typecheck
+        run: pnpm run typecheck
+
       - name: Prettier
         run: pnpm run format:check
 
@@ -73,3 +82,32 @@ jobs:
       - name: React Doctor
         continue-on-error: true
         run: pnpm run react:doctor
+
+  e2e-a11y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.1.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: a11y smoke (Playwright)
+        run: pnpm run test:e2e
+        env:
+          CI: true
+          NEXT_PUBLIC_SITE_URL: https://fravelz.vercel.app
