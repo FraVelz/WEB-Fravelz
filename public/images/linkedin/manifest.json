@@ -1,105 +1,160 @@
 {
-  "fravelz-portfolio": [
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/07.jpg"
-  ],
-  "notas-hacking": [
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/notas-hacking/06.jpg"
-  ],
-  "frontend-mentor-nextjs": [
-    "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/05.jpg"
-  ],
-  "web-prosperity": [
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-prosperity/06.jpg"
-  ],
-  "eco-bogota": [
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/07.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/08.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/09.jpg",
-    "https://fravelz.vercel.app/images/linkedin/eco-bogota/10.jpg"
-  ],
-  "fv-store": [
-    "https://fravelz.vercel.app/images/linkedin/fv-store/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/07.jpg",
-    "https://fravelz.vercel.app/images/linkedin/fv-store/08.jpg"
-  ],
-  "starcrypt": [
-    "https://fravelz.vercel.app/images/linkedin/starcrypt/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/starcrypt/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/starcrypt/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/starcrypt/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/starcrypt/05.jpg"
-  ],
-  "web-todo-list": [
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/07.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-todo-list/08.jpg"
-  ],
-  "web-marcadores": [
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/07.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/08.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/09.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/10.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/11.jpg",
-    "https://fravelz.vercel.app/images/linkedin/web-marcadores/12.jpg"
-  ],
-  "icfes-master": [
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/06.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/07.jpg",
-    "https://fravelz.vercel.app/images/linkedin/icfes-master/08.jpg"
-  ],
-  "spiderman-bnd": [
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/01.jpg",
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/02.jpg",
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/03.jpg",
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/04.jpg",
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/05.jpg",
-    "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/06.jpg"
-  ]
+  "eco-bogota": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/eco-bogota/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/eco-bogota/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/eco-bogota/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/07.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/08.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/09.jpg",
+      "https://fravelz.vercel.app/images/linkedin/eco-bogota/10.jpg"
+    ]
+  },
+  "fravelz-portfolio": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fravelz-portfolio/07.jpg"
+    ]
+  },
+  "frontend-mentor-nextjs": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/frontend-mentor-nextjs/05.jpg"
+    ]
+  },
+  "fv-store": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/fv-store/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/fv-store/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/fv-store/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/fv-store/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/07.jpg",
+      "https://fravelz.vercel.app/images/linkedin/fv-store/08.jpg"
+    ]
+  },
+  "icfes-master": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/icfes-master/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/icfes-master/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/icfes-master/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/07.jpg",
+      "https://fravelz.vercel.app/images/linkedin/icfes-master/08.jpg"
+    ]
+  },
+  "notas-hacking": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/notas-hacking/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/notas-hacking/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/notas-hacking/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/notas-hacking/06.jpg"
+    ]
+  },
+  "spiderman-bnd": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/spiderman-bnd/06.jpg"
+    ]
+  },
+  "starcrypt": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/starcrypt/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/starcrypt/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/starcrypt/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/starcrypt/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/starcrypt/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/starcrypt/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/starcrypt/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/starcrypt/05.jpg"
+    ]
+  },
+  "web-marcadores": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/web-marcadores/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/web-marcadores/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/web-marcadores/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/07.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/08.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/09.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/10.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/11.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-marcadores/12.jpg"
+    ]
+  },
+  "web-prosperity": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/web-prosperity/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/web-prosperity/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/web-prosperity/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-prosperity/06.jpg"
+    ]
+  },
+  "web-todo-list": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/web-todo-list/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/web-todo-list/gallery.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/web-todo-list/all.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/02.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/03.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/04.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/05.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/06.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/07.jpg",
+      "https://fravelz.vercel.app/images/linkedin/web-todo-list/08.jpg"
+    ]
+  }
 }
