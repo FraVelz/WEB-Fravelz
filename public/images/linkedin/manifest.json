@@ -156,5 +156,22 @@
       "https://fravelz.vercel.app/images/linkedin/web-todo-list/07.jpg",
       "https://fravelz.vercel.app/images/linkedin/web-todo-list/08.jpg"
     ]
+  },
+  "video-studio": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/video-studio/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/video-studio/01.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/video-studio/01.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/video-studio/01.jpg",
+      "https://fravelz.vercel.app/images/linkedin/video-studio/02.jpg"
+    ]
+  },
+  "cv": {
+    "featured": "https://fravelz.vercel.app/images/linkedin/cv/01.jpg",
+    "gallery": "https://fravelz.vercel.app/images/linkedin/cv/01.jpg",
+    "all": "https://fravelz.vercel.app/images/linkedin/cv/01.jpg",
+    "images": [
+      "https://fravelz.vercel.app/images/linkedin/cv/01.jpg"
+    ]
   }
 }

@@ -5,6 +5,7 @@ import { projectEcoBogota } from "./projects/project-eco-bogota";
 import { projectSpidermanBnd } from "./projects/project-spiderman-bnd";
 import { projectStarcrypt } from "./projects/project-starcrypt";
 import { projectWebMarcadores } from "./projects/project-web-marcadores";
+import { projectVideoStudio } from "./projects/project-video-studio";
 import { projectWebProsperity } from "./projects/project-web-prosperity";
 import { projectWebTodoList } from "./projects/project-web-todo-list";
 import { projectFvStore } from "./projects/project-fv-store";
@@ -18,6 +19,7 @@ export const projects: Project[] = [
   projectStarcrypt,
   projectIcfesMaster,
   projectWebMarcadores,
+  projectVideoStudio,
   projectEcoBogota,
   projectNotasHacking,
   projectWebTodoList,
