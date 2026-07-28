@@ -4,6 +4,7 @@ import image2 from "@/assets/images-projects/video-studio/image2.webp";
 import image3 from "@/assets/images-projects/video-studio/image3.webp";
 import image4 from "@/assets/images-projects/video-studio/image4.webp";
 import image5 from "@/assets/images-projects/video-studio/image5.webp";
+import image6 from "@/assets/images-projects/video-studio/image6.webp";
 
 export const projectVideoStudio: Project = {
   slug: "video-studio",
@@ -28,7 +29,7 @@ export const projectVideoStudio: Project = {
       "本地 FFmpeg worker，以及 Cloudflare R2 素材库。",
   },
   featuredImage: videoStudioImg,
-  screenshots: [image2, image3, image4, image5],
+  screenshots: [image2, image3, image4, image5, image6],
   technologies: [
     "Next.js",
     "React",
