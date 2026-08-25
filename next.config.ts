@@ -4,9 +4,6 @@ import withBundleAnalyzer from "@next/bundle-analyzer";
 import { getSecurityHeaders } from "./security-headers";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    viewTransition: true,
-  },
   reactStrictMode: true,
   async headers() {
     return [

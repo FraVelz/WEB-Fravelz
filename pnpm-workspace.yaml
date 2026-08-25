@@ -5,8 +5,30 @@ minimumReleaseAge: 10080
 
 trustPolicy: no-downgrade
 
+# Versiones pre-OIDC (semver@6.3.1, eslint-import-resolver-typescript@3.10.1) son
+# anteriores a que el paquete adoptara provenance, y el check es por fecha de
+# publicacion, no por semver. Se siguen verificando las publicadas en el ultimo ano.
+trustPolicyIgnoreAfter: 525600
+
 overrides:
-  postcss: ">=8.5.10"
+  brace-expansion@1: "1.1.18"
+  brace-expansion@2: "2.1.4"
+  brace-expansion@5: "5.0.9"
+  fast-uri: "3.1.5"
+  ip-address: "10.5.0"
+  js-yaml@3: "3.15.1"
+  js-yaml@4: "4.3.1"
+  js-yaml@5: "5.3.0"
+  nanoid: "3.3.18"
+  postcss: "8.5.26"
+  sharp: "0.35.3"
+  shell-quote: "1.10.0"
+
+# extract-zip 2.0.1 es la ultima publicada: el aviso no tiene version parcheada
+# upstream. Solo entra por unlighthouse (devDependency), nunca a produccion.
+auditConfig:
+  ignoreGhsas:
+    - GHSA-jmr9-qjv8-65gv
 
 allowBuilds:
   "@parcel/watcher": true
