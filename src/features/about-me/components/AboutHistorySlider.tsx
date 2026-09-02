@@ -107,7 +107,7 @@ export function AboutHistorySlider({ lang, entries, navCertifications, labels }:
       {showNav ? (
         <div
           ref={tabsListRef}
-          className="about-history-tabs flex gap-2 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] [scrollbar-width:thin] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:h-1.5"
+          className="about-history-tabs flex [scrollbar-width:thin] gap-2 overflow-x-auto scroll-smooth pb-1 [-ms-overflow-style:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:h-1.5"
           role="tablist"
           aria-label={labels.tabsAria}
         >
