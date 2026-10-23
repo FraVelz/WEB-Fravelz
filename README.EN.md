@@ -1,133 +1,40 @@
-# Fravelz's Portfolio
+# Fravelz portfolio
 
-This document is in English. [Versión en español](./README.md)
+[Versión en español](./README.md)
 
-![Image Portfolio](./public/images/portfolio.png)
+Fravelz personal site: introduction, work, and how it is built. It is the public profile card, both as a website and as a codebase.
 
-This is the code and documentation for my portfolio. It's my profile for companies, showcasing both the website's visual
-appeal and the clean, organized code structure, with corresponding and up-to-date documentation for every code change.
+| | |
+| --- | --- |
+| Autor | [Fravelz](https://github.com/FraVelz) |
+| Licencia | MIT. See [LICENSE](./LICENSE). |
+| Sitio | https://fravelz.vercel.app |
 
-The previous **Astro** version of the site is preserved on branch
-[`archive/astro`](https://github.com/FraVelz/WEB-Fravelz/tree/archive/astro) and tag
-[`astro-v1`](https://github.com/FraVelz/WEB-Fravelz/releases/tag/astro-v1).
+## Stack
 
-I'm Fravelz (Francisco Velez), a Fullstack Developer. My goal is simple: to be one of the best fullstack programmers in
-the world and eventually work at Google.
+- Next.js, React, TypeScript, Tailwind CSS
+- GSAP
+- pnpm
 
-This portfolio, along with other projects that will be under construction, being improved, and completed, will
-demonstrate my progress and the details I consider to achieve my goal.
+## Base layout
 
-All web projects modified, created, or last modified in 2026 will have documentation in both Spanish and English, with
-code comments and commits in English. This makes for multilingual projects, with English as the primary language because
-it's the international standard in programming. (This applies to personal projects.)
+Repository skeleton. Inner files change; these pieces stay.
 
----
+```text
+src/
+  app/          routes
+  components/   shared UI
+  features/     site sections
+  lib/          support
+public/         static files
+docs/           site documentation
+e2e/            browser tests
+```
 
-## 📋 Table of Contents
+## Run
 
-- [Fravelz's Portfolio](#fravelzs-portfolio)
-  - [📋 Table of Contents](#-table-of-contents)
-  - [Technologies](#technologies)
-    - [Core](#core)
-    - [Development Tools](#development-tools)
-    - [Documentation Tools](#documentation-tools)
-  - [✅ Best Practices Implemented](#-best-practices-implemented)
-    - [Performance](#performance)
-    - [Accessibility](#accessibility)
-    - [SEO](#seo)
-    - [Code](#code)
-    - [Extra Features](#extra-features)
-  - [🤝 Contribute](#-contribute)
-  - [📄 License](#-license)
-  - [👤 Author](#-author)
-
----
-
-## Technologies
-
-### Core
-
-- **Next.js** (App Router) — React framework with SSG for this portfolio
-- **React** — UI and interactive components
-- **TypeScript** — Static typing
-- **Tailwind CSS** v4 — Utility-first CSS framework
-
-### Development Tools
-
-- **pnpm** — Fast package manager
-- **Next.js / Turbopack** — `pnpm dev` (default **<http://localhost:3000>**) and `pnpm build` for production
-
-### Documentation Tools
-
-- VS Code extension: Markdown All in One
-- VS Code extension: Markdownlint
-- VS Code extension: Code Spell Checker
-- Cursor (workspace = this folder): assistant instructions in [`.cursor/commands/`](.cursor/commands/) (slash commands:
-  `/update-docs`, `/update-json`, `/update-projects`, etc.)
-
----
-
-## ✅ Best Practices Implemented
-
-### Performance
-
-- ✅ Pre-rendered HTML (App Router / static generation where applicable)
-- ✅ Server Components by default; client components with `"use client"` only when needed
-- ✅ Lazy loading of React components
-- ✅ `next/image` for optimized images where appropriate
-- ✅ Critical inline CSS
-- ✅ Reasonable bundle size
-
-### Accessibility
-
-- ✅ HTML5 semantic tags
-- ✅ ARIA labels on interactive elements
-- ✅ Keyboard navigation
-- ✅ Appropriate color contrast
-- ✅ Alternative text for images
-
-### SEO
-
-- ✅ Complete meta tags (Open Graph, Twitter Cards)
-- ✅ Sitemap.xml
-- ✅ Robots.txt
-- ✅ Semantic Structure
-- ✅ Clean URLs
-
-### Code
-
-- ✅ TypeScript for type safety
-- ✅ Reusable components
-- ✅ Separation of concerns
-- ✅ Modular structure
-- ✅ Descriptive comments
-
-### Extra Features
-
-[Go to features...](./docs/en/features.md)
-
----
-
-## 🤝 Contribute
-
-Quick guide (pnpm, scopes, i18n ×4): [`CONTRIBUTING.md`](./CONTRIBUTING.md)
-
-[Go to project structure...](./docs/en/structure.md)
-
-[Go to contribution manual (EN)...](./docs/en/contribution.md)
-
-[Go to architecture...](./docs/en/architecture.md)
-
-[Go to feedback...](./docs/en/feedback.md)
-
----
-
-## 📄 License
-
-MIT - Permissive Open Source License
-
----
-
-## 👤 Author
-
-**Fravelz** - [GitHub](https://github.com/FraVelz) - <fravelz@proton.me>
+```bash
+cp .env.example .env.local
+pnpm install
+pnpm dev
+```
