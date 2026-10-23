@@ -11,7 +11,14 @@ export async function register() {
       enabled: true,
       environment: process.env.NEXT_PUBLIC_VERCEL_ENV ?? process.env.NODE_ENV,
       tracesSampleRate: 0.05,
-      sendDefaultPii: false,
+      // Sentry 11 replaced sendDefaultPii. Keep automatic PII collection off.
+      dataCollection: {
+        userInfo: false,
+        cookies: false,
+        httpHeaders: false,
+        httpBodies: [],
+        urlQueryParams: false,
+      },
     });
   }
 }
